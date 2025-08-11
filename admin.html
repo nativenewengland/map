@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Map Admin Panel</title>
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-sA+e2tuEeMq4Jg3oH2CBjDEZoJBqNNP5ue1c8qYnY+o="
+    crossorigin=""
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="admin-map"></div>
+  <a href="index.html">Back to Map</a>
+  <div id="controls">
+    <form id="add-form">
+      <h2>Add Marker</h2>
+      <label>Name: <input id="name" required /></label>
+      <label>Latitude: <input id="lat" type="number" step="any" required /></label>
+      <label>Longitude: <input id="lng" type="number" step="any" required /></label>
+      <label>Description:<br /><textarea id="description" required></textarea></label>
+      <button type="submit">Add</button>
+    </form>
+    <h2>Marker Data</h2>
+    <textarea id="output" readonly></textarea>
+    <p>Copy this JSON to <code>markers.js</code> to persist markers.</p>
+  </div>
+
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-Vn0vIvZ4bqkG3wQ3VbQWoIyN4KxDtci5sRNXuNX3F0o="
+    crossorigin="">
+  </script>
+  <script src="markers.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
