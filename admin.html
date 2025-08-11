@@ -1,41 +1,284 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Map Admin Panel</title>
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-sA+e2tuEeMq4Jg3oH2CBjDEZoJBqNNP5ue1c8qYnY+o="
-    crossorigin=""
-  />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Map Admin – Marker Dashboard</title>
+  <style>
+    :root{
+      --bg:#0b0c10; --panel:#151821; --panel-2:#1b2030; --text:#e7eaf1; --muted:#98a2b3; --brand:#7c9cff; --accent:#7ee787;
+      --border:rgba(255,255,255,.08); --shadow:0 10px 30px rgba(0,0,0,.4);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;background:linear-gradient(180deg,#0b0c10 0%, #0d1117 100%);color:var(--text);
+      font:14px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial,sans-serif}
+    .app{display:grid; grid-template-rows:56px 1fr; height:100%}
+    .topbar{height:56px; display:flex; align-items:center; gap:12px; padding:0 16px; background:rgba(20,22,28,.6); border-bottom:1px solid var(--border); backdrop-filter:saturate(120%) blur(6px); position:sticky; top:0; z-index:10}
+    .topbar h1{font-size:16px; margin:0; letter-spacing:.2px}
+    .pill{padding:4px 8px; border:1px solid var(--border); border-radius:999px; color:var(--muted)}
+
+    .main{display:grid; grid-template-columns:320px 1fr; gap:16px; padding:16px}
+    .card{background:var(--panel); border:1px solid var(--border); border-radius:16px; box-shadow:var(--shadow)}
+    .card h2{font-size:14px; margin:0 0 10px; color:#cbd5e1}
+    .section{padding:14px}
+    .section + .section{border-top:1px solid var(--border)}
+
+    .field{display:grid; gap:6px; margin:10px 0}
+    label{color:#cbd5e1; font-size:12px}
+    input, select, textarea{width:100%; background:var(--panel-2); color:var(--text); border:1px solid var(--border); border-radius:10px; padding:10px 12px; outline:none}
+    textarea{min-height:90px; resize:vertical}
+
+    .btn{display:inline-flex; align-items:center; gap:8px; background:#202639; color:#e7eaf1; border:1px solid var(--border); padding:10px 12px; border-radius:12px; cursor:pointer}
+    .btn:hover{background:#232a40}
+    .btn.brand{background:var(--brand); color:#0c1020; border-color:transparent}
+    .btn.brand:hover{filter:brightness(1.05)}
+    .btn.ghost{background:transparent}
+
+    .grid{display:grid; grid-template-columns:repeat(2,1fr); gap:10px}
+
+    .mapwrap{position:relative; overflow:hidden; border-radius:16px}
+    .mapwrap img{display:block; width:100%; height:auto; user-select:none}
+    .crosshair{position:absolute; width:0; height:0; pointer-events:none}
+    .crosshair:after, .crosshair:before{content:""; position:absolute; background:rgba(255,255,255,.8)}
+    .crosshair:before{width:1px; height:100vh; left:0; top:-50vh}
+    .crosshair:after{height:1px; width:100vw; top:0; left:-50vw}
+
+    .tbl{width:100%; border-collapse:separate; border-spacing:0 10px}
+    .tbl th{font-size:12px; color:#cbd5e1; text-align:left; padding:0 10px}
+    .tbl td{background:var(--panel); border:1px solid var(--border); padding:10px; border-radius:10px}
+
+    .row{display:flex; gap:8px; align-items:center}
+    .grow{flex:1}
+    .muted{color:var(--muted)}
+
+    .badge{font-size:11px; padding:3px 8px; border-radius:999px; border:1px solid var(--border); color:#cbd5e1; background:rgba(255,255,255,.04)}
+
+    .footerbar{display:flex; gap:10px; justify-content:space-between; align-items:center}
+
+    .code{background:#0f1320; padding:12px; border-radius:12px; border:1px solid var(--border); overflow:auto; max-height:180px; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:12px}
+
+    .hint{font-size:12px; color:var(--muted)}
+  </style>
 </head>
 <body>
-  <div id="admin-map"></div>
-  <a href="index.html">Back to Map</a>
-  <div id="controls">
-    <form id="add-form">
-      <h2>Add Marker</h2>
-      <label>Name: <input id="name" required /></label>
-      <label>Latitude: <input id="lat" type="number" step="any" required /></label>
-      <label>Longitude: <input id="lng" type="number" step="any" required /></label>
-      <label>Description:<br /><textarea id="description" required></textarea></label>
-      <label>Icon filename: <input id="icon" placeholder="default.webp" /></label>
-      <button type="submit">Add</button>
-    </form>
-    <h2>Marker Data</h2>
-    <textarea id="output" readonly></textarea>
-    <p>Copy this JSON to <code>markers.js</code> to persist markers.</p>
+<div class="app">
+  <div class="topbar">
+    <h1>Map Admin • Marker Dashboard</h1>
+    <span class="pill">Local-only • no backend</span>
   </div>
 
-  <script
-    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-Vn0vIvZ4bqkG3wQ3VbQWoIyN4KxDtci5sRNXuNX3F0o="
-    crossorigin="">
-  </script>
-  <script src="markers.js"></script>
-  <script src="admin.js"></script>
+  <div class="main">
+    <!-- Sidebar: form -->
+    <div class="card">
+      <div class="section">
+        <h2>Marker Details</h2>
+        <div class="field">
+          <label for="mTitle">Title</label>
+          <input id="mTitle" placeholder="Aeloria, the Capital">
+        </div>
+        <div class="grid">
+          <div class="field">
+            <label for="mX">X (px)</label>
+            <input id="mX" type="number" min="0" step="1" placeholder="1480">
+          </div>
+          <div class="field">
+            <label for="mY">Y (px)</label>
+            <input id="mY" type="number" min="0" step="1" placeholder="980">
+          </div>
+        </div>
+        <div class="grid">
+          <div class="field">
+            <label for="mCategory">Category</label>
+            <input id="mCategory" placeholder="city">
+          </div>
+          <div class="field">
+            <label for="mId">ID (slug)</label>
+            <input id="mId" placeholder="aeloria">
+          </div>
+        </div>
+        <div class="field">
+          <label for="mHtml">Popup HTML</label>
+          <textarea id="mHtml" placeholder="&lt;div class='popup-card'&gt;...&lt;/div&gt;"></textarea>
+        </div>
+        <div class="row">
+          <button class="btn brand" id="saveBtn">Save Marker</button>
+          <button class="btn ghost" id="resetBtn">Reset</button>
+          <span class="muted">Click the map to set X/Y</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Import / Export</h2>
+        <div class="row" style="gap:10px; flex-wrap:wrap">
+          <input type="file" id="fileInput" accept=".json,.js" class="btn"/>
+          <button class="btn" id="downloadJson">Download JSON</button>
+          <button class="btn" id="copyJs">Copy JS Array</button>
+        </div>
+        <p class="hint">Exported JS matches your map file's <code>const MARKERS = [...]</code> format.</p>
+        <pre class="code" id="preview"></pre>
+      </div>
+    </div>
+
+    <!-- Canvas + table -->
+    <div class="card" style="display:grid; grid-template-rows:1fr 240px; min-height:0">
+      <div class="section" style="min-height:0">
+        <h2>Map Image (click to set coordinates)</h2>
+        <div class="row" style="margin-bottom:10px">
+          <input id="imgUrl" class="grow" placeholder="map.jpg (same folder as your HTML map)">
+          <button class="btn" id="loadImg">Load</button>
+        </div>
+        <div class="mapwrap" id="mapwrap">
+          <img id="mapImg" alt="Map image" src=""/>
+          <div class="crosshair" id="cross" style="display:none"></div>
+        </div>
+        <p class="hint">Tip: Use the same image your interactive map uses. Coordinates here are raw pixels (x from left, y from top).</p>
+      </div>
+
+      <div class="section" style="overflow:auto">
+        <div class="footerbar">
+          <h2>Markers <span class="badge" id="count">0</span></h2>
+          <div class="row">
+            <button class="btn" id="newBtn">New</button>
+            <button class="btn" id="clearBtn">Clear All</button>
+          </div>
+        </div>
+        <table class="tbl" id="tbl">
+          <thead>
+            <tr><th style="width:26%">Title</th><th style="width:24%">Category</th><th style="width:24%">X,Y</th><th>ID</th><th></th></tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // === State ===
+  let markers = JSON.parse(localStorage.getItem('mapAdminMarkers')||'[]');
+  let editIndex = -1;
+
+  // === DOM ===
+  const els = id => document.getElementById(id);
+  const mTitle = els('mTitle'), mX = els('mX'), mY = els('mY'), mCategory = els('mCategory'), mId = els('mId'), mHtml = els('mHtml');
+  const tbody = els('tbody'), count = els('count'), preview = els('preview');
+  const imgUrl = els('imgUrl'), loadImgBtn = els('loadImg'), mapImg = els('mapImg'), cross = els('cross'), mapwrap = els('mapwrap');
+
+  // === Helpers ===
+  function slugify(s){
+    return s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
+  }
+  function currentMarker(){
+    return {
+      id: (mId.value || slugify(mTitle.value) || 'marker') + '-' + (editIndex<0?Date.now():editIndex),
+      title: mTitle.value.trim() || 'Untitled',
+      coords: { x: Number(mX.value||0), y: Number(mY.value||0) },
+      category: mCategory.value.trim() || 'poi',
+      html: mHtml.value.trim() || ''
+    }
+  }
+  function renderTable(){
+    count.textContent = markers.length;
+    tbody.innerHTML = '';
+    markers.forEach((m,i)=>{
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td>${m.title}</td>
+        <td class="muted">${m.category}</td>
+        <td class="muted">${m.coords.x}, ${m.coords.y}</td>
+        <td class="muted">${m.id}</td>
+        <td>
+          <button class="btn" data-act="edit" data-i="${i}">Edit</button>
+          <button class="btn" data-act="del" data-i="${i}">Delete</button>
+        </td>`;
+      tbody.appendChild(tr);
+    });
+    preview.textContent = asJsArray(markers);
+  }
+  function asJsArray(arr){
+    return 'const MARKERS = ' + JSON.stringify(arr, null, 2) + ';';
+  }
+  function save(){ localStorage.setItem('mapAdminMarkers', JSON.stringify(markers)); }
+  function load(){
+    renderTable();
+  }
+  function resetForm(){ editIndex=-1; mTitle.value=''; mX.value=''; mY.value=''; mCategory.value=''; mId.value=''; mHtml.value=''; }
+
+  // === Map image click to set coords ===
+  function naturalSize(img){
+    return { w: img.naturalWidth || img.width, h: img.naturalHeight || img.height };
+  }
+  mapwrap.addEventListener('mousemove', e=>{
+    if(!mapImg.src) return;
+    const r = mapImg.getBoundingClientRect();
+    const x = Math.round((e.clientX - r.left) * (naturalSize(mapImg).w / r.width));
+    const y = Math.round((e.clientY - r.top) * (naturalSize(mapImg).h / r.height));
+    cross.style.display='block';
+    cross.style.left = (e.clientX - mapwrap.getBoundingClientRect().left) + 'px';
+    cross.style.top = (e.clientY - mapwrap.getBoundingClientRect().top) + 'px';
+    cross.title = `x:${x}, y:${y}`;
+  });
+  mapwrap.addEventListener('mouseleave', ()=>{ cross.style.display='none'; });
+  mapwrap.addEventListener('click', e=>{
+    if(!mapImg.src) return;
+    const r = mapImg.getBoundingClientRect();
+    const x = Math.round((e.clientX - r.left) * (naturalSize(mapImg).w / r.width));
+    const y = Math.round((e.clientY - r.top) * (naturalSize(mapImg).h / r.height));
+    mX.value = x; mY.value = y;
+  });
+
+  // === Events ===
+  document.getElementById('saveBtn').addEventListener('click', ()=>{
+    const m = currentMarker();
+    if(editIndex>=0) { markers[editIndex] = m; } else { markers.push(m); }
+    save(); renderTable(); resetForm();
+  });
+  document.getElementById('resetBtn').addEventListener('click', resetForm);
+  document.getElementById('newBtn').addEventListener('click', resetForm);
+  document.getElementById('clearBtn').addEventListener('click', ()=>{
+    if(confirm('Delete ALL markers?')) { markers=[]; save(); renderTable(); }
+  });
+  tbody.addEventListener('click', e=>{
+    const btn = e.target.closest('button'); if(!btn) return;
+    const i = Number(btn.dataset.i);
+    if(btn.dataset.act==='edit'){
+      const m = markers[i]; editIndex=i;
+      mTitle.value=m.title; mX.value=m.coords.x; mY.value=m.coords.y; mCategory.value=m.category; mId.value=m.id; mHtml.value=m.html;
+      window.scrollTo({top:0, behavior:'smooth'});
+    } else if(btn.dataset.act==='del'){
+      if(confirm('Delete this marker?')){ markers.splice(i,1); save(); renderTable(); }
+    }
+  });
+
+  // File import/export
+  document.getElementById('downloadJson').addEventListener('click', ()=>{
+    const blob = new Blob([JSON.stringify(markers,null,2)], {type:'application/json'});
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download='markers.json'; a.click();
+  });
+  document.getElementById('copyJs').addEventListener('click', async ()=>{
+    await navigator.clipboard.writeText(asJsArray(markers));
+    alert('Copied JS array to clipboard. Paste into your map file.');
+  });
+  document.getElementById('fileInput').addEventListener('change', async (ev)=>{
+    const f = ev.target.files[0]; if(!f) return;
+    const txt = await f.text();
+    try{
+      // Try reading as JSON first; if it fails, try to eval JS const MARKERS
+      let data;
+      try { data = JSON.parse(txt); }
+      catch{
+        const match = txt.match(/const\s+MARKERS\s*=\s*(\[[\s\S]*\]);?/);
+        if(match) data = JSON.parse(match[1]);
+      }
+      if(!Array.isArray(data)) throw new Error('Not a markers array');
+      markers = data; save(); renderTable();
+    }catch(err){ alert('Could not read markers file: '+ err.message); }
+  });
+
+  // Load image
+  loadImgBtn.addEventListener('click', ()=>{ mapImg.src = imgUrl.value.trim(); });
+
+  load();
+</script>
 </body>
 </html>
