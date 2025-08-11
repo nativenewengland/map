@@ -1,9 +1,12 @@
-const map = L.map('map').setView([20, 0], 2);
+const map = L.map('map', {
+  crs: L.CRS.Simple,
+  minZoom: -1,
+  maxZoom: 4,
+});
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 19,
-  attribution: '&copy; OpenStreetMap contributors'
-}).addTo(map);
+const bounds = [[0, 0], [755, 1546]];
+L.imageOverlay('custom_maps/Screenshot 2025-08-10 021928.png', bounds).addTo(map);
+map.fitBounds(bounds);
 
 const customIcon = L.divIcon({
   className: 'custom-icon',
