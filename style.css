@@ -6,7 +6,7 @@ html, body {
 
 #map,
 #admin-map {
-  height: 60%;
+  height: 100vh;
 }
 
 #controls {

@@ -4,9 +4,14 @@ const map = L.map('map', {
   maxZoom: 4,
 });
 
-const bounds = [[0, 0], [755, 1546]];
-L.imageOverlay('custom_maps/Screenshot 2025-08-10 021928.png', bounds).addTo(map);
-map.fitBounds(bounds);
+const imageUrl = 'custom_maps/map.png';
+const img = new Image();
+img.src = imageUrl;
+img.onload = () => {
+  const bounds = [[0, 0], [img.height, img.width]];
+  L.imageOverlay(imageUrl, bounds).addTo(map);
+  map.fitBounds(bounds);
+};
 
 function getIcon(name = 'default.webp') {
   return L.icon({
