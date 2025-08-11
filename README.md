@@ -1,11 +1,11 @@
 # Interactive Leaflet Map
 
-This repository contains a small Leaflet-based map web site and a simple admin panel for managing markers. It can be hosted on GitHub Pages.
+This repository contains a small Leaflet-based map web site and a modern admin panel for managing markers. It can be hosted on GitHub Pages.
 
 ## Pages
 
 - `index.html` – interactive map displaying markers with custom icons and popups.
-- `admin.html` – admin panel to add new markers. Added markers are stored in `localStorage` and exported as JSON for updating `markers.js`.
+- `admin.html` – dashboard for adding, importing, and exporting markers. Data is stored in `localStorage` and can be exported as JSON or a JS array for updating `markers.js`.
 
 ## Development
 
