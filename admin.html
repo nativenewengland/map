@@ -39,10 +39,7 @@
 
     .mapwrap{position:relative; overflow:hidden; border-radius:16px}
     .mapwrap img{display:block; width:100%; height:auto; user-select:none}
-    .crosshair{position:absolute; width:0; height:0; pointer-events:none}
-    .crosshair:after, .crosshair:before{content:""; position:absolute; background:rgba(255,255,255,.8)}
-    .crosshair:before{width:1px; height:100vh; left:0; top:-50vh}
-    .crosshair:after{height:1px; width:100vw; top:0; left:-50vw}
+    .mapwrap canvas{position:absolute; inset:0; pointer-events:none}
 
     .tbl{width:100%; border-collapse:separate; border-spacing:0 10px}
     .tbl th{font-size:12px; color:#cbd5e1; text-align:left; padding:0 10px}
@@ -122,18 +119,19 @@
 
     <!-- Canvas + table -->
     <div class="card" style="display:grid; grid-template-rows:1fr 240px; min-height:0">
-      <div class="section" style="min-height:0">
-        <h2>Map Image (click to set coordinates)</h2>
-        <div class="row" style="margin-bottom:10px">
-          <input id="imgUrl" class="grow" placeholder="map.jpg (same folder as your HTML map)">
-          <button class="btn" id="loadImg">Load</button>
+        <div class="section" style="min-height:0">
+          <h2>Map Image (click to set coordinates)</h2>
+          <div class="row" style="margin-bottom:10px">
+            <input id="imgUrl" class="grow" placeholder="map.jpg (same folder as your HTML map)">
+            <button class="btn" id="loadImg">Load</button>
+            <button class="btn" id="addMarkerBtn">Add Marker</button>
+          </div>
+          <div class="mapwrap" id="mapwrap">
+            <img id="mapImg" alt="Map image" src=""/>
+            <canvas id="markerCanvas"></canvas>
+          </div>
+          <p class="hint">Tip: Use the same image your interactive map uses. Coordinates here are raw pixels (x from left, y from top).</p>
         </div>
-        <div class="mapwrap" id="mapwrap">
-          <img id="mapImg" alt="Map image" src=""/>
-          <div class="crosshair" id="cross" style="display:none"></div>
-        </div>
-        <p class="hint">Tip: Use the same image your interactive map uses. Coordinates here are raw pixels (x from left, y from top).</p>
-      </div>
 
       <div class="section" style="overflow:auto">
         <div class="footerbar">
@@ -160,10 +158,13 @@
   let editIndex = -1;
 
   // === DOM ===
-  const els = id => document.getElementById(id);
-  const mTitle = els('mTitle'), mX = els('mX'), mY = els('mY'), mCategory = els('mCategory'), mId = els('mId'), mHtml = els('mHtml');
-  const tbody = els('tbody'), count = els('count'), preview = els('preview');
-  const imgUrl = els('imgUrl'), loadImgBtn = els('loadImg'), mapImg = els('mapImg'), cross = els('cross'), mapwrap = els('mapwrap');
+    const els = id => document.getElementById(id);
+    const mTitle = els('mTitle'), mX = els('mX'), mY = els('mY'), mCategory = els('mCategory'), mId = els('mId'), mHtml = els('mHtml');
+    const tbody = els('tbody'), count = els('count'), preview = els('preview');
+    const imgUrl = els('imgUrl'), loadImgBtn = els('loadImg'), addBtn = els('addMarkerBtn');
+    const mapImg = els('mapImg'), markerCanvas = els('markerCanvas'), mapwrap = els('mapwrap');
+    const ctx = markerCanvas.getContext('2d');
+    let addMode = false;
 
   // === Helpers ===
   function slugify(s){
@@ -194,6 +195,7 @@
       tbody.appendChild(tr);
     });
     preview.textContent = asJsArray(markers);
+    drawMarkers();
   }
   function asJsArray(arr){
     return 'const MARKERS = ' + JSON.stringify(arr, null, 2) + ';';
@@ -204,27 +206,55 @@
   }
   function resetForm(){ editIndex=-1; mTitle.value=''; mX.value=''; mY.value=''; mCategory.value=''; mId.value=''; mHtml.value=''; }
 
+  function drawMarkers(){
+    if(!mapImg.src) return;
+    const r = mapImg.getBoundingClientRect();
+    markerCanvas.width = r.width;
+    markerCanvas.height = r.height;
+    ctx.clearRect(0,0,r.width,r.height);
+    const scaleX = r.width / naturalSize(mapImg).w;
+    const scaleY = r.height / naturalSize(mapImg).h;
+    ctx.fillStyle = '#ff6b6b';
+    ctx.strokeStyle = '#fff';
+    markers.forEach(m=>{
+      const x = m.coords.x * scaleX;
+      const y = m.coords.y * scaleY;
+      ctx.beginPath();
+      ctx.arc(x, y, 5, 0, Math.PI*2);
+      ctx.fill();
+      ctx.stroke();
+    });
+  }
+
   // === Map image click to set coords ===
   function naturalSize(img){
     return { w: img.naturalWidth || img.width, h: img.naturalHeight || img.height };
   }
-  mapwrap.addEventListener('mousemove', e=>{
-    if(!mapImg.src) return;
-    const r = mapImg.getBoundingClientRect();
-    const x = Math.round((e.clientX - r.left) * (naturalSize(mapImg).w / r.width));
-    const y = Math.round((e.clientY - r.top) * (naturalSize(mapImg).h / r.height));
-    cross.style.display='block';
-    cross.style.left = (e.clientX - mapwrap.getBoundingClientRect().left) + 'px';
-    cross.style.top = (e.clientY - mapwrap.getBoundingClientRect().top) + 'px';
-    cross.title = `x:${x}, y:${y}`;
-  });
-  mapwrap.addEventListener('mouseleave', ()=>{ cross.style.display='none'; });
   mapwrap.addEventListener('click', e=>{
     if(!mapImg.src) return;
     const r = mapImg.getBoundingClientRect();
     const x = Math.round((e.clientX - r.left) * (naturalSize(mapImg).w / r.width));
     const y = Math.round((e.clientY - r.top) * (naturalSize(mapImg).h / r.height));
-    mX.value = x; mY.value = y;
+    if(addMode){
+      const title = prompt('Marker title?', '');
+      const m = {
+        id: (slugify(title) || 'marker') + '-' + Date.now(),
+        title: title || 'Untitled',
+        coords: {x, y},
+        category: 'poi',
+        html: ''
+      };
+      markers.push(m);
+      save(); renderTable(); drawMarkers();
+      addMode=false; mapwrap.style.cursor='default';
+    } else {
+      mX.value = x; mY.value = y;
+    }
+  });
+
+  addBtn.addEventListener('click', ()=>{
+    addMode = !addMode;
+    mapwrap.style.cursor = addMode ? 'crosshair' : 'default';
   });
 
   // === Events ===
@@ -277,6 +307,8 @@
 
   // Load image
   loadImgBtn.addEventListener('click', ()=>{ mapImg.src = imgUrl.value.trim(); });
+  mapImg.addEventListener('load', drawMarkers);
+  window.addEventListener('resize', drawMarkers);
 
   load();
 </script>
