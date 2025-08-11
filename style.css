@@ -1,0 +1,34 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+#map,
+#admin-map {
+  height: 60%;
+}
+
+#controls {
+  padding: 1rem;
+}
+
+#controls form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+#controls textarea {
+  width: 100%;
+  height: 150px;
+}
+
+.custom-marker {
+  width: 24px;
+  height: 24px;
+  background-color: #ff5722;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
