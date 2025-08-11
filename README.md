@@ -18,6 +18,10 @@ This repository contains a small Leaflet-based map web site and a simple admin p
 
 Place any custom map files in the `custom_maps` directory. These files can be referenced by the application as needed.
 
+## Custom Icons
+
+Marker icon images can be stored in the `custom_icons` directory. Use the `icon` property on each marker to reference an icon file.
+
 ## Attribution
 
 Map tiles © [OpenStreetMap](https://www.openstreetmap.org/) contributors.
