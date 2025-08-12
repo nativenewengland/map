@@ -14,7 +14,12 @@
 </head>
 <body>
   <div id="map"></div>
-  <a id="admin-link" href="admin.html">Admin Panel</a>
+  <div id="controls">
+    <a id="admin-link" href="admin.html">Admin Panel</a>
+    <label>Upload Map Image:
+      <input type="file" id="mapUpload" accept="image/*" />
+    </label>
+  </div>
 
   <script
     src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
