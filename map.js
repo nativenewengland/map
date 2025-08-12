@@ -4,26 +4,30 @@ const map = L.map('map', {
   maxZoom: 4,
 });
 
-const imageUrl = 'custom_maps/map.png';
+const imageUrl = './custom_maps/map.png';
 const img = new Image();
 img.src = imageUrl;
 img.onload = () => {
-  const bounds = [[0, 0], [img.height, img.width]];
+  const bounds = [[img.height, 0], [0, img.width]];
   L.imageOverlay(imageUrl, bounds).addTo(map);
   map.fitBounds(bounds);
+
+  (markersData || []).forEach((m) => {
+    L.marker([m.lat, m.lng], { icon: getIcon(m.icon) })
+      .addTo(map)
+      .bindPopup(`<h3>${m.name}</h3><p>${m.description}</p>`);
+  });
+};
+
+img.onerror = (e) => {
+  console.error('Failed to load map image', e);
 };
 
 function getIcon(name = 'default.webp') {
   return L.icon({
-    iconUrl: `custom_icons/${name}`,
+    iconUrl: `./custom_icons/${name}`,
     iconSize: [32, 32],
     iconAnchor: [16, 16],
     popupAnchor: [0, -16],
   });
 }
-
-(markersData || []).forEach((m) => {
-  L.marker([m.lat, m.lng], { icon: getIcon(m.icon) })
-    .addTo(map)
-    .bindPopup(`<h3>${m.name}</h3><p>${m.description}</p>`);
-});
