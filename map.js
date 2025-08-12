@@ -12,7 +12,8 @@ img.onload = () => {
   L.imageOverlay(imageUrl, bounds).addTo(map);
   map.fitBounds(bounds);
 
-  (markersData || []).forEach((m) => {
+  const markers = (typeof window !== 'undefined' && window.markersData) || [];
+  markers.forEach((m) => {
     L.marker([m.lat, m.lng], { icon: getIcon(m.icon) })
       .addTo(map)
       .bindPopup(`<h3>${m.name}</h3><p>${m.description}</p>`);
