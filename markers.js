@@ -1,16 +1,23 @@
 const markersData = [
   {
-    name: "Central Park",
-    lat: 40.7829,
-    lng: -73.9654,
-    description: "A large public park in New York City.",
+    name: "Center",
+    lat: 377,
+    lng: 773,
+    description: "Center of the custom map.",
     icon: "default.webp",
   },
   {
-    name: "Eiffel Tower",
-    lat: 48.8584,
-    lng: 2.2945,
-    description: "Iconic Parisian landmark.",
+    name: "Top Left",
+    lat: 50,
+    lng: 50,
+    description: "Near the top-left corner.",
     icon: "default.webp",
-  }
+  },
+  {
+    name: "Bottom Right",
+    lat: 700,
+    lng: 1500,
+    description: "Near the bottom-right corner.",
+    icon: "default.webp",
+  },
 ];
