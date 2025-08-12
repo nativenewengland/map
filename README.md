@@ -4,7 +4,7 @@ This repository contains a small Leaflet-based map web site and a modern admin p
 
 ## Pages
 
-- `index.html` – interactive map displaying markers with custom icons and popups.
+- `index.html` – interactive map displaying markers with custom icons and popups. You can upload a map image directly in the browser to preview different custom maps.
 - `admin.html` – dashboard for adding, importing, and exporting markers. Data is stored in `localStorage` and can be exported as JSON or a JS array for updating `markers.js`.
 
 ## Development
