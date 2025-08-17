@@ -21,3 +21,8 @@ const markersData = [
     icon: "default.webp",
   },
 ];
+
+// Expose markers for non-module scripts
+if (typeof window !== 'undefined') {
+  window.markersData = markersData;
+}
