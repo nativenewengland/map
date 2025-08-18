@@ -4,7 +4,7 @@ This repository contains a small Leaflet-based map web site and a modern admin p
 
 ## Pages
 
-- `index.html` – interactive map displaying markers with custom icons and popups. You can upload a map image directly in the browser to preview different custom maps.
+- `index.html` – interactive world map displaying markers with custom icons and popups. The map uses OpenStreetMap tiles and supports zooming and panning.
 - `admin.html` – dashboard for adding, importing, and exporting markers. Data is stored in `localStorage` and can be exported as JSON or a JS array for updating `markers.js`.
 
 ## Development
@@ -13,10 +13,6 @@ This repository contains a small Leaflet-based map web site and a modern admin p
 2. Open `admin.html` in a browser to preview markers or add new ones.
 3. Copy the JSON from the admin panel back into `markers.js` to persist changes.
 4. Commit and push to GitHub. Enable GitHub Pages to host the site.
-
-## Custom Maps
-
-Place any custom map files in the `custom_maps` directory. These files can be referenced by the application as needed.
 
 ## Custom Icons
 
