@@ -1,0 +1,14 @@
+[
+  {
+    "title": "San Francisco",
+    "lat": 37.7749,
+    "lng": -122.4194,
+    "description": "City by the Bay"
+  },
+  {
+    "title": "Paris",
+    "lat": 48.8566,
+    "lng": 2.3522,
+    "description": "City of Light"
+  }
+]

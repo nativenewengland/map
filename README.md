@@ -1,24 +1,12 @@
-# Interactive Leaflet Map
+# Leaflet Marker Demo
 
-This repository contains a small Leaflet-based map web site and a modern admin panel for managing markers. It can be hosted on GitHub Pages.
+This project is a minimal example of using [Leaflet](https://leafletjs.com/) with static files.
+Markers are loaded from `markers.json` on the main page and a simple admin page lets you manage
+markers in `localStorage` and download them as JSON.
 
 ## Pages
+- `index.html` – shows the map and markers.
+- `admin.html` – add or remove markers and export them.
 
-- `index.html` – interactive world map displaying markers with custom icons and popups. The map uses OpenStreetMap tiles and supports zooming and panning.
-- `admin.html` – dashboard for adding, importing, and exporting markers. Data is stored in `localStorage` and can be exported as JSON or a JS array for updating `markers.js`.
-
-## Development
-
-1. Edit `markers.js` to adjust the initial marker list.
-2. Open `admin.html` in a browser to preview markers or add new ones.
-3. Copy the JSON from the admin panel back into `markers.js` to persist changes.
-4. Commit and push to GitHub. Enable GitHub Pages to host the site.
-
-## Custom Icons
-
-Marker icon images can be stored in the `custom_icons` directory. Use the `icon` property on each marker to reference an icon file.
-
-## Attribution
-
-Map tiles © [OpenStreetMap](https://www.openstreetmap.org/) contributors.
-
+To view the site locally just open the HTML files in a browser or serve the directory with any
+static file server.
