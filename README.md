@@ -4,6 +4,9 @@ This project is a minimal example of using [Leaflet](https://leafletjs.com/) wit
 Markers are loaded from `markers.json` on the main page and a simple admin page lets you manage
 markers in `localStorage` and download them as JSON.
 
+Markers now include a `type` field (e.g. `city`, `town`, `poi`) that controls the marker icon and
+lets visitors toggle categories via the layer control.
+
 ## Pages
 - `index.html` – shows the map and markers.
 - `admin.html` – add or remove markers and export them.
