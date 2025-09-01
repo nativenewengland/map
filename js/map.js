@@ -1,7 +1,7 @@
 //Creating the Map
 var map = L.map('map', {
   zoomAnimation: true,
-  markerZoomAnimation: false,
+  markerZoomAnimation: true,
   attributionControl: false
 }).setView([0, 0], 0);
 L.tileLayer('map/{z}/{x}/{y}.png', {
@@ -198,4 +198,5 @@ document.getElementById('add-marker-btn').addEventListener('click', function () 
     saveMarkers();
   });
 });
+
 
