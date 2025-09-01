@@ -172,10 +172,10 @@ var el_ochri_college = createMarker(48.5166, -103.4692, SettlementsIcon, 'Ochri 
 // ******END OF MARKERS DECLARATION ******
 
 // MARKER GROUPS
-var Settlements = L.layerGroup([el_ochri_college])
+var Settlements = L.layerGroup([el_ochri_college]).addTo(map);
 // var Trading_Posts
-var GeographicalLocations = L.layerGroup([el_teglhus])
-var Sachemdoms = L.layerGroup([el_gulndar])
+var GeographicalLocations = L.layerGroup([el_teglhus]).addTo(map);
+var Sachemdoms = L.layerGroup([el_gulndar]).addTo(map);
 // var Forts_Castles
 // var Temples
 // Marker overlay
