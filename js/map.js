@@ -37,13 +37,13 @@ document.getElementById('close-info').addEventListener('click', function () {
 		shadowSize:  [41, 41]
 	});
   var SettlementsIcon = L.icon({
-                iconUrl:       'icons/templeCathedral.png',
-                iconRetinaUrl: 'icons/templeShrine.png',
+                iconUrl:       'icons/townMill.png',
+                iconRetinaUrl: 'icons/townMill.png',
                 shadowUrl:     'icons/shadow.png',
                 iconSize:    [25, 41],
                 iconAnchor:  [12, 41],
-		popupAnchor: [1, -34],
-		tooltipAnchor: [16, -28],
+                popupAnchor: [1, -34],
+                tooltipAnchor: [16, -28],
 		shadowSize:  [41, 41]
 	});
   var SachemdomsIcon = L.icon({
