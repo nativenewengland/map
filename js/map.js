@@ -1,5 +1,8 @@
 //Creating the Map
-var map = L.map('map').setView([0, 0], 0);
+var map = L.map('map', {
+  zoomAnimation: false,
+  markerZoomAnimation: false
+}).setView([0, 0], 0);
 L.tileLayer('map/{z}/{x}/{y}.png', {
   continuousWorld: false,
   noWrap: true,  
