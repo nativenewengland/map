@@ -26,6 +26,10 @@ document.getElementById('close-info').addEventListener('click', function () {
   document.getElementById('info-panel').classList.add('hidden');
 });
 
+map.on('click', function () {
+  document.getElementById('info-panel').classList.add('hidden');
+});
+
   var geographicalLocationsIcon = L.icon({
                 iconUrl:       'icons/city.png',
                 iconRetinaUrl: 'icons/city.png',
@@ -122,7 +126,8 @@ if (stored) {
 // //// START OF MARKERS
 // 1. Marker declarations
 function createMarker(lat, lng, icon, name, description) {
-  var m = L.marker([lat, lng], { icon: icon }).on('click', function () {
+  var m = L.marker([lat, lng], { icon: icon }).on('click', function (e) {
+    L.DomEvent.stopPropagation(e);
     showInfo(name, description);
   });
   m._baseIconOptions = JSON.parse(JSON.stringify(icon.options));
