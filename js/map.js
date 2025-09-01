@@ -76,8 +76,24 @@ var iconMap = {
   trading: TradingIcon,
 };
 
-// Store custom markers
+// Store custom marker data and marker instances
 var customMarkers = [];
+var allMarkers = [];
+var baseZoom = map.getZoom();
+
+function rescaleIcons() {
+  var scale = Math.pow(2, map.getZoom() - baseZoom);
+  allMarkers.forEach(function (m) {
+    var base = m._baseIconOptions;
+    var opts = Object.assign({}, base);
+    if (base.iconSize) opts.iconSize = base.iconSize.map(function (v) { return v * scale; });
+    if (base.iconAnchor) opts.iconAnchor = base.iconAnchor.map(function (v) { return v * scale; });
+    if (base.shadowSize) opts.shadowSize = base.shadowSize.map(function (v) { return v * scale; });
+    if (base.popupAnchor) opts.popupAnchor = base.popupAnchor.map(function (v) { return v * scale; });
+    if (base.tooltipAnchor) opts.tooltipAnchor = base.tooltipAnchor.map(function (v) { return v * scale; });
+    m.setIcon(L.icon(opts));
+  });
+}
 
 function saveMarkers() {
   localStorage.setItem('markers', JSON.stringify(customMarkers));
@@ -93,6 +109,7 @@ function addMarkerToMap(data) {
     });
     saveMarkers();
   });
+  rescaleIcons();
 }
 
 // Load markers from localStorage
@@ -105,9 +122,12 @@ if (stored) {
 // //// START OF MARKERS
 // 1. Marker declarations
 function createMarker(lat, lng, icon, name, description) {
-  return L.marker([lat, lng], { icon: icon }).on('click', function () {
+  var m = L.marker([lat, lng], { icon: icon }).on('click', function () {
     showInfo(name, description);
   });
+  m._baseIconOptions = JSON.parse(JSON.stringify(icon.options));
+  allMarkers.push(m);
+  return m;
 }
 
 var el_gulndar = createMarker(36.0135, -106.3916, SachemdomsIcon, 'Gulndar', 'A small but bustling town.');
@@ -175,9 +195,8 @@ marker.on('dragend', function(e) {
 });
 
 
-map.on('zoomend', function (e) {
-    console.log(e.target._zoom);
-});
+rescaleIcons();
+map.on('zoomend', rescaleIcons);
 
 // Add marker button handler
 document.getElementById('add-marker-btn').addEventListener('click', function () {
