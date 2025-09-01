@@ -54,16 +54,50 @@ document.getElementById('close-info').addEventListener('click', function () {
 	});
   // Trading
   var TradingIcon = L.icon({
-		iconUrl:       'icons/tradeCamp.png',
-		iconRetinaUrl: 'icons/tradecamplarge.png',
-		shadowUrl:     'icons/shadow.png',
-		iconSize:    [25, 41],
-		iconAnchor:  [12, 41],
-		popupAnchor: [1, -34],
-		tooltipAnchor: [16, -28],
-		shadowSize:  [41, 41]
-	});
-  
+                iconUrl:       'icons/tradeCamp.png',
+                iconRetinaUrl: 'icons/tradecamplarge.png',
+                shadowUrl:     'icons/shadow.png',
+                iconSize:    [25, 41],
+                iconAnchor:  [12, 41],
+                popupAnchor: [1, -34],
+                tooltipAnchor: [16, -28],
+                shadowSize:  [41, 41]
+        });
+
+// Map of icon keys to actual icons
+var iconMap = {
+  city: geographicalLocationsIcon,
+  settlement: SettlementsIcon,
+  sachemdom: SachemdomsIcon,
+  trading: TradingIcon,
+};
+
+// Store custom markers
+var customMarkers = [];
+
+function saveMarkers() {
+  localStorage.setItem('markers', JSON.stringify(customMarkers));
+}
+
+function addMarkerToMap(data) {
+  var icon = iconMap[data.icon] || geographicalLocationsIcon;
+  var customMarker = createMarker(data.lat, data.lng, icon, data.name, data.description).addTo(map);
+  customMarker.on('contextmenu', function () {
+    map.removeLayer(customMarker);
+    customMarkers = customMarkers.filter(function (m) {
+      return !(m.lat === data.lat && m.lng === data.lng && m.name === data.name);
+    });
+    saveMarkers();
+  });
+}
+
+// Load markers from localStorage
+var stored = localStorage.getItem('markers');
+if (stored) {
+  customMarkers = JSON.parse(stored);
+  customMarkers.forEach(addMarkerToMap);
+}
+
 // //// START OF MARKERS
 // 1. Marker declarations
 function createMarker(lat, lng, icon, name, description) {
@@ -138,5 +172,25 @@ marker.on('dragend', function(e) {
 
 map.on('zoomend', function (e) {
     console.log(e.target._zoom);
+});
+
+// Add marker button handler
+document.getElementById('add-marker-btn').addEventListener('click', function () {
+  alert('Click on the map to place the marker.');
+  map.once('click', function (e) {
+    var name = prompt('Enter marker name:') || 'Marker';
+    var description = prompt('Enter description:') || '';
+    var iconKey = prompt('Enter icon (city, settlement, sachemdom, trading):', 'city') || 'city';
+    var data = {
+      lat: e.latlng.lat,
+      lng: e.latlng.lng,
+      name: name,
+      description: description,
+      icon: iconKey,
+    };
+    addMarkerToMap(data);
+    customMarkers.push(data);
+    saveMarkers();
+  });
 });
 
