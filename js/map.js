@@ -22,32 +22,32 @@ document.getElementById('close-info').addEventListener('click', function () {
   document.getElementById('info-panel').classList.add('hidden');
 });
 
-  var citiesIcon = L.icon({
-		iconUrl:       'icons/city.png',
-		iconRetinaUrl: 'icons/city.png',
-		shadowUrl:     'icons/shadow.png',
-		iconSize:    [25, 41],
-		iconAnchor:  [12, 41],
+  var geographicalLocationsIcon = L.icon({
+                iconUrl:       'icons/city.png',
+                iconRetinaUrl: 'icons/city.png',
+                shadowUrl:     'icons/shadow.png',
+                iconSize:    [25, 41],
+                iconAnchor:  [12, 41],
 		popupAnchor: [1, -34],
 		tooltipAnchor: [16, -28],
 		shadowSize:  [41, 41]
 	});
-  var CollegesIcon = L.icon({
-		iconUrl:       'icons/templeCathedral.png',
-		iconRetinaUrl: 'icons/templeShrine.png',
-		shadowUrl:     'icons/shadow.png',
-		iconSize:    [25, 41],
-		iconAnchor:  [12, 41],
+  var SettlementsIcon = L.icon({
+                iconUrl:       'icons/templeCathedral.png',
+                iconRetinaUrl: 'icons/templeShrine.png',
+                shadowUrl:     'icons/shadow.png',
+                iconSize:    [25, 41],
+                iconAnchor:  [12, 41],
 		popupAnchor: [1, -34],
 		tooltipAnchor: [16, -28],
 		shadowSize:  [41, 41]
 	});
-  var TownsIcon = L.icon({
-		iconUrl:       'icons/town.png',
-		iconRetinaUrl: 'icons/town.png',
-		shadowUrl:     'icons/shadow.png',
-		iconSize:    [25, 41],
-		iconAnchor:  [12, 41],
+  var SachemdomsIcon = L.icon({
+                iconUrl:       'icons/town.png',
+                iconRetinaUrl: 'icons/town.png',
+                shadowUrl:     'icons/shadow.png',
+                iconSize:    [25, 41],
+                iconAnchor:  [12, 41],
 		popupAnchor: [1, -34],
 		tooltipAnchor: [16, -28],
 		shadowSize:  [41, 41]
@@ -72,22 +72,22 @@ function createMarker(lat, lng, icon, name, description) {
   });
 }
 
-var el_gulndar = createMarker(36.0135, -106.3916, TownsIcon, 'Gulndar', 'A small but bustling town.');
+var el_gulndar = createMarker(36.0135, -106.3916, SachemdomsIcon, 'Gulndar', 'A small but bustling town.');
 var el_teglhus = createMarker(44.4965, -100.7666, TradingIcon, 'Teglhus', 'A busy center of commerce.');
-var el_ochri_college = createMarker(48.5166, -103.4692, CollegesIcon, 'Ochri College', 'A renowned mage college.');
+var el_ochri_college = createMarker(48.5166, -103.4692, SettlementsIcon, 'Ochri College', 'A renowned mage college.');
 //  2.Trading post markers
 
 // var el_gulndar = L.marker([36.0135, -106.3916],{icon:citiesIcon}).bindPopup('<b>Gulndar</b>');
 // var el_teglhus = L.marker([44.4965, -100.7666]).bindPopup('<b>Teglhus</b>');
 // var el_ochri_college = L.marker([48.5166,-103.4692]).bindPopup('<b>Ochri College</b>');
 
-//  3. Cities MARKERS
+//  3. Geographical Locations MARKERS
 
 // var el_gulndar = L.marker([36.0135, -106.3916],{icon:citiesIcon}).bindPopup('<b>Gulndar</b>');
 // var el_teglhus = L.marker([44.4965, -100.7666]).bindPopup('<b>Teglhus</b>');
 // var el_ochri_college = L.marker([48.5166,-103.4692]).bindPopup('<b>Ochri College</b>');
 
-//  4. Towns MARKERS
+//  4. Sachemdoms MARKERS
 
 // var el_gulndar = L.marker([36.0135, -106.3916],{icon:citiesIcon}).bindPopup('<b>Gulndar</b>');
 // var el_teglhus = L.marker([44.4965, -100.7666]).bindPopup('<b>Teglhus</b>');
@@ -109,20 +109,20 @@ var el_ochri_college = createMarker(48.5166, -103.4692, CollegesIcon, 'Ochri Col
 // ******END OF MARKERS DECLARATION ******
 
 // MARKER GROUPS
-var Colleges = L.layerGroup([el_ochri_college])
+var Settlements = L.layerGroup([el_ochri_college])
 // var Trading_Posts
-var Cities = L.layerGroup([el_teglhus])
-var Towns = L.layerGroup([el_gulndar])
+var GeographicalLocations = L.layerGroup([el_teglhus])
+var Sachemdoms = L.layerGroup([el_gulndar])
 // var Forts_Castles
 // var Temples
 // Marker overlay
 var overlays= {
   // "GROUPNAME":mg_GROUPNAME
-   "Colleges" : Colleges,
+   "Settlements" : Settlements,
   //  "Trading/Posts" : Trading_Posts,
-   "Cities" : Cities,
+   "Geographical Locations" : GeographicalLocations,
   //  "Forts/Castles" : Forts_Castles,
-   "Towns" : Towns,
+   "Sachemdoms" : Sachemdoms,
   //  "Temples" : Temples,
 }
 
