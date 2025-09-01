@@ -1,6 +1,6 @@
 //Creating the Map
 var map = L.map('map', {
-  zoomAnimation: false,
+  zoomAnimation: true,
   markerZoomAnimation: false,
   attributionControl: false
 }).setView([0, 0], 0);
@@ -173,6 +173,7 @@ marker.bindPopup('LatLng Marker').openPopup();
 marker.on('dragend', function(e) {
   marker.getPopup().setContent(marker.getLatLng().toString()).openOn(map);
 });
+
 
 map.on('zoomend', function (e) {
     console.log(e.target._zoom);
