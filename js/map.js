@@ -18,6 +18,10 @@ function showInfo(title, description) {
   panel.classList.remove('hidden');
 }
 
+document.getElementById('close-info').addEventListener('click', function () {
+  document.getElementById('info-panel').classList.add('hidden');
+});
+
   var citiesIcon = L.icon({
 		iconUrl:       'icons/city.png',
 		iconRetinaUrl: 'icons/city.png',
