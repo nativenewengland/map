@@ -11,6 +11,13 @@ var marker = L.marker([0, 0], {
   draggable: true,
 }).addTo(map);
 
+function showInfo(title, description) {
+  var panel = document.getElementById('info-panel');
+  document.getElementById('info-title').textContent = title;
+  document.getElementById('info-description').textContent = description;
+  panel.classList.remove('hidden');
+}
+
   var citiesIcon = L.icon({
 		iconUrl:       'icons/city.png',
 		iconRetinaUrl: 'icons/city.png',
@@ -54,10 +61,16 @@ var marker = L.marker([0, 0], {
 	});
   
 // //// START OF MARKERS
-//  1. Mage Colleges MARKERS
-var el_gulndar = L.marker([36.0135, -106.3916],{icon:TownsIcon}).bindPopup('<b>Gulndar</b>');
-var el_teglhus = L.marker([44.4965, -100.7666],{icon:TradingIcon}).bindPopup('<b>Teglhus</b>');
-var el_ochri_college = L.marker([48.5166,-103.4692],{icon:CollegesIcon}).bindPopup('<b>Ochri College</b>');
+// 1. Marker declarations
+function createMarker(lat, lng, icon, name, description) {
+  return L.marker([lat, lng], { icon: icon }).on('click', function () {
+    showInfo(name, description);
+  });
+}
+
+var el_gulndar = createMarker(36.0135, -106.3916, TownsIcon, 'Gulndar', 'A small but bustling town.');
+var el_teglhus = createMarker(44.4965, -100.7666, TradingIcon, 'Teglhus', 'A busy center of commerce.');
+var el_ochri_college = createMarker(48.5166, -103.4692, CollegesIcon, 'Ochri College', 'A renowned mage college.');
 //  2.Trading post markers
 
 // var el_gulndar = L.marker([36.0135, -106.3916],{icon:citiesIcon}).bindPopup('<b>Gulndar</b>');
@@ -122,3 +135,4 @@ marker.on('dragend', function(e) {
 map.on('zoomend', function (e) {
     console.log(e.target._zoom);
 });
+
