@@ -94,11 +94,15 @@ function rescaleIcons() {
     baseZoom = map.getZoom();
   }
   var scale = Math.pow(2, map.getZoom() - baseZoom);
-  allMarkers.forEach(m => {
-    if (m._icon) {
-      m._icon.style.transform = `scale(${scale})`;
-      m._icon.style.transformOrigin = 'center bottom';
-    }
+  allMarkers.forEach(function (m) {
+    var base = m._baseIconOptions;
+    var opts = Object.assign({}, base);
+    if (base.iconSize) opts.iconSize = base.iconSize.map(function (v) { return v * scale; });
+    if (base.iconAnchor) opts.iconAnchor = base.iconAnchor.map(function (v) { return v * scale; });
+    if (base.shadowSize) opts.shadowSize = base.shadowSize.map(function (v) { return v * scale; });
+    if (base.popupAnchor) opts.popupAnchor = base.popupAnchor.map(function (v) { return v * scale; });
+    if (base.tooltipAnchor) opts.tooltipAnchor = base.tooltipAnchor.map(function (v) { return v * scale; });
+    m.setIcon(L.icon(opts));
   });
 }
 
@@ -173,7 +177,7 @@ var overlays= {
 //GROUP CONTROLS
   L.control.layers(null, overlays).addTo(map);
 
-map.on('zoom', rescaleIcons);
+map.on('zoomend', rescaleIcons);
 
 var AddMarkerControl = L.Control.extend({
   options: { position: 'topleft' },
