@@ -20,6 +20,11 @@ html, body{
     z-index: 1000;
 }
 
+#info-title,
+#info-description {
+    text-align: center;
+}
+
 #info-panel .close-button {
     position: absolute;
     top: 5px;
