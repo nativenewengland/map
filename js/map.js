@@ -4,12 +4,17 @@ var map = L.map('map', {
   markerZoomAnimation: true,
   attributionControl: false
 }).setView([0, 0], 0);
-L.tileLayer('map/{z}/{x}/{y}.jpg', {
+
+var tiles = L.tileLayer('map/{z}/{x}/{y}.jpg', {
   continuousWorld: false,
   noWrap: true,
   minZoom: 2,
   maxZoom: 6,
 }).addTo(map);
+tiles.once('load', function () {
+  baseZoom = map.getZoom();
+  rescaleIcons();
+});
 
 // Remove default marker shadows
 L.Icon.Default.mergeOptions({
@@ -79,9 +84,12 @@ var iconMap = {
 // Store custom marker data and marker instances
 var customMarkers = [];
 var allMarkers = [];
-var baseZoom = map.getZoom();
+var baseZoom;
 
 function rescaleIcons() {
+  if (baseZoom === undefined) {
+    baseZoom = map.getZoom();
+  }
   var scale = Math.pow(2, map.getZoom() - baseZoom);
   allMarkers.forEach(function (m) {
     var base = m._baseIconOptions;
@@ -166,7 +174,6 @@ var overlays= {
 //GROUP CONTROLS
   L.control.layers(null, overlays).addTo(map);
 
-rescaleIcons();
 map.on('zoomend', rescaleIcons);
 
 // Add marker button handler
