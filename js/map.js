@@ -233,4 +233,37 @@ var AddMarkerControl = L.Control.extend({
 
 map.addControl(new AddMarkerControl());
 
+// Control to add text labels
+var AddTextControl = L.Control.extend({
+  options: { position: 'topleft' },
+  onAdd: function (map) {
+    var container = L.DomUtil.create('div', 'leaflet-bar');
+    var link = L.DomUtil.create('a', '', container);
+    link.id = 'add-text-btn';
+    link.href = '#';
+    link.title = 'Add Text';
+    link.innerHTML = 'T';
+    L.DomEvent.on(link, 'click', L.DomEvent.stopPropagation)
+      .on(link, 'click', L.DomEvent.preventDefault)
+      .on(link, 'click', function () {
+        alert('Click on the map to place the text.');
+        map.once('click', function (e) {
+          var text = prompt('Enter text:') || '';
+          if (!text) return;
+          var size = parseInt(prompt('Enter text size in pixels:', '14'), 10) || 14;
+          var textIcon = L.divIcon({
+            className: 'text-label',
+            html: '<span style="font-size:' + size + 'px">' + text + '</span>',
+          });
+          L.marker(e.latlng, { icon: textIcon })
+            .bindPopup(text)
+            .addTo(map);
+        });
+      });
+    return container;
+  },
+});
+
+map.addControl(new AddTextControl());
+
 
