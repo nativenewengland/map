@@ -32,10 +32,12 @@ function showInfo(title, description) {
 
 document.getElementById('close-info').addEventListener('click', function () {
   document.getElementById('info-panel').classList.add('hidden');
+  clearSelectedMarker();
 });
 
 map.on('click', function () {
   document.getElementById('info-panel').classList.add('hidden');
+  clearSelectedMarker();
 });
 
   var geographicalLocationsIcon = L.icon({
@@ -88,6 +90,14 @@ var iconMap = {
 var customMarkers = [];
 var allMarkers = [];
 var baseZoom;
+var selectedMarker = null;
+
+function clearSelectedMarker() {
+  if (selectedMarker && selectedMarker._icon) {
+    selectedMarker._icon.classList.remove('marker-selected');
+    selectedMarker = null;
+  }
+}
 
 function rescaleIcons() {
   if (baseZoom === undefined) {
@@ -131,6 +141,11 @@ if (stored) {
 function createMarker(lat, lng, icon, name, description) {
   var m = L.marker([lat, lng], { icon: icon }).on('click', function (e) {
     L.DomEvent.stopPropagation(e);
+    clearSelectedMarker();
+    if (this._icon) {
+      this._icon.classList.add('marker-selected');
+      selectedMarker = this;
+    }
     showInfo(name, description);
   });
   m._baseIconOptions = JSON.parse(JSON.stringify(icon.options));
