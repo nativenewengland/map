@@ -41,8 +41,8 @@ map.on('click', function () {
 		shadowSize:  [41, 41]
 	});
   var SettlementsIcon = L.icon({
-                iconUrl:       'icons/townMill.png',
-                iconRetinaUrl: 'icons/townMill.png',
+                iconUrl:       'icons/settlement.png',
+                iconRetinaUrl: 'icons/settlement.png',
                 shadowUrl:     'icons/shadow.png',
                 iconSize:    [25, 41],
                 iconAnchor:  [12, 41],
