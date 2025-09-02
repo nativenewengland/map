@@ -131,7 +131,7 @@ function createMarker(lat, lng, icon, name, description) {
   return m;
 }
 
-var el_gulndar = createMarker(36.0135, -106.3916, SachemdomsIcon, 'Gulndar', 'A small but bustling town.');
+var el_gulndar = createMarker(36.0135, -106.3916, SettlementsIcon, 'Gulndar', 'A small but bustling town.');
 //  2.Trading post markers
 
 // var el_gulndar = L.marker([36.0135, -106.3916],{icon:citiesIcon}).bindPopup('<b>Gulndar</b>');
@@ -156,11 +156,11 @@ var el_gulndar = createMarker(36.0135, -106.3916, SachemdomsIcon, 'Gulndar', 'A 
 // ******END OF MARKERS DECLARATION ******
 
 // MARKER GROUPS
-var Sachemdoms = L.layerGroup([el_gulndar]).addTo(map);
+var Settlements = L.layerGroup([el_gulndar]).addTo(map);
 // Marker overlay
 var overlays= {
   // "GROUPNAME":mg_GROUPNAME
-   "Sachemdoms" : Sachemdoms,
+   "Settlements" : Settlements,
 }
 
 //GROUP CONTROLS
