@@ -49,10 +49,13 @@ map.on('click', function () {
   var SettlementsIcon = L.icon({
                 iconUrl:       'icons/settlement.png',
                 iconRetinaUrl: 'icons/settlement.png',
-                iconSize:    [7.5, 7.5],
-                iconAnchor:  [3.5, 7.5],
-                popupAnchor: [0.5, -7.5],
-                tooltipAnchor: [3.5, -3.5]
+
+                iconSize:    [3.75, 3.75],
+                iconAnchor:  1.75, 3.75],
+                popupAnchor: 0.25, -3.75],
+                tooltipAnchor: 1.75, -1.75]
+
+
         });
   var SachemdomsIcon = L.icon({
                 iconUrl:       'icons/town.png',
