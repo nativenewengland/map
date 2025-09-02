@@ -41,10 +41,10 @@ map.on('click', function () {
   var geographicalLocationsIcon = L.icon({
                 iconUrl:       'icons/wigwam.png',
                 iconRetinaUrl: 'icons/wigwam.png',
-                iconSize:    [15, 15],
-                iconAnchor:  [7, 15],
-                popupAnchor: [1, -15],
-                tooltipAnchor: [7, -7]
+                iconSize:    [10, 10],
+                iconAnchor:  [5, 10],
+                popupAnchor: [1, -10],
+                tooltipAnchor: [5, -5]
         });
   var SettlementsIcon = L.icon({
                 iconUrl:       'icons/settlement.png',
