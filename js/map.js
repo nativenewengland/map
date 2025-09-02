@@ -170,6 +170,22 @@ function addTextLabelToMap(data) {
       }
       showInfo(data.text, data.description);
     })
+    .on('contextmenu', function () {
+      map.removeLayer(m);
+      customTextLabels = customTextLabels.filter(function (t) {
+        return !(
+          t.lat === data.lat &&
+          t.lng === data.lng &&
+          t.text === data.text &&
+          t.size === data.size &&
+          t.description === data.description
+        );
+      });
+      allTextLabels = allTextLabels.filter(function (t) {
+        return t !== m;
+      });
+      saveTextLabels();
+    })
     .addTo(map);
   m._baseFontSize = data.size;
   allTextLabels.push(m);
