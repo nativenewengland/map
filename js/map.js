@@ -105,14 +105,22 @@ function rescaleIcons() {
   }
   var scale = Math.pow(2, map.getZoom() - baseZoom);
   allMarkers.forEach(function (m) {
-    var base = m._baseIconOptions;
-    var opts = Object.assign({}, base);
-    if (base.iconSize) opts.iconSize = base.iconSize.map(function (v) { return v * scale; });
-    if (base.iconAnchor) opts.iconAnchor = base.iconAnchor.map(function (v) { return v * scale; });
-    if (base.shadowSize) opts.shadowSize = base.shadowSize.map(function (v) { return v * scale; });
-    if (base.popupAnchor) opts.popupAnchor = base.popupAnchor.map(function (v) { return v * scale; });
-    if (base.tooltipAnchor) opts.tooltipAnchor = base.tooltipAnchor.map(function (v) { return v * scale; });
-    m.setIcon(L.icon(opts));
+    if (m._isTextMarker) {
+      var el = m.getElement();
+      if (el && m._baseFontSize) {
+        var span = el.querySelector('span');
+        if (span) span.style.fontSize = m._baseFontSize * scale + 'px';
+      }
+    } else {
+      var base = m._baseIconOptions;
+      var opts = Object.assign({}, base);
+      if (base.iconSize) opts.iconSize = base.iconSize.map(function (v) { return v * scale; });
+      if (base.iconAnchor) opts.iconAnchor = base.iconAnchor.map(function (v) { return v * scale; });
+      if (base.shadowSize) opts.shadowSize = base.shadowSize.map(function (v) { return v * scale; });
+      if (base.popupAnchor) opts.popupAnchor = base.popupAnchor.map(function (v) { return v * scale; });
+      if (base.tooltipAnchor) opts.tooltipAnchor = base.tooltipAnchor.map(function (v) { return v * scale; });
+      m.setIcon(L.icon(opts));
+    }
   });
 }
 
@@ -248,16 +256,6 @@ var AddTextControl = L.Control.extend({
       .on(link, 'click', function () {
         alert('Click on the map to place the text.');
         map.once('click', function (e) {
-          var text = prompt('Enter text:') || '';
-          if (!text) return;
-          var size = parseInt(prompt('Enter text size in pixels:', '14'), 10) || 14;
-          var textIcon = L.divIcon({
-            className: 'text-label',
-            html: '<span style="font-size:' + size + 'px">' + text + '</span>',
-          });
-          L.marker(e.latlng, { icon: textIcon })
-            .bindPopup(text)
-            .addTo(map);
         });
       });
     return container;
