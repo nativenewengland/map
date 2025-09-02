@@ -105,14 +105,22 @@ function rescaleIcons() {
   }
   var scale = Math.pow(2, map.getZoom() - baseZoom);
   allMarkers.forEach(function (m) {
-    var base = m._baseIconOptions;
-    var opts = Object.assign({}, base);
-    if (base.iconSize) opts.iconSize = base.iconSize.map(function (v) { return v * scale; });
-    if (base.iconAnchor) opts.iconAnchor = base.iconAnchor.map(function (v) { return v * scale; });
-    if (base.shadowSize) opts.shadowSize = base.shadowSize.map(function (v) { return v * scale; });
-    if (base.popupAnchor) opts.popupAnchor = base.popupAnchor.map(function (v) { return v * scale; });
-    if (base.tooltipAnchor) opts.tooltipAnchor = base.tooltipAnchor.map(function (v) { return v * scale; });
-    m.setIcon(L.icon(opts));
+    if (m._isTextMarker) {
+      var el = m.getElement();
+      if (el && m._baseFontSize) {
+        var span = el.querySelector('span');
+        if (span) span.style.fontSize = m._baseFontSize * scale + 'px';
+      }
+    } else {
+      var base = m._baseIconOptions;
+      var opts = Object.assign({}, base);
+      if (base.iconSize) opts.iconSize = base.iconSize.map(function (v) { return v * scale; });
+      if (base.iconAnchor) opts.iconAnchor = base.iconAnchor.map(function (v) { return v * scale; });
+      if (base.shadowSize) opts.shadowSize = base.shadowSize.map(function (v) { return v * scale; });
+      if (base.popupAnchor) opts.popupAnchor = base.popupAnchor.map(function (v) { return v * scale; });
+      if (base.tooltipAnchor) opts.tooltipAnchor = base.tooltipAnchor.map(function (v) { return v * scale; });
+      m.setIcon(L.icon(opts));
+    }
   });
 }
 
@@ -232,5 +240,54 @@ var AddMarkerControl = L.Control.extend({
 });
 
 map.addControl(new AddMarkerControl());
+
+// Control to add text labels
+var AddTextControl = L.Control.extend({
+  options: { position: 'topleft' },
+  onAdd: function (map) {
+    var container = L.DomUtil.create('div', 'leaflet-bar');
+    var link = L.DomUtil.create('a', '', container);
+    link.id = 'add-text-btn';
+    link.href = '#';
+    link.title = 'Add Text';
+    link.innerHTML = 'T';
+    L.DomEvent.on(link, 'click', L.DomEvent.stopPropagation)
+      .on(link, 'click', L.DomEvent.preventDefault)
+      .on(link, 'click', function () {
+        alert('Click on the map to place the text.');
+        map.once('click', function (e) {
+          var label = prompt('Enter text:') || '';
+          if (!label) return;
+          var description = prompt('Enter description:') || '';
+          var size = parseInt(prompt('Enter text size in pixels:', '14'), 10) || 14;
+          var textIcon = L.divIcon({
+            className: 'text-label',
+            html: '<span>' + label + '</span>',
+          });
+          var m = L.marker(e.latlng, { icon: textIcon }).on('click', function (ev) {
+            L.DomEvent.stopPropagation(ev);
+            clearSelectedMarker();
+            if (this._icon) {
+              this._icon.classList.add('marker-selected');
+              selectedMarker = this;
+            }
+            showInfo(label, description);
+          }).addTo(map);
+          m._isTextMarker = true;
+          m._baseFontSize = size;
+          var el = m.getElement();
+          if (el) {
+            var span = el.querySelector('span');
+            if (span) span.style.fontSize = size + 'px';
+          }
+          allMarkers.push(m);
+          rescaleIcons();
+        });
+      });
+    return container;
+  },
+});
+
+map.addControl(new AddTextControl());
 
 

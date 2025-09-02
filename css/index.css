@@ -42,3 +42,10 @@ html, body{
 .marker-selected {
     filter: drop-shadow(0 0 5px gold);
 }
+
+/* Style for text markers */
+.text-label span {
+    font-family: 'Roboto', 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: bold;
+    color: #333;
+}
