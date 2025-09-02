@@ -26,6 +26,10 @@ document.getElementById('close-info').addEventListener('click', function () {
   document.getElementById('info-panel').classList.add('hidden');
 });
 
+map.on('click', function () {
+  document.getElementById('info-panel').classList.add('hidden');
+});
+
   var geographicalLocationsIcon = L.icon({
                 iconUrl:       'icons/city.png',
                 iconRetinaUrl: 'icons/city.png',
@@ -37,13 +41,13 @@ document.getElementById('close-info').addEventListener('click', function () {
 		shadowSize:  [41, 41]
 	});
   var SettlementsIcon = L.icon({
-                iconUrl:       'icons/templeCathedral.png',
-                iconRetinaUrl: 'icons/templeShrine.png',
+                iconUrl:       'icons/townMill.png',
+                iconRetinaUrl: 'icons/townMill.png',
                 shadowUrl:     'icons/shadow.png',
                 iconSize:    [25, 41],
                 iconAnchor:  [12, 41],
-		popupAnchor: [1, -34],
-		tooltipAnchor: [16, -28],
+                popupAnchor: [1, -34],
+                tooltipAnchor: [16, -28],
 		shadowSize:  [41, 41]
 	});
   var SachemdomsIcon = L.icon({
@@ -76,8 +80,24 @@ var iconMap = {
   trading: TradingIcon,
 };
 
-// Store custom markers
+// Store custom marker data and marker instances
 var customMarkers = [];
+var allMarkers = [];
+var baseZoom = map.getZoom();
+
+function rescaleIcons() {
+  var scale = Math.pow(2, map.getZoom() - baseZoom);
+  allMarkers.forEach(function (m) {
+    var base = m._baseIconOptions;
+    var opts = Object.assign({}, base);
+    if (base.iconSize) opts.iconSize = base.iconSize.map(function (v) { return v * scale; });
+    if (base.iconAnchor) opts.iconAnchor = base.iconAnchor.map(function (v) { return v * scale; });
+    if (base.shadowSize) opts.shadowSize = base.shadowSize.map(function (v) { return v * scale; });
+    if (base.popupAnchor) opts.popupAnchor = base.popupAnchor.map(function (v) { return v * scale; });
+    if (base.tooltipAnchor) opts.tooltipAnchor = base.tooltipAnchor.map(function (v) { return v * scale; });
+    m.setIcon(L.icon(opts));
+  });
+}
 
 function saveMarkers() {
   localStorage.setItem('markers', JSON.stringify(customMarkers));
@@ -93,6 +113,7 @@ function addMarkerToMap(data) {
     });
     saveMarkers();
   });
+  rescaleIcons();
 }
 
 // Load markers from localStorage
@@ -105,9 +126,13 @@ if (stored) {
 // //// START OF MARKERS
 // 1. Marker declarations
 function createMarker(lat, lng, icon, name, description) {
-  return L.marker([lat, lng], { icon: icon }).on('click', function () {
+  var m = L.marker([lat, lng], { icon: icon }).on('click', function (e) {
+    L.DomEvent.stopPropagation(e);
     showInfo(name, description);
   });
+  m._baseIconOptions = JSON.parse(JSON.stringify(icon.options));
+  allMarkers.push(m);
+  return m;
 }
 
 var el_gulndar = createMarker(36.0135, -106.3916, SachemdomsIcon, 'Gulndar', 'A small but bustling town.');
@@ -147,10 +172,10 @@ var el_ochri_college = createMarker(48.5166, -103.4692, SettlementsIcon, 'Ochri 
 // ******END OF MARKERS DECLARATION ******
 
 // MARKER GROUPS
-var Settlements = L.layerGroup([el_ochri_college])
+var Settlements = L.layerGroup([el_ochri_college]).addTo(map);
 // var Trading_Posts
-var GeographicalLocations = L.layerGroup([el_teglhus])
-var Sachemdoms = L.layerGroup([el_gulndar])
+var GeographicalLocations = L.layerGroup([el_teglhus]).addTo(map);
+var Sachemdoms = L.layerGroup([el_gulndar]).addTo(map);
 // var Forts_Castles
 // var Temples
 // Marker overlay
@@ -175,9 +200,8 @@ marker.on('dragend', function(e) {
 });
 
 
-map.on('zoomend', function (e) {
-    console.log(e.target._zoom);
-});
+rescaleIcons();
+map.on('zoomend', rescaleIcons);
 
 // Add marker button handler
 document.getElementById('add-marker-btn').addEventListener('click', function () {
