@@ -14,6 +14,7 @@ var tiles = L.tileLayer('map/{z}/{x}/{y}.jpg', {
 tiles.once('load', function () {
   baseZoom = map.getZoom();
   rescaleIcons();
+  rescaleTextLabels();
 });
 
 // Remove default marker shadows
@@ -90,6 +91,7 @@ var iconMap = {
 var customMarkers = [];
 var customTextLabels = [];
 var allMarkers = [];
+var allTextLabels = [];
 var baseZoom;
 var selectedMarker = null;
 
@@ -114,6 +116,21 @@ function rescaleIcons() {
     if (base.popupAnchor) opts.popupAnchor = base.popupAnchor.map(function (v) { return v * scale; });
     if (base.tooltipAnchor) opts.tooltipAnchor = base.tooltipAnchor.map(function (v) { return v * scale; });
     m.setIcon(L.icon(opts));
+  });
+}
+
+function rescaleTextLabels() {
+  if (baseZoom === undefined) {
+    baseZoom = map.getZoom();
+  }
+  var scale = Math.pow(2, map.getZoom() - baseZoom);
+  allTextLabels.forEach(function (m) {
+    if (m._icon) {
+      var span = m._icon.querySelector('span');
+      if (span) {
+        span.style.fontSize = m._baseFontSize * scale + 'px';
+      }
+    }
   });
 }
 
@@ -143,7 +160,7 @@ function addTextLabelToMap(data) {
     className: 'text-label',
     html: '<span style="font-size:' + data.size + 'px">' + data.text + '</span>',
   });
-  L.marker([data.lat, data.lng], { icon: textIcon })
+  var m = L.marker([data.lat, data.lng], { icon: textIcon })
     .on('click', function (ev) {
       L.DomEvent.stopPropagation(ev);
       clearSelectedMarker();
@@ -154,6 +171,9 @@ function addTextLabelToMap(data) {
       showInfo(data.text, data.description);
     })
     .addTo(map);
+  m._baseFontSize = data.size;
+  allTextLabels.push(m);
+  rescaleTextLabels();
 }
 
 // Load markers from localStorage
@@ -222,6 +242,7 @@ var overlays= {
   L.control.layers(null, overlays).addTo(map);
 
 map.on('zoomend', rescaleIcons);
+map.on('zoomend', rescaleTextLabels);
 
 var AddMarkerControl = L.Control.extend({
   options: { position: 'topleft' },
