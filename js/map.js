@@ -70,8 +70,8 @@ map.on('click', function () {
         });
   // Trading
   var TradingIcon = L.icon({
-                iconUrl:       'icons/tradeCamp.png',
-                iconRetinaUrl: 'icons/tradecamplarge.png',
+                iconUrl:       'icons/rock.png',
+                iconRetinaUrl: 'icons/rock.png',
                 iconSize:    [15, 15],
                 iconAnchor:  [7, 15],
                 popupAnchor: [1, -15],
@@ -335,5 +335,6 @@ var AddTextControl = L.Control.extend({
 });
 
 map.addControl(new AddTextControl());
+
 
 
