@@ -251,12 +251,21 @@ var AddTextControl = L.Control.extend({
           var text = prompt('Enter text:') || '';
           if (!text) return;
           var size = parseInt(prompt('Enter text size in pixels:', '14'), 10) || 14;
+          var description = prompt('Enter description:') || '';
           var textIcon = L.divIcon({
             className: 'text-label',
             html: '<span style="font-size:' + size + 'px">' + text + '</span>',
           });
           L.marker(e.latlng, { icon: textIcon })
-            .bindPopup(text)
+            .on('click', function (ev) {
+              L.DomEvent.stopPropagation(ev);
+              clearSelectedMarker();
+              if (this._icon) {
+                this._icon.classList.add('marker-selected');
+                selectedMarker = this;
+              }
+              showInfo(text, description);
+            })
             .addTo(map);
         });
       });
