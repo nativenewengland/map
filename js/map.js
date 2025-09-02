@@ -6,14 +6,17 @@ var map = L.map('map', {
 }).setView([0, 0], 0);
 L.tileLayer('map/{z}/{x}/{y}.png', {
   continuousWorld: false,
-  noWrap: true,  
+  noWrap: true,
   minZoom: 2,
   maxZoom: 6,
 }).addTo(map);
-//Coordinate Finder
-var marker = L.marker([0, 0], {
-  draggable: true,
-}).addTo(map);
+
+// Remove default marker shadows
+L.Icon.Default.mergeOptions({
+  shadowUrl: null,
+  shadowSize: null,
+  shadowAnchor: null,
+});
 
 function showInfo(title, description) {
   var panel = document.getElementById('info-panel');
@@ -33,43 +36,35 @@ map.on('click', function () {
   var geographicalLocationsIcon = L.icon({
                 iconUrl:       'icons/city.png',
                 iconRetinaUrl: 'icons/city.png',
-                shadowUrl:     'icons/shadow.png',
-                iconSize:    [25, 41],
-                iconAnchor:  [12, 41],
-		popupAnchor: [1, -34],
-		tooltipAnchor: [16, -28],
-		shadowSize:  [41, 41]
-	});
-  var SettlementsIcon = L.icon({
-                iconUrl:       'icons/settlement.png',
-                iconRetinaUrl: 'icons/settlement.png',
-                shadowUrl:     'icons/shadow.png',
                 iconSize:    [25, 41],
                 iconAnchor:  [12, 41],
                 popupAnchor: [1, -34],
-                tooltipAnchor: [16, -28],
-		shadowSize:  [41, 41]
-	});
+                tooltipAnchor: [16, -28]
+        });
+  var SettlementsIcon = L.icon({
+                iconUrl:       'icons/settlement.png',
+                iconRetinaUrl: 'icons/settlement.png',
+                iconSize:    [25, 41],
+                iconAnchor:  [12, 41],
+                popupAnchor: [1, -34],
+                tooltipAnchor: [16, -28]
+        });
   var SachemdomsIcon = L.icon({
                 iconUrl:       'icons/town.png',
                 iconRetinaUrl: 'icons/town.png',
-                shadowUrl:     'icons/shadow.png',
                 iconSize:    [25, 41],
                 iconAnchor:  [12, 41],
-		popupAnchor: [1, -34],
-		tooltipAnchor: [16, -28],
-		shadowSize:  [41, 41]
-	});
+                popupAnchor: [1, -34],
+                tooltipAnchor: [16, -28]
+        });
   // Trading
   var TradingIcon = L.icon({
                 iconUrl:       'icons/tradeCamp.png',
                 iconRetinaUrl: 'icons/tradecamplarge.png',
-                shadowUrl:     'icons/shadow.png',
                 iconSize:    [25, 41],
                 iconAnchor:  [12, 41],
                 popupAnchor: [1, -34],
-                tooltipAnchor: [16, -28],
-                shadowSize:  [41, 41]
+                tooltipAnchor: [16, -28]
         });
 
 
@@ -170,14 +165,6 @@ var overlays= {
 
 //GROUP CONTROLS
   L.control.layers(null, overlays).addTo(map);
-
-
-
-marker.bindPopup('LatLng Marker').openPopup();
-marker.on('dragend', function(e) {
-  marker.getPopup().setContent(marker.getLatLng().toString()).openOn(map);
-});
-
 
 rescaleIcons();
 map.on('zoomend', rescaleIcons);
