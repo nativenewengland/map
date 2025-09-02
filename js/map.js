@@ -256,32 +256,6 @@ var AddTextControl = L.Control.extend({
       .on(link, 'click', function () {
         alert('Click on the map to place the text.');
         map.once('click', function (e) {
-          var label = prompt('Enter text:') || '';
-          if (!label) return;
-          var description = prompt('Enter description:') || '';
-          var size = parseInt(prompt('Enter text size in pixels:', '14'), 10) || 14;
-          var textIcon = L.divIcon({
-            className: 'text-label',
-            html: '<span>' + label + '</span>',
-          });
-          var m = L.marker(e.latlng, { icon: textIcon }).on('click', function (ev) {
-            L.DomEvent.stopPropagation(ev);
-            clearSelectedMarker();
-            if (this._icon) {
-              this._icon.classList.add('marker-selected');
-              selectedMarker = this;
-            }
-            showInfo(label, description);
-          }).addTo(map);
-          m._isTextMarker = true;
-          m._baseFontSize = size;
-          var el = m.getElement();
-          if (el) {
-            var span = el.querySelector('span');
-            if (span) span.style.fontSize = size + 'px';
-          }
-          allMarkers.push(m);
-          rescaleIcons();
         });
       });
     return container;

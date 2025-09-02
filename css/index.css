@@ -49,7 +49,3 @@ html, body{
     font-weight: bold;
     color: #333;
 }
-
-.leaflet-bar a {
-    cursor: pointer;
-}
