@@ -176,24 +176,43 @@ var overlays= {
 
 map.on('zoomend', rescaleIcons);
 
-// Add marker button handler
-document.getElementById('add-marker-btn').addEventListener('click', function () {
-  alert('Click on the map to place the marker.');
-  map.once('click', function (e) {
-    var name = prompt('Enter marker name:') || 'Marker';
-    var description = prompt('Enter description:') || '';
-    var iconKey = prompt('Enter icon (city, settlement, sachemdom, trading):', 'city') || 'city';
-    var data = {
-      lat: e.latlng.lat,
-      lng: e.latlng.lng,
-      name: name,
-      description: description,
-      icon: iconKey,
-    };
-    addMarkerToMap(data);
-    customMarkers.push(data);
-    saveMarkers();
-  });
+var AddMarkerControl = L.Control.extend({
+  options: { position: 'topleft' },
+  onAdd: function (map) {
+    var container = L.DomUtil.create('div', 'leaflet-bar');
+    var link = L.DomUtil.create('a', '', container);
+    link.id = 'add-marker-btn';
+    link.href = '#';
+    link.title = 'Add Marker';
+    link.innerHTML = '+';
+    L.DomEvent.on(link, 'click', L.DomEvent.stopPropagation)
+      .on(link, 'click', L.DomEvent.preventDefault)
+      .on(link, 'click', function () {
+        alert('Click on the map to place the marker.');
+        map.once('click', function (e) {
+          var name = prompt('Enter marker name:') || 'Marker';
+          var description = prompt('Enter description:') || '';
+          var iconKey =
+            prompt(
+              'Enter icon (city, settlement, sachemdom, trading):',
+              'city'
+            ) || 'city';
+          var data = {
+            lat: e.latlng.lat,
+            lng: e.latlng.lng,
+            name: name,
+            description: description,
+            icon: iconKey,
+          };
+          addMarkerToMap(data);
+          customMarkers.push(data);
+          saveMarkers();
+        });
+      });
+    return container;
+  },
 });
+
+map.addControl(new AddMarkerControl());
 
 
