@@ -4,12 +4,17 @@ var map = L.map('map', {
   markerZoomAnimation: true,
   attributionControl: false
 }).setView([0, 0], 0);
-L.tileLayer('map/{z}/{x}/{y}.jpg', {
+
+var tiles = L.tileLayer('map/{z}/{x}/{y}.jpg', {
   continuousWorld: false,
   noWrap: true,
   minZoom: 2,
   maxZoom: 6,
 }).addTo(map);
+tiles.once('load', function () {
+  baseZoom = map.getZoom();
+  rescaleIcons();
+});
 
 // Remove default marker shadows
 L.Icon.Default.mergeOptions({
@@ -36,35 +41,35 @@ map.on('click', function () {
   var geographicalLocationsIcon = L.icon({
                 iconUrl:       'icons/city.png',
                 iconRetinaUrl: 'icons/city.png',
-                iconSize:    [25, 41],
-                iconAnchor:  [12, 41],
-                popupAnchor: [1, -34],
-                tooltipAnchor: [16, -28]
+                iconSize:    [15, 15],
+                iconAnchor:  [7, 15],
+                popupAnchor: [1, -15],
+                tooltipAnchor: [7, -7]
         });
   var SettlementsIcon = L.icon({
                 iconUrl:       'icons/settlement.png',
                 iconRetinaUrl: 'icons/settlement.png',
-                iconSize:    [25, 41],
-                iconAnchor:  [12, 41],
-                popupAnchor: [1, -34],
-                tooltipAnchor: [16, -28]
+                iconSize:    [3.75, 3.75],
+                iconAnchor:  [1.75, 3.75],
+                popupAnchor: [0.25, -3.75],
+                tooltipAnchor: [1.75, -1.75]
         });
   var SachemdomsIcon = L.icon({
                 iconUrl:       'icons/town.png',
                 iconRetinaUrl: 'icons/town.png',
-                iconSize:    [25, 41],
-                iconAnchor:  [12, 41],
-                popupAnchor: [1, -34],
-                tooltipAnchor: [16, -28]
+                iconSize:    [15, 15],
+                iconAnchor:  [7, 15],
+                popupAnchor: [1, -15],
+                tooltipAnchor: [7, -7]
         });
   // Trading
   var TradingIcon = L.icon({
                 iconUrl:       'icons/tradeCamp.png',
                 iconRetinaUrl: 'icons/tradecamplarge.png',
-                iconSize:    [25, 41],
-                iconAnchor:  [12, 41],
-                popupAnchor: [1, -34],
-                tooltipAnchor: [16, -28]
+                iconSize:    [15, 15],
+                iconAnchor:  [7, 15],
+                popupAnchor: [1, -15],
+                tooltipAnchor: [7, -7]
         });
 
 
@@ -79,9 +84,12 @@ var iconMap = {
 // Store custom marker data and marker instances
 var customMarkers = [];
 var allMarkers = [];
-var baseZoom = map.getZoom();
+var baseZoom;
 
 function rescaleIcons() {
+  if (baseZoom === undefined) {
+    baseZoom = map.getZoom();
+  }
   var scale = Math.pow(2, map.getZoom() - baseZoom);
   allMarkers.forEach(function (m) {
     var base = m._baseIconOptions;
@@ -166,27 +174,45 @@ var overlays= {
 //GROUP CONTROLS
   L.control.layers(null, overlays).addTo(map);
 
-rescaleIcons();
 map.on('zoomend', rescaleIcons);
 
-// Add marker button handler
-document.getElementById('add-marker-btn').addEventListener('click', function () {
-  alert('Click on the map to place the marker.');
-  map.once('click', function (e) {
-    var name = prompt('Enter marker name:') || 'Marker';
-    var description = prompt('Enter description:') || '';
-    var iconKey = prompt('Enter icon (city, settlement, sachemdom, trading):', 'city') || 'city';
-    var data = {
-      lat: e.latlng.lat,
-      lng: e.latlng.lng,
-      name: name,
-      description: description,
-      icon: iconKey,
-    };
-    addMarkerToMap(data);
-    customMarkers.push(data);
-    saveMarkers();
-  });
+var AddMarkerControl = L.Control.extend({
+  options: { position: 'topleft' },
+  onAdd: function (map) {
+    var container = L.DomUtil.create('div', 'leaflet-bar');
+    var link = L.DomUtil.create('a', '', container);
+    link.id = 'add-marker-btn';
+    link.href = '#';
+    link.title = 'Add Marker';
+    link.innerHTML = '+';
+    L.DomEvent.on(link, 'click', L.DomEvent.stopPropagation)
+      .on(link, 'click', L.DomEvent.preventDefault)
+      .on(link, 'click', function () {
+        alert('Click on the map to place the marker.');
+        map.once('click', function (e) {
+          var name = prompt('Enter marker name:') || 'Marker';
+          var description = prompt('Enter description:') || '';
+          var iconKey =
+            prompt(
+              'Enter icon (city, settlement, sachemdom, trading):',
+              'city'
+            ) || 'city';
+          var data = {
+            lat: e.latlng.lat,
+            lng: e.latlng.lng,
+            name: name,
+            description: description,
+            icon: iconKey,
+          };
+          addMarkerToMap(data);
+          customMarkers.push(data);
+          saveMarkers();
+        });
+      });
+    return container;
+  },
 });
+
+map.addControl(new AddMarkerControl());
 
 
