@@ -41,19 +41,19 @@ map.on('click', function () {
   var geographicalLocationsIcon = L.icon({
                 iconUrl:       'icons/wigwam.png',
                 iconRetinaUrl: 'icons/wigwam.png',
-                iconSize:    [2.5, 2.5],
-                iconAnchor:  [1.25, 2.5],
-                popupAnchor: [0.25, -2.5],
-                tooltipAnchor: [1.25, -1.25]
+                iconSize:    [1.25, 1.25],
+                iconAnchor:  [0.625, 1.25],
+                popupAnchor: [0.125, -1.25],
+                tooltipAnchor: [0.625, -0.625]
         });
   var SettlementsIcon = L.icon({
                 iconUrl:       'icons/settlement.png',
                 iconRetinaUrl: 'icons/settlement.png',
 
-                iconSize:    [3.75, 3.75],
-                iconAnchor:  [1.75, 3.75],
-                popupAnchor: [0.25, -3.75],
-                tooltipAnchor: [1.75, -1.75]
+                iconSize:    [1.875, 1.875],
+                iconAnchor:  [0.875, 1.875],
+                popupAnchor: [0.125, -1.875],
+                tooltipAnchor: [0.875, -0.875]
 
 
         });
