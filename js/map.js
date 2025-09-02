@@ -88,6 +88,7 @@ var iconMap = {
 
 // Store custom marker data and marker instances
 var customMarkers = [];
+var customTextLabels = [];
 var allMarkers = [];
 var baseZoom;
 var selectedMarker = null;
@@ -120,6 +121,10 @@ function saveMarkers() {
   localStorage.setItem('markers', JSON.stringify(customMarkers));
 }
 
+function saveTextLabels() {
+  localStorage.setItem('textLabels', JSON.stringify(customTextLabels));
+}
+
 function addMarkerToMap(data) {
   var icon = iconMap[data.icon] || geographicalLocationsIcon;
   var customMarker = createMarker(data.lat, data.lng, icon, data.name, data.description).addTo(map);
@@ -133,11 +138,35 @@ function addMarkerToMap(data) {
   rescaleIcons();
 }
 
+function addTextLabelToMap(data) {
+  var textIcon = L.divIcon({
+    className: 'text-label',
+    html: '<span style="font-size:' + data.size + 'px">' + data.text + '</span>',
+  });
+  L.marker([data.lat, data.lng], { icon: textIcon })
+    .on('click', function (ev) {
+      L.DomEvent.stopPropagation(ev);
+      clearSelectedMarker();
+      if (this._icon) {
+        this._icon.classList.add('marker-selected');
+        selectedMarker = this;
+      }
+      showInfo(data.text, data.description);
+    })
+    .addTo(map);
+}
+
 // Load markers from localStorage
 var stored = localStorage.getItem('markers');
 if (stored) {
   customMarkers = JSON.parse(stored);
   customMarkers.forEach(addMarkerToMap);
+}
+
+var storedTexts = localStorage.getItem('textLabels');
+if (storedTexts) {
+  customTextLabels = JSON.parse(storedTexts);
+  customTextLabels.forEach(addTextLabelToMap);
 }
 
 // //// START OF MARKERS
@@ -252,21 +281,16 @@ var AddTextControl = L.Control.extend({
           if (!text) return;
           var size = parseInt(prompt('Enter text size in pixels:', '14'), 10) || 14;
           var description = prompt('Enter description:') || '';
-          var textIcon = L.divIcon({
-            className: 'text-label',
-            html: '<span style="font-size:' + size + 'px">' + text + '</span>',
-          });
-          L.marker(e.latlng, { icon: textIcon })
-            .on('click', function (ev) {
-              L.DomEvent.stopPropagation(ev);
-              clearSelectedMarker();
-              if (this._icon) {
-                this._icon.classList.add('marker-selected');
-                selectedMarker = this;
-              }
-              showInfo(text, description);
-            })
-            .addTo(map);
+          var data = {
+            lat: e.latlng.lat,
+            lng: e.latlng.lng,
+            text: text,
+            size: size,
+            description: description,
+          };
+          addTextLabelToMap(data);
+          customTextLabels.push(data);
+          saveTextLabels();
         });
       });
     return container;
