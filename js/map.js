@@ -17,10 +17,6 @@ L.Icon.Default.mergeOptions({
   shadowSize: null,
   shadowAnchor: null,
 });
-//Coordinate Finder
-var marker = L.marker([0, 0], {
-  draggable: true,
-}).addTo(map);
 
 function showInfo(title, description) {
   var panel = document.getElementById('info-panel');
@@ -169,14 +165,6 @@ var overlays= {
 
 //GROUP CONTROLS
   L.control.layers(null, overlays).addTo(map);
-
-
-
-marker.bindPopup('LatLng Marker').openPopup();
-marker.on('dragend', function(e) {
-  marker.getPopup().setContent(marker.getLatLng().toString()).openOn(map);
-});
-
 
 rescaleIcons();
 map.on('zoomend', rescaleIcons);
