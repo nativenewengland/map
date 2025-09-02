@@ -82,9 +82,9 @@
 						getTileUrl: function(coord, zoom) {
 							var normalizedCoord = getNormalizedCoord(coord, zoom);
 							if(normalizedCoord && (normalizedCoord.x < Math.pow(2, zoom)) && (normalizedCoord.x > -1) && (normalizedCoord.y < Math.pow(2, zoom)) && (normalizedCoord.y > -1)) {
-								return zoom + '/' + normalizedCoord.x + '/' + normalizedCoord.y + '.png';
+								return zoom + '/' + normalizedCoord.x + '/' + normalizedCoord.y + '.jpg';
 							} else {
-								return 'empty.png';
+								return 'empty.jpg';
 							}
 						},
 						tileSize: new google.maps.Size(256, 256),
