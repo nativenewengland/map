@@ -41,35 +41,35 @@ map.on('click', function () {
   var geographicalLocationsIcon = L.icon({
                 iconUrl:       'icons/city.png',
                 iconRetinaUrl: 'icons/city.png',
-                iconSize:    [25, 41],
-                iconAnchor:  [12, 41],
-                popupAnchor: [1, -34],
-                tooltipAnchor: [16, -28]
+                iconSize:    [15, 15],
+                iconAnchor:  [7, 15],
+                popupAnchor: [1, -15],
+                tooltipAnchor: [7, -7]
         });
   var SettlementsIcon = L.icon({
                 iconUrl:       'icons/settlement.png',
                 iconRetinaUrl: 'icons/settlement.png',
-                iconSize:    [25, 41],
-                iconAnchor:  [12, 41],
-                popupAnchor: [1, -34],
-                tooltipAnchor: [16, -28]
+                iconSize:    [15, 15],
+                iconAnchor:  [7, 15],
+                popupAnchor: [1, -15],
+                tooltipAnchor: [7, -7]
         });
   var SachemdomsIcon = L.icon({
                 iconUrl:       'icons/town.png',
                 iconRetinaUrl: 'icons/town.png',
-                iconSize:    [25, 41],
-                iconAnchor:  [12, 41],
-                popupAnchor: [1, -34],
-                tooltipAnchor: [16, -28]
+                iconSize:    [15, 15],
+                iconAnchor:  [7, 15],
+                popupAnchor: [1, -15],
+                tooltipAnchor: [7, -7]
         });
   // Trading
   var TradingIcon = L.icon({
                 iconUrl:       'icons/tradeCamp.png',
                 iconRetinaUrl: 'icons/tradecamplarge.png',
-                iconSize:    [25, 41],
-                iconAnchor:  [12, 41],
-                popupAnchor: [1, -34],
-                tooltipAnchor: [16, -28]
+                iconSize:    [15, 15],
+                iconAnchor:  [7, 15],
+                popupAnchor: [1, -15],
+                tooltipAnchor: [7, -7]
         });
 
 
