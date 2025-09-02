@@ -72,17 +72,6 @@ map.on('click', function () {
                 shadowSize:  [41, 41]
         });
 
-  // Teglhus settlement icon with a 20x20 base size
-  var TeglhusIcon = L.icon({
-                iconUrl:       'icons/settlement.png',
-                iconRetinaUrl: 'icons/settlement.png',
-                shadowUrl:     'icons/shadow.png',
-                iconSize:    [20, 20],
-                iconAnchor:  [10, 20],
-                popupAnchor: [1, -16],
-                tooltipAnchor: [10, -14],
-                shadowSize:  [20, 20]
-        });
 
 // Map of icon keys to actual icons
 var iconMap = {
@@ -148,57 +137,35 @@ function createMarker(lat, lng, icon, name, description) {
 }
 
 var el_gulndar = createMarker(36.0135, -106.3916, SachemdomsIcon, 'Gulndar', 'A small but bustling town.');
-var el_teglhus = createMarker(44.4965, -100.7666, TeglhusIcon, 'Teglhus', 'A busy center of commerce.');
-var el_ochri_college = createMarker(48.5166, -103.4692, SettlementsIcon, 'Ochri College', 'A renowned mage college.');
 //  2.Trading post markers
 
 // var el_gulndar = L.marker([36.0135, -106.3916],{icon:citiesIcon}).bindPopup('<b>Gulndar</b>');
-// var el_teglhus = L.marker([44.4965, -100.7666]).bindPopup('<b>Teglhus</b>');
-// var el_ochri_college = L.marker([48.5166,-103.4692]).bindPopup('<b>Ochri College</b>');
 
 //  3. Geographical Locations MARKERS
 
 // var el_gulndar = L.marker([36.0135, -106.3916],{icon:citiesIcon}).bindPopup('<b>Gulndar</b>');
-// var el_teglhus = L.marker([44.4965, -100.7666]).bindPopup('<b>Teglhus</b>');
-// var el_ochri_college = L.marker([48.5166,-103.4692]).bindPopup('<b>Ochri College</b>');
 
 //  4. Sachemdoms MARKERS
 
 // var el_gulndar = L.marker([36.0135, -106.3916],{icon:citiesIcon}).bindPopup('<b>Gulndar</b>');
-// var el_teglhus = L.marker([44.4965, -100.7666]).bindPopup('<b>Teglhus</b>');
-// var el_ochri_college = L.marker([48.5166,-103.4692]).bindPopup('<b>Ochri College</b>');
 
 //  5. Forts/Castles MARKERS
 
 // var el_gulndar = L.marker([36.0135, -106.3916],{icon:citiesIcon}).bindPopup('<b>Gulndar</b>');
-// var el_teglhus = L.marker([44.4965, -100.7666]).bindPopup('<b>Teglhus</b>');
-// var el_ochri_college = L.marker([48.5166,-103.4692]).bindPopup('<b>Ochri College</b>');
 
 //  6. Temples MARKERS
 
 // var el_gulndar = L.marker([36.0135, -106.3916],{icon:citiesIcon}).bindPopup('<b>Gulndar</b>');
-// var el_teglhus = L.marker([44.4965, -100.7666]).bindPopup('<b>Teglhus</b>');
-// var el_ochri_college = L.marker([48.5166,-103.4692]).bindPopup('<b>Ochri College</b>');
 
 
 // ******END OF MARKERS DECLARATION ******
 
 // MARKER GROUPS
-var Settlements = L.layerGroup([el_ochri_college]).addTo(map);
-// var Trading_Posts
-var GeographicalLocations = L.layerGroup([el_teglhus]).addTo(map);
 var Sachemdoms = L.layerGroup([el_gulndar]).addTo(map);
-// var Forts_Castles
-// var Temples
 // Marker overlay
 var overlays= {
   // "GROUPNAME":mg_GROUPNAME
-   "Settlements" : Settlements,
-  //  "Trading/Posts" : Trading_Posts,
-   "Geographical Locations" : GeographicalLocations,
-  //  "Forts/Castles" : Forts_Castles,
    "Sachemdoms" : Sachemdoms,
-  //  "Temples" : Temples,
 }
 
 //GROUP CONTROLS
