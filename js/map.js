@@ -260,6 +260,47 @@ var overlays= {
 map.on('zoomend', rescaleIcons);
 map.on('zoomend', rescaleTextLabels);
 
+function showMarkerForm(latlng) {
+  var overlay = document.getElementById('marker-form-overlay');
+  var saveBtn = document.getElementById('marker-save');
+  var cancelBtn = document.getElementById('marker-cancel');
+  overlay.classList.remove('hidden');
+
+  function submitHandler() {
+    var name = document.getElementById('marker-name').value || 'Marker';
+    var description =
+      document.getElementById('marker-description').value || '';
+    var iconKey = document.getElementById('marker-icon').value || 'city';
+    var data = {
+      lat: latlng.lat,
+      lng: latlng.lng,
+      name: name,
+      description: description,
+      icon: iconKey,
+    };
+    addMarkerToMap(data);
+    customMarkers.push(data);
+    saveMarkers();
+    cleanup();
+  }
+
+  function cancelHandler() {
+    cleanup();
+  }
+
+  function cleanup() {
+    overlay.classList.add('hidden');
+    saveBtn.removeEventListener('click', submitHandler);
+    cancelBtn.removeEventListener('click', cancelHandler);
+    document.getElementById('marker-name').value = '';
+    document.getElementById('marker-description').value = '';
+    document.getElementById('marker-icon').value = 'city';
+  }
+
+  saveBtn.addEventListener('click', submitHandler);
+  cancelBtn.addEventListener('click', cancelHandler);
+}
+
 var AddMarkerControl = L.Control.extend({
   options: { position: 'topleft' },
   onAdd: function (map) {
@@ -274,23 +315,7 @@ var AddMarkerControl = L.Control.extend({
       .on(link, 'click', function () {
         alert('Click on the map to place the marker.');
         map.once('click', function (e) {
-          var name = prompt('Enter marker name:') || 'Marker';
-          var description = prompt('Enter description:') || '';
-          var iconKey =
-            prompt(
-              'Enter icon (city, settlement, sachemdom, trading):',
-              'city'
-            ) || 'city';
-          var data = {
-            lat: e.latlng.lat,
-            lng: e.latlng.lng,
-            name: name,
-            description: description,
-            icon: iconKey,
-          };
-          addMarkerToMap(data);
-          customMarkers.push(data);
-          saveMarkers();
+          showMarkerForm(e.latlng);
         });
       });
     return container;

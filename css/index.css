@@ -49,3 +49,42 @@ html, body{
     font-weight: bold;
     color: #333;
 }
+
+/* Marker form styles */
+#marker-form-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+#marker-form {
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #333;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    width: 300px;
+}
+
+#marker-form label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+#marker-form input,
+#marker-form select,
+#marker-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#marker-form button {
+    margin-top: 10px;
+    margin-right: 5px;
+}
