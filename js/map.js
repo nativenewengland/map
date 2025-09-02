@@ -51,9 +51,9 @@ map.on('click', function () {
                 iconRetinaUrl: 'icons/settlement.png',
 
                 iconSize:    [3.75, 3.75],
-                iconAnchor:  1.75, 3.75],
-                popupAnchor: 0.25, -3.75],
-                tooltipAnchor: 1.75, -1.75]
+                iconAnchor:  [1.75, 3.75],
+                popupAnchor: [0.25, -3.75],
+                tooltipAnchor: [1.75, -1.75]
 
 
         });
