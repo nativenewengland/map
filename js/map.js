@@ -39,8 +39,8 @@ map.on('click', function () {
 });
 
   var geographicalLocationsIcon = L.icon({
-                iconUrl:       'icons/city.png',
-                iconRetinaUrl: 'icons/city.png',
+                iconUrl:       'icons/wigwam.png',
+                iconRetinaUrl: 'icons/wigwam.png',
                 iconSize:    [15, 15],
                 iconAnchor:  [7, 15],
                 popupAnchor: [1, -15],
