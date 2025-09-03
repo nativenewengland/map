@@ -27,7 +27,8 @@ L.Icon.Default.mergeOptions({
 function showInfo(title, description) {
   var panel = document.getElementById('info-panel');
   document.getElementById('info-title').textContent = title;
-  document.getElementById('info-description').textContent = description;
+  const html = DOMPurify.sanitize(marked.parse(description));
+  document.getElementById('info-description').innerHTML = html;
   panel.classList.remove('hidden');
 }
 
