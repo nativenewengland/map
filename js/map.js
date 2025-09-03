@@ -279,6 +279,10 @@ function addTextLabelToMap(data) {
       }
       showInfo(data.text, data.description);
     })
+    .on('dblclick', function (ev) {
+      L.DomEvent.stopPropagation(ev);
+      editTextForm(m);
+    })
     .on('dragend', function () {
       if (m._data) {
         var pos = m.getLatLng();
@@ -577,6 +581,123 @@ function showTextForm(latlng) {
     addTextLabelToMap(data);
     customTextLabels.push(data);
     saveTextLabels();
+    cleanup();
+  }
+
+  function cancelHandler() {
+    cleanup();
+  }
+
+  function cleanup() {
+    overlay.classList.add('hidden');
+    saveBtn.removeEventListener('click', submitHandler);
+    cancelBtn.removeEventListener('click', cancelHandler);
+    document.getElementById('text-label-text').value = '';
+    document.getElementById('text-label-description').value = '';
+    document.getElementById('text-label-size').value = '14';
+    document.getElementById('text-label-angle').value = '0';
+    document.getElementById('text-letter-spacing').value = '0';
+    document.getElementById('text-curve-radius').value = '0';
+  }
+
+  saveBtn.addEventListener('click', submitHandler);
+  cancelBtn.addEventListener('click', cancelHandler);
+}
+
+function editTextForm(labelMarker) {
+  if (!labelMarker || !labelMarker._data) return;
+  var overlay = document.getElementById('text-form-overlay');
+  var saveBtn = document.getElementById('text-save');
+  var cancelBtn = document.getElementById('text-cancel');
+  var data = labelMarker._data;
+
+  document.getElementById('text-label-text').value = data.text || '';
+  document.getElementById('text-label-description').value = data.description || '';
+  document.getElementById('text-label-size').value = data.size || 14;
+  document.getElementById('text-label-angle').value = data.angle || 0;
+  document.getElementById('text-letter-spacing').value = data.spacing || 0;
+  document.getElementById('text-curve-radius').value = data.curve || 0;
+  overlay.classList.remove('hidden');
+
+  function submitHandler() {
+    var text = document.getElementById('text-label-text').value || '';
+    if (!text) {
+      cleanup();
+      return;
+    }
+    var description = document.getElementById('text-label-description').value || '';
+    var size = parseInt(document.getElementById('text-label-size').value, 10) || 14;
+    var angle = parseFloat(document.getElementById('text-label-angle').value) || 0;
+    var spacing = parseFloat(document.getElementById('text-letter-spacing').value) || 0;
+    var curve = parseFloat(document.getElementById('text-curve-radius').value) || 0;
+
+    var textIcon;
+    var pathWidth = 0;
+    if (curve) {
+      var tempSpan = document.createElement('span');
+      tempSpan.style.fontSize = size + 'px';
+      tempSpan.style.letterSpacing = spacing + 'px';
+      tempSpan.style.whiteSpace = 'pre';
+      tempSpan.style.visibility = 'hidden';
+      tempSpan.textContent = text;
+      document.body.appendChild(tempSpan);
+      pathWidth = tempSpan.getBoundingClientRect().width;
+      document.body.removeChild(tempSpan);
+      var r = Math.abs(curve);
+      var sweep = curve > 0 ? 0 : 1;
+      var pathId = 'text-curve-' + Date.now() + Math.random().toString(36).slice(2);
+      var d = 'M0,0 A' + r + ',' + r + ' 0 0,' + sweep + ' ' + pathWidth + ',0';
+      var svgHtml =
+        '<svg xmlns="http://www.w3.org/2000/svg" style="transform: rotate(' +
+        angle +
+        'deg);"><path id="' +
+        pathId +
+        '" d="' +
+        d +
+        '" fill="none"></path><text style="font-size:' +
+        size +
+        'px; letter-spacing:' +
+        spacing +
+        'px;"><textPath href="#' +
+        pathId +
+        '">' +
+        text +
+        '</textPath></text></svg>';
+      textIcon = L.divIcon({ className: 'text-label', html: svgHtml, iconAnchor: [0, 0] });
+    } else {
+      textIcon = L.divIcon({
+        className: 'text-label',
+        html:
+          '<span style="font-size:' +
+          size +
+          'px; letter-spacing:' +
+          spacing +
+          'px; transform: rotate(' +
+          angle +
+          'deg);">' +
+          text +
+          '</span>',
+        iconAnchor: [0, 0],
+      });
+    }
+    labelMarker.setIcon(textIcon);
+    labelMarker._baseFontSize = size;
+    labelMarker._baseLetterSpacing = spacing;
+    if (curve) {
+      labelMarker._baseCurve = curve;
+      labelMarker._basePathWidth = pathWidth;
+    } else {
+      delete labelMarker._baseCurve;
+      delete labelMarker._basePathWidth;
+    }
+    data.text = text;
+    data.description = description;
+    data.size = size;
+    data.angle = angle;
+    data.spacing = spacing;
+    data.curve = curve;
+    saveTextLabels();
+    rescaleTextLabels();
     cleanup();
   }
 
