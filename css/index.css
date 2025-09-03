@@ -57,6 +57,7 @@ html, body{
     font-family: 'Roboto', 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
     font-weight: bold;
     color: #333;
+    display: inline-block;
 }
 
 /* Marker form styles */
