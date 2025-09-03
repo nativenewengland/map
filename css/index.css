@@ -60,6 +60,9 @@ html, body{
     display: inline-block;
     letter-spacing: 0;
 }
+.text-label svg {
+    overflow: visible;
+}
 
 /* Marker form styles */
 #marker-form-overlay,

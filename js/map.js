@@ -126,17 +126,35 @@ function rescaleTextLabels() {
   if (baseZoom === undefined) {
     baseZoom = map.getZoom();
   }
-    var scale = Math.pow(2, map.getZoom() - baseZoom);
-    allTextLabels.forEach(function (m) {
-      if (m._icon) {
-        var span = m._icon.querySelector('span');
-        if (span) {
-          span.style.fontSize = m._baseFontSize * scale + 'px';
-          span.style.letterSpacing = (m._baseLetterSpacing || 0) * scale + 'px';
+  var scale = Math.pow(2, map.getZoom() - baseZoom);
+  allTextLabels.forEach(function (m) {
+    if (m._icon) {
+      var span = m._icon.querySelector('span');
+      if (span) {
+        span.style.fontSize = m._baseFontSize * scale + 'px';
+        span.style.letterSpacing = (m._baseLetterSpacing || 0) * scale + 'px';
+      } else {
+        var svg = m._icon.querySelector('svg');
+        if (svg) {
+          var text = svg.querySelector('text');
+          if (text) {
+            text.style.fontSize = m._baseFontSize * scale + 'px';
+            text.style.letterSpacing = (m._baseLetterSpacing || 0) * scale + 'px';
+          }
+          if (m._baseCurve) {
+            var path = svg.querySelector('path');
+            if (path) {
+              var width = (m._basePathWidth || 0) * scale;
+              var r = Math.abs(m._baseCurve) * scale;
+              var sweep = m._baseCurve > 0 ? 0 : 1;
+              path.setAttribute('d', 'M0,0 A' + r + ',' + r + ' 0 0,' + sweep + ' ' + width + ',0');
+            }
+          }
         }
       }
-    });
-  }
+    }
+  });
+}
 
 function saveMarkers() {
   localStorage.setItem('markers', JSON.stringify(customMarkers));
@@ -202,20 +220,55 @@ function addMarkerToMap(data) {
 
 function addTextLabelToMap(data) {
   if (data.spacing === undefined) data.spacing = 0;
-  var textIcon = L.divIcon({
-    className: 'text-label',
-    html:
-      '<span style="font-size:' +
+  var textIcon;
+  var pathWidth = 0;
+  if (data.curve) {
+    var tempSpan = document.createElement('span');
+    tempSpan.style.fontSize = data.size + 'px';
+    tempSpan.style.letterSpacing = data.spacing + 'px';
+    tempSpan.style.whiteSpace = 'pre';
+    tempSpan.style.visibility = 'hidden';
+    tempSpan.textContent = data.text;
+    document.body.appendChild(tempSpan);
+    pathWidth = tempSpan.getBoundingClientRect().width;
+    document.body.removeChild(tempSpan);
+    var r = Math.abs(data.curve);
+    var sweep = data.curve > 0 ? 0 : 1;
+    var pathId = 'text-curve-' + Date.now() + Math.random().toString(36).slice(2);
+    var d = 'M0,0 A' + r + ',' + r + ' 0 0,' + sweep + ' ' + pathWidth + ',0';
+    var svgHtml =
+      '<svg xmlns="http://www.w3.org/2000/svg" style="transform: rotate(' +
+      (data.angle || 0) +
+      'deg);"><path id="' +
+      pathId +
+      '" d="' +
+      d +
+      '" fill="none"></path><text style="font-size:' +
       data.size +
       'px; letter-spacing:' +
       data.spacing +
-      'px; transform: rotate(' +
-      (data.angle || 0) +
-      'deg);">' +
+      'px;"><textPath href="#' +
+      pathId +
+      '">' +
       data.text +
-      '</span>',
-    iconAnchor: [0, 0],
-  });
+      '</textPath></text></svg>';
+    textIcon = L.divIcon({ className: 'text-label', html: svgHtml, iconAnchor: [0, 0] });
+  } else {
+    textIcon = L.divIcon({
+      className: 'text-label',
+      html:
+        '<span style="font-size:' +
+        data.size +
+        'px; letter-spacing:' +
+        data.spacing +
+        'px; transform: rotate(' +
+        (data.angle || 0) +
+        'deg);">' +
+        data.text +
+        '</span>',
+      iconAnchor: [0, 0],
+    });
+  }
   var m = L.marker([data.lat, data.lng], { icon: textIcon, draggable: true })
     .on('click', function (ev) {
       L.DomEvent.stopPropagation(ev);
@@ -244,7 +297,8 @@ function addTextLabelToMap(data) {
           t.size === data.size &&
           t.description === data.description &&
           t.angle === data.angle &&
-          t.spacing === data.spacing
+          t.spacing === data.spacing &&
+          (t.curve || 0) === (data.curve || 0)
         );
       });
       allTextLabels = allTextLabels.filter(function (t) {
@@ -255,6 +309,10 @@ function addTextLabelToMap(data) {
     .addTo(map);
   m._baseFontSize = data.size;
   m._baseLetterSpacing = data.spacing;
+  if (data.curve) {
+    m._baseCurve = data.curve;
+    m._basePathWidth = pathWidth;
+  }
   m._data = data;
   allTextLabels.push(m);
   rescaleTextLabels();
@@ -450,6 +508,7 @@ function showTextForm(latlng) {
     var size = parseInt(document.getElementById('text-label-size').value, 10) || 14;
     var angle = parseFloat(document.getElementById('text-label-angle').value) || 0;
     var spacing = parseFloat(document.getElementById('text-letter-spacing').value) || 0;
+    var curve = parseFloat(document.getElementById('text-curve-radius').value) || 0;
     var data = {
       lat: latlng.lat,
       lng: latlng.lng,
@@ -458,6 +517,7 @@ function showTextForm(latlng) {
       size: size,
       angle: angle,
       spacing: spacing,
+      curve: curve,
     };
     addTextLabelToMap(data);
     customTextLabels.push(data);
@@ -478,6 +538,7 @@ function showTextForm(latlng) {
     document.getElementById('text-label-size').value = '14';
     document.getElementById('text-label-angle').value = '0';
     document.getElementById('text-letter-spacing').value = '0';
+    document.getElementById('text-curve-radius').value = '0';
   }
 
   saveBtn.addEventListener('click', submitHandler);
