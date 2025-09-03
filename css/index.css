@@ -46,6 +46,13 @@ html, body{
 }
 
 /* Style for text markers */
+.text-label {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
 .text-label span {
     font-family: 'Roboto', 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
     font-weight: bold;

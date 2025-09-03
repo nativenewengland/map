@@ -203,6 +203,7 @@ function addTextLabelToMap(data) {
   var textIcon = L.divIcon({
     className: 'text-label',
     html: '<span style="font-size:' + data.size + 'px">' + data.text + '</span>',
+    iconAnchor: [0, 0],
   });
   var m = L.marker([data.lat, data.lng], { icon: textIcon, draggable: true })
     .on('click', function (ev) {
