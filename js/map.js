@@ -63,10 +63,10 @@ map.on('click', function () {
   var SachemdomsIcon = L.icon({
                 iconUrl:       'icons/capital.png',
                 iconRetinaUrl: 'icons/capital.png',
-                iconSize:    [15, 15],
-                iconAnchor:  [7, 15],
-                popupAnchor: [1, -15],
-                tooltipAnchor: [7, -7]
+                iconSize:    [1.25, 1.25],
+                iconAnchor:  [0.625, 1.25],
+                popupAnchor: [0.125, -1.25],
+                tooltipAnchor: [0.625, -0.625]
         });
   // Trading
   var TradingIcon = L.icon({
