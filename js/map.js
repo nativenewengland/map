@@ -202,7 +202,14 @@ function addMarkerToMap(data) {
 function addTextLabelToMap(data) {
   var textIcon = L.divIcon({
     className: 'text-label',
-    html: '<span style="font-size:' + data.size + 'px">' + data.text + '</span>',
+    html:
+      '<span style="font-size:' +
+      data.size +
+      'px; transform: rotate(' +
+      (data.angle || 0) +
+      'deg);">' +
+      data.text +
+      '</span>',
     iconAnchor: [0, 0],
   });
   var m = L.marker([data.lat, data.lng], { icon: textIcon, draggable: true })
@@ -231,7 +238,8 @@ function addTextLabelToMap(data) {
           t.lng === data.lng &&
           t.text === data.text &&
           t.size === data.size &&
-          t.description === data.description
+          t.description === data.description &&
+          t.angle === data.angle
         );
       });
       allTextLabels = allTextLabels.filter(function (t) {
@@ -439,11 +447,14 @@ var AddTextControl = L.Control.extend({
           if (!text) return;
           var size = parseInt(prompt('Enter text size in pixels:', '14'), 10) || 14;
           var description = prompt('Enter description:') || '';
+          var angle =
+            parseFloat(prompt('Enter text angle in degrees:', '0')) || 0;
           var data = {
             lat: e.latlng.lat,
             lng: e.latlng.lng,
             text: text,
             size: size,
+            angle: angle,
             description: description,
           };
           addTextLabelToMap(data);
