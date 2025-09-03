@@ -40,6 +40,29 @@
             <button id="marker-cancel">Cancel</button>
         </div>
     </div>
+    <div id="text-form-overlay" class="hidden">
+        <div id="text-form">
+            <h3>Add Text</h3>
+            <label>Text:
+                <input type="text" id="text-label-text">
+            </label>
+            <label>Description:
+                <small>Supports Markdown (e.g., <code>**bold**</code>, <code>![alt](url)</code> for images).</small>
+                <textarea id="text-label-description"></textarea>
+            </label>
+            <label>Size:
+                <input type="number" id="text-label-size" value="14">
+            </label>
+            <label>Angle:
+                <input type="number" id="text-label-angle" value="0">
+            </label>
+            <label>Letter Spacing:
+                <input type="range" id="text-letter-spacing" min="-5" max="20" value="0">
+            </label>
+            <button id="text-save">Save</button>
+            <button id="text-cancel">Cancel</button>
+        </div>
+    </div>
     <script src="js/map.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script>

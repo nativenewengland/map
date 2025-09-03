@@ -58,10 +58,12 @@ html, body{
     font-weight: bold;
     color: #333;
     display: inline-block;
+    letter-spacing: 0;
 }
 
 /* Marker form styles */
-#marker-form-overlay {
+#marker-form-overlay,
+#text-form-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -74,11 +76,13 @@ html, body{
     z-index: 10000;
 }
 
-#marker-form-overlay.hidden {
+#marker-form-overlay.hidden,
+#text-form-overlay.hidden {
     display: none;
 }
 
-#marker-form {
+#marker-form,
+#text-form {
     background: #fff;
     padding: 15px;
     border: 1px solid #333;
@@ -86,19 +90,24 @@ html, body{
     width: 300px;
 }
 
-#marker-form label {
+#marker-form label,
+#text-form label {
     display: block;
     margin-bottom: 8px;
 }
 
 #marker-form input,
 #marker-form select,
-#marker-form textarea {
+#marker-form textarea,
+#text-form input,
+#text-form select,
+#text-form textarea {
     width: 100%;
     box-sizing: border-box;
 }
 
-#marker-form button {
+#marker-form button,
+#text-form button {
     margin-top: 10px;
     margin-right: 5px;
 }
