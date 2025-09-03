@@ -90,10 +90,12 @@ var iconMap = {
 // Store custom marker data and marker instances
 var customMarkers = [];
 var customTextLabels = [];
+var customPolygons = [];
 var allMarkers = [];
 var allTextLabels = [];
 var baseZoom;
 var selectedMarker = null;
+var territoriesLayer = L.layerGroup().addTo(map);
 
 function clearSelectedMarker() {
   if (selectedMarker && selectedMarker._icon) {
@@ -140,6 +142,40 @@ function saveMarkers() {
 
 function saveTextLabels() {
   localStorage.setItem('textLabels', JSON.stringify(customTextLabels));
+}
+
+function savePolygons() {
+  localStorage.setItem('polygons', JSON.stringify(customPolygons));
+}
+
+function addPolygonToMap(data) {
+  var opts = Object.assign(
+    {
+      color: '#3388ff',
+      weight: 2,
+      fillColor: '#3388ff',
+      fillOpacity: 0.3,
+    },
+    data.style || {}
+  );
+  var poly = L.polygon(data.coords, opts)
+    .bindPopup(
+      '<b>' + (data.name || '') + '</b>' +
+        (data.description ? '<br>' + data.description : '')
+    )
+    .addTo(territoriesLayer);
+  poly.on('contextmenu', function () {
+    territoriesLayer.removeLayer(poly);
+    customPolygons = customPolygons.filter(function (p) {
+      return !(
+        p.name === data.name &&
+        p.description === data.description &&
+        JSON.stringify(p.coords) === JSON.stringify(data.coords)
+      );
+    });
+    savePolygons();
+  });
+  return poly;
 }
 
 function addMarkerToMap(data) {
@@ -205,6 +241,38 @@ if (storedTexts) {
   customTextLabels.forEach(addTextLabelToMap);
 }
 
+var storedPolygons = localStorage.getItem('polygons');
+if (storedPolygons) {
+  customPolygons = JSON.parse(storedPolygons);
+  customPolygons.forEach(addPolygonToMap);
+}
+
+var baseTerritories = [
+  {
+    name: 'Northern Territory',
+    description: 'Example northern area.',
+    coords: [
+      [35.8, -106.6],
+      [35.8, -105.8],
+      [36.4, -105.8],
+      [36.4, -106.6],
+    ],
+    style: { color: '#ff7800', fillColor: '#ff7800', fillOpacity: 0.3 },
+  },
+  {
+    name: 'Southern Territory',
+    description: 'Example southern area.',
+    coords: [
+      [35.2, -106.6],
+      [35.2, -105.8],
+      [35.8, -105.8],
+      [35.8, -106.6],
+    ],
+    style: { color: '#0078ff', fillColor: '#0078ff', fillOpacity: 0.3 },
+  },
+];
+baseTerritories.forEach(addPolygonToMap);
+
 // //// START OF MARKERS
 // 1. Marker declarations
 function createMarker(lat, lng, icon, name, description) {
@@ -252,6 +320,7 @@ var Settlements = L.layerGroup([el_gulndar]).addTo(map);
 var overlays= {
   // "GROUPNAME":mg_GROUPNAME
    "Settlements" : Settlements,
+   "Territories": territoriesLayer,
 }
 
 //GROUP CONTROLS
@@ -359,7 +428,43 @@ var AddTextControl = L.Control.extend({
   },
 });
 
+var AddPolygonControl = L.Control.extend({
+  options: { position: 'topleft' },
+  onAdd: function (map) {
+    var container = L.DomUtil.create('div', 'leaflet-bar');
+    var link = L.DomUtil.create('a', '', container);
+    link.id = 'add-polygon-btn';
+    link.href = '#';
+    link.title = 'Add Polygon';
+    link.innerHTML = '■';
+    L.DomEvent.on(link, 'click', L.DomEvent.stopPropagation)
+      .on(link, 'click', L.DomEvent.preventDefault)
+      .on(link, 'click', function () {
+        var coordsInput = prompt('Enter polygon coordinates as lat,lng;lat,lng;...');
+        if (!coordsInput) return;
+        var coords = coordsInput.split(';').map(function (pair) {
+          var parts = pair.split(',').map(Number);
+          return [parts[0], parts[1]];
+        });
+        var name = prompt('Enter territory name:') || 'Territory';
+        var description = prompt('Enter description:') || '';
+        var color = prompt('Enter hex color for polygon:', '#3388ff') || '#3388ff';
+        var data = {
+          name: name,
+          description: description,
+          coords: coords,
+          style: { color: color, fillColor: color, fillOpacity: 0.3 },
+        };
+        addPolygonToMap(data);
+        customPolygons.push(data);
+        savePolygons();
+      });
+    return container;
+  },
+});
+
 map.addControl(new AddTextControl());
+map.addControl(new AddPolygonControl());
 
 
 
