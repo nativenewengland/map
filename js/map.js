@@ -126,16 +126,17 @@ function rescaleTextLabels() {
   if (baseZoom === undefined) {
     baseZoom = map.getZoom();
   }
-  var scale = Math.pow(2, map.getZoom() - baseZoom);
-  allTextLabels.forEach(function (m) {
-    if (m._icon) {
-      var span = m._icon.querySelector('span');
-      if (span) {
-        span.style.fontSize = m._baseFontSize * scale + 'px';
+    var scale = Math.pow(2, map.getZoom() - baseZoom);
+    allTextLabels.forEach(function (m) {
+      if (m._icon) {
+        var span = m._icon.querySelector('span');
+        if (span) {
+          span.style.fontSize = m._baseFontSize * scale + 'px';
+          span.style.letterSpacing = (m._baseLetterSpacing || 0) * scale + 'px';
+        }
       }
-    }
-  });
-}
+    });
+  }
 
 function saveMarkers() {
   localStorage.setItem('markers', JSON.stringify(customMarkers));
@@ -200,11 +201,14 @@ function addMarkerToMap(data) {
 }
 
 function addTextLabelToMap(data) {
+  if (data.spacing === undefined) data.spacing = 0;
   var textIcon = L.divIcon({
     className: 'text-label',
     html:
       '<span style="font-size:' +
       data.size +
+      'px; letter-spacing:' +
+      data.spacing +
       'px; transform: rotate(' +
       (data.angle || 0) +
       'deg);">' +
@@ -239,7 +243,8 @@ function addTextLabelToMap(data) {
           t.text === data.text &&
           t.size === data.size &&
           t.description === data.description &&
-          t.angle === data.angle
+          t.angle === data.angle &&
+          t.spacing === data.spacing
         );
       });
       allTextLabels = allTextLabels.filter(function (t) {
@@ -249,6 +254,7 @@ function addTextLabelToMap(data) {
     })
     .addTo(map);
   m._baseFontSize = data.size;
+  m._baseLetterSpacing = data.spacing;
   m._data = data;
   allTextLabels.push(m);
   rescaleTextLabels();
@@ -428,6 +434,56 @@ var AddMarkerControl = L.Control.extend({
 
 map.addControl(new AddMarkerControl());
 
+function showTextForm(latlng) {
+  var overlay = document.getElementById('text-form-overlay');
+  var saveBtn = document.getElementById('text-save');
+  var cancelBtn = document.getElementById('text-cancel');
+  overlay.classList.remove('hidden');
+
+  function submitHandler() {
+    var text = document.getElementById('text-label-text').value || '';
+    if (!text) {
+      cleanup();
+      return;
+    }
+    var description = document.getElementById('text-label-description').value || '';
+    var size = parseInt(document.getElementById('text-label-size').value, 10) || 14;
+    var angle = parseFloat(document.getElementById('text-label-angle').value) || 0;
+    var spacing = parseFloat(document.getElementById('text-letter-spacing').value) || 0;
+    var data = {
+      lat: latlng.lat,
+      lng: latlng.lng,
+      text: text,
+      description: description,
+      size: size,
+      angle: angle,
+      spacing: spacing,
+    };
+    addTextLabelToMap(data);
+    customTextLabels.push(data);
+    saveTextLabels();
+    cleanup();
+  }
+
+  function cancelHandler() {
+    cleanup();
+  }
+
+  function cleanup() {
+    overlay.classList.add('hidden');
+    saveBtn.removeEventListener('click', submitHandler);
+    cancelBtn.removeEventListener('click', cancelHandler);
+    document.getElementById('text-label-text').value = '';
+    document.getElementById('text-label-description').value = '';
+    document.getElementById('text-label-size').value = '14';
+    document.getElementById('text-label-angle').value = '0';
+    document.getElementById('text-letter-spacing').value = '0';
+  }
+
+  saveBtn.addEventListener('click', submitHandler);
+  cancelBtn.addEventListener('click', cancelHandler);
+}
+
 // Control to add text labels
 var AddTextControl = L.Control.extend({
   options: { position: 'topleft' },
@@ -438,33 +494,17 @@ var AddTextControl = L.Control.extend({
     link.href = '#';
     link.title = 'Add Text';
     link.innerHTML = 'T';
-    L.DomEvent.on(link, 'click', L.DomEvent.stopPropagation)
-      .on(link, 'click', L.DomEvent.preventDefault)
-      .on(link, 'click', function () {
-        alert('Click on the map to place the text.');
-        map.once('click', function (e) {
-          var text = prompt('Enter text:') || '';
-          if (!text) return;
-          var size = parseInt(prompt('Enter text size in pixels:', '14'), 10) || 14;
-          var description = prompt('Enter description:') || '';
-          var angle =
-            parseFloat(prompt('Enter text angle in degrees:', '0')) || 0;
-          var data = {
-            lat: e.latlng.lat,
-            lng: e.latlng.lng,
-            text: text,
-            size: size,
-            angle: angle,
-            description: description,
-          };
-          addTextLabelToMap(data);
-          customTextLabels.push(data);
-          saveTextLabels();
+      L.DomEvent.on(link, 'click', L.DomEvent.stopPropagation)
+        .on(link, 'click', L.DomEvent.preventDefault)
+        .on(link, 'click', function () {
+          alert('Click on the map to place the text.');
+          map.once('click', function (e) {
+            showTextForm(e.latlng);
+          });
         });
-      });
-    return container;
-  },
-});
+      return container;
+    },
+  });
 
 var AddPolygonControl = L.Control.extend({
   options: { position: 'topleft' },
