@@ -374,7 +374,8 @@ function createMarker(lat, lng, icon, name, description) {
         this._icon.classList.add('marker-selected');
         selectedMarker = this;
       }
-      showInfo(name, description);
+      var d = this._data || { name: name, description: description };
+      showInfo(d.name, d.description);
     })
     .on('dragend', function () {
       if (m._data) {
@@ -382,6 +383,12 @@ function createMarker(lat, lng, icon, name, description) {
         m._data.lat = pos.lat;
         m._data.lng = pos.lng;
         saveMarkers();
+      }
+    })
+    .on('dblclick', function (e) {
+      L.DomEvent.stopPropagation(e);
+      if (m._data) {
+        editMarkerForm(m);
       }
     });
   m._baseIconOptions = JSON.parse(JSON.stringify(icon.options));
@@ -463,6 +470,54 @@ function showMarkerForm(latlng) {
     document.getElementById('marker-name').value = '';
     document.getElementById('marker-description').value = '';
     document.getElementById('marker-icon').value = 'city';
+  }
+
+  saveBtn.addEventListener('click', submitHandler);
+  cancelBtn.addEventListener('click', cancelHandler);
+}
+
+function editMarkerForm(marker) {
+  if (!marker || !marker._data) return;
+  var overlay = document.getElementById('marker-form-overlay');
+  var saveBtn = document.getElementById('marker-save');
+  var cancelBtn = document.getElementById('marker-cancel');
+  var title = document.querySelector('#marker-form h3');
+  overlay.classList.remove('hidden');
+
+  document.getElementById('marker-name').value = marker._data.name || '';
+  document.getElementById('marker-description').value = marker._data.description || '';
+  document.getElementById('marker-icon').value = marker._data.icon || 'city';
+  if (title) title.textContent = 'Edit Marker';
+
+  function submitHandler() {
+    var name = document.getElementById('marker-name').value || 'Marker';
+    var description = document.getElementById('marker-description').value || '';
+    var iconKey = document.getElementById('marker-icon').value || 'city';
+
+    marker._data.name = name;
+    marker._data.description = description;
+    marker._data.icon = iconKey;
+
+    var newIcon = iconMap[iconKey] || geographicalLocationsIcon;
+    marker.setIcon(newIcon);
+    marker._baseIconOptions = JSON.parse(JSON.stringify(newIcon.options));
+    rescaleIcons();
+    saveMarkers();
+    cleanup();
+  }
+
+  function cancelHandler() {
+    cleanup();
+  }
+
+  function cleanup() {
+    overlay.classList.add('hidden');
+    saveBtn.removeEventListener('click', submitHandler);
+    cancelBtn.removeEventListener('click', cancelHandler);
+    document.getElementById('marker-name').value = '';
+    document.getElementById('marker-description').value = '';
+    document.getElementById('marker-icon').value = 'city';
+    if (title) title.textContent = 'Add Marker';
   }
 
   saveBtn.addEventListener('click', submitHandler);
