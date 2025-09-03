@@ -61,8 +61,8 @@ map.on('click', function () {
 
         });
   var SachemdomsIcon = L.icon({
-                iconUrl:       'icons/town.png',
-                iconRetinaUrl: 'icons/town.png',
+                iconUrl:       'icons/capital.png',
+                iconRetinaUrl: 'icons/capital.png',
                 iconSize:    [15, 15],
                 iconAnchor:  [7, 15],
                 popupAnchor: [1, -15],
