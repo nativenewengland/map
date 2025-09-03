@@ -92,3 +92,9 @@ html, body{
     margin-top: 10px;
     margin-right: 5px;
 }
+
+#info-description img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
