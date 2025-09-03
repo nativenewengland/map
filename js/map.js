@@ -260,6 +260,47 @@ var overlays= {
 map.on('zoomend', rescaleIcons);
 map.on('zoomend', rescaleTextLabels);
 
+function showMarkerForm(latlng) {
+  var overlay = document.getElementById('marker-form-overlay');
+  var saveBtn = document.getElementById('marker-save');
+  var cancelBtn = document.getElementById('marker-cancel');
+  overlay.classList.remove('hidden');
+
+  function submitHandler() {
+    var name = document.getElementById('marker-name').value || 'Marker';
+    var description =
+      document.getElementById('marker-description').value || '';
+    var iconKey = document.getElementById('marker-icon').value || 'city';
+    var data = {
+      lat: latlng.lat,
+      lng: latlng.lng,
+      name: name,
+      description: description,
+      icon: iconKey,
+    };
+    addMarkerToMap(data);
+    customMarkers.push(data);
+    saveMarkers();
+    cleanup();
+  }
+
+  function cancelHandler() {
+    cleanup();
+  }
+
+  function cleanup() {
+    overlay.classList.add('hidden');
+    saveBtn.removeEventListener('click', submitHandler);
+    cancelBtn.removeEventListener('click', cancelHandler);
+    document.getElementById('marker-name').value = '';
+    document.getElementById('marker-description').value = '';
+    document.getElementById('marker-icon').value = 'city';
+  }
+
+  saveBtn.addEventListener('click', submitHandler);
+  cancelBtn.addEventListener('click', cancelHandler);
+}
+
 var AddMarkerControl = L.Control.extend({
   options: { position: 'topleft' },
   onAdd: function (map) {
@@ -274,23 +315,7 @@ var AddMarkerControl = L.Control.extend({
       .on(link, 'click', function () {
         alert('Click on the map to place the marker.');
         map.once('click', function (e) {
-          var name = prompt('Enter marker name:') || 'Marker';
-          var description = prompt('Enter description:') || '';
-          var iconKey =
-            prompt(
-              'Enter icon (city, settlement, sachemdom, trading):',
-              'city'
-            ) || 'city';
-          var data = {
-            lat: e.latlng.lat,
-            lng: e.latlng.lng,
-            name: name,
-            description: description,
-            icon: iconKey,
-          };
-          addMarkerToMap(data);
-          customMarkers.push(data);
-          saveMarkers();
+          showMarkerForm(e.latlng);
         });
       });
     return container;
@@ -298,6 +323,51 @@ var AddMarkerControl = L.Control.extend({
 });
 
 map.addControl(new AddMarkerControl());
+
+function showTextForm(latlng) {
+  var overlay = document.getElementById('text-form-overlay');
+  var saveBtn = document.getElementById('text-save');
+  var cancelBtn = document.getElementById('text-cancel');
+  overlay.classList.remove('hidden');
+
+  function submitHandler() {
+    var text = document.getElementById('text-text').value || '';
+    if (!text) {
+      cleanup();
+      return;
+    }
+    var size =
+      parseInt(document.getElementById('text-size').value, 10) || 14;
+    var description = document.getElementById('text-description').value || '';
+    var data = {
+      lat: latlng.lat,
+      lng: latlng.lng,
+      text: text,
+      size: size,
+      description: description,
+    };
+    addTextLabelToMap(data);
+    customTextLabels.push(data);
+    saveTextLabels();
+    cleanup();
+  }
+
+  function cancelHandler() {
+    cleanup();
+  }
+
+  function cleanup() {
+    overlay.classList.add('hidden');
+    saveBtn.removeEventListener('click', submitHandler);
+    cancelBtn.removeEventListener('click', cancelHandler);
+    document.getElementById('text-text').value = '';
+    document.getElementById('text-size').value = '14';
+    document.getElementById('text-description').value = '';
+  }
+
+  saveBtn.addEventListener('click', submitHandler);
+  cancelBtn.addEventListener('click', cancelHandler);
+}
 
 // Control to add text labels
 var AddTextControl = L.Control.extend({
@@ -314,20 +384,7 @@ var AddTextControl = L.Control.extend({
       .on(link, 'click', function () {
         alert('Click on the map to place the text.');
         map.once('click', function (e) {
-          var text = prompt('Enter text:') || '';
-          if (!text) return;
-          var size = parseInt(prompt('Enter text size in pixels:', '14'), 10) || 14;
-          var description = prompt('Enter description:') || '';
-          var data = {
-            lat: e.latlng.lat,
-            lng: e.latlng.lng,
-            text: text,
-            size: size,
-            description: description,
-          };
-          addTextLabelToMap(data);
-          customTextLabels.push(data);
-          saveTextLabels();
+          showTextForm(e.latlng);
         });
       });
     return container;

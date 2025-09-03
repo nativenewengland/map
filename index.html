@@ -18,6 +18,43 @@
         <h2 id="info-title"></h2>
         <p id="info-description"></p>
     </div>
+    <div id="marker-form-overlay" class="hidden">
+        <div id="marker-form">
+            <h3>Add Marker</h3>
+            <label>Name:
+                <input type="text" id="marker-name">
+            </label>
+            <label>Description:
+                <textarea id="marker-description"></textarea>
+            </label>
+            <label>Icon:
+                <select id="marker-icon">
+                    <option value="city">City</option>
+                    <option value="settlement">Settlement</option>
+                    <option value="sachemdom">Sachemdom</option>
+                    <option value="trading">Trading</option>
+                </select>
+            </label>
+            <button id="marker-save">Save</button>
+            <button id="marker-cancel">Cancel</button>
+        </div>
+    </div>
+    <div id="text-form-overlay" class="hidden">
+        <div id="text-form">
+            <h3>Add Text Label</h3>
+            <label>Text:
+                <input type="text" id="text-text">
+            </label>
+            <label>Description:
+                <textarea id="text-description"></textarea>
+            </label>
+            <label>Size (px):
+                <input type="number" id="text-size" value="14">
+            </label>
+            <button id="text-save">Save</button>
+            <button id="text-cancel">Cancel</button>
+        </div>
+    </div>
     <script src="js/map.js"></script>
 </body>
 </html>
