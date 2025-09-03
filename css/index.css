@@ -64,6 +64,10 @@ html, body{
     z-index: 10000;
 }
 
+#marker-form-overlay.hidden {
+    display: none;
+}
+
 #marker-form {
     background: #fff;
     padding: 15px;
