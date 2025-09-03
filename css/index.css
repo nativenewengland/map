@@ -39,6 +39,8 @@ html, body{
     display: none;
 }
 
+/* Glow effect for markers */
+.leaflet-marker-icon:hover,
 .marker-selected {
     filter: drop-shadow(0 0 5px gold);
 }
