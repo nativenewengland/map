@@ -47,9 +47,7 @@ html, body{
 
 /* Style for text markers */
 .text-label {
-    position: relative;
-    left: 50%;
-    top: 50%;
+    position: absolute;
     transform: translate(-50%, -50%);
     text-align: center;
 }
