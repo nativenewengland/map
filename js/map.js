@@ -180,7 +180,14 @@ function addPolygonToMap(data) {
 
 function addMarkerToMap(data) {
   var icon = iconMap[data.icon] || geographicalLocationsIcon;
-  var customMarker = createMarker(data.lat, data.lng, icon, data.name, data.description).addTo(map);
+  var customMarker = createMarker(
+    data.lat,
+    data.lng,
+    icon,
+    data.name,
+    data.description
+  ).addTo(map);
+  customMarker._data = data;
   customMarker.on('contextmenu', function () {
     map.removeLayer(customMarker);
     customMarkers = customMarkers.filter(function (m) {
@@ -196,7 +203,7 @@ function addTextLabelToMap(data) {
     className: 'text-label',
     html: '<span style="font-size:' + data.size + 'px">' + data.text + '</span>',
   });
-  var m = L.marker([data.lat, data.lng], { icon: textIcon })
+  var m = L.marker([data.lat, data.lng], { icon: textIcon, draggable: true })
     .on('click', function (ev) {
       L.DomEvent.stopPropagation(ev);
       clearSelectedMarker();
@@ -205,6 +212,14 @@ function addTextLabelToMap(data) {
         selectedMarker = this;
       }
       showInfo(data.text, data.description);
+    })
+    .on('dragend', function () {
+      if (m._data) {
+        var pos = m.getLatLng();
+        m._data.lat = pos.lat;
+        m._data.lng = pos.lng;
+        saveTextLabels();
+      }
     })
     .on('contextmenu', function () {
       map.removeLayer(m);
@@ -224,6 +239,7 @@ function addTextLabelToMap(data) {
     })
     .addTo(map);
   m._baseFontSize = data.size;
+  m._data = data;
   allTextLabels.push(m);
   rescaleTextLabels();
 }
@@ -276,15 +292,24 @@ baseTerritories.forEach(addPolygonToMap);
 // //// START OF MARKERS
 // 1. Marker declarations
 function createMarker(lat, lng, icon, name, description) {
-  var m = L.marker([lat, lng], { icon: icon }).on('click', function (e) {
-    L.DomEvent.stopPropagation(e);
-    clearSelectedMarker();
-    if (this._icon) {
-      this._icon.classList.add('marker-selected');
-      selectedMarker = this;
-    }
-    showInfo(name, description);
-  });
+  var m = L.marker([lat, lng], { icon: icon, draggable: true })
+    .on('click', function (e) {
+      L.DomEvent.stopPropagation(e);
+      clearSelectedMarker();
+      if (this._icon) {
+        this._icon.classList.add('marker-selected');
+        selectedMarker = this;
+      }
+      showInfo(name, description);
+    })
+    .on('dragend', function () {
+      if (m._data) {
+        var pos = m.getLatLng();
+        m._data.lat = pos.lat;
+        m._data.lng = pos.lng;
+        saveMarkers();
+      }
+    });
   m._baseIconOptions = JSON.parse(JSON.stringify(icon.options));
   allMarkers.push(m);
   return m;
