@@ -79,7 +79,7 @@ map.on('click', function () {
                 tooltipAnchor: [0.625, -0.625]
         });
   // Fishing
-  var fishingIconPath = 'icons/fish.png';
+  var fishingIconPath = 'icons/fish1.png';
   var FishingIcon = L.icon({
                 iconUrl:       fishingIconPath,
                 iconRetinaUrl: fishingIconPath,
