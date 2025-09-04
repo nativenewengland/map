@@ -42,7 +42,7 @@ map.on('click', function () {
   clearSelectedMarker();
 });
 
-  var geographicalLocationsIcon = L.icon({
+  var WigwamIcon = L.icon({
                 iconUrl:       'icons/wigwam.png',
                 iconRetinaUrl: 'icons/wigwam.png',
                 iconSize:    [1.25, 1.25],
@@ -61,7 +61,7 @@ map.on('click', function () {
 
 
         });
-  var SachemdomsIcon = L.icon({
+  var CapitalIcon = L.icon({
                 iconUrl:       'icons/capital.png',
                 iconRetinaUrl: 'icons/capital.png',
                 iconSize:    [1.25, 1.25],
@@ -69,8 +69,8 @@ map.on('click', function () {
                 popupAnchor: [0.125, -1.25],
                 tooltipAnchor: [0.625, -0.625]
         });
-  // Trading
-  var TradingIcon = L.icon({
+  // Rock
+  var RockIcon = L.icon({
                 iconUrl:       'icons/rock.png',
                 iconRetinaUrl: 'icons/rock.png',
                 iconSize:    [1.25, 1.25],
@@ -94,10 +94,10 @@ map.on('click', function () {
 
 // Map of icon keys to actual icons
 var iconMap = {
-  city: geographicalLocationsIcon,
+  wigwam: WigwamIcon,
   settlement: SettlementsIcon,
-  sachemdom: SachemdomsIcon,
-  trading: TradingIcon,
+  capital: CapitalIcon,
+  rock: RockIcon,
   fishing: FishingIcon,
 };
 
@@ -212,7 +212,7 @@ function addPolygonToMap(data) {
 }
 
 function addMarkerToMap(data) {
-  var icon = iconMap[data.icon] || geographicalLocationsIcon;
+  var icon = iconMap[data.icon] || WigwamIcon;
   var customMarker = createMarker(
     data.lat,
     data.lng,
@@ -422,7 +422,7 @@ var el_gulndar = createMarker(36.0135, -106.3916, SettlementsIcon, 'Gulndar', 'A
 
 // var el_gulndar = L.marker([36.0135, -106.3916],{icon:citiesIcon}).bindPopup('<b>Gulndar</b>');
 
-//  4. Sachemdoms MARKERS
+//  4. Capitals MARKERS
 
 // var el_gulndar = L.marker([36.0135, -106.3916],{icon:citiesIcon}).bindPopup('<b>Gulndar</b>');
 
@@ -462,7 +462,7 @@ function showMarkerForm(latlng) {
     var name = document.getElementById('marker-name').value || 'Marker';
     var description =
       document.getElementById('marker-description').value || '';
-    var iconKey = document.getElementById('marker-icon').value || 'city';
+    var iconKey = document.getElementById('marker-icon').value || 'wigwam';
     var data = {
       lat: latlng.lat,
       lng: latlng.lng,
@@ -486,7 +486,7 @@ function showMarkerForm(latlng) {
     cancelBtn.removeEventListener('click', cancelHandler);
     document.getElementById('marker-name').value = '';
     document.getElementById('marker-description').value = '';
-    document.getElementById('marker-icon').value = 'city';
+    document.getElementById('marker-icon').value = 'wigwam';
   }
 
   saveBtn.addEventListener('click', submitHandler);
@@ -503,19 +503,19 @@ function editMarkerForm(marker) {
 
   document.getElementById('marker-name').value = marker._data.name || '';
   document.getElementById('marker-description').value = marker._data.description || '';
-  document.getElementById('marker-icon').value = marker._data.icon || 'city';
+  document.getElementById('marker-icon').value = marker._data.icon || 'wigwam';
   if (title) title.textContent = 'Edit Marker';
 
   function submitHandler() {
     var name = document.getElementById('marker-name').value || 'Marker';
     var description = document.getElementById('marker-description').value || '';
-    var iconKey = document.getElementById('marker-icon').value || 'city';
+    var iconKey = document.getElementById('marker-icon').value || 'wigwam';
 
     marker._data.name = name;
     marker._data.description = description;
     marker._data.icon = iconKey;
 
-    var newIcon = iconMap[iconKey] || geographicalLocationsIcon;
+    var newIcon = iconMap[iconKey] || WigwamIcon;
     marker.setIcon(newIcon);
     marker._baseIconOptions = JSON.parse(JSON.stringify(newIcon.options));
     rescaleIcons();
@@ -533,7 +533,7 @@ function editMarkerForm(marker) {
     cancelBtn.removeEventListener('click', cancelHandler);
     document.getElementById('marker-name').value = '';
     document.getElementById('marker-description').value = '';
-    document.getElementById('marker-icon').value = 'city';
+    document.getElementById('marker-icon').value = 'wigwam';
     if (title) title.textContent = 'Add Marker';
   }
 
