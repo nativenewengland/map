@@ -89,6 +89,54 @@ map.on('click', function () {
                 popupAnchor: [0.125, -1.25],
                 tooltipAnchor: [1.42, -0.625]
         });
+  var AgricultureIcon = L.icon({
+                iconUrl:       'icons/plantinggrounds.png',
+                iconRetinaUrl: 'icons/plantinggrounds.png',
+                iconSize:    [1.25, 1.25],
+                iconAnchor:  [0.625, 1.25],
+                popupAnchor: [0.125, -1.25],
+                tooltipAnchor: [0.625, -0.625]
+        });
+  var PteroglyphIcon = L.icon({
+                iconUrl:       'icons/petrogliph.png',
+                iconRetinaUrl: 'icons/petrogliph.png',
+                iconSize:    [1.25, 1.25],
+                iconAnchor:  [0.625, 1.25],
+                popupAnchor: [0.125, -1.25],
+                tooltipAnchor: [0.625, -0.625]
+        });
+  var MineIcon = L.icon({
+                iconUrl:       'icons/mine.png',
+                iconRetinaUrl: 'icons/mine.png',
+                iconSize:    [1.25, 1.25],
+                iconAnchor:  [0.625, 1.25],
+                popupAnchor: [0.125, -1.25],
+                tooltipAnchor: [0.625, -0.625]
+        });
+  var FortsIcon = L.icon({
+                iconUrl:       'icons/fort.png',
+                iconRetinaUrl: 'icons/fort.png',
+                iconSize:    [1.25, 1.25],
+                iconAnchor:  [0.625, 1.25],
+                popupAnchor: [0.125, -1.25],
+                tooltipAnchor: [0.625, -0.625]
+        });
+  var ChambersIcon = L.icon({
+                iconUrl:       'icons/csl.png',
+                iconRetinaUrl: 'icons/csl.png',
+                iconSize:    [1.25, 1.25],
+                iconAnchor:  [0.625, 1.25],
+                popupAnchor: [0.125, -1.25],
+                tooltipAnchor: [0.625, -0.625]
+        });
+  var CampsIcon = L.icon({
+                iconUrl:       'icons/fire.png',
+                iconRetinaUrl: 'icons/fire.png',
+                iconSize:    [1.25, 1.25],
+                iconAnchor:  [0.625, 1.25],
+                popupAnchor: [0.125, -1.25],
+                tooltipAnchor: [0.625, -0.625]
+        });
 
 
 // Map of icon keys to actual icons
@@ -98,6 +146,12 @@ var iconMap = {
   capital: CapitalIcon,
   rock: RockIcon,
   fishing: FishingIcon,
+  agriculture: AgricultureIcon,
+  pteroglyph: PteroglyphIcon,
+  mine: MineIcon,
+  forts: FortsIcon,
+  chambers: ChambersIcon,
+  camps: CampsIcon,
 };
 
 // Store custom marker data and marker instances
