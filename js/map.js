@@ -116,10 +116,10 @@ map.on('click', function () {
   var FortsIcon = L.icon({
                 iconUrl:       'icons/fort.png',
                 iconRetinaUrl: 'icons/fort.png',
-                iconSize:    [1.25, 1.25],
-                iconAnchor:  [0.625, 1.25],
-                popupAnchor: [0.125, -1.25],
-                tooltipAnchor: [0.625, -0.625]
+                iconSize:    [2, 1.25],
+                iconAnchor:  [1, 1.25],
+                popupAnchor: [0.2, -1.25],
+                tooltipAnchor: [1, -0.625]
         });
   var ChambersIcon = L.icon({
                 iconUrl:       'icons/csl.png',
