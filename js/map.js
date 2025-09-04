@@ -78,6 +78,18 @@ map.on('click', function () {
                 popupAnchor: [0.125, -1.25],
                 tooltipAnchor: [0.625, -0.625]
         });
+  // Fishing
+  var fishingIconPath =
+    'icons/' +
+    'commonwealth_7h14b159j_productionMaster25.psb_0000s_0029_Fish_icon_(The_Noun_Project_27052).svg.png';
+  var FishingIcon = L.icon({
+                iconUrl:       fishingIconPath,
+                iconRetinaUrl: fishingIconPath,
+                iconSize:    [1.25, 1.25],
+                iconAnchor:  [0.625, 1.25],
+                popupAnchor: [0.125, -1.25],
+                tooltipAnchor: [0.625, -0.625]
+        });
 
 
 // Map of icon keys to actual icons
@@ -86,6 +98,7 @@ var iconMap = {
   settlement: SettlementsIcon,
   sachemdom: SachemdomsIcon,
   trading: TradingIcon,
+  fishing: FishingIcon,
 };
 
 // Store custom marker data and marker instances
