@@ -564,7 +564,7 @@ function showTextForm(latlng) {
       return;
     }
     var description = document.getElementById('text-label-description').value || '';
-    var size = parseInt(document.getElementById('text-label-size').value, 10) || 14;
+    var size = parseFloat(document.getElementById('text-label-size').value) || 14;
     var angle = parseFloat(document.getElementById('text-label-angle').value) || 0;
     var spacing = parseFloat(document.getElementById('text-letter-spacing').value) || 0;
     var curve = parseFloat(document.getElementById('text-curve-radius').value) || 0;
@@ -626,7 +626,7 @@ function editTextForm(labelMarker) {
       return;
     }
     var description = document.getElementById('text-label-description').value || '';
-    var size = parseInt(document.getElementById('text-label-size').value, 10) || 14;
+    var size = parseFloat(document.getElementById('text-label-size').value) || 14;
     var angle = parseFloat(document.getElementById('text-label-angle').value) || 0;
     var spacing = parseFloat(document.getElementById('text-letter-spacing').value) || 0;
     var curve = parseFloat(document.getElementById('text-curve-radius').value) || 0;
