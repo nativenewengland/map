@@ -83,10 +83,11 @@ map.on('click', function () {
   var FishingIcon = L.icon({
                 iconUrl:       fishingIconPath,
                 iconRetinaUrl: fishingIconPath,
-                iconSize:    [1.25, 1.25],
-                iconAnchor:  [0.625, 1.25],
+                // Preserve the original aspect ratio of the fish icon (25x11)
+                iconSize:    [2.84, 1.25],
+                iconAnchor:  [1.42, 1.25],
                 popupAnchor: [0.125, -1.25],
-                tooltipAnchor: [0.625, -0.625]
+                tooltipAnchor: [1.42, -0.625]
         });
 
 
