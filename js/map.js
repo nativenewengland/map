@@ -79,9 +79,7 @@ map.on('click', function () {
                 tooltipAnchor: [0.625, -0.625]
         });
   // Fishing
-  var fishingIconPath =
-    'icons/' +
-    'commonwealth_7h14b159j_productionMaster25.psb_0000s_0029_Fish_icon_(The_Noun_Project_27052).svg.png';
+  var fishingIconPath = 'icons/fish.png';
   var FishingIcon = L.icon({
                 iconUrl:       fishingIconPath,
                 iconRetinaUrl: fishingIconPath,
