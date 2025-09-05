@@ -458,13 +458,6 @@ var baseTextLabels = [
     size: 24,
     angle: 90,
   },
-  {
-    lat: 42.6,
-    lng: -70.9,
-    text: 'Agawam',
-    description: '',
-    size: 24,
-  },
 ];
 baseTextLabels.forEach(addTextLabelToMap);
 
@@ -490,25 +483,6 @@ var baseTerritories = [
       [35.8, -106.6],
     ],
     style: { color: '#0078ff', fillColor: '#0078ff', fillOpacity: 0.3 },
-  },
-  {
-    name: 'Agawam Territory',
-    description: 'Territory of the Agawam people around Cape Ann.',
-    coords: [
-      [42.85, -70.92],
-      [42.87, -70.7],
-      [42.75, -70.58],
-      [42.62, -70.6],
-      [42.55, -70.67],
-      [42.5, -70.82],
-      [42.44, -70.93],
-      [42.36, -71.04],
-      [42.36, -71.15],
-      [42.47, -71.2],
-      [42.6, -71.23],
-      [42.75, -71.1],
-    ],
-    style: { color: '#666666', fillColor: '#666666', fillOpacity: 0.3 },
   },
 ];
 baseTerritories.forEach(addPolygonToMap);
