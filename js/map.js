@@ -543,31 +543,6 @@ if (storedPolygons) {
   customPolygons.forEach(addPolygonToMap);
 }
 
-var baseTerritories = [
-  {
-    name: 'Northern Territory',
-    description: 'Example northern area.',
-    coords: [
-      [35.8, -106.6],
-      [35.8, -105.8],
-      [36.4, -105.8],
-      [36.4, -106.6],
-    ],
-    style: { color: '#ff7800', fillColor: '#ff7800', fillOpacity: 0.3 },
-  },
-  {
-    name: 'Southern Territory',
-    description: 'Example southern area.',
-    coords: [
-      [35.2, -106.6],
-      [35.2, -105.8],
-      [35.8, -105.8],
-      [35.8, -106.6],
-    ],
-    style: { color: '#0078ff', fillColor: '#0078ff', fillOpacity: 0.3 },
-  },
-];
-baseTerritories.forEach(addPolygonToMap);
 
 // //// START OF MARKERS
 // 1. Marker declarations
