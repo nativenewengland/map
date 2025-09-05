@@ -1,11 +1,137 @@
-type,lat,lng,icon,name,text,description,size,angle,spacing,curve,coords,style
-marker,-45.26234343928954,64.16015625000001,wigwam,fgdg,,dfgfdg,,,,,,{}
-marker,-56.03042378922171,123.31054687500001,fishing,sdfsd,,dsf,,,,,,{}
-marker,-29.37008590377213,87.18750000000001,agriculture,fdsd,,dfdds,,,,,,{}
-marker,-32.9869654858718,131.52832031250003,mine,fds,,sfds,,,,,,{}
-marker,-30.42862723175495,124.39017024140311,wigwam,Marker,,,,,,,,{}
-marker,-39.35391244254016,114.98729447451957,wigwam,gdfg,,fdgf,,,,,,{}
-text,-51.180898213428264,109.24804687500001,,,fsdfsd,,14,0,0,0,,
-text,-20.54970293383794,52.29156876877413,,,xcgfd,dfgdfg,14,-14,-3,-16,,
-text,-32.71070343687717,123.44602834078046,,,XVXCV,CXVXCV,14,0,0,0,,
-text,-30.634949668467346,84.77199916497837,,,dasd,sadasd,23,43,11,34,,
+type,lat,lng,icon,name,text,description,size,angle,spacing,curve,coords,style,category,overlay_group
+marker,-45.26234343928954,64.16015625000001,marker,fgdg,,dfgfdg,,,,,,{},other,other
+marker,-56.03042378922171,123.310546875,marker,sdfsd,,dsf,,,,,,{},other,other
+marker,-29.37008590377213,87.18750000000001,marker,fdsd,,dfdds,,,,,,{},other,other
+marker,-32.9869654858718,131.52832031250003,marker,fds,,sfds,,,,,,{},other,other
+marker,-30.42862723175495,124.39017024140313,marker,Marker,,,,,,,,{},other,other
+marker,-39.35391244254016,114.98729447451956,marker,gdfg,,fdgf,,,,,,{},other,other
+text,-51.18089821342826,109.248046875,marker,,fsdfsd,,14.0,0.0,0.0,0.0,,,other,other
+text,-20.54970293383794,52.29156876877413,marker,,xcgfd,dfgdfg,14.0,-14.0,-3.0,-16.0,,,other,other
+text,-32.71070343687717,123.44602834078046,marker,,XVXCV,CXVXCV,14.0,0.0,0.0,0.0,,,other,other
+text,-30.634949668467343,84.77199916497837,marker,,dasd,sadasd,23.0,43.0,11.0,34.0,,,other,other
+text,,,fishing,Ahampatunshauge,Ahampatunshauge,"Aliases: ['Ahampatunshauge', 'Ahumpatunshauge']. Mentioned asaboundary inoriginal deed ofRutland, March 15,1686-87 (Middlesex Registry ofDeeds, book 16,page 511) :""And sotoAhampatunshauge, alittlepond.""",14.0,0.0,0.0,0.0,,{},water,pond
+text,,,fishing,Asquoach,Asquoach,"Aliases: ['Asquoach', 'Ashquoash', 'Ashquoach']. Ahillnamed intheIndian deed ofBrookfield.",14.0,0.0,0.0,0.0,,{},water,river
+text,,,fishing,Asnebumskit,Asnebumskit,"Aliases: ['Asnebumskit', 'Hasnebumskitt']. Alarge hillinPaxton andHolden, and apond inPaxton.",14.0,0.0,0.0,0.0,,{},water,pond
+text,,,lookout,Aspomsok,Aspomsok,"Aliases: ['Aspomsok']. TheIndian deed ofthetownship ofTowtaid (Leicester) recorded March 8,1713-14, butmade the27th ofJanuary, 1686, mentions this hillasoneoftheboundaries.",14.0,0.0,0.0,0.0,,{},hill,hill
+text,,,fishing,Assabet,Assabet,"Aliases: ['Assabet']. Ariver rising inBerlin, Grafton, andNorthboro, flows through Westboro, Northboro, forms thenorth branch ofthe Concord river.",14.0,0.0,0.0,0.0,,{},water,river
+text,,,fishing,Assawaga,Assawaga,"Aliases: ['Assawaga', 'Assawogga']. Name ofriver inConn., formerly part inMassachusetts, now called Five Mile river.",14.0,0.0,0.0,0.0,,{},water,river
+text,,,fishing,Augutteback,Augutteback,Aliases: ['Augutteback']. Apond inthewestern part ofOxford.,14.0,0.0,0.0,0.0,,{},water,pond
+text,,,fishing,Chequapee,Chequapee,"Aliases: ['Chequapee', 'Chickopee', 'Chicabee']. Alarge river inthecentral western part ofMassachusetts flowing into theConn.",14.0,0.0,0.0,0.0,,{},water,river
+text,,,fishing,Springfield,Springfield,"Aliases: ['Springfield']. Probably from' 'chikee""or""chekeyeu, "" 'itrages'or'is violent, 'and'pe 'theroot ofnames of'water 'innearly all Algonquin dialects, 'raging orrushing water.' CMkkup alsowasthename forCedar tree,andChikkuppee, anadjective meaning 'ofcedar.' Possibly thename isacor- ruption ofChikkuppee, auke, andwas first applied totheland inthevicinity oftheriver,'Cedar country.'",14.0,0.0,0.0,0.0,,{},water,river
+text,,,fishing,Chesquonopog,Chesquonopog,"Aliases: ['Chesquonopog', 'Chesquonapoage']. Pond inthenorthern part ofLancaster, ""mentioned asearly as1660 in(Lancaster) town records .",14.0,0.0,0.0,0.0,,{},water,pond
+text,,,fishing,Chockolog,Chockolog,"Aliases: ['Chockolog', 'Shockolog', 'Shokalog']. Pond inthesouthwest part ofUxbridge.",14.0,0.0,0.0,0.0,,{},water,pond
+text,,,fishing,Cohasset,Cohasset,"Aliases: ['Cohasset', 'Cohasee']. Brook inSouthbridge.",14.0,0.0,0.0,0.0,,{},water,river
+text,,,fishing,Equies,Equies,Aliases: ['Equies']. Brook andswamp mentioned inearly history ofNorth Brookfield.,14.0,0.0,0.0,0.0,,{},water,river
+text,,,lookout,Hassunnek,Hassunnek,"Aliases: ['Hassunnek']. Aname sometimes given toanoverhanging rockonStone house hillinHolden, fromwhich the hilltakes itsname.",14.0,0.0,0.0,0.0,,{},hill,hill
+text,,,marker,Hosokie,Hosokie,"Aliases: ['Hosokie']. Ameadow mentioned asaboundary oftheland ofJames Atherton inearly records ofLancaster (p.253), ""buting east- erdly uponsum part oftheHosokie meadow."" Probably a part ofthisword islost.",14.0,0.0,0.0,0.0,,{},other,other
+text,,,fishing,Hobomoco,Hobomoco,"Aliases: ['Hobomoco', 'Hobomoc']. Apond inthenorthwestern part ofWestborough near the Boston &Albany Railroad.",14.0,0.0,0.0,0.0,,{},water,pond
+text,,,marker,Kekamowadchaug,Kekamowadchaug,Aliases: ['Kekamowadchaug']. Between Woodstock andOxford.,14.0,0.0,0.0,0.0,,{},other,other
+text,,,fishing,Kequasagansett,Kequasagansett,"Aliases: ['Kequasagansett']. Theoldname oflake ineastern part ofBerlin, now called Gates pond—attheeastern base ofSawyer hill.",14.0,0.0,0.0,0.0,,{},water,pond
+text,,,fishing,Kuttatuck,Kuttatuck,"Aliases: ['Kuttatuck', 'Kuttutuck', 'Tittituck', 'Kittituck']. One ofthenames oftheBlackstone river.",14.0,0.0,0.0,0.0,,{},water,river
+text,,,fishing,Lashaway,Lashaway,"Aliases: ['Lashaway']. Name given tothelarge outlet ofWicoboag pond, inthe southern part ofWest Brookfield, about twenty orthirty rods inlength ;emptiesin totheQuinebaug river(Whitney's Hist.",14.0,0.0,0.0,0.0,,{},water,river
+text,,,fishing,Maanexit,Maanexit,"Aliases: ['Maanexit', 'Mayanexit', 'Mananexit']. Ariver rising inLiecester, runs through Oxford andWeb- 18 INDIAN NAMES ster, flows into theQuinnebaug atThompson, Conn.",14.0,0.0,0.0,0.0,,{},water,river
+text,,,lookout,Magomiscock,Magomiscock,Aliases: ['Magomiscock']. The highest hillinMilford.,14.0,0.0,0.0,0.0,,{},hill,hill
+text,,,lookout,Makamacheckamucks,Makamacheckamucks,"Aliases: ['Makamacheckamucks']. Ahillinthewestern part ofHarvard, nowProspect Hill.",14.0,0.0,0.0,0.0,,{},hill,hill
+text,,,marker,Manchaug,Manchaug,Aliases: ['Manchaug']. Land about Oxford.,14.0,0.0,0.0,0.0,,{},other,other
+text,,,lookout,Masharnugget,Masharnugget,"Aliases: ['Masharnugget', 'Mashgmuggett', 'Masharnurket']. Ahillinabout thecentre ofCharlton.",14.0,0.0,0.0,0.0,,{},hill,hill
+text,,,fishing,Maspenock,Maspenock,"Aliases: ['Maspenock']. Apond inthesouthwest corner ofHopkinton, and inavery small part ofMilford, now called North pond (Indian deed of Feb.",14.0,0.0,0.0,0.0,,{},water,pond
+text,,,fishing,Masquabamisk,Masquabamisk,"Aliases: ['Masquabamisk']. Mentioned asaboundary indeed ofthepurchase ofQua- baug (Brookfield), from Shattoockquis toLieut.",14.0,0.0,0.0,0.0,,{},water,river
+text,,,fishing,Massequockummis,Massequockummis,Aliases: ['Massequockummis']. Boundary mentioned indeed ofQuabaug (Brookfleld) land from Shattoockquis toLieut.,14.0,0.0,0.0,0.0,,{},water,river
+text,,,fishing,Masshapauge,Masshapauge,"Aliases: ['Masshapauge']. Pond inthesouthern part ofLunenburg, from Massa, 'large, 'andpaug,'pond.",14.0,0.0,0.0,0.0,,{},water,pond
+text,,,fishing,Matchuk,Matchuk,Aliases: ['Matchuk']. Ameadow andbrook inBrookfleld.,14.0,0.0,0.0,0.0,,{},water,river
+text,,,marker,Menomee,Menomee,Aliases: ['Menomee']. Mentioned inregistration ofland inWinchendon.,14.0,0.0,0.0,0.0,,{},other,other
+text,,,marker,Metewemesick,Metewemesick,"Aliases: ['Metewemesick']. ""An Indian settlement near Sturbridge, 'Place ofblack earth,' from theoccurrence ofthearticle."" (Wm.",14.0,0.0,0.0,0.0,,{},other,town
+text,,,fishing,Miscoe,Miscoe,Aliases: ['Miscoe']. Brook near theeastern boundary ofGrafton.,14.0,0.0,0.0,0.0,,{},water,river
+text,,,lookout,Miscoe,Miscoe,"Aliases: ['Miscoe', 'Misquoe', 'Miskee']. Ahillinthenorthwestern part ofMendon and inUpton.",14.0,0.0,0.0,0.0,,{},hill,hill
+text,,,lookout,Moantuhcake,Moantuhcake,Aliases: ['Moantuhcake']. AhillnearWashacum.,14.0,0.0,0.0,0.0,,{},hill,hill
+text,,,fishing,Mocassin,Mocassin,"Aliases: ['Mocassin']. Abrook, which rises inthesouthern part ofPhillipston, flows intoPetersham, andempties intoRutland brook.",14.0,0.0,0.0,0.0,,{},water,river
+text,,,fishing,Mohawk,Mohawk,Aliases: ['Mohawk']. Name ofbrook andoftwo hills inNorth Brookfield.,14.0,0.0,0.0,0.0,,{},water,river
+text,,,fishing,Monomonack,Monomonack,"Aliases: ['Monomonack']. Alake inRindge, N.H.,asmall part extending into",14.0,0.0,0.0,0.0,,{},water,pond
+text,,,fishing,Winchendon,Winchendon,"Aliases: ['Winchendon']. From thetermination ofthisname initspresent form it seems tohavebeen applied first totheland, orcountry, about thelake, ack,from auke, signifying 'place' or'land.' TheIndian name Monomansuonk signified 'avision,' and moneam 'helooks upon,' or'hebeholds it.' Possibly this namemaycome from thesame root,and signifies'theoutlook 25 INDIAN NAMES place.' Ezra S.Stearns says, inhishistory ofRindge, thatthe name issupposed tobederived fromMonan orMenem,'an island' (Hist, ofR.,p.15).",14.0,0.0,0.0,0.0,,{},water,pond
+text,,,lookout,Monoosnoc,Monoosnoc,"Aliases: ['Monoosnoc', 'Monoosuck']. Hills inthenorthwestern part ofLeominster andsouthern part ofFitchburg.",14.0,0.0,0.0,0.0,,{},hill,hill
+text,,,lookout,Mossonachud,Mossonachud,"Aliases: ['Mossonachud']. Boundary hillmentioned intheIndian deed ofTowtaid (Leicester), ""andfrom thence toalittle hillcalled Mossona- chud.'''' Jan., 1686.",14.0,0.0,0.0,0.0,,{},hill,hill
+text,,,fishing,Muschopauge,Muschopauge,"Aliases: ['Muschopauge', 'Muscopauge', 'Mustapauge']. Alargepond intheeastern part ofRutland.",14.0,0.0,0.0,0.0,,{},water,pond
+text,,,fishing,Mulpus,Mulpus,Aliases: ['Mulpus']. Abrook.,14.0,0.0,0.0,0.0,,{},water,river
+text,,,marker,Musshauge,Musshauge,"Aliases: ['Musshauge', 'Musehauge']. Mentioned intheIndian deed ofRutland asone ofthe boundaries in1686.",14.0,0.0,0.0,0.0,,{},other,other
+text,,,fishing,Nacommuck,Nacommuck,"Aliases: ['Nacommuck']. Brook inBrookfield flowing intotheQuaboag river, very near theoutlet ofQuaboag pond—nowMoore 'sbrook.",14.0,0.0,0.0,0.0,,{},water,river
+text,,,marker,Naltaug,Naltaug,"Aliases: ['Naltaug']. Boundary inIndian deed ofQuaboag, Nov.",14.0,0.0,0.0,0.0,,{},other,other
+text,,,marker,Naquag,Naquag,"Aliases: ['Naquag']. Ageneral name fortheterritory nowcomprising Rutland, Oakham, Hubbardston, Barre andparts ofPrinceton andPax- ton.",14.0,0.0,0.0,0.0,,{},other,other
+text,,,fishing,Natty,Natty,Aliases: ['Natty']. Pond inHubbardston.,14.0,0.0,0.0,0.0,,{},water,pond
+text,,,fishing,Nashaway,Nashaway,"Aliases: ['Nashaway', 'Nashaue', 'Nashawogg', 'Lancaster']. From Nashaue-ohke,'thelandbetween, 'and inthisplace referred tothelandbetween thebranches ofthe river.",14.0,0.0,0.0,0.0,,{},water,river
+text,,,marker,Naukeag,Naukeag,"Aliases: ['Naukeag', 'Naukheag']. Name inearly records applied totheneighborhood ofAsh- burnham.",14.0,0.0,0.0,0.0,,{},other,other
+text,,,fishing,Neesepegesuck,Neesepegesuck,"Aliases: ['Neesepegesuck']. Name oftwosmall ponds inthesouthern central part of Ashby, now called Wright's ponds.",14.0,0.0,0.0,0.0,,{},water,pond
+text,,,lookout,Nemoset,Nemoset,Aliases: ['Nemoset']. Mountain between Ashby andAshburnham.,14.0,0.0,0.0,0.0,,{},hill,hill
+text,,,wigwam,Nichewaug,Nichewaug,"Aliases: ['Nichewaug', 'Nichewoag', 'Nitchawog']. Avillage inthesouthwestern part ofPetersham, andthe original name oflandabout Petersham.",14.0,0.0,0.0,0.0,,{},settlement,town
+text,,,fishing,Neeseponset,Neeseponset,Aliases: ['Neeseponset']. Large pond inthenortheast corner ofDana.,14.0,0.0,0.0,0.0,,{},water,pond
+text,,,marker,Nipmuck,Nipmuck,"Aliases: ['Nipmuck', 'Nipmug', 'Nipnet']. Atribe ofIndians.",14.0,0.0,0.0,0.0,,{},other,other
+text,,,fishing,Nonacoicus,Nonacoicus,"Aliases: ['Nonacoicus', 'Nonecoicus', 'Nanajcoyijcus']. Afarm, brook andpond N.W.corner ofHarvard, andthe S.W.part ofAyer.",14.0,0.0,0.0,0.0,,{},water,river
+text,,,fishing,Nookagee,Nookagee,"Aliases: ['Nookagee', 'Nockege']. Name ofasmall stream, now Phillips brook, rising inAsh- burnham andflowing into the""North Branch"" Nashua river atWest Fitchburg.",14.0,0.0,0.0,0.0,,{},water,river
+text,,,lookout,Ockoocangansett,Ockoocangansett,"Aliases: ['Ockoocangansett']. '*TheIndian name forthe hillback oftheoldmeeting- house inMarlborough"" (Hist, ofNorthborough, Wore.",14.0,0.0,0.0,0.0,,{},hill,hill
+text,,,lookout,Packachoog,Packachoog,"Aliases: ['Packachoog', 'Pakachoag', 'Boggachoag']. Ahill inthesoutheastern part ofthecityofWorcester.",14.0,0.0,0.0,0.0,,{},hill,hill
+text,,,fishing,Pautauge,Pautauge,"Aliases: ['Pautauge']. Hill inWest Brookfield between Coy's andtheWest Rag- ged billsmentioned inBrookfield Book ofLand Grants (Tem- ple) .Itmaybederived from Pootoae,' 'bulging outorjutting.'' Paut-auge.'Bulging outland.'",14.0,0.0,0.0,0.0,,{},water,river
+text,,,fishing,Paupakquamcock,Paupakquamcock,"Aliases: ['Paupakquamcock', 'Paupogquinog']. Apond mentioned intheoriginal deed ofLeicester.''And westerly, themost southermost corner, upon alittlepond called Paupakquamock ""(Indian deed ofthetownship).",14.0,0.0,0.0,0.0,,{},water,pond
+text,,,fishing,Penacook,Penacook,"Aliases: ['Penacook', 'Penecuck', 'Penecook']. Anoldname ofthat part oftheNashua river inLan- caster after being joined bytheNorth river orNorth branch.",14.0,0.0,0.0,0.0,,{},water,river
+text,,,fishing,Penkese,Penkese,"Aliases: ['Penkese']. Anisland inMonomonack lake,N.E.part ofWinchendon.",14.0,0.0,0.0,0.0,,{},water,pond
+text,,,fishing,Podunk,Podunk,"Aliases: ['Podunk']. ""Quabaug Pond, nowmore generally denominated Podunk, from atract ofmeadow adjoining which theIndians called Podunk."" (Whitney's Wor.",14.0,0.0,0.0,0.0,,{},water,pond
+text,,,fishing,Pomagusset,Pomagusset,"Aliases: ['Pomagusset']. Brook rising intheN.E.part ofRutland, flowing west into Ware river.",14.0,0.0,0.0,0.0,,{},water,river
+text,,,marker,Pompwanganug,Pompwanganug,"Aliases: ['Pompwanganug', 'Pomponagang']. Formerly inMassachusetts.",14.0,0.0,0.0,0.0,,{},other,other
+text,,,fishing,Ponikin,Ponikin,"Aliases: ['Ponikin', 'Ponnakin']. (See Quassaponikin.*) Namenowgiven toahillintheN.E.partofCharlton, near 36 INDIAN NAMES Little river.",14.0,0.0,0.0,0.0,,{},water,river
+text,,,fishing,Poohookapog,Poohookapog,"Aliases: ['Poohookapog', 'Pookookappog', 'Poohpoohsaug']. OrAlum pond.",14.0,0.0,0.0,0.0,,{},water,pond
+text,,,fishing,Popoloup,Popoloup,"Aliases: ['Popoloup']. Anisland inMonomonack lake,N.E.part ofWinchendon.",14.0,0.0,0.0,0.0,,{},water,pond
+text,,,fishing,Poquaig,Poquaig,"Aliases: ['Poquaig', 'Payquaoge']. (Worcester Magazine.) Indian name oflandabout Winch- endon, also ofAthol, and ofMiller 'sriver, which rises in Minomee pond inWinchendon, flows through Royalston and",14.0,0.0,0.0,0.0,,{},water,river
+text,,,fishing,Athol,Athol,"Aliases: ['Athol']. Thisname originally must have applied totheland about theriver, and itisundoubtedly derived fromPauqu'unauke, sig- nifying'cultivated land; ''cleared land.",14.0,0.0,0.0,0.0,,{},water,river
+text,,,fishing,Pottapoug,Pottapoug,Aliases: ['Pottapoug']. Pond and hill intheS.W.part ofDana—outlet into Chicopee river.,14.0,0.0,0.0,0.0,,{},water,river
+text,,,fishing,Potepog,Potepog,"Aliases: ['Potepog', 'Potepaug', 'Potebaug']. Astream andmeadow inBrookfield.",14.0,0.0,0.0,0.0,,{},water,river
+text,,,fishing,Quabaug,Quabaug,"Aliases: ['Quabaug', 'Quebaog', 'Queboag', 'Quoboag', 'Beookfield']. Name ofalargepondandriver inBrookfield.",14.0,0.0,0.0,0.0,,{},water,river
+text,,,fishing,Quacumouasit,Quacumouasit,"Aliases: ['Quacumouasit']. Apond between Sturbridge andBrookfield, south ofQuo- boag pond, bywhich itisconnected byacanal, now called South pond.",14.0,0.0,0.0,0.0,,{},water,river
+text,,,fishing,Quag,Quag,"Aliases: ['Quag']. Pond intheS.E.part ofGardner, oneofthesources of Pew brook.",14.0,0.0,0.0,0.0,,{},water,river
+text,,,marker,Quanitick,Quanitick,"Aliases: ['Quanitick']. Mentioned asoneoftheboundaries intheIndian deed of Rutland, dated Dec.",14.0,0.0,0.0,0.0,,{},other,other
+text,,,fishing,Quassuck,Quassuck,"Aliases: ['Quassuck', 'Quassink']. NowLeadMine pond inthewestern part ofSturbridge, mentioned inletter ofWilliam Pynchon toStephen Day in 1644, ""that place ofQuassuck."" Ishould suppose thename wasapplied first toLead Mine brook from itstermination, ""suck,"" which signifies ""astream flowing outofapond or lake."" (Trumbull.) Quassuck, thelargest outlet.",14.0,0.0,0.0,0.0,,{},water,river
+text,,,fishing,Quinebaug,Quinebaug,"Aliases: ['Quinebaug']. Ariverwhich rises inthetown ofBrimfield, inthecounty ofHampshire, andruns east into thecounty ofWorcester through Sturbridge, Southbridge andDudley, intoConnecticut.",14.0,0.0,0.0,0.0,,{},water,river
+text,,,fishing,Qtiinepoxet,Qtiinepoxet,"Aliases: ['Qtiinepoxet']. Name ofapond inPrinceton andHolden, and also ofa river, and hillinHolden.",14.0,0.0,0.0,0.0,,{},water,river
+text,,,marker,Quinsigamond,Quinsigamond,"Aliases: ['Quinsigamond', 'Quansigemog', 'Quansigamaug', 'Ouansigamug']. Original name ofWorcester.",14.0,0.0,0.0,0.0,,{},other,other
+text,,,lookout,Quissitt,Quissitt,"Aliases: ['Quissitt', 'Quissett']. AhillintheN.E.part ofBlackstone and inMendon.",14.0,0.0,0.0,0.0,,{},hill,hill
+text,,,fishing,Saccarappa,Saccarappa,Aliases: ['Saccarappa']. Namenowgiven toapond andtheland about itintheS.,14.0,0.0,0.0,0.0,,{},water,pond
+text,,,lookout,Sagatabscot,Sagatabscot,"Aliases: ['Sagatabscot']. Ahillinthesoutheastern part ofWorcester, probably from siogke,'hard, 'ompsk,'rock, 'andthe local affix signifying 'theplace ofhard rock.' Aquarry wasextensively worked onthesouth endofSaga- tabscot hillformany years.",14.0,0.0,0.0,0.0,,{},hill,hill
+text,,,fishing,Sasagookapaug,Sasagookapaug,"Aliases: ['Sasagookapaug']. Apond mentioned asaboundary intheoriginal Indian deed ofHardwick in1686, ""easterly thesouthermost corner upon a pond called Sasagookapaug.'' Thisnamemaybefrom Sesegkpaug orSesekqpaug,*adder pond'— Sesequaog,'adders orpoisonous adders.",14.0,0.0,0.0,0.0,,{},water,pond
+text,,,marker,Sasaketasick,Sasaketasick,"Aliases: ['Sasaketasick', 'Sassakataffick']. Mentioned asaboundary intheoriginal deed ofRutland, March 15,1686-87 (Middlesex Regs, ofDeeds, book 16,p.",14.0,0.0,0.0,0.0,,{},other,other
+text,,,fishing,Senexet,Senexet,"Aliases: ['Senexet']. ""Valley andmeadow land adjoining Muddy Brook in Woodstock, ""Connecticut, butformerly inMassachusetts, north oftheWoodward's andSaffrey's line.NearPomponagang hill.(Onancient map ofWindham Co., vol.",14.0,0.0,0.0,0.0,,{},water,river
+text,,,fishing,Souhegan,Souhegan,"Aliases: ['Souhegan', 'Sowhagon']. River rising intheponds ofeastern Ashburnham, flows through theN.W.part ofAshby intoNewHampshire.",14.0,0.0,0.0,0.0,,{},water,river
+text,,,fishing,Squannacook,Squannacook,"Aliases: ['Squannacook']. Ariverwhich rises inthenorthern partofTownsend, forms theboundary between Shirley andGroton, andflows into the Nashua.",14.0,0.0,0.0,0.0,,{},water,river
+text,,,fishing,Sumpauge,Sumpauge,"Aliases: ['Sumpauge']. Apond, oneoftheboundaries inIndian deed ofRutland (Middlesex Record ofDeeds, dated Dec.",14.0,0.0,0.0,0.0,,{},water,pond
+text,,,marker,Tahanto,Tahanto,Aliases: ['Tahanto']. Ibelieve thename wassuggested bytheHon.Henry S.,14.0,0.0,0.0,0.0,,{},other,other
+text,,,marker,Tantousque,Tantousque,"Aliases: ['Tantousque', 'Tantiusques']. Thename bywhich themineral region, now inSturbridge, wasknown in1644.",14.0,0.0,0.0,0.0,,{},other,other
+text,,,wigwam,Tatnuck,Tatnuck,"Aliases: ['Tatnuck', 'Tatnick']. Avillage inthewestern part ofWorcester.",14.0,0.0,0.0,0.0,,{},settlement,town
+text,,,fishing,Titicut,Titicut,"Aliases: ['Titicut', 'Tittituck']. Keh-teih-tuk-qut (Eliot Bible, Gen.XV: 18,""on thegreat river"").",14.0,0.0,0.0,0.0,,{},water,river
+text,,,lookout,Towtaid,Towtaid,"Aliases: ['Towtaid', 'Leicester']. With very little doubt thisname isacorruption ofT'ohteck orAct-ohteak, and signifies,'Attheopen (orcultivated) field.' Theearly settlers ofLeicester found onBald hill,which isin theeasterly part ofthetown, alittleN.W.from thevillage of Cherry Valley, alarge field cleared andcultivated bytheIn- dians.",14.0,0.0,0.0,0.0,,{},hill,hill
+text,,,fishing,Uncachewalunk,Uncachewalunk,"Aliases: ['Uncachewalunk', 'Unkachewalunk', 'Kachewalunck']. Alarge pond inthe S.W.part ofLunenburg, onthe boundary line ofLeominster.",14.0,0.0,0.0,0.0,,{},water,pond
+text,,,lookout,Vaughan,Vaughan,"Aliases: ['Vaughan', 'Hill']. Ahillinthenorthwestern part ofBolton.",14.0,0.0,0.0,0.0,,{},hill,hill
+text,,,fishing,Wabaquasset,Wabaquasset,"Aliases: ['Wabaquasset', 'Wabaquassuck']. Name applied to""atractwest oftheQuinebaug river north ofalinerunning northwesterly from thejunction oftheQuine- baugandAssawaga rivers.' '(MissLamed 'sHistory ofWind- hamCo., 1,page 1.)Asmall portion ofthistractwasprobably inWorcester county.",14.0,0.0,0.0,0.0,,{},water,river
+text,,,marker,Wacuntug,Wacuntug,"Aliases: ['Wacuntug', 'Wacantuck', 'Wacatuc']. TheIndian name oflandabout Uxbridge.",14.0,0.0,0.0,0.0,,{},other,other
+text,,,lookout,Wachusett,Wachusett,"Aliases: ['Wachusett', 'Wadchusett']. Amountain inPrinceton.",14.0,0.0,0.0,0.0,,{},hill,hill
+text,,,lookout,Watchusecic,Watchusecic,"Aliases: ['Watchusecic']. Hill inUxbridge, mentioned inanaddress atUxbridge by Hon.",14.0,0.0,0.0,0.0,,{},hill,hill
+text,,,marker,Wallamanumpscook,Wallamanumpscook,"Aliases: ['Wallamanumpscook']. Mentioned asaboundary inIndian deed ofRutland, Dec.",14.0,0.0,0.0,0.0,,{},other,other
+text,,,fishing,Wallum,Wallum,"Aliases: ['Wallum']. Pond and hill,southwest part ofDouglas, thepond ex- tending into Burrillville, R.I.""Socalled from aQuinebaug captain, whose name (meaning'TheFox' Peq.A'wumps) was variously written :Allums, Allumps, Hyems, JTyemps, lams, etc.—Conn.",14.0,0.0,0.0,0.0,,{},water,pond
+text,,,marker,Wanchatopick,Wanchatopick,"Aliases: ['Wanchatopick', 'Wonketopick']. Boundary inIndian deed ofDec.",14.0,0.0,0.0,0.0,,{},other,other
+text,,,fishing,Wanommock,Wanommock,"Aliases: ['Wanommock', 'Wanomchouck']. Ponds described inLieut.",14.0,0.0,0.0,0.0,,{},water,pond
+text,,,marker,Wanoosnoc,Wanoosnoc,Aliases: ['Wanoosnoc']. Thename ofaroad inFitchburg.,14.0,0.0,0.0,0.0,,{},other,other
+text,,,lookout,Wapososhequash,Wapososhequash,"Aliases: ['Wapososhequash']. Ahillamile ortwowest ofwhat isnowWoodstock hill, Wabbaquasset (Miss Lamed, Hist, ofWindham Co., vol.",14.0,0.0,0.0,0.0,,{},hill,hill
+text,,,fishing,Watananock,Watananock,Aliases: ['Watananock']. Another name fortheNashua river.,14.0,0.0,0.0,0.0,,{},water,river
+text,,,marker,Wataquadock,Wataquadock,"Aliases: ['Wataquadock']. ""Bywhich thegreat ridge which bounds theNashaway valley ontheeasthaseverbeenknown.' '(Bibl.",14.0,0.0,0.0,0.0,,{},other,other
+text,,,fishing,Watatick,Watatick,"Aliases: ['Watatick']. Name ofmountain inN.E.part ofAshburnham, also Little Watatick mountain; alsoname ofpond near themountain.",14.0,0.0,0.0,0.0,,{},water,pond
+text,,,lookout,Washwantohminunk,Washwantohminunk,"Aliases: ['Washwantohminunk', 'Washwantownowmow']. Ahill inWoodstock, Conn., butverynear theMassachu- setts line.",14.0,0.0,0.0,0.0,,{},hill,hill
+text,,,fishing,Waushacum,Waushacum,"Aliases: ['Waushacum']. Thename oftwolargeponds inSterling, ontheWorcester &Nashua Railroad, neartheSterling Camp-ground.",14.0,0.0,0.0,0.0,,{},water,pond
+text,,,fishing,Wecobaug,Wecobaug,"Aliases: ['Wecobaug', 'Wicabaug', 'Wickaboag']. Apond inthewestern part ofWest Brookfield,' 'andhas onelarge outlet intotherivertwenty orthirty rods inlength, called Lashaway (Whitney's Wore.",14.0,0.0,0.0,0.0,,{},water,river
+text,,,lookout,Wekapekatonnuc,Wekapekatonnuc,"Aliases: ['Wekapekatonnuc', 'Wikapokotownow']. Ahillmentioned iQtheoriginal deed ofLeicester asoneof theboundaries.",14.0,0.0,0.0,0.0,,{},hill,hill
+text,,,marker,Wequaes,Wequaes,"Aliases: ['Wequaes', 'Ueques']. Mentioned asaboundary intheIndian deed ofHardwick in1686.",14.0,0.0,0.0,0.0,,{},other,other
+text,,,lookout,Whipsuppenicke,Whipsuppenicke,"Aliases: ['Whipsuppenicke', 'Whipsufferadge']. The land granted tothe settlers ofMarlboro,' 'became known astheWhipsuppenick ormorecommonly theWhippsuf- feradge Plantation from theIndian name ofthe hillwhich lies amile orsosouth ofOkommohamesit."" (DeForest, Hist, of Marlboro,"" p.14.) This grant wasincreased later, andwhat wasthenknown asMarlboro now constitutes Southborough, most ofWestborough andNorthborough andapart ofHudson.",14.0,0.0,0.0,0.0,,{},hill,hill
+text,,,fishing,Wickapicket,Wickapicket,"Aliases: ['Wickapicket']. Abrook rising inSterling, flows through thenorthwestern part ofLancaster intothenorth branch oftheNashua river.",14.0,0.0,0.0,0.0,,{},water,river
+text,,,fishing,Wiccopee,Wiccopee,"Aliases: ['Wiccopee']. Aname ofapass inDutchess Co.,N.Y.,also ofapond inPutnam Co.,N.Y.,also aname ofaNewYork tribe of",14.0,0.0,0.0,0.0,,{},water,pond
+text,,,marker,Indians,Indians,Aliases: ['Indians']. Wigwam.,14.0,0.0,0.0,0.0,,{},other,other
+text,,,marker,England,England,"Aliases: ['England']. Winnimissett, Wenimisset.",14.0,0.0,0.0,0.0,,{},other,other
+text,,,marker,Wonchesix,Wonchesix,Aliases: ['Wonchesix']. Thisname isfound inadeposition made byThos.,14.0,0.0,0.0,0.0,,{},other,other
+text,,,marker,Woonksechocksett,Woonksechocksett,"Aliases: ['Woonksechocksett', 'Wonksacoxet', 'Ocsechoxit', 'Chocksett']. Name applied tolandabout Sterling.",14.0,0.0,0.0,0.0,,{},other,other
+text,,,marker,Wopowage,Wopowage,Aliases: ['Wopowage']. Erroneously given inNason 'sMassachusetts Gazetteer and inHayward 'sGazetteer ofNewEngland astheIndian name of Milford.,14.0,0.0,0.0,0.0,,{},other,other
+text,,,fishing,Wullamanick,Wullamanick,"Aliases: ['Wullamanick']. AhillinBrookfield north ofQuabaug pond nearFiveMile river, mentioned asaboundary ofBrookfield intheIndian deedfrom Sattoockquis toLieut.",14.0,0.0,0.0,0.0,,{},water,river
+text,,,marker,Wunnashowatuckqut,Wunnashowatuckqut,"Aliases: ['Wunnashowatuckqut', 'Showatuckqut']. ""The country oftheWunnashowatuckoogs mentioned by Roger Williams in1637 asconfederates ofthePequots.",14.0,0.0,0.0,0.0,,{},other,other
+text,,,sacred_rock,Wusquowhanawkits,Wusquowhanawkits,"Aliases: ['Wusquowhanawkits']. ""People ofthePigeon country."" ""Who arethefurthermost Nipnet men.'' (Wuskowhan, 'Pigeon,' R.W.) Probably near theforks oftheBlackstone.",14.0,0.0,0.0,0.0,,{},rock,rock
