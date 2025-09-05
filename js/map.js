@@ -465,39 +465,16 @@ function createMarker(lat, lng, icon, name, description) {
   allMarkers.push(m);
   return m;
 }
-
-var el_gulndar = createMarker(36.0135, -106.3916, SettlementsIcon, 'Gulndar', 'A small but bustling town.');
-//  2.Trading post markers
-
-// var el_gulndar = L.marker([36.0135, -106.3916],{icon:citiesIcon}).bindPopup('<b>Gulndar</b>');
-
-//  3. Geographical Locations MARKERS
-
-// var el_gulndar = L.marker([36.0135, -106.3916],{icon:citiesIcon}).bindPopup('<b>Gulndar</b>');
-
-//  4. Capitals MARKERS
-
-// var el_gulndar = L.marker([36.0135, -106.3916],{icon:citiesIcon}).bindPopup('<b>Gulndar</b>');
-
-//  5. Forts/Castles MARKERS
-
-// var el_gulndar = L.marker([36.0135, -106.3916],{icon:citiesIcon}).bindPopup('<b>Gulndar</b>');
-
-//  6. Temples MARKERS
-
-// var el_gulndar = L.marker([36.0135, -106.3916],{icon:citiesIcon}).bindPopup('<b>Gulndar</b>');
-
-
 // ******END OF MARKERS DECLARATION ******
 
 // MARKER GROUPS
-var Settlements = L.layerGroup([el_gulndar]).addTo(map);
+var Settlements = L.layerGroup().addTo(map);
 // Marker overlay
-var overlays= {
+var overlays = {
   // "GROUPNAME":mg_GROUPNAME
-   "Settlements" : Settlements,
-   "Territories": territoriesLayer,
-}
+  Settlements: Settlements,
+  Territories: territoriesLayer,
+};
 
 //GROUP CONTROLS
   L.control.layers(null, overlays).addTo(map);
