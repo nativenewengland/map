@@ -1,1 +1,11 @@
 type,lat,lng,icon,name,text,description,size,angle,spacing,curve,coords,style
+marker,-45.26234343928954,64.16015625000001,wigwam,fgdg,,dfgfdg,,,,,,{}
+marker,-56.03042378922171,123.31054687500001,fishing,sdfsd,,dsf,,,,,,{}
+marker,-29.37008590377213,87.18750000000001,agriculture,fdsd,,dfdds,,,,,,{}
+marker,-32.9869654858718,131.52832031250003,mine,fds,,sfds,,,,,,{}
+marker,-30.42862723175495,124.39017024140311,wigwam,Marker,,,,,,,,{}
+marker,-39.35391244254016,114.98729447451957,wigwam,gdfg,,fdgf,,,,,,{}
+text,-51.180898213428264,109.24804687500001,,,fsdfsd,,14,0,0,0,,
+text,-20.54970293383794,52.29156876877413,,,xcgfd,dfgdfg,14,-14,-3,-16,,
+text,-32.71070343687717,123.44602834078046,,,XVXCV,CXVXCV,14,0,0,0,,
+text,-30.634949668467346,84.77199916497837,,,dasd,sadasd,23,43,11,34,,
