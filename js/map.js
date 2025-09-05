@@ -526,6 +526,50 @@ var overlays = {
 map.on('zoomend', rescaleIcons);
 map.on('zoomend', rescaleTextLabels);
 
+function showPolygonForm(tempLayer) {
+  var overlay = document.getElementById('polygon-form-overlay');
+  var saveBtn = document.getElementById('polygon-save');
+  var cancelBtn = document.getElementById('polygon-cancel');
+  overlay.classList.remove('hidden');
+
+  function submitHandler() {
+    var name = document.getElementById('polygon-name').value || 'Territory';
+    var description = document.getElementById('polygon-description').value || '';
+    var color = document.getElementById('polygon-color').value || '#3388ff';
+    var coords = tempLayer.getLatLngs()[0].map(function (latlng) {
+      return [latlng.lat, latlng.lng];
+    });
+    var data = {
+      name: name,
+      description: description,
+      coords: coords,
+      style: { color: color, fillColor: color, fillOpacity: 0.3 },
+    };
+    customPolygons.push(data);
+    addPolygonToMap(data);
+    savePolygons();
+    map.removeLayer(tempLayer);
+    cleanup();
+  }
+
+  function cancelHandler() {
+    map.removeLayer(tempLayer);
+    cleanup();
+  }
+
+  function cleanup() {
+    overlay.classList.add('hidden');
+    saveBtn.removeEventListener('click', submitHandler);
+    cancelBtn.removeEventListener('click', cancelHandler);
+    document.getElementById('polygon-name').value = '';
+    document.getElementById('polygon-description').value = '';
+    document.getElementById('polygon-color').value = '#3388ff';
+  }
+
+  saveBtn.addEventListener('click', submitHandler);
+  cancelBtn.addEventListener('click', cancelHandler);
+}
+
 function showMarkerForm(latlng) {
   var overlay = document.getElementById('marker-form-overlay');
   var saveBtn = document.getElementById('marker-save');
@@ -850,21 +894,7 @@ updateEditToolbar();
 
 map.on(L.Draw.Event.CREATED, function (e) {
   if (e.layerType === 'polygon') {
-    var coords = e.layer.getLatLngs()[0].map(function (latlng) {
-      return [latlng.lat, latlng.lng];
-    });
-    var name = prompt('Enter territory name:') || 'Territory';
-    var description = prompt('Enter description:') || '';
-    var color = prompt('Enter hex color for polygon:', '#3388ff') || '#3388ff';
-    var data = {
-      name: name,
-      description: description,
-      coords: coords,
-      style: { color: color, fillColor: color, fillOpacity: 0.3 },
-    };
-    customPolygons.push(data);
-    addPolygonToMap(data);
-    savePolygons();
+    showPolygonForm(e.layer);
   }
 });
 
