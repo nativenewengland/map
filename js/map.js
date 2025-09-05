@@ -407,60 +407,6 @@ if (storedPolygons) {
   customPolygons.forEach(addPolygonToMap);
 }
 
-var baseTextLabels = [
-  {
-    lat: 42.5,
-    lng: -72.7,
-    text: 'Pocomtuc Confederacy',
-    description: '',
-    size: 24,
-  },
-  {
-    lat: 42.2,
-    lng: -71.8,
-    text: 'Nipmuc',
-    description: '',
-    size: 24,
-  },
-  {
-    lat: 42.35,
-    lng: -71.0,
-    text: 'Massachusett',
-    description: '',
-    size: 24,
-  },
-  {
-    lat: 41.7,
-    lng: -70.3,
-    text: 'Wampanoag',
-    description: '',
-    size: 24,
-  },
-  {
-    lat: 41.5,
-    lng: -71.5,
-    text: 'Narragansett',
-    description: '',
-    size: 24,
-  },
-  {
-    lat: 41.7,
-    lng: -71.2,
-    text: 'Pokanoket',
-    description: '',
-    size: 24,
-  },
-  {
-    lat: 41.5,
-    lng: -69.5,
-    text: 'Weekehikum',
-    description: '',
-    size: 24,
-    angle: 90,
-  },
-];
-baseTextLabels.forEach(addTextLabelToMap);
-
 var baseTerritories = [
   {
     name: 'Northern Territory',
