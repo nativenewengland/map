@@ -222,16 +222,108 @@ function rescaleTextLabels() {
   });
 }
 
+function exportFeaturesToCSV() {
+  function escapeCsv(val) {
+    if (val === undefined || val === null) return '';
+    var str = String(val).replace(/"/g, '""');
+    return /[",\n]/.test(str) ? '"' + str + '"' : str;
+  }
+
+  var rows = [
+    'type,lat,lng,icon,name,text,description,size,angle,spacing,curve,coords,style'
+  ];
+
+  customMarkers.forEach(function (m) {
+    rows.push(
+      [
+        'marker',
+        escapeCsv(m.lat),
+        escapeCsv(m.lng),
+        escapeCsv(m.icon),
+        escapeCsv(m.name),
+        '',
+        escapeCsv(m.description),
+        '',
+        '',
+        '',
+        '',
+        '',
+        escapeCsv(JSON.stringify(m.style || {}))
+      ].join(',')
+    );
+  });
+
+  customTextLabels.forEach(function (t) {
+    rows.push(
+      [
+        'text',
+        escapeCsv(t.lat),
+        escapeCsv(t.lng),
+        '',
+        '',
+        escapeCsv(t.text),
+        escapeCsv(t.description),
+        escapeCsv(t.size),
+        escapeCsv(t.angle),
+        escapeCsv(t.spacing),
+        escapeCsv(t.curve),
+        '',
+        ''
+      ].join(',')
+    );
+  });
+
+  customPolygons.forEach(function (p) {
+    rows.push(
+      [
+        'polygon',
+        '',
+        '',
+        '',
+        escapeCsv(p.name),
+        '',
+        escapeCsv(p.description),
+        '',
+        '',
+        '',
+        '',
+        escapeCsv(JSON.stringify(p.coords)),
+        escapeCsv(JSON.stringify(p.style || {}))
+      ].join(',')
+    );
+  });
+
+  var csvContent = rows.join('\n');
+
+  // Try posting to a server endpoint; fall back to client-side download
+  fetch('data/features.csv', {
+    method: 'POST',
+    headers: { 'Content-Type': 'text/csv' },
+    body: csvContent
+  }).catch(function () {
+    var blob = new Blob([csvContent], { type: 'text/csv' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'features.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  });
+}
+
 function saveMarkers() {
   localStorage.setItem('markers', JSON.stringify(customMarkers));
+  exportFeaturesToCSV();
 }
 
 function saveTextLabels() {
   localStorage.setItem('textLabels', JSON.stringify(customTextLabels));
+  exportFeaturesToCSV();
 }
 
 function savePolygons() {
   localStorage.setItem('polygons', JSON.stringify(customPolygons));
+  exportFeaturesToCSV();
 }
 
 function updateEditToolbar() {
