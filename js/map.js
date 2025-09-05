@@ -354,6 +354,14 @@ function addTextLabelToMap(data) {
         var pos = m.getLatLng();
         m._data.lat = pos.lat;
         m._data.lng = pos.lng;
+        var idx = customTextLabels.findIndex(function (t) {
+          return t.text === m._data.text;
+        });
+        if (idx !== -1) {
+          customTextLabels[idx] = m._data;
+        } else {
+          customTextLabels.push(m._data);
+        }
         saveTextLabels();
       }
     })
@@ -393,18 +401,6 @@ var stored = localStorage.getItem('markers');
 if (stored) {
   customMarkers = JSON.parse(stored);
   customMarkers.forEach(addMarkerToMap);
-}
-
-var storedTexts = localStorage.getItem('textLabels');
-if (storedTexts) {
-  customTextLabels = JSON.parse(storedTexts);
-  customTextLabels.forEach(addTextLabelToMap);
-}
-
-var storedPolygons = localStorage.getItem('polygons');
-if (storedPolygons) {
-  customPolygons = JSON.parse(storedPolygons);
-  customPolygons.forEach(addPolygonToMap);
 }
 
 var baseTextLabels = [
@@ -466,7 +462,30 @@ var baseTextLabels = [
     size: 24,
   },
 ];
+
+var storedTexts = localStorage.getItem('textLabels');
+if (storedTexts) {
+  customTextLabels = JSON.parse(storedTexts);
+  customTextLabels.forEach(function (t) {
+    var idx = baseTextLabels.findIndex(function (b) {
+      return b.text === t.text;
+    });
+    if (idx !== -1) {
+      baseTextLabels[idx] = t;
+    } else {
+      baseTextLabels.push(t);
+    }
+  });
+} else {
+  customTextLabels = [];
+}
 baseTextLabels.forEach(addTextLabelToMap);
+
+var storedPolygons = localStorage.getItem('polygons');
+if (storedPolygons) {
+  customPolygons = JSON.parse(storedPolygons);
+  customPolygons.forEach(addPolygonToMap);
+}
 
 var baseTerritories = [
   {
