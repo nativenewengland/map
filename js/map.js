@@ -443,6 +443,11 @@ function addTextLabelToMap(data) {
   rescaleTextLabels();
 }
 
+// Load markers and text labels from CSV
+loadDataFromCsv('data/map-data.csv').then(function (result) {
+  customMarkers = result.markers || [];
+  customMarkers.forEach(addMarkerToMap);
+  customTextLabels = result.labels || [];
   customTextLabels.forEach(addTextLabelToMap);
 });
 
