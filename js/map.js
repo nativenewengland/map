@@ -79,7 +79,7 @@ map.on('click', function () {
                 tooltipAnchor: [0.625, -0.625]
         });
   // Fishing
-  var fishingIconPath = 'icons/fish1.png';
+  var fishingIconPath = 'icons/fish.png';
   var FishingIcon = L.icon({
                 iconUrl:       fishingIconPath,
                 iconRetinaUrl: fishingIconPath,
@@ -162,7 +162,7 @@ var allMarkers = [];
 var allTextLabels = [];
 var baseZoom;
 var selectedMarker = null;
-var territoriesLayer = L.layerGroup().addTo(map);
+var territoriesLayer = L.featureGroup().addTo(map);
 
 function clearSelectedMarker() {
   if (selectedMarker && selectedMarker._icon) {
@@ -222,16 +222,157 @@ function rescaleTextLabels() {
   });
 }
 
+function exportFeaturesToCSV() {
+  function escapeCsv(val) {
+    if (val === undefined || val === null) return '';
+    var str = String(val).replace(/"/g, '""');
+    return /[",\n]/.test(str) ? '"' + str + '"' : str;
+  }
+
+  var rows = [
+    'type,lat,lng,icon,name,text,description,size,angle,spacing,curve,coords,style'
+  ];
+
+  customMarkers.forEach(function (m) {
+    rows.push(
+      [
+        'marker',
+        escapeCsv(m.lat),
+        escapeCsv(m.lng),
+        escapeCsv(m.icon),
+        escapeCsv(m.name),
+        '',
+        escapeCsv(m.description),
+        '',
+        '',
+        '',
+        '',
+        '',
+        escapeCsv(JSON.stringify(m.style || {}))
+      ].join(',')
+    );
+  });
+
+  customTextLabels.forEach(function (t) {
+    rows.push(
+      [
+        'text',
+        escapeCsv(t.lat),
+        escapeCsv(t.lng),
+        '',
+        '',
+        escapeCsv(t.text),
+        escapeCsv(t.description),
+        escapeCsv(t.size),
+        escapeCsv(t.angle),
+        escapeCsv(t.spacing),
+        escapeCsv(t.curve),
+        '',
+        ''
+      ].join(',')
+    );
+  });
+
+  customPolygons.forEach(function (p) {
+    rows.push(
+      [
+        'polygon',
+        '',
+        '',
+        '',
+        escapeCsv(p.name),
+        '',
+        escapeCsv(p.description),
+        '',
+        '',
+        '',
+        '',
+        escapeCsv(JSON.stringify(p.coords)),
+        escapeCsv(JSON.stringify(p.style || {}))
+      ].join(',')
+    );
+  });
+
+  var csvContent = rows.join('\n');
+
+  // Try posting to a server endpoint; fall back to client-side download
+  fetch('data/features.csv', {
+    method: 'POST',
+    headers: { 'Content-Type': 'text/csv' },
+    body: csvContent
+  }).catch(function () {
+    var blob = new Blob([csvContent], { type: 'text/csv' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'features.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  });
+}
+
 function saveMarkers() {
   localStorage.setItem('markers', JSON.stringify(customMarkers));
+  exportFeaturesToCSV();
 }
 
 function saveTextLabels() {
   localStorage.setItem('textLabels', JSON.stringify(customTextLabels));
+  exportFeaturesToCSV();
 }
 
 function savePolygons() {
   localStorage.setItem('polygons', JSON.stringify(customPolygons));
+  exportFeaturesToCSV();
+}
+
+function updateEditToolbar() {
+  if (drawControl && drawControl._toolbars && drawControl._toolbars.edit) {
+    drawControl._toolbars.edit._checkDisabled();
+  }
+}
+
+function setPolygonPopup(poly) {
+  var data = poly._data;
+  var isCustom = customPolygons.includes(data);
+  var html =
+    '<b>' +
+    (data.name || '') +
+    '</b>' +
+    (data.description ? '<br>' + data.description : '');
+  if (isCustom) {
+    html += '<br><a href="#" class="polygon-edit-link">Edit</a>';
+  }
+  poly.bindPopup(html);
+  poly.off('popupopen');
+  poly.on('popupopen', function (e) {
+    var link = e.popup._contentNode.querySelector('.polygon-edit-link');
+    if (link) {
+      link.addEventListener('click', function (ev) {
+        ev.preventDefault();
+        editPolygonForm(poly);
+      });
+    }
+  });
+}
+
+function editPolygonForm(poly) {
+  if (!poly || !poly._data) return;
+  var data = poly._data;
+  var name = prompt('Enter territory name:', data.name || 'Territory') || data.name;
+  var description = prompt('Enter description:', data.description || '') || data.description;
+  var color =
+    prompt('Enter hex color for polygon:', (data.style && data.style.color) || '#3388ff') ||
+    (data.style && data.style.color) ||
+    '#3388ff';
+  data.name = name;
+  data.description = description;
+  data.style = { color: color, fillColor: color, fillOpacity: 0.3 };
+  poly.setStyle(data.style);
+  setPolygonPopup(poly);
+  if (customPolygons.includes(data)) {
+    savePolygons();
+  }
 }
 
 function addPolygonToMap(data) {
@@ -244,23 +385,18 @@ function addPolygonToMap(data) {
     },
     data.style || {}
   );
-  var poly = L.polygon(data.coords, opts)
-    .bindPopup(
-      '<b>' + (data.name || '') + '</b>' +
-        (data.description ? '<br>' + data.description : '')
-    )
-    .addTo(territoriesLayer);
+  var poly = L.polygon(data.coords, opts).addTo(territoriesLayer);
+  poly._data = data;
+  setPolygonPopup(poly);
   poly.on('contextmenu', function () {
     territoriesLayer.removeLayer(poly);
     customPolygons = customPolygons.filter(function (p) {
-      return !(
-        p.name === data.name &&
-        p.description === data.description &&
-        JSON.stringify(p.coords) === JSON.stringify(data.coords)
-      );
+      return p !== data;
     });
     savePolygons();
+    updateEditToolbar();
   });
+  updateEditToolbar();
   return poly;
 }
 
@@ -465,45 +601,66 @@ function createMarker(lat, lng, icon, name, description) {
   allMarkers.push(m);
   return m;
 }
-
-var el_gulndar = createMarker(36.0135, -106.3916, SettlementsIcon, 'Gulndar', 'A small but bustling town.');
-//  2.Trading post markers
-
-// var el_gulndar = L.marker([36.0135, -106.3916],{icon:citiesIcon}).bindPopup('<b>Gulndar</b>');
-
-//  3. Geographical Locations MARKERS
-
-// var el_gulndar = L.marker([36.0135, -106.3916],{icon:citiesIcon}).bindPopup('<b>Gulndar</b>');
-
-//  4. Capitals MARKERS
-
-// var el_gulndar = L.marker([36.0135, -106.3916],{icon:citiesIcon}).bindPopup('<b>Gulndar</b>');
-
-//  5. Forts/Castles MARKERS
-
-// var el_gulndar = L.marker([36.0135, -106.3916],{icon:citiesIcon}).bindPopup('<b>Gulndar</b>');
-
-//  6. Temples MARKERS
-
-// var el_gulndar = L.marker([36.0135, -106.3916],{icon:citiesIcon}).bindPopup('<b>Gulndar</b>');
-
-
 // ******END OF MARKERS DECLARATION ******
 
 // MARKER GROUPS
-var Settlements = L.layerGroup([el_gulndar]).addTo(map);
+var Settlements = L.layerGroup().addTo(map);
 // Marker overlay
-var overlays= {
+var overlays = {
   // "GROUPNAME":mg_GROUPNAME
-   "Settlements" : Settlements,
-   "Territories": territoriesLayer,
-}
+  Settlements: Settlements,
+  Territories: territoriesLayer,
+};
 
 //GROUP CONTROLS
   L.control.layers(null, overlays).addTo(map);
 
 map.on('zoomend', rescaleIcons);
 map.on('zoomend', rescaleTextLabels);
+
+function showPolygonForm(tempLayer) {
+  var overlay = document.getElementById('polygon-form-overlay');
+  var saveBtn = document.getElementById('polygon-save');
+  var cancelBtn = document.getElementById('polygon-cancel');
+  overlay.classList.remove('hidden');
+
+  function submitHandler() {
+    var name = document.getElementById('polygon-name').value || 'Territory';
+    var description = document.getElementById('polygon-description').value || '';
+    var color = document.getElementById('polygon-color').value || '#3388ff';
+    var coords = tempLayer.getLatLngs()[0].map(function (latlng) {
+      return [latlng.lat, latlng.lng];
+    });
+    var data = {
+      name: name,
+      description: description,
+      coords: coords,
+      style: { color: color, fillColor: color, fillOpacity: 0.3 },
+    };
+    customPolygons.push(data);
+    addPolygonToMap(data);
+    savePolygons();
+    map.removeLayer(tempLayer);
+    cleanup();
+  }
+
+  function cancelHandler() {
+    map.removeLayer(tempLayer);
+    cleanup();
+  }
+
+  function cleanup() {
+    overlay.classList.add('hidden');
+    saveBtn.removeEventListener('click', submitHandler);
+    cancelBtn.removeEventListener('click', cancelHandler);
+    document.getElementById('polygon-name').value = '';
+    document.getElementById('polygon-description').value = '';
+    document.getElementById('polygon-color').value = '#3388ff';
+  }
+
+  saveBtn.addEventListener('click', submitHandler);
+  cancelBtn.addEventListener('click', cancelHandler);
+}
 
 function showMarkerForm(latlng) {
   var overlay = document.getElementById('marker-form-overlay');
@@ -809,43 +966,54 @@ var AddTextControl = L.Control.extend({
     },
   });
 
-var AddPolygonControl = L.Control.extend({
-  options: { position: 'topleft' },
-  onAdd: function (map) {
-    var container = L.DomUtil.create('div', 'leaflet-bar');
-    var link = L.DomUtil.create('a', '', container);
-    link.id = 'add-polygon-btn';
-    link.href = '#';
-    link.title = 'Add Polygon';
-    link.innerHTML = '■';
-    L.DomEvent.on(link, 'click', L.DomEvent.stopPropagation)
-      .on(link, 'click', L.DomEvent.preventDefault)
-      .on(link, 'click', function () {
-        var coordsInput = prompt('Enter polygon coordinates as lat,lng;lat,lng;...');
-        if (!coordsInput) return;
-        var coords = coordsInput.split(';').map(function (pair) {
-          var parts = pair.split(',').map(Number);
-          return [parts[0], parts[1]];
-        });
-        var name = prompt('Enter territory name:') || 'Territory';
-        var description = prompt('Enter description:') || '';
-        var color = prompt('Enter hex color for polygon:', '#3388ff') || '#3388ff';
-        var data = {
-          name: name,
-          description: description,
-          coords: coords,
-          style: { color: color, fillColor: color, fillOpacity: 0.3 },
-        };
-        addPolygonToMap(data);
-        customPolygons.push(data);
-        savePolygons();
-      });
-    return container;
+map.addControl(new AddTextControl());
+
+var drawControl = new L.Control.Draw({
+  draw: {
+    polygon: true,
+    polyline: false,
+    rectangle: false,
+    circle: false,
+    circlemarker: false,
+    marker: false,
+  },
+  edit: {
+    featureGroup: territoriesLayer,
   },
 });
+map.addControl(drawControl);
+updateEditToolbar();
 
-map.addControl(new AddTextControl());
-map.addControl(new AddPolygonControl());
+map.on(L.Draw.Event.CREATED, function (e) {
+  if (e.layerType === 'polygon') {
+    showPolygonForm(e.layer);
+  }
+});
+
+map.on(L.Draw.Event.EDITED, function (e) {
+  e.layers.eachLayer(function (layer) {
+    if (customPolygons.includes(layer._data)) {
+      layer._data.coords = layer
+        .getLatLngs()[0]
+        .map(function (latlng) {
+          return [latlng.lat, latlng.lng];
+        });
+    }
+  });
+  savePolygons();
+});
+
+map.on(L.Draw.Event.DELETED, function (e) {
+  e.layers.eachLayer(function (layer) {
+    if (customPolygons.includes(layer._data)) {
+      customPolygons = customPolygons.filter(function (p) {
+        return p !== layer._data;
+      });
+    }
+  });
+  savePolygons();
+  updateEditToolbar();
+});
 
 
 

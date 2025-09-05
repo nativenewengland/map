@@ -64,7 +64,8 @@ html, body{
 
 /* Marker form styles */
 #marker-form-overlay,
-#text-form-overlay {
+#text-form-overlay,
+#polygon-form-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -78,12 +79,14 @@ html, body{
 }
 
 #marker-form-overlay.hidden,
-#text-form-overlay.hidden {
+#text-form-overlay.hidden,
+#polygon-form-overlay.hidden {
     display: none;
 }
 
 #marker-form,
-#text-form {
+#text-form,
+#polygon-form {
     background: #fff;
     padding: 15px;
     border: 1px solid #333;
@@ -92,7 +95,8 @@ html, body{
 }
 
 #marker-form label,
-#text-form label {
+#text-form label,
+#polygon-form label {
     display: block;
     margin-bottom: 8px;
 }
@@ -102,13 +106,17 @@ html, body{
 #marker-form textarea,
 #text-form input,
 #text-form select,
-#text-form textarea {
+#text-form textarea,
+#polygon-form input,
+#polygon-form select,
+#polygon-form textarea {
     width: 100%;
     box-sizing: border-box;
 }
 
 #marker-form button,
-#text-form button {
+#text-form button,
+#polygon-form button {
     margin-top: 10px;
     margin-right: 5px;
 }
