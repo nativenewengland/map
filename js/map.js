@@ -164,53 +164,6 @@ var baseZoom;
 var selectedMarker = null;
 var territoriesLayer = L.layerGroup().addTo(map);
 
-// Load marker and text label data from a CSV file
-function loadDataFromCsv(url) {
-  return fetch(url)
-    .then(function (response) {
-      return response.text();
-    })
-    .then(function (csv) {
-      var lines = csv.trim().split(/\r?\n/);
-      var headers = lines.shift().split(',');
-      var markers = [];
-      var labels = [];
-      lines.forEach(function (line) {
-        if (!line.trim()) return;
-        var cols = line.split(',');
-        var row = {};
-        headers.forEach(function (h, i) {
-          row[h] = cols[i] ? cols[i].trim() : '';
-        });
-        var lat = parseFloat(row.lat);
-        var lng = parseFloat(row.lng);
-        if (isNaN(lat) || isNaN(lng)) return;
-        if (row.name) {
-          markers.push({
-            lat: lat,
-            lng: lng,
-            name: row.name,
-            description: row.description || '',
-            icon: row.iconKey || 'wigwam',
-          });
-        }
-        if (row.text) {
-          labels.push({
-            lat: lat,
-            lng: lng,
-            text: row.text,
-            description: row.description || '',
-            size: parseFloat(row.fontSize) || 24,
-            angle: parseFloat(row.angle) || 0,
-            spacing: parseFloat(row.spacing) || 0,
-            curve: parseFloat(row.curve) || 0,
-          });
-        }
-      });
-      return { markers: markers, labels: labels };
-    });
-}
-
 function clearSelectedMarker() {
   if (selectedMarker && selectedMarker._icon) {
     selectedMarker._icon.classList.remove('marker-selected');
@@ -319,7 +272,7 @@ function addMarkerToMap(data) {
     icon,
     data.name,
     data.description
-  ).addTo(Settlements);
+  ).addTo(map);
   customMarker._data = data;
   customMarker.on('contextmenu', function () {
     map.removeLayer(customMarker);
@@ -443,13 +396,90 @@ function addTextLabelToMap(data) {
   rescaleTextLabels();
 }
 
-// Load markers and text labels from CSV
-loadDataFromCsv('data/map-data.csv').then(function (result) {
-  customMarkers = result.markers || [];
+// Load markers from localStorage
+var stored = localStorage.getItem('markers');
+if (stored) {
+  customMarkers = JSON.parse(stored);
   customMarkers.forEach(addMarkerToMap);
-  customTextLabels = result.labels || [];
-  customTextLabels.forEach(addTextLabelToMap);
-});
+}
+
+var baseTextLabels = [
+  {
+    lat: 42.5,
+    lng: -72.7,
+    text: 'Pocomtuc Confederacy',
+    description: '',
+    size: 24,
+  },
+  {
+    lat: 42.2,
+    lng: -71.8,
+    text: 'Nipmuc',
+    description: '',
+    size: 24,
+  },
+  {
+    lat: 42.35,
+    lng: -71.0,
+    text: 'Massachusett',
+    description: '',
+    size: 24,
+  },
+  {
+    lat: 41.7,
+    lng: -70.3,
+    text: 'Wampanoag',
+    description: '',
+    size: 24,
+  },
+  {
+    lat: 41.5,
+    lng: -71.5,
+    text: 'Narragansett',
+    description: '',
+    size: 24,
+  },
+  {
+    lat: 41.7,
+    lng: -71.2,
+    text: 'Pokanoket',
+    description: '',
+    size: 24,
+  },
+  {
+    lat: 41.5,
+    lng: -69.5,
+    text: 'Weekehikum',
+    description: '',
+    size: 24,
+    angle: 90,
+  },
+  {
+    lat: 42.6,
+    lng: -70.9,
+    text: 'Agawam',
+    description: '',
+    size: 24,
+  },
+];
+
+var storedTexts = localStorage.getItem('textLabels');
+if (storedTexts) {
+  customTextLabels = JSON.parse(storedTexts);
+  customTextLabels.forEach(function (t) {
+    var idx = baseTextLabels.findIndex(function (b) {
+      return b.text === t.text;
+    });
+    if (idx !== -1) {
+      baseTextLabels[idx] = t;
+    } else {
+      baseTextLabels.push(t);
+    }
+  });
+} else {
+  customTextLabels = [];
+}
+baseTextLabels.forEach(addTextLabelToMap);
 
 var storedPolygons = localStorage.getItem('polygons');
 if (storedPolygons) {
@@ -535,10 +565,32 @@ function createMarker(lat, lng, icon, name, description) {
   return m;
 }
 
+var el_gulndar = createMarker(36.0135, -106.3916, SettlementsIcon, 'Gulndar', 'A small but bustling town.');
+//  2.Trading post markers
+
+// var el_gulndar = L.marker([36.0135, -106.3916],{icon:citiesIcon}).bindPopup('<b>Gulndar</b>');
+
+//  3. Geographical Locations MARKERS
+
+// var el_gulndar = L.marker([36.0135, -106.3916],{icon:citiesIcon}).bindPopup('<b>Gulndar</b>');
+
+//  4. Capitals MARKERS
+
+// var el_gulndar = L.marker([36.0135, -106.3916],{icon:citiesIcon}).bindPopup('<b>Gulndar</b>');
+
+//  5. Forts/Castles MARKERS
+
+// var el_gulndar = L.marker([36.0135, -106.3916],{icon:citiesIcon}).bindPopup('<b>Gulndar</b>');
+
+//  6. Temples MARKERS
+
+// var el_gulndar = L.marker([36.0135, -106.3916],{icon:citiesIcon}).bindPopup('<b>Gulndar</b>');
+
+
 // ******END OF MARKERS DECLARATION ******
 
 // MARKER GROUPS
-var Settlements = L.layerGroup().addTo(map);
+var Settlements = L.layerGroup([el_gulndar]).addTo(map);
 // Marker overlay
 var overlays= {
   // "GROUPNAME":mg_GROUPNAME
