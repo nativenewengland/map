@@ -443,15 +443,6 @@ function addTextLabelToMap(data) {
   rescaleTextLabels();
 }
 
-// Load baseline markers and labels from CSV, then merge any stored edits from localStorage
-loadDataFromCsv('data/map-data.csv').then(function (result) {
-  var storedMarkers = JSON.parse(localStorage.getItem('markers') || '[]');
-  var storedLabels = JSON.parse(localStorage.getItem('textLabels') || '[]');
-
-  customMarkers = (result.markers || []).concat(storedMarkers);
-  customMarkers.forEach(addMarkerToMap);
-
-  customTextLabels = (result.labels || []).concat(storedLabels);
   customTextLabels.forEach(addTextLabelToMap);
 });
 
