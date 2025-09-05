@@ -234,6 +234,55 @@ function savePolygons() {
   localStorage.setItem('polygons', JSON.stringify(customPolygons));
 }
 
+function updateEditToolbar() {
+  if (drawControl && drawControl._toolbars && drawControl._toolbars.edit) {
+    drawControl._toolbars.edit._checkDisabled();
+  }
+}
+
+function setPolygonPopup(poly) {
+  var data = poly._data;
+  var isCustom = customPolygons.includes(data);
+  var html =
+    '<b>' +
+    (data.name || '') +
+    '</b>' +
+    (data.description ? '<br>' + data.description : '');
+  if (isCustom) {
+    html += '<br><a href="#" class="polygon-edit-link">Edit</a>';
+  }
+  poly.bindPopup(html);
+  poly.off('popupopen');
+  poly.on('popupopen', function (e) {
+    var link = e.popup._contentNode.querySelector('.polygon-edit-link');
+    if (link) {
+      link.addEventListener('click', function (ev) {
+        ev.preventDefault();
+        editPolygonForm(poly);
+      });
+    }
+  });
+}
+
+function editPolygonForm(poly) {
+  if (!poly || !poly._data) return;
+  var data = poly._data;
+  var name = prompt('Enter territory name:', data.name || 'Territory') || data.name;
+  var description = prompt('Enter description:', data.description || '') || data.description;
+  var color =
+    prompt('Enter hex color for polygon:', (data.style && data.style.color) || '#3388ff') ||
+    (data.style && data.style.color) ||
+    '#3388ff';
+  data.name = name;
+  data.description = description;
+  data.style = { color: color, fillColor: color, fillOpacity: 0.3 };
+  poly.setStyle(data.style);
+  setPolygonPopup(poly);
+  if (customPolygons.includes(data)) {
+    savePolygons();
+  }
+}
+
 function addPolygonToMap(data) {
   var opts = Object.assign(
     {
@@ -244,23 +293,18 @@ function addPolygonToMap(data) {
     },
     data.style || {}
   );
-  var poly = L.polygon(data.coords, opts)
-    .bindPopup(
-      '<b>' + (data.name || '') + '</b>' +
-        (data.description ? '<br>' + data.description : '')
-    )
-    .addTo(territoriesLayer);
+  var poly = L.polygon(data.coords, opts).addTo(territoriesLayer);
+  poly._data = data;
+  setPolygonPopup(poly);
   poly.on('contextmenu', function () {
     territoriesLayer.removeLayer(poly);
     customPolygons = customPolygons.filter(function (p) {
-      return !(
-        p.name === data.name &&
-        p.description === data.description &&
-        JSON.stringify(p.coords) === JSON.stringify(data.coords)
-      );
+      return p !== data;
     });
     savePolygons();
+    updateEditToolbar();
   });
+  updateEditToolbar();
   return poly;
 }
 
@@ -799,11 +843,10 @@ var drawControl = new L.Control.Draw({
   },
   edit: {
     featureGroup: territoriesLayer,
-    edit: false,
-    remove: false,
   },
 });
 map.addControl(drawControl);
+updateEditToolbar();
 
 map.on(L.Draw.Event.CREATED, function (e) {
   if (e.layerType === 'polygon') {
@@ -819,10 +862,35 @@ map.on(L.Draw.Event.CREATED, function (e) {
       coords: coords,
       style: { color: color, fillColor: color, fillOpacity: 0.3 },
     };
-    addPolygonToMap(data);
     customPolygons.push(data);
+    addPolygonToMap(data);
     savePolygons();
   }
+});
+
+map.on(L.Draw.Event.EDITED, function (e) {
+  e.layers.eachLayer(function (layer) {
+    if (customPolygons.includes(layer._data)) {
+      layer._data.coords = layer
+        .getLatLngs()[0]
+        .map(function (latlng) {
+          return [latlng.lat, latlng.lng];
+        });
+    }
+  });
+  savePolygons();
+});
+
+map.on(L.Draw.Event.DELETED, function (e) {
+  e.layers.eachLayer(function (layer) {
+    if (customPolygons.includes(layer._data)) {
+      customPolygons = customPolygons.filter(function (p) {
+        return p !== layer._data;
+      });
+    }
+  });
+  savePolygons();
+  updateEditToolbar();
 });
 
 
