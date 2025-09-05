@@ -222,6 +222,81 @@ function rescaleTextLabels() {
   });
 }
 
+// Parse a single CSV row into an array of values
+function parseCsvRow(line) {
+  var result = [];
+  var cur = '';
+  var inQuotes = false;
+  for (var i = 0; i < line.length; i++) {
+    var ch = line[i];
+    if (inQuotes) {
+      if (ch === '"') {
+        if (line[i + 1] === '"') {
+          cur += '"';
+          i++;
+        } else {
+          inQuotes = false;
+        }
+      } else {
+        cur += ch;
+      }
+    } else {
+      if (ch === '"') {
+        inQuotes = true;
+      } else if (ch === ',') {
+        result.push(cur);
+        cur = '';
+      } else {
+        cur += ch;
+      }
+    }
+  }
+  result.push(cur);
+  return result;
+}
+
+// Convert the CSV text into feature objects
+function loadFeaturesFromCSV(text) {
+  var markers = [];
+  var textLabels = [];
+  var polygons = [];
+  var lines = text.trim().split(/\r?\n/);
+  lines.slice(1).forEach(function (line) {
+    if (!line.trim()) return;
+    var cols = parseCsvRow(line);
+    var type = cols[0];
+    if (type === 'marker') {
+      markers.push({
+        lat: parseFloat(cols[1]),
+        lng: parseFloat(cols[2]),
+        icon: cols[3] || 'wigwam',
+        name: cols[4],
+        description: cols[6],
+        style: cols[12] ? JSON.parse(cols[12]) : undefined,
+      });
+    } else if (type === 'text') {
+      textLabels.push({
+        lat: parseFloat(cols[1]),
+        lng: parseFloat(cols[2]),
+        text: cols[5],
+        description: cols[6],
+        size: parseFloat(cols[7]) || 14,
+        angle: parseFloat(cols[8]) || 0,
+        spacing: parseFloat(cols[9]) || 0,
+        curve: parseFloat(cols[10]) || 0,
+      });
+    } else if (type === 'polygon') {
+      polygons.push({
+        name: cols[4],
+        description: cols[6],
+        coords: cols[11] ? JSON.parse(cols[11]) : [],
+        style: cols[12] ? JSON.parse(cols[12]) : undefined,
+      });
+    }
+  });
+  return { markers: markers, textLabels: textLabels, polygons: polygons };
+}
+
 function exportFeaturesToCSV() {
   function escapeCsv(val) {
     if (val === undefined || val === null) return '';
@@ -319,17 +394,17 @@ function exportFeaturesToCSV() {
 
 function saveMarkers() {
   localStorage.setItem('markers', JSON.stringify(customMarkers));
-  exportFeaturesToCSV();
+  return exportFeaturesToCSV();
 }
 
 function saveTextLabels() {
   localStorage.setItem('textLabels', JSON.stringify(customTextLabels));
-  exportFeaturesToCSV();
+  return exportFeaturesToCSV();
 }
 
 function savePolygons() {
   localStorage.setItem('polygons', JSON.stringify(customPolygons));
-  exportFeaturesToCSV();
+  return exportFeaturesToCSV();
 }
 
 function updateEditToolbar() {
@@ -530,23 +605,50 @@ function addTextLabelToMap(data) {
   rescaleTextLabels();
 }
 
-// Load markers from localStorage
+// Load features from localStorage or CSV
 var stored = localStorage.getItem('markers');
-if (stored) {
-  customMarkers = JSON.parse(stored);
-  customMarkers.forEach(addMarkerToMap);
-}
-
 var storedTexts = localStorage.getItem('textLabels');
-if (storedTexts) {
-  customTextLabels = JSON.parse(storedTexts);
-  customTextLabels.forEach(addTextLabelToMap);
-}
-
 var storedPolygons = localStorage.getItem('polygons');
-if (storedPolygons) {
-  customPolygons = JSON.parse(storedPolygons);
-  customPolygons.forEach(addPolygonToMap);
+
+if (stored || storedTexts || storedPolygons) {
+  if (stored) {
+    customMarkers = JSON.parse(stored);
+    customMarkers.forEach(addMarkerToMap);
+  }
+  if (storedTexts) {
+    customTextLabels = JSON.parse(storedTexts);
+    customTextLabels.forEach(addTextLabelToMap);
+  }
+  if (storedPolygons) {
+    customPolygons = JSON.parse(storedPolygons);
+    customPolygons.forEach(addPolygonToMap);
+  }
+} else {
+  fetch('data/features.csv')
+    .then(function (r) {
+      return r.text();
+    })
+    .then(function (csv) {
+      var parsed = loadFeaturesFromCSV(csv);
+      parsed.markers.forEach(function (m) {
+        customMarkers.push(m);
+        addMarkerToMap(m);
+      });
+      parsed.textLabels.forEach(function (t) {
+        customTextLabels.push(t);
+        addTextLabelToMap(t);
+      });
+      parsed.polygons.forEach(function (p) {
+        customPolygons.push(p);
+        addPolygonToMap(p);
+      });
+      saveMarkers();
+      saveTextLabels();
+      savePolygons();
+    })
+    .catch(function (err) {
+      console.error('Failed to load features.csv', err);
+    });
 }
 
 
