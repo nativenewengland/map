@@ -300,15 +300,21 @@ function exportFeaturesToCSV() {
     method: 'POST',
     headers: { 'Content-Type': 'text/csv' },
     body: csvContent
-  }).catch(function () {
-    var blob = new Blob([csvContent], { type: 'text/csv' });
-    var a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = 'features.csv';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  });
+  })
+    .then(function (response) {
+      if (!response.ok) {
+        throw new Error('Server rejected save');
+      }
+    })
+    .catch(function () {
+      var blob = new Blob([csvContent], { type: 'text/csv' });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'features.csv';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    });
 }
 
 function saveMarkers() {
