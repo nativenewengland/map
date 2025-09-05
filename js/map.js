@@ -162,7 +162,7 @@ var allMarkers = [];
 var allTextLabels = [];
 var baseZoom;
 var selectedMarker = null;
-var territoriesLayer = L.layerGroup().addTo(map);
+var territoriesLayer = L.featureGroup().addTo(map);
 
 function clearSelectedMarker() {
   if (selectedMarker && selectedMarker._icon) {
@@ -786,43 +786,44 @@ var AddTextControl = L.Control.extend({
     },
   });
 
-var AddPolygonControl = L.Control.extend({
-  options: { position: 'topleft' },
-  onAdd: function (map) {
-    var container = L.DomUtil.create('div', 'leaflet-bar');
-    var link = L.DomUtil.create('a', '', container);
-    link.id = 'add-polygon-btn';
-    link.href = '#';
-    link.title = 'Add Polygon';
-    link.innerHTML = '■';
-    L.DomEvent.on(link, 'click', L.DomEvent.stopPropagation)
-      .on(link, 'click', L.DomEvent.preventDefault)
-      .on(link, 'click', function () {
-        var coordsInput = prompt('Enter polygon coordinates as lat,lng;lat,lng;...');
-        if (!coordsInput) return;
-        var coords = coordsInput.split(';').map(function (pair) {
-          var parts = pair.split(',').map(Number);
-          return [parts[0], parts[1]];
-        });
-        var name = prompt('Enter territory name:') || 'Territory';
-        var description = prompt('Enter description:') || '';
-        var color = prompt('Enter hex color for polygon:', '#3388ff') || '#3388ff';
-        var data = {
-          name: name,
-          description: description,
-          coords: coords,
-          style: { color: color, fillColor: color, fillOpacity: 0.3 },
-        };
-        addPolygonToMap(data);
-        customPolygons.push(data);
-        savePolygons();
-      });
-    return container;
+map.addControl(new AddTextControl());
+
+var drawControl = new L.Control.Draw({
+  draw: {
+    polygon: true,
+    polyline: false,
+    rectangle: false,
+    circle: false,
+    circlemarker: false,
+    marker: false,
+  },
+  edit: {
+    featureGroup: territoriesLayer,
+    edit: false,
+    remove: false,
   },
 });
+map.addControl(drawControl);
 
-map.addControl(new AddTextControl());
-map.addControl(new AddPolygonControl());
+map.on(L.Draw.Event.CREATED, function (e) {
+  if (e.layerType === 'polygon') {
+    var coords = e.layer.getLatLngs()[0].map(function (latlng) {
+      return [latlng.lat, latlng.lng];
+    });
+    var name = prompt('Enter territory name:') || 'Territory';
+    var description = prompt('Enter description:') || '';
+    var color = prompt('Enter hex color for polygon:', '#3388ff') || '#3388ff';
+    var data = {
+      name: name,
+      description: description,
+      coords: coords,
+      style: { color: color, fillColor: color, fillOpacity: 0.3 },
+    };
+    addPolygonToMap(data);
+    customPolygons.push(data);
+    savePolygons();
+  }
+});
 
 
 
