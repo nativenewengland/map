@@ -371,10 +371,10 @@ function exportFeaturesToCSV() {
   var csvContent = rows.join('\n');
 
   // Try posting to a server endpoint; fall back to client-side download
-  fetch('data/features.csv', {
+  fetch('/save-features', {
     method: 'POST',
-    headers: { 'Content-Type': 'text/csv' },
-    body: csvContent
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ content: btoa(csvContent) })
   })
     .then(function (response) {
       if (!response.ok) {
