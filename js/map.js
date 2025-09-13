@@ -108,16 +108,18 @@ document.getElementById('overlay-opacity').addEventListener('input', function (e
   }
 });
 
-overlaySizeSlider.addEventListener('input', function (e) {
-  if (overlayLayer) {
-    var scale = parseFloat(e.target.value);
-    var factor = scale / overlayScale;
-    if (overlayLayer.scaleBy) {
-      overlayLayer.scaleBy(factor);
+if (overlaySizeSlider) {
+  overlaySizeSlider.addEventListener('input', function (e) {
+    if (overlayLayer) {
+      var scale = parseFloat(e.target.value);
+      var factor = scale / overlayScale;
+      if (overlayLayer.scaleBy) {
+        overlayLayer.scaleBy(factor);
+      }
+      overlayScale = scale;
     }
-    overlayScale = scale;
-  }
-});
+  });
+}
 
 // Remove default marker shadows
 L.Icon.Default.mergeOptions({
