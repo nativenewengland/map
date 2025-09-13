@@ -27,6 +27,35 @@ map.on('mouseout', function () {
   mouseCoords.textContent = '';
 });
 
+var overlayLayer = null;
+document.getElementById('overlay-upload').addEventListener('change', function (e) {
+  var file = e.target.files[0];
+  if (!file) return;
+  var reader = new FileReader();
+  reader.onload = function (ev) {
+    if (overlayLayer) {
+      map.removeLayer(overlayLayer);
+    }
+    var bounds = map.getBounds();
+    overlayLayer = L.distortableImageOverlay(ev.target.result, {
+      corners: [
+        bounds.getNorthWest(),
+        bounds.getNorthEast(),
+        bounds.getSouthEast(),
+        bounds.getSouthWest(),
+      ],
+      opacity: parseFloat(document.getElementById('overlay-opacity').value),
+    }).addTo(map);
+  };
+  reader.readAsDataURL(file);
+});
+
+document.getElementById('overlay-opacity').addEventListener('input', function (e) {
+  if (overlayLayer) {
+    overlayLayer.setOpacity(parseFloat(e.target.value));
+  }
+});
+
 // Remove default marker shadows
 L.Icon.Default.mergeOptions({
   shadowUrl: null,
