@@ -393,17 +393,14 @@ function exportFeaturesToCSV() {
 }
 
 function saveMarkers() {
-  localStorage.setItem('markers', JSON.stringify(customMarkers));
   return exportFeaturesToCSV();
 }
 
 function saveTextLabels() {
-  localStorage.setItem('textLabels', JSON.stringify(customTextLabels));
   return exportFeaturesToCSV();
 }
 
 function savePolygons() {
-  localStorage.setItem('polygons', JSON.stringify(customPolygons));
   return exportFeaturesToCSV();
 }
 
@@ -605,51 +602,29 @@ function addTextLabelToMap(data) {
   rescaleTextLabels();
 }
 
-// Load features from localStorage or CSV
-var stored = localStorage.getItem('markers');
-var storedTexts = localStorage.getItem('textLabels');
-var storedPolygons = localStorage.getItem('polygons');
-
-if (stored || storedTexts || storedPolygons) {
-  if (stored) {
-    customMarkers = JSON.parse(stored);
-    customMarkers.forEach(addMarkerToMap);
-  }
-  if (storedTexts) {
-    customTextLabels = JSON.parse(storedTexts);
-    customTextLabels.forEach(addTextLabelToMap);
-  }
-  if (storedPolygons) {
-    customPolygons = JSON.parse(storedPolygons);
-    customPolygons.forEach(addPolygonToMap);
-  }
-} else {
-  fetch('data/features.csv')
-    .then(function (r) {
-      return r.text();
-    })
-    .then(function (csv) {
-      var parsed = loadFeaturesFromCSV(csv);
-      parsed.markers.forEach(function (m) {
-        customMarkers.push(m);
-        addMarkerToMap(m);
-      });
-      parsed.textLabels.forEach(function (t) {
-        customTextLabels.push(t);
-        addTextLabelToMap(t);
-      });
-      parsed.polygons.forEach(function (p) {
-        customPolygons.push(p);
-        addPolygonToMap(p);
-      });
-      saveMarkers();
-      saveTextLabels();
-      savePolygons();
-    })
-    .catch(function (err) {
-      console.error('Failed to load features.csv', err);
+// Always load features from CSV
+fetch('data/features.csv')
+  .then(function (r) {
+    return r.text();
+  })
+  .then(function (csv) {
+    var parsed = loadFeaturesFromCSV(csv);
+    parsed.markers.forEach(function (m) {
+      customMarkers.push(m);
+      addMarkerToMap(m);
     });
-}
+    parsed.textLabels.forEach(function (t) {
+      customTextLabels.push(t);
+      addTextLabelToMap(t);
+    });
+    parsed.polygons.forEach(function (p) {
+      customPolygons.push(p);
+      addPolygonToMap(p);
+    });
+  })
+  .catch(function (err) {
+    console.error('Failed to load features.csv', err);
+  });
 
 
 // //// START OF MARKERS
