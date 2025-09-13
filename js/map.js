@@ -42,6 +42,12 @@ document.getElementById('overlay-upload').addEventListener('change', function (e
           map.removeLayer(overlayLayer);
         }
         var bounds = map.getBounds();
+        if (!L.distortableImageOverlay) {
+          const msg = 'Overlay plugin not loaded.';
+          console.error(msg);
+          overlayError.textContent = msg;
+          return;
+        }
         overlayLayer = L.distortableImageOverlay(ev.target.result, {
           corners: [
             bounds.getNorthWest(),
