@@ -51,18 +51,7 @@ document.getElementById('overlay-upload').addEventListener('change', function (e
           return;
         }
         var mapSize = map.getSize();
-        var pixelWidth = mapSize.x / 4;
-        var pixelHeight = pixelWidth * (img.height / img.width);
-        var centerPoint = map.latLngToLayerPoint(bounds.getCenter());
-        var nwPoint = centerPoint.subtract([pixelWidth / 2, pixelHeight / 2]);
-        var nePoint = centerPoint.add([pixelWidth / 2, -pixelHeight / 2]);
-        var swPoint = centerPoint.add([-pixelWidth / 2, pixelHeight / 2]);
-        var sePoint = centerPoint.add([pixelWidth / 2, pixelHeight / 2]);
-        var corners = [
-          map.layerPointToLatLng(nwPoint),
-          map.layerPointToLatLng(nePoint),
-          map.layerPointToLatLng(swPoint),
-          map.layerPointToLatLng(sePoint),
+ main
         ];
         overlayLayer = L.distortableImageOverlay(ev.target.result, {
           corners: corners,
@@ -72,14 +61,6 @@ document.getElementById('overlay-upload').addEventListener('change', function (e
         }).addTo(map);
         overlayScale = 1;
         if (overlaySizeSlider) overlaySizeSlider.value = 1;
-        if (overlayLayer.editing) {
-          overlayLayer.editing.enable();
-        }
-        if (overlayLayer.enableDragging) {
-          overlayLayer.enableDragging();
-        } else if (overlayLayer.dragging && overlayLayer.dragging.enable) {
-          overlayLayer.dragging.enable();
-        }
       };
       img.onerror = function () {
         var msg = 'The selected file is not a valid image.';
