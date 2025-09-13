@@ -8,14 +8,20 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&display=swap">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.distortableimage@0.18.7/dist/leaflet.distortableimage.css"/>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+    <script src="https://unpkg.com/leaflet.distortableimage@0.18.7/dist/leaflet.distortableimage.js"></script>
      
 </head>
 <body>
     <!-- <h1>map</h1> -->
     <div id="map"></div>
     <button id="save-changes">Save Changes</button>
+    <input type="file" id="overlay-upload" accept="image/*">
+    <label for="overlay-opacity" id="overlay-opacity-label">Opacity:
+        <input type="range" id="overlay-opacity" min="0" max="1" step="0.1" value="1">
+    </label>
     <div id="mouse-coords"></div>
     <div id="info-panel" class="hidden">
         <button id="close-info" class="close-button">&times;</button>
