@@ -17,6 +17,13 @@ tiles.once('load', function () {
   rescaleTextLabels();
 });
 
+var overlayBounds = [[-20, -20], [20, 20]];
+var sampleOverlay = L.rectangle(overlayBounds, { color: '#ff7800', weight: 1, fillOpacity: 0.2 }).addTo(map);
+
+var baseLayers = { 'Base Map': tiles };
+var overlayLayers = { 'Sample Overlay': sampleOverlay };
+L.control.layers(baseLayers, overlayLayers, { collapsed: false }).addTo(map);
+
 var mouseCoords = document.getElementById('mouse-coords');
 
 map.on('mousemove', function (e) {
