@@ -1,10 +1,1 @@
 type,lat,lng,icon,name,text,description,size,angle,spacing,curve,coords,style
-marker,-45.26234343928954,64.16015625000001,marker,fgdg,,dfgfdg,,,,,,{}
-marker,-56.03042378922171,123.310546875,marker,sdfsd,,dsf,,,,,,{}
-marker,-29.37008590377213,87.18750000000001,marker,fdsd,,dfdds,,,,,,{}
-marker,-32.9869654858718,131.52832031250003,marker,fds,,sfds,,,,,,{}
-marker,-30.42862723175495,124.39017024140313,marker,Marker,,,,,,,,{}
-marker,-39.35391244254016,114.98729447451956,marker,gdfg,,fdgf,,,,,,{}
-text,-51.18089821342826,109.248046875,,,fsdfsd,,14,0,0,0,,
-text,-32.71070343687717,123.44602834078046,,,XVXCV,CXVXCV,14,0,0,0,,
-text,NaN,NaN,,,Ahampatunshauge,"Aliases: ['Ahampatunshauge', 'Ahumpatunshauge']. Mentioned asaboundary inoriginal deed ofRutland, March 15,1686-87 (Middlesex Registry ofDeeds, book 16,page 511) :""And sotoAhampatunshauge, alittlepond.""",14,0,0,0,,
