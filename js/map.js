@@ -17,42 +17,6 @@ tiles.once('load', function () {
   rescaleTextLabels();
 });
 
-var baseLayers = { 'Base Map': tiles };
-var layerControl = L.control.layers(baseLayers, {}, { collapsed: false }).addTo(map);
-var imageOverlay = null;
-
-var uploadInput = document.getElementById('overlay-upload');
-var opacityInput = document.getElementById('overlay-opacity');
-
-uploadInput.addEventListener('change', function (e) {
-  var file = e.target.files[0];
-  if (!file) return;
-  var reader = new FileReader();
-  reader.onload = function (ev) {
-    var center = map.getCenter();
-    var offset = 5;
-    var corners = [
-      L.latLng(center.lat + offset, center.lng - offset),
-      L.latLng(center.lat + offset, center.lng + offset),
-      L.latLng(center.lat - offset, center.lng + offset),
-      L.latLng(center.lat - offset, center.lng - offset)
-    ];
-    if (imageOverlay) {
-      layerControl.removeLayer(imageOverlay);
-      map.removeLayer(imageOverlay);
-    }
-    imageOverlay = L.distortableImageOverlay(ev.target.result, { corners: corners, opacity: parseFloat(opacityInput.value) }).addTo(map);
-    imageOverlay.editing.enable();
-    layerControl.addOverlay(imageOverlay, file.name || 'Image Overlay');
-  };
-  reader.readAsDataURL(file);
-});
-
-opacityInput.addEventListener('input', function (e) {
-  var opacity = parseFloat(e.target.value);
-  if (imageOverlay) imageOverlay.setOpacity(opacity);
-});
-
 var mouseCoords = document.getElementById('mouse-coords');
 
 map.on('mousemove', function (e) {
