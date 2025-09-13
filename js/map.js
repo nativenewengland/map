@@ -403,15 +403,15 @@ function exportFeaturesToCSV() {
 }
 
 function saveMarkers() {
-  return exportFeaturesToCSV();
+  updateEditToolbar();
 }
 
 function saveTextLabels() {
-  return exportFeaturesToCSV();
+  updateEditToolbar();
 }
 
 function savePolygons() {
-  return exportFeaturesToCSV();
+  updateEditToolbar();
 }
 
 function updateEditToolbar() {
@@ -1170,5 +1170,7 @@ map.on(L.Draw.Event.DELETED, function (e) {
   updateEditToolbar();
 });
 
-
+document.getElementById('save-changes').addEventListener('click', function () {
+  exportFeaturesToCSV();
+});
 
