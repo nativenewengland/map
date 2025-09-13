@@ -27,7 +27,7 @@ html, body{
     z-index: 1000;
 }
 
-#overlay-upload, #overlay-opacity-label {
+#overlay-upload, #overlay-opacity-label, #overlay-size-label {
     position: absolute;
     right: 10px;
     left: auto;
@@ -38,6 +38,11 @@ html, body{
 }
 #overlay-opacity-label {
     top: 130px;
+}
+#overlay-size-label {
+    top: 160px;
+}
+#overlay-opacity-label, #overlay-size-label {
     background: #fff;
     padding: 2px 4px;
     border-radius: 4px;
@@ -45,7 +50,7 @@ html, body{
 }
 #overlay-error {
     position: absolute;
-    top: 160px;
+    top: 190px;
     right: 10px;
     left: auto;
     z-index: 1000;

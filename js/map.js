@@ -29,6 +29,8 @@ map.on('mouseout', function () {
 
 var overlayLayer = null;
 var overlayError = document.getElementById('overlay-error');
+var overlaySizeSlider = document.getElementById('overlay-size');
+var overlayScale = 1;
 document.getElementById('overlay-upload').addEventListener('change', function (e) {
   overlayError.textContent = '';
   var file = e.target.files[0];
@@ -57,6 +59,16 @@ document.getElementById('overlay-upload').addEventListener('change', function (e
           ],
           opacity: parseFloat(document.getElementById('overlay-opacity').value),
         }).addTo(map);
+        overlayScale = 1;
+        if (overlaySizeSlider) overlaySizeSlider.value = 1;
+        if (overlayLayer.editing) {
+          overlayLayer.editing.enable();
+        }
+        if (overlayLayer.enableDragging) {
+          overlayLayer.enableDragging();
+        } else if (overlayLayer.dragging && overlayLayer.dragging.enable) {
+          overlayLayer.dragging.enable();
+        }
       };
       img.onerror = function () {
         var msg = 'The selected file is not a valid image.';
@@ -80,6 +92,17 @@ document.getElementById('overlay-upload').addEventListener('change', function (e
 document.getElementById('overlay-opacity').addEventListener('input', function (e) {
   if (overlayLayer) {
     overlayLayer.setOpacity(parseFloat(e.target.value));
+  }
+});
+
+overlaySizeSlider.addEventListener('input', function (e) {
+  if (overlayLayer) {
+    var scale = parseFloat(e.target.value);
+    var factor = scale / overlayScale;
+    if (overlayLayer.scaleBy) {
+      overlayLayer.scaleBy(factor);
+    }
+    overlayScale = scale;
   }
 });
 
