@@ -51,21 +51,7 @@ document.getElementById('overlay-upload').addEventListener('change', function (e
           return;
         }
         var mapSize = map.getSize();
-        var maxWidth = mapSize.x / 4;
-        var maxHeight = mapSize.y / 4;
-        var scale = Math.min(maxWidth / img.width, maxHeight / img.height);
-        var pixelWidth = img.width * scale;
-        var pixelHeight = img.height * scale;
-        var center = map.project(map.getCenter(), map.getZoom());
-        var nwPoint = center.subtract([pixelWidth / 2, pixelHeight / 2]);
-        var nePoint = center.add([pixelWidth / 2, -pixelHeight / 2]);
-        var swPoint = center.add([-pixelWidth / 2, pixelHeight / 2]);
-        var sePoint = center.add([pixelWidth / 2, pixelHeight / 2]);
-        var corners = [
-          map.unproject(nwPoint, map.getZoom()),
-          map.unproject(nePoint, map.getZoom()),
-          map.unproject(swPoint, map.getZoom()),
-          map.unproject(sePoint, map.getZoom()),
+ main
         ];
         overlayLayer = L.distortableImageOverlay(ev.target.result, {
           corners: corners,
