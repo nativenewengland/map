@@ -50,14 +50,25 @@ document.getElementById('overlay-upload').addEventListener('change', function (e
           overlayError.textContent = msg;
           return;
         }
+        var mapSize = map.getSize();
+        var pixelWidth = mapSize.x / 4;
+        var pixelHeight = pixelWidth * (img.height / img.width);
+        var centerPoint = map.latLngToLayerPoint(bounds.getCenter());
+        var nwPoint = centerPoint.subtract([pixelWidth / 2, pixelHeight / 2]);
+        var nePoint = centerPoint.add([pixelWidth / 2, -pixelHeight / 2]);
+        var swPoint = centerPoint.add([-pixelWidth / 2, pixelHeight / 2]);
+        var sePoint = centerPoint.add([pixelWidth / 2, pixelHeight / 2]);
+        var corners = [
+          map.layerPointToLatLng(nwPoint),
+          map.layerPointToLatLng(nePoint),
+          map.layerPointToLatLng(swPoint),
+          map.layerPointToLatLng(sePoint),
+        ];
         overlayLayer = L.distortableImageOverlay(ev.target.result, {
-          corners: [
-            bounds.getNorthWest(),
-            bounds.getNorthEast(),
-            bounds.getSouthWest(),
-            bounds.getSouthEast(),
-          ],
+          corners: corners,
           opacity: parseFloat(document.getElementById('overlay-opacity').value),
+          selected: true,
+          mode: 'drag',
         }).addTo(map);
         overlayScale = 1;
         if (overlaySizeSlider) overlaySizeSlider.value = 1;
