@@ -15,6 +15,7 @@
 <body>
     <!-- <h1>map</h1> -->
     <div id="map"></div>
+    <button id="save-changes">Save Changes</button>
     <div id="mouse-coords"></div>
     <div id="info-panel" class="hidden">
         <button id="close-info" class="close-button">&times;</button>
@@ -48,6 +49,7 @@
             </label>
             <button id="marker-save">Save</button>
             <button id="marker-cancel">Cancel</button>
+            <button id="marker-convert" class="hidden">Convert to Text</button>
         </div>
     </div>
     <div id="polygon-form-overlay" class="hidden">
@@ -91,6 +93,7 @@
             </label>
             <button id="text-save">Save</button>
             <button id="text-cancel">Cancel</button>
+            <button id="text-convert" class="hidden">Convert to Marker</button>
         </div>
     </div>
     <script src="js/map.js"></script>
