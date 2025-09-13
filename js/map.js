@@ -50,25 +50,31 @@ document.getElementById('overlay-upload').addEventListener('change', function (e
           overlayError.textContent = msg;
           return;
         }
+        var mapSize = map.getSize();
+        var maxWidth = mapSize.x / 4;
+        var maxHeight = mapSize.y / 4;
+        var scale = Math.min(maxWidth / img.width, maxHeight / img.height);
+        var pixelWidth = img.width * scale;
+        var pixelHeight = img.height * scale;
+        var center = map.project(map.getCenter(), map.getZoom());
+        var nwPoint = center.subtract([pixelWidth / 2, pixelHeight / 2]);
+        var nePoint = center.add([pixelWidth / 2, -pixelHeight / 2]);
+        var swPoint = center.add([-pixelWidth / 2, pixelHeight / 2]);
+        var sePoint = center.add([pixelWidth / 2, pixelHeight / 2]);
+        var corners = [
+          map.unproject(nwPoint, map.getZoom()),
+          map.unproject(nePoint, map.getZoom()),
+          map.unproject(swPoint, map.getZoom()),
+          map.unproject(sePoint, map.getZoom()),
+        ];
         overlayLayer = L.distortableImageOverlay(ev.target.result, {
-          corners: [
-            bounds.getNorthWest(),
-            bounds.getNorthEast(),
-            bounds.getSouthWest(),
-            bounds.getSouthEast(),
-          ],
+          corners: corners,
           opacity: parseFloat(document.getElementById('overlay-opacity').value),
+          selected: true,
+          mode: 'drag',
         }).addTo(map);
         overlayScale = 1;
         if (overlaySizeSlider) overlaySizeSlider.value = 1;
-        if (overlayLayer.editing) {
-          overlayLayer.editing.enable();
-        }
-        if (overlayLayer.enableDragging) {
-          overlayLayer.enableDragging();
-        } else if (overlayLayer.dragging && overlayLayer.dragging.enable) {
-          overlayLayer.dragging.enable();
-        }
       };
       img.onerror = function () {
         var msg = 'The selected file is not a valid image.';
