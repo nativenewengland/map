@@ -72,14 +72,16 @@ document.getElementById('overlay-upload').addEventListener('change', function (e
         }).addTo(map);
         overlayScale = 1;
         if (overlaySizeSlider) overlaySizeSlider.value = 1;
-        if (overlayLayer.editing) {
-          overlayLayer.editing.enable();
-        }
-        if (overlayLayer.enableDragging) {
-          overlayLayer.enableDragging();
-        } else if (overlayLayer.dragging && overlayLayer.dragging.enable) {
-          overlayLayer.dragging.enable();
-        }
+        overlayLayer.once('load', function () {
+          if (overlayLayer.editing) {
+            overlayLayer.editing.enable();
+          }
+          if (overlayLayer.enableDragging) {
+            overlayLayer.enableDragging();
+          } else if (overlayLayer.dragging && overlayLayer.dragging.enable) {
+            overlayLayer.dragging.enable();
+          }
+        });
       };
       img.onerror = function () {
         var msg = 'The selected file is not a valid image.';
