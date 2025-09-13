@@ -17,6 +17,16 @@ tiles.once('load', function () {
   rescaleTextLabels();
 });
 
+var mouseCoords = document.getElementById('mouse-coords');
+
+map.on('mousemove', function (e) {
+  mouseCoords.textContent = e.latlng.lat.toFixed(4) + ', ' + e.latlng.lng.toFixed(4);
+});
+
+map.on('mouseout', function () {
+  mouseCoords.textContent = '';
+});
+
 // Remove default marker shadows
 L.Icon.Default.mergeOptions({
   shadowUrl: null,
