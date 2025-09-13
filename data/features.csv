@@ -1,22 +1,22 @@
 type,lat,lng,icon,name,text,description,size,angle,spacing,curve,coords,style,category,overlay_group
-text,,,marker,Noepe,Noepe,Dry Land (refers to all of MV),14.0,0.0,0.0,0.0,,{},other,other
-text,,,marker,Aquinnah,Aquinnah,The shore or end of the island,14.0,0.0,0.0,0.0,,{},other,other
-text,,,marker,Mashanauke,Mashanauke,Big town,14.0,0.0,0.0,0.0,,{},other,other
-text,,,marker,Kehtashimet,Kehtashimet,Place of a great spring,14.0,0.0,0.0,0.0,,{},other,other
-text,,,marker,Massapootoeauke,Massapootoeauke,Land of great blowing sand,14.0,0.0,0.0,0.0,,{},other,other
-text,,,marker,Kuppiegon,Kuppiegon,A good enclosure for shelter/thicket,14.0,0.0,0.0,0.0,,{},other,other
-text,,,marker,Msquepunauket,Msquepunauket,At the place of the red cliff or bank,14.0,0.0,0.0,0.0,,{},other,other
-text,,,marker,Sakunket,Sakunket,Skunk place,14.0,0.0,0.0,0.0,,{},other,other
-text,,,marker,Nashaquitsa,Nashaquitsa,At the little divided island,14.0,0.0,0.0,0.0,,{},other,other
-text,,,marker,Sanchiancantacket,Sanchiancantacket,Place where the brook flows into the river,14.0,0.0,0.0,0.0,,{},other,other
-text,,,marker,Nashawahkamuk,Nashawahkamuk,Common land for hunting,14.0,0.0,0.0,0.0,,{},other,other
-text,,,marker,Sequinauk,Sequinauk,Early summer land (perhaps a summer encampment),14.0,0.0,0.0,0.0,,{},other,other
-text,,,marker,Nunne-Pog,Nunne-Pog,When there is water there (freshwater pond),14.0,0.0,0.0,0.0,,{},other,other
-text,,,marker,Taakemmy,Taakemmy,Where he or she strikes it (a corn grinding place),14.0,0.0,0.0,0.0,,{},other,other
-text,,,marker,Paquahauke,Paquahauke,Quohaug land,14.0,0.0,0.0,0.0,,{},other,other
-text,,,marker,TchepiAquidenet,TchepiAquidenet,Place of separate island,14.0,0.0,0.0,0.0,,{},other,other
-text,,,marker,Waskosim,Waskosim,New stone,14.0,0.0,0.0,0.0,,{},other,other
-text,,,marker,Manitouwattootan,Manitouwattootan,God's town (Christiantown),14.0,0.0,0.0,0.0,,{},other,other
-text,,,marker,Wawitukq,Wawitukq,"Winding, twisting river",14.0,0.0,0.0,0.0,,{},other,other
-text,,,marker,Winnetukqet,Winnetukqet,Place of good river,14.0,0.0,0.0,0.0,,{},other,other
+text,,,marker,Noepe,Noepe,Dry Land (refers to all of MV),1.0,0.0,0.0,0.0,,{},other,other
+text,,,marker,Aquinnah,Aquinnah,The shore or end of the island,1.0,0.0,0.0,0.0,,{},other,other
+text,,,marker,Mashanauke,Mashanauke,Big town,1.0,0.0,0.0,0.0,,{},other,other
+text,,,marker,Kehtashimet,Kehtashimet,Place of a great spring,1.0,0.0,0.0,0.0,,{},other,other
+text,,,marker,Massapootoeauke,Massapootoeauke,Land of great blowing sand,1.0,0.0,0.0,0.0,,{},other,other
+text,,,marker,Kuppiegon,Kuppiegon,A good enclosure for shelter/thicket,1.0,0.0,0.0,0.0,,{},other,other
+text,,,marker,Msquepunauket,Msquepunauket,At the place of the red cliff or bank,1.0,0.0,0.0,0.0,,{},other,other
+text,,,marker,Sakunket,Sakunket,Skunk place,1.0,0.0,0.0,0.0,,{},other,other
+text,,,marker,Nashaquitsa,Nashaquitsa,At the little divided island,1.0,0.0,0.0,0.0,,{},other,other
+text,,,marker,Sanchiancantacket,Sanchiancantacket,Place where the brook flows into the river,1.0,0.0,0.0,0.0,,{},other,other
+text,,,marker,Nashawahkamuk,Nashawahkamuk,Common land for hunting,1.0,0.0,0.0,0.0,,{},other,other
+text,,,marker,Sequinauk,Sequinauk,Early summer land (perhaps a summer encampment),1.0,0.0,0.0,0.0,,{},other,other
+text,,,marker,Nunne-Pog,Nunne-Pog,When there is water there (freshwater pond),1.0,0.0,0.0,0.0,,{},other,other
+text,,,marker,Taakemmy,Taakemmy,Where he or she strikes it (a corn grinding place),1.0,0.0,0.0,0.0,,{},other,other
+text,,,marker,Paquahauke,Paquahauke,Quohaug land,1.0,0.0,0.0,0.0,,{},other,other
+text,,,marker,TchepiAquidenet,TchepiAquidenet,Place of separate island,1.0,0.0,0.0,0.0,,{},other,other
+text,,,marker,Waskosim,Waskosim,New stone,1.0,0.0,0.0,0.0,,{},other,other
+text,,,marker,Manitouwattootan,Manitouwattootan,God's town (Christiantown),1.0,0.0,0.0,0.0,,{},other,other
+text,,,marker,Wawitukq,Wawitukq,"Winding, twisting river",1.0,0.0,0.0,0.0,,{},other,other
+text,,,marker,Winnetukqet,Winnetukqet,Place of good river,1.0,0.0,0.0,0.0,,{},other,other
 >>>>>>> 0bf5e77deec26afb384d8cef2ccfb4e8506ebf1e
