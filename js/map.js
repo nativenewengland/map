@@ -52,8 +52,8 @@ document.getElementById('overlay-upload').addEventListener('change', function (e
           corners: [
             bounds.getNorthWest(),
             bounds.getNorthEast(),
-            bounds.getSouthEast(),
             bounds.getSouthWest(),
+            bounds.getSouthEast(),
           ],
           opacity: parseFloat(document.getElementById('overlay-opacity').value),
         }).addTo(map);
