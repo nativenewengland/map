@@ -28,26 +28,47 @@ map.on('mouseout', function () {
 });
 
 var overlayLayer = null;
+var overlayError = document.getElementById('overlay-error');
 document.getElementById('overlay-upload').addEventListener('change', function (e) {
+  overlayError.textContent = '';
   var file = e.target.files[0];
   if (!file) return;
-  var reader = new FileReader();
-  reader.onload = function (ev) {
-    if (overlayLayer) {
-      map.removeLayer(overlayLayer);
-    }
-    var bounds = map.getBounds();
-    overlayLayer = L.distortableImageOverlay(ev.target.result, {
-      corners: [
-        bounds.getNorthWest(),
-        bounds.getNorthEast(),
-        bounds.getSouthEast(),
-        bounds.getSouthWest(),
-      ],
-      opacity: parseFloat(document.getElementById('overlay-opacity').value),
-    }).addTo(map);
-  };
-  reader.readAsDataURL(file);
+  try {
+    var reader = new FileReader();
+    reader.onload = function (ev) {
+      var img = new Image();
+      img.onload = function () {
+        if (overlayLayer) {
+          map.removeLayer(overlayLayer);
+        }
+        var bounds = map.getBounds();
+        overlayLayer = L.distortableImageOverlay(ev.target.result, {
+          corners: [
+            bounds.getNorthWest(),
+            bounds.getNorthEast(),
+            bounds.getSouthEast(),
+            bounds.getSouthWest(),
+          ],
+          opacity: parseFloat(document.getElementById('overlay-opacity').value),
+        }).addTo(map);
+      };
+      img.onerror = function () {
+        var msg = 'The selected file is not a valid image.';
+        console.error(msg);
+        overlayError.textContent = msg;
+        alert(msg);
+      };
+      img.src = ev.target.result;
+    };
+    reader.onerror = function (err) {
+      console.error('Error reading file:', err);
+      overlayError.textContent = 'Failed to read file.';
+    };
+    reader.readAsDataURL(file);
+  } catch (err) {
+    console.error('Error processing file:', err);
+    overlayError.textContent = 'Error processing file.';
+  }
 });
 
 document.getElementById('overlay-opacity').addEventListener('input', function (e) {
