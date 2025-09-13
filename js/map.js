@@ -41,7 +41,37 @@ document.getElementById('overlay-upload').addEventListener('change', function (e
         if (overlayLayer) {
           map.removeLayer(overlayLayer);
         }
-        var bounds = map.getBounds();
+        var imgWidth = img.naturalWidth;
+        var imgHeight = img.naturalHeight;
+        var aspect = imgWidth / imgHeight;
+        var mapSize = map.getSize();
+        var maxWidth = mapSize.x / 3;
+        var maxHeight = mapSize.y / 3;
+        var width = maxWidth;
+        var height = width / aspect;
+        if (height > maxHeight) {
+          height = maxHeight;
+          width = height * aspect;
+        }
+        var centerPoint = map.latLngToContainerPoint(map.getCenter());
+        var halfWidth = width / 2;
+        var halfHeight = height / 2;
+        var nw = map.containerPointToLatLng([
+          centerPoint.x - halfWidth,
+          centerPoint.y - halfHeight,
+        ]);
+        var ne = map.containerPointToLatLng([
+          centerPoint.x + halfWidth,
+          centerPoint.y - halfHeight,
+        ]);
+        var sw = map.containerPointToLatLng([
+          centerPoint.x - halfWidth,
+          centerPoint.y + halfHeight,
+        ]);
+        var se = map.containerPointToLatLng([
+          centerPoint.x + halfWidth,
+          centerPoint.y + halfHeight,
+        ]);
         if (!L.distortableImageOverlay) {
           const msg = 'Overlay plugin not loaded.';
           console.error(msg);
@@ -49,13 +79,10 @@ document.getElementById('overlay-upload').addEventListener('change', function (e
           return;
         }
         overlayLayer = L.distortableImageOverlay(ev.target.result, {
-          corners: [
-            bounds.getNorthWest(),
-            bounds.getNorthEast(),
-            bounds.getSouthEast(),
-            bounds.getSouthWest(),
-          ],
-          opacity: parseFloat(document.getElementById('overlay-opacity').value),
+          corners: [nw, ne, sw, se],
+          opacity: parseFloat(
+            document.getElementById('overlay-opacity').value
+          ),
         }).addTo(map);
       };
       img.onerror = function () {
