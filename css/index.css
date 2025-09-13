@@ -20,6 +20,13 @@ html, body{
     z-index: 1000;
 }
 
+#save-changes {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+}
+
 #info-title,
 #info-description {
     text-align: center;

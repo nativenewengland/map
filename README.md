@@ -4,7 +4,7 @@ This project is a web-based map using Leaflet. Users can add custom markers, tex
 
 ## Feature Export
 
-Whenever markers, text labels, or polygons are saved, the map generates a CSV representation and tries to POST it to `/save-features`. If the request succeeds (HTTP 200), the file is committed to the GitHub repository. If the request fails or returns a non-OK response, the browser falls back to downloading `features.csv` locally.
+Click the **Save Changes** button to generate a CSV representation of all markers, text labels, and polygons. The client tries to POST the CSV to `/save-features` and, if the request succeeds (HTTP 200), the file is committed to the GitHub repository. If the request fails or returns a non-OK response, the browser falls back to downloading `features.csv` locally.
 
 Each row of the CSV includes a `type` column identifying the feature (`marker`, `text`, or `polygon`) followed by relevant attributes such as coordinates, label text, and style information.
 
