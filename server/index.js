@@ -1,4 +1,5 @@
 const express = require('express');
+const fetch = require('node-fetch');
 const app = express();
 
 // Parse JSON bodies
@@ -20,7 +21,7 @@ app.post('/save-features', async (req, res) => {
     return res.status(500).send('Server misconfigured');
   }
   try {
-    // Fetch existing file to get its SHA
+    // Fetch existing file to get its SHA if it exists
     const getResp = await fetch(
       `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/data/features.csv`,
       {
@@ -30,12 +31,21 @@ app.post('/save-features', async (req, res) => {
         },
       }
     );
-    if (!getResp.ok) {
+
+    let sha;
+    if (getResp.status === 200) {
+      const getData = await getResp.json();
+      sha = getData.sha;
+    } else if (getResp.status !== 404) {
       throw new Error('Failed to get existing file');
     }
-    const getData = await getResp.json();
 
     // Commit new content
+    const body = { message: 'Update features.csv', content };
+    if (sha) {
+      body.sha = sha;
+    }
+
     const putResp = await fetch(
       `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/data/features.csv`,
       {
@@ -45,11 +55,7 @@ app.post('/save-features', async (req, res) => {
           'User-Agent': 'map-app',
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          message: 'Update features.csv',
-          content,
-          sha: getData.sha,
-        }),
+        body: JSON.stringify(body),
       }
     );
 
