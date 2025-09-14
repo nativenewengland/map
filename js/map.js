@@ -11,6 +11,10 @@ var tiles = L.tileLayer('map/{z}/{x}/{y}.jpg', {
   minZoom: 2,
   maxZoom: 6,
 }).addTo(map);
+// Overlay extracted from image and used for OCR/template matching
+var overlayBounds = [[-57.5, 100.0], [-49.5, 120.0]];
+// User-supplied overlay image should be placed at overlays/overlay.png
+L.imageOverlay('overlays/overlay.png', overlayBounds).addTo(map);
 tiles.once('load', function () {
   baseZoom = map.getZoom();
   rescaleIcons();
