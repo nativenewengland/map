@@ -9,7 +9,7 @@ OVERLAY_PATH = 'overlays/overlay.png'
 ICONS_DIR = 'icons'
 FEATURES_CSV = 'data/features.csv'
 # geographic bounds of overlay: [[minLat, minLon], [maxLat, maxLon]]
-MIN_LAT, MIN_LON = -57.5, 100.0
+MIN_LAT, MIN_LON = -58.003132, 100.0
 MAX_LAT, MAX_LON = -49.5, 120.0
 
 def pixel_to_latlon(x, y, width, height):
