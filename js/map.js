@@ -12,7 +12,7 @@ var tiles = L.tileLayer('map/{z}/{x}/{y}.jpg', {
   maxZoom: 6,
 }).addTo(map);
 // Overlay extracted from image and used for OCR/template matching
-var overlayBounds = [[-57.5, 100.0], [-49.5, 120.0]];
+var overlayBounds = [[-58.003132, 100.0], [-49.5, 120.0]];
 // User-supplied overlay image should be placed at overlays/overlay.png
 L.imageOverlay('overlays/overlay.png', overlayBounds).addTo(map);
 tiles.once('load', function () {
@@ -1177,4 +1177,5 @@ map.on(L.Draw.Event.DELETED, function (e) {
 document.getElementById('save-changes').addEventListener('click', function () {
   exportFeaturesToCSV();
 });
+
 
