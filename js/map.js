@@ -195,7 +195,6 @@ var overlays = {
   Territories: territoriesOverlay,
 };
 
-function populateOverlayOptions(select) {
   if (!select) return;
   select.innerHTML = '';
   var defaultOption = document.createElement('option');
@@ -210,8 +209,6 @@ function populateOverlayOptions(select) {
   });
 }
 
-populateOverlayOptions(document.getElementById('marker-overlay'));
-populateOverlayOptions(document.getElementById('text-overlay'));
 L.control.layers(null, overlays).addTo(map);
 
 function clearSelectedMarker() {
@@ -325,18 +322,7 @@ function loadFeaturesFromCSV(text) {
         style: cols[12] ? JSON.parse(cols[12]) : undefined,
         overlay: cols[13] || '',
       });
-    } else if (type === 'text') {
-      textLabels.push({
-        lat: parseFloat(cols[1]),
-        lng: parseFloat(cols[2]),
-        text: cols[5],
-        description: cols[6],
-        size: parseFloat(cols[7]) || 14,
-        angle: parseFloat(cols[8]) || 0,
-        spacing: parseFloat(cols[9]) || 0,
-        curve: parseFloat(cols[10]) || 0,
-        overlay: cols[13] || '',
-      });
+
     } else if (type === 'polygon') {
       polygons.push({
         name: cols[4],
@@ -397,7 +383,7 @@ function exportFeaturesToCSV() {
         escapeCsv(t.curve),
         '',
         '',
-        escapeCsv(t.overlay || '')
+
       ].join(',')
     );
   });
