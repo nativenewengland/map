@@ -12,7 +12,8 @@ var tiles = L.tileLayer('map/{z}/{x}/{y}.jpg', {
   maxZoom: 6,
 }).addTo(map);
 // Overlay extracted from image and used for OCR/template matching
-var overlayBounds = [[-58.003132, 100.0], [-49.5, 120.0]];
+// Use world bounds so the overlay spans the entire map
+var overlayBounds = [[-85, -180], [85, 180]];
 // User-supplied overlay image should be placed at overlays/overlay.png
 L.imageOverlay('overlays/overlay.png', overlayBounds).addTo(map);
 tiles.once('load', function () {
