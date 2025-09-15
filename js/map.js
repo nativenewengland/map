@@ -177,7 +177,42 @@ var allMarkers = [];
 var allTextLabels = [];
 var baseZoom;
 var selectedMarker = null;
-var territoriesLayer = L.featureGroup().addTo(map);
+var territoriesLayer = L.featureGroup();
+var territoryMarkersLayer = L.layerGroup();
+var Settlements = L.layerGroup();
+var territoriesOverlay = L.layerGroup([territoriesLayer, territoryMarkersLayer]);
+
+Settlements.addTo(map);
+territoriesOverlay.addTo(map);
+
+var markerOverlayGroups = {
+  Settlements: Settlements,
+  Territories: territoryMarkersLayer,
+};
+
+var overlays = {
+  Settlements: Settlements,
+  Territories: territoriesOverlay,
+};
+
+function populateMarkerOverlayOptions() {
+  var select = document.getElementById('marker-overlay');
+  if (!select) return;
+  select.innerHTML = '';
+  var defaultOption = document.createElement('option');
+  defaultOption.value = '';
+  defaultOption.textContent = 'None';
+  select.appendChild(defaultOption);
+  Object.keys(markerOverlayGroups).forEach(function (name) {
+    var option = document.createElement('option');
+    option.value = name;
+    option.textContent = name;
+    select.appendChild(option);
+  });
+}
+
+populateMarkerOverlayOptions();
+L.control.layers(null, overlays).addTo(map);
 
 function clearSelectedMarker() {
   if (selectedMarker && selectedMarker._icon) {
@@ -288,6 +323,7 @@ function loadFeaturesFromCSV(text) {
         name: cols[4],
         description: cols[6],
         style: cols[12] ? JSON.parse(cols[12]) : undefined,
+        overlay: cols[13] || '',
       });
     } else if (type === 'text') {
       textLabels.push({
@@ -320,7 +356,7 @@ function exportFeaturesToCSV() {
   }
 
   var rows = [
-    'type,lat,lng,icon,name,text,description,size,angle,spacing,curve,coords,style'
+    'type,lat,lng,icon,name,text,description,size,angle,spacing,curve,coords,style,overlay'
   ];
 
   customMarkers.forEach(function (m) {
@@ -338,7 +374,8 @@ function exportFeaturesToCSV() {
         '',
         '',
         '',
-        escapeCsv(JSON.stringify(m.style || {}))
+        escapeCsv(JSON.stringify(m.style || {})),
+        escapeCsv(m.overlay || '')
       ].join(',')
     );
   });
@@ -357,6 +394,7 @@ function exportFeaturesToCSV() {
         escapeCsv(t.angle),
         escapeCsv(t.spacing),
         escapeCsv(t.curve),
+        '',
         '',
         ''
       ].join(',')
@@ -378,7 +416,8 @@ function exportFeaturesToCSV() {
         '',
         '',
         escapeCsv(JSON.stringify(p.coords)),
-        escapeCsv(JSON.stringify(p.style || {}))
+        escapeCsv(JSON.stringify(p.style || {})),
+        ''
       ].join(',')
     );
   });
@@ -493,6 +532,52 @@ function addPolygonToMap(data) {
   return poly;
 }
 
+function getMarkerOverlayLayer(name) {
+  if (!name) return null;
+  return markerOverlayGroups[name] || null;
+}
+
+function moveMarkerToOverlay(marker, overlayName) {
+  if (!marker) return;
+  var normalized = overlayName || '';
+  var newLayer = getMarkerOverlayLayer(normalized);
+  var currentLayer = marker._overlayLayer || null;
+  var currentName = marker._overlayName || '';
+  if (currentLayer === newLayer && currentName === normalized) {
+    marker._overlayName = normalized;
+    if (marker._data) {
+      marker._data.overlay = normalized;
+    }
+    return;
+  }
+  if (currentLayer) {
+    currentLayer.removeLayer(marker);
+  } else if (marker._overlayLayer !== undefined) {
+    map.removeLayer(marker);
+  }
+  if (newLayer) {
+    newLayer.addLayer(marker);
+  } else {
+    marker.addTo(map);
+  }
+  marker._overlayLayer = newLayer;
+  marker._overlayName = normalized;
+  if (marker._data) {
+    marker._data.overlay = normalized;
+  }
+}
+
+function detachMarker(marker) {
+  if (!marker) return;
+  if (marker._overlayLayer) {
+    marker._overlayLayer.removeLayer(marker);
+  } else {
+    map.removeLayer(marker);
+  }
+  marker._overlayLayer = null;
+  marker._overlayName = '';
+}
+
 function addMarkerToMap(data) {
   var icon = iconMap[data.icon] || WigwamIcon;
   var customMarker = createMarker(
@@ -501,10 +586,20 @@ function addMarkerToMap(data) {
     icon,
     data.name,
     data.description
-  ).addTo(map);
+  );
+  var overlayName = data.overlay || '';
+  var targetLayer = getMarkerOverlayLayer(overlayName);
+  if (targetLayer) {
+    targetLayer.addLayer(customMarker);
+  } else {
+    customMarker.addTo(map);
+  }
+  customMarker._overlayLayer = targetLayer || null;
+  customMarker._overlayName = overlayName;
+  data.overlay = overlayName;
   customMarker._data = data;
   customMarker.on('contextmenu', function () {
-    map.removeLayer(customMarker);
+    detachMarker(customMarker);
     customMarkers = customMarkers.filter(function (m) {
       return !(m.lat === data.lat && m.lng === data.lng && m.name === data.name);
     });
@@ -678,18 +773,6 @@ function createMarker(lat, lng, icon, name, description) {
 }
 // ******END OF MARKERS DECLARATION ******
 
-// MARKER GROUPS
-var Settlements = L.layerGroup().addTo(map);
-// Marker overlay
-var overlays = {
-  // "GROUPNAME":mg_GROUPNAME
-  Settlements: Settlements,
-  Territories: territoriesLayer,
-};
-
-//GROUP CONTROLS
-  L.control.layers(null, overlays).addTo(map);
-
 map.on('zoomend', rescaleIcons);
 map.on('zoomend', rescaleTextLabels);
 
@@ -742,20 +825,26 @@ function showMarkerForm(latlng) {
   var saveBtn = document.getElementById('marker-save');
   var cancelBtn = document.getElementById('marker-cancel');
   var convertBtn = document.getElementById('marker-convert');
+  var overlaySelect = document.getElementById('marker-overlay');
   overlay.classList.remove('hidden');
   convertBtn.classList.add('hidden');
+  if (overlaySelect) {
+    overlaySelect.value = '';
+  }
 
   function submitHandler() {
     var name = document.getElementById('marker-name').value || 'Marker';
     var description =
       document.getElementById('marker-description').value || '';
     var iconKey = document.getElementById('marker-icon').value || 'wigwam';
+    var overlayValue = overlaySelect ? overlaySelect.value : '';
     var data = {
       lat: latlng.lat,
       lng: latlng.lng,
       name: name,
       description: description,
       icon: iconKey,
+      overlay: overlayValue || '',
     };
     addMarkerToMap(data);
     customMarkers.push(data);
@@ -775,6 +864,9 @@ function showMarkerForm(latlng) {
     document.getElementById('marker-name').value = '';
     document.getElementById('marker-description').value = '';
     document.getElementById('marker-icon').value = 'wigwam';
+    if (overlaySelect) {
+      overlaySelect.value = '';
+    }
   }
 
   saveBtn.addEventListener('click', submitHandler);
@@ -788,18 +880,23 @@ function editMarkerForm(marker) {
   var cancelBtn = document.getElementById('marker-cancel');
   var convertBtn = document.getElementById('marker-convert');
   var title = document.querySelector('#marker-form h3');
+  var overlaySelect = document.getElementById('marker-overlay');
   overlay.classList.remove('hidden');
   convertBtn.classList.remove('hidden');
 
   document.getElementById('marker-name').value = marker._data.name || '';
   document.getElementById('marker-description').value = marker._data.description || '';
   document.getElementById('marker-icon').value = marker._data.icon || 'wigwam';
+  if (overlaySelect) {
+    overlaySelect.value = marker._data.overlay || '';
+  }
   if (title) title.textContent = 'Edit Marker';
 
   function submitHandler() {
     var name = document.getElementById('marker-name').value || 'Marker';
     var description = document.getElementById('marker-description').value || '';
     var iconKey = document.getElementById('marker-icon').value || 'wigwam';
+    var overlayValue = overlaySelect ? overlaySelect.value : '';
 
     marker._data.name = name;
     marker._data.description = description;
@@ -808,6 +905,7 @@ function editMarkerForm(marker) {
     var newIcon = iconMap[iconKey] || WigwamIcon;
     marker.setIcon(newIcon);
     marker._baseIconOptions = JSON.parse(JSON.stringify(newIcon.options));
+    moveMarkerToOverlay(marker, overlayValue);
     rescaleIcons();
     saveMarkers();
     cleanup();
@@ -830,6 +928,9 @@ function editMarkerForm(marker) {
     document.getElementById('marker-name').value = '';
     document.getElementById('marker-description').value = '';
     document.getElementById('marker-icon').value = 'wigwam';
+    if (overlaySelect) {
+      overlaySelect.value = '';
+    }
     convertBtn.classList.add('hidden');
     if (title) title.textContent = 'Add Marker';
   }
@@ -1051,7 +1152,7 @@ function convertMarkerToText(marker) {
     selectedMarker = null;
   }
   var data = marker._data;
-  map.removeLayer(marker);
+  detachMarker(marker);
   customMarkers = customMarkers.filter(function (m) {
     return m !== data;
   });
