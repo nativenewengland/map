@@ -177,7 +177,42 @@ var allMarkers = [];
 var allTextLabels = [];
 var baseZoom;
 var selectedMarker = null;
-var territoriesLayer = L.featureGroup().addTo(map);
+var territoriesLayer = L.featureGroup();
+var territoryMarkersLayer = L.layerGroup();
+var Settlements = L.layerGroup();
+var territoriesOverlay = L.layerGroup([territoriesLayer, territoryMarkersLayer]);
+
+Settlements.addTo(map);
+territoriesOverlay.addTo(map);
+
+var markerOverlayGroups = {
+  Settlements: Settlements,
+  Territories: territoryMarkersLayer,
+};
+
+var overlays = {
+  Settlements: Settlements,
+  Territories: territoriesOverlay,
+};
+
+function populateOverlayOptions(select) {
+  if (!select) return;
+  select.innerHTML = '';
+  var defaultOption = document.createElement('option');
+  defaultOption.value = '';
+  defaultOption.textContent = 'None';
+  select.appendChild(defaultOption);
+  Object.keys(markerOverlayGroups).forEach(function (name) {
+    var option = document.createElement('option');
+    option.value = name;
+    option.textContent = name;
+    select.appendChild(option);
+  });
+}
+
+populateOverlayOptions(document.getElementById('marker-overlay'));
+populateOverlayOptions(document.getElementById('text-overlay'));
+L.control.layers(null, overlays).addTo(map);
 
 function clearSelectedMarker() {
   if (selectedMarker && selectedMarker._icon) {
@@ -288,6 +323,7 @@ function loadFeaturesFromCSV(text) {
         name: cols[4],
         description: cols[6],
         style: cols[12] ? JSON.parse(cols[12]) : undefined,
+        overlay: cols[13] || '',
       });
     } else if (type === 'text') {
       textLabels.push({
@@ -299,6 +335,7 @@ function loadFeaturesFromCSV(text) {
         angle: parseFloat(cols[8]) || 0,
         spacing: parseFloat(cols[9]) || 0,
         curve: parseFloat(cols[10]) || 0,
+        overlay: cols[13] || '',
       });
     } else if (type === 'polygon') {
       polygons.push({
@@ -320,7 +357,7 @@ function exportFeaturesToCSV() {
   }
 
   var rows = [
-    'type,lat,lng,icon,name,text,description,size,angle,spacing,curve,coords,style'
+    'type,lat,lng,icon,name,text,description,size,angle,spacing,curve,coords,style,overlay'
   ];
 
   customMarkers.forEach(function (m) {
@@ -338,7 +375,8 @@ function exportFeaturesToCSV() {
         '',
         '',
         '',
-        escapeCsv(JSON.stringify(m.style || {}))
+        escapeCsv(JSON.stringify(m.style || {})),
+        escapeCsv(m.overlay || '')
       ].join(',')
     );
   });
@@ -358,7 +396,8 @@ function exportFeaturesToCSV() {
         escapeCsv(t.spacing),
         escapeCsv(t.curve),
         '',
-        ''
+        '',
+        escapeCsv(t.overlay || '')
       ].join(',')
     );
   });
@@ -378,7 +417,8 @@ function exportFeaturesToCSV() {
         '',
         '',
         escapeCsv(JSON.stringify(p.coords)),
-        escapeCsv(JSON.stringify(p.style || {}))
+        escapeCsv(JSON.stringify(p.style || {})),
+        ''
       ].join(',')
     );
   });
@@ -493,6 +533,52 @@ function addPolygonToMap(data) {
   return poly;
 }
 
+function getMarkerOverlayLayer(name) {
+  if (!name) return null;
+  return markerOverlayGroups[name] || null;
+}
+
+function moveMarkerToOverlay(marker, overlayName) {
+  if (!marker) return;
+  var normalized = overlayName || '';
+  var newLayer = getMarkerOverlayLayer(normalized);
+  var currentLayer = marker._overlayLayer || null;
+  var currentName = marker._overlayName || '';
+  if (currentLayer === newLayer && currentName === normalized) {
+    marker._overlayName = normalized;
+    if (marker._data) {
+      marker._data.overlay = normalized;
+    }
+    return;
+  }
+  if (currentLayer) {
+    currentLayer.removeLayer(marker);
+  } else if (marker._overlayLayer !== undefined) {
+    map.removeLayer(marker);
+  }
+  if (newLayer) {
+    newLayer.addLayer(marker);
+  } else {
+    marker.addTo(map);
+  }
+  marker._overlayLayer = newLayer;
+  marker._overlayName = normalized;
+  if (marker._data) {
+    marker._data.overlay = normalized;
+  }
+}
+
+function detachMarker(marker) {
+  if (!marker) return;
+  if (marker._overlayLayer) {
+    marker._overlayLayer.removeLayer(marker);
+  } else {
+    map.removeLayer(marker);
+  }
+  marker._overlayLayer = null;
+  marker._overlayName = '';
+}
+
 function addMarkerToMap(data) {
   var icon = iconMap[data.icon] || WigwamIcon;
   var customMarker = createMarker(
@@ -501,10 +587,20 @@ function addMarkerToMap(data) {
     icon,
     data.name,
     data.description
-  ).addTo(map);
+  );
+  var overlayName = data.overlay || '';
+  var targetLayer = getMarkerOverlayLayer(overlayName);
+  if (targetLayer) {
+    targetLayer.addLayer(customMarker);
+  } else {
+    customMarker.addTo(map);
+  }
+  customMarker._overlayLayer = targetLayer || null;
+  customMarker._overlayName = overlayName;
+  data.overlay = overlayName;
   customMarker._data = data;
   customMarker.on('contextmenu', function () {
-    map.removeLayer(customMarker);
+    detachMarker(customMarker);
     customMarkers = customMarkers.filter(function (m) {
       return !(m.lat === data.lat && m.lng === data.lng && m.name === data.name);
     });
@@ -565,7 +661,9 @@ function addTextLabelToMap(data) {
       iconAnchor: [0, 0],
     });
   }
-  var m = L.marker([data.lat, data.lng], { icon: textIcon, draggable: true })
+  var m = L.marker([data.lat, data.lng], { icon: textIcon, draggable: true });
+
+  m
     .on('click', function (ev) {
       L.DomEvent.stopPropagation(ev);
       clearSelectedMarker();
@@ -588,7 +686,7 @@ function addTextLabelToMap(data) {
       }
     })
     .on('contextmenu', function () {
-      map.removeLayer(m);
+      detachMarker(m);
       customTextLabels = customTextLabels.filter(function (t) {
         return !(
           t.lat === data.lat &&
@@ -598,15 +696,26 @@ function addTextLabelToMap(data) {
           t.description === data.description &&
           t.angle === data.angle &&
           t.spacing === data.spacing &&
-          (t.curve || 0) === (data.curve || 0)
+          (t.curve || 0) === (data.curve || 0) &&
+          (t.overlay || '') === (data.overlay || '')
         );
       });
       allTextLabels = allTextLabels.filter(function (t) {
         return t !== m;
       });
       saveTextLabels();
-    })
-    .addTo(map);
+    });
+
+  data.overlay = data.overlay || '';
+  var overlayName = data.overlay;
+  var targetLayer = getMarkerOverlayLayer(overlayName);
+  if (targetLayer) {
+    targetLayer.addLayer(m);
+  } else {
+    m.addTo(map);
+  }
+  m._overlayLayer = targetLayer || null;
+  m._overlayName = overlayName;
   m._baseFontSize = data.size;
   m._baseLetterSpacing = data.spacing;
   if (data.curve) {
@@ -678,18 +787,6 @@ function createMarker(lat, lng, icon, name, description) {
 }
 // ******END OF MARKERS DECLARATION ******
 
-// MARKER GROUPS
-var Settlements = L.layerGroup().addTo(map);
-// Marker overlay
-var overlays = {
-  // "GROUPNAME":mg_GROUPNAME
-  Settlements: Settlements,
-  Territories: territoriesLayer,
-};
-
-//GROUP CONTROLS
-  L.control.layers(null, overlays).addTo(map);
-
 map.on('zoomend', rescaleIcons);
 map.on('zoomend', rescaleTextLabels);
 
@@ -742,20 +839,26 @@ function showMarkerForm(latlng) {
   var saveBtn = document.getElementById('marker-save');
   var cancelBtn = document.getElementById('marker-cancel');
   var convertBtn = document.getElementById('marker-convert');
+  var overlaySelect = document.getElementById('marker-overlay');
   overlay.classList.remove('hidden');
   convertBtn.classList.add('hidden');
+  if (overlaySelect) {
+    overlaySelect.value = '';
+  }
 
   function submitHandler() {
     var name = document.getElementById('marker-name').value || 'Marker';
     var description =
       document.getElementById('marker-description').value || '';
     var iconKey = document.getElementById('marker-icon').value || 'wigwam';
+    var overlayValue = overlaySelect ? overlaySelect.value : '';
     var data = {
       lat: latlng.lat,
       lng: latlng.lng,
       name: name,
       description: description,
       icon: iconKey,
+      overlay: overlayValue || '',
     };
     addMarkerToMap(data);
     customMarkers.push(data);
@@ -775,6 +878,9 @@ function showMarkerForm(latlng) {
     document.getElementById('marker-name').value = '';
     document.getElementById('marker-description').value = '';
     document.getElementById('marker-icon').value = 'wigwam';
+    if (overlaySelect) {
+      overlaySelect.value = '';
+    }
   }
 
   saveBtn.addEventListener('click', submitHandler);
@@ -788,18 +894,23 @@ function editMarkerForm(marker) {
   var cancelBtn = document.getElementById('marker-cancel');
   var convertBtn = document.getElementById('marker-convert');
   var title = document.querySelector('#marker-form h3');
+  var overlaySelect = document.getElementById('marker-overlay');
   overlay.classList.remove('hidden');
   convertBtn.classList.remove('hidden');
 
   document.getElementById('marker-name').value = marker._data.name || '';
   document.getElementById('marker-description').value = marker._data.description || '';
   document.getElementById('marker-icon').value = marker._data.icon || 'wigwam';
+  if (overlaySelect) {
+    overlaySelect.value = marker._data.overlay || '';
+  }
   if (title) title.textContent = 'Edit Marker';
 
   function submitHandler() {
     var name = document.getElementById('marker-name').value || 'Marker';
     var description = document.getElementById('marker-description').value || '';
     var iconKey = document.getElementById('marker-icon').value || 'wigwam';
+    var overlayValue = overlaySelect ? overlaySelect.value : '';
 
     marker._data.name = name;
     marker._data.description = description;
@@ -808,6 +919,7 @@ function editMarkerForm(marker) {
     var newIcon = iconMap[iconKey] || WigwamIcon;
     marker.setIcon(newIcon);
     marker._baseIconOptions = JSON.parse(JSON.stringify(newIcon.options));
+    moveMarkerToOverlay(marker, overlayValue);
     rescaleIcons();
     saveMarkers();
     cleanup();
@@ -830,6 +942,9 @@ function editMarkerForm(marker) {
     document.getElementById('marker-name').value = '';
     document.getElementById('marker-description').value = '';
     document.getElementById('marker-icon').value = 'wigwam';
+    if (overlaySelect) {
+      overlaySelect.value = '';
+    }
     convertBtn.classList.add('hidden');
     if (title) title.textContent = 'Add Marker';
   }
@@ -867,8 +982,12 @@ function showTextForm(latlng) {
   var saveBtn = document.getElementById('text-save');
   var cancelBtn = document.getElementById('text-cancel');
   var convertBtn = document.getElementById('text-convert');
+  var overlaySelect = document.getElementById('text-overlay');
   overlay.classList.remove('hidden');
   convertBtn.classList.add('hidden');
+  if (overlaySelect) {
+    overlaySelect.value = '';
+  }
 
   function submitHandler() {
     var text = document.getElementById('text-label-text').value || '';
@@ -881,6 +1000,7 @@ function showTextForm(latlng) {
     var angle = parseFloat(document.getElementById('text-label-angle').value) || 0;
     var spacing = parseFloat(document.getElementById('text-letter-spacing').value) || 0;
     var curve = parseFloat(document.getElementById('text-curve-radius').value) || 0;
+    var overlayValue = overlaySelect ? overlaySelect.value : '';
     var data = {
       lat: latlng.lat,
       lng: latlng.lng,
@@ -890,6 +1010,7 @@ function showTextForm(latlng) {
       angle: angle,
       spacing: spacing,
       curve: curve,
+      overlay: overlayValue || '',
     };
     addTextLabelToMap(data);
     customTextLabels.push(data);
@@ -912,6 +1033,9 @@ function showTextForm(latlng) {
     document.getElementById('text-label-angle').value = '0';
     document.getElementById('text-letter-spacing').value = '0';
     document.getElementById('text-curve-radius').value = '0';
+    if (overlaySelect) {
+      overlaySelect.value = '';
+    }
   }
 
   saveBtn.addEventListener('click', submitHandler);
@@ -924,6 +1048,7 @@ function editTextForm(labelMarker) {
   var saveBtn = document.getElementById('text-save');
   var cancelBtn = document.getElementById('text-cancel');
   var convertBtn = document.getElementById('text-convert');
+  var overlaySelect = document.getElementById('text-overlay');
   var data = labelMarker._data;
 
   document.getElementById('text-label-text').value = data.text || '';
@@ -934,6 +1059,9 @@ function editTextForm(labelMarker) {
   document.getElementById('text-curve-radius').value = data.curve || 0;
   overlay.classList.remove('hidden');
   convertBtn.classList.remove('hidden');
+  if (overlaySelect) {
+    overlaySelect.value = data.overlay || '';
+  }
 
   function submitHandler() {
     var text = document.getElementById('text-label-text').value || '';
@@ -946,6 +1074,7 @@ function editTextForm(labelMarker) {
     var angle = parseFloat(document.getElementById('text-label-angle').value) || 0;
     var spacing = parseFloat(document.getElementById('text-letter-spacing').value) || 0;
     var curve = parseFloat(document.getElementById('text-curve-radius').value) || 0;
+    var overlayValue = overlaySelect ? overlaySelect.value : '';
 
     var textIcon;
     var pathWidth = 0;
@@ -1012,6 +1141,8 @@ function editTextForm(labelMarker) {
     data.angle = angle;
     data.spacing = spacing;
     data.curve = curve;
+    data.overlay = overlayValue || '';
+    moveMarkerToOverlay(labelMarker, overlayValue);
     saveTextLabels();
     rescaleTextLabels();
     cleanup();
@@ -1038,6 +1169,9 @@ function editTextForm(labelMarker) {
     document.getElementById('text-label-angle').value = '0';
     document.getElementById('text-letter-spacing').value = '0';
     document.getElementById('text-curve-radius').value = '0';
+    if (overlaySelect) {
+      overlaySelect.value = '';
+    }
   }
 
   saveBtn.addEventListener('click', submitHandler);
@@ -1051,7 +1185,7 @@ function convertMarkerToText(marker) {
     selectedMarker = null;
   }
   var data = marker._data;
-  map.removeLayer(marker);
+  detachMarker(marker);
   customMarkers = customMarkers.filter(function (m) {
     return m !== data;
   });
@@ -1069,6 +1203,7 @@ function convertMarkerToText(marker) {
     angle: 0,
     spacing: 0,
     curve: 0,
+    overlay: data.overlay || '',
   };
   customTextLabels.push(textData);
   var labelMarker = addTextLabelToMap(textData);
@@ -1082,7 +1217,7 @@ function convertTextToMarker(labelMarker) {
     selectedMarker = null;
   }
   var data = labelMarker._data;
-  map.removeLayer(labelMarker);
+  detachMarker(labelMarker);
   customTextLabels = customTextLabels.filter(function (t) {
     return t !== data;
   });
@@ -1097,6 +1232,7 @@ function convertTextToMarker(labelMarker) {
     name: data.text || 'Marker',
     description: data.description || '',
     icon: 'wigwam',
+    overlay: data.overlay || '',
   };
   customMarkers.push(markerData);
   var marker = addMarkerToMap(markerData);
