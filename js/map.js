@@ -185,7 +185,7 @@ var territoriesOverlay = L.layerGroup([territoriesLayer, territoryMarkersLayer])
 Settlements.addTo(map);
 territoriesOverlay.addTo(map);
 
-var markerOverlayGroups = {
+var overlayTargetGroups = {
   Settlements: Settlements,
   Territories: territoryMarkersLayer,
 };
@@ -195,15 +195,14 @@ var overlays = {
   Territories: territoriesOverlay,
 };
 
-function populateMarkerOverlayOptions() {
-  var select = document.getElementById('marker-overlay');
+function populateOverlayOptions(select) {
   if (!select) return;
   select.innerHTML = '';
   var defaultOption = document.createElement('option');
   defaultOption.value = '';
   defaultOption.textContent = 'None';
   select.appendChild(defaultOption);
-  Object.keys(markerOverlayGroups).forEach(function (name) {
+  Object.keys(overlayTargetGroups).forEach(function (name) {
     var option = document.createElement('option');
     option.value = name;
     option.textContent = name;
@@ -211,7 +210,12 @@ function populateMarkerOverlayOptions() {
   });
 }
 
-populateMarkerOverlayOptions();
+function populateOverlaySelects() {
+  populateOverlayOptions(document.getElementById('marker-overlay'));
+  populateOverlayOptions(document.getElementById('text-overlay'));
+}
+
+populateOverlaySelects();
 L.control.layers(null, overlays).addTo(map);
 
 function clearSelectedMarker() {
@@ -335,6 +339,7 @@ function loadFeaturesFromCSV(text) {
         angle: parseFloat(cols[8]) || 0,
         spacing: parseFloat(cols[9]) || 0,
         curve: parseFloat(cols[10]) || 0,
+        overlay: cols[13] || '',
       });
     } else if (type === 'polygon') {
       polygons.push({
@@ -396,7 +401,7 @@ function exportFeaturesToCSV() {
         escapeCsv(t.curve),
         '',
         '',
-        ''
+        escapeCsv(t.overlay || '')
       ].join(',')
     );
   });
@@ -532,15 +537,15 @@ function addPolygonToMap(data) {
   return poly;
 }
 
-function getMarkerOverlayLayer(name) {
+function getOverlayLayer(name) {
   if (!name) return null;
-  return markerOverlayGroups[name] || null;
+  return overlayTargetGroups[name] || null;
 }
 
 function moveMarkerToOverlay(marker, overlayName) {
   if (!marker) return;
   var normalized = overlayName || '';
-  var newLayer = getMarkerOverlayLayer(normalized);
+  var newLayer = getOverlayLayer(normalized);
   var currentLayer = marker._overlayLayer || null;
   var currentName = marker._overlayName || '';
   if (currentLayer === newLayer && currentName === normalized) {
@@ -578,6 +583,47 @@ function detachMarker(marker) {
   marker._overlayName = '';
 }
 
+function moveTextLabelToOverlay(labelMarker, overlayName) {
+  if (!labelMarker) return;
+  var normalized = overlayName || '';
+  var newLayer = getOverlayLayer(normalized);
+  var currentLayer = labelMarker._overlayLayer || null;
+  var currentName = labelMarker._overlayName || '';
+  if (currentLayer === newLayer && currentName === normalized) {
+    labelMarker._overlayName = normalized;
+    if (labelMarker._data) {
+      labelMarker._data.overlay = normalized;
+    }
+    return;
+  }
+  if (currentLayer) {
+    currentLayer.removeLayer(labelMarker);
+  } else if (labelMarker._overlayLayer !== undefined) {
+    map.removeLayer(labelMarker);
+  }
+  if (newLayer) {
+    newLayer.addLayer(labelMarker);
+  } else {
+    labelMarker.addTo(map);
+  }
+  labelMarker._overlayLayer = newLayer || null;
+  labelMarker._overlayName = normalized;
+  if (labelMarker._data) {
+    labelMarker._data.overlay = normalized;
+  }
+}
+
+function detachTextLabel(labelMarker) {
+  if (!labelMarker) return;
+  if (labelMarker._overlayLayer) {
+    labelMarker._overlayLayer.removeLayer(labelMarker);
+  } else {
+    map.removeLayer(labelMarker);
+  }
+  labelMarker._overlayLayer = null;
+  labelMarker._overlayName = '';
+}
+
 function addMarkerToMap(data) {
   var icon = iconMap[data.icon] || WigwamIcon;
   var customMarker = createMarker(
@@ -588,7 +634,7 @@ function addMarkerToMap(data) {
     data.description
   );
   var overlayName = data.overlay || '';
-  var targetLayer = getMarkerOverlayLayer(overlayName);
+  var targetLayer = getOverlayLayer(overlayName);
   if (targetLayer) {
     targetLayer.addLayer(customMarker);
   } else {
@@ -660,7 +706,8 @@ function addTextLabelToMap(data) {
       iconAnchor: [0, 0],
     });
   }
-  var m = L.marker([data.lat, data.lng], { icon: textIcon, draggable: true })
+  var m = L.marker([data.lat, data.lng], { icon: textIcon, draggable: true });
+  m
     .on('click', function (ev) {
       L.DomEvent.stopPropagation(ev);
       clearSelectedMarker();
@@ -683,7 +730,7 @@ function addTextLabelToMap(data) {
       }
     })
     .on('contextmenu', function () {
-      map.removeLayer(m);
+      detachTextLabel(m);
       customTextLabels = customTextLabels.filter(function (t) {
         return !(
           t.lat === data.lat &&
@@ -700,8 +747,17 @@ function addTextLabelToMap(data) {
         return t !== m;
       });
       saveTextLabels();
-    })
-    .addTo(map);
+    });
+  var overlayName = data.overlay || '';
+  var targetLayer = getOverlayLayer(overlayName);
+  if (targetLayer) {
+    targetLayer.addLayer(m);
+  } else {
+    m.addTo(map);
+  }
+  m._overlayLayer = targetLayer || null;
+  m._overlayName = overlayName;
+  data.overlay = overlayName;
   m._baseFontSize = data.size;
   m._baseLetterSpacing = data.spacing;
   if (data.curve) {
@@ -968,8 +1024,12 @@ function showTextForm(latlng) {
   var saveBtn = document.getElementById('text-save');
   var cancelBtn = document.getElementById('text-cancel');
   var convertBtn = document.getElementById('text-convert');
+  var overlaySelect = document.getElementById('text-overlay');
   overlay.classList.remove('hidden');
   convertBtn.classList.add('hidden');
+  if (overlaySelect) {
+    overlaySelect.value = '';
+  }
 
   function submitHandler() {
     var text = document.getElementById('text-label-text').value || '';
@@ -982,6 +1042,7 @@ function showTextForm(latlng) {
     var angle = parseFloat(document.getElementById('text-label-angle').value) || 0;
     var spacing = parseFloat(document.getElementById('text-letter-spacing').value) || 0;
     var curve = parseFloat(document.getElementById('text-curve-radius').value) || 0;
+    var overlayValue = overlaySelect ? overlaySelect.value : '';
     var data = {
       lat: latlng.lat,
       lng: latlng.lng,
@@ -991,6 +1052,7 @@ function showTextForm(latlng) {
       angle: angle,
       spacing: spacing,
       curve: curve,
+      overlay: overlayValue || '',
     };
     addTextLabelToMap(data);
     customTextLabels.push(data);
@@ -1013,6 +1075,9 @@ function showTextForm(latlng) {
     document.getElementById('text-label-angle').value = '0';
     document.getElementById('text-letter-spacing').value = '0';
     document.getElementById('text-curve-radius').value = '0';
+    if (overlaySelect) {
+      overlaySelect.value = '';
+    }
   }
 
   saveBtn.addEventListener('click', submitHandler);
@@ -1025,6 +1090,7 @@ function editTextForm(labelMarker) {
   var saveBtn = document.getElementById('text-save');
   var cancelBtn = document.getElementById('text-cancel');
   var convertBtn = document.getElementById('text-convert');
+  var overlaySelect = document.getElementById('text-overlay');
   var data = labelMarker._data;
 
   document.getElementById('text-label-text').value = data.text || '';
@@ -1033,6 +1099,9 @@ function editTextForm(labelMarker) {
   document.getElementById('text-label-angle').value = data.angle || 0;
   document.getElementById('text-letter-spacing').value = data.spacing || 0;
   document.getElementById('text-curve-radius').value = data.curve || 0;
+  if (overlaySelect) {
+    overlaySelect.value = data.overlay || '';
+  }
   overlay.classList.remove('hidden');
   convertBtn.classList.remove('hidden');
 
@@ -1047,6 +1116,7 @@ function editTextForm(labelMarker) {
     var angle = parseFloat(document.getElementById('text-label-angle').value) || 0;
     var spacing = parseFloat(document.getElementById('text-letter-spacing').value) || 0;
     var curve = parseFloat(document.getElementById('text-curve-radius').value) || 0;
+    var overlayValue = overlaySelect ? overlaySelect.value : '';
 
     var textIcon;
     var pathWidth = 0;
@@ -1113,6 +1183,7 @@ function editTextForm(labelMarker) {
     data.angle = angle;
     data.spacing = spacing;
     data.curve = curve;
+    moveTextLabelToOverlay(labelMarker, overlayValue);
     saveTextLabels();
     rescaleTextLabels();
     cleanup();
@@ -1139,6 +1210,9 @@ function editTextForm(labelMarker) {
     document.getElementById('text-label-angle').value = '0';
     document.getElementById('text-letter-spacing').value = '0';
     document.getElementById('text-curve-radius').value = '0';
+    if (overlaySelect) {
+      overlaySelect.value = '';
+    }
   }
 
   saveBtn.addEventListener('click', submitHandler);
@@ -1170,6 +1244,7 @@ function convertMarkerToText(marker) {
     angle: 0,
     spacing: 0,
     curve: 0,
+    overlay: data.overlay || '',
   };
   customTextLabels.push(textData);
   var labelMarker = addTextLabelToMap(textData);
@@ -1183,7 +1258,7 @@ function convertTextToMarker(labelMarker) {
     selectedMarker = null;
   }
   var data = labelMarker._data;
-  map.removeLayer(labelMarker);
+  detachTextLabel(labelMarker);
   customTextLabels = customTextLabels.filter(function (t) {
     return t !== data;
   });
@@ -1198,6 +1273,7 @@ function convertTextToMarker(labelMarker) {
     name: data.text || 'Marker',
     description: data.description || '',
     icon: 'wigwam',
+    overlay: data.overlay || '',
   };
   customMarkers.push(markerData);
   var marker = addMarkerToMap(markerData);
