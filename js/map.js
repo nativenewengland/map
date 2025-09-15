@@ -195,8 +195,6 @@ var overlays = {
   Territories: territoriesOverlay,
 };
 
-function populateMarkerOverlayOptions() {
-  var select = document.getElementById('marker-overlay');
   if (!select) return;
   select.innerHTML = '';
   var defaultOption = document.createElement('option');
@@ -211,7 +209,6 @@ function populateMarkerOverlayOptions() {
   });
 }
 
-populateMarkerOverlayOptions();
 L.control.layers(null, overlays).addTo(map);
 
 function clearSelectedMarker() {
@@ -325,17 +322,7 @@ function loadFeaturesFromCSV(text) {
         style: cols[12] ? JSON.parse(cols[12]) : undefined,
         overlay: cols[13] || '',
       });
-    } else if (type === 'text') {
-      textLabels.push({
-        lat: parseFloat(cols[1]),
-        lng: parseFloat(cols[2]),
-        text: cols[5],
-        description: cols[6],
-        size: parseFloat(cols[7]) || 14,
-        angle: parseFloat(cols[8]) || 0,
-        spacing: parseFloat(cols[9]) || 0,
-        curve: parseFloat(cols[10]) || 0,
-      });
+
     } else if (type === 'polygon') {
       polygons.push({
         name: cols[4],
@@ -396,7 +383,7 @@ function exportFeaturesToCSV() {
         escapeCsv(t.curve),
         '',
         '',
-        ''
+
       ].join(',')
     );
   });
@@ -660,7 +647,9 @@ function addTextLabelToMap(data) {
       iconAnchor: [0, 0],
     });
   }
-  var m = L.marker([data.lat, data.lng], { icon: textIcon, draggable: true })
+  var m = L.marker([data.lat, data.lng], { icon: textIcon, draggable: true });
+
+  m
     .on('click', function (ev) {
       L.DomEvent.stopPropagation(ev);
       clearSelectedMarker();
@@ -683,7 +672,7 @@ function addTextLabelToMap(data) {
       }
     })
     .on('contextmenu', function () {
-      map.removeLayer(m);
+      detachMarker(m);
       customTextLabels = customTextLabels.filter(function (t) {
         return !(
           t.lat === data.lat &&
@@ -693,15 +682,26 @@ function addTextLabelToMap(data) {
           t.description === data.description &&
           t.angle === data.angle &&
           t.spacing === data.spacing &&
-          (t.curve || 0) === (data.curve || 0)
+          (t.curve || 0) === (data.curve || 0) &&
+          (t.overlay || '') === (data.overlay || '')
         );
       });
       allTextLabels = allTextLabels.filter(function (t) {
         return t !== m;
       });
       saveTextLabels();
-    })
-    .addTo(map);
+    });
+
+  data.overlay = data.overlay || '';
+  var overlayName = data.overlay;
+  var targetLayer = getMarkerOverlayLayer(overlayName);
+  if (targetLayer) {
+    targetLayer.addLayer(m);
+  } else {
+    m.addTo(map);
+  }
+  m._overlayLayer = targetLayer || null;
+  m._overlayName = overlayName;
   m._baseFontSize = data.size;
   m._baseLetterSpacing = data.spacing;
   if (data.curve) {
@@ -968,8 +968,12 @@ function showTextForm(latlng) {
   var saveBtn = document.getElementById('text-save');
   var cancelBtn = document.getElementById('text-cancel');
   var convertBtn = document.getElementById('text-convert');
+  var overlaySelect = document.getElementById('text-overlay');
   overlay.classList.remove('hidden');
   convertBtn.classList.add('hidden');
+  if (overlaySelect) {
+    overlaySelect.value = '';
+  }
 
   function submitHandler() {
     var text = document.getElementById('text-label-text').value || '';
@@ -982,6 +986,7 @@ function showTextForm(latlng) {
     var angle = parseFloat(document.getElementById('text-label-angle').value) || 0;
     var spacing = parseFloat(document.getElementById('text-letter-spacing').value) || 0;
     var curve = parseFloat(document.getElementById('text-curve-radius').value) || 0;
+    var overlayValue = overlaySelect ? overlaySelect.value : '';
     var data = {
       lat: latlng.lat,
       lng: latlng.lng,
@@ -991,6 +996,7 @@ function showTextForm(latlng) {
       angle: angle,
       spacing: spacing,
       curve: curve,
+      overlay: overlayValue || '',
     };
     addTextLabelToMap(data);
     customTextLabels.push(data);
@@ -1013,6 +1019,9 @@ function showTextForm(latlng) {
     document.getElementById('text-label-angle').value = '0';
     document.getElementById('text-letter-spacing').value = '0';
     document.getElementById('text-curve-radius').value = '0';
+    if (overlaySelect) {
+      overlaySelect.value = '';
+    }
   }
 
   saveBtn.addEventListener('click', submitHandler);
@@ -1025,6 +1034,7 @@ function editTextForm(labelMarker) {
   var saveBtn = document.getElementById('text-save');
   var cancelBtn = document.getElementById('text-cancel');
   var convertBtn = document.getElementById('text-convert');
+  var overlaySelect = document.getElementById('text-overlay');
   var data = labelMarker._data;
 
   document.getElementById('text-label-text').value = data.text || '';
@@ -1035,6 +1045,9 @@ function editTextForm(labelMarker) {
   document.getElementById('text-curve-radius').value = data.curve || 0;
   overlay.classList.remove('hidden');
   convertBtn.classList.remove('hidden');
+  if (overlaySelect) {
+    overlaySelect.value = data.overlay || '';
+  }
 
   function submitHandler() {
     var text = document.getElementById('text-label-text').value || '';
@@ -1047,6 +1060,7 @@ function editTextForm(labelMarker) {
     var angle = parseFloat(document.getElementById('text-label-angle').value) || 0;
     var spacing = parseFloat(document.getElementById('text-letter-spacing').value) || 0;
     var curve = parseFloat(document.getElementById('text-curve-radius').value) || 0;
+    var overlayValue = overlaySelect ? overlaySelect.value : '';
 
     var textIcon;
     var pathWidth = 0;
@@ -1113,6 +1127,8 @@ function editTextForm(labelMarker) {
     data.angle = angle;
     data.spacing = spacing;
     data.curve = curve;
+    data.overlay = overlayValue || '';
+    moveMarkerToOverlay(labelMarker, overlayValue);
     saveTextLabels();
     rescaleTextLabels();
     cleanup();
@@ -1139,6 +1155,9 @@ function editTextForm(labelMarker) {
     document.getElementById('text-label-angle').value = '0';
     document.getElementById('text-letter-spacing').value = '0';
     document.getElementById('text-curve-radius').value = '0';
+    if (overlaySelect) {
+      overlaySelect.value = '';
+    }
   }
 
   saveBtn.addEventListener('click', submitHandler);
@@ -1170,6 +1189,7 @@ function convertMarkerToText(marker) {
     angle: 0,
     spacing: 0,
     curve: 0,
+    overlay: data.overlay || '',
   };
   customTextLabels.push(textData);
   var labelMarker = addTextLabelToMap(textData);
@@ -1183,7 +1203,7 @@ function convertTextToMarker(labelMarker) {
     selectedMarker = null;
   }
   var data = labelMarker._data;
-  map.removeLayer(labelMarker);
+  detachMarker(labelMarker);
   customTextLabels = customTextLabels.filter(function (t) {
     return t !== data;
   });
@@ -1198,6 +1218,7 @@ function convertTextToMarker(labelMarker) {
     name: data.text || 'Marker',
     description: data.description || '',
     icon: 'wigwam',
+    overlay: data.overlay || '',
   };
   customMarkers.push(markerData);
   var marker = addMarkerToMap(markerData);
