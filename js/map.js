@@ -2,14 +2,16 @@
 var map = L.map('map', {
   zoomAnimation: true,
   markerZoomAnimation: true,
-  attributionControl: false
+  attributionControl: false,
+  maxZoom: 8,
 }).setView([0, 0], 0);
 
 var tiles = L.tileLayer('map/{z}/{x}/{y}.jpg', {
   continuousWorld: false,
   noWrap: true,
   minZoom: 2,
-  maxZoom: 6,
+  maxZoom: 8,
+  maxNativeZoom: 7,
 }).addTo(map);
 // Overlay extracted from image and used for OCR/template matching
 // Use world bounds so the overlay spans the entire map
