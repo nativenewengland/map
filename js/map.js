@@ -17,6 +17,30 @@ var tiles = L.tileLayer('map/{z}/{x}/{y}.jpg', {
 // Use world bounds so the overlay spans the entire map
 var overlayBounds = [[-85, -180], [85, 180]];
 
+function textLabelsMatch(a, b) {
+  if (!a || !b) return false;
+  var textA = (a.text || '').trim();
+  var textB = (b.text || '').trim();
+  if (textA !== textB) return false;
+  var overlayA = a.overlay || '';
+  var overlayB = b.overlay || '';
+  if (overlayA !== overlayB) return false;
+  var latA = Number(a.lat);
+  var latB = Number(b.lat);
+  var lngA = Number(a.lng);
+  var lngB = Number(b.lng);
+  if (!isFinite(latA) || !isFinite(latB) || !isFinite(lngA) || !isFinite(lngB)) {
+    return false;
+  }
+  return Math.abs(latA - latB) < 1e-6 && Math.abs(lngA - lngB) < 1e-6;
+}
+
+function containsTextLabel(collection, candidate) {
+  return collection.some(function (item) {
+    return textLabelsMatch(item, candidate);
+  });
+}
+
 async function extractOverlayLabels() {
   if (typeof Tesseract === 'undefined' || !Tesseract || !Tesseract.recognize) {
     console.warn('Tesseract.js is not available; skipping overlay label extraction.');
@@ -75,6 +99,8 @@ async function extractOverlayLabels() {
   var latSpan = north - south;
   var lngSpan = east - west;
 
+  var newLabelsAdded = false;
+
   words.forEach(function (word) {
     var text = (word.text || '').trim();
     if (!text) {
@@ -107,7 +133,7 @@ async function extractOverlayLabels() {
     var lat = north - (centerY / height) * latSpan;
     var fontSize = Math.max(1, y1 - y0);
 
-    addTextLabelToMap({
+    var labelData = {
       lat: lat,
       lng: lng,
       text: text,
@@ -115,9 +141,22 @@ async function extractOverlayLabels() {
       size: fontSize,
       angle: 0,
       spacing: 0,
+      curve: 0,
       overlay: '',
-    });
+    };
+
+    if (containsTextLabel(customTextLabels, labelData)) {
+      return;
+    }
+
+    addTextLabelToMap(labelData);
+    customTextLabels.push(labelData);
+    newLabelsAdded = true;
   });
+
+  if (newLabelsAdded) {
+    saveTextLabels();
+  }
 }
 
 // User-supplied overlay image should be placed at overlays/overlay.png
@@ -460,13 +499,13 @@ function loadFeaturesFromCSV(text) {
   return { markers: markers, textLabels: textLabels, polygons: polygons };
 }
 
-function exportFeaturesToCSV() {
-  function escapeCsv(val) {
-    if (val === undefined || val === null) return '';
-    var str = String(val).replace(/"/g, '""');
-    return /[",\n]/.test(str) ? '"' + str + '"' : str;
-  }
+function escapeCsvValue(val) {
+  if (val === undefined || val === null) return '';
+  var str = String(val).replace(/"/g, '""');
+  return /[",\n]/.test(str) ? '"' + str + '"' : str;
+}
 
+function buildFeaturesCSV() {
   var rows = [
     'type,lat,lng,icon,name,text,description,size,angle,spacing,curve,coords,style,overlay'
   ];
@@ -475,19 +514,19 @@ function exportFeaturesToCSV() {
     rows.push(
       [
         'marker',
-        escapeCsv(m.lat),
-        escapeCsv(m.lng),
-        escapeCsv(m.icon),
-        escapeCsv(m.name),
+        escapeCsvValue(m.lat),
+        escapeCsvValue(m.lng),
+        escapeCsvValue(m.icon),
+        escapeCsvValue(m.name),
         '',
-        escapeCsv(m.description),
-        '',
-        '',
+        escapeCsvValue(m.description),
         '',
         '',
         '',
-        escapeCsv(JSON.stringify(m.style || {})),
-        escapeCsv(m.overlay || '')
+        '',
+        '',
+        escapeCsvValue(JSON.stringify(m.style || {})),
+        escapeCsvValue(m.overlay || '')
       ].join(',')
     );
   });
@@ -496,19 +535,19 @@ function exportFeaturesToCSV() {
     rows.push(
       [
         'text',
-        escapeCsv(t.lat),
-        escapeCsv(t.lng),
+        escapeCsvValue(t.lat),
+        escapeCsvValue(t.lng),
         '',
         '',
-        escapeCsv(t.text),
-        escapeCsv(t.description),
-        escapeCsv(t.size),
-        escapeCsv(t.angle),
-        escapeCsv(t.spacing),
-        escapeCsv(t.curve),
+        escapeCsvValue(t.text),
+        escapeCsvValue(t.description),
+        escapeCsvValue(t.size),
+        escapeCsvValue(t.angle),
+        escapeCsvValue(t.spacing),
+        escapeCsvValue(t.curve),
         '',
         '',
-        escapeCsv(t.overlay || '')
+        escapeCsvValue(t.overlay || '')
       ].join(',')
     );
   });
@@ -520,42 +559,67 @@ function exportFeaturesToCSV() {
         '',
         '',
         '',
-        escapeCsv(p.name),
+        escapeCsvValue(p.name),
         '',
-        escapeCsv(p.description),
-        '',
-        '',
+        escapeCsvValue(p.description),
         '',
         '',
-        escapeCsv(JSON.stringify(p.coords)),
-        escapeCsv(JSON.stringify(p.style || {})),
+        '',
+        '',
+        escapeCsvValue(JSON.stringify(p.coords)),
+        escapeCsvValue(JSON.stringify(p.style || {})),
         ''
       ].join(',')
     );
   });
 
-  var csvContent = rows.join('\n');
+  return rows.join('\n');
+}
 
-  // Try posting to a server endpoint; fall back to client-side download
-  fetch('/save-features', {
+function encodeCsvToBase64(csvContent) {
+  if (typeof TextEncoder !== 'undefined') {
+    var encoder = new TextEncoder();
+    var bytes = encoder.encode(csvContent);
+    var binary = '';
+    bytes.forEach(function (b) {
+      binary += String.fromCharCode(b);
+    });
+    return btoa(binary);
+  }
+  var escaped = encodeURIComponent(csvContent).replace(/%([0-9A-F]{2})/g, function (match, p1) {
+    return String.fromCharCode(parseInt(p1, 16));
+  });
+  return btoa(escaped);
+}
+
+function sendFeaturesCsvToServer(csvContent) {
+  var encodedContent = encodeCsvToBase64(csvContent);
+  return fetch('/save-features', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ content: btoa(csvContent) })
-  })
-    .then(function (response) {
-      if (!response.ok) {
-        throw new Error('Server rejected save');
-      }
-    })
-    .catch(function () {
-      var blob = new Blob([csvContent], { type: 'text/csv' });
-      var a = document.createElement('a');
-      a.href = URL.createObjectURL(blob);
-      a.download = 'features.csv';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-    });
+    body: JSON.stringify({ content: encodedContent })
+  }).then(function (response) {
+    if (!response.ok) {
+      throw new Error('Server rejected save');
+    }
+  });
+}
+
+function triggerCsvDownload(csvContent) {
+  var blob = new Blob([csvContent], { type: 'text/csv' });
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'features.csv';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+
+function exportFeaturesToCSV() {
+  var csvContent = buildFeaturesCSV();
+  sendFeaturesCsvToServer(csvContent).catch(function () {
+    triggerCsvDownload(csvContent);
+  });
 }
 
 function saveMarkers() {
@@ -564,6 +628,10 @@ function saveMarkers() {
 
 function saveTextLabels() {
   updateEditToolbar();
+  var csvContent = buildFeaturesCSV();
+  sendFeaturesCsvToServer(csvContent).catch(function (err) {
+    console.error('Failed to save text labels', err);
+  });
 }
 
 function savePolygons() {
@@ -889,6 +957,9 @@ fetch('data/features.csv')
       addMarkerToMap(m);
     });
     parsed.textLabels.forEach(function (t) {
+      if (containsTextLabel(customTextLabels, t)) {
+        return;
+      }
       customTextLabels.push(t);
       addTextLabelToMap(t);
     });
