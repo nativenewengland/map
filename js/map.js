@@ -16,8 +16,113 @@ var tiles = L.tileLayer('map/{z}/{x}/{y}.jpg', {
 // Overlay extracted from image and used for OCR/template matching
 // Use world bounds so the overlay spans the entire map
 var overlayBounds = [[-85, -180], [85, 180]];
+
+async function extractOverlayLabels() {
+  if (typeof Tesseract === 'undefined' || !Tesseract || !Tesseract.recognize) {
+    console.warn('Tesseract.js is not available; skipping overlay label extraction.');
+    return;
+  }
+
+  var image = new Image();
+  image.crossOrigin = 'anonymous';
+
+  var imageLoadPromise = new Promise(function (resolve, reject) {
+    image.onload = function () {
+      resolve();
+    };
+    image.onerror = function (event) {
+      reject(event);
+    };
+  });
+
+  image.src = 'overlays/overlay.png';
+  if (image.complete && image.naturalWidth !== 0) {
+    image.onload();
+  }
+
+  try {
+    await imageLoadPromise;
+  } catch (error) {
+    console.error('Failed to load overlay image for OCR.', error);
+    return;
+  }
+
+  var width = image.naturalWidth || image.width;
+  var height = image.naturalHeight || image.height;
+
+  if (!width || !height) {
+    console.warn('Overlay image has invalid dimensions; skipping label extraction.');
+    return;
+  }
+
+  var recognition;
+  try {
+    recognition = await Tesseract.recognize(image, 'eng');
+  } catch (error) {
+    console.error('Failed to perform OCR on overlay image.', error);
+    return;
+  }
+
+  var words = (recognition && recognition.data && recognition.data.words) || [];
+  if (!Array.isArray(words) || words.length === 0) {
+    return;
+  }
+
+  var south = overlayBounds[0][0];
+  var west = overlayBounds[0][1];
+  var north = overlayBounds[1][0];
+  var east = overlayBounds[1][1];
+  var latSpan = north - south;
+  var lngSpan = east - west;
+
+  words.forEach(function (word) {
+    var text = (word.text || '').trim();
+    if (!text) {
+      return;
+    }
+
+    var bbox = word.bbox;
+    if (!bbox) {
+      return;
+    }
+
+    var x0 = bbox.x0;
+    var x1 = bbox.x1;
+    var y0 = bbox.y0;
+    var y1 = bbox.y1;
+
+    if (
+      typeof x0 !== 'number' ||
+      typeof x1 !== 'number' ||
+      typeof y0 !== 'number' ||
+      typeof y1 !== 'number'
+    ) {
+      return;
+    }
+
+    var centerX = (x0 + x1) / 2;
+    var centerY = (y0 + y1) / 2;
+
+    var lng = west + (centerX / width) * lngSpan;
+    var lat = north - (centerY / height) * latSpan;
+    var fontSize = Math.max(1, y1 - y0);
+
+    addTextLabelToMap({
+      lat: lat,
+      lng: lng,
+      text: text,
+      description: '',
+      size: fontSize,
+      angle: 0,
+      spacing: 0,
+      overlay: '',
+    });
+  });
+}
+
 // User-supplied overlay image should be placed at overlays/overlay.png
-L.imageOverlay('overlays/overlay.png', overlayBounds).addTo(map);
+var baseOverlay = L.imageOverlay('overlays/overlay.png', overlayBounds).addTo(map);
+baseOverlay.once('load', extractOverlayLabels);
 tiles.once('load', function () {
   baseZoom = map.getZoom();
   rescaleIcons();
