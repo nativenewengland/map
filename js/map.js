@@ -4,7 +4,7 @@ var map = L.map('map', {
   markerZoomAnimation: true,
   attributionControl: false,
   maxZoom: 8,
-}).setView([0, 0], 2);
+}).setView([0, 0], 4);
 
 var tiles = L.tileLayer('map/{z}/{x}/{y}.jpg', {
   continuousWorld: false,
