@@ -630,7 +630,11 @@ function saveTextLabels() {
   updateEditToolbar();
   var csvContent = buildFeaturesCSV();
   sendFeaturesCsvToServer(csvContent).catch(function (err) {
-    console.error('Failed to save text labels', err);
+    console.error(
+      'Failed to save text labels to the server; downloading features.csv locally (offline mode).',
+      err
+    );
+    triggerCsvDownload(csvContent);
   });
 }
 
