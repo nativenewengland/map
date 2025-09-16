@@ -1,4 +1,10 @@
 //Creating the Map
+var map = L.map('map', {
+  zoomAnimation: true,
+  markerZoomAnimation: true,
+  attributionControl: false,
+  maxZoom: 8,
+}).setView([0, 0], 2);
 
 var tiles = L.tileLayer('map/{z}/{x}/{y}.jpg', {
   continuousWorld: false,
