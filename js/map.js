@@ -363,6 +363,27 @@ var overlays = {
   Territories: territoriesOverlay,
 };
 
+var additionalOverlayNames = [
+  'Ceremonial Stone Landscapes',
+  'Mountains',
+  'Rivers',
+  'Bodies of Water',
+  'Planting Grounds',
+  'Fishing Weirs',
+  'Mines/Quarries',
+  'Geographical Locations',
+  'Tribes',
+  'Petroglyph',
+  'Trails',
+  'Forts',
+];
+
+additionalOverlayNames.forEach(function (name) {
+  var layer = L.layerGroup().addTo(map);
+  overlayTargetGroups[name] = layer;
+  overlays[name] = layer;
+});
+
 function populateOverlayOptions(select) {
   if (!select) return;
   select.innerHTML = '';
