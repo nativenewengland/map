@@ -651,78 +651,7 @@ function saveMarkers() {
 function saveTextLabels() {
   updateEditToolbar();
   var csvContent = buildFeaturesCSV();
-  return sendFeaturesCsvToServer(csvContent)
-    .then(function () {
-      return {
-        csvContent: csvContent,
-        savedToServer: true,
-        downloadedViaFallback: false,
-        error: null,
-      };
-    })
-    .catch(function (err) {
-      console.error(
-        'Failed to save text labels to the server; downloading features.csv locally (offline mode).',
-        err
-      );
-      triggerCsvDownload(csvContent);
-      return {
-        csvContent: csvContent,
-        savedToServer: false,
-        downloadedViaFallback: true,
-        error: err,
-      };
-    });
-}
-
-async function runOverlayOcrAndDownload() {
-  var button = document.getElementById('run-overlay-ocr');
-  if (!button) {
-    console.error('Run Overlay OCR button not found in the DOM.');
-    return;
-  }
-  if (button.disabled) {
-    return;
-  }
-
-  var originalLabel = button.textContent;
-  button.disabled = true;
-  button.textContent = 'Processing...';
-
-  try {
-    var ocrResult = await extractOverlayLabels({ autoSave: false });
-    if (!ocrResult) {
-      ocrResult = { labelsAdded: 0, totalWords: 0, error: null };
-    }
-    if (ocrResult.error) {
-      console.warn('Overlay OCR completed with warnings:', ocrResult.error);
-    }
-
-    var saveOutcome = await saveTextLabels();
-    var csvContent = (saveOutcome && saveOutcome.csvContent) || buildFeaturesCSV();
-    if (saveOutcome && saveOutcome.downloadedViaFallback) {
-      console.info('features.csv was downloaded via the offline fallback.');
-    } else {
-      triggerCsvDownload(csvContent);
-    }
-
-    console.info(
-      'Overlay OCR finished. Added labels:',
-      ocrResult.labelsAdded,
-      'Total words recognized:',
-      ocrResult.totalWords
-    );
-  } catch (error) {
-    console.error('Failed to complete the overlay OCR workflow.', error);
-    try {
-      triggerCsvDownload(buildFeaturesCSV());
-    } catch (downloadError) {
-      console.error('Failed to download features.csv after OCR failure.', downloadError);
-    }
-  } finally {
-    button.disabled = false;
-    button.textContent = originalLabel;
-  }
+  
 }
 
 function savePolygons() {
