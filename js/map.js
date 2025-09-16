@@ -41,10 +41,29 @@ function containsTextLabel(collection, candidate) {
   });
 }
 
-async function extractOverlayLabels() {
+async function extractOverlayLabels(eventOrOptions) {
+  var options = eventOrOptions;
+  if (options && options.type && options.target) {
+    options = {};
+  }
+  options = options || {};
+  var autoSave = options.autoSave !== false;
+
+  function buildResult(overrides) {
+    return Object.assign(
+      {
+        labelsAdded: 0,
+        totalWords: 0,
+        saveResult: null,
+        error: null,
+      },
+      overrides || {}
+    );
+  }
+
   if (typeof Tesseract === 'undefined' || !Tesseract || !Tesseract.recognize) {
     console.warn('Tesseract.js is not available; skipping overlay label extraction.');
-    return;
+    return buildResult({ error: 'tesseract-unavailable' });
   }
 
   var image = new Image();
@@ -68,7 +87,7 @@ async function extractOverlayLabels() {
     await imageLoadPromise;
   } catch (error) {
     console.error('Failed to load overlay image for OCR.', error);
-    return;
+    return buildResult({ error: 'overlay-load-failed' });
   }
 
   var width = image.naturalWidth || image.width;
@@ -76,7 +95,7 @@ async function extractOverlayLabels() {
 
   if (!width || !height) {
     console.warn('Overlay image has invalid dimensions; skipping label extraction.');
-    return;
+    return buildResult({ error: 'invalid-overlay-dimensions' });
   }
 
   var recognition;
@@ -84,12 +103,12 @@ async function extractOverlayLabels() {
     recognition = await Tesseract.recognize(image, 'eng');
   } catch (error) {
     console.error('Failed to perform OCR on overlay image.', error);
-    return;
+    return buildResult({ error: 'ocr-failed' });
   }
 
   var words = (recognition && recognition.data && recognition.data.words) || [];
   if (!Array.isArray(words) || words.length === 0) {
-    return;
+    return buildResult();
   }
 
   var south = overlayBounds[0][0];
@@ -99,7 +118,7 @@ async function extractOverlayLabels() {
   var latSpan = north - south;
   var lngSpan = east - west;
 
-  var newLabelsAdded = false;
+  var labelsAddedCount = 0;
 
   words.forEach(function (word) {
     var text = (word.text || '').trim();
@@ -151,12 +170,15 @@ async function extractOverlayLabels() {
 
     addTextLabelToMap(labelData);
     customTextLabels.push(labelData);
-    newLabelsAdded = true;
+    labelsAddedCount++;
   });
 
-  if (newLabelsAdded) {
-    saveTextLabels();
+  var saveResult = null;
+  if (labelsAddedCount > 0 && autoSave) {
+    saveResult = await saveTextLabels();
   }
+
+  return buildResult({ labelsAdded: labelsAddedCount, totalWords: words.length, saveResult: saveResult });
 }
 
 // User-supplied overlay image should be placed at overlays/overlay.png
@@ -629,13 +651,7 @@ function saveMarkers() {
 function saveTextLabels() {
   updateEditToolbar();
   var csvContent = buildFeaturesCSV();
-  sendFeaturesCsvToServer(csvContent).catch(function (err) {
-    console.error(
-      'Failed to save text labels to the server; downloading features.csv locally (offline mode).',
-      err
-    );
-    triggerCsvDownload(csvContent);
-  });
+  
 }
 
 function savePolygons() {
@@ -1533,6 +1549,13 @@ map.on(L.Draw.Event.DELETED, function (e) {
   savePolygons();
   updateEditToolbar();
 });
+
+var runOverlayOcrButton = document.getElementById('run-overlay-ocr');
+if (runOverlayOcrButton) {
+  runOverlayOcrButton.addEventListener('click', function () {
+    runOverlayOcrAndDownload();
+  });
+}
 
 document.getElementById('save-changes').addEventListener('click', function () {
   exportFeaturesToCSV();
