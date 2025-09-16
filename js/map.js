@@ -1,18 +1,48 @@
-//Creating the Map
-var map = L.map('map', {
+// Creating the Map
+var DEFAULT_CENTER = [0, 0];
+var DEFAULT_ZOOM_LEVEL = 6;
+
+var mapOptions = {
   zoomAnimation: true,
   markerZoomAnimation: true,
   attributionControl: false,
   maxZoom: 8,
-}).setView([0, 0], 0);
+};
 
-var tiles = L.tileLayer('map/{z}/{x}/{y}.jpg', {
+var tileLayerOptions = {
   continuousWorld: false,
   noWrap: true,
   minZoom: 2,
   maxZoom: 8,
   maxNativeZoom: 7,
-}).addTo(map);
+};
+
+var map = L.map('map', mapOptions);
+var tiles = L.tileLayer('map/{z}/{x}/{y}.jpg', tileLayerOptions).addTo(map);
+
+function getClampedDefaultZoom() {
+  var minZoom =
+    typeof tileLayerOptions.minZoom === 'number'
+      ? tileLayerOptions.minZoom
+      : map.getMinZoom();
+  var maxZoom = mapOptions.maxZoom;
+  if (typeof tileLayerOptions.maxNativeZoom === 'number') {
+    maxZoom = Math.min(maxZoom, tileLayerOptions.maxNativeZoom);
+  }
+  var targetZoom = DEFAULT_ZOOM_LEVEL;
+  if (!isFinite(targetZoom)) {
+    targetZoom = minZoom;
+  }
+  if (targetZoom < minZoom) {
+    targetZoom = minZoom;
+  }
+  if (targetZoom > maxZoom) {
+    targetZoom = maxZoom;
+  }
+  return targetZoom;
+}
+
+map.setView(DEFAULT_CENTER, getClampedDefaultZoom());
 // Overlay extracted from image and used for OCR/template matching
 // Use world bounds so the overlay spans the entire map
 var overlayBounds = [[-85, -180], [85, 180]];
@@ -185,6 +215,10 @@ async function extractOverlayLabels(eventOrOptions) {
 var baseOverlay = L.imageOverlay('overlays/overlay.png', overlayBounds).addTo(map);
 baseOverlay.once('load', extractOverlayLabels);
 tiles.once('load', function () {
+  var desiredZoom = getClampedDefaultZoom();
+  if (map.getZoom() !== desiredZoom) {
+    map.setView(map.getCenter(), desiredZoom);
+  }
   baseZoom = map.getZoom();
   rescaleIcons();
   rescaleTextLabels();
