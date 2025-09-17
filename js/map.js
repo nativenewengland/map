@@ -228,38 +228,38 @@ map.on('click', function () {
   var WigwamIcon = L.icon({
                 iconUrl:       'icons/wigwam.png',
                 iconRetinaUrl: 'icons/wigwam.png',
-                iconSize:    [0.625, 0.625],
-                iconAnchor:  [0.3125, 0.625],
-                popupAnchor: [0.0625, -0.625],
-                tooltipAnchor: [0.3125, -0.3125]
+                iconSize:    [1.875, 1.875],
+                iconAnchor:  [0.9375, 1.875],
+                popupAnchor: [0.1875, -1.875],
+                tooltipAnchor: [0.9375, -0.9375]
         });
   var SettlementsIcon = L.icon({
                 iconUrl:       'icons/settlement.png',
                 iconRetinaUrl: 'icons/settlement.png',
 
-                iconSize:    [0.9375, 0.9375],
-                iconAnchor:  [0.4375, 0.9375],
-                popupAnchor: [0.0625, -0.9375],
-                tooltipAnchor: [0.4375, -0.4375]
+                iconSize:    [2.8125, 2.8125],
+                iconAnchor:  [1.3125, 2.8125],
+                popupAnchor: [0.1875, -2.8125],
+                tooltipAnchor: [1.3125, -1.3125]
 
 
         });
   var CapitalIcon = L.icon({
                 iconUrl:       'icons/capital.png',
                 iconRetinaUrl: 'icons/capital.png',
-                iconSize:    [0.625, 0.625],
-                iconAnchor:  [0.3125, 0.625],
-                popupAnchor: [0.0625, -0.625],
-                tooltipAnchor: [0.3125, -0.3125]
+                iconSize:    [1.875, 1.875],
+                iconAnchor:  [0.9375, 1.875],
+                popupAnchor: [0.1875, -1.875],
+                tooltipAnchor: [0.9375, -0.9375]
         });
   // Rock
   var RockIcon = L.icon({
                 iconUrl:       'icons/rock.png',
                 iconRetinaUrl: 'icons/rock.png',
-                iconSize:    [0.625, 0.625],
-                iconAnchor:  [0.3125, 0.625],
-                popupAnchor: [0.0625, -0.625],
-                tooltipAnchor: [0.3125, -0.3125]
+                iconSize:    [1.875, 1.875],
+                iconAnchor:  [0.9375, 1.875],
+                popupAnchor: [0.1875, -1.875],
+                tooltipAnchor: [0.9375, -0.9375]
         });
   // Fishing
   var fishingIconPath = 'icons/fish.png';
@@ -267,58 +267,58 @@ map.on('click', function () {
                 iconUrl:       fishingIconPath,
                 iconRetinaUrl: fishingIconPath,
                 // Preserve the original aspect ratio of the fish icon (25x11)
-                iconSize:    [1.42, 0.625],
-                iconAnchor:  [0.71, 0.625],
-                popupAnchor: [0.0625, -0.625],
-                tooltipAnchor: [0.71, -0.3125]
+                iconSize:    [4.26, 1.875],
+                iconAnchor:  [2.13, 1.875],
+                popupAnchor: [0.1875, -1.875],
+                tooltipAnchor: [2.13, -0.9375]
         });
   var AgricultureIcon = L.icon({
                 iconUrl:       'icons/plantinggrounds.png',
                 iconRetinaUrl: 'icons/plantinggrounds.png',
-                iconSize:    [0.625, 0.625],
-                iconAnchor:  [0.3125, 0.625],
-                popupAnchor: [0.0625, -0.625],
-                tooltipAnchor: [0.3125, -0.3125]
+                iconSize:    [1.875, 1.875],
+                iconAnchor:  [0.9375, 1.875],
+                popupAnchor: [0.1875, -1.875],
+                tooltipAnchor: [0.9375, -0.9375]
         });
   var PteroglyphIcon = L.icon({
                 iconUrl:       'icons/petrogliph.png',
                 iconRetinaUrl: 'icons/petrogliph.png',
-                iconSize:    [0.625, 0.625],
-                iconAnchor:  [0.3125, 0.625],
-                popupAnchor: [0.0625, -0.625],
-                tooltipAnchor: [0.3125, -0.3125]
+                iconSize:    [1.875, 1.875],
+                iconAnchor:  [0.9375, 1.875],
+                popupAnchor: [0.1875, -1.875],
+                tooltipAnchor: [0.9375, -0.9375]
         });
   var MineIcon = L.icon({
                 iconUrl:       'icons/mine.png',
                 iconRetinaUrl: 'icons/mine.png',
-                iconSize:    [0.625, 0.625],
-                iconAnchor:  [0.3125, 0.625],
-                popupAnchor: [0.0625, -0.625],
-                tooltipAnchor: [0.3125, -0.3125]
+                iconSize:    [1.875, 1.875],
+                iconAnchor:  [0.9375, 1.875],
+                popupAnchor: [0.1875, -1.875],
+                tooltipAnchor: [0.9375, -0.9375]
         });
   var FortsIcon = L.icon({
                 iconUrl:       'icons/fort.png',
                 iconRetinaUrl: 'icons/fort.png',
-                iconSize:    [1, 0.625],
-                iconAnchor:  [0.5, 0.625],
-                popupAnchor: [0.1, -0.625],
-                tooltipAnchor: [0.5, -0.3125]
+                iconSize:    [3, 1.875],
+                iconAnchor:  [1.5, 1.875],
+                popupAnchor: [0.3, -1.875],
+                tooltipAnchor: [1.5, -0.9375]
         });
   var ChambersIcon = L.icon({
                 iconUrl:       'icons/csl.png',
                 iconRetinaUrl: 'icons/csl.png',
-                iconSize:    [0.625, 0.625],
-                iconAnchor:  [0.3125, 0.625],
-                popupAnchor: [0.0625, -0.625],
-                tooltipAnchor: [0.3125, -0.3125]
+                iconSize:    [1.875, 1.875],
+                iconAnchor:  [0.9375, 1.875],
+                popupAnchor: [0.1875, -1.875],
+                tooltipAnchor: [0.9375, -0.9375]
         });
   var CampsIcon = L.icon({
                 iconUrl:       'icons/fire.png',
                 iconRetinaUrl: 'icons/fire.png',
-                iconSize:    [0.625, 0.625],
-                iconAnchor:  [0.3125, 0.625],
-                popupAnchor: [0.0625, -0.625],
-                tooltipAnchor: [0.3125, -0.3125]
+                iconSize:    [1.875, 1.875],
+                iconAnchor:  [0.9375, 1.875],
+                popupAnchor: [0.1875, -1.875],
+                tooltipAnchor: [0.9375, -0.9375]
         });
 
 
