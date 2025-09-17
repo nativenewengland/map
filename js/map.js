@@ -4,7 +4,7 @@ var map = L.map('map', {
   markerZoomAnimation: true,
   attributionControl: false,
   maxZoom: 8,
-}).setView([0, 0], 0);
+}).setView([0, 0], 4);
 
 var tiles = L.tileLayer('map/{z}/{x}/{y}.jpg', {
   continuousWorld: false,
@@ -16,8 +16,174 @@ var tiles = L.tileLayer('map/{z}/{x}/{y}.jpg', {
 // Overlay extracted from image and used for OCR/template matching
 // Use world bounds so the overlay spans the entire map
 var overlayBounds = [[-85, -180], [85, 180]];
+
+function textLabelsMatch(a, b) {
+  if (!a || !b) return false;
+  var textA = (a.text || '').trim();
+  var textB = (b.text || '').trim();
+  if (textA !== textB) return false;
+  var overlayA = a.overlay || '';
+  var overlayB = b.overlay || '';
+  if (overlayA !== overlayB) return false;
+  var latA = Number(a.lat);
+  var latB = Number(b.lat);
+  var lngA = Number(a.lng);
+  var lngB = Number(b.lng);
+  if (!isFinite(latA) || !isFinite(latB) || !isFinite(lngA) || !isFinite(lngB)) {
+    return false;
+  }
+  return Math.abs(latA - latB) < 1e-6 && Math.abs(lngA - lngB) < 1e-6;
+}
+
+function containsTextLabel(collection, candidate) {
+  return collection.some(function (item) {
+    return textLabelsMatch(item, candidate);
+  });
+}
+
+async function extractOverlayLabels(eventOrOptions) {
+  var options = eventOrOptions;
+  if (options && options.type && options.target) {
+    options = {};
+  }
+  options = options || {};
+  var autoSave = options.autoSave !== false;
+
+  function buildResult(overrides) {
+    return Object.assign(
+      {
+        labelsAdded: 0,
+        totalWords: 0,
+        saveResult: null,
+        error: null,
+      },
+      overrides || {}
+    );
+  }
+
+  if (typeof Tesseract === 'undefined' || !Tesseract || !Tesseract.recognize) {
+    console.warn('Tesseract.js is not available; skipping overlay label extraction.');
+    return buildResult({ error: 'tesseract-unavailable' });
+  }
+
+  var image = new Image();
+  image.crossOrigin = 'anonymous';
+
+  var imageLoadPromise = new Promise(function (resolve, reject) {
+    image.onload = function () {
+      resolve();
+    };
+    image.onerror = function (event) {
+      reject(event);
+    };
+  });
+
+  image.src = 'overlays/overlay.png';
+  if (image.complete && image.naturalWidth !== 0) {
+    image.onload();
+  }
+
+  try {
+    await imageLoadPromise;
+  } catch (error) {
+    console.error('Failed to load overlay image for OCR.', error);
+    return buildResult({ error: 'overlay-load-failed' });
+  }
+
+  var width = image.naturalWidth || image.width;
+  var height = image.naturalHeight || image.height;
+
+  if (!width || !height) {
+    console.warn('Overlay image has invalid dimensions; skipping label extraction.');
+    return buildResult({ error: 'invalid-overlay-dimensions' });
+  }
+
+  var recognition;
+  try {
+    recognition = await Tesseract.recognize(image, 'eng');
+  } catch (error) {
+    console.error('Failed to perform OCR on overlay image.', error);
+    return buildResult({ error: 'ocr-failed' });
+  }
+
+  var words = (recognition && recognition.data && recognition.data.words) || [];
+  if (!Array.isArray(words) || words.length === 0) {
+    return buildResult();
+  }
+
+  var south = overlayBounds[0][0];
+  var west = overlayBounds[0][1];
+  var north = overlayBounds[1][0];
+  var east = overlayBounds[1][1];
+  var latSpan = north - south;
+  var lngSpan = east - west;
+
+  var labelsAddedCount = 0;
+
+  words.forEach(function (word) {
+    var text = (word.text || '').trim();
+    if (!text) {
+      return;
+    }
+
+    var bbox = word.bbox;
+    if (!bbox) {
+      return;
+    }
+
+    var x0 = bbox.x0;
+    var x1 = bbox.x1;
+    var y0 = bbox.y0;
+    var y1 = bbox.y1;
+
+    if (
+      typeof x0 !== 'number' ||
+      typeof x1 !== 'number' ||
+      typeof y0 !== 'number' ||
+      typeof y1 !== 'number'
+    ) {
+      return;
+    }
+
+    var centerX = (x0 + x1) / 2;
+    var centerY = (y0 + y1) / 2;
+
+    var lng = west + (centerX / width) * lngSpan;
+    var lat = north - (centerY / height) * latSpan;
+    var fontSize = Math.max(1, y1 - y0);
+
+    var labelData = {
+      lat: lat,
+      lng: lng,
+      text: text,
+      description: '',
+      size: fontSize,
+      angle: 0,
+      spacing: 0,
+      curve: 0,
+      overlay: '',
+    };
+
+    if (containsTextLabel(customTextLabels, labelData)) {
+      return;
+    }
+
+    addTextLabelToMap(labelData);
+    customTextLabels.push(labelData);
+    labelsAddedCount++;
+  });
+
+  var saveResult = null;
+  if (labelsAddedCount > 0 && autoSave) {
+    saveResult = await saveTextLabels();
+  }
+
+  return buildResult({ labelsAdded: labelsAddedCount, totalWords: words.length, saveResult: saveResult });
+}
+
 // User-supplied overlay image should be placed at overlays/overlay.png
-L.imageOverlay('overlays/overlay.png', overlayBounds).addTo(map);
+var baseOverlay = L.imageOverlay('overlays/overlay.png', overlayBounds).addTo(map);
+baseOverlay.once('load', extractOverlayLabels);
 tiles.once('load', function () {
   baseZoom = map.getZoom();
   rescaleIcons();
@@ -62,38 +228,38 @@ map.on('click', function () {
   var WigwamIcon = L.icon({
                 iconUrl:       'icons/wigwam.png',
                 iconRetinaUrl: 'icons/wigwam.png',
-                iconSize:    [0.625, 0.625],
-                iconAnchor:  [0.3125, 0.625],
-                popupAnchor: [0.0625, -0.625],
-                tooltipAnchor: [0.3125, -0.3125]
+                iconSize:    [1.875, 1.875],
+                iconAnchor:  [0.9375, 1.875],
+                popupAnchor: [0.1875, -1.875],
+                tooltipAnchor: [0.9375, -0.9375]
         });
   var SettlementsIcon = L.icon({
                 iconUrl:       'icons/settlement.png',
                 iconRetinaUrl: 'icons/settlement.png',
 
-                iconSize:    [0.9375, 0.9375],
-                iconAnchor:  [0.4375, 0.9375],
-                popupAnchor: [0.0625, -0.9375],
-                tooltipAnchor: [0.4375, -0.4375]
+                iconSize:    [2.8125, 2.8125],
+                iconAnchor:  [1.3125, 2.8125],
+                popupAnchor: [0.1875, -2.8125],
+                tooltipAnchor: [1.3125, -1.3125]
 
 
         });
   var CapitalIcon = L.icon({
                 iconUrl:       'icons/capital.png',
                 iconRetinaUrl: 'icons/capital.png',
-                iconSize:    [0.625, 0.625],
-                iconAnchor:  [0.3125, 0.625],
-                popupAnchor: [0.0625, -0.625],
-                tooltipAnchor: [0.3125, -0.3125]
+                iconSize:    [1.875, 1.875],
+                iconAnchor:  [0.9375, 1.875],
+                popupAnchor: [0.1875, -1.875],
+                tooltipAnchor: [0.9375, -0.9375]
         });
   // Rock
   var RockIcon = L.icon({
                 iconUrl:       'icons/rock.png',
                 iconRetinaUrl: 'icons/rock.png',
-                iconSize:    [0.625, 0.625],
-                iconAnchor:  [0.3125, 0.625],
-                popupAnchor: [0.0625, -0.625],
-                tooltipAnchor: [0.3125, -0.3125]
+                iconSize:    [1.875, 1.875],
+                iconAnchor:  [0.9375, 1.875],
+                popupAnchor: [0.1875, -1.875],
+                tooltipAnchor: [0.9375, -0.9375]
         });
   // Fishing
   var fishingIconPath = 'icons/fish.png';
@@ -101,58 +267,58 @@ map.on('click', function () {
                 iconUrl:       fishingIconPath,
                 iconRetinaUrl: fishingIconPath,
                 // Preserve the original aspect ratio of the fish icon (25x11)
-                iconSize:    [1.42, 0.625],
-                iconAnchor:  [0.71, 0.625],
-                popupAnchor: [0.0625, -0.625],
-                tooltipAnchor: [0.71, -0.3125]
+                iconSize:    [4.26, 1.875],
+                iconAnchor:  [2.13, 1.875],
+                popupAnchor: [0.1875, -1.875],
+                tooltipAnchor: [2.13, -0.9375]
         });
   var AgricultureIcon = L.icon({
                 iconUrl:       'icons/plantinggrounds.png',
                 iconRetinaUrl: 'icons/plantinggrounds.png',
-                iconSize:    [0.625, 0.625],
-                iconAnchor:  [0.3125, 0.625],
-                popupAnchor: [0.0625, -0.625],
-                tooltipAnchor: [0.3125, -0.3125]
+                iconSize:    [1.875, 1.875],
+                iconAnchor:  [0.9375, 1.875],
+                popupAnchor: [0.1875, -1.875],
+                tooltipAnchor: [0.9375, -0.9375]
         });
   var PteroglyphIcon = L.icon({
                 iconUrl:       'icons/petrogliph.png',
                 iconRetinaUrl: 'icons/petrogliph.png',
-                iconSize:    [0.625, 0.625],
-                iconAnchor:  [0.3125, 0.625],
-                popupAnchor: [0.0625, -0.625],
-                tooltipAnchor: [0.3125, -0.3125]
+                iconSize:    [1.875, 1.875],
+                iconAnchor:  [0.9375, 1.875],
+                popupAnchor: [0.1875, -1.875],
+                tooltipAnchor: [0.9375, -0.9375]
         });
   var MineIcon = L.icon({
                 iconUrl:       'icons/mine.png',
                 iconRetinaUrl: 'icons/mine.png',
-                iconSize:    [0.625, 0.625],
-                iconAnchor:  [0.3125, 0.625],
-                popupAnchor: [0.0625, -0.625],
-                tooltipAnchor: [0.3125, -0.3125]
+                iconSize:    [1.875, 1.875],
+                iconAnchor:  [0.9375, 1.875],
+                popupAnchor: [0.1875, -1.875],
+                tooltipAnchor: [0.9375, -0.9375]
         });
   var FortsIcon = L.icon({
                 iconUrl:       'icons/fort.png',
                 iconRetinaUrl: 'icons/fort.png',
-                iconSize:    [1, 0.625],
-                iconAnchor:  [0.5, 0.625],
-                popupAnchor: [0.1, -0.625],
-                tooltipAnchor: [0.5, -0.3125]
+                iconSize:    [3, 1.875],
+                iconAnchor:  [1.5, 1.875],
+                popupAnchor: [0.3, -1.875],
+                tooltipAnchor: [1.5, -0.9375]
         });
   var ChambersIcon = L.icon({
                 iconUrl:       'icons/csl.png',
                 iconRetinaUrl: 'icons/csl.png',
-                iconSize:    [0.625, 0.625],
-                iconAnchor:  [0.3125, 0.625],
-                popupAnchor: [0.0625, -0.625],
-                tooltipAnchor: [0.3125, -0.3125]
+                iconSize:    [1.875, 1.875],
+                iconAnchor:  [0.9375, 1.875],
+                popupAnchor: [0.1875, -1.875],
+                tooltipAnchor: [0.9375, -0.9375]
         });
   var CampsIcon = L.icon({
                 iconUrl:       'icons/fire.png',
                 iconRetinaUrl: 'icons/fire.png',
-                iconSize:    [0.625, 0.625],
-                iconAnchor:  [0.3125, 0.625],
-                popupAnchor: [0.0625, -0.625],
-                tooltipAnchor: [0.3125, -0.3125]
+                iconSize:    [1.875, 1.875],
+                iconAnchor:  [0.9375, 1.875],
+                popupAnchor: [0.1875, -1.875],
+                tooltipAnchor: [0.9375, -0.9375]
         });
 
 
@@ -196,6 +362,27 @@ var overlays = {
   Settlements: Settlements,
   Territories: territoriesOverlay,
 };
+
+var additionalOverlayNames = [
+  'Ceremonial Stone Landscapes',
+  'Mountains',
+  'Rivers',
+  'Bodies of Water',
+  'Planting Grounds',
+  'Fishing Weirs',
+  'Mines/Quarries',
+  'Geographical Locations',
+  'Tribes',
+  'Petroglyph',
+  'Trails',
+  'Forts',
+];
+
+additionalOverlayNames.forEach(function (name) {
+  var layer = L.layerGroup().addTo(map);
+  overlayTargetGroups[name] = layer;
+  overlays[name] = layer;
+});
 
 function populateOverlayOptions(select) {
   if (!select) return;
@@ -355,13 +542,13 @@ function loadFeaturesFromCSV(text) {
   return { markers: markers, textLabels: textLabels, polygons: polygons };
 }
 
-function exportFeaturesToCSV() {
-  function escapeCsv(val) {
-    if (val === undefined || val === null) return '';
-    var str = String(val).replace(/"/g, '""');
-    return /[",\n]/.test(str) ? '"' + str + '"' : str;
-  }
+function escapeCsvValue(val) {
+  if (val === undefined || val === null) return '';
+  var str = String(val).replace(/"/g, '""');
+  return /[",\n]/.test(str) ? '"' + str + '"' : str;
+}
 
+function buildFeaturesCSV() {
   var rows = [
     'type,lat,lng,icon,name,text,description,size,angle,spacing,curve,coords,style,overlay'
   ];
@@ -370,19 +557,19 @@ function exportFeaturesToCSV() {
     rows.push(
       [
         'marker',
-        escapeCsv(m.lat),
-        escapeCsv(m.lng),
-        escapeCsv(m.icon),
-        escapeCsv(m.name),
+        escapeCsvValue(m.lat),
+        escapeCsvValue(m.lng),
+        escapeCsvValue(m.icon),
+        escapeCsvValue(m.name),
         '',
-        escapeCsv(m.description),
-        '',
-        '',
+        escapeCsvValue(m.description),
         '',
         '',
         '',
-        escapeCsv(JSON.stringify(m.style || {})),
-        escapeCsv(m.overlay || '')
+        '',
+        '',
+        escapeCsvValue(JSON.stringify(m.style || {})),
+        escapeCsvValue(m.overlay || '')
       ].join(',')
     );
   });
@@ -391,19 +578,19 @@ function exportFeaturesToCSV() {
     rows.push(
       [
         'text',
-        escapeCsv(t.lat),
-        escapeCsv(t.lng),
+        escapeCsvValue(t.lat),
+        escapeCsvValue(t.lng),
         '',
         '',
-        escapeCsv(t.text),
-        escapeCsv(t.description),
-        escapeCsv(t.size),
-        escapeCsv(t.angle),
-        escapeCsv(t.spacing),
-        escapeCsv(t.curve),
+        escapeCsvValue(t.text),
+        escapeCsvValue(t.description),
+        escapeCsvValue(t.size),
+        escapeCsvValue(t.angle),
+        escapeCsvValue(t.spacing),
+        escapeCsvValue(t.curve),
         '',
         '',
-        escapeCsv(t.overlay || '')
+        escapeCsvValue(t.overlay || '')
       ].join(',')
     );
   });
@@ -415,42 +602,67 @@ function exportFeaturesToCSV() {
         '',
         '',
         '',
-        escapeCsv(p.name),
+        escapeCsvValue(p.name),
         '',
-        escapeCsv(p.description),
-        '',
-        '',
+        escapeCsvValue(p.description),
         '',
         '',
-        escapeCsv(JSON.stringify(p.coords)),
-        escapeCsv(JSON.stringify(p.style || {})),
+        '',
+        '',
+        escapeCsvValue(JSON.stringify(p.coords)),
+        escapeCsvValue(JSON.stringify(p.style || {})),
         ''
       ].join(',')
     );
   });
 
-  var csvContent = rows.join('\n');
+  return rows.join('\n');
+}
 
-  // Try posting to a server endpoint; fall back to client-side download
-  fetch('/save-features', {
+function encodeCsvToBase64(csvContent) {
+  if (typeof TextEncoder !== 'undefined') {
+    var encoder = new TextEncoder();
+    var bytes = encoder.encode(csvContent);
+    var binary = '';
+    bytes.forEach(function (b) {
+      binary += String.fromCharCode(b);
+    });
+    return btoa(binary);
+  }
+  var escaped = encodeURIComponent(csvContent).replace(/%([0-9A-F]{2})/g, function (match, p1) {
+    return String.fromCharCode(parseInt(p1, 16));
+  });
+  return btoa(escaped);
+}
+
+function sendFeaturesCsvToServer(csvContent) {
+  var encodedContent = encodeCsvToBase64(csvContent);
+  return fetch('/save-features', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ content: btoa(csvContent) })
-  })
-    .then(function (response) {
-      if (!response.ok) {
-        throw new Error('Server rejected save');
-      }
-    })
-    .catch(function () {
-      var blob = new Blob([csvContent], { type: 'text/csv' });
-      var a = document.createElement('a');
-      a.href = URL.createObjectURL(blob);
-      a.download = 'features.csv';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-    });
+    body: JSON.stringify({ content: encodedContent })
+  }).then(function (response) {
+    if (!response.ok) {
+      throw new Error('Server rejected save');
+    }
+  });
+}
+
+function triggerCsvDownload(csvContent) {
+  var blob = new Blob([csvContent], { type: 'text/csv' });
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'features.csv';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+
+function exportFeaturesToCSV() {
+  var csvContent = buildFeaturesCSV();
+  sendFeaturesCsvToServer(csvContent).catch(function () {
+    triggerCsvDownload(csvContent);
+  });
 }
 
 function saveMarkers() {
@@ -459,6 +671,8 @@ function saveMarkers() {
 
 function saveTextLabels() {
   updateEditToolbar();
+  var csvContent = buildFeaturesCSV();
+  
 }
 
 function savePolygons() {
@@ -784,6 +998,9 @@ fetch('data/features.csv')
       addMarkerToMap(m);
     });
     parsed.textLabels.forEach(function (t) {
+      if (containsTextLabel(customTextLabels, t)) {
+        return;
+      }
       customTextLabels.push(t);
       addTextLabelToMap(t);
     });
@@ -1353,6 +1570,13 @@ map.on(L.Draw.Event.DELETED, function (e) {
   savePolygons();
   updateEditToolbar();
 });
+
+var runOverlayOcrButton = document.getElementById('run-overlay-ocr');
+if (runOverlayOcrButton) {
+  runOverlayOcrButton.addEventListener('click', function () {
+    runOverlayOcrAndDownload();
+  });
+}
 
 document.getElementById('save-changes').addEventListener('click', function () {
   exportFeaturesToCSV();
