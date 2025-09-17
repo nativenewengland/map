@@ -1,5 +1,7 @@
 const express = require('express');
 const fetch = require('node-fetch');
+const fs = require('fs');
+const path = require('path');
 const app = express();
 
 // Parse JSON bodies
@@ -12,15 +14,21 @@ const GITHUB_REPO = process.env.GITHUB_REPO;
 
 // Endpoint to commit the CSV to GitHub
 app.post('/save-features', async (req, res) => {
-  const content = req.body && req.body.content;
-  if (!content) {
+  const encodedContent = req.body && req.body.content;
+  if (!encodedContent) {
     return res.status(400).send('Missing content');
   }
-  if (!GITHUB_TOKEN || !GITHUB_OWNER || !GITHUB_REPO) {
-    console.error('Missing GitHub configuration');
-    return res.status(500).send('Server misconfigured');
-  }
   try {
+    const csvBuffer = Buffer.from(encodedContent, 'base64');
+    const csvContent = csvBuffer.toString('utf8');
+    const filePath = path.join(__dirname, '..', 'data', 'features.csv');
+    await fs.promises.writeFile(filePath, csvContent, 'utf8');
+
+    if (!GITHUB_TOKEN || !GITHUB_OWNER || !GITHUB_REPO) {
+      console.warn('Missing GitHub configuration; saved CSV locally.');
+      return res.sendStatus(200);
+    }
+
     // Fetch existing file to get its SHA if it exists
     const getResp = await fetch(
       `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/data/features.csv`,
@@ -41,7 +49,7 @@ app.post('/save-features', async (req, res) => {
     }
 
     // Commit new content
-    const body = { message: 'Update features.csv', content };
+    const body = { message: 'Update features.csv', content: encodedContent };
     if (sha) {
       body.sha = sha;
     }
@@ -65,7 +73,7 @@ app.post('/save-features', async (req, res) => {
     }
     res.sendStatus(200);
   } catch (err) {
-    console.error(err);
+    console.error('Failed to save CSV', err);
     res.status(500).send('Failed to save CSV');
   }
 });

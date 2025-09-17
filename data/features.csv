@@ -1,6 +1,8 @@
 type,lat,lng,icon,name,text,description,size,angle,spacing,curve,coords,style,overlay
 marker,-55.86,106,wigwam,Wigwam,,,,,,,,{},
 marker,-30.3731045201212,62.97521225521355,settlement,dsfds,,sdfsdf,,,,,,{},
+marker,-9.583455567389747,33.36127269396798,wigwam,Marker,,,,,,,,{},
+marker,-10.125631403179714,34.58495616956516,settlement,Marker,,,,,,,,{},
 text,-36.65567460185129,75.13381206794301,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-30.55639356496612,86.15906705383222,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-33.683878797602844,87.25830078125001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -20,3 +22,4 @@ text,-34.354981477600404,80.46875000000001,,,PONANASAUSIG,To spread their wings,
 text,-35.76384328188797,81.47949218750001,,,QUATAQUETUCA,Red crabs,1,0,0,0,,,
 text,-32.416427957931774,87.14843750000001,,,SANSHUWACHU,Brook lodge,1,0,0,0,,,
 text,-30.54,84.4,,,Demo,,1,0,0,0,,,
+text,-43.39704454537894,77.26135253906251,,,Cappoaquit,,2.5,0,0,0,,,Geographical Locations
