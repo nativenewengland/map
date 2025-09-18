@@ -345,6 +345,8 @@ var allMarkers = [];
 var allTextLabels = [];
 var baseZoom;
 var selectedMarker = null;
+var markerClipboardData = null;
+var markerClipboardType = null;
 var territoriesLayer = L.featureGroup();
 var territoryMarkersLayer = L.layerGroup();
 var Settlements = L.layerGroup();
@@ -410,8 +412,69 @@ L.control.layers(null, overlays).addTo(map);
 function clearSelectedMarker() {
   if (selectedMarker && selectedMarker._icon) {
     selectedMarker._icon.classList.remove('marker-selected');
-    selectedMarker = null;
   }
+  selectedMarker = null;
+}
+
+function isTextualInput(element) {
+  if (!element) return false;
+  var tagName = element.tagName ? element.tagName.toLowerCase() : '';
+  if (tagName === 'input' || tagName === 'textarea' || tagName === 'select') {
+    return true;
+  }
+  return Boolean(element.isContentEditable);
+}
+
+function shouldIgnoreClipboardShortcut(event) {
+  var target = event.target;
+  if (isTextualInput(target)) {
+    return true;
+  }
+  if (typeof document !== 'undefined') {
+    var active = document.activeElement;
+    if (active && active !== target && isTextualInput(active)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function cloneMarkerData(data) {
+  try {
+    return JSON.parse(JSON.stringify(data));
+  } catch (err) {
+    return null;
+  }
+}
+
+function offsetLatLngForPaste(lat, lng) {
+  if (!map || typeof map.latLngToLayerPoint !== 'function') {
+    return { lat: lat, lng: lng };
+  }
+  try {
+    var point = map.latLngToLayerPoint([lat, lng]);
+    point.x += 10;
+    point.y += 10;
+    var newLatLng = map.layerPointToLatLng(point);
+    return { lat: newLatLng.lat, lng: newLatLng.lng };
+  } catch (err) {
+    return { lat: lat, lng: lng };
+  }
+}
+
+function highlightMarker(marker) {
+  if (!marker) return;
+  function applyHighlight() {
+    if (marker._icon) {
+      marker._icon.classList.add('marker-selected');
+    }
+  }
+  if (marker._icon) {
+    applyHighlight();
+  } else if (typeof marker.once === 'function') {
+    marker.once('add', applyHighlight);
+  }
+  selectedMarker = marker;
 }
 
 function rescaleIcons() {
@@ -981,6 +1044,7 @@ function addTextLabelToMap(data) {
     m._basePathWidth = pathWidth;
   }
   m._data = data;
+  m._markerType = 'text';
   allTextLabels.push(m);
   rescaleTextLabels();
   return m;
@@ -1042,6 +1106,7 @@ function createMarker(lat, lng, icon, name, description) {
         editMarkerForm(m);
       }
     });
+  m._markerType = 'marker';
   m._baseIconOptions = JSON.parse(JSON.stringify(icon.options));
   allMarkers.push(m);
   return m;
@@ -1050,6 +1115,51 @@ function createMarker(lat, lng, icon, name, description) {
 
 map.on('zoomend', rescaleIcons);
 map.on('zoomend', rescaleTextLabels);
+
+document.addEventListener('keydown', function (event) {
+  if (event.defaultPrevented) return;
+  if (!(event.ctrlKey || event.metaKey)) return;
+  var key = (event.key || '').toLowerCase();
+  if (key !== 'c' && key !== 'v') return;
+  if (shouldIgnoreClipboardShortcut(event)) return;
+
+  if (key === 'c') {
+    if (typeof window !== 'undefined' && window.getSelection) {
+      var selection = window.getSelection().toString();
+      if (selection) {
+        return;
+      }
+    }
+    if (!selectedMarker || !selectedMarker._data) return;
+    var cloned = cloneMarkerData(selectedMarker._data);
+    if (!cloned) return;
+    markerClipboardData = cloned;
+    markerClipboardType = selectedMarker._markerType === 'text' ? 'text' : 'marker';
+  } else if (key === 'v') {
+    if (!markerClipboardData) return;
+    var pasteData = cloneMarkerData(markerClipboardData);
+    if (!pasteData) return;
+    var lat = parseFloat(pasteData.lat);
+    var lng = parseFloat(pasteData.lng);
+    if (isFinite(lat) && isFinite(lng)) {
+      var offset = offsetLatLngForPaste(lat, lng);
+      pasteData.lat = offset.lat;
+      pasteData.lng = offset.lng;
+    }
+    var newMarker;
+    if (markerClipboardType === 'text') {
+      newMarker = addTextLabelToMap(pasteData);
+      customTextLabels.push(pasteData);
+      saveTextLabels();
+    } else {
+      newMarker = addMarkerToMap(pasteData);
+      customMarkers.push(pasteData);
+      saveMarkers();
+    }
+    clearSelectedMarker();
+    highlightMarker(newMarker);
+  }
+});
 
 function showPolygonForm(tempLayer) {
   var overlay = document.getElementById('polygon-form-overlay');
