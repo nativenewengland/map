@@ -1,10 +1,12 @@
 type,lat,lng,icon,name,text,description,size,angle,spacing,curve,coords,style,overlay
-marker,-55.86,106,wigwam,Wigwam,,,,,,,,{},
+marker,-56.75246691821906,100.02187882546627,wigwam,Wigwam,,,,,,,,{},
 marker,-30.3731045201212,62.97521225521355,settlement,dsfds,,sdfsdf,,,,,,{},
 marker,-9.583455567389747,33.36127269396798,wigwam,Marker,,,,,,,,{},
 marker,-10.125631403179714,34.58495616956516,settlement,Marker,,,,,,,,{},
 marker,-76.92063356963172,-103.4692933263319,settlement,Marker,,,,,,,,{},
 marker,-0.021947340048991303,122.84908806670087,settlement,Marker,,,,,,,,{},Settlements
+marker,-55.825818787469316,89.03284926252167,rock,Marker,,,,,,,,{},
+marker,-55.85025138528455,90.48313951373535,chambers,Marker,,,,,,,,{},
 text,-36.65567460185129,75.13381206794301,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-30.55639356496612,86.15906705383222,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-33.683878797602844,87.25830078125001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
