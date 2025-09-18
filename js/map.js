@@ -207,6 +207,21 @@ L.Icon.Default.mergeOptions({
   shadowAnchor: null,
 });
 
+var ICON_SCALE_FACTOR = 2;
+
+function createScaledIcon(options) {
+  var scaled = Object.assign({}, options);
+  ['iconSize', 'iconAnchor', 'shadowSize', 'shadowAnchor', 'popupAnchor', 'tooltipAnchor'].forEach(function (key) {
+    var value = scaled[key];
+    if (Array.isArray(value)) {
+      scaled[key] = value.map(function (v) {
+        return v * ICON_SCALE_FACTOR;
+      });
+    }
+  });
+  return L.icon(scaled);
+}
+
 function showInfo(title, description) {
   var panel = document.getElementById('info-panel');
   document.getElementById('info-title').textContent = title;
@@ -225,101 +240,106 @@ map.on('click', function () {
   clearSelectedMarker();
 });
 
-  var WigwamIcon = L.icon({
-                iconUrl:       'icons/wigwam.png',
-                iconRetinaUrl: 'icons/wigwam.png',
-                iconSize:    [1.875, 1.875],
-                iconAnchor:  [0.9375, 1.875],
-                popupAnchor: [0.1875, -1.875],
-                tooltipAnchor: [0.9375, -0.9375]
-        });
-  var SettlementsIcon = L.icon({
-                iconUrl:       'icons/settlement.png',
-                iconRetinaUrl: 'icons/settlement.png',
+var WigwamIcon = createScaledIcon({
+  iconUrl: 'icons/wigwam.png',
+  iconRetinaUrl: 'icons/wigwam.png',
+  iconSize: [1.875, 1.875],
+  iconAnchor: [0.9375, 1.875],
+  popupAnchor: [0.1875, -1.875],
+  tooltipAnchor: [0.9375, -0.9375],
+});
 
-                iconSize:    [2.8125, 2.8125],
-                iconAnchor:  [1.3125, 2.8125],
-                popupAnchor: [0.1875, -2.8125],
-                tooltipAnchor: [1.3125, -1.3125]
+var SettlementsIcon = createScaledIcon({
+  iconUrl: 'icons/settlement.png',
+  iconRetinaUrl: 'icons/settlement.png',
+  iconSize: [2.8125, 2.8125],
+  iconAnchor: [1.3125, 2.8125],
+  popupAnchor: [0.1875, -2.8125],
+  tooltipAnchor: [1.3125, -1.3125],
+});
 
+var CapitalIcon = createScaledIcon({
+  iconUrl: 'icons/capital.png',
+  iconRetinaUrl: 'icons/capital.png',
+  iconSize: [1.875, 1.875],
+  iconAnchor: [0.9375, 1.875],
+  popupAnchor: [0.1875, -1.875],
+  tooltipAnchor: [0.9375, -0.9375],
+});
 
-        });
-  var CapitalIcon = L.icon({
-                iconUrl:       'icons/capital.png',
-                iconRetinaUrl: 'icons/capital.png',
-                iconSize:    [1.875, 1.875],
-                iconAnchor:  [0.9375, 1.875],
-                popupAnchor: [0.1875, -1.875],
-                tooltipAnchor: [0.9375, -0.9375]
-        });
-  // Rock
-  var RockIcon = L.icon({
-                iconUrl:       'icons/rock.png',
-                iconRetinaUrl: 'icons/rock.png',
-                iconSize:    [1.875, 1.875],
-                iconAnchor:  [0.9375, 1.875],
-                popupAnchor: [0.1875, -1.875],
-                tooltipAnchor: [0.9375, -0.9375]
-        });
-  // Fishing
-  var fishingIconPath = 'icons/fish.png';
-  var FishingIcon = L.icon({
-                iconUrl:       fishingIconPath,
-                iconRetinaUrl: fishingIconPath,
-                // Preserve the original aspect ratio of the fish icon (25x11)
-                iconSize:    [4.26, 1.875],
-                iconAnchor:  [2.13, 1.875],
-                popupAnchor: [0.1875, -1.875],
-                tooltipAnchor: [2.13, -0.9375]
-        });
-  var AgricultureIcon = L.icon({
-                iconUrl:       'icons/plantinggrounds.png',
-                iconRetinaUrl: 'icons/plantinggrounds.png',
-                iconSize:    [1.875, 1.875],
-                iconAnchor:  [0.9375, 1.875],
-                popupAnchor: [0.1875, -1.875],
-                tooltipAnchor: [0.9375, -0.9375]
-        });
-  var PteroglyphIcon = L.icon({
-                iconUrl:       'icons/petrogliph.png',
-                iconRetinaUrl: 'icons/petrogliph.png',
-                iconSize:    [1.875, 1.875],
-                iconAnchor:  [0.9375, 1.875],
-                popupAnchor: [0.1875, -1.875],
-                tooltipAnchor: [0.9375, -0.9375]
-        });
-  var MineIcon = L.icon({
-                iconUrl:       'icons/mine.png',
-                iconRetinaUrl: 'icons/mine.png',
-                iconSize:    [1.875, 1.875],
-                iconAnchor:  [0.9375, 1.875],
-                popupAnchor: [0.1875, -1.875],
-                tooltipAnchor: [0.9375, -0.9375]
-        });
-  var FortsIcon = L.icon({
-                iconUrl:       'icons/fort.png',
-                iconRetinaUrl: 'icons/fort.png',
-                iconSize:    [3, 1.875],
-                iconAnchor:  [1.5, 1.875],
-                popupAnchor: [0.3, -1.875],
-                tooltipAnchor: [1.5, -0.9375]
-        });
-  var ChambersIcon = L.icon({
-                iconUrl:       'icons/csl.png',
-                iconRetinaUrl: 'icons/csl.png',
-                iconSize:    [1.875, 1.875],
-                iconAnchor:  [0.9375, 1.875],
-                popupAnchor: [0.1875, -1.875],
-                tooltipAnchor: [0.9375, -0.9375]
-        });
-  var CampsIcon = L.icon({
-                iconUrl:       'icons/fire.png',
-                iconRetinaUrl: 'icons/fire.png',
-                iconSize:    [1.875, 1.875],
-                iconAnchor:  [0.9375, 1.875],
-                popupAnchor: [0.1875, -1.875],
-                tooltipAnchor: [0.9375, -0.9375]
-        });
+var RockIcon = createScaledIcon({
+  iconUrl: 'icons/rock.png',
+  iconRetinaUrl: 'icons/rock.png',
+  iconSize: [1.875, 1.875],
+  iconAnchor: [0.9375, 1.875],
+  popupAnchor: [0.1875, -1.875],
+  tooltipAnchor: [0.9375, -0.9375],
+});
+
+var fishingIconPath = 'icons/fish.png';
+var FishingIcon = createScaledIcon({
+  iconUrl: fishingIconPath,
+  iconRetinaUrl: fishingIconPath,
+  // Preserve the original aspect ratio of the fish icon (25x11)
+  iconSize: [4.26, 1.875],
+  iconAnchor: [2.13, 1.875],
+  popupAnchor: [0.1875, -1.875],
+  tooltipAnchor: [2.13, -0.9375],
+});
+
+var AgricultureIcon = createScaledIcon({
+  iconUrl: 'icons/plantinggrounds.png',
+  iconRetinaUrl: 'icons/plantinggrounds.png',
+  iconSize: [1.875, 1.875],
+  iconAnchor: [0.9375, 1.875],
+  popupAnchor: [0.1875, -1.875],
+  tooltipAnchor: [0.9375, -0.9375],
+});
+
+var PteroglyphIcon = createScaledIcon({
+  iconUrl: 'icons/petrogliph.png',
+  iconRetinaUrl: 'icons/petrogliph.png',
+  iconSize: [1.875, 1.875],
+  iconAnchor: [0.9375, 1.875],
+  popupAnchor: [0.1875, -1.875],
+  tooltipAnchor: [0.9375, -0.9375],
+});
+
+var MineIcon = createScaledIcon({
+  iconUrl: 'icons/mine.png',
+  iconRetinaUrl: 'icons/mine.png',
+  iconSize: [1.875, 1.875],
+  iconAnchor: [0.9375, 1.875],
+  popupAnchor: [0.1875, -1.875],
+  tooltipAnchor: [0.9375, -0.9375],
+});
+
+var FortsIcon = createScaledIcon({
+  iconUrl: 'icons/fort.png',
+  iconRetinaUrl: 'icons/fort.png',
+  iconSize: [3, 1.875],
+  iconAnchor: [1.5, 1.875],
+  popupAnchor: [0.3, -1.875],
+  tooltipAnchor: [1.5, -0.9375],
+});
+
+var ChambersIcon = createScaledIcon({
+  iconUrl: 'icons/csl.png',
+  iconRetinaUrl: 'icons/csl.png',
+  iconSize: [1.875, 1.875],
+  iconAnchor: [0.9375, 1.875],
+  popupAnchor: [0.1875, -1.875],
+  tooltipAnchor: [0.9375, -0.9375],
+});
+
+var CampsIcon = createScaledIcon({
+  iconUrl: 'icons/fire.png',
+  iconRetinaUrl: 'icons/fire.png',
+  iconSize: [1.875, 1.875],
+  iconAnchor: [0.9375, 1.875],
+  popupAnchor: [0.1875, -1.875],
+  tooltipAnchor: [0.9375, -0.9375],
+});
 
 
 // Map of icon keys to actual icons
