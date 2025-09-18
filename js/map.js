@@ -467,19 +467,27 @@ function cloneMarkerData(data) {
   }
 }
 
+// When pasting a marker/text label, position it at the centre of the
+// current viewport so the pasted element is immediately visible to the user.
 function offsetLatLngForPaste(lat, lng) {
-  if (!map || typeof map.latLngToLayerPoint !== 'function') {
+  if (!map || typeof map.getCenter !== 'function') {
     return { lat: lat, lng: lng };
   }
   try {
-    var point = map.latLngToLayerPoint([lat, lng]);
-    point.x += 10;
-    point.y += 10;
-    var newLatLng = map.layerPointToLatLng(point);
-    return { lat: newLatLng.lat, lng: newLatLng.lng };
+    var center = map.getCenter();
+    if (
+      center &&
+      typeof center.lat === 'number' &&
+      typeof center.lng === 'number' &&
+      isFinite(center.lat) &&
+      isFinite(center.lng)
+    ) {
+      return { lat: center.lat, lng: center.lng };
+    }
   } catch (err) {
-    return { lat: lat, lng: lng };
+    // Fall back to the original coordinates if we cannot read the map center.
   }
+  return { lat: lat, lng: lng };
 }
 
 function highlightMarker(marker) {
