@@ -3,15 +3,15 @@ var map = L.map('map', {
   zoomAnimation: true,
   markerZoomAnimation: true,
   attributionControl: false,
-  maxZoom: 8,
+  maxZoom: 6,
 }).setView([0, 0], 4);
 
 var tiles = L.tileLayer('map/{z}/{x}/{y}.jpg', {
   continuousWorld: false,
   noWrap: true,
   minZoom: 2,
-  maxZoom: 8,
-  maxNativeZoom: 7,
+  maxZoom: 6,
+  maxNativeZoom: 6,
 }).addTo(map);
 // Overlay extracted from image and used for OCR/template matching
 // Use world bounds so the overlay spans the entire map
@@ -467,19 +467,27 @@ function cloneMarkerData(data) {
   }
 }
 
+// When pasting a marker/text label, position it at the centre of the
+// current viewport so the pasted element is immediately visible to the user.
 function offsetLatLngForPaste(lat, lng) {
-  if (!map || typeof map.latLngToLayerPoint !== 'function') {
+  if (!map || typeof map.getCenter !== 'function') {
     return { lat: lat, lng: lng };
   }
   try {
-    var point = map.latLngToLayerPoint([lat, lng]);
-    point.x += 10;
-    point.y += 10;
-    var newLatLng = map.layerPointToLatLng(point);
-    return { lat: newLatLng.lat, lng: newLatLng.lng };
+    var center = map.getCenter();
+    if (
+      center &&
+      typeof center.lat === 'number' &&
+      typeof center.lng === 'number' &&
+      isFinite(center.lat) &&
+      isFinite(center.lng)
+    ) {
+      return { lat: center.lat, lng: center.lng };
+    }
   } catch (err) {
-    return { lat: lat, lng: lng };
+    // Fall back to the original coordinates if we cannot read the map center.
   }
+  return { lat: lat, lng: lng };
 }
 
 function highlightMarker(marker) {
