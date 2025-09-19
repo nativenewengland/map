@@ -3,15 +3,15 @@ var map = L.map('map', {
   zoomAnimation: true,
   markerZoomAnimation: true,
   attributionControl: false,
-  maxZoom: 8,
+  maxZoom: 6,
 }).setView([0, 0], 4);
 
 var tiles = L.tileLayer('map/{z}/{x}/{y}.jpg', {
   continuousWorld: false,
   noWrap: true,
   minZoom: 2,
-  maxZoom: 8,
-  maxNativeZoom: 7,
+  maxZoom: 6,
+  maxNativeZoom: 6,
 }).addTo(map);
 // Overlay extracted from image and used for OCR/template matching
 // Use world bounds so the overlay spans the entire map
@@ -207,6 +207,21 @@ L.Icon.Default.mergeOptions({
   shadowAnchor: null,
 });
 
+var ICON_SCALE_FACTOR = 2;
+
+function createScaledIcon(options) {
+  var scaled = Object.assign({}, options);
+  ['iconSize', 'iconAnchor', 'shadowSize', 'shadowAnchor', 'popupAnchor', 'tooltipAnchor'].forEach(function (key) {
+    var value = scaled[key];
+    if (Array.isArray(value)) {
+      scaled[key] = value.map(function (v) {
+        return v * ICON_SCALE_FACTOR;
+      });
+    }
+  });
+  return L.icon(scaled);
+}
+
 function showInfo(title, description) {
   var panel = document.getElementById('info-panel');
   document.getElementById('info-title').textContent = title;
@@ -225,101 +240,106 @@ map.on('click', function () {
   clearSelectedMarker();
 });
 
-  var WigwamIcon = L.icon({
-                iconUrl:       'icons/wigwam.png',
-                iconRetinaUrl: 'icons/wigwam.png',
-                iconSize:    [1.875, 1.875],
-                iconAnchor:  [0.9375, 1.875],
-                popupAnchor: [0.1875, -1.875],
-                tooltipAnchor: [0.9375, -0.9375]
-        });
-  var SettlementsIcon = L.icon({
-                iconUrl:       'icons/settlement.png',
-                iconRetinaUrl: 'icons/settlement.png',
+var WigwamIcon = createScaledIcon({
+  iconUrl: 'icons/wigwam.png',
+  iconRetinaUrl: 'icons/wigwam.png',
+  iconSize: [1.875, 1.875],
+  iconAnchor: [0.9375, 1.875],
+  popupAnchor: [0.1875, -1.875],
+  tooltipAnchor: [0.9375, -0.9375],
+});
 
-                iconSize:    [2.8125, 2.8125],
-                iconAnchor:  [1.3125, 2.8125],
-                popupAnchor: [0.1875, -2.8125],
-                tooltipAnchor: [1.3125, -1.3125]
+var SettlementsIcon = createScaledIcon({
+  iconUrl: 'icons/settlement.png',
+  iconRetinaUrl: 'icons/settlement.png',
+  iconSize: [2.8125, 2.8125],
+  iconAnchor: [1.3125, 2.8125],
+  popupAnchor: [0.1875, -2.8125],
+  tooltipAnchor: [1.3125, -1.3125],
+});
 
+var CapitalIcon = createScaledIcon({
+  iconUrl: 'icons/capital.png',
+  iconRetinaUrl: 'icons/capital.png',
+  iconSize: [1.875, 1.875],
+  iconAnchor: [0.9375, 1.875],
+  popupAnchor: [0.1875, -1.875],
+  tooltipAnchor: [0.9375, -0.9375],
+});
 
-        });
-  var CapitalIcon = L.icon({
-                iconUrl:       'icons/capital.png',
-                iconRetinaUrl: 'icons/capital.png',
-                iconSize:    [1.875, 1.875],
-                iconAnchor:  [0.9375, 1.875],
-                popupAnchor: [0.1875, -1.875],
-                tooltipAnchor: [0.9375, -0.9375]
-        });
-  // Rock
-  var RockIcon = L.icon({
-                iconUrl:       'icons/rock.png',
-                iconRetinaUrl: 'icons/rock.png',
-                iconSize:    [1.875, 1.875],
-                iconAnchor:  [0.9375, 1.875],
-                popupAnchor: [0.1875, -1.875],
-                tooltipAnchor: [0.9375, -0.9375]
-        });
-  // Fishing
-  var fishingIconPath = 'icons/fish.png';
-  var FishingIcon = L.icon({
-                iconUrl:       fishingIconPath,
-                iconRetinaUrl: fishingIconPath,
-                // Preserve the original aspect ratio of the fish icon (25x11)
-                iconSize:    [4.26, 1.875],
-                iconAnchor:  [2.13, 1.875],
-                popupAnchor: [0.1875, -1.875],
-                tooltipAnchor: [2.13, -0.9375]
-        });
-  var AgricultureIcon = L.icon({
-                iconUrl:       'icons/plantinggrounds.png',
-                iconRetinaUrl: 'icons/plantinggrounds.png',
-                iconSize:    [1.875, 1.875],
-                iconAnchor:  [0.9375, 1.875],
-                popupAnchor: [0.1875, -1.875],
-                tooltipAnchor: [0.9375, -0.9375]
-        });
-  var PteroglyphIcon = L.icon({
-                iconUrl:       'icons/petrogliph.png',
-                iconRetinaUrl: 'icons/petrogliph.png',
-                iconSize:    [1.875, 1.875],
-                iconAnchor:  [0.9375, 1.875],
-                popupAnchor: [0.1875, -1.875],
-                tooltipAnchor: [0.9375, -0.9375]
-        });
-  var MineIcon = L.icon({
-                iconUrl:       'icons/mine.png',
-                iconRetinaUrl: 'icons/mine.png',
-                iconSize:    [1.875, 1.875],
-                iconAnchor:  [0.9375, 1.875],
-                popupAnchor: [0.1875, -1.875],
-                tooltipAnchor: [0.9375, -0.9375]
-        });
-  var FortsIcon = L.icon({
-                iconUrl:       'icons/fort.png',
-                iconRetinaUrl: 'icons/fort.png',
-                iconSize:    [3, 1.875],
-                iconAnchor:  [1.5, 1.875],
-                popupAnchor: [0.3, -1.875],
-                tooltipAnchor: [1.5, -0.9375]
-        });
-  var ChambersIcon = L.icon({
-                iconUrl:       'icons/csl.png',
-                iconRetinaUrl: 'icons/csl.png',
-                iconSize:    [1.875, 1.875],
-                iconAnchor:  [0.9375, 1.875],
-                popupAnchor: [0.1875, -1.875],
-                tooltipAnchor: [0.9375, -0.9375]
-        });
-  var CampsIcon = L.icon({
-                iconUrl:       'icons/fire.png',
-                iconRetinaUrl: 'icons/fire.png',
-                iconSize:    [1.875, 1.875],
-                iconAnchor:  [0.9375, 1.875],
-                popupAnchor: [0.1875, -1.875],
-                tooltipAnchor: [0.9375, -0.9375]
-        });
+var RockIcon = createScaledIcon({
+  iconUrl: 'icons/rock.png',
+  iconRetinaUrl: 'icons/rock.png',
+  iconSize: [1.875, 1.875],
+  iconAnchor: [0.9375, 1.875],
+  popupAnchor: [0.1875, -1.875],
+  tooltipAnchor: [0.9375, -0.9375],
+});
+
+var fishingIconPath = 'icons/fish.png';
+var FishingIcon = createScaledIcon({
+  iconUrl: fishingIconPath,
+  iconRetinaUrl: fishingIconPath,
+  // Preserve the original aspect ratio of the fish icon (25x11)
+  iconSize: [4.26, 1.875],
+  iconAnchor: [2.13, 1.875],
+  popupAnchor: [0.1875, -1.875],
+  tooltipAnchor: [2.13, -0.9375],
+});
+
+var AgricultureIcon = createScaledIcon({
+  iconUrl: 'icons/plantinggrounds.png',
+  iconRetinaUrl: 'icons/plantinggrounds.png',
+  iconSize: [1.875, 1.875],
+  iconAnchor: [0.9375, 1.875],
+  popupAnchor: [0.1875, -1.875],
+  tooltipAnchor: [0.9375, -0.9375],
+});
+
+var PteroglyphIcon = createScaledIcon({
+  iconUrl: 'icons/petrogliph.png',
+  iconRetinaUrl: 'icons/petrogliph.png',
+  iconSize: [1.875, 1.875],
+  iconAnchor: [0.9375, 1.875],
+  popupAnchor: [0.1875, -1.875],
+  tooltipAnchor: [0.9375, -0.9375],
+});
+
+var MineIcon = createScaledIcon({
+  iconUrl: 'icons/mine.png',
+  iconRetinaUrl: 'icons/mine.png',
+  iconSize: [1.875, 1.875],
+  iconAnchor: [0.9375, 1.875],
+  popupAnchor: [0.1875, -1.875],
+  tooltipAnchor: [0.9375, -0.9375],
+});
+
+var FortsIcon = createScaledIcon({
+  iconUrl: 'icons/fort.png',
+  iconRetinaUrl: 'icons/fort.png',
+  iconSize: [3, 1.875],
+  iconAnchor: [1.5, 1.875],
+  popupAnchor: [0.3, -1.875],
+  tooltipAnchor: [1.5, -0.9375],
+});
+
+var ChambersIcon = createScaledIcon({
+  iconUrl: 'icons/csl.png',
+  iconRetinaUrl: 'icons/csl.png',
+  iconSize: [1.875, 1.875],
+  iconAnchor: [0.9375, 1.875],
+  popupAnchor: [0.1875, -1.875],
+  tooltipAnchor: [0.9375, -0.9375],
+});
+
+var CampsIcon = createScaledIcon({
+  iconUrl: 'icons/fire.png',
+  iconRetinaUrl: 'icons/fire.png',
+  iconSize: [1.875, 1.875],
+  iconAnchor: [0.9375, 1.875],
+  popupAnchor: [0.1875, -1.875],
+  tooltipAnchor: [0.9375, -0.9375],
+});
 
 
 // Map of icon keys to actual icons
@@ -345,6 +365,8 @@ var allMarkers = [];
 var allTextLabels = [];
 var baseZoom;
 var selectedMarker = null;
+var markerClipboardData = null;
+var markerClipboardType = null;
 var territoriesLayer = L.featureGroup();
 var territoryMarkersLayer = L.layerGroup();
 var Settlements = L.layerGroup();
@@ -410,8 +432,77 @@ L.control.layers(null, overlays).addTo(map);
 function clearSelectedMarker() {
   if (selectedMarker && selectedMarker._icon) {
     selectedMarker._icon.classList.remove('marker-selected');
-    selectedMarker = null;
   }
+  selectedMarker = null;
+}
+
+function isTextualInput(element) {
+  if (!element) return false;
+  var tagName = element.tagName ? element.tagName.toLowerCase() : '';
+  if (tagName === 'input' || tagName === 'textarea' || tagName === 'select') {
+    return true;
+  }
+  return Boolean(element.isContentEditable);
+}
+
+function shouldIgnoreClipboardShortcut(event) {
+  var target = event.target;
+  if (isTextualInput(target)) {
+    return true;
+  }
+  if (typeof document !== 'undefined') {
+    var active = document.activeElement;
+    if (active && active !== target && isTextualInput(active)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function cloneMarkerData(data) {
+  try {
+    return JSON.parse(JSON.stringify(data));
+  } catch (err) {
+    return null;
+  }
+}
+
+// When pasting a marker/text label, position it at the centre of the
+// current viewport so the pasted element is immediately visible to the user.
+function offsetLatLngForPaste(lat, lng) {
+  if (!map || typeof map.getCenter !== 'function') {
+    return { lat: lat, lng: lng };
+  }
+  try {
+    var center = map.getCenter();
+    if (
+      center &&
+      typeof center.lat === 'number' &&
+      typeof center.lng === 'number' &&
+      isFinite(center.lat) &&
+      isFinite(center.lng)
+    ) {
+      return { lat: center.lat, lng: center.lng };
+    }
+  } catch (err) {
+    // Fall back to the original coordinates if we cannot read the map center.
+  }
+  return { lat: lat, lng: lng };
+}
+
+function highlightMarker(marker) {
+  if (!marker) return;
+  function applyHighlight() {
+    if (marker._icon) {
+      marker._icon.classList.add('marker-selected');
+    }
+  }
+  if (marker._icon) {
+    applyHighlight();
+  } else if (typeof marker.once === 'function') {
+    marker.once('add', applyHighlight);
+  }
+  selectedMarker = marker;
 }
 
 function rescaleIcons() {
@@ -981,6 +1072,7 @@ function addTextLabelToMap(data) {
     m._basePathWidth = pathWidth;
   }
   m._data = data;
+  m._markerType = 'text';
   allTextLabels.push(m);
   rescaleTextLabels();
   return m;
@@ -1042,6 +1134,7 @@ function createMarker(lat, lng, icon, name, description) {
         editMarkerForm(m);
       }
     });
+  m._markerType = 'marker';
   m._baseIconOptions = JSON.parse(JSON.stringify(icon.options));
   allMarkers.push(m);
   return m;
@@ -1050,6 +1143,51 @@ function createMarker(lat, lng, icon, name, description) {
 
 map.on('zoomend', rescaleIcons);
 map.on('zoomend', rescaleTextLabels);
+
+document.addEventListener('keydown', function (event) {
+  if (event.defaultPrevented) return;
+  if (!(event.ctrlKey || event.metaKey)) return;
+  var key = (event.key || '').toLowerCase();
+  if (key !== 'c' && key !== 'v') return;
+  if (shouldIgnoreClipboardShortcut(event)) return;
+
+  if (key === 'c') {
+    if (typeof window !== 'undefined' && window.getSelection) {
+      var selection = window.getSelection().toString();
+      if (selection) {
+        return;
+      }
+    }
+    if (!selectedMarker || !selectedMarker._data) return;
+    var cloned = cloneMarkerData(selectedMarker._data);
+    if (!cloned) return;
+    markerClipboardData = cloned;
+    markerClipboardType = selectedMarker._markerType === 'text' ? 'text' : 'marker';
+  } else if (key === 'v') {
+    if (!markerClipboardData) return;
+    var pasteData = cloneMarkerData(markerClipboardData);
+    if (!pasteData) return;
+    var lat = parseFloat(pasteData.lat);
+    var lng = parseFloat(pasteData.lng);
+    if (isFinite(lat) && isFinite(lng)) {
+      var offset = offsetLatLngForPaste(lat, lng);
+      pasteData.lat = offset.lat;
+      pasteData.lng = offset.lng;
+    }
+    var newMarker;
+    if (markerClipboardType === 'text') {
+      newMarker = addTextLabelToMap(pasteData);
+      customTextLabels.push(pasteData);
+      saveTextLabels();
+    } else {
+      newMarker = addMarkerToMap(pasteData);
+      customMarkers.push(pasteData);
+      saveMarkers();
+    }
+    clearSelectedMarker();
+    highlightMarker(newMarker);
+  }
+});
 
 function showPolygonForm(tempLayer) {
   var overlay = document.getElementById('polygon-form-overlay');

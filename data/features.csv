@@ -1,8 +1,12 @@
 type,lat,lng,icon,name,text,description,size,angle,spacing,curve,coords,style,overlay
-marker,-55.86,106,wigwam,Wigwam,,,,,,,,{},
+marker,-56.75246691821906,100.02187882546627,wigwam,Wigwam,,,,,,,,{},
 marker,-30.3731045201212,62.97521225521355,settlement,dsfds,,sdfsdf,,,,,,{},
 marker,-9.583455567389747,33.36127269396798,wigwam,Marker,,,,,,,,{},
 marker,-10.125631403179714,34.58495616956516,settlement,Marker,,,,,,,,{},
+marker,-76.92063356963172,-103.4692933263319,settlement,Marker,,,,,,,,{},
+marker,-0.021947340048991303,122.84908806670087,settlement,Marker,,,,,,,,{},Settlements
+marker,-55.825818787469316,89.03284926252167,rock,Marker,,,,,,,,{},
+marker,-55.85025138528455,90.48313951373535,chambers,Marker,,,,,,,,{},
 text,-36.65567460185129,75.13381206794301,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-30.55639356496612,86.15906705383222,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-33.683878797602844,87.25830078125001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -22,4 +26,41 @@ text,-34.354981477600404,80.46875000000001,,,PONANASAUSIG,To spread their wings,
 text,-35.76384328188797,81.47949218750001,,,QUATAQUETUCA,Red crabs,1,0,0,0,,,
 text,-32.416427957931774,87.14843750000001,,,SANSHUWACHU,Brook lodge,1,0,0,0,,,
 text,-30.54,84.4,,,Demo,,1,0,0,0,,,
-text,-43.39704454537894,77.26135253906251,,,Cappoaquit,,2.5,0,0,0,,,Geographical Locations
+text,-63.02626783037403,73.74199581761985,,,Cappoaquit,,2.5,0,0,0,,,Geographical Locations
+text,-21.258612273994782,-20.396349688514494,,,Aquinnah Wampanoag,Aquinnah (Gay Head) Wampanoag homelands on Martha's Vineyard.,24,0,0,0,,,Tribes
+text,-78.38342792107784,-162.5682401582486,,,Canarsie,Canarsie Lenape homelands in present-day Brooklyn.,24,0,0,0,,,Tribes
+text,-72.76643494811363,-71.73513141636457,,,Corchaug,Corchaug territory on the North Fork of Long Island.,24,0,0,0,,,Tribes
+text,-55.54077620004265,-20.550289050028407,,,Eastern Niantic,Eastern Niantic homelands along the Niantic River in Connecticut.,24,0,0,0,,,Tribes
+text,-46.77107630996078,-49.89193047546264,,,Eastern Pequot,"Eastern Pequot Tribal Nation homelands near North Stonington, Connecticut.",24,0,0,0,,,Tribes
+text,-1.9196303607310392,32.16796875000001,,,Hammonasset,Hammonasset homelands along the central Connecticut shoreline.,24,0,0,0,,,Tribes
+text,-69.16724012600773,-49.949353504869585,,,Manhanset,"Manhanset people of Shelter Island, between Long Island's forks.",24,0,0,0,,,Tribes
+text,-42.52189168510488,-80.85505946558139,,,Manissean,Manissean (Manitou) homelands on Block Island.,24,0,0,0,,,Tribes
+text,29.841258753542956,38.834533502482174,,,Massachusett,Massachusett homelands around the Shawmut Peninsula (Boston).,24,0,0,0,,,Tribes
+text,-35.87247660571175,-42.5197747033127,,,Mashantucket Pequot,Mashantucket Pequot homelands near the Pawcatuck River.,24,0,0,0,,,Tribes
+text,-1.0411271920228107,-98.43750000000001,,,Mashpee Wampanoag,Mashpee Wampanoag homelands on Cape Cod.,24,0,0,0,,,Tribes
+text,-79.65392213419594,-146.93163540003792,,,Matinecock,Matinecock homelands on Long Island's north shore.,24,0,0,0,,,Tribes
+text,-76.01582449107187,-109.50898851393923,,,Merrick,Merrick (Merokee) territory on Long Island's south shore.,24,0,0,0,,,Tribes
+text,-72.76619493972098,-36.42071459256301,,,Montaukett,Montaukett homelands at the eastern tip of Long Island.,24,0,0,0,,,Tribes
+text,-32.511638141063095,-59.7613094655814,,,Mohegan,Mohegan homelands along the Thames River in Connecticut.,24,0,0,0,,,Tribes
+text,-39.62454212864713,1.2304687500000002,,,Narragansett,Narragansett homelands along the southern Rhode Island coast.,24,0,0,0,,,Tribes
+text,-7.6956058383808355,130.60546875000003,,,Nauset,Nauset (Cape Cod) Wampanoag homelands on the outer Cape.,24,0,0,0,,,Tribes
+text,46.78550049126467,-39.515112036948125,,,Nipmuc,Nipmuc homelands across central Massachusetts and northern Connecticut.,24,0,0,0,,,Tribes
+text,-77.19570508665286,-143.9446752320028,,,Nissequogue,"Nissequogue homelands around present-day Smithtown, Long Island.",24,0,0,0,,,Tribes
+text,1.2430650599063902,-34.45312500000001,,,Noepe Wampanoag,Noepe (Nantucket) Wampanoag homelands on Nantucket Island.,24,0,0,0,,,Tribes
+text,-8.043956894460539,-56.25000000000001,,,Paugussett,Paugussett homelands along the lower Housatonic River.,24,0,0,0,,,Tribes
+text,-45.80127393560204,-31.278493844280923,,,Pequot,Pequot homelands surrounding the lower Thames River.,24,0,0,0,,,Tribes
+text,-10.989770075191197,-74.88281250000001,,,Podunk,Podunk homelands on the east side of the Connecticut River.,24,0,0,0,,,Tribes
+text,-19.6247252492234,-84.19921875000001,,,Pokanoket,Pokanoket (Wampanoag) homelands around Mount Hope and Narragansett Bay.,24,0,0,0,,,Tribes
+text,-54.74461228520494,-69.2202937721973,,,Quinnipiac,Quinnipiac homelands at the mouth of the Quinnipiac River.,24,0,0,0,,,Tribes
+text,-78.86850415610446,-131.1195136082202,,,Rockaway,Rockaway (Reckgawawank) Lenape homelands on the Rockaway Peninsula.,24,0,0,0,,,Tribes
+text,-20.94330364995559,-62.75390625000001,,,Schaghticoke,Schaghticoke homelands near the confluence of the Housatonic and Ten Mile Rivers.,24,0,0,0,,,Tribes
+text,-77.91475737592121,-115.48264463361654,,,Secatogue,Secatogue homelands around Islip on Long Island.,24,0,0,0,,,Tribes
+text,-76.22710027185168,-74.89734440161372,,,Setalcott,Setalcott (Setauket) homelands on Long Island's north shore.,24,0,0,0,,,Tribes
+text,-74.35586571660598,-50.12487053847663,,,Shinnecock,Shinnecock homelands near Shinnecock Bay on Long Island.,24,0,0,0,,,Tribes
+text,-21.908758134866037,-34.0993606967252,,,Tunxis,Tunxis homelands in the Farmington River Valley.,24,0,0,0,,,Tribes
+text,-74.21333248041581,-95.62940360654963,,,Unkechaug,Unkechaug (Poospatuck) homelands on Long Island's south shore.,24,0,0,0,,,Tribes
+text,-75.29941037564522,-79.89257812500001,,,Unquachog,Unqua homelands near present-day Seaford and Massapequa.,24,0,0,0,,,Tribes
+text,-13.9066645765284,59.23828125000001,,,Wampanoag,Wampanoag homelands across Plymouth and Bristol counties.,24,0,0,0,,,Tribes
+text,-25.450587273591875,-44.81611611394872,,,Wangunk,Wangunk homelands along the lower Connecticut River.,24,0,0,0,,,Tribes
+text,-33.69114977651754,-88.24976170326535,,,Wappinger,Wappinger homelands spanning southwestern Connecticut and the lower Hudson Valley.,24,0,0,0,,,Tribes
+text,-13.730494354785842,-33.74533217705741,,,Western Niantic,Western Niantic homelands near the mouth of the Connecticut River.,24,0,0,0,,,Tribes
