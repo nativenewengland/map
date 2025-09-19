@@ -208,6 +208,7 @@ L.Icon.Default.mergeOptions({
 });
 
 var ICON_SCALE_FACTOR = 2;
+var MIN_ICON_PIXEL_SIZE = 1;
 
 function createScaledIcon(options) {
   var scaled = Object.assign({}, options);
@@ -513,11 +514,29 @@ function rescaleIcons() {
   allMarkers.forEach(function (m) {
     var base = m._baseIconOptions;
     var opts = Object.assign({}, base);
-    if (base.iconSize) opts.iconSize = base.iconSize.map(function (v) { return v * scale; });
-    if (base.iconAnchor) opts.iconAnchor = base.iconAnchor.map(function (v) { return v * scale; });
-    if (base.shadowSize) opts.shadowSize = base.shadowSize.map(function (v) { return v * scale; });
-    if (base.popupAnchor) opts.popupAnchor = base.popupAnchor.map(function (v) { return v * scale; });
-    if (base.tooltipAnchor) opts.tooltipAnchor = base.tooltipAnchor.map(function (v) { return v * scale; });
+    var markerScale = scale;
+    if (Array.isArray(base.iconAnchor) && base.iconAnchor.length > 1) {
+      var anchorY = Math.abs(base.iconAnchor[1]);
+      if (anchorY) {
+        var minScale = MIN_ICON_PIXEL_SIZE / anchorY;
+        if (markerScale < minScale) {
+          markerScale = minScale;
+        }
+      }
+    } else if (Array.isArray(base.iconSize) && base.iconSize.length > 1) {
+      var height = Math.abs(base.iconSize[1]);
+      if (height) {
+        var minHeightScale = MIN_ICON_PIXEL_SIZE / height;
+        if (markerScale < minHeightScale) {
+          markerScale = minHeightScale;
+        }
+      }
+    }
+    if (base.iconSize) opts.iconSize = base.iconSize.map(function (v) { return v * markerScale; });
+    if (base.iconAnchor) opts.iconAnchor = base.iconAnchor.map(function (v) { return v * markerScale; });
+    if (base.shadowSize) opts.shadowSize = base.shadowSize.map(function (v) { return v * markerScale; });
+    if (base.popupAnchor) opts.popupAnchor = base.popupAnchor.map(function (v) { return v * markerScale; });
+    if (base.tooltipAnchor) opts.tooltipAnchor = base.tooltipAnchor.map(function (v) { return v * markerScale; });
     m.setIcon(L.icon(opts));
   });
 }
