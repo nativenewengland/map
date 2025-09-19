@@ -211,14 +211,108 @@ var ICON_SCALE_FACTOR = 2;
 
 function createScaledIcon(options) {
   var scaled = Object.assign({}, options);
-  ['iconSize', 'iconAnchor', 'shadowSize', 'shadowAnchor', 'popupAnchor', 'tooltipAnchor'].forEach(function (key) {
-    var value = scaled[key];
+
+  function isFiniteNumber(value) {
+    return typeof value === 'number' && isFinite(value);
+  }
+
+  function toArray(value, duplicateNumber) {
     if (Array.isArray(value)) {
-      scaled[key] = value.map(function (v) {
-        return v * ICON_SCALE_FACTOR;
-      });
+      return value.slice();
     }
-  });
+    if (
+      value &&
+      typeof value === 'object' &&
+      isFiniteNumber(value.x) &&
+      isFiniteNumber(value.y)
+    ) {
+      return [value.x, value.y];
+    }
+    if (duplicateNumber && isFiniteNumber(value)) {
+      return [value, value];
+    }
+    return null;
+  }
+
+  function scaleSizeComponent(rawValue) {
+    if (!isFiniteNumber(rawValue)) {
+      return rawValue;
+    }
+    if (rawValue <= 0) {
+      return 0;
+    }
+    var scaledValue = rawValue * ICON_SCALE_FACTOR;
+    var rounded = Math.round(scaledValue);
+    return Math.max(1, rounded);
+  }
+
+  function scaleAnchorComponent(rawValue, rawDimension, scaledDimension, index) {
+    if (!isFiniteNumber(rawValue)) {
+      return rawValue;
+    }
+
+    var scaled;
+    if (
+      isFiniteNumber(rawDimension) &&
+      rawDimension !== 0 &&
+      isFiniteNumber(scaledDimension)
+    ) {
+      var ratio = rawValue / rawDimension;
+      scaled = ratio * scaledDimension;
+    } else {
+      scaled = rawValue * ICON_SCALE_FACTOR;
+    }
+
+    var rounded = Math.round(scaled);
+    if (rounded === 0 && rawValue !== 0) {
+      rounded = rawValue > 0 ? 1 : -1;
+    }
+    if (index === 1) {
+      if (rawValue > 0) {
+        rounded = Math.max(1, rounded);
+      } else if (rawValue < 0) {
+        rounded = Math.min(-1, rounded);
+      }
+    }
+    return rounded;
+  }
+
+  var rawIconSize = toArray(options.iconSize, true);
+  var rawShadowSize = toArray(options.shadowSize, true);
+
+  var scaledIconSize = null;
+  if (rawIconSize) {
+    scaledIconSize = rawIconSize.map(function (component) {
+      return scaleSizeComponent(component);
+    });
+    scaled.iconSize = scaledIconSize;
+  }
+
+  var scaledShadowSize = null;
+  if (rawShadowSize) {
+    scaledShadowSize = rawShadowSize.map(function (component) {
+      return scaleSizeComponent(component);
+    });
+    scaled.shadowSize = scaledShadowSize;
+  }
+
+  function applyAnchorScaling(key, rawValues, rawDimensions, scaledDimensions) {
+    var rawArray = toArray(rawValues, true);
+    if (!rawArray) {
+      return;
+    }
+    scaled[key] = rawArray.map(function (rawValue, index) {
+      var rawDimension = Array.isArray(rawDimensions) ? rawDimensions[index] : undefined;
+      var scaledDimension = Array.isArray(scaledDimensions) ? scaledDimensions[index] : undefined;
+      return scaleAnchorComponent(rawValue, rawDimension, scaledDimension, index);
+    });
+  }
+
+  applyAnchorScaling('iconAnchor', options.iconAnchor, rawIconSize, scaledIconSize);
+  applyAnchorScaling('shadowAnchor', options.shadowAnchor, rawShadowSize, scaledShadowSize);
+  applyAnchorScaling('popupAnchor', options.popupAnchor, rawIconSize, scaledIconSize);
+  applyAnchorScaling('tooltipAnchor', options.tooltipAnchor, rawIconSize, scaledIconSize);
+
   return L.icon(scaled);
 }
 
