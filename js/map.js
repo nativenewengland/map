@@ -510,14 +510,120 @@ function rescaleIcons() {
     baseZoom = map.getZoom();
   }
   var scale = Math.pow(2, map.getZoom() - baseZoom);
+
+  function scaleSizeComponent(value) {
+    if (typeof value !== 'number' || !isFinite(value)) {
+      return value;
+    }
+    if (value <= 0) {
+      return 0;
+    }
+    var rounded = Math.round(value * scale);
+    return Math.max(1, rounded);
+  }
+
+  function scaleOffsetComponent(baseValue, baseDimension, scaledDimension, minAbs) {
+    if (typeof baseValue !== 'number' || !isFinite(baseValue)) {
+      return baseValue;
+    }
+
+    var scaled;
+    if (
+      typeof baseDimension === 'number' &&
+      isFinite(baseDimension) &&
+      baseDimension !== 0 &&
+      typeof scaledDimension === 'number' &&
+      isFinite(scaledDimension)
+    ) {
+      var ratio = baseValue / baseDimension;
+      scaled = ratio * scaledDimension;
+    } else {
+      scaled = baseValue * scale;
+    }
+
+    var rounded = Math.round(scaled);
+    if (rounded === 0 && baseValue !== 0) {
+      rounded = baseValue > 0 ? 1 : -1;
+    }
+
+    if (minAbs) {
+      if (baseValue > 0) {
+        rounded = Math.max(minAbs, rounded);
+      } else if (baseValue < 0) {
+        rounded = Math.min(-minAbs, rounded);
+      }
+    }
+
+    return rounded;
+  }
+
   allMarkers.forEach(function (m) {
     var base = m._baseIconOptions;
+    if (!base) {
+      return;
+    }
     var opts = Object.assign({}, base);
-    if (base.iconSize) opts.iconSize = base.iconSize.map(function (v) { return v * scale; });
-    if (base.iconAnchor) opts.iconAnchor = base.iconAnchor.map(function (v) { return v * scale; });
-    if (base.shadowSize) opts.shadowSize = base.shadowSize.map(function (v) { return v * scale; });
-    if (base.popupAnchor) opts.popupAnchor = base.popupAnchor.map(function (v) { return v * scale; });
-    if (base.tooltipAnchor) opts.tooltipAnchor = base.tooltipAnchor.map(function (v) { return v * scale; });
+    var baseIconSize = Array.isArray(base.iconSize) ? base.iconSize.slice() : null;
+    var scaledIconSize = null;
+    if (baseIconSize) {
+      scaledIconSize = baseIconSize.map(scaleSizeComponent);
+      opts.iconSize = scaledIconSize;
+    }
+
+    if (Array.isArray(base.iconAnchor)) {
+      var scaledAnchor;
+      if (scaledIconSize) {
+        scaledAnchor = [
+          scaleOffsetComponent(base.iconAnchor[0], baseIconSize[0], scaledIconSize[0]),
+          scaleOffsetComponent(base.iconAnchor[1], baseIconSize[1], scaledIconSize[1], 1),
+        ];
+      } else {
+        scaledAnchor = base.iconAnchor.map(function (value, index) {
+          return scaleOffsetComponent(value, null, null, index === 1 ? 1 : 0);
+        });
+      }
+      opts.iconAnchor = scaledAnchor;
+    }
+
+    var baseShadowSize = Array.isArray(base.shadowSize) ? base.shadowSize.slice() : null;
+    var scaledShadowSize = null;
+    if (baseShadowSize) {
+      scaledShadowSize = baseShadowSize.map(scaleSizeComponent);
+      opts.shadowSize = scaledShadowSize;
+    }
+
+    if (Array.isArray(base.shadowAnchor)) {
+      var shadowAnchor;
+      if (scaledShadowSize) {
+        shadowAnchor = [
+          scaleOffsetComponent(base.shadowAnchor[0], baseShadowSize[0], scaledShadowSize[0]),
+          scaleOffsetComponent(base.shadowAnchor[1], baseShadowSize[1], scaledShadowSize[1], 1),
+        ];
+      } else {
+        shadowAnchor = base.shadowAnchor.map(function (value, index) {
+          return scaleOffsetComponent(value, null, null, index === 1 ? 1 : 0);
+        });
+      }
+      opts.shadowAnchor = shadowAnchor;
+    }
+
+    if (Array.isArray(base.popupAnchor)) {
+      var popupAnchor = base.popupAnchor.map(function (value, index) {
+        var baseDimension = baseIconSize ? baseIconSize[index] : null;
+        var scaledDimension = scaledIconSize ? scaledIconSize[index] : null;
+        return scaleOffsetComponent(value, baseDimension, scaledDimension, index === 1 ? 1 : 0);
+      });
+      opts.popupAnchor = popupAnchor;
+    }
+
+    if (Array.isArray(base.tooltipAnchor)) {
+      var tooltipAnchor = base.tooltipAnchor.map(function (value, index) {
+        var baseDimension = baseIconSize ? baseIconSize[index] : null;
+        var scaledDimension = scaledIconSize ? scaledIconSize[index] : null;
+        return scaleOffsetComponent(value, baseDimension, scaledDimension, index === 1 ? 1 : 0);
+      });
+      opts.tooltipAnchor = tooltipAnchor;
+    }
     m.setIcon(L.icon(opts));
   });
 }
