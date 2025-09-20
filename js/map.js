@@ -35,7 +35,7 @@ var tiles = L.tileLayer('map/{z}/{x}/{y}.jpg', {
     var currentState = null;
     var placeholderPattern = new RegExp(
       escapeForRegex(placeholderPrefix) +
-        '([\s\S]+?)' +
+        '([^]+?)' +
         escapeForRegex(placeholderSuffix),
       'g'
     );
@@ -203,18 +203,60 @@ var tiles = L.tileLayer('map/{z}/{x}/{y}.jpg', {
   }
 
   if (!applyExtension()) {
-    var onReady = function () {
-      if (applyExtension()) {
-        document.removeEventListener('DOMContentLoaded', onReady);
-        window.removeEventListener('load', onReady);
+    var scriptNodes = Array.prototype.slice.call(
+      document && document.getElementsByTagName
+        ? document.getElementsByTagName('script')
+        : []
+    );
+    var markedScripts = scriptNodes.filter(function (node) {
+      if (!node || !node.src) {
+        return false;
       }
-    };
+      return /marked(?:\.min)?\.js(?:$|[?#])/.test(node.src);
+    });
+    var pollId = null;
+
+    function cleanup() {
+      if (pollId !== null) {
+        clearInterval(pollId);
+        pollId = null;
+      }
+      document.removeEventListener('DOMContentLoaded', onReady);
+      window.removeEventListener('load', onReady);
+      if (markedScripts) {
+        markedScripts.forEach(function (node) {
+          if (node && typeof node.removeEventListener === 'function') {
+            node.removeEventListener('load', onReady);
+          }
+        });
+        markedScripts = null;
+      }
+    }
+
+    function onReady() {
+      if (applyExtension()) {
+        cleanup();
+      }
+    }
+
+    markedScripts.forEach(function (node) {
+      if (node && typeof node.addEventListener === 'function') {
+        node.addEventListener('load', onReady);
+      }
+    });
+
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', onReady);
     } else {
       onReady();
     }
     window.addEventListener('load', onReady);
+
+    pollId = window.setInterval(function () {
+      if (applyExtension()) {
+        cleanup();
+      }
+    }, 50);
   }
 })();
 // Overlay extracted from image and used for OCR/template matching
