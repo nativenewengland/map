@@ -1,18 +1,17 @@
 type,lat,lng,icon,name,text,description,size,angle,spacing,curve,coords,style,overlay
-marker,-56.75246691821906,100.02187882546627,wigwam,Wigwam,,,,,,,,{},
 marker,-30.3731045201212,62.97521225521355,settlement,dsfds,,sdfsdf,,,,,,{},
 marker,-9.583455567389747,33.36127269396798,wigwam,Marker,,,,,,,,{},
 marker,-10.125631403179714,34.58495616956516,settlement,Marker,,,,,,,,{},
 marker,-76.92063356963172,-103.4692933263319,settlement,Marker,,,,,,,,{},
 marker,-0.5052238514568264,121.81716788556727,settlement,Marker,,,,,,,,{},Settlements
-marker,-55.825818787469316,89.03284926252167,rock,Marker,,,,,,,,{},
-marker,-55.85025138528455,90.48313951373535,chambers,Marker,,,,,,,,{},
 marker,-5.265861413407452,130.20855110145004,settlement,Marker,,,,,,,,{},Settlements
-marker,-6.3371183265415985,131.28661103546676,forts,Marker,,,,,,,,{},
+marker,-6.3371183265415985,131.28661103546676,forts,Unknown Fort or Palisade Village,,"Upon arrival in Cape Cod, the Pilgrims discovered the ruins of a walled fortress or palisaded village filled with remains of local Nauset who had died from disease near the mouth of Pamet River, at Truro. Unaware of its native origins, the pilgrims assumed the location to be of European Christian construction and falsely mistook it as a graveyard. In the Pilgrims Journal written by  George Morton, William Bradford, and Edward Winslow the following is written.
+
+
+""We found a great burying place, one part whereof was encompassed with a large Palazado, like a Church-yard, with yong spires foure or five yards long, set as close one by another as they could two or three foot in the ground, within it was full of Graves, some bigger, and some lesse, some were also paled about, & others had like an Indian house made over them, but not matted: those Graves were more sumptuous than those at Corne-hill, yet we digged none of them up,. but onely viewed them, and went our way; without the Palazado were graves also, but not so costl.""",,,,,,{},Forts
 marker,-8.841335159120602,134.42811749878862,forts,Marker,,,,,,,,{},
 marker,-66.55706504127355,16.083793267618365,forts,Marker,,,,,,,,{},
-marker,-55.621792980631135,69.77416992187501,forts,Marker,,,,,,,,{},
-marker,-79.42429658873243,-174.1113147139557,settlement,Marker,,,,,,,,{},Settlements
+marker,-76.14822912651843,-157.65378202944026,rock,Mishow,,"The Grey Mare and Mishow were two  boulders said to have been placed in their location by Manitou, the boulders served as an important ritual site used for sacred ceremonies.",,,,,,{},
 text,-36.65567460185129,75.13381206794301,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-30.55639356496612,86.15906705383222,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-33.683878797602844,87.25830078125001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -32,7 +31,7 @@ text,-34.354981477600404,80.46875000000001,,,PONANASAUSIG,To spread their wings,
 text,-35.76384328188797,81.47949218750001,,,QUATAQUETUCA,Red crabs,1,0,0,0,,,
 text,-32.416427957931774,87.14843750000001,,,SANSHUWACHU,Brook lodge,1,0,0,0,,,
 text,-30.54,84.4,,,Demo,,1,0,0,0,,,
-text,-62.68436905479135,71.71875000000001,,,Cappoaquit,,13,0,0,0,,,Geographical Locations
+text,-62.441229951618226,72.64160156250001,,,Cappoaquit,,8,0,0,0,,,Geographical Locations
 text,-78.38342792107784,-162.5682401582486,,,Canarsie,Canarsie Lenape homelands in present-day Brooklyn.,24,0,0,0,,,Tribes
 text,-72.76643494811363,-71.73513141636457,,,Corchaug,Corchaug territory on the North Fork of Long Island.,24,0,0,0,,,Tribes
 text,-56.65591715395414,-12.662083804344801,,,Eastern Niantic,Eastern Niantic homelands along the Niantic River in Connecticut.,24,0,0,0,,,Tribes
@@ -44,13 +43,13 @@ text,-35.87247660571175,-42.5197747033127,,,Mashantucket Pequot,Mashantucket Peq
 text,-79.65392213419594,-146.93163540003792,,,Matinecock,Matinecock homelands on Long Island's north shore.,24,0,0,0,,,Tribes
 text,-76.01582449107187,-109.50898851393923,,,Merrick,Merrick (Merokee) territory on Long Island's south shore.,24,0,0,0,,,Tribes
 text,-72.76619493972098,-36.42071459256301,,,Montaukett,Montaukett homelands at the eastern tip of Long Island.,24,0,0,0,,,Tribes
-text,-32.511638141063095,-59.7613094655814,,,Mohegan,Mohegan homelands along the Thames River in Connecticut.,24,0,0,0,,,Tribes
+text,-29.229872274476822,-34.27734375000001,,,Mohegan,Mohegan homelands along the Thames River in Connecticut.,24,0,0,0,,,Tribes
 text,-39.62454212864713,1.2304687500000002,,,Narragansett,Narragansett homelands along the southern Rhode Island coast.,24,0,0,0,,,Tribes
 text,-8.711061767157132,130.8689461648552,,,Nauset,Nauset (Cape Cod) Wampanoag homelands on the outer Cape.,24,0,0,0,,,Tribes
 text,46.78550049126467,-39.515112036948125,,,Nipmuc,Nipmuc homelands across central Massachusetts and northern Connecticut.,24,0,0,0,,,Tribes
 text,-77.19570508665286,-143.9446752320028,,,Nissequogue,"Nissequogue homelands around present-day Smithtown, Long Island.",24,0,0,0,,,Tribes
 text,-8.928234353216506,-71.35603845169659,,,Paugussett,Paugussett homelands along the lower Housatonic River.,24,0,0,0,,,Tribes
-text,-52.800874618848034,-54.475075007255256,,,Pequot,Pequot homelands surrounding the lower Thames River.,24,0,0,0,,,Tribes
+text,-54.825433284376075,-45.966796875,,,Pequot,Pequot homelands surrounding the lower Thames River.,24,0,0,0,,,Tribes
 text,-3.1647543030148677,-55.73678702052408,,,Podunk,Podunk homelands on the east side of the Connecticut River.,24,0,0,0,,,Tribes
 text,-19.6247252492234,-84.19921875000001,,,Pokanoket,Pokanoket (Wampanoag) homelands around Mount Hope and Narragansett Bay.,24,0,0,0,,,Tribes
 text,-6.507114080629532,-96.65946364493804,,,Quinnipiac,Quinnipiac homelands at the mouth of the Quinnipiac River.,24,0,0,0,,,Tribes
@@ -67,10 +66,4 @@ text,-46.6742939597967,-64.84850227899318,,,Wangunk,Wangunk homelands along the 
 text,-60.321147194219755,-105.8073484903449,,,Wappinger,Wappinger homelands spanning southwestern Connecticut and the lower Hudson Valley.,24,0,0,0,,,Tribes
 text,-57.317654218877095,-39.8978063466207,,,Western Niantic,Western Niantic homelands near the mouth of the Connecticut River.,24,0,0,0,,,Tribes
 text,-58.81341055534732,-70.40039062500001,,,Hammonasset,,24,0,0,0,,,Tribes
-text,-54.162385291663114,62.336395606400266,,,Poocuohhunkkunnah ,,5,-35,0,0,,,Geographical Locations
-text,-53.813527620673035,67.60986328125001,,,Asnawana,,9,0,0,0,,,Geographical Locations
-text,28.960043923603713,52.66849055886081,,,Mushauwomuk,"Mushauwomuk or “the boat landing place” was a peninsula used as a seasonal base for fishing and light farming by the Massachusetts people for thousands of years. It was also the home of many now extinct animals to the area such as Great Auks, mountain lions, rattlesnakes, and wolves.
-
-![Alt text](https://thewestendmuseum.org/wp-content/uploads/2025/02/Trimount-in-1630.png ""Optional title"")
-Trimount in 1630, by Samuel Lancaster Gerry, 1836 
-",7,0,0,0,,,Geographical Locations
+text,-67.16882345280554,-137.46032059196105,,,Siwanogs,,24,0,0,0,,,Tribes
