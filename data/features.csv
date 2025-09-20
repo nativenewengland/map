@@ -5,10 +5,7 @@ marker,-10.125631403179714,34.58495616956516,settlement,Marker,,,,,,,,{},
 marker,-76.92063356963172,-103.4692933263319,settlement,Marker,,,,,,,,{},
 marker,-0.5052238514568264,121.81716788556727,settlement,Marker,,,,,,,,{},Settlements
 marker,-5.265861413407452,130.20855110145004,settlement,Marker,,,,,,,,{},Settlements
-marker,-6.3371183265415985,131.28661103546676,forts,Unknown Fort or Palisade Village,,"Upon arrival in Cape Cod, the Pilgrims discovered the ruins of a walled fortress or palisaded village filled with remains of local Nauset who had died from disease near the mouth of Pamet River, at Truro. Unaware of its native origins, the pilgrims assumed the location to be of European Christian construction and falsely mistook it as a graveyard. In the Pilgrims Journal written by  George Morton, William Bradford, and Edward Winslow the following is written.
-
-
-""We found a great burying place, one part whereof was encompassed with a large Palazado, like a Church-yard, with yong spires foure or five yards long, set as close one by another as they could two or three foot in the ground, within it was full of Graves, some bigger, and some lesse, some were also paled about, & others had like an Indian house made over them, but not matted: those Graves were more sumptuous than those at Corne-hill, yet we digged none of them up,. but onely viewed them, and went our way; without the Palazado were graves also, but not so costl.""",,,,,,{},Forts
+marker,-6.3371183265415985,131.28661103546676,forts,Unknown Fort or Palisade Village,,"Upon arrival in Cape Cod, the Pilgrims discovered the ruins of a walled fortress or palisaded village filled with remains of local Nauset who had died from disease near the mouth of Pamet River, at Truro. Unaware of its native origins, the pilgrims assumed the location to be of European Christian construction and falsely mistook it as a graveyard. In the Pilgrims Journal written by  George Morton, William Bradford, and Edward Winslow the following is written.[^1]",,,,,,{},Forts
 marker,-8.841335159120602,134.42811749878862,forts,Marker,,,,,,,,{},
 marker,-66.55706504127355,16.083793267618365,forts,Marker,,,,,,,,{},
 marker,-76.14822912651843,-157.65378202944026,rock,Mishow,,"The Grey Mare and Mishow were two  boulders said to have been placed in their location by Manitou, the boulders served as an important ritual site used for sacred ceremonies.",,,,,,{},
@@ -35,7 +32,7 @@ text,-62.441229951618226,72.64160156250001,,,Cappoaquit,,8,0,0,0,,,Geographical 
 text,-78.38342792107784,-162.5682401582486,,,Canarsie,Canarsie Lenape homelands in present-day Brooklyn.,24,0,0,0,,,Tribes
 text,-72.76643494811363,-71.73513141636457,,,Corchaug,Corchaug territory on the North Fork of Long Island.,24,0,0,0,,,Tribes
 text,-56.65591715395414,-12.662083804344801,,,Eastern Niantic,Eastern Niantic homelands along the Niantic River in Connecticut.,24,0,0,0,,,Tribes
-text,-1.9196303607310392,32.16796875000001,,,Hammonasset,Hammonasset homelands along the central Connecticut shoreline.,24,0,0,0,,,Tribes
+text,-55.92458580482952,-69.34570312500001,,,Hammonasset,Hammonasset homelands along the central Connecticut shoreline.,24,0,0,0,,,Tribes
 text,-69.16724012600773,-49.949353504869585,,,Manhanset,"Manhanset people of Shelter Island, between Long Island's forks.",24,0,0,0,,,Tribes
 text,0.8649062261496583,-73.83331060386206,,,Manissean,Manissean (Manitou) homelands on Block Island.,24,0,0,0,,,Tribes
 text,29.841258753542956,38.834533502482174,,,Massachusett,Massachusett homelands around the Shawmut Peninsula (Boston).,24,0,0,0,,,Tribes
