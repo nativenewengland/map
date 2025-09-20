@@ -408,13 +408,18 @@ var MineIcon = createScaledIcon({
   tooltipAnchor: [0.9375, -0.9375],
 });
 
+// Preserve the original 39x17 aspect ratio of the fort icon while keeping the
+// consistent marker height used throughout the map.
+var fortIconHeight = 1.875;
+var fortIconWidth = (39 / 17) * fortIconHeight;
+
 var FortsIcon = createScaledIcon({
   iconUrl: 'icons/fort.png',
   iconRetinaUrl: 'icons/fort.png',
-  iconSize: [3, 1.875],
-  iconAnchor: [1.5, 1.875],
-  popupAnchor: [0.3, -1.875],
-  tooltipAnchor: [1.5, -0.9375],
+  iconSize: [fortIconWidth, fortIconHeight],
+  iconAnchor: [fortIconWidth / 2, fortIconHeight],
+  popupAnchor: [0.3, -fortIconHeight],
+  tooltipAnchor: [fortIconWidth / 2, -fortIconHeight / 2],
 });
 
 var ChambersIcon = createScaledIcon({
