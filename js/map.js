@@ -13,6 +13,210 @@ var tiles = L.tileLayer('map/{z}/{x}/{y}.jpg', {
   maxZoom: 6,
   maxNativeZoom: 6,
 }).addTo(map);
+
+(function configureMarkedFootnotes() {
+  var placeholderPrefix = '§§FOOTNOTE_REF_';
+  var placeholderSuffix = '_END§§';
+  var isRenderingFootnoteContent = false;
+
+  function escapeForRegex(value) {
+    return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  function createPlaceholder(label) {
+    return (
+      placeholderPrefix +
+      encodeURIComponent(label) +
+      placeholderSuffix
+    );
+  }
+
+  function createFootnoteExtension() {
+    var currentState = null;
+    var placeholderPattern = new RegExp(
+      escapeForRegex(placeholderPrefix) +
+        '([\s\S]+?)' +
+        escapeForRegex(placeholderSuffix),
+      'g'
+    );
+
+    function extractFootnoteDefinitions(lines) {
+      var definitions = Object.create(null);
+      var cleaned = [];
+      for (var i = 0; i < lines.length; i++) {
+        var line = lines[i];
+        var match = line.match(/^\[\^([^\]]+)\]:\s*(.*)$/);
+        if (!match) {
+          cleaned.push(line);
+          continue;
+        }
+
+        var label = match[1].trim();
+        var text = match[2] || '';
+        var contentLines = [];
+        if (text) {
+          contentLines.push(text);
+        }
+
+        var j = i + 1;
+        while (j < lines.length) {
+          var continuation = lines[j];
+          var contMatch = continuation.match(/^( {4}|\t)(.*)$/);
+          if (contMatch) {
+            contentLines.push(contMatch[2]);
+            j += 1;
+            continue;
+          }
+          if (continuation.trim() === '') {
+            var nextLine = lines[j + 1];
+            if (nextLine && /^( {4}|\t)/.test(nextLine)) {
+              contentLines.push('');
+              j += 1;
+              continue;
+            }
+          }
+          break;
+        }
+        definitions[label] = contentLines.join('\n').trim();
+        i = j - 1;
+      }
+      return { cleaned: cleaned, definitions: definitions };
+    }
+
+    return {
+      hooks: {
+        preprocess: function (markdown) {
+          if (isRenderingFootnoteContent) {
+            return markdown;
+          }
+
+          var lines = markdown.split(/\r?\n/);
+          var extracted = extractFootnoteDefinitions(lines);
+          var definitions = extracted.definitions;
+          var refOrder = [];
+          var refIndex = Object.create(null);
+          var refCounts = Object.create(null);
+
+          var cleanedMarkdown = extracted.cleaned.join('\n').replace(/\[\^([^\]]+)\]/g, function (match, rawLabel) {
+            var label = rawLabel.trim();
+            if (!label) {
+              return match;
+            }
+            if (!Object.prototype.hasOwnProperty.call(refIndex, label)) {
+              refOrder.push(label);
+              refIndex[label] = refOrder.length;
+            }
+            return createPlaceholder(label);
+          });
+
+          currentState = {
+            definitions: definitions,
+            refOrder: refOrder,
+            refIndex: refIndex,
+            refCounts: refCounts,
+          };
+
+          return cleanedMarkdown;
+        },
+        postprocess: function (html) {
+          if (isRenderingFootnoteContent) {
+            return html;
+          }
+
+          var state = currentState;
+          currentState = null;
+
+          if (!state) {
+            return html;
+          }
+
+          html = html.replace(placeholderPattern, function (_, encodedLabel) {
+            var label = decodeURIComponent(encodedLabel);
+            var index = state.refIndex[label];
+            if (!index) {
+              state.refOrder.push(label);
+              index = state.refOrder.length;
+              state.refIndex[label] = index;
+            }
+            var count = state.refCounts[label] || 0;
+            count += 1;
+            state.refCounts[label] = count;
+            var refId = 'fnref-' + index + (count > 1 ? '-' + count : '');
+            var footnoteId = 'fn-' + index;
+            return (
+              '<sup class="footnote-ref" id="' +
+              refId +
+              '"><a href="#' +
+              footnoteId +
+              '">[' +
+              index +
+              ']</a></sup>'
+            );
+          });
+
+          if (!state.refOrder.length) {
+            return html;
+          }
+
+          var itemsHtml = state.refOrder
+            .map(function (label, idx) {
+              var index = idx + 1;
+              var raw = state.definitions[label] || '';
+              var contentHtml = raw;
+              if (raw) {
+                isRenderingFootnoteContent = true;
+                try {
+                  if (typeof marked !== 'undefined' && marked && typeof marked.parse === 'function') {
+                    contentHtml = marked.parse(raw);
+                  } else if (typeof marked === 'function') {
+                    contentHtml = marked(raw);
+                  }
+                } finally {
+                  isRenderingFootnoteContent = false;
+                }
+              }
+              var footnoteId = 'fn-' + index;
+              return '<li id="' + footnoteId + '">' + contentHtml + '</li>';
+            })
+            .join('');
+
+          if (itemsHtml) {
+            html += '<section class="footnotes"><ol>' + itemsHtml + '</ol></section>';
+          }
+
+          return html;
+        },
+      },
+    };
+  }
+
+  function applyExtension() {
+    if (typeof marked === 'undefined' || !marked || typeof marked.use !== 'function') {
+      return false;
+    }
+    if (applyExtension.applied) {
+      return true;
+    }
+    marked.use(createFootnoteExtension());
+    applyExtension.applied = true;
+    return true;
+  }
+
+  if (!applyExtension()) {
+    var onReady = function () {
+      if (applyExtension()) {
+        document.removeEventListener('DOMContentLoaded', onReady);
+        window.removeEventListener('load', onReady);
+      }
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', onReady);
+    } else {
+      onReady();
+    }
+    window.addEventListener('load', onReady);
+  }
+})();
 // Overlay extracted from image and used for OCR/template matching
 // Use world bounds so the overlay spans the entire map
 var overlayBounds = [[-85, -180], [85, 180]];
@@ -319,7 +523,28 @@ function createScaledIcon(options) {
 function showInfo(title, description) {
   var panel = document.getElementById('info-panel');
   document.getElementById('info-title').textContent = title;
-  const html = DOMPurify.sanitize(marked.parse(description));
+  var markdown = '';
+  if (typeof description === 'string') {
+    markdown = description;
+  } else if (description) {
+    markdown = String(description);
+  }
+  var rendered = markdown;
+  if (typeof marked !== 'undefined' && marked) {
+    if (typeof marked.parse === 'function') {
+      rendered = marked.parse(markdown);
+    } else if (typeof marked === 'function') {
+      rendered = marked(markdown);
+    }
+  }
+  var sanitizeConfig = {
+    ADD_TAGS: ['section', 'sup', 'ol', 'li', 'a'],
+    ADD_ATTR: ['id', 'href'],
+  };
+  var html = rendered;
+  if (typeof DOMPurify !== 'undefined' && DOMPurify && typeof DOMPurify.sanitize === 'function') {
+    html = DOMPurify.sanitize(rendered, sanitizeConfig);
+  }
   document.getElementById('info-description').innerHTML = html;
   panel.classList.remove('hidden');
 }
