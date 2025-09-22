@@ -1,8 +1,7 @@
 type,lat,lng,icon,name/subheader,subheader/text,description,size,angle,spacing,curve,coords,style,overlay
 marker,-30.3731045201212,76.22521225521355,settlement,dsfds,,sdfsdf,,,,,,{},
-marker,-9.583455567389747,46.61127269396798,wigwam,Marker,,,,,,,,{},
-marker,-10.125631403179714,47.83495616956516,settlement,Marker,,,,,,,,{},
-marker,-76.92063356963172,-90.2192933263319,settlement,Marker,,,,,,,,{},
+marker,-21.80030805097259,44.89013671875001,settlement,Marker,,,,,,,,{},
+marker,-76.97024507077676,-90.19775390625001,settlement,Marker,,,,,,,,{},
 marker,-0.48337991318247436,135.2636894644682,settlement,Marker,,,,,,,,{},Settlements
 marker,-5.265861413407452,143.45855110145004,settlement,Marker,,,,,,,,{},Settlements
 marker,-20.015381961202028,152.51259230309853,forts,Unknown Fort or Palisade Village,,"Upon arrival in Cape Cod, the Pilgrims discovered the ruins of a walled fortress or palisaded village filled with remains of local Nauset who had died from disease near the mouth of Pamet River, at Truro. Unaware of its native origins, the pilgrims assumed the location to be of European Christian construction and falsely mistook it as a graveyard. In the Pilgrims Journal written by  George Morton, William Bradford, and Edward Winslow the following is written.""We found a great burying place, one part whereof was encompassed with a large Palazado, like a Church-yard, with yong spires foure or five yards long, set as close one by another as they could two or three foot in the ground, within it was full of Graves, some bigger, and some lesse, some were also paled about, & others had like an Indian house made over them, but not matted: those Graves were more sumptuous than those at Corne-hill, yet we digged none of them up,. but onely viewed them, and went our way; without the Palazado were graves also, but not so costl.""",,,,,,{},Forts
@@ -16,7 +15,15 @@ marker,44.2294565683017,-49.65820312500001,capital,Marker,,,,,,,,{},
 marker,-45.70617928533085,57.01904296875001,agriculture,Marker,,,,,,,,{},
 marker,-65.90165338613072,29.355468750000004,settlement,Marker,,,,,,,,{},Settlements
 marker,-0.13183582116662096,-14.172363281250002,mine,Tantiusques,“to a black deposit between two hills”,was a graphite mine which the local nipmucs used to mine graphite to make paints. ,,,,,,{},
-text,-36.65567460185129,75.13381206794301,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
+marker,-41.426253195072704,39.57275390625001,agriculture,Marker,,,,,,,,{},
+marker,48.1367666796927,-43.98925781250001,settlement,Marker,,,,,,,,{},
+marker,54.67383096593114,-37.79296875000001,settlement,Marker,,,,,,,,{},
+marker,25.363882272740256,-50.2294921875,settlement,Marker,,,,,,,,{},
+marker,25.859223554761407,-47.85644531250001,settlement,Marker,,,,,,,,{},
+marker,-62.33941057752869,-31.508789062500004,settlement,Marker,,,,,,,,{},
+marker,-58.97266715450153,87.29736328125001,settlement,Marker,,,,,,,,{},
+marker,-4.981505049328246,77.16796875000001,rock,Marker,,,,,,,,{},
+text,-36.63316209558656,80.48583984375001,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-30.55639356496612,86.15906705383222,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-33.683878797602844,87.25830078125001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
 text,-33.826306093105025,83.47902014719374,,,MANNASAAK,A bush/brush place,1,0,0,0,,,
@@ -38,11 +45,11 @@ text,-30.54,84.4,,,Demo,,1,0,0,0,,,
 text,-63.05531863767043,85.9142663862525,,,Cappoaquit,,8,0,0,0,,,Geographical Locations
 text,-78.38342792107784,-162.5682401582486,,,Canarsie,Canarsie Lenape homelands in present-day Brooklyn.,24,0,0,0,,,Tribes
 text,-72.76643494811363,-71.73513141636457,,,Corchaug,Corchaug territory on the North Fork of Long Island.,24,0,0,0,,,Tribes
-text,-56.65591715395414,-12.662083804344801,,,Eastern Niantic,Eastern Niantic homelands along the Niantic River in Connecticut.,24,0,0,0,,,Tribes
+text,-56.32872090717995,-14.39208984375,,,Eastern Niantic,Eastern Niantic homelands along the Niantic River in Connecticut.,24,0,0,0,,,Tribes
 text,-60.064840460104506,-61.17187500000001,,,Hammonasset,Hammonasset homelands along the central Connecticut shoreline.,24,0,0,0,,,Tribes
 text,-69.16724012600773,-49.949353504869585,,,Manhanset,"Manhanset people of Shelter Island, between Long Island's forks.",24,0,0,0,,,Tribes
 text,0.8649062261496583,-73.83331060386206,,,Manissean,Manissean (Manitou) homelands on Block Island.,24,0,0,0,,,Tribes
-text,23.07973176244989,48.33984375,,,Massachusett,Massachusett homelands around the Shawmut Peninsula (Boston).,24,0,0,0,,,Tribes
+text,23.32208001137844,48.16406250000001,,,Massachusett,Massachusett homelands around the Shawmut Peninsula (Boston).,24,0,0,0,,,Tribes
 text,-35.87247660571175,-42.5197747033127,,,Mashantucket Pequot,Mashantucket Pequot homelands near the Pawcatuck River.,24,0,0,0,,,Tribes
 text,-79.65392213419594,-146.93163540003792,,,Matinecock,Matinecock homelands on Long Island's north shore.,24,0,0,0,,,Tribes
 text,-76.01582449107187,-109.50898851393923,,,Merrick,Merrick (Merokee) territory on Long Island's south shore.,24,0,0,0,,,Tribes
@@ -54,13 +61,13 @@ text,46.78550049126467,-39.515112036948125,,,Nipmuc,"Nipmuc homelands across cen
 text,-77.19570508665286,-143.9446752320028,,,Nissequogue,"Nissequogue homelands around present-day Smithtown, Long Island.",24,0,0,0,,,Tribes
 text,-8.928234353216506,-71.35603845169659,,,Paugussett,Paugussett homelands along the lower Housatonic River.,24,0,0,0,,,Tribes
 text,-54.825433284376075,-45.966796875,,,Pequot,Pequot homelands surrounding the lower Thames River.,24,0,0,0,,,Tribes
-text,-3.1647543030148677,-55.73678702052408,,,Podunk,Podunk homelands on the east side of the Connecticut River.,24,0,0,0,,,Tribes
+text,-2.986927393334863,-55.12939453125,,,Podunk,Podunk homelands on the east side of the Connecticut River.,24,0,0,0,,,Tribes
 text,-19.6247252492234,-84.19921875000001,,,Pokanoket,Pokanoket (Wampanoag) homelands around Mount Hope and Narragansett Bay.,24,0,0,0,,,Tribes
 text,-6.507114080629532,-96.65946364493804,,,Quinnipiac,Quinnipiac homelands at the mouth of the Quinnipiac River.,24,0,0,0,,,Tribes
 text,-78.86850415610446,-131.1195136082202,,,Rockaway,Rockaway (Reckgawawank) Lenape homelands on the Rockaway Peninsula.,24,0,0,0,,,Tribes
 text,-26.74561038219901,-62.49023437500001,,,Schaghticoke,Schaghticoke homelands near the confluence of the Housatonic and Ten Mile Rivers.,24,0,0,0,,,Tribes
 text,-77.91475737592121,-115.48264463361654,,,Secatogue,Secatogue homelands around Islip on Long Island.,24,0,0,0,,,Tribes
-text,-76.22710027185168,-74.89734440161372,,,Setalcott,Setalcott (Setauket) homelands on Long Island's north shore.,24,0,0,0,,,Tribes
+text,-76.20596704314148,-78.13476562500001,,,Setalcott,Setalcott (Setauket) homelands on Long Island's north shore.,24,0,0,0,,,Tribes
 text,-74.35586571660598,-50.12487053847663,,,Shinnecock,Shinnecock homelands near Shinnecock Bay on Long Island.,24,0,0,0,,,Tribes
 text,-36.73490706670716,-90.48572927900707,,,Tunxis,Tunxis homelands in the Farmington River Valley.,24,0,0,0,,,Tribes
 text,-74.21333248041581,-95.62940360654963,,,Unkechaug,Unkechaug (Poospatuck) homelands on Long Island's south shore.,24,0,0,0,,,Tribes
@@ -70,6 +77,6 @@ text,-47.694974341862824,-52.29492187500001,,,Wangunk,Wangunk homelands along th
 text,-60.321147194219755,-105.8073484903449,,,Wappinger,Wappinger homelands spanning southwestern Connecticut and the lower Hudson Valley.,24,0,0,0,,,Tribes
 text,-57.317654218877095,-39.8978063466207,,,Western Niantic,Western Niantic homelands near the mouth of the Connecticut River.,24,0,0,0,,,Tribes
 text,-67.16882345280554,-137.46032059196105,,,Siwanogs,,24,0,0,0,,,Tribes
-text,17.62308179131177,11.93115234375,,,Sagatabscot , (“the place of the hard rock”) is a hill in the southeastern part of Worcester.[^¹],3,0,0,0,,,Mountains
-text,20.262197124246534,13.491210937500002,,,Quinsigamond,Quinsikamon,7,0,0,0,,,
+text,17.602139123350852,11.975097656250002,,“the place of the hard rock”,Sagatabscot ,is a hill in the southeastern part of Worcester.[^¹],3,0,0,0,,,Mountains
+text,21.105000275382064,13.183593750000002,,Quinsikamon,Quinsigamond,Quinsikamon,7,76,0,0,,,
 text,68.07330474079025,-53.96484375000001,,,Monadnock,"g “place of the surpassing, or",14,0,0,0,,,
