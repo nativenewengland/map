@@ -40,9 +40,50 @@ html, body{
 }
 
 
-#info-title,
-#info-description {
+#info-title {
     text-align: center;
+}
+
+#info-description {
+    text-align: left;
+}
+
+#info-description .footnote-ref {
+    font-size: 0.75em;
+    line-height: 1;
+    vertical-align: super;
+}
+
+#info-description .footnote-ref a {
+    color: #555;
+    text-decoration: none;
+}
+
+#info-description .footnote-ref a:hover,
+#info-description .footnote-ref a:focus {
+    text-decoration: underline;
+}
+
+#info-description .footnotes {
+    margin-top: 0.75em;
+    padding-top: 0.5em;
+    border-top: 1px solid #ddd;
+    font-size: 0.85em;
+    text-align: left;
+}
+
+#info-description .footnotes ol {
+    margin: 0;
+    padding-left: 1.25em;
+}
+
+#info-description .footnotes li {
+    margin-bottom: 0.5em;
+}
+
+#info-description .footnotes a {
+    color: inherit;
+    text-decoration: underline;
 }
 
 #info-panel .close-button {

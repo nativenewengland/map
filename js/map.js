@@ -13,6 +13,252 @@ var tiles = L.tileLayer('map/{z}/{x}/{y}.jpg', {
   maxZoom: 6,
   maxNativeZoom: 6,
 }).addTo(map);
+
+(function configureMarkedFootnotes() {
+  var placeholderPrefix = '§§FOOTNOTE_REF_';
+  var placeholderSuffix = '_END§§';
+  var isRenderingFootnoteContent = false;
+
+  function escapeForRegex(value) {
+    return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  function createPlaceholder(label) {
+    return (
+      placeholderPrefix +
+      encodeURIComponent(label) +
+      placeholderSuffix
+    );
+  }
+
+  function createFootnoteExtension() {
+    var currentState = null;
+    var placeholderPattern = new RegExp(
+      escapeForRegex(placeholderPrefix) +
+        '([^]+?)' +
+        escapeForRegex(placeholderSuffix),
+      'g'
+    );
+
+    function extractFootnoteDefinitions(lines) {
+      var definitions = Object.create(null);
+      var cleaned = [];
+      for (var i = 0; i < lines.length; i++) {
+        var line = lines[i];
+        var match = line.match(/^\[\^([^\]]+)\]:\s*(.*)$/);
+        if (!match) {
+          cleaned.push(line);
+          continue;
+        }
+
+        var label = match[1].trim();
+        var text = match[2] || '';
+        var contentLines = [];
+        if (text) {
+          contentLines.push(text);
+        }
+
+        var j = i + 1;
+        while (j < lines.length) {
+          var continuation = lines[j];
+          var contMatch = continuation.match(/^( {4}|\t)(.*)$/);
+          if (contMatch) {
+            contentLines.push(contMatch[2]);
+            j += 1;
+            continue;
+          }
+          if (continuation.trim() === '') {
+            var nextLine = lines[j + 1];
+            if (nextLine && /^( {4}|\t)/.test(nextLine)) {
+              contentLines.push('');
+              j += 1;
+              continue;
+            }
+          }
+          break;
+        }
+        definitions[label] = contentLines.join('\n').trim();
+        i = j - 1;
+      }
+      return { cleaned: cleaned, definitions: definitions };
+    }
+
+    return {
+      hooks: {
+        preprocess: function (markdown) {
+          if (isRenderingFootnoteContent) {
+            return markdown;
+          }
+
+          var lines = markdown.split(/\r?\n/);
+          var extracted = extractFootnoteDefinitions(lines);
+          var definitions = extracted.definitions;
+          var refOrder = [];
+          var refIndex = Object.create(null);
+          var refCounts = Object.create(null);
+
+          var cleanedMarkdown = extracted.cleaned.join('\n').replace(/\[\^([^\]]+)\]/g, function (match, rawLabel) {
+            var label = rawLabel.trim();
+            if (!label) {
+              return match;
+            }
+            if (!Object.prototype.hasOwnProperty.call(refIndex, label)) {
+              refOrder.push(label);
+              refIndex[label] = refOrder.length;
+            }
+            return createPlaceholder(label);
+          });
+
+          currentState = {
+            definitions: definitions,
+            refOrder: refOrder,
+            refIndex: refIndex,
+            refCounts: refCounts,
+          };
+
+          return cleanedMarkdown;
+        },
+        postprocess: function (html) {
+          if (isRenderingFootnoteContent) {
+            return html;
+          }
+
+          var state = currentState;
+          currentState = null;
+
+          if (!state) {
+            return html;
+          }
+
+          html = html.replace(placeholderPattern, function (_, encodedLabel) {
+            var label = decodeURIComponent(encodedLabel);
+            var index = state.refIndex[label];
+            if (!index) {
+              state.refOrder.push(label);
+              index = state.refOrder.length;
+              state.refIndex[label] = index;
+            }
+            var count = state.refCounts[label] || 0;
+            count += 1;
+            state.refCounts[label] = count;
+            var refId = 'fnref-' + index + (count > 1 ? '-' + count : '');
+            var footnoteId = 'fn-' + index;
+            return (
+              '<sup class="footnote-ref" id="' +
+              refId +
+              '"><a href="#' +
+              footnoteId +
+              '">[' +
+              index +
+              ']</a></sup>'
+            );
+          });
+
+          if (!state.refOrder.length) {
+            return html;
+          }
+
+          var itemsHtml = state.refOrder
+            .map(function (label, idx) {
+              var index = idx + 1;
+              var raw = state.definitions[label] || '';
+              var contentHtml = raw;
+              if (raw) {
+                isRenderingFootnoteContent = true;
+                try {
+                  if (typeof marked !== 'undefined' && marked && typeof marked.parse === 'function') {
+                    contentHtml = marked.parse(raw);
+                  } else if (typeof marked === 'function') {
+                    contentHtml = marked(raw);
+                  }
+                } finally {
+                  isRenderingFootnoteContent = false;
+                }
+              }
+              var footnoteId = 'fn-' + index;
+              return '<li id="' + footnoteId + '">' + contentHtml + '</li>';
+            })
+            .join('');
+
+          if (itemsHtml) {
+            html += '<section class="footnotes"><ol>' + itemsHtml + '</ol></section>';
+          }
+
+          return html;
+        },
+      },
+    };
+  }
+
+  function applyExtension() {
+    if (typeof marked === 'undefined' || !marked || typeof marked.use !== 'function') {
+      return false;
+    }
+    if (applyExtension.applied) {
+      return true;
+    }
+    marked.use(createFootnoteExtension());
+    applyExtension.applied = true;
+    return true;
+  }
+
+  if (!applyExtension()) {
+    var scriptNodes = Array.prototype.slice.call(
+      document && document.getElementsByTagName
+        ? document.getElementsByTagName('script')
+        : []
+    );
+    var markedScripts = scriptNodes.filter(function (node) {
+      if (!node || !node.src) {
+        return false;
+      }
+      return /marked(?:\.min)?\.js(?:$|[?#])/.test(node.src);
+    });
+    var pollId = null;
+
+    function cleanup() {
+      if (pollId !== null) {
+        clearInterval(pollId);
+        pollId = null;
+      }
+      document.removeEventListener('DOMContentLoaded', onReady);
+      window.removeEventListener('load', onReady);
+      if (markedScripts) {
+        markedScripts.forEach(function (node) {
+          if (node && typeof node.removeEventListener === 'function') {
+            node.removeEventListener('load', onReady);
+          }
+        });
+        markedScripts = null;
+      }
+    }
+
+    function onReady() {
+      if (applyExtension()) {
+        cleanup();
+      }
+    }
+
+    markedScripts.forEach(function (node) {
+      if (node && typeof node.addEventListener === 'function') {
+        node.addEventListener('load', onReady);
+      }
+    });
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', onReady);
+    } else {
+      onReady();
+    }
+    window.addEventListener('load', onReady);
+
+    pollId = window.setInterval(function () {
+      if (applyExtension()) {
+        cleanup();
+      }
+    }, 50);
+  }
+})();
 // Overlay extracted from image and used for OCR/template matching
 // Use world bounds so the overlay spans the entire map
 var overlayBounds = [[-85, -180], [85, 180]];
@@ -211,21 +457,136 @@ var ICON_SCALE_FACTOR = 2;
 
 function createScaledIcon(options) {
   var scaled = Object.assign({}, options);
-  ['iconSize', 'iconAnchor', 'shadowSize', 'shadowAnchor', 'popupAnchor', 'tooltipAnchor'].forEach(function (key) {
-    var value = scaled[key];
+
+  function isFiniteNumber(value) {
+    return typeof value === 'number' && isFinite(value);
+  }
+
+  function toArray(value, duplicateNumber) {
     if (Array.isArray(value)) {
-      scaled[key] = value.map(function (v) {
-        return v * ICON_SCALE_FACTOR;
-      });
+      return value.slice();
     }
-  });
+    if (
+      value &&
+      typeof value === 'object' &&
+      isFiniteNumber(value.x) &&
+      isFiniteNumber(value.y)
+    ) {
+      return [value.x, value.y];
+    }
+    if (duplicateNumber && isFiniteNumber(value)) {
+      return [value, value];
+    }
+    return null;
+  }
+
+  function scaleSizeComponent(rawValue) {
+    if (!isFiniteNumber(rawValue)) {
+      return rawValue;
+    }
+    if (rawValue <= 0) {
+      return 0;
+    }
+    var scaledValue = rawValue * ICON_SCALE_FACTOR;
+    var rounded = Math.round(scaledValue);
+    return Math.max(1, rounded);
+  }
+
+  function scaleAnchorComponent(rawValue, rawDimension, scaledDimension, index) {
+    if (!isFiniteNumber(rawValue)) {
+      return rawValue;
+    }
+
+    var scaled;
+    if (
+      isFiniteNumber(rawDimension) &&
+      rawDimension !== 0 &&
+      isFiniteNumber(scaledDimension)
+    ) {
+      var ratio = rawValue / rawDimension;
+      scaled = ratio * scaledDimension;
+    } else {
+      scaled = rawValue * ICON_SCALE_FACTOR;
+    }
+
+    var rounded = Math.round(scaled);
+    if (rounded === 0 && rawValue !== 0) {
+      rounded = rawValue > 0 ? 1 : -1;
+    }
+    if (index === 1) {
+      if (rawValue > 0) {
+        rounded = Math.max(1, rounded);
+      } else if (rawValue < 0) {
+        rounded = Math.min(-1, rounded);
+      }
+    }
+    return rounded;
+  }
+
+  var rawIconSize = toArray(options.iconSize, true);
+  var rawShadowSize = toArray(options.shadowSize, true);
+
+  var scaledIconSize = null;
+  if (rawIconSize) {
+    scaledIconSize = rawIconSize.map(function (component) {
+      return scaleSizeComponent(component);
+    });
+    scaled.iconSize = scaledIconSize;
+  }
+
+  var scaledShadowSize = null;
+  if (rawShadowSize) {
+    scaledShadowSize = rawShadowSize.map(function (component) {
+      return scaleSizeComponent(component);
+    });
+    scaled.shadowSize = scaledShadowSize;
+  }
+
+  function applyAnchorScaling(key, rawValues, rawDimensions, scaledDimensions) {
+    var rawArray = toArray(rawValues, true);
+    if (!rawArray) {
+      return;
+    }
+    scaled[key] = rawArray.map(function (rawValue, index) {
+      var rawDimension = Array.isArray(rawDimensions) ? rawDimensions[index] : undefined;
+      var scaledDimension = Array.isArray(scaledDimensions) ? scaledDimensions[index] : undefined;
+      return scaleAnchorComponent(rawValue, rawDimension, scaledDimension, index);
+    });
+  }
+
+  applyAnchorScaling('iconAnchor', options.iconAnchor, rawIconSize, scaledIconSize);
+  applyAnchorScaling('shadowAnchor', options.shadowAnchor, rawShadowSize, scaledShadowSize);
+  applyAnchorScaling('popupAnchor', options.popupAnchor, rawIconSize, scaledIconSize);
+  applyAnchorScaling('tooltipAnchor', options.tooltipAnchor, rawIconSize, scaledIconSize);
+
   return L.icon(scaled);
 }
 
 function showInfo(title, description) {
   var panel = document.getElementById('info-panel');
   document.getElementById('info-title').textContent = title;
-  const html = DOMPurify.sanitize(marked.parse(description));
+  var markdown = '';
+  if (typeof description === 'string') {
+    markdown = description;
+  } else if (description) {
+    markdown = String(description);
+  }
+  var rendered = markdown;
+  if (typeof marked !== 'undefined' && marked) {
+    if (typeof marked.parse === 'function') {
+      rendered = marked.parse(markdown);
+    } else if (typeof marked === 'function') {
+      rendered = marked(markdown);
+    }
+  }
+  var sanitizeConfig = {
+    ADD_TAGS: ['section', 'sup', 'ol', 'li', 'a'],
+    ADD_ATTR: ['id', 'href'],
+  };
+  var html = rendered;
+  if (typeof DOMPurify !== 'undefined' && DOMPurify && typeof DOMPurify.sanitize === 'function') {
+    html = DOMPurify.sanitize(rendered, sanitizeConfig);
+  }
   document.getElementById('info-description').innerHTML = html;
   panel.classList.remove('hidden');
 }
@@ -314,13 +675,18 @@ var MineIcon = createScaledIcon({
   tooltipAnchor: [0.9375, -0.9375],
 });
 
+// Preserve the original 39x17 aspect ratio of the fort icon while keeping the
+// consistent marker height used throughout the map.
+var fortIconHeight = 1.875;
+var fortIconWidth = (39 / 17) * fortIconHeight;
+
 var FortsIcon = createScaledIcon({
   iconUrl: 'icons/fort.png',
   iconRetinaUrl: 'icons/fort.png',
-  iconSize: [3, 1.875],
-  iconAnchor: [1.5, 1.875],
-  popupAnchor: [0.3, -1.875],
-  tooltipAnchor: [1.5, -0.9375],
+  iconSize: [fortIconWidth, fortIconHeight],
+  iconAnchor: [fortIconWidth / 2, fortIconHeight],
+  popupAnchor: [0.3, -fortIconHeight],
+  tooltipAnchor: [fortIconWidth / 2, -fortIconHeight / 2],
 });
 
 var ChambersIcon = createScaledIcon({
@@ -510,14 +876,120 @@ function rescaleIcons() {
     baseZoom = map.getZoom();
   }
   var scale = Math.pow(2, map.getZoom() - baseZoom);
+
+  function scaleSizeComponent(value) {
+    if (typeof value !== 'number' || !isFinite(value)) {
+      return value;
+    }
+    if (value <= 0) {
+      return 0;
+    }
+    var rounded = Math.round(value * scale);
+    return Math.max(1, rounded);
+  }
+
+  function scaleOffsetComponent(baseValue, baseDimension, scaledDimension, minAbs) {
+    if (typeof baseValue !== 'number' || !isFinite(baseValue)) {
+      return baseValue;
+    }
+
+    var scaled;
+    if (
+      typeof baseDimension === 'number' &&
+      isFinite(baseDimension) &&
+      baseDimension !== 0 &&
+      typeof scaledDimension === 'number' &&
+      isFinite(scaledDimension)
+    ) {
+      var ratio = baseValue / baseDimension;
+      scaled = ratio * scaledDimension;
+    } else {
+      scaled = baseValue * scale;
+    }
+
+    var rounded = Math.round(scaled);
+    if (rounded === 0 && baseValue !== 0) {
+      rounded = baseValue > 0 ? 1 : -1;
+    }
+
+    if (minAbs) {
+      if (baseValue > 0) {
+        rounded = Math.max(minAbs, rounded);
+      } else if (baseValue < 0) {
+        rounded = Math.min(-minAbs, rounded);
+      }
+    }
+
+    return rounded;
+  }
+
   allMarkers.forEach(function (m) {
     var base = m._baseIconOptions;
+    if (!base) {
+      return;
+    }
     var opts = Object.assign({}, base);
-    if (base.iconSize) opts.iconSize = base.iconSize.map(function (v) { return v * scale; });
-    if (base.iconAnchor) opts.iconAnchor = base.iconAnchor.map(function (v) { return v * scale; });
-    if (base.shadowSize) opts.shadowSize = base.shadowSize.map(function (v) { return v * scale; });
-    if (base.popupAnchor) opts.popupAnchor = base.popupAnchor.map(function (v) { return v * scale; });
-    if (base.tooltipAnchor) opts.tooltipAnchor = base.tooltipAnchor.map(function (v) { return v * scale; });
+    var baseIconSize = Array.isArray(base.iconSize) ? base.iconSize.slice() : null;
+    var scaledIconSize = null;
+    if (baseIconSize) {
+      scaledIconSize = baseIconSize.map(scaleSizeComponent);
+      opts.iconSize = scaledIconSize;
+    }
+
+    if (Array.isArray(base.iconAnchor)) {
+      var scaledAnchor;
+      if (scaledIconSize) {
+        scaledAnchor = [
+          scaleOffsetComponent(base.iconAnchor[0], baseIconSize[0], scaledIconSize[0]),
+          scaleOffsetComponent(base.iconAnchor[1], baseIconSize[1], scaledIconSize[1], 1),
+        ];
+      } else {
+        scaledAnchor = base.iconAnchor.map(function (value, index) {
+          return scaleOffsetComponent(value, null, null, index === 1 ? 1 : 0);
+        });
+      }
+      opts.iconAnchor = scaledAnchor;
+    }
+
+    var baseShadowSize = Array.isArray(base.shadowSize) ? base.shadowSize.slice() : null;
+    var scaledShadowSize = null;
+    if (baseShadowSize) {
+      scaledShadowSize = baseShadowSize.map(scaleSizeComponent);
+      opts.shadowSize = scaledShadowSize;
+    }
+
+    if (Array.isArray(base.shadowAnchor)) {
+      var shadowAnchor;
+      if (scaledShadowSize) {
+        shadowAnchor = [
+          scaleOffsetComponent(base.shadowAnchor[0], baseShadowSize[0], scaledShadowSize[0]),
+          scaleOffsetComponent(base.shadowAnchor[1], baseShadowSize[1], scaledShadowSize[1], 1),
+        ];
+      } else {
+        shadowAnchor = base.shadowAnchor.map(function (value, index) {
+          return scaleOffsetComponent(value, null, null, index === 1 ? 1 : 0);
+        });
+      }
+      opts.shadowAnchor = shadowAnchor;
+    }
+
+    if (Array.isArray(base.popupAnchor)) {
+      var popupAnchor = base.popupAnchor.map(function (value, index) {
+        var baseDimension = baseIconSize ? baseIconSize[index] : null;
+        var scaledDimension = scaledIconSize ? scaledIconSize[index] : null;
+        return scaleOffsetComponent(value, baseDimension, scaledDimension, index === 1 ? 1 : 0);
+      });
+      opts.popupAnchor = popupAnchor;
+    }
+
+    if (Array.isArray(base.tooltipAnchor)) {
+      var tooltipAnchor = base.tooltipAnchor.map(function (value, index) {
+        var baseDimension = baseIconSize ? baseIconSize[index] : null;
+        var scaledDimension = scaledIconSize ? scaledIconSize[index] : null;
+        return scaleOffsetComponent(value, baseDimension, scaledDimension, index === 1 ? 1 : 0);
+      });
+      opts.tooltipAnchor = tooltipAnchor;
+    }
     m.setIcon(L.icon(opts));
   });
 }

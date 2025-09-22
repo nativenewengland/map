@@ -21,7 +21,7 @@
     <div id="info-panel" class="hidden">
         <button id="close-info" class="close-button">&times;</button>
         <h2 id="info-title"></h2>
-        <p id="info-description"></p>
+        <div id="info-description"></div>
     </div>
     <div id="marker-form-overlay" class="hidden">
         <div id="marker-form">
@@ -30,7 +30,7 @@
                 <input type="text" id="marker-name">
             </label>
             <label>Description:
-                <small>Supports Markdown (e.g., <code>**bold**</code>, <code>![alt](url)</code> for images).</small>
+                <small>Supports Markdown (e.g., <code>**bold**</code>, <code>![alt](url)</code> for images) and footnotes (pair <code>[^1]</code> with <code>[^1]: Source details</code>).</small>
                 <textarea id="marker-description"></textarea>
             </label>
             <label>Icon:
@@ -65,7 +65,7 @@
                 <input type="text" id="polygon-name">
             </label>
             <label>Description:
-                <small>Supports Markdown (e.g., <code>**bold**</code>, <code>![alt](url)</code> for images).</small>
+                <small>Supports Markdown (e.g., <code>**bold**</code>, <code>![alt](url)</code> for images) and footnotes (pair <code>[^1]</code> with <code>[^1]: Source details</code>).</small>
                 <textarea id="polygon-description"></textarea>
             </label>
             <label>Color:
@@ -82,7 +82,7 @@
                 <input type="text" id="text-label-text">
             </label>
             <label>Description:
-                <small>Supports Markdown (e.g., <code>**bold**</code>, <code>![alt](url)</code> for images).</small>
+                <small>Supports Markdown (e.g., <code>**bold**</code>, <code>![alt](url)</code> for images) and footnotes (pair <code>[^1]</code> with <code>[^1]: Source details</code>).</small>
                 <textarea id="text-label-description"></textarea>
             </label>
             <label>Size:
@@ -108,8 +108,8 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
-    <script src="js/map.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script>
+    <script src="js/map.js"></script>
 </body>
 </html>
