@@ -21,6 +21,7 @@
     <div id="info-panel" class="hidden">
         <button id="close-info" class="close-button">&times;</button>
         <h2 id="info-title"></h2>
+        <h3 id="info-subheader" class="info-subheader hidden"></h3>
         <div id="info-description"></div>
     </div>
     <div id="marker-form-overlay" class="hidden">
@@ -28,6 +29,9 @@
             <h3>Add Marker</h3>
             <label>Name:
                 <input type="text" id="marker-name">
+            </label>
+            <label>Subheader:
+                <input type="text" id="marker-subheader">
             </label>
             <label>Description:
                 <small>Supports Markdown (e.g., <code>**bold**</code>, <code>![alt](url)</code> for images) and footnotes (pair <code>[^1]</code> with <code>[^1]: Source details</code>).</small>

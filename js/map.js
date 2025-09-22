@@ -562,9 +562,21 @@ function createScaledIcon(options) {
   return L.icon(scaled);
 }
 
-function showInfo(title, description) {
+function showInfo(title, subheader, description) {
   var panel = document.getElementById('info-panel');
   document.getElementById('info-title').textContent = title;
+  var subheaderElement = document.getElementById('info-subheader');
+  if (subheaderElement) {
+    var hasSubheader =
+      typeof subheader === 'string' ? subheader.trim() !== '' : Boolean(subheader);
+    if (hasSubheader) {
+      subheaderElement.textContent = String(subheader);
+      subheaderElement.classList.remove('hidden');
+    } else {
+      subheaderElement.textContent = '';
+      subheaderElement.classList.add('hidden');
+    }
+  }
   var markdown = '';
   if (typeof description === 'string') {
     markdown = description;
@@ -1077,6 +1089,7 @@ function loadFeaturesFromCSV(text) {
         lng: parseFloat(cols[2]),
         icon: cols[3] || 'wigwam',
         name: cols[4],
+        subheader: cols[5] || '',
         description: cols[6],
         style: cols[12] ? JSON.parse(cols[12]) : undefined,
         overlay: cols[13] || '',
@@ -1113,7 +1126,7 @@ function escapeCsvValue(val) {
 
 function buildFeaturesCSV() {
   var rows = [
-    'type,lat,lng,icon,name,text,description,size,angle,spacing,curve,coords,style,overlay'
+    'type,lat,lng,icon,name,subheader/text,description,size,angle,spacing,curve,coords,style,overlay'
   ];
 
   customMarkers.forEach(function (m) {
@@ -1124,7 +1137,7 @@ function buildFeaturesCSV() {
         escapeCsvValue(m.lng),
         escapeCsvValue(m.icon),
         escapeCsvValue(m.name),
-        '',
+        escapeCsvValue(m.subheader || ''),
         escapeCsvValue(m.description),
         '',
         '',
@@ -1405,11 +1418,15 @@ function detachTextLabel(labelMarker) {
 
 function addMarkerToMap(data) {
   var icon = iconMap[data.icon] || WigwamIcon;
+  if (data.subheader === undefined || data.subheader === null) {
+    data.subheader = '';
+  }
   var customMarker = createMarker(
     data.lat,
     data.lng,
     icon,
     data.name,
+    data.subheader,
     data.description
   );
   var overlayName = data.overlay || '';
@@ -1426,7 +1443,12 @@ function addMarkerToMap(data) {
   customMarker.on('contextmenu', function () {
     detachMarker(customMarker);
     customMarkers = customMarkers.filter(function (m) {
-      return !(m.lat === data.lat && m.lng === data.lng && m.name === data.name);
+      return !(
+        m.lat === data.lat &&
+        m.lng === data.lng &&
+        m.name === data.name &&
+        (m.subheader || '') === (data.subheader || '')
+      );
     });
     saveMarkers();
   });
@@ -1494,7 +1516,7 @@ function addTextLabelToMap(data) {
         this._icon.classList.add('marker-selected');
         selectedMarker = this;
       }
-      showInfo(data.text, data.description);
+      showInfo(data.text, '', data.description);
     })
     .on('dblclick', function (ev) {
       L.DomEvent.stopPropagation(ev);
@@ -1580,7 +1602,7 @@ fetch('data/features.csv')
 
 // //// START OF MARKERS
 // 1. Marker declarations
-function createMarker(lat, lng, icon, name, description) {
+function createMarker(lat, lng, icon, name, subheader, description) {
   var m = L.marker([lat, lng], { icon: icon, draggable: true })
     .on('click', function (e) {
       L.DomEvent.stopPropagation(e);
@@ -1589,8 +1611,9 @@ function createMarker(lat, lng, icon, name, description) {
         this._icon.classList.add('marker-selected');
         selectedMarker = this;
       }
-      var d = this._data || { name: name, description: description };
-      showInfo(d.name, d.description);
+      var d =
+        this._data || { name: name, subheader: subheader, description: description };
+      showInfo(d.name, d.subheader, d.description);
     })
     .on('dragend', function () {
       if (m._data) {
@@ -1716,9 +1739,11 @@ function showMarkerForm(latlng) {
   if (overlaySelect) {
     overlaySelect.value = '';
   }
+  document.getElementById('marker-subheader').value = '';
 
   function submitHandler() {
     var name = document.getElementById('marker-name').value || 'Marker';
+    var subheader = document.getElementById('marker-subheader').value || '';
     var description =
       document.getElementById('marker-description').value || '';
     var iconKey = document.getElementById('marker-icon').value || 'wigwam';
@@ -1727,6 +1752,7 @@ function showMarkerForm(latlng) {
       lat: latlng.lat,
       lng: latlng.lng,
       name: name,
+      subheader: subheader,
       description: description,
       icon: iconKey,
       overlay: overlayValue || '',
@@ -1747,6 +1773,7 @@ function showMarkerForm(latlng) {
     cancelBtn.removeEventListener('click', cancelHandler);
     convertBtn.classList.add('hidden');
     document.getElementById('marker-name').value = '';
+    document.getElementById('marker-subheader').value = '';
     document.getElementById('marker-description').value = '';
     document.getElementById('marker-icon').value = 'wigwam';
     if (overlaySelect) {
@@ -1770,6 +1797,7 @@ function editMarkerForm(marker) {
   convertBtn.classList.remove('hidden');
 
   document.getElementById('marker-name').value = marker._data.name || '';
+  document.getElementById('marker-subheader').value = marker._data.subheader || '';
   document.getElementById('marker-description').value = marker._data.description || '';
   document.getElementById('marker-icon').value = marker._data.icon || 'wigwam';
   if (overlaySelect) {
@@ -1779,11 +1807,13 @@ function editMarkerForm(marker) {
 
   function submitHandler() {
     var name = document.getElementById('marker-name').value || 'Marker';
+    var subheader = document.getElementById('marker-subheader').value || '';
     var description = document.getElementById('marker-description').value || '';
     var iconKey = document.getElementById('marker-icon').value || 'wigwam';
     var overlayValue = overlaySelect ? overlaySelect.value : '';
 
     marker._data.name = name;
+    marker._data.subheader = subheader;
     marker._data.description = description;
     marker._data.icon = iconKey;
 
@@ -1809,8 +1839,9 @@ function editMarkerForm(marker) {
     overlay.classList.add('hidden');
     saveBtn.removeEventListener('click', submitHandler);
     cancelBtn.removeEventListener('click', cancelHandler);
-     convertBtn.removeEventListener('click', convertHandler);
+    convertBtn.removeEventListener('click', convertHandler);
     document.getElementById('marker-name').value = '';
+    document.getElementById('marker-subheader').value = '';
     document.getElementById('marker-description').value = '';
     document.getElementById('marker-icon').value = 'wigwam';
     if (overlaySelect) {
@@ -2100,6 +2131,7 @@ function convertTextToMarker(labelMarker) {
     lat: data.lat,
     lng: data.lng,
     name: data.text || 'Marker',
+    subheader: '',
     description: data.description || '',
     icon: 'wigwam',
     overlay: data.overlay || '',
