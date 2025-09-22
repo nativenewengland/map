@@ -268,6 +268,15 @@ function textLabelsMatch(a, b) {
   var textA = (a.text || '').trim();
   var textB = (b.text || '').trim();
   if (textA !== textB) return false;
+  var subheaderA =
+    a.subheader === undefined || a.subheader === null
+      ? ''
+      : String(a.subheader).trim();
+  var subheaderB =
+    b.subheader === undefined || b.subheader === null
+      ? ''
+      : String(b.subheader).trim();
+  if (subheaderA !== subheaderB) return false;
   var overlayA = a.overlay || '';
   var overlayB = b.overlay || '';
   if (overlayA !== overlayB) return false;
@@ -402,6 +411,7 @@ async function extractOverlayLabels(eventOrOptions) {
       lat: lat,
       lng: lng,
       text: text,
+      subheader: '',
       description: '',
       size: fontSize,
       angle: 0,
@@ -1111,6 +1121,7 @@ function loadFeaturesFromCSV(text) {
       textLabels.push({
         lat: parseFloat(cols[1]),
         lng: parseFloat(cols[2]),
+        subheader: cols[4] || '',
         text: cols[5],
         description: cols[6],
         size: parseFloat(cols[7]) || 14,
@@ -1139,7 +1150,7 @@ function escapeCsvValue(val) {
 
 function buildFeaturesCSV() {
   var rows = [
-    'type,lat,lng,icon,name,subheader/text,description,size,angle,spacing,curve,coords,style,overlay'
+    'type,lat,lng,icon,name/subheader,subheader/text,description,size,angle,spacing,curve,coords,style,overlay'
   ];
 
   customMarkers.forEach(function (m) {
@@ -1170,7 +1181,7 @@ function buildFeaturesCSV() {
         escapeCsvValue(t.lat),
         escapeCsvValue(t.lng),
         '',
-        '',
+        escapeCsvValue(t.subheader || ''),
         escapeCsvValue(t.text),
         escapeCsvValue(t.description),
         escapeCsvValue(t.size),
@@ -1470,6 +1481,9 @@ function addMarkerToMap(data) {
 }
 
 function addTextLabelToMap(data) {
+  if (data.subheader === undefined || data.subheader === null) {
+    data.subheader = '';
+  }
   if (data.spacing === undefined) data.spacing = 0;
   var textIcon;
   var pathWidth = 0;
@@ -1529,7 +1543,7 @@ function addTextLabelToMap(data) {
         this._icon.classList.add('marker-selected');
         selectedMarker = this;
       }
-      showInfo(data.text, '', data.description);
+      showInfo(data.text, data.subheader, data.description);
     })
     .on('dblclick', function (ev) {
       L.DomEvent.stopPropagation(ev);
@@ -1910,6 +1924,7 @@ function showTextForm(latlng) {
       cleanup();
       return;
     }
+    var subheader = document.getElementById('text-label-subheader').value || '';
     var description = document.getElementById('text-label-description').value || '';
     var size = parseFloat(document.getElementById('text-label-size').value) || 14;
     var angle = parseFloat(document.getElementById('text-label-angle').value) || 0;
@@ -1920,6 +1935,7 @@ function showTextForm(latlng) {
       lat: latlng.lat,
       lng: latlng.lng,
       text: text,
+      subheader: subheader,
       description: description,
       size: size,
       angle: angle,
@@ -1943,6 +1959,7 @@ function showTextForm(latlng) {
     cancelBtn.removeEventListener('click', cancelHandler);
     convertBtn.classList.add('hidden');
     document.getElementById('text-label-text').value = '';
+    document.getElementById('text-label-subheader').value = '';
     document.getElementById('text-label-description').value = '';
     document.getElementById('text-label-size').value = '14';
     document.getElementById('text-label-angle').value = '0';
@@ -1967,6 +1984,7 @@ function editTextForm(labelMarker) {
   var data = labelMarker._data;
 
   document.getElementById('text-label-text').value = data.text || '';
+  document.getElementById('text-label-subheader').value = data.subheader || '';
   document.getElementById('text-label-description').value = data.description || '';
   document.getElementById('text-label-size').value = data.size || 14;
   document.getElementById('text-label-angle').value = data.angle || 0;
@@ -1984,6 +2002,7 @@ function editTextForm(labelMarker) {
       cleanup();
       return;
     }
+    var subheader = document.getElementById('text-label-subheader').value || '';
     var description = document.getElementById('text-label-description').value || '';
     var size = parseFloat(document.getElementById('text-label-size').value) || 14;
     var angle = parseFloat(document.getElementById('text-label-angle').value) || 0;
@@ -2051,6 +2070,7 @@ function editTextForm(labelMarker) {
       delete labelMarker._basePathWidth;
     }
     data.text = text;
+    data.subheader = subheader;
     data.description = description;
     data.size = size;
     data.angle = angle;
@@ -2078,6 +2098,7 @@ function editTextForm(labelMarker) {
     convertBtn.removeEventListener('click', convertHandler);
     convertBtn.classList.add('hidden');
     document.getElementById('text-label-text').value = '';
+    document.getElementById('text-label-subheader').value = '';
     document.getElementById('text-label-description').value = '';
     document.getElementById('text-label-size').value = '14';
     document.getElementById('text-label-angle').value = '0';
@@ -2112,6 +2133,7 @@ function convertMarkerToText(marker) {
     lat: data.lat,
     lng: data.lng,
     text: data.name || '',
+    subheader: data.subheader || '',
     description: data.description || '',
     size: 14,
     angle: 0,
@@ -2144,7 +2166,7 @@ function convertTextToMarker(labelMarker) {
     lat: data.lat,
     lng: data.lng,
     name: data.text || 'Marker',
-    subheader: '',
+    subheader: data.subheader || '',
     description: data.description || '',
     icon: 'wigwam',
     overlay: data.overlay || '',
