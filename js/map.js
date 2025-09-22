@@ -719,6 +719,18 @@ var CampsIcon = createScaledIcon({
   tooltipAnchor: [0.9375, -0.9375],
 });
 
+var seaMonsterIconHeight = 2.8125;
+var seaMonsterIconWidth = (391 / 530) * seaMonsterIconHeight;
+
+var SeaMonsterIcon = createScaledIcon({
+  iconUrl: 'icons/seamonster.png',
+  iconRetinaUrl: 'icons/seamonster.png',
+  iconSize: [seaMonsterIconWidth, seaMonsterIconHeight],
+  iconAnchor: [seaMonsterIconWidth / 2, seaMonsterIconHeight],
+  popupAnchor: [0.1875, -seaMonsterIconHeight],
+  tooltipAnchor: [seaMonsterIconWidth / 2, -seaMonsterIconHeight / 2],
+});
+
 
 // Map of icon keys to actual icons
 var iconMap = {
@@ -732,6 +744,7 @@ var iconMap = {
   mine: MineIcon,
   forts: FortsIcon,
   chambers: ChambersIcon,
+  seamonster: SeaMonsterIcon,
   camps: CampsIcon,
 };
 
