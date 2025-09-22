@@ -1,4 +1,4 @@
-type,lat,lng,icon,name,text,description,size,angle,spacing,curve,coords,style,overlay
+type,lat,lng,icon,name,subheader/text,description,size,angle,spacing,curve,coords,style,overlay
 marker,-30.3731045201212,76.22521225521355,settlement,dsfds,,sdfsdf,,,,,,{},
 marker,-9.583455567389747,46.61127269396798,wigwam,Marker,,,,,,,,{},
 marker,-10.125631403179714,47.83495616956516,settlement,Marker,,,,,,,,{},
@@ -11,6 +11,7 @@ marker,-66.55706504127355,29.333793267618365,forts,Marker,,,,,,,,{},
 marker,-76.14822912651843,-144.40378202944026,rock,Mishow,,"The Grey Mare and Mishow were two  boulders said to have been placed in their location by Manitou, the boulders served as an important ritual site used for sacred ceremonies.",,,,,,{},
 marker,-21.412044527198127,152.99608087382487,agriculture,Marker,,,,,,,,{},
 marker,-21.289503937039772,153.36971045535952,wigwam,Marker,,,,,,,,{},
+marker,19.621892180319374,11.645507812500002,mine,Marker,,,,,,,,{},Mines/Quarries
 text,-36.65567460185129,75.13381206794301,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-30.55639356496612,86.15906705383222,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-33.683878797602844,87.25830078125001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -66,6 +67,4 @@ text,-60.321147194219755,-105.8073484903449,,,Wappinger,Wappinger homelands span
 text,-57.317654218877095,-39.8978063466207,,,Western Niantic,Western Niantic homelands near the mouth of the Connecticut River.,24,0,0,0,,,Tribes
 text,-58.81341055534732,-70.40039062500001,,,Hammonasset,,24,0,0,0,,,Tribes
 text,-67.16882345280554,-137.46032059196105,,,Siwanogs,,24,0,0,0,,,Tribes
-text,17.66498420446895,11.821251929178302,,,Sagatabscot ," (“the place of the hard rock”) is a hill in the southeastern part of Worcester.[^¹]
-
-[^¹] Kinnicutt, Indian Place Names in Worcester County, 44.",4,0,0,0,,,Mountains
+text,17.62308179131177,11.93115234375,,,Sagatabscot , (“the place of the hard rock”) is a hill in the southeastern part of Worcester.[^¹],3,0,0,0,,,Mountains
