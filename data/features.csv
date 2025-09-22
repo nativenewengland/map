@@ -14,6 +14,7 @@ marker,-21.289503937039772,153.36971045535952,wigwam,Marker,,,,,,,,{},
 marker,19.621892180319374,11.645507812500002,mine,Marker,fgfdgd,dfgdfgd,,,,,,{},Mines/Quarries
 marker,44.2294565683017,-49.65820312500001,capital,Marker,,,,,,,,{},
 marker,-45.70617928533085,57.01904296875001,agriculture,Marker,,,,,,,,{},
+marker,-65.90165338613072,29.355468750000004,settlement,Marker,,,,,,,,{},Settlements
 text,-36.65567460185129,75.13381206794301,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-30.55639356496612,86.15906705383222,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-33.683878797602844,87.25830078125001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -70,6 +71,4 @@ text,-57.317654218877095,-39.8978063466207,,,Western Niantic,Western Niantic hom
 text,-67.16882345280554,-137.46032059196105,,,Siwanogs,,24,0,0,0,,,Tribes
 text,17.62308179131177,11.93115234375,,,Sagatabscot , (“the place of the hard rock”) is a hill in the southeastern part of Worcester.[^¹],3,0,0,0,,,Mountains
 text,20.262197124246534,13.491210937500002,,,Quinsigamond,Quinsikamon,7,0,0,0,,,
-text,68.07330474079025,-53.96484375000001,,,Monadnock,"g “place of the surpassing, or
-unexcelled mountain.” Manadnuck,” “Grand Wanadnock,” “Wannadnack Mt.,” “Grand
-Manadnuck,” “Meorgnuck” and “Wahmodmaulk!”",14,0,0,0,,,
+text,68.07330474079025,-53.96484375000001,,,Monadnock,"g “place of the surpassing, or",14,0,0,0,,,
