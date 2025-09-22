@@ -11,7 +11,7 @@ marker,-66.55706504127355,29.333793267618365,forts,Marker,,,,,,,,{},
 marker,-76.14822912651843,-144.40378202944026,rock,Mishow,,"The Grey Mare and Mishow were two  boulders said to have been placed in their location by Manitou, the boulders served as an important ritual site used for sacred ceremonies.",,,,,,{},
 marker,-21.412044527198127,152.99608087382487,agriculture,Marker,,,,,,,,{},
 marker,-21.289503937039772,153.36971045535952,wigwam,Marker,,,,,,,,{},
-marker,19.621892180319374,11.645507812500002,mine,Marker,,,,,,,,{},Mines/Quarries
+marker,19.621892180319374,11.645507812500002,mine,Marker,fgfdgd,dfgdfgd,,,,,,{},Mines/Quarries
 text,-36.65567460185129,75.13381206794301,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-30.55639356496612,86.15906705383222,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-33.683878797602844,87.25830078125001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -46,7 +46,7 @@ text,-72.76619493972098,-36.42071459256301,,,Montaukett,Montaukett homelands at 
 text,-29.229872274476822,-34.27734375000001,,,Mohegan,Mohegan homelands along the Thames River in Connecticut.,24,0,0,0,,,Tribes
 text,-39.62454212864713,1.2304687500000002,,,Narragansett,Narragansett homelands along the southern Rhode Island coast.,24,0,0,0,,,Tribes
 text,-16.977487354364566,147.83354003549164,,,Nauset,Nauset (Cape Cod) Wampanoag homelands on the outer Cape.,24,0,0,0,,,Tribes
-text,46.78550049126467,-39.515112036948125,,,Nipmuc,Nipmuc homelands across central Massachusetts and northern Connecticut.,24,0,0,0,,,Tribes
+text,46.78550049126467,-39.515112036948125,,,Nipmuc,"Nipmuc homelands across central Massachusetts and northern Connecticut. Nipnet, Nipmook or Nipmuck",24,0,0,0,,,Tribes
 text,-77.19570508665286,-143.9446752320028,,,Nissequogue,"Nissequogue homelands around present-day Smithtown, Long Island.",24,0,0,0,,,Tribes
 text,-8.928234353216506,-71.35603845169659,,,Paugussett,Paugussett homelands along the lower Housatonic River.,24,0,0,0,,,Tribes
 text,-54.825433284376075,-45.966796875,,,Pequot,Pequot homelands surrounding the lower Thames River.,24,0,0,0,,,Tribes
@@ -68,3 +68,7 @@ text,-57.317654218877095,-39.8978063466207,,,Western Niantic,Western Niantic hom
 text,-58.81341055534732,-70.40039062500001,,,Hammonasset,,24,0,0,0,,,Tribes
 text,-67.16882345280554,-137.46032059196105,,,Siwanogs,,24,0,0,0,,,Tribes
 text,17.62308179131177,11.93115234375,,,Sagatabscot , (“the place of the hard rock”) is a hill in the southeastern part of Worcester.[^¹],3,0,0,0,,,Mountains
+text,20.262197124246534,13.491210937500002,,,Quinsigamond,Quinsikamon,7,0,0,0,,,
+text,68.07330474079025,-53.96484375000001,,,Monadnock,"g “place of the surpassing, or
+unexcelled mountain.” Manadnuck,” “Grand Wanadnock,” “Wannadnack Mt.,” “Grand
+Manadnuck,” “Meorgnuck” and “Wahmodmaulk!”",14,0,0,0,,,
