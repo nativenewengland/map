@@ -7,14 +7,15 @@ marker,-0.48337991318247436,135.2636894644682,settlement,Marker,,,,,,,,{},Settle
 marker,-5.265861413407452,143.45855110145004,settlement,Marker,,,,,,,,{},Settlements
 marker,-20.015381961202028,152.51259230309853,forts,Unknown Fort or Palisade Village,,"Upon arrival in Cape Cod, the Pilgrims discovered the ruins of a walled fortress or palisaded village filled with remains of local Nauset who had died from disease near the mouth of Pamet River, at Truro. Unaware of its native origins, the pilgrims assumed the location to be of European Christian construction and falsely mistook it as a graveyard. In the Pilgrims Journal written by  George Morton, William Bradford, and Edward Winslow the following is written.""We found a great burying place, one part whereof was encompassed with a large Palazado, like a Church-yard, with yong spires foure or five yards long, set as close one by another as they could two or three foot in the ground, within it was full of Graves, some bigger, and some lesse, some were also paled about, & others had like an Indian house made over them, but not matted: those Graves were more sumptuous than those at Corne-hill, yet we digged none of them up,. but onely viewed them, and went our way; without the Palazado were graves also, but not so costl.""",,,,,,{},Forts
 marker,-5.814505235409476,143.50309075890496,forts,Marker,,[^¹] dfgdfgdf g,,,,,,{},
-marker,-66.55706504127355,29.333793267618365,forts,Marker,,,,,,,,{},
+marker,-66.57448342017541,29.157714843750004,forts,Marker,,,,,,,,{},
 marker,-76.14822912651843,-144.40378202944026,rock,Mishow,,"The Grey Mare and Mishow were two  boulders said to have been placed in their location by Manitou, the boulders served as an important ritual site used for sacred ceremonies.",,,,,,{},
 marker,-21.412044527198127,152.99608087382487,agriculture,Marker,,,,,,,,{},
 marker,-21.289503937039772,153.36971045535952,wigwam,Marker,,,,,,,,{},
-marker,19.621892180319374,11.645507812500002,mine,Marker,fgfdgd,dfgdfgd,,,,,,{},Mines/Quarries
+marker,19.621892180319374,11.645507812500002,mine,Coal Mine,fgfdgd,dfgdfgd,,,,,,{},Mines/Quarries
 marker,44.2294565683017,-49.65820312500001,capital,Marker,,,,,,,,{},
 marker,-45.70617928533085,57.01904296875001,agriculture,Marker,,,,,,,,{},
 marker,-65.90165338613072,29.355468750000004,settlement,Marker,,,,,,,,{},Settlements
+marker,-0.13183582116662096,-14.172363281250002,mine,Tantiusques,“to a black deposit between two hills”,was a graphite mine which the local nipmucs used to mine graphite to make paints. ,,,,,,{},
 text,-36.65567460185129,75.13381206794301,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-30.55639356496612,86.15906705383222,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-33.683878797602844,87.25830078125001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -41,7 +42,7 @@ text,-56.65591715395414,-12.662083804344801,,,Eastern Niantic,Eastern Niantic ho
 text,-60.064840460104506,-61.17187500000001,,,Hammonasset,Hammonasset homelands along the central Connecticut shoreline.,24,0,0,0,,,Tribes
 text,-69.16724012600773,-49.949353504869585,,,Manhanset,"Manhanset people of Shelter Island, between Long Island's forks.",24,0,0,0,,,Tribes
 text,0.8649062261496583,-73.83331060386206,,,Manissean,Manissean (Manitou) homelands on Block Island.,24,0,0,0,,,Tribes
-text,29.841258753542956,38.834533502482174,,,Massachusett,Massachusett homelands around the Shawmut Peninsula (Boston).,24,0,0,0,,,Tribes
+text,23.07973176244989,48.33984375,,,Massachusett,Massachusett homelands around the Shawmut Peninsula (Boston).,24,0,0,0,,,Tribes
 text,-35.87247660571175,-42.5197747033127,,,Mashantucket Pequot,Mashantucket Pequot homelands near the Pawcatuck River.,24,0,0,0,,,Tribes
 text,-79.65392213419594,-146.93163540003792,,,Matinecock,Matinecock homelands on Long Island's north shore.,24,0,0,0,,,Tribes
 text,-76.01582449107187,-109.50898851393923,,,Merrick,Merrick (Merokee) territory on Long Island's south shore.,24,0,0,0,,,Tribes
@@ -57,7 +58,7 @@ text,-3.1647543030148677,-55.73678702052408,,,Podunk,Podunk homelands on the eas
 text,-19.6247252492234,-84.19921875000001,,,Pokanoket,Pokanoket (Wampanoag) homelands around Mount Hope and Narragansett Bay.,24,0,0,0,,,Tribes
 text,-6.507114080629532,-96.65946364493804,,,Quinnipiac,Quinnipiac homelands at the mouth of the Quinnipiac River.,24,0,0,0,,,Tribes
 text,-78.86850415610446,-131.1195136082202,,,Rockaway,Rockaway (Reckgawawank) Lenape homelands on the Rockaway Peninsula.,24,0,0,0,,,Tribes
-text,-20.94330364995559,-62.75390625000001,,,Schaghticoke,Schaghticoke homelands near the confluence of the Housatonic and Ten Mile Rivers.,24,0,0,0,,,Tribes
+text,-26.74561038219901,-62.49023437500001,,,Schaghticoke,Schaghticoke homelands near the confluence of the Housatonic and Ten Mile Rivers.,24,0,0,0,,,Tribes
 text,-77.91475737592121,-115.48264463361654,,,Secatogue,Secatogue homelands around Islip on Long Island.,24,0,0,0,,,Tribes
 text,-76.22710027185168,-74.89734440161372,,,Setalcott,Setalcott (Setauket) homelands on Long Island's north shore.,24,0,0,0,,,Tribes
 text,-74.35586571660598,-50.12487053847663,,,Shinnecock,Shinnecock homelands near Shinnecock Bay on Long Island.,24,0,0,0,,,Tribes
