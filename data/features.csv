@@ -1,4 +1,4 @@
-type,lat,lng,icon,name,text,description,size,angle,spacing,curve,coords,style,overlay
+type,lat,lng,icon,name,subheader/text,description,size,angle,spacing,curve,coords,style,overlay
 marker,-30.3731045201212,76.22521225521355,settlement,dsfds,,sdfsdf,,,,,,{},
 marker,-9.583455567389747,46.61127269396798,wigwam,Marker,,,,,,,,{},
 marker,-10.125631403179714,47.83495616956516,settlement,Marker,,,,,,,,{},
