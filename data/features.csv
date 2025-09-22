@@ -1,18 +1,18 @@
 type,lat,lng,icon,name,text,description,size,angle,spacing,curve,coords,style,overlay
-marker,-30.3731045201212,62.97521225521355,settlement,dsfds,,sdfsdf,,,,,,{},
-marker,-9.583455567389747,33.36127269396798,wigwam,Marker,,,,,,,,{},
-marker,-10.125631403179714,34.58495616956516,settlement,Marker,,,,,,,,{},
-marker,-76.92063356963172,-103.4692933263319,settlement,Marker,,,,,,,,{},
-marker,-0.5052238514568264,121.81716788556727,settlement,Marker,,,,,,,,{},Settlements
-marker,-5.265861413407452,130.20855110145004,settlement,Marker,,,,,,,,{},Settlements
-marker,-20.015381961202028,139.26259230309853,forts,Unknown Fort or Palisade Village,,"Upon arrival in Cape Cod, the Pilgrims discovered the ruins of a walled fortress or palisaded village filled with remains of local Nauset who had died from disease near the mouth of Pamet River, at Truro. Unaware of its native origins, the pilgrims assumed the location to be of European Christian construction and falsely mistook it as a graveyard. In the Pilgrims Journal written by  George Morton, William Bradford, and Edward Winslow the following is written.""We found a great burying place, one part whereof was encompassed with a large Palazado, like a Church-yard, with yong spires foure or five yards long, set as close one by another as they could two or three foot in the ground, within it was full of Graves, some bigger, and some lesse, some were also paled about, & others had like an Indian house made over them, but not matted: those Graves were more sumptuous than those at Corne-hill, yet we digged none of them up,. but onely viewed them, and went our way; without the Palazado were graves also, but not so costl.""",,,,,,{},Forts
-marker,-5.814505235409476,130.25309075890496,forts,Marker,,"[^¹]
+marker,-30.3731045201212,76.22521225521355,settlement,dsfds,,sdfsdf,,,,,,{},
+marker,-9.583455567389747,46.61127269396798,wigwam,Marker,,,,,,,,{},
+marker,-10.125631403179714,47.83495616956516,settlement,Marker,,,,,,,,{},
+marker,-76.92063356963172,-90.2192933263319,settlement,Marker,,,,,,,,{},
+marker,-0.5052238514568264,135.06716788556727,settlement,Marker,,,,,,,,{},Settlements
+marker,-5.265861413407452,143.45855110145004,settlement,Marker,,,,,,,,{},Settlements
+marker,-20.015381961202028,152.51259230309853,forts,Unknown Fort or Palisade Village,,"Upon arrival in Cape Cod, the Pilgrims discovered the ruins of a walled fortress or palisaded village filled with remains of local Nauset who had died from disease near the mouth of Pamet River, at Truro. Unaware of its native origins, the pilgrims assumed the location to be of European Christian construction and falsely mistook it as a graveyard. In the Pilgrims Journal written by  George Morton, William Bradford, and Edward Winslow the following is written.""We found a great burying place, one part whereof was encompassed with a large Palazado, like a Church-yard, with yong spires foure or five yards long, set as close one by another as they could two or three foot in the ground, within it was full of Graves, some bigger, and some lesse, some were also paled about, & others had like an Indian house made over them, but not matted: those Graves were more sumptuous than those at Corne-hill, yet we digged none of them up,. but onely viewed them, and went our way; without the Palazado were graves also, but not so costl.""",,,,,,{},Forts
+marker,-5.814505235409476,143.50309075890496,forts,Marker,,"[^¹]
 
 [^¹]: Certain Earthworks of Eastern Massachusetts Author(s): Charles C. Willoughby Source: American Anthropologist , Oct. - Dec., 1911, New Series, Vol. 13, No. 4 (Oct. - Dec., 1911), pp. 566-576 Published by: Wiley on behalf of the American Anthropological Association Stable URL: https://www.jstor.org/stable/659444",,,,,,{},Forts
-marker,-66.55706504127355,16.083793267618365,forts,Marker,,,,,,,,{},
-marker,-76.14822912651843,-157.65378202944026,rock,Mishow,,"The Grey Mare and Mishow were two  boulders said to have been placed in their location by Manitou, the boulders served as an important ritual site used for sacred ceremonies.",,,,,,{},
-marker,-21.412044527198127,139.74608087382487,agriculture,Marker,,,,,,,,{},
-marker,-21.289503937039772,140.11971045535952,wigwam,Marker,,,,,,,,{},
+marker,-66.55706504127355,29.333793267618365,forts,Marker,,,,,,,,{},
+marker,-76.14822912651843,-144.40378202944026,rock,Mishow,,"The Grey Mare and Mishow were two  boulders said to have been placed in their location by Manitou, the boulders served as an important ritual site used for sacred ceremonies.",,,,,,{},
+marker,-21.412044527198127,152.99608087382487,agriculture,Marker,,,,,,,,{},
+marker,-21.289503937039772,153.36971045535952,wigwam,Marker,,,,,,,,{},
 text,-36.65567460185129,75.13381206794301,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-30.55639356496612,86.15906705383222,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-33.683878797602844,87.25830078125001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
