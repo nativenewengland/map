@@ -116,7 +116,7 @@ html, body{
 /* Style for text markers */
 .text-label {
     position: absolute;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0);
     text-align: center;
 }
 .text-label span {
@@ -125,9 +125,11 @@ html, body{
     color: #333;
     display: inline-block;
     letter-spacing: 0;
+    transform-origin: top center;
 }
 .text-label svg {
     overflow: visible;
+    transform-origin: top center;
 }
 
 /* Marker form styles */
