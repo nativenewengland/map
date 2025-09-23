@@ -14,7 +14,7 @@ marker,19.621892180319374,11.645507812500002,mine,Coal Mine,fgfdgd,dfgdfgd,,,,,,
 marker,44.2294565683017,-49.65820312500001,capital,Marker,,,,,,,,{},
 marker,-45.70617928533085,57.01904296875001,agriculture,Marker,,,,,,,,{},
 marker,-65.90165338613072,29.355468750000004,settlement,Marker,,,,,,,,{},Settlements
-marker,-0.13183582116662096,-14.172363281250002,mine,Tantiusques,“to a black deposit between two hills”,was a graphite mine which the local nipmucs used to mine graphite to make paints. ,,,,,,{},
+marker,-0.2636709443366629,-14.172363281250002,mine,Tantiusques,“to a black deposit between two hills”,was a graphite mine which the local nipmucs used to mine graphite to make paints. ,,,,,,{},
 marker,-41.426253195072704,39.57275390625001,agriculture,Marker,,,,,,,,{},
 marker,48.1367666796927,-43.98925781250001,settlement,Marker,,,,,,,,{},
 marker,54.67383096593114,-37.79296875000001,settlement,Marker,,,,,,,,{},
@@ -23,6 +23,7 @@ marker,25.859223554761407,-47.85644531250001,settlement,Marker,,,,,,,,{},
 marker,-62.33941057752869,-31.508789062500004,settlement,Marker,,,,,,,,{},
 marker,-58.97266715450153,87.29736328125001,settlement,Marker,,,,,,,,{},
 marker,-4.981505049328246,77.16796875000001,rock,Marker,,,,,,,,{},
+marker,10.746969318460001,22.148437500000004,settlement,Hassanamesit ,"""Place of Small Stones""",,,,,,,{},
 text,-36.63316209558656,80.48583984375001,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-30.55639356496612,86.15906705383222,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-33.683878797602844,87.25830078125001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -46,7 +47,7 @@ text,-63.05531863767043,85.9142663862525,,,Cappoaquit,,8,0,0,0,,,Geographical Lo
 text,-78.38342792107784,-162.5682401582486,,,Canarsie,Canarsie Lenape homelands in present-day Brooklyn.,24,0,0,0,,,Tribes
 text,-72.76643494811363,-71.73513141636457,,,Corchaug,Corchaug territory on the North Fork of Long Island.,24,0,0,0,,,Tribes
 text,-56.32872090717995,-14.39208984375,,,Eastern Niantic,Eastern Niantic homelands along the Niantic River in Connecticut.,24,0,0,0,,,Tribes
-text,-60.064840460104506,-61.17187500000001,,,Hammonasset,Hammonasset homelands along the central Connecticut shoreline.,24,0,0,0,,,Tribes
+text,-60.08676274626006,-60.60058593750001,,,Hammonasset,Hammonasset homelands along the central Connecticut shoreline.,24,0,0,0,,,Tribes
 text,-69.16724012600773,-49.949353504869585,,,Manhanset,"Manhanset people of Shelter Island, between Long Island's forks.",24,0,0,0,,,Tribes
 text,0.8649062261496583,-73.83331060386206,,,Manissean,Manissean (Manitou) homelands on Block Island.,24,0,0,0,,,Tribes
 text,23.32208001137844,48.16406250000001,,,Massachusett,Massachusett homelands around the Shawmut Peninsula (Boston).,24,0,0,0,,,Tribes
@@ -75,8 +76,10 @@ text,-75.29941037564522,-79.89257812500001,,,Unquachog,Unqua homelands near pres
 text,-12.639589501616912,59.67777346270703,,,Wampanoag,Wampanoag homelands across Plymouth and Bristol counties.,24,0,0,0,,,Tribes
 text,-47.694974341862824,-52.29492187500001,,,Wangunk,Wangunk homelands along the lower Connecticut River.,24,0,0,0,,,Tribes
 text,-60.321147194219755,-105.8073484903449,,,Wappinger,Wappinger homelands spanning southwestern Connecticut and the lower Hudson Valley.,24,0,0,0,,,Tribes
-text,-57.317654218877095,-39.8978063466207,,,Western Niantic,Western Niantic homelands near the mouth of the Connecticut River.,24,0,0,0,,,Tribes
+text,-57.657157596582984,-35.41992187500001,,,Western Niantic,Western Niantic homelands near the mouth of the Connecticut River.,24,0,0,0,,,Tribes
 text,-67.16882345280554,-137.46032059196105,,,Siwanogs,,24,0,0,0,,,Tribes
 text,17.602139123350852,11.975097656250002,,“the place of the hard rock”,Sagatabscot ,is a hill in the southeastern part of Worcester.[^¹],3,0,0,0,,,Mountains
 text,21.105000275382064,13.183593750000002,,Quinsikamon,Quinsigamond,Quinsikamon,7,76,0,0,,,
 text,68.07330474079025,-53.96484375000001,,,Monadnock,"g “place of the surpassing, or",14,0,0,0,,,
+text,12.275598890561733,20.280761718750004,,"""Place of Small Stones""",Hassanamesit ,,7,0,0,0,,,
+text,0.6591651462894632,-15.380859375000002,,“to a black deposit between two hills”,Tantiusques,,5,0,0,0,,,Mountains
