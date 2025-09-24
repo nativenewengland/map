@@ -29,6 +29,13 @@ marker,25.878994400196202,-48.9990234375,agriculture,Marker,,,,,,,,{},
 marker,-24.246964554300924,105.11718750000001,agriculture,Marker,,,,,,,,{},
 marker,41.046216814520655,38.6279296875,seamonster,A'pcinic,,"A'pcinic was a horned and beaked sea monster said to live in Lake Nagog, the monster reportedly dragged a tentacled arms along the shoreline when hungry to find its next meal.",,,,,,{},
 marker,41.77131167976407,37.19970703125001,forts,Nashoba Fort,,,,,,,,{},Forts
+marker,-46.99524110694595,65.45654296875001,settlement,Acoaxet,,,,,,,,{},Settlements
+marker,-30.410781790845878,104.63378906250001,pteroglyph,Bourne Stone,,,,,,,,{},Petroglyph
+marker,-38.13455657705413,87.67089843750001,pteroglyph,Mattapoisett Hand,,,,,,,,{},Petroglyph
+marker,25.46311452925943,-49.17480468750001,agriculture,Marker,,,,,,,,{},
+marker,25.06569718553588,-49.39453125000001,agriculture,Marker,,,,,,,,{},
+marker,25.403584973186703,-50.95458984375001,agriculture,Marker,,,,,,,,{},
+marker,25.740529092773226,-50.95458984375001,agriculture,Marker,,,,,,,,{},
 text,-36.63316209558656,80.48583984375001,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-30.55639356496612,86.15906705383222,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-33.683878797602844,87.25830078125001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -90,5 +97,8 @@ text,12.275598890561733,20.280761718750004,,"""Place of Small Stones""",Hassanam
 text,0.6591651462894632,-15.380859375000002,,“to a black deposit between two hills”,Tantiusques,,5,0,0,0,,,Mountains
 text,42.06560675405716,38.3203125,,,Nagog,,6,0,0,0,,,
 text,31.50362930577303,-61.56738281250001,,,Unquomonk,,7,0,0,0,,,Mountains
-text,-49.95121990866204,57.12890625000001,,"""where the water pours forth""",Sakonnet," 'Sekonnet', 'Seaconnet', 'Sakonnet', 'Saconnet', 'Sakonett', or 'Segonet'.",18,0,0,0,,,Tribes
+text,-50.14874640066278,57.67822265625001,,"""where the water pours forth""",Sakonnet," 'Sekonnet', 'Seaconnet', 'Sakonnet', 'Saconnet', 'Sakonett', or 'Segonet'.",15,0,0,0,,,Tribes
 text,-54.673830965931145,10.217285156250002,," ""land in the middle"" or ""land between""",Ashawague ,,6,0,0,0,,,
+text,-64.73664139557683,-56.29394531250001,,,Massauqunnock,,6,0,0,0,,,Geographical Locations
+text,-63.97596090918337,-62.22656250000001,,,Kuttomquch ,,6,0,0,0,,,Geographical Locations
+text,-58.75680543225761,125.74951171875001,,,Mooskeiakit,,5,0,0,0,,,Geographical Locations
