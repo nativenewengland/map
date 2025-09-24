@@ -116,13 +116,7 @@ html, body{
 /* Style for text markers */
 .text-label {
     position: absolute;
-}
-.text-label__inner {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    transform-origin: top center;
+
     text-align: center;
 }
 .text-label__inner span {
