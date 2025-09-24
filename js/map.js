@@ -1517,20 +1517,23 @@ function addTextLabelToMap(data) {
       '">' +
       data.text +
       '</textPath></text></svg>';
-    textIcon = L.divIcon({ className: 'text-label', html: svgHtml, iconAnchor: [0, 0] });
+    var curvedHtml = '<div class="text-label__inner">' + svgHtml + '</div>';
+    textIcon = L.divIcon({ className: 'text-label', html: curvedHtml, iconAnchor: [0, 0] });
   } else {
+    var spanHtml =
+      '<span style="font-size:' +
+      data.size +
+      'px; letter-spacing:' +
+      data.spacing +
+      'px; transform: rotate(' +
+      (data.angle || 0) +
+      'deg);">' +
+      data.text +
+      '</span>';
+    var straightHtml = '<div class="text-label__inner">' + spanHtml + '</div>';
     textIcon = L.divIcon({
       className: 'text-label',
-      html:
-        '<span style="font-size:' +
-        data.size +
-        'px; letter-spacing:' +
-        data.spacing +
-        'px; transform: rotate(' +
-        (data.angle || 0) +
-        'deg);">' +
-        data.text +
-        '</span>',
+      html: straightHtml,
       iconAnchor: [0, 0],
     });
   }
@@ -2042,20 +2045,23 @@ function editTextForm(labelMarker) {
         '">' +
         text +
         '</textPath></text></svg>';
-      textIcon = L.divIcon({ className: 'text-label', html: svgHtml, iconAnchor: [0, 0] });
+      var curvedHtml = '<div class="text-label__inner">' + svgHtml + '</div>';
+      textIcon = L.divIcon({ className: 'text-label', html: curvedHtml, iconAnchor: [0, 0] });
     } else {
+      var spanHtml =
+        '<span style="font-size:' +
+        size +
+        'px; letter-spacing:' +
+        spacing +
+        'px; transform: rotate(' +
+        angle +
+        'deg);">' +
+        text +
+        '</span>';
+      var straightHtml = '<div class="text-label__inner">' + spanHtml + '</div>';
       textIcon = L.divIcon({
         className: 'text-label',
-        html:
-          '<span style="font-size:' +
-          size +
-          'px; letter-spacing:' +
-          spacing +
-          'px; transform: rotate(' +
-          angle +
-          'deg);">' +
-          text +
-          '</span>',
+        html: straightHtml,
         iconAnchor: [0, 0],
       });
     }

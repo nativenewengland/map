@@ -116,18 +116,26 @@ html, body{
 /* Style for text markers */
 .text-label {
     position: absolute;
-    transform: translate(-50%, -50%);
+}
+.text-label__inner {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transform-origin: top center;
     text-align: center;
 }
-.text-label span {
+.text-label__inner span {
     font-family: 'Roboto', 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
     font-weight: bold;
     color: #333;
     display: inline-block;
     letter-spacing: 0;
+    transform-origin: top center;
 }
-.text-label svg {
+.text-label__inner svg {
     overflow: visible;
+    transform-origin: top center;
 }
 
 /* Marker form styles */
