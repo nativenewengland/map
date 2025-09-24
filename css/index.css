@@ -116,10 +116,10 @@ html, body{
 /* Style for text markers */
 .text-label {
     position: absolute;
-    transform: translate(-50%, 0);
+
     text-align: center;
 }
-.text-label span {
+.text-label__inner span {
     font-family: 'Roboto', 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
     font-weight: bold;
     color: #333;
@@ -127,7 +127,7 @@ html, body{
     letter-spacing: 0;
     transform-origin: top center;
 }
-.text-label svg {
+.text-label__inner svg {
     overflow: visible;
     transform-origin: top center;
 }
