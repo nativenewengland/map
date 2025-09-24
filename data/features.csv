@@ -38,6 +38,7 @@ marker,25.403584973186703,-50.95458984375001,agriculture,Marker,,,,,,,,{},
 marker,25.740529092773226,-50.95458984375001,agriculture,Marker,,,,,,,,{},
 marker,-52.25470880113082,37.57324218750001,mine,Coojoot,Cajoot Cajout ,Coojoot was a graphite mine used by the Narragansett from the Woodland era until 1657,,,,,,{},Mines/Quarries
 marker,-51.8086147519852,39.28710937500001,agriculture,Marker,,,,,,,,{},
+marker,49.009050809382074,87.18750000000001,settlement,Chebaco,,,,,,,,{},Settlements
 text,-36.63316209558656,80.48583984375001,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-30.55639356496612,86.15906705383222,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-33.683878797602844,87.25830078125001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -105,3 +106,4 @@ text,-64.73664139557683,-56.29394531250001,,,Massauqunnock,,6,0,0,0,,,Geographic
 text,-63.97596090918337,-62.22656250000001,,,Kuttomquch ,,6,0,0,0,,,Geographical Locations
 text,-58.75680543225761,125.74951171875001,,,Mooskeiakit,,5,0,0,0,,,Geographical Locations
 text,33.284619968887675,-21.90673828125,,"""marshy, damp bog,"" or ""a bulging cove or pond.""",Pottapaug,Pottapogue Pottapoug,6,0,0,0,,,Bodies of Water
+text,49.724479188712984,86.08886718750001,,,Chebaco,,6,0,0,0,,,Settlements
