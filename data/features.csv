@@ -24,6 +24,11 @@ marker,-62.33941057752869,-31.508789062500004,settlement,Marker,,,,,,,,{},
 marker,-58.97266715450153,87.29736328125001,settlement,Marker,,,,,,,,{},
 marker,-4.981505049328246,77.16796875000001,rock,Marker,,,,,,,,{},
 marker,10.746969318460001,22.148437500000004,settlement,Hassanamesit ,"""Place of Small Stones""",,,,,,,{},
+marker,18.95824648598139,36.18896484375001,agriculture,Marker,,,,,,,,{},
+marker,25.878994400196202,-48.9990234375,agriculture,Marker,,,,,,,,{},
+marker,-24.246964554300924,105.11718750000001,agriculture,Marker,,,,,,,,{},
+marker,41.046216814520655,38.6279296875,seamonster,A'pcinic,,"A'pcinic was a horned and beaked sea monster said to live in Lake Nagog, the monster reportedly dragged a tentacled arms along the shoreline when hungry to find its next meal.",,,,,,{},
+marker,41.77131167976407,37.19970703125001,forts,Nashoba Fort,,,,,,,,{},Forts
 text,-36.63316209558656,80.48583984375001,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-30.55639356496612,86.15906705383222,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-33.683878797602844,87.25830078125001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -83,3 +88,7 @@ text,21.105000275382064,13.183593750000002,,Quinsikamon,Quinsigamond,Quinsikamon
 text,68.07330474079025,-53.96484375000001,,,Monadnock,"g “place of the surpassing, or",14,0,0,0,,,
 text,12.275598890561733,20.280761718750004,,"""Place of Small Stones""",Hassanamesit ,,7,0,0,0,,,
 text,0.6591651462894632,-15.380859375000002,,“to a black deposit between two hills”,Tantiusques,,5,0,0,0,,,Mountains
+text,42.06560675405716,38.3203125,,,Nagog,,6,0,0,0,,,
+text,31.50362930577303,-61.56738281250001,,,Unquomonk,,7,0,0,0,,,Mountains
+text,-49.95121990866204,57.12890625000001,,"""where the water pours forth""",Sakonnet," 'Sekonnet', 'Seaconnet', 'Sakonnet', 'Saconnet', 'Sakonett', or 'Segonet'.",18,0,0,0,,,Tribes
+text,-54.673830965931145,10.217285156250002,," ""land in the middle"" or ""land between""",Ashawague ,,6,0,0,0,,,
