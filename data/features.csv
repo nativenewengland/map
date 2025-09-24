@@ -1,6 +1,6 @@
 type,lat,lng,icon,name/subheader,subheader/text,description,size,angle,spacing,curve,coords,style,overlay
 marker,-30.3731045201212,76.22521225521355,settlement,dsfds,,sdfsdf,,,,,,{},
-marker,-21.80030805097259,44.89013671875001,settlement,Marker,,,,,,,,{},
+marker,-21.80030805097259,44.89013671875001,settlement,Pawtucket,,,,,,,,{},Settlements
 marker,-76.97024507077676,-90.19775390625001,settlement,Marker,,,,,,,,{},
 marker,-0.48337991318247436,135.2636894644682,settlement,Marker,,,,,,,,{},Settlements
 marker,-5.265861413407452,143.45855110145004,settlement,Marker,,,,,,,,{},Settlements
@@ -11,7 +11,7 @@ marker,-76.14822912651843,-144.40378202944026,rock,Mishow,,"The Grey Mare and Mi
 marker,-21.412044527198127,152.99608087382487,agriculture,Marker,,,,,,,,{},
 marker,-21.289503937039772,153.36971045535952,wigwam,Marker,,,,,,,,{},
 marker,19.621892180319374,11.645507812500002,mine,Coal Mine,fgfdgd,dfgdfgd,,,,,,{},Mines/Quarries
-marker,44.2294565683017,-49.65820312500001,capital,Marker,,,,,,,,{},
+marker,44.2294565683017,-49.65820312500001,capital,Pocumtuck,,,,,,,,{},
 marker,-45.70617928533085,57.01904296875001,agriculture,Marker,,,,,,,,{},
 marker,-65.90165338613072,29.355468750000004,settlement,Marker,,,,,,,,{},Settlements
 marker,-0.2636709443366629,-14.172363281250002,mine,Tantiusques,“to a black deposit between two hills”,was a graphite mine which the local nipmucs used to mine graphite to make paints. ,,,,,,{},
@@ -36,6 +36,8 @@ marker,25.46311452925943,-49.17480468750001,agriculture,Marker,,,,,,,,{},
 marker,25.06569718553588,-49.39453125000001,agriculture,Marker,,,,,,,,{},
 marker,25.403584973186703,-50.95458984375001,agriculture,Marker,,,,,,,,{},
 marker,25.740529092773226,-50.95458984375001,agriculture,Marker,,,,,,,,{},
+marker,-52.25470880113082,37.57324218750001,mine,Coojoot,Cajoot Cajout ,Coojoot was a graphite mine used by the Narragansett from the Woodland era until 1657,,,,,,{},Mines/Quarries
+marker,-51.8086147519852,39.28710937500001,agriculture,Marker,,,,,,,,{},
 text,-36.63316209558656,80.48583984375001,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-30.55639356496612,86.15906705383222,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-33.683878797602844,87.25830078125001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -63,7 +65,7 @@ text,-60.08676274626006,-60.60058593750001,,,Hammonasset,Hammonasset homelands a
 text,-69.16724012600773,-49.949353504869585,,,Manhanset,"Manhanset people of Shelter Island, between Long Island's forks.",24,0,0,0,,,Tribes
 text,0.8649062261496583,-73.83331060386206,,,Manissean,Manissean (Manitou) homelands on Block Island.,24,0,0,0,,,Tribes
 text,23.32208001137844,48.16406250000001,,,Massachusett,Massachusett homelands around the Shawmut Peninsula (Boston).,24,0,0,0,,,Tribes
-text,-35.87247660571175,-42.5197747033127,,,Mashantucket Pequot,Mashantucket Pequot homelands near the Pawcatuck River.,24,0,0,0,,,Tribes
+text,-39.368279149160124,-39.46289062500001,,,Mashantucket Pequot,Mashantucket Pequot homelands near the Pawcatuck River.,24,0,0,0,,,Tribes
 text,-79.65392213419594,-146.93163540003792,,,Matinecock,Matinecock homelands on Long Island's north shore.,24,0,0,0,,,Tribes
 text,-76.01582449107187,-109.50898851393923,,,Merrick,Merrick (Merokee) territory on Long Island's south shore.,24,0,0,0,,,Tribes
 text,-72.76619493972098,-36.42071459256301,,,Montaukett,Montaukett homelands at the eastern tip of Long Island.,24,0,0,0,,,Tribes
@@ -102,3 +104,4 @@ text,-54.673830965931145,10.217285156250002,," ""land in the middle"" or ""land 
 text,-64.73664139557683,-56.29394531250001,,,Massauqunnock,,6,0,0,0,,,Geographical Locations
 text,-63.97596090918337,-62.22656250000001,,,Kuttomquch ,,6,0,0,0,,,Geographical Locations
 text,-58.75680543225761,125.74951171875001,,,Mooskeiakit,,5,0,0,0,,,Geographical Locations
+text,33.284619968887675,-21.90673828125,,"""marshy, damp bog,"" or ""a bulging cove or pond.""",Pottapaug,Pottapogue Pottapoug,6,0,0,0,,,Bodies of Water
