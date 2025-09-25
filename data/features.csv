@@ -3,7 +3,7 @@ marker,-30.3731045201212,76.22521225521355,settlement,dsfds,,sdfsdf,,,,,,{},
 marker,-21.80030805097259,44.89013671875001,settlement,Pawtucket,,,,,,,,{},Settlements
 marker,-76.97024507077676,-90.19775390625001,settlement,Marker,,,,,,,,{},
 marker,-0.48337991318247436,135.2636894644682,settlement,Marker,,,,,,,,{},Settlements
-marker,-5.265861413407452,143.45855110145004,settlement,Marker,,,,,,,,{},Settlements
+marker,-5.309766171943678,143.41552734375003,settlement,Marker,,,,,,,,{},Settlements
 marker,-20.015381961202028,152.51259230309853,forts,Unknown Fort or Palisade Village,,"Upon arrival in Cape Cod, the Pilgrims discovered the ruins of a walled fortress or palisaded village filled with remains of local Nauset who had died from disease near the mouth of Pamet River, at Truro. Unaware of its native origins, the pilgrims assumed the location to be of European Christian construction and falsely mistook it as a graveyard. In the Pilgrims Journal written by  George Morton, William Bradford, and Edward Winslow the following is written.""We found a great burying place, one part whereof was encompassed with a large Palazado, like a Church-yard, with yong spires foure or five yards long, set as close one by another as they could two or three foot in the ground, within it was full of Graves, some bigger, and some lesse, some were also paled about, & others had like an Indian house made over them, but not matted: those Graves were more sumptuous than those at Corne-hill, yet we digged none of them up,. but onely viewed them, and went our way; without the Palazado were graves also, but not so costl.""",,,,,,{},Forts
 marker,-5.814505235409476,143.50309075890496,forts,Marker,,[^¹] dfgdfgdf g,,,,,,{},
 marker,-66.57448342017541,29.157714843750004,forts,Marker,,,,,,,,{},
@@ -53,14 +53,14 @@ marker,-75.13514201950775,-37.41943359375001,settlement,Marker,,,,,,,,{},Settlem
 marker,-75.53013598609306,-30.498046875000004,settlement,Marker,,,,,,,,{},Settlements
 marker,-75.70478638174053,-32.60742187500001,agriculture,Marker,,,,,,,,{},
 marker,-74.85641315279072,-27.114257812500004,agriculture,Marker,,,,,,,,{},
-marker,-71.69129271863997,-19.973144531250004,settlement,Marker,,,,,,,,{},Settlements
+marker,-71.6774828543785,-19.951171875000004,settlement,Marker,,,,,,,,{},Settlements
 marker,-71.89040942842333,-21.467285156250004,settlement,Marker,,,,,,,,{},Settlements
-marker,-71.89040942842333,-19.731445312500004,settlement,Marker,,,,,,,,{},Settlements
-marker,-71.335983102213,-15.007324218750002,settlement,Marker,,,,,,,,{},Settlements
-marker,-71.7808121055538,-16.699218750000004,settlement,Marker,,,,,,,,{},Settlements
-marker,-71.91088787611527,-14.831542968750002,settlement,Marker,,,,,,,,{},Settlements
+marker,-71.86306997499312,-19.753417968750004,settlement,Marker,,,,,,,,{},Settlements
+marker,-71.32191469801221,-15.029296875000002,settlement,Marker,,,,,,,,{},Settlements
+marker,-71.76019138754776,-16.721191406250004,settlement,Marker,,,,,,,,{},Settlements
+marker,-71.91088787611527,-14.765625000000002,settlement,Marker,,,,,,,,{},Settlements
 marker,-72.3424643905499,-13.886718750000002,settlement,Marker,,,,,,,,{},Settlements
-marker,-72.6530383592017,-16.984863281250004,settlement,Marker,,,,,,,,{},Settlements
+marker,-72.6530383592017,-16.918945312500004,settlement,Marker,,,,,,,,{},Settlements
 marker,-75.68306846179547,-122.49755859375001,settlement,Marker,,,,,,,,{},
 marker,-75.25864871532573,-125.61767578125001,settlement,Marker,,,,,,,,{},
 marker,-75.85591106616448,-124.67285156250001,settlement,Marker,,,,,,,,{},
@@ -136,7 +136,7 @@ text,-67.16882345280554,-137.46032059196105,,,Siwanogs,,24,0,0,0,,,Tribes
 text,17.602139123350852,11.975097656250002,,“the place of the hard rock”,Sagatabscot ,is a hill in the southeastern part of Worcester.[^¹],3,0,0,0,,,Mountains
 text,21.105000275382064,13.183593750000002,,Quinsikamon,Quinsigamond,Quinsikamon,7,76,0,0,,,
 text,68.07330474079025,-53.96484375000001,,,Monadnock,"g “place of the surpassing, or",14,0,0,0,,,
-text,12.275598890561733,20.280761718750004,,"""Place of Small Stones""",Hassanamesit ,,7,0,0,0,,,
+text,12.189703804004086,20.214843750000004,,"""Place of Small Stones""",Hassanamesit ,,7,0,0,0,,,
 text,0.6591651462894632,-15.380859375000002,,“to a black deposit between two hills”,Tantiusques,,5,0,0,0,,,Mountains
 text,42.06560675405716,38.3203125,,,Nagog,,6,0,0,0,,,
 text,31.50362930577303,-61.56738281250001,,,Unquomonk,,7,0,0,0,,,Mountains
@@ -146,7 +146,7 @@ text,-64.73664139557683,-56.29394531250001,,,Massauqunnock,,6,0,0,0,,,Geographic
 text,-63.97596090918337,-62.22656250000001,,,Kuttomquch ,,6,0,0,0,,,Geographical Locations
 text,-58.75680543225761,125.74951171875001,,,Mooskeiakit,,5,0,0,0,,,Geographical Locations
 text,33.284619968887675,-21.90673828125,,"""marshy, damp bog,"" or ""a bulging cove or pond.""",Pottapaug,Pottapogue Pottapoug,6,0,0,0,,,Bodies of Water
-text,49.724479188712984,86.08886718750001,,,Chebaco,,6,0,0,0,,,Settlements
+text,49.62494564650146,86.11083984375001,,,Chebaco,,6,0,0,0,,,Settlements
 text,-74.1040150160411,-36.62841796875001,,,Towd,,4,0,0,0,,,
 text,-74.06786624952264,-35.09033203125001,,,Mattock,,4,0,0,0,,,
 text,-74.44935750063424,-35.31005859375001,,,Missipaug,,4,0,0,0,,,
@@ -162,3 +162,5 @@ text,-77.32698957951607,-140.42724609375003,,,Madnank,,5,0,0,0,,,
 text,-76.03201380959756,-45.28564453125,,,Tianna,,4,35,0,0,,,
 text,-76.80575496970872,-50.42724609375001,,,Achabachawesuck,,4,0,0,0,,,
 text,-77.05419428289703,-51.19628906250001,,,Quogue,,4,0,0,0,,,
+text,-4.324501493019203,142.42675781250003,,,Pamet,,7,0,0,0,,,Settlements
+text,0.615222552406841,133.83544921875003,,,Meeshawn,,7,0,0,0,,,Settlements
