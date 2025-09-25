@@ -117,13 +117,16 @@ html, body{
 .text-label {
     position: absolute;
 
+    width: auto !important;
+    height: auto !important;
     text-align: center;
 }
 .text-label__inner span {
     font-family: 'Roboto', 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
     font-weight: bold;
     color: #333;
-    display: inline-block;
+    display: block;
+    line-height: 1;
     letter-spacing: 0;
     transform-origin: top center;
 }
