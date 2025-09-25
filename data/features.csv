@@ -39,6 +39,46 @@ marker,25.740529092773226,-50.95458984375001,agriculture,Marker,,,,,,,,{},
 marker,-52.25470880113082,37.57324218750001,mine,Coojoot,Cajoot Cajout ,Coojoot was a graphite mine used by the Narragansett from the Woodland era until 1657,,,,,,{},Mines/Quarries
 marker,-51.8086147519852,39.28710937500001,agriculture,Marker,,,,,,,,{},
 marker,49.009050809382074,87.18750000000001,settlement,Chebaco,,,,,,,,{},Settlements
+marker,-71.7739410364347,-28.278808593750004,settlement,Marker,,,,,,,,{},Settlements
+marker,-72.24891676830892,-27.004394531250004,settlement,Marker,,,,,,,,{},Settlements
+marker,-72.57424976385356,-23.26904296875,settlement,Marker,,,,,,,,{},Settlements
+marker,-70.12542991464234,4.855957031250001,settlement,Marker,,,,,,,,{},Settlements
+marker,-74.45524706208214,-34.34326171875001,settlement,Marker,,,,,,,,{},Settlements
+marker,-73.07384351277217,-31.552734375000004,settlement,Marker,,,,,,,,{},Settlements
+marker,-75.66675882465918,-42.42919921875001,settlement,Marker,,,,,,,,{},Settlements
+marker,-75.85591106616448,-42.64892578125001,settlement,Marker,,,,,,,,{},Settlements
+marker,-76.03201380959756,-42.20947265625,settlement,Marker,,,,,,,,{},Settlements
+marker,-76.33633385775283,-42.5390625,settlement,Marker,,,,,,,,{},Settlements
+marker,-75.13514201950775,-37.41943359375001,settlement,Marker,,,,,,,,{},Settlements
+marker,-75.53013598609306,-30.498046875000004,settlement,Marker,,,,,,,,{},Settlements
+marker,-75.70478638174053,-32.60742187500001,agriculture,Marker,,,,,,,,{},
+marker,-74.85641315279072,-27.114257812500004,agriculture,Marker,,,,,,,,{},
+marker,-71.69129271863997,-19.973144531250004,settlement,Marker,,,,,,,,{},Settlements
+marker,-71.89040942842333,-21.467285156250004,settlement,Marker,,,,,,,,{},Settlements
+marker,-71.89040942842333,-19.731445312500004,settlement,Marker,,,,,,,,{},Settlements
+marker,-71.335983102213,-15.007324218750002,settlement,Marker,,,,,,,,{},Settlements
+marker,-71.7808121055538,-16.699218750000004,settlement,Marker,,,,,,,,{},Settlements
+marker,-71.91088787611527,-14.831542968750002,settlement,Marker,,,,,,,,{},Settlements
+marker,-72.3424643905499,-13.886718750000002,settlement,Marker,,,,,,,,{},Settlements
+marker,-72.6530383592017,-16.984863281250004,settlement,Marker,,,,,,,,{},Settlements
+marker,-75.68306846179547,-122.49755859375001,settlement,Marker,,,,,,,,{},
+marker,-75.25864871532573,-125.61767578125001,settlement,Marker,,,,,,,,{},
+marker,-75.85591106616448,-124.67285156250001,settlement,Marker,,,,,,,,{},
+marker,-75.05035357407698,-118.95996093750001,settlement,Marker,,,,,,,,{},
+marker,-75.01630602063717,-116.87255859375001,settlement,Marker,,,,,,,,{},
+marker,-75.47513069090053,-116.96044921875,settlement,Marker,,,,,,,,{},
+marker,-76.44490733708945,-44.71435546875,settlement,Marker,,,,,,,,{},Settlements
+marker,-76.14295846479848,-45.966796875,settlement,Marker,,,,,,,,{},Settlements
+marker,-76.58325853729983,-46.51611328125,settlement,Marker,,,,,,,,{},Settlements
+marker,-76.8207925254374,-48.69140625,settlement,Marker,,,,,,,,{},Settlements
+marker,-77.03941844273028,-49.37255859375001,settlement,Marker,,,,,,,,{},Settlements
+marker,-77.0836963067392,-50.42724609375001,settlement,Marker,,,,,,,,{},Settlements
+marker,-75.30331101068566,-47.06542968750001,settlement,Marker,,,,,,,,{},Settlements
+marker,-74.83918324990893,-55.4150390625,settlement,Marker,,,,,,,,{},Settlements
+marker,-75.67763393603113,-56.6455078125,settlement,Marker,,,,,,,,{},Settlements
+marker,-75.53562529096112,-68.88427734375001,settlement,Marker,,,,,,,,{},Settlements
+marker,-74.74696664174384,-70.09277343750001,settlement,Marker,,,,,,,,{},Settlements
+marker,-75.18017014726308,-67.25830078125001,settlement,Marker,,,,,,,,{},Settlements
 text,-36.63316209558656,80.48583984375001,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-30.55639356496612,86.15906705383222,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-33.683878797602844,87.25830078125001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -107,3 +147,18 @@ text,-63.97596090918337,-62.22656250000001,,,Kuttomquch ,,6,0,0,0,,,Geographical
 text,-58.75680543225761,125.74951171875001,,,Mooskeiakit,,5,0,0,0,,,Geographical Locations
 text,33.284619968887675,-21.90673828125,,"""marshy, damp bog,"" or ""a bulging cove or pond.""",Pottapaug,Pottapogue Pottapoug,6,0,0,0,,,Bodies of Water
 text,49.724479188712984,86.08886718750001,,,Chebaco,,6,0,0,0,,,Settlements
+text,-74.1040150160411,-36.62841796875001,,,Towd,,4,0,0,0,,,
+text,-74.06786624952264,-35.09033203125001,,,Mattock,,4,0,0,0,,,
+text,-74.44935750063424,-35.31005859375001,,,Missipaug,,4,0,0,0,,,
+text,-72.82256413229331,-31.442871093750004,,,Noyack,,4,0,0,0,,,
+text,-75.49165372814439,-44.09912109375,,,Niamuck,,4,0,0,0,,,
+text,-76.07966773378998,-43.90136718750001,,,Ponquogue,,4,0,0,0,,,
+text,-75.1238641082958,-38.38623046875001,,,Seponack,,4,0,0,0,,,
+text,-75.53013598609306,-32.98095703125001,,,Wickapogue,,4,0,0,0,,,
+text,-75.1633002462206,-123.02490234375001,,,Sewanhaka,,5,0,0,0,,,
+text,-75.85054080189762,-121.02539062500001,,,Sagamore,,6,45,0,0,,,
+text,-74.5959455601744,-119.17968750000001,,,Caumsett,,7,0,0,0,,,
+text,-77.32698957951607,-140.42724609375003,,,Madnank,,5,0,0,0,,,
+text,-76.03201380959756,-45.28564453125,,,Tianna,,4,35,0,0,,,
+text,-76.80575496970872,-50.42724609375001,,,Achabachawesuck,,4,0,0,0,,,
+text,-77.05419428289703,-51.19628906250001,,,Quogue,,4,0,0,0,,,
