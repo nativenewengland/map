@@ -3,7 +3,7 @@ marker,-30.3731045201212,76.22521225521355,settlement,dsfds,,sdfsdf,,,,,,{},
 marker,-21.80030805097259,44.89013671875001,settlement,Pawtucket,,,,,,,,{},Settlements
 marker,-76.97024507077676,-90.19775390625001,settlement,Marker,,,,,,,,{},
 marker,-0.48337991318247436,135.2636894644682,settlement,Marker,,,,,,,,{},Settlements
-marker,-5.309766171943678,143.41552734375003,settlement,Marker,,,,,,,,{},Settlements
+marker,-4.4997617436205255,143.10791015625003,settlement,Marker,,,,,,,,{},Settlements
 marker,-20.015381961202028,152.51259230309853,forts,Unknown Fort or Palisade Village,,"Upon arrival in Cape Cod, the Pilgrims discovered the ruins of a walled fortress or palisaded village filled with remains of local Nauset who had died from disease near the mouth of Pamet River, at Truro. Unaware of its native origins, the pilgrims assumed the location to be of European Christian construction and falsely mistook it as a graveyard. In the Pilgrims Journal written by  George Morton, William Bradford, and Edward Winslow the following is written.""We found a great burying place, one part whereof was encompassed with a large Palazado, like a Church-yard, with yong spires foure or five yards long, set as close one by another as they could two or three foot in the ground, within it was full of Graves, some bigger, and some lesse, some were also paled about, & others had like an Indian house made over them, but not matted: those Graves were more sumptuous than those at Corne-hill, yet we digged none of them up,. but onely viewed them, and went our way; without the Palazado were graves also, but not so costl.""",,,,,,{},Forts
 marker,-5.814505235409476,143.50309075890496,forts,Marker,,[^¹] dfgdfgdf g,,,,,,{},
 marker,-66.57448342017541,29.157714843750004,forts,Marker,,,,,,,,{},
@@ -79,6 +79,26 @@ marker,-75.67763393603113,-56.6455078125,settlement,Marker,,,,,,,,{},Settlements
 marker,-75.53562529096112,-68.88427734375001,settlement,Marker,,,,,,,,{},Settlements
 marker,-74.74696664174384,-70.09277343750001,settlement,Marker,,,,,,,,{},Settlements
 marker,-75.18017014726308,-67.25830078125001,settlement,Marker,,,,,,,,{},Settlements
+marker,-13.902075852500483,72.57568359375001,forts,Marker,,,,,,,,{},
+marker,34.97600151317588,63.30322265625001,forts,Marker,,,,,,,,{},
+marker,40.78054143186033,80.02441406250001,forts,Marker,,,,,,,,{},
+marker,41.492120839687786,82.88085937500001,forts,Marker,,,,,,,,{},
+marker,42.74701217318067,79.6728515625,forts,Marker,,,,,,,,{},
+marker,39.35129035526705,80.52978515625001,forts,Marker,,,,,,,,{},
+marker,58.56252272853734,65.96191406250001,settlement,Marker,,,,,,,,{},Settlements
+marker,60.08676274626006,67.93945312500001,settlement,Marker,,,,,,,,{},Settlements
+marker,62.103882522897884,77.60742187500001,settlement,Marker,,,,,,,,{},Settlements
+marker,59.31076795603884,74.17968750000001,settlement,Marker,,,,,,,,{},Settlements
+marker,58.06625598088457,83.03466796875001,settlement,Marker,,,,,,,,{},Settlements
+marker,53.067626642387374,90.615234375,settlement,Marker,,,,,,,,{},Settlements
+marker,50.064191736659104,96.30615234375001,settlement,Marker,,,,,,,,{},Settlements
+marker,47.30903424774781,89.75830078125001,settlement,Marker,,,,,,,,{},Settlements
+marker,47.62097541515849,80.77148437500001,settlement,Marker,,,,,,,,{},Settlements
+marker,45.213003555993964,78.11279296875001,settlement,Marker,,,,,,,,{},Settlements
+marker,-65.07213008560697,-85.49560546875001,settlement,Marker,,,,,,,,{},Settlements
+marker,-65.62202261510642,-90.02197265625,settlement,Marker,,,,,,,,{},Settlements
+marker,-62.73460087706358,-72.81738281250001,settlement,Marker,,,,,,,,{},Settlements
+marker,-59.265880628258095,-12.041015625000002,settlement,Marker,,,,,,,,{},
 text,-36.63316209558656,80.48583984375001,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-30.55639356496612,86.15906705383222,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-33.683878797602844,87.25830078125001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -162,5 +182,8 @@ text,-77.32698957951607,-140.42724609375003,,,Madnank,,5,0,0,0,,,
 text,-76.03201380959756,-45.28564453125,,,Tianna,,4,35,0,0,,,
 text,-76.80575496970872,-50.42724609375001,,,Achabachawesuck,,4,0,0,0,,,
 text,-77.05419428289703,-51.19628906250001,,,Quogue,,4,0,0,0,,,
-text,-4.324501493019203,142.42675781250003,,,Pamet,,7,0,0,0,,,Settlements
+text,-3.4037578795775887,142.07519531250003,,,Pamet,,7,0,0,0,,,Settlements
 text,0.615222552406841,133.83544921875003,,,Meeshawn,,7,0,0,0,,,Settlements
+text,-2.7016350479445204,144.44824218750003,,“a place of springs.”,Tashmuit,The highlands of Pamet ,6,45,0,0,,,Geographical Locations
+text,-6.7737162387535,144.49218750000003,,,Pamet,,13,0,0,0,,,Territories
+text,-45.93587062119053,50.42724609375001,,,Aquidnet,,11,0,0,0,,,Geographical Locations
