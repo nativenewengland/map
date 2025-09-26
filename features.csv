@@ -127,34 +127,6 @@ marker,-49.65340458843789,-88.94531250000001,settlement,Marker,,,,,,,,{},Settlem
 marker,-33.46810795527895,-19.577636718750004,settlement,Marker,,,,,,,,{},Settlements
 marker,-17.308687886770024,81.40869140625001,settlement,Marker,,,,,,,,{},Settlements
 marker,-11.092165893502,98.32763671875001,settlement,Patuxet,,,,,,,,{},Settlements
-marker,55.99838095535963,-96.064453125,settlement,Hoosic,,,,,,,,{},Settlements
-marker,-80.95264429702812,-162.42187500000003,settlement,Nayack,,,,,,,,{},Settlements
-marker,11.005904459659451,-109.40185546875001,settlement,Marker,,,,,,,,{},Settlements
-marker,13.966054081318314,-107.86376953125001,settlement,Marker,,,,,,,,{},Settlements
-marker,22.69512018496571,-104.91943359375001,settlement,Marker,,,,,,,,{},Settlements
-marker,-16.99375545289455,-116.27929687500001,settlement,Marker,,,,,,,,{},Settlements
-marker,-58.859223547066584,-2.0874023437500004,settlement,Marker,,,,,,,,{},Settlements
-marker,-60.29429873400916,-4.042968750000001,settlement,Marker,,,,,,,,{},Settlements
-marker,-56.860985750644886,3.9111328125000004,settlement,Marker,,,,,,,,{},Settlements
-marker,-59.987997631212224,3.7133789062500004,settlement,Marker,,,,,,,,{},Settlements
-marker,-59.05185617891852,6.174316406250001,settlement,Marker,,,,,,,,{},Settlements
-marker,-40.06125658140473,-18.215332031250004,settlement,Marker,,,,,,,,{},Settlements
-marker,36.03133177633189,21.071777343750004,settlement,Marker,,,,,,,,{},Settlements
-marker,51.33061163769853,47.32910156250001,settlement,Marker,,,,,,,,{},Settlements
-marker,47.249406957888446,50.64697265625001,settlement,Marker,,,,,,,,{},Settlements
-marker,43.43696596521823,51.70166015625001,settlement,Marker,,,,,,,,{},Settlements
-marker,40.27952566881291,56.05224609375001,settlement,Marker,,,,,,,,{},Settlements
-marker,27.0982539061379,38.03466796875001,settlement,Marker,,,,,,,,{},Settlements
-marker,24.32707654001865,31.113281250000004,settlement,Marker,,,,,,,,{},Settlements
-marker,-14.41340016520608,10.9423828125,settlement,Marker,,,,,,,,{},Settlements
-marker,-11.759814674441921,8.613281250000002,settlement,Marker,,,,,,,,{},Settlements
-marker,-5.725311447610142,1.0766601562500002,settlement,Marker,,,,,,,,{},Settlements
-marker,-15.982453522973495,21.4453125,settlement,Marker,,,,,,,,{},Settlements
-marker,29.516110386062277,-12.502441406250002,settlement,Marker,,,,,,,,{},Settlements
-marker,28.091366281406945,-13.623046875,settlement,Marker,,,,,,,,{},Settlements
-marker,27.352252938063845,-14.611816406250002,settlement,Marker,,,,,,,,{},Settlements
-marker,28.70986084394286,60.07324218750001,settlement,Marker,,,,,,,,{},Settlements
-marker,23.221154981846556,58.82080078125001,settlement,Marker,,,,,,,,{},Settlements
 text,-36.63316209558656,80.48583984375001,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-30.55639356496612,86.15906705383222,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-33.683878797602844,87.25830078125001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -210,7 +182,7 @@ text,-60.321147194219755,-105.8073484903449,,,Wappinger,Wappinger homelands span
 text,-57.657157596582984,-35.41992187500001,,,Western Niantic,Western Niantic homelands near the mouth of the Connecticut River.,24,0,0,0,,,Tribes
 text,-67.16882345280554,-137.46032059196105,,,Siwanogs,,24,0,0,0,,,Tribes
 text,17.602139123350852,11.975097656250002,,“the place of the hard rock”,Sagatabscot ,is a hill in the southeastern part of Worcester.[^¹],3,0,0,0,,,Mountains
-text,20.50935458871459,13.425292968750002,,Quinsikamon,Quinsigamond,Quinsikamon,7,76,0,0,,,
+text,21.105000275382064,13.183593750000002,,Quinsikamon,Quinsigamond,Quinsikamon,7,76,0,0,,,
 text,68.07330474079025,-53.96484375000001,,,Monadnock,"g “place of the surpassing, or",14,0,0,0,,,
 text,12.189703804004086,20.214843750000004,,"""Place of Small Stones""",Hassanamesit ,,7,0,0,0,,,
 text,0.6591651462894632,-15.380859375000002,,“to a black deposit between two hills”,Tantiusques,,5,0,0,0,,,Mountains
@@ -244,5 +216,3 @@ text,-2.7016350479445204,144.44824218750003,,“a place of springs.”,Tashmuit,
 text,-6.7737162387535,144.49218750000003,,,Pamet,,13,0,0,0,,,Territories
 text,-45.93587062119053,50.42724609375001,,,Aquidnet,,11,0,0,0,,,Geographical Locations
 text,-54.87660665410869,98.17382812500001,,,NOEPE,,32,0,0,0,,,
-text,-80.75355618944563,-163.38867187500003,,,Nayack ,,7,0,0,0,,,Settlements
-text,-79.56850599323725,-161.82861328125003,,"""Nut Island""",Pagganck,,4,0,0,0,,,Geographical Locations
