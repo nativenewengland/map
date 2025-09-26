@@ -137,7 +137,7 @@ marker,-58.859223547066584,-2.0874023437500004,settlement,Marker,,,,,,,,{},Settl
 marker,-60.29429873400916,-4.042968750000001,settlement,Marker,,,,,,,,{},Settlements
 marker,-56.860985750644886,3.9111328125000004,settlement,Marker,,,,,,,,{},Settlements
 marker,-59.987997631212224,3.7133789062500004,settlement,Marker,,,,,,,,{},Settlements
-marker,-59.05185617891852,6.174316406250001,settlement,Marker,,,,,,,,{},Settlements
+marker,-42.05655803579488,26.283073425292972,settlement,Marker,,,,,,,,{},Settlements
 marker,-40.06125658140473,-18.215332031250004,settlement,Marker,,,,,,,,{},Settlements
 marker,36.03133177633189,21.071777343750004,settlement,Marker,,,,,,,,{},Settlements
 marker,51.33061163769853,47.32910156250001,settlement,Marker,,,,,,,,{},Settlements
@@ -208,7 +208,7 @@ text,-12.639589501616912,59.67777346270703,,,Wampanoag,Wampanoag homelands acros
 text,-47.694974341862824,-52.29492187500001,,,Wangunk,Wangunk homelands along the lower Connecticut River.,24,0,0,0,,,Tribes
 text,-60.321147194219755,-105.8073484903449,,,Wappinger,Wappinger homelands spanning southwestern Connecticut and the lower Hudson Valley.,24,0,0,0,,,Tribes
 text,-57.657157596582984,-35.41992187500001,,,Western Niantic,Western Niantic homelands near the mouth of the Connecticut River.,24,0,0,0,,,Tribes
-text,-67.16882345280554,-137.46032059196105,,,Siwanogs,,24,0,0,0,,,Tribes
+text,-69.31043717139833,-127.60414123535158,,,Siwanogs,,24,0,0,0,,,Tribes
 text,17.602139123350852,11.975097656250002,,“the place of the hard rock”,Sagatabscot ,is a hill in the southeastern part of Worcester.[^¹],3,0,0,0,,,Mountains
 text,20.50935458871459,13.425292968750002,,Quinsikamon,Quinsigamond,Quinsikamon,7,76,0,0,,,
 text,68.07330474079025,-53.96484375000001,,,Monadnock,"g “place of the surpassing, or",14,0,0,0,,,
@@ -246,3 +246,11 @@ text,-45.93587062119053,50.42724609375001,,,Aquidnet,,11,0,0,0,,,Geographical Lo
 text,-54.87660665410869,98.17382812500001,,,NOEPE,,32,0,0,0,,,
 text,-80.75355618944563,-163.38867187500003,,,Nayack ,,7,0,0,0,,,Settlements
 text,-79.56850599323725,-161.82861328125003,,"""Nut Island""",Pagganck,,4,0,0,0,,,Geographical Locations
+text,60.04358934572451,64.43395614624025,,,Wemesit,,12,0,0,0,,,
+text,-7.648897281490625,57.66895294189454,,,Abnaki,,14,0,0,0,,,
+text,-34.35385300224611,90.35791397094728,,,Naragansett,,14,0,0,0,,,
+text,-57.9875380732216,21.945447921752933,,,Paguet,,14,0,0,0,,,
+text,-62.7595586121253,-87.47159957885744,,,Hammonasett,,14,0,0,0,,,
+text,-43.65588781419645,-61.32637023925782,,,Scatacook,,14,0,0,0,,,
+text,64.92354174306499,-69.08203125000001,,,Hoosac,,14,0,0,0,,,
+text,43.2161545603795,-43.17463874816895,,,Agawam,,14,0,0,0,,,
