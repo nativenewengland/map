@@ -1,5 +1,4 @@
 type,lat,lng,icon,name/subheader,subheader/text,description,size,angle,spacing,curve,coords,style,overlay
-marker,-30.3731045201212,76.22521225521355,settlement,dsfds,,sdfsdf,,,,,,{},
 marker,-21.80030805097259,44.89013671875001,settlement,Pawtucket,,,,,,,,{},Settlements
 marker,-76.97024507077676,-90.19775390625001,settlement,Marker,,,,,,,,{},
 marker,-0.48337991318247436,135.2636894644682,settlement,Marker,,,,,,,,{},Settlements
@@ -99,6 +98,35 @@ marker,-65.07213008560697,-85.49560546875001,settlement,Marker,,,,,,,,{},Settlem
 marker,-65.62202261510642,-90.02197265625,settlement,Marker,,,,,,,,{},Settlements
 marker,-62.73460087706358,-72.81738281250001,settlement,Marker,,,,,,,,{},Settlements
 marker,-59.265880628258095,-12.041015625000002,settlement,Marker,,,,,,,,{},
+marker,-39.23225314171489,102.06298828125001,settlement,Marker,,,,,,,,{},Settlements
+marker,-37.94419750075404,110.12695312500001,settlement,Marker,,,,,,,,{},Settlements
+marker,-40.64730356252251,108.14941406250001,settlement,Marker,,,,,,,,{},Settlements
+marker,-38.37611542403603,112.98339843750001,settlement,Marker,,,,,,,,{},Settlements
+marker,-43.02071359427861,110.10498046875001,settlement,Marker,,,,,,,,{},Settlements
+marker,-43.9928145004899,113.26904296875,settlement,Marker,,,,,,,,{},Settlements
+marker,-40.613952441166596,115.11474609375,settlement,Marker,,,,,,,,{},Settlements
+marker,-21.47351753334985,79.82666015625001,settlement,Marker,,,,,,,,{},Settlements
+marker,-17.832374329567507,70.79589843750001,settlement,Marker,,,,,,,,{},Settlements
+marker,-14.157881896141461,73.27880859375001,settlement,Marker,,,,,,,,{},Settlements
+marker,5.900188795584184,-8.415527343750002,settlement,Marker,,,,,,,,{},Settlements
+marker,6.293458760393985,-9.799804687500002,settlement,Marker,,,,,,,,{},Settlements
+marker,5.309766171943691,-9.514160156250002,settlement,Marker,,,,,,,,{},Settlements
+marker,7.035475652433024,-9.492187500000002,settlement,Marker,,,,,,,,{},Settlements
+marker,12.12526421833159,-9.316406250000002,settlement,Marker,,,,,,,,{},Settlements
+marker,16.762467717941604,-15.139160156250002,settlement,Marker,,,,,,,,{},Settlements
+marker,19.16592425362802,6.745605468750001,settlement,Marker,,,,,,,,{},Settlements
+marker,16.846605106396304,10.898437500000002,settlement,Marker,,,,,,,,{},Settlements
+marker,20.673905264672843,13.974609375000002,settlement,Marker,,,,,,,,{},Settlements
+marker,-62.48187744898419,-38.6279296875,settlement,Marker,,,,,,,,{},Settlements
+marker,-49.224772722794825,-20.676269531250004,settlement,Marker,,,,,,,,{},Settlements
+marker,-21.493963563064455,5.229492187500001,settlement,Marker,,,,,,,,{},Settlements
+marker,6.533645130567532,-59.80957031250001,settlement,Marker,,,,,,,,{},Settlements
+marker,-34.361576287484176,-97.294921875,settlement,Marker,,,,,,,,{},Settlements
+marker,-48.19538740833338,-91.23046875,settlement,Marker,,,,,,,,{},Settlements
+marker,-49.65340458843789,-88.94531250000001,settlement,Marker,,,,,,,,{},Settlements
+marker,-33.46810795527895,-19.577636718750004,settlement,Marker,,,,,,,,{},Settlements
+marker,-17.308687886770024,81.40869140625001,settlement,Marker,,,,,,,,{},Settlements
+marker,-11.092165893502,98.32763671875001,settlement,Patuxet,,,,,,,,{},Settlements
 text,-36.63316209558656,80.48583984375001,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-30.55639356496612,86.15906705383222,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-33.683878797602844,87.25830078125001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -139,7 +167,7 @@ text,-8.928234353216506,-71.35603845169659,,,Paugussett,Paugussett homelands alo
 text,-54.825433284376075,-45.966796875,,,Pequot,Pequot homelands surrounding the lower Thames River.,24,0,0,0,,,Tribes
 text,-2.986927393334863,-55.12939453125,,,Podunk,Podunk homelands on the east side of the Connecticut River.,24,0,0,0,,,Tribes
 text,-19.6247252492234,-84.19921875000001,,,Pokanoket,Pokanoket (Wampanoag) homelands around Mount Hope and Narragansett Bay.,24,0,0,0,,,Tribes
-text,-6.507114080629532,-96.65946364493804,,,Quinnipiac,Quinnipiac homelands at the mouth of the Quinnipiac River.,24,0,0,0,,,Tribes
+text,-15.284185114076433,-90.17578125000001,,,Quinnipiac,Quinnipiac homelands at the mouth of the Quinnipiac River.,24,0,0,0,,,Tribes
 text,-78.86850415610446,-131.1195136082202,,,Rockaway,Rockaway (Reckgawawank) Lenape homelands on the Rockaway Peninsula.,24,0,0,0,,,Tribes
 text,-26.74561038219901,-62.49023437500001,,,Schaghticoke,Schaghticoke homelands near the confluence of the Housatonic and Ten Mile Rivers.,24,0,0,0,,,Tribes
 text,-77.91475737592121,-115.48264463361654,,,Secatogue,Secatogue homelands around Islip on Long Island.,24,0,0,0,,,Tribes
@@ -187,3 +215,4 @@ text,0.615222552406841,133.83544921875003,,,Meeshawn,,7,0,0,0,,,Settlements
 text,-2.7016350479445204,144.44824218750003,,“a place of springs.”,Tashmuit,The highlands of Pamet ,6,45,0,0,,,Geographical Locations
 text,-6.7737162387535,144.49218750000003,,,Pamet,,13,0,0,0,,,Territories
 text,-45.93587062119053,50.42724609375001,,,Aquidnet,,11,0,0,0,,,Geographical Locations
+text,-54.87660665410869,98.17382812500001,,,NOEPE,,32,0,0,0,,,
