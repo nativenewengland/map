@@ -127,6 +127,8 @@ marker,-49.65340458843789,-88.94531250000001,settlement,Marker,,,,,,,,{},Settlem
 marker,-33.46810795527895,-19.577636718750004,settlement,Marker,,,,,,,,{},Settlements
 marker,-17.308687886770024,81.40869140625001,settlement,Marker,,,,,,,,{},Settlements
 marker,-11.092165893502,98.32763671875001,settlement,Patuxet,,,,,,,,{},Settlements
+marker,55.99838095535963,-96.064453125,settlement,Hoosic,,,,,,,,{},Settlements
+marker,-80.95264429702812,-162.42187500000003,settlement,Nayack,,,,,,,,{},Settlements
 text,-36.63316209558656,80.48583984375001,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-30.55639356496612,86.15906705383222,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-33.683878797602844,87.25830078125001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -216,3 +218,5 @@ text,-2.7016350479445204,144.44824218750003,,“a place of springs.”,Tashmuit,
 text,-6.7737162387535,144.49218750000003,,,Pamet,,13,0,0,0,,,Territories
 text,-45.93587062119053,50.42724609375001,,,Aquidnet,,11,0,0,0,,,Geographical Locations
 text,-54.87660665410869,98.17382812500001,,,NOEPE,,32,0,0,0,,,
+text,-80.77823764202553,-163.30078125000003,,,Nayack ,,7,0,0,0,,,Settlements
+text,-79.56850599323725,-161.82861328125003,,"""Nut Island""",Pagganck,,4,0,0,0,,,Geographical Locations
