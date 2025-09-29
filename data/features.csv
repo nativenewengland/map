@@ -176,6 +176,36 @@ marker,50.28944548865566,71.47705078125001,settlement,Marker,,,,,,,,{},Settlemen
 marker,-42.87596878898569,-32.12402343750001,settlement,Marker,,,,,,,,{},Settlements
 marker,-59.90016673427393,-70.92773437500001,settlement,Marker,,,,,,,,{},Settlements
 marker,-60.42475279712382,-67.17041015625001,settlement,Marker,,,,,,,,{},Settlements
+marker,-44.44932763861106,32.34375000000001,settlement,Marker,,,,,,,,{},Settlements
+marker,-45.21264728120965,38.18847656250001,settlement,Marker,,,,,,,,{},Settlements
+marker,-36.403253635441885,50.91064453125001,settlement,Marker,,,,,,,,{},Settlements
+marker,-36.73844338405072,54.36035156250001,settlement,Marker,,,,,,,,{},Settlements
+marker,-35.18796509142401,53.61328125000001,settlement,Marker,,,,,,,,{},Settlements
+marker,-32.37995078692509,51.08642578125001,settlement,Marker,,,,,,,,{},Settlements
+marker,-37.12486289441255,59.72167968750001,settlement,Marker,,,,,,,,{},Settlements
+marker,-43.85038817586523,57.81005859375001,settlement,Marker,,,,,,,,{},Settlements
+marker,-44.0095067234058,75.60791015625001,settlement,Marker,,,,,,,,{},Settlements
+marker,-26.431199760361128,64.73144531250001,settlement,Marker,,,,,,,,{},Settlements
+marker,-21.146210315366762,83.45214843750001,settlement,Marker,,,,,,,,{},Settlements
+marker,-18.375709055381044,83.93554687500001,settlement,Marker,,,,,,,,{},Settlements
+marker,-61.45996387034884,142.49267578125003,settlement,Marker,,,,,,,,{},Settlements
+marker,-60.14175022218421,149.43603515625003,settlement,Marker,,,,,,,,{},Settlements
+marker,-37.19513419096924,134.84619140625003,settlement,Marker,,,,,,,,{},Settlements
+marker,-36.03146980766242,126.78222656250001,settlement,Marker,,,,,,,,{},Settlements
+marker,-30.827215185061817,137.48291015625003,settlement,Marker,,,,,,,,{},Settlements
+marker,-26.31318630368297,152.62207031250003,settlement,Marker,,,,,,,,{},Settlements
+marker,-25.145696633770918,152.99560546875003,settlement,Marker,,,,,,,,{},Settlements
+marker,-25.344380247056534,154.68750000000003,settlement,Marker,,,,,,,,{},Settlements
+marker,-26.941552470150757,150.53466796875003,settlement,Marker,,,,,,,,{},Settlements
+marker,-27.019854480761342,148.62304687500003,settlement,Marker,,,,,,,,{},Settlements
+marker,-34.16199077965677,153.41308593750003,settlement,Marker,,,,,,,,{},Settlements
+marker,38.82245799763665,-16.413574218750004,settlement,Marker,,,,,,,,{},Settlements
+marker,50.652875230903255,56.29394531250001,forts,Marker,,,,,,,,{},
+marker,49.69627036272315,51.48193359375001,settlement,Marker,,,,,,,,{},Settlements
+marker,-7.601531395848714,-57.78808593750001,settlement,Marker,,,,,,,,{},Settlements
+marker,-5.7695453247274875,-46.07666015625001,settlement,Marker,,,,,,,,{},Settlements
+marker,-9.946517823755379,-40.80322265625001,settlement,Marker,,,,,,,,{},Settlements
+marker,-5.354150760822185,-52.11914062500001,settlement,Marker,,,,,,,,{},Settlements
 text,-36.63316209558656,80.48583984375001,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-30.55639356496612,86.15906705383222,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-33.683878797602844,87.25830078125001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -212,7 +242,7 @@ text,-31.278550858946517,15.996093750000002,,,Narragansett,Narragansett homeland
 text,-16.977487354364566,147.83354003549164,,,Nauset,Nauset (Cape Cod) Wampanoag homelands on the outer Cape.,24,0,0,0,,,Tribes
 text,46.78550049126467,-39.515112036948125,,,Nipmuc,"Nipmuc homelands across central Massachusetts and northern Connecticut. Nipnet, Nipmook or Nipmuck",24,0,0,0,,,Tribes
 text,-77.19570508665286,-143.9446752320028,,,Nissequogue,"Nissequogue homelands around present-day Smithtown, Long Island.",24,0,0,0,,,Tribes
-text,-8.928234353216506,-71.35603845169659,,,Paugussett,Paugussett homelands along the lower Housatonic River.,24,0,0,0,,,Tribes
+text,-8.363855266221476,-72.37792968750001,,,Paugussett,Paugussett homelands along the lower Housatonic River.,24,0,0,0,,,Tribes
 text,-54.825433284376075,-45.966796875,,,Pequot,Pequot homelands surrounding the lower Thames River.,24,0,0,0,,,Tribes
 text,-2.986927393334863,-55.12939453125,,,Podunk,Podunk homelands on the east side of the Connecticut River.,24,0,0,0,,,Tribes
 text,-19.6247252492234,-84.19921875000001,,,Pokanoket,Pokanoket (Wampanoag) homelands around Mount Hope and Narragansett Bay.,24,0,0,0,,,Tribes
@@ -294,3 +324,8 @@ text,45.69141355901332,-28.433346256397478,,,Mattawa,,3,0,0,0,,,Bodies of Water
 text,-2.6573545009375485,-112.6092050940509,,,Hackankamonk,,6,0,0,0,,,Bodies of Water
 text,3.425704292015428,12.48046875,,,Manchaug,,5,56,0,0,,,Bodies of Water
 text,-4.193807734214353,20.390625000000004,,,Chokalog,,5,0,0,0,,,Bodies of Water
+text,-47.20488569704063,-94.76806640625001,,,Quassapaug,,7,0,0,0,,,Bodies of Water
+text,-36.61547689037306,122.87109375000001,,,Wequaquet,,4,0,0,0,,,Bodies of Water
+text,-31.334881833100955,143.19580078125003,,,Massiby,,7,-20,0,0,,,Bodies of Water
+text,-49.196002035473335,46.5380859375,,,Woonachaset,,4,0,0,0,,,Geographical Locations
+text,-3.8862779472549307,-64.37988281250001,,,Congamond,,7,-80,0,0,,,Bodies of Water
