@@ -138,7 +138,7 @@ marker,-60.29429873400916,-4.042968750000001,settlement,Marker,,,,,,,,{},Settlem
 marker,-56.860985750644886,3.9111328125000004,settlement,Marker,,,,,,,,{},Settlements
 marker,-59.987997631212224,3.7133789062500004,settlement,Marker,,,,,,,,{},Settlements
 marker,-42.05655803579488,26.283073425292972,settlement,Marker,,,,,,,,{},Settlements
-marker,-40.06125658140473,-18.215332031250004,settlement,Marker,,,,,,,,{},Settlements
+marker,-40.094872337893925,-18.171386718750004,settlement,Marker,,,,,,,,{},Settlements
 marker,36.03133177633189,21.071777343750004,settlement,Marker,,,,,,,,{},Settlements
 marker,51.33061163769853,47.32910156250001,settlement,Marker,,,,,,,,{},Settlements
 marker,47.249406957888446,50.64697265625001,settlement,Marker,,,,,,,,{},Settlements
@@ -155,6 +155,27 @@ marker,28.091366281406945,-13.623046875,settlement,Marker,,,,,,,,{},Settlements
 marker,27.352252938063845,-14.611816406250002,settlement,Marker,,,,,,,,{},Settlements
 marker,28.70986084394286,60.07324218750001,settlement,Marker,,,,,,,,{},Settlements
 marker,23.221154981846556,58.82080078125001,settlement,Marker,,,,,,,,{},Settlements
+marker,-12.875939037217996,28.850097656250004,settlement,Marker,,,,,,,,{},Settlements
+marker,-0.3981522316457348,28.740234375000004,settlement,Marker,,,,,,,,{},Settlements
+marker,2.284467588374642,28.1689453125,settlement,Marker,,,,,,,,{},Settlements
+marker,3.5349053313990932,28.410644531250004,settlement,Marker,,,,,,,,{},Settlements
+marker,18.89590466057119,36.91406250000001,settlement,Marker,,,,,,,,{},Settlements
+marker,20.03497127651161,40.10009765625001,settlement,Marker,,,,,,,,{},Settlements
+marker,19.352429877965967,27.268066406250004,settlement,Marker,,,,,,,,{},Settlements
+marker,24.266927326659292,42.31933593750001,settlement,Marker,,,,,,,,{},Settlements
+marker,40.94612917944953,37.68310546875,settlement,Marker,,,,,,,,{},Settlements
+marker,33.56033549257388,61.34765625000001,settlement,Marker,,,,,,,,{},Settlements
+marker,31.353926392327995,68.95019531250001,settlement,Marker,,,,,,,,{},Settlements
+marker,33.79698892147911,73.01513671875001,settlement,Marker,,,,,,,,{},Settlements
+marker,30.487096437490415,73.74023437500001,settlement,Marker,,,,,,,,{},Settlements
+marker,41.16278798663197,83.51806640625001,settlement,Marker,,,,,,,,{},Settlements
+marker,49.61057318710694,73.95996093750001,settlement,Marker,,,,,,,,{},Settlements
+marker,51.46746190298089,63.87451171875001,settlement,Marker,,,,,,,,{},Settlements
+marker,52.32143399533718,68.46679687500001,settlement,Marker,,,,,,,,{},Settlements
+marker,50.28944548865566,71.47705078125001,settlement,Marker,,,,,,,,{},Settlements
+marker,-42.87596878898569,-32.12402343750001,settlement,Marker,,,,,,,,{},Settlements
+marker,-59.90016673427393,-70.92773437500001,settlement,Marker,,,,,,,,{},Settlements
+marker,-60.42475279712382,-67.17041015625001,settlement,Marker,,,,,,,,{},Settlements
 text,-36.63316209558656,80.48583984375001,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-30.55639356496612,86.15906705383222,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-33.683878797602844,87.25830078125001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -186,7 +207,7 @@ text,-39.368279149160124,-39.46289062500001,,,Mashantucket Pequot,Mashantucket P
 text,-79.65392213419594,-146.93163540003792,,,Matinecock,Matinecock homelands on Long Island's north shore.,24,0,0,0,,,Tribes
 text,-76.01582449107187,-109.50898851393923,,,Merrick,Merrick (Merokee) territory on Long Island's south shore.,24,0,0,0,,,Tribes
 text,-72.76619493972098,-36.42071459256301,,,Montaukett,Montaukett homelands at the eastern tip of Long Island.,24,0,0,0,,,Tribes
-text,-29.229872274476822,-34.27734375000001,,,Mohegan,Mohegan homelands along the Thames River in Connecticut.,24,0,0,0,,,Tribes
+text,-34.84996950050357,-35.77148437500001,,,Mohegan,Mohegan homelands along the Thames River in Connecticut.,31,0,0,0,,,Tribes
 text,-31.278550858946517,15.996093750000002,,,Narragansett,Narragansett homelands along the southern Rhode Island coast.,24,0,0,0,,,Tribes
 text,-16.977487354364566,147.83354003549164,,,Nauset,Nauset (Cape Cod) Wampanoag homelands on the outer Cape.,24,0,0,0,,,Tribes
 text,46.78550049126467,-39.515112036948125,,,Nipmuc,"Nipmuc homelands across central Massachusetts and northern Connecticut. Nipnet, Nipmook or Nipmuck",24,0,0,0,,,Tribes
@@ -254,3 +275,22 @@ text,-62.7595586121253,-87.47159957885744,,,Hammonasett,,14,0,0,0,,,
 text,-43.65588781419645,-61.32637023925782,,,Scatacook,,14,0,0,0,,,
 text,64.92354174306499,-69.08203125000001,,,Hoosac,,14,0,0,0,,,
 text,43.2161545603795,-43.17463874816895,,,Agawam,,14,0,0,0,,,
+text,-14.26438308756265,-118.23486328125001,,,Weguadnack,,7,0,0,0,,,Bodies of Water
+text,-11.264612212504428,-116.9384765625,,,Wononpakok,,7,0,0,0,,,Bodies of Water
+text,-9.600749932246847,-116.34521484375,,,Wononscopoiroc,,7,0,0,0,,,Bodies of Water
+text,-34.34343606848294,-109.46777343750001,,,Waramaug,,7,0,0,0,,,Bodies of Water
+text,-56.05976947910657,-121.44287109375001,,,Kanoshal,,7,0,0,0,,,Bodies of Water
+text,-56.13330691237569,-59.41406250000001,,,Quonisepaug,,7,0,0,0,,,Bodies of Water
+text,-50.81981826215653,4.899902343750001,,,Wyassup,,7,0,0,0,,,Bodies of Water
+text,-49.19606400072379,3.8671875000000004,,,Mahmansuck,,7,0,0,0,,,Bodies of Water
+text,-48.61838518688487,11.601562500000002,,,Yawgoag,,5,0,0,0,,,Bodies of Water
+text,-49.00905080938206,13.139648437500002,,,Winchek,,5,0,0,0,,,Bodies of Water
+text,-51.944264879028765,29.267578125000004,,,Chipchug,,5,0,0,0,,,Bodies of Water
+text,-57.040729838360875,18.808593750000004,,,Watchaug,,5,0,0,0,,,Bodies of Water
+text,-53.68369534495074,27.465820312500004,,,Aguebauaug,,5,0,0,0,,,Bodies of Water
+text,20.879342971957897,22.21435546875,,,Hobomoco,,3,0,0,0,,,Bodies of Water
+text,46.24100579395699,14.790200027175716,,,Unchechewhaton,,5,0,0,0,,,Bodies of Water
+text,45.69141355901332,-28.433346256397478,,,Mattawa,,3,0,0,0,,,Bodies of Water
+text,-2.6573545009375485,-112.6092050940509,,,Hackankamonk,,6,0,0,0,,,Bodies of Water
+text,3.425704292015428,12.48046875,,,Manchaug,,5,56,0,0,,,Bodies of Water
+text,-4.193807734214353,20.390625000000004,,,Chokalog,,5,0,0,0,,,Bodies of Water
