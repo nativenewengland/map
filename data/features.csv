@@ -136,12 +136,12 @@ marker,-16.99375545289455,-116.27929687500001,settlement,Marker,,,,,,,,{},Settle
 marker,-58.859223547066584,-2.0874023437500004,settlement,Marker,,,,,,,,{},Settlements
 marker,-60.29429873400916,-4.042968750000001,settlement,Marker,,,,,,,,{},Settlements
 marker,-56.860985750644886,3.9111328125000004,settlement,Marker,,,,,,,,{},Settlements
-marker,-59.987997631212224,3.7133789062500004,settlement,Marker,,,,,,,,{},Settlements
-marker,-42.05655803579488,26.283073425292972,settlement,Marker,,,,,,,,{},Settlements
+marker,-60.04288763076307,3.7133789062500004,settlement,Marker,,,,,,,,{},Settlements
+marker,-42.32600097858463,26.30127774890064,settlement,Marker,,,,,,,,{},Settlements
 marker,-40.094872337893925,-18.171386718750004,settlement,Marker,,,,,,,,{},Settlements
 marker,36.03133177633189,21.071777343750004,settlement,Marker,,,,,,,,{},Settlements
 marker,51.33061163769853,47.32910156250001,settlement,Marker,,,,,,,,{},Settlements
-marker,47.249406957888446,50.64697265625001,settlement,Marker,,,,,,,,{},Settlements
+marker,37.92977319243816,23.80833384119878,settlement,Marker,,,,,,,,{},Settlements
 marker,43.43696596521823,51.70166015625001,settlement,Marker,,,,,,,,{},Settlements
 marker,40.27952566881291,56.05224609375001,settlement,Marker,,,,,,,,{},Settlements
 marker,27.0982539061379,38.03466796875001,settlement,Marker,,,,,,,,{},Settlements
@@ -206,6 +206,19 @@ marker,-7.601531395848714,-57.78808593750001,settlement,Marker,,,,,,,,{},Settlem
 marker,-5.7695453247274875,-46.07666015625001,settlement,Marker,,,,,,,,{},Settlements
 marker,-9.946517823755379,-40.80322265625001,settlement,Marker,,,,,,,,{},Settlements
 marker,-5.354150760822185,-52.11914062500001,settlement,Marker,,,,,,,,{},Settlements
+marker,47.2341248761915,50.62536157662888,settlement,Marker,,,,,,,,{},Settlements
+marker,24.106507079653614,68.77368269159157,settlement,Marker,,,,,,,,{},Settlements
+marker,22.33013090638646,68.11425647457186,settlement,Marker,,,,,,,,{},Settlements
+marker,22.30981041486445,70.70799959484937,settlement,Marker,,,,,,,,{},Settlements
+marker,23.05968103206843,71.67515804647824,settlement,Marker,,,,,,,,{},Settlements
+marker,22.573745338624363,71.85100503768348,settlement,Marker,,,,,,,,{},Settlements
+marker,19.973414902296028,68.37907060301313,settlement,Marker,,,,,,,,{},Settlements
+marker,16.109226968604325,90.70342905307433,settlement,Marker,,,,,,,,{},Settlements
+marker,18.374796455267646,90.5495629357697,settlement,Marker,,,,,,,,{},Settlements
+marker,12.33962698536624,93.09845680197498,settlement,Marker,,,,,,,,{},Settlements
+marker,-62.92495331310624,-54.512344055454875,settlement,Marker,,,,,,,,{},Settlements
+marker,-63.19396652496589,-5.229023781412564,settlement,Marker,,,,,,,,{},Settlements
+marker,-63.03503351575593,-3.536496491062007,settlement,Marker,,,,,,,,{},Settlements
 text,-36.63316209558656,80.48583984375001,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-30.55639356496612,86.15906705383222,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-33.683878797602844,87.25830078125001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -329,3 +342,46 @@ text,-36.61547689037306,122.87109375000001,,,Wequaquet,,4,0,0,0,,,Bodies of Wate
 text,-31.334881833100955,143.19580078125003,,,Massiby,,7,-20,0,0,,,Bodies of Water
 text,-49.196002035473335,46.5380859375,,,Woonachaset,,4,0,0,0,,,Geographical Locations
 text,-3.8862779472549307,-64.37988281250001,,,Congamond,,7,-80,0,0,,,Bodies of Water
+text,-61.67943790870445,1.8457688662052398,,,Wicopesset,,3,0,0,0,,,Geographical Locations
+text,-54.711614819498465,23.13788087860384,,,Paquiset,,5,0,0,0,,,Bodies of Water
+text,-46.513792848481856,71.91942117223316,,,Paskumanset ,,5,0,0,0,,,Bodies of Water
+text,-41.951338971647125,47.02141863379473,,,Chibachuweset ,,5,0,0,0,,,Geographical Locations
+text,-39.639468617241036,50.009798495602645,,,Chisawannock,,5,0,0,0,,,Geographical Locations
+text,-46.39267584235039,43.22102017351436,,,Quinunlcut ,,5,0,0,0,,,Geographical Locations
+text,-47.561657599781086,45.15379215844869,,,Aquopimonquk ,,5,0,0,0,,,Geographical Locations
+text,53.0936976235228,89.55965115107843,,,Agawam,,6,0,0,0,,,Settlements
+text,-48.137018484279025,-92.50492390075328,,,Meshapock,,6,0,0,0,,,Settlements
+text,-49.58228824034103,-89.95404136308912,,,Naugatuck,,6,0,0,0,,,Settlements
+text,-59.88859039393346,-68.11518506909607,,,Totoket,,6,0,0,0,,,Settlements
+text,-62.246888547856656,-73.91570335427505,,,Mioonktuck,,6,0,0,0,,,Settlements
+text,-62.46160496515689,-39.83331129165111,,,Pochaug,,6,0,0,0,,,Settlements
+text,-61.88709608905768,-33.28804828910797,,,Pashesauke,,6,0,0,0,,,Settlements
+text,-59.25480647478875,-13.315224246233583,,,Pequotauk,,6,0,0,0,,,Settlements
+text,-58.36726366448147,-2.702012177300084,,,Mistic,,6,0,0,0,,,Settlements
+text,-59.81137296969263,-4.831724521069415,,,Noank,,6,0,0,0,,,Settlements
+text,-56.789121967927656,2.8785083629072,,,Asupsuck,,6,0,0,0,,,Settlements
+text,-59.511789280392115,2.593940343893273,,,Aushnook,,6,0,0,0,,,Settlements
+text,-59.05174764761254,4.792027733958949,,,Wequetequock,,6,0,0,0,,,Settlements
+text,-44.52760571857897,36.84939361414983,,,Cocumcosuck,,5,0,0,0,,,Settlements
+text,-43.6920917086009,30.67477315482552,,,Woossowenbiskw,,5,0,0,0,,,Settlements
+text,-46.34718365448894,64.62348030855172,,,Acoaxet,,5,0,0,0,,,Settlements
+text,-43.11748160856244,56.99769485394992,,,Espowett,,5,0,0,0,,,Settlements
+text,-20.468099350519722,77.8710362264454,,,Wampanucket,,7,0,0,0,,,Settlements
+text,-13.988195352060007,72.16012605525368,,,Titicut,,7,0,0,0,,,Settlements
+text,-16.846586744088103,69.36855506987028,,,Cohannet,,7,0,0,0,,,Settlements
+text,-16.29903259997615,80.20154300720772,,,Namasachet,,7,0,0,0,,,Settlements
+text,20.03507341605914,66.88503680747169,,,Uniquititquessett,,4,0,0,0,,,Settlements
+text,14.029586440616434,-109.02670143532063,,,Oustonuck,,5,0,0,0,,,Settlements
+text,11.931858584012664,-110.16818661278329,,,Scatekook,,5,0,0,0,,,Settlements
+text,23.5644267743393,-106.10590772534609,,,Wnahtukook,,5,0,0,0,,,Settlements
+text,-34.30759287914818,-98.08508286433172,,,Peatan,,5,0,0,0,,,Settlements
+text,-65.14629225164387,-91.44821485869174,,,Pisquheege,,7,0,0,0,,,Settlements
+text,-64.6333606369832,-86.94292460352015,,,Wepowaug,,7,0,0,0,,,Settlements
+text,-27.799870511822157,103.64738621463917,,,Comasskumkanit,,7,0,0,0,,,Settlements
+text,27.896987499832555,36.869213245927774,,,Penobscot,,5,0,0,0,,,Settlements
+text,32.13903686440613,67.89572968906776,,,Winnisimmet,,5,0,0,0,,,Settlements
+text,34.90358058364418,71.08388499918719,,,Winnisimmet,,5,0,0,0,,,Settlements
+text,-4.653124537311702,0.4193294401477488,,,Maanexit,,5,0,0,0,,,Settlements
+text,-14.391734022653369,10.043698018975347,,,Quaddick,,5,0,0,0,,,Settlements
+text,-11.69560464311918,7.517656097640383,,,Quinnatisset,,5,0,0,0,,,Settlements
+text,-21.47353538728909,4.176472870583311,,,Attawangan,,5,0,0,0,,,Settlements
