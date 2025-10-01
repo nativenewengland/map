@@ -136,12 +136,12 @@ marker,-16.99375545289455,-116.27929687500001,settlement,Marker,,,,,,,,{},Settle
 marker,-58.859223547066584,-2.0874023437500004,settlement,Marker,,,,,,,,{},Settlements
 marker,-60.29429873400916,-4.042968750000001,settlement,Marker,,,,,,,,{},Settlements
 marker,-56.860985750644886,3.9111328125000004,settlement,Marker,,,,,,,,{},Settlements
-marker,-60.04288763076307,3.7133789062500004,settlement,Marker,,,,,,,,{},Settlements
-marker,-42.32600097858463,26.30127774890064,settlement,Marker,,,,,,,,{},Settlements
-marker,-40.094872337893925,-18.171386718750004,settlement,Marker,,,,,,,,{},Settlements
+marker,-59.987997631212224,3.7133789062500004,settlement,Marker,,,,,,,,{},Settlements
+marker,-59.05185617891852,6.174316406250001,settlement,Marker,,,,,,,,{},Settlements
+marker,-40.06125658140473,-18.215332031250004,settlement,Marker,,,,,,,,{},Settlements
 marker,36.03133177633189,21.071777343750004,settlement,Marker,,,,,,,,{},Settlements
 marker,51.33061163769853,47.32910156250001,settlement,Marker,,,,,,,,{},Settlements
-marker,37.92977319243816,23.80833384119878,settlement,Marker,,,,,,,,{},Settlements
+marker,47.249406957888446,50.64697265625001,settlement,Marker,,,,,,,,{},Settlements
 marker,43.43696596521823,51.70166015625001,settlement,Marker,,,,,,,,{},Settlements
 marker,40.27952566881291,56.05224609375001,settlement,Marker,,,,,,,,{},Settlements
 marker,27.0982539061379,38.03466796875001,settlement,Marker,,,,,,,,{},Settlements
@@ -151,109 +151,63 @@ marker,-11.759814674441921,8.613281250000002,settlement,Marker,,,,,,,,{},Settlem
 marker,-5.725311447610142,1.0766601562500002,settlement,Marker,,,,,,,,{},Settlements
 marker,-15.982453522973495,21.4453125,settlement,Marker,,,,,,,,{},Settlements
 marker,29.516110386062277,-12.502441406250002,settlement,Marker,,,,,,,,{},Settlements
-marker,28.091366281406945,-13.623046875,settlement,Marker,,,,,,,,{},Settlements
+marker,28.05259082333986,-13.535156250000002,settlement,Marker,,,,,,,,{},Settlements
 marker,27.352252938063845,-14.611816406250002,settlement,Marker,,,,,,,,{},Settlements
 marker,28.70986084394286,60.07324218750001,settlement,Marker,,,,,,,,{},Settlements
 marker,23.221154981846556,58.82080078125001,settlement,Marker,,,,,,,,{},Settlements
-marker,-12.875939037217996,28.850097656250004,settlement,Marker,,,,,,,,{},Settlements
-marker,-0.3981522316457348,28.740234375000004,settlement,Marker,,,,,,,,{},Settlements
-marker,2.284467588374642,28.1689453125,settlement,Marker,,,,,,,,{},Settlements
-marker,3.5349053313990932,28.410644531250004,settlement,Marker,,,,,,,,{},Settlements
-marker,18.89590466057119,36.91406250000001,settlement,Marker,,,,,,,,{},Settlements
-marker,20.03497127651161,40.10009765625001,settlement,Marker,,,,,,,,{},Settlements
-marker,19.352429877965967,27.268066406250004,settlement,Marker,,,,,,,,{},Settlements
-marker,24.266927326659292,42.31933593750001,settlement,Marker,,,,,,,,{},Settlements
-marker,40.94612917944953,37.68310546875,settlement,Marker,,,,,,,,{},Settlements
-marker,33.56033549257388,61.34765625000001,settlement,Marker,,,,,,,,{},Settlements
-marker,31.353926392327995,68.95019531250001,settlement,Marker,,,,,,,,{},Settlements
-marker,33.79698892147911,73.01513671875001,settlement,Marker,,,,,,,,{},Settlements
-marker,30.487096437490415,73.74023437500001,settlement,Marker,,,,,,,,{},Settlements
-marker,41.16278798663197,83.51806640625001,settlement,Marker,,,,,,,,{},Settlements
-marker,49.61057318710694,73.95996093750001,settlement,Marker,,,,,,,,{},Settlements
-marker,51.46746190298089,63.87451171875001,settlement,Marker,,,,,,,,{},Settlements
-marker,52.32143399533718,68.46679687500001,settlement,Marker,,,,,,,,{},Settlements
-marker,50.28944548865566,71.47705078125001,settlement,Marker,,,,,,,,{},Settlements
-marker,-42.87596878898569,-32.12402343750001,settlement,Marker,,,,,,,,{},Settlements
-marker,-59.90016673427393,-70.92773437500001,settlement,Marker,,,,,,,,{},Settlements
-marker,-60.42475279712382,-67.17041015625001,settlement,Marker,,,,,,,,{},Settlements
-marker,-44.44932763861106,32.34375000000001,settlement,Marker,,,,,,,,{},Settlements
-marker,-45.21264728120965,38.18847656250001,settlement,Marker,,,,,,,,{},Settlements
-marker,-36.403253635441885,50.91064453125001,settlement,Marker,,,,,,,,{},Settlements
-marker,-36.73844338405072,54.36035156250001,settlement,Marker,,,,,,,,{},Settlements
-marker,-35.18796509142401,53.61328125000001,settlement,Marker,,,,,,,,{},Settlements
-marker,-32.37995078692509,51.08642578125001,settlement,Marker,,,,,,,,{},Settlements
-marker,-37.12486289441255,59.72167968750001,settlement,Marker,,,,,,,,{},Settlements
-marker,-43.85038817586523,57.81005859375001,settlement,Marker,,,,,,,,{},Settlements
-marker,-44.0095067234058,75.60791015625001,settlement,Marker,,,,,,,,{},Settlements
-marker,-26.431199760361128,64.73144531250001,settlement,Marker,,,,,,,,{},Settlements
-marker,-21.146210315366762,83.45214843750001,settlement,Marker,,,,,,,,{},Settlements
-marker,-18.375709055381044,83.93554687500001,settlement,Marker,,,,,,,,{},Settlements
-marker,-61.45996387034884,142.49267578125003,settlement,Marker,,,,,,,,{},Settlements
-marker,-60.14175022218421,149.43603515625003,settlement,Marker,,,,,,,,{},Settlements
-marker,-37.19513419096924,134.84619140625003,settlement,Marker,,,,,,,,{},Settlements
-marker,-36.03146980766242,126.78222656250001,settlement,Marker,,,,,,,,{},Settlements
-marker,-30.827215185061817,137.48291015625003,settlement,Marker,,,,,,,,{},Settlements
-marker,-26.31318630368297,152.62207031250003,settlement,Marker,,,,,,,,{},Settlements
-marker,-25.145696633770918,152.99560546875003,settlement,Marker,,,,,,,,{},Settlements
-marker,-25.344380247056534,154.68750000000003,settlement,Marker,,,,,,,,{},Settlements
-marker,-26.941552470150757,150.53466796875003,settlement,Marker,,,,,,,,{},Settlements
-marker,-27.019854480761342,148.62304687500003,settlement,Marker,,,,,,,,{},Settlements
-marker,-34.16199077965677,153.41308593750003,settlement,Marker,,,,,,,,{},Settlements
-marker,38.82245799763665,-16.413574218750004,settlement,Marker,,,,,,,,{},Settlements
-marker,50.652875230903255,56.29394531250001,forts,Marker,,,,,,,,{},
-marker,49.69627036272315,51.48193359375001,settlement,Marker,,,,,,,,{},Settlements
-marker,-7.601531395848714,-57.78808593750001,settlement,Marker,,,,,,,,{},Settlements
-marker,-5.7695453247274875,-46.07666015625001,settlement,Marker,,,,,,,,{},Settlements
-marker,-9.946517823755379,-40.80322265625001,settlement,Marker,,,,,,,,{},Settlements
-marker,-5.354150760822185,-52.11914062500001,settlement,Marker,,,,,,,,{},Settlements
-marker,47.2341248761915,50.62536157662888,settlement,Marker,,,,,,,,{},Settlements
-marker,24.106507079653614,68.77368269159157,settlement,Marker,,,,,,,,{},Settlements
-marker,22.33013090638646,68.11425647457186,settlement,Marker,,,,,,,,{},Settlements
-marker,22.30981041486445,70.70799959484937,settlement,Marker,,,,,,,,{},Settlements
-marker,23.05968103206843,71.67515804647824,settlement,Marker,,,,,,,,{},Settlements
-marker,22.573745338624363,71.85100503768348,settlement,Marker,,,,,,,,{},Settlements
-marker,19.973414902296028,68.37907060301313,settlement,Marker,,,,,,,,{},Settlements
-marker,16.109226968604325,90.70342905307433,settlement,Marker,,,,,,,,{},Settlements
-marker,18.374796455267646,90.5495629357697,settlement,Marker,,,,,,,,{},Settlements
-marker,12.33962698536624,93.09845680197498,settlement,Marker,,,,,,,,{},Settlements
-marker,-62.92495331310624,-54.512344055454875,settlement,Marker,,,,,,,,{},Settlements
-marker,-63.19396652496589,-5.229023781412564,settlement,Marker,,,,,,,,{},Settlements
-marker,-63.03503351575593,-3.536496491062007,settlement,Marker,,,,,,,,{},Settlements
-marker,-23.725111266606707,45.28594858432432,settlement,Pawtucket,,,,,,,,{},Settlements
-marker,-23.523858380011706,41.08760166929889,settlement,Pawtucket,,,,,,,,{},Settlements
-marker,-25.40319792282417,43.15380381596061,settlement,Pawtucket,,,,,,,,{},Settlements
-marker,-27.46976410688444,45.04341938285798,settlement,Pawtucket,,,,,,,,{},Settlements
-marker,-31.14641518926923,41.92213528896474,settlement,Pawtucket,,,,,,,,{},Settlements
-marker,-27.391777905521824,39.74721211449425,settlement,Pawtucket,,,,,,,,{},Settlements
-marker,-32.00874298360159,38.936730216694556,settlement,Pawtucket,,,,,,,,{},Settlements
-marker,-32.87999535263296,41.684339454276675,settlement,Pawtucket,,,,,,,,{},Settlements
-marker,-37.352179351595915,37.72637693389617,settlement,Pawtucket,,,,,,,,{},Settlements
-marker,-36.22635926635158,43.397442400265604,settlement,Pawtucket,,,,,,,,{},Settlements
-marker,-50.19066068304026,43.637982930273004,settlement,Pawtucket,,,,,,,,{},Settlements
-marker,-61.56453429750232,-120.38832329381118,settlement,Pawtucket,,,,,,,,{},Settlements
-marker,-60.83437877736833,-122.4545254404729,settlement,Pawtucket,,,,,,,,{},Settlements
-marker,-64.06259063688063,-108.56811074354721,settlement,Pawtucket,,,,,,,,{},Settlements
-marker,-68.0152736601904,-102.34821371231654,settlement,Pawtucket,,,,,,,,{},Settlements
-marker,-40.647871276167166,118.21267696608295,settlement,Pawtucket,,,,,,,,{},Settlements
-text,-55.00282580979324,96.28417968750001,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
-text,-53.12040528310657,101.90917968750001,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
-text,-52.26815737376817,100.72265625000001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
-text,-51.508742458803326,103.09570312500001,,,MANNASAAK,A bush/brush place,1,0,0,0,,,
-text,-54.64841250231668,104.58984375000001,,,MASAPIQUOT,Skunk Place,1,0,0,0,,,
-text,-54.239550531561775,100.37109375,,,SANCHIACATTUATUCK,Place where the wood is rotten,2,1,0,0,,,
-text,-54.1624339680678,98.70117187500001,,,SANNAMENACK,Eat much,1,0,0,0,,,
-text,-52.56299503955801,99.49218750000001,,,SAQUENAUSAUQUANN,Early summer or lay rich eels,1,0,0,0,,,
-text,-52.68304276227742,102.37060546875001,,,TAKEMMY,Cold water,1,0,0,0,,,
-text,-56.365250136856076,109.5556640625,,,TASHQUIMMACASSICK,Black fish place,1,0,0,0,,,
-text,-54.418929968658254,96.63574218750001,,,MASHIANAUKE,Big town,1,0,0,0,,,
-text,-53.46189043285913,102.34863281250001,,,MASSAPOOTOOQUAK,Land of great blowing holes,1,0,0,0,,,
-text,-54.418929968658254,98.61328125,,,MESPESHAUTUK,At the edge of the cliff,1,0,0,0,,,
-text,-55.85064987433714,96.63574218750001,,,NASHANEAUPE,They went there,1,0,0,0,,,
-text,-56.72862197314074,108.76464843750001,,,PAQUAAHUNAUK,Quahog land,1,0,0,0,,,
-text,-52.829320910313726,100.89843750000001,,,PONANASAUSIG,To spread their wings,1,0,0,0,,,
-text,-53.59250480903937,99.93164062500001,,,QUATAQUETUCA,Red crabs,1,0,0,0,,,
-text,-53.00156227459147,99.60205078125001,,,SANSHUWACHU,Brook lodge,1,0,0,0,,,
-text,-53.488045536056205,105.46875000000001,,,Demo,,1,0,0,0,,,
+marker,40.93011520598307,37.61718750000001,settlement,Marker,,,,,,,,{},Settlements
+marker,33.63291573870479,61.32568359375001,settlement,Marker,,,,,,,,{},Settlements
+marker,33.8339199536547,72.94921875000001,settlement,Marker,,,,,,,,{},Settlements
+marker,31.353636941500987,68.95019531250001,settlement,Marker,,,,,,,,{},Settlements
+marker,30.467614102257855,73.71826171875001,settlement,Marker,,,,,,,,{},Settlements
+marker,40.04443758460859,81.21093750000001,settlement,Marker,,,,,,,,{},Settlements
+marker,39.9602803542957,82.99072265625001,settlement,Marker,,,,,,,,{},Settlements
+marker,41.11246878918088,83.60595703125001,settlement,Marker,,,,,,,,{},Settlements
+marker,49.724479188712984,51.48193359375001,settlement,Marker,,,,,,,,{},Settlements
+marker,38.73694606567603,5.295410156250001,settlement,Marker,,,,,,,,{},Settlements
+marker,38.82259097617713,-16.413574218750004,settlement,Marker,,,,,,,,{},Settlements
+marker,-62.88520467163244,-54.4921875,settlement,Marker,,,,,,,,{},Settlements
+marker,-50.19096776558561,43.63769531250001,settlement,Marker,,,,,,,,{},Settlements
+marker,-45.18203683701588,38.21044921875001,settlement,Marker,,,,,,,,{},Settlements
+marker,-44.402391829093915,32.32177734375001,settlement,Marker,,,,,,,,{},Settlements
+marker,-37.387617499783936,37.705078125,settlement,Marker,,,,,,,,{},Settlements
+marker,-36.13787471840728,43.35205078125001,settlement,Marker,,,,,,,,{},Settlements
+marker,-31.147006308556552,41.90185546875001,settlement,Marker,,,,,,,,{},Settlements
+marker,-32.02670629333614,38.91357421875,settlement,Marker,,,,,,,,{},Settlements
+marker,-27.391278222579277,39.79248046875001,settlement,Marker,,,,,,,,{},Settlements
+marker,-32.898038181605216,41.66015625000001,settlement,Marker,,,,,,,,{},Settlements
+marker,-23.56398712845123,41.06689453125,settlement,Marker,,,,,,,,{},Settlements
+marker,-23.704894502324912,45.24169921875001,settlement,Marker,,,,,,,,{},Settlements
+marker,-25.443274612305746,43.22021484375,settlement,Marker,,,,,,,,{},Settlements
+marker,-27.44979032978423,45.08789062500001,settlement,Marker,,,,,,,,{},Settlements
+marker,-32.41706632846282,51.08642578125001,settlement,Marker,,,,,,,,{},Settlements
+marker,-35.15584570226543,53.54736328125001,settlement,Marker,,,,,,,,{},Settlements
+marker,-36.42128244364948,51.04248046875001,settlement,Marker,,,,,,,,{},Settlements
+marker,-36.77409249464195,54.29443359375001,settlement,Marker,,,,,,,,{},Settlements
+marker,-37.14280344371683,59.63378906250001,settlement,Marker,,,,,,,,{},Settlements
+marker,-43.81867485545321,57.85400390625,settlement,Marker,,,,,,,,{},Settlements
+marker,-50.31740811261869,59.41406250000001,settlement,Marker,,,,,,,,{},Settlements
+marker,-44.02442151965934,75.62988281250001,settlement,Marker,,,,,,,,{},Settlements
+marker,-41.19518982948958,79.21142578125001,settlement,Marker,,,,,,,,{},Settlements
+text,-36.63316209558656,80.48583984375001,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
+text,-30.55639356496612,86.15906705383222,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
+text,-33.683878797602844,87.25830078125001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
+text,-33.826306093105025,83.47902014719374,,,MANNASAAK,A bush/brush place,1,0,0,0,,,
+text,-35.20392079049283,87.39013671875001,,,MASAPIQUOT,Skunk Place,1,0,0,0,,,
+text,-30.98574465707345,85.56414875882236,,,SANCHIACATTUATUCK,Place where the wood is rotten,2,1,0,0,,,
+text,-35.60305317595915,84.57763671875,,,SANNAMENACK,Eat much,1,0,0,0,,,
+text,-33.265534318746575,87.67578125,,,SAQUENAUSAUQUANN,Early summer or lay rich eels,1,0,0,0,,,
+text,-32.443381920868646,83.91877372965264,,,TAKEMMY,Cold water,1,0,0,0,,,
+text,-35.341541170059855,92.57568359375,,,TASHQUIMMACASSICK,Black fish place,1,0,0,0,,,
+text,-36.884590734726345,86.66503906250001,,,MASHIANAUKE,Big town,1,0,0,0,,,
+text,-33.14658454653116,91.982421875,,,MASSAPOOTOOQUAK,Land of great blowing holes,1,0,0,0,,,
+text,-35.627653332124524,88.77441406250001,,,MESPESHAUTUK,At the edge of the cliff,1,0,0,0,,,
+text,-35.973363101354835,84.53369140625001,,,NASHANEAUPE,They went there,1,0,0,0,,,
+text,-33.96914993605737,91.43310546875001,,,PAQUAAHUNAUK,Quahog land,1,0,0,0,,,
+text,-34.354981477600404,80.46875000000001,,,PONANASAUSIG,To spread their wings,1,0,0,0,,,
+text,-35.76384328188797,81.47949218750001,,,QUATAQUETUCA,Red crabs,1,0,0,0,,,
+text,-32.416427957931774,87.14843750000001,,,SANSHUWACHU,Brook lodge,1,0,0,0,,,
+text,-30.54,84.4,,,Demo,,1,0,0,0,,,
 text,-63.05531863767043,85.9142663862525,,,Cappoaquit,,8,0,0,0,,,Geographical Locations
 text,-78.38342792107784,-162.5682401582486,,,Canarsie,Canarsie Lenape homelands in present-day Brooklyn.,24,0,0,0,,,Tribes
 text,-72.76643494811363,-71.73513141636457,,,Corchaug,Corchaug territory on the North Fork of Long Island.,24,0,0,0,,,Tribes
@@ -266,14 +220,14 @@ text,-39.368279149160124,-39.46289062500001,,,Mashantucket Pequot,Mashantucket P
 text,-79.65392213419594,-146.93163540003792,,,Matinecock,Matinecock homelands on Long Island's north shore.,24,0,0,0,,,Tribes
 text,-76.01582449107187,-109.50898851393923,,,Merrick,Merrick (Merokee) territory on Long Island's south shore.,24,0,0,0,,,Tribes
 text,-72.76619493972098,-36.42071459256301,,,Montaukett,Montaukett homelands at the eastern tip of Long Island.,24,0,0,0,,,Tribes
-text,-34.84996950050357,-35.77148437500001,,,Mohegan,Mohegan homelands along the Thames River in Connecticut.,31,0,0,0,,,Tribes
+text,-29.229872274476822,-34.27734375000001,,,Mohegan,Mohegan homelands along the Thames River in Connecticut.,24,0,0,0,,,Tribes
 text,-31.278550858946517,15.996093750000002,,,Narragansett,Narragansett homelands along the southern Rhode Island coast.,24,0,0,0,,,Tribes
 text,-16.977487354364566,147.83354003549164,,,Nauset,Nauset (Cape Cod) Wampanoag homelands on the outer Cape.,24,0,0,0,,,Tribes
 text,46.78550049126467,-39.515112036948125,,,Nipmuc,"Nipmuc homelands across central Massachusetts and northern Connecticut. Nipnet, Nipmook or Nipmuck",24,0,0,0,,,Tribes
 text,-77.19570508665286,-143.9446752320028,,,Nissequogue,"Nissequogue homelands around present-day Smithtown, Long Island.",24,0,0,0,,,Tribes
-text,-8.363855266221476,-72.37792968750001,,,Paugussett,Paugussett homelands along the lower Housatonic River.,24,0,0,0,,,Tribes
+text,-8.928234353216506,-71.35603845169659,,,Paugussett,Paugussett homelands along the lower Housatonic River.,24,0,0,0,,,Tribes
 text,-54.825433284376075,-45.966796875,,,Pequot,Pequot homelands surrounding the lower Thames River.,24,0,0,0,,,Tribes
-text,-2.6577377901397883,-54.00878906250001,,,Podunk,Podunk homelands on the east side of the Connecticut River.,24,0,0,0,,,Tribes
+text,-2.986927393334863,-55.12939453125,,,Podunk,Podunk homelands on the east side of the Connecticut River.,24,0,0,0,,,Tribes
 text,-19.6247252492234,-84.19921875000001,,,Pokanoket,Pokanoket (Wampanoag) homelands around Mount Hope and Narragansett Bay.,24,0,0,0,,,Tribes
 text,-15.284185114076433,-90.17578125000001,,,Quinnipiac,Quinnipiac homelands at the mouth of the Quinnipiac River.,24,0,0,0,,,Tribes
 text,-78.86850415610446,-131.1195136082202,,,Rockaway,Rockaway (Reckgawawank) Lenape homelands on the Rockaway Peninsula.,24,0,0,0,,,Tribes
@@ -284,11 +238,11 @@ text,-74.35586571660598,-50.12487053847663,,,Shinnecock,Shinnecock homelands nea
 text,-36.73490706670716,-90.48572927900707,,,Tunxis,Tunxis homelands in the Farmington River Valley.,24,0,0,0,,,Tribes
 text,-74.21333248041581,-95.62940360654963,,,Unkechaug,Unkechaug (Poospatuck) homelands on Long Island's south shore.,24,0,0,0,,,Tribes
 text,-75.29941037564522,-79.89257812500001,,,Unquachog,Unqua homelands near present-day Seaford and Massapequa.,24,0,0,0,,,Tribes
-text,-12.811801316582619,56.6455078125,,,Wampanoag,Wampanoag homelands across Plymouth and Bristol counties.,24,0,0,0,,,Tribes
+text,-12.639589501616912,59.67777346270703,,,Wampanoag,Wampanoag homelands across Plymouth and Bristol counties.,24,0,0,0,,,Tribes
 text,-47.694974341862824,-52.29492187500001,,,Wangunk,Wangunk homelands along the lower Connecticut River.,24,0,0,0,,,Tribes
 text,-60.321147194219755,-105.8073484903449,,,Wappinger,Wappinger homelands spanning southwestern Connecticut and the lower Hudson Valley.,24,0,0,0,,,Tribes
 text,-57.657157596582984,-35.41992187500001,,,Western Niantic,Western Niantic homelands near the mouth of the Connecticut River.,24,0,0,0,,,Tribes
-text,-69.31043717139833,-127.60414123535158,,,Siwanogs,,24,0,0,0,,,Tribes
+text,-67.16882345280554,-137.46032059196105,,,Siwanogs,,24,0,0,0,,,Tribes
 text,17.602139123350852,11.975097656250002,,“the place of the hard rock”,Sagatabscot ,is a hill in the southeastern part of Worcester.[^¹],3,0,0,0,,,Mountains
 text,20.50935458871459,13.425292968750002,,Quinsikamon,Quinsigamond,Quinsikamon,7,76,0,0,,,
 text,68.07330474079025,-53.96484375000001,,,Monadnock,"g “place of the surpassing, or",14,0,0,0,,,
@@ -326,80 +280,6 @@ text,-45.93587062119053,50.42724609375001,,,Aquidnet,,11,0,0,0,,,Geographical Lo
 text,-54.87660665410869,98.17382812500001,,,NOEPE,,32,0,0,0,,,
 text,-80.75355618944563,-163.38867187500003,,,Nayack ,,7,0,0,0,,,Settlements
 text,-79.56850599323725,-161.82861328125003,,"""Nut Island""",Pagganck,,4,0,0,0,,,Geographical Locations
-text,60.04358934572451,64.43395614624025,,,Wemesit,,12,0,0,0,,,
-text,-7.648897281490625,57.66895294189454,,,Abnaki,,14,0,0,0,,,
-text,-41.04621681452063,17.402343750000004,,,Naragansett,,14,0,0,0,,,
-text,-57.9875380732216,21.945447921752933,,,Paguet,,14,0,0,0,,,
-text,-62.7595586121253,-87.47159957885744,,,Hammonasett,,14,0,0,0,,,
-text,-43.65588781419645,-61.32637023925782,,,Scatacook,,14,0,0,0,,,
-text,64.92354174306499,-69.08203125000001,,,Hoosac,,14,0,0,0,,,
-text,43.2161545603795,-43.17463874816895,,,Agawam,,14,0,0,0,,,
-text,-14.26438308756265,-118.23486328125001,,,Weguadnack,,7,0,0,0,,,Bodies of Water
-text,-11.264612212504428,-116.9384765625,,,Wononpakok,,7,0,0,0,,,Bodies of Water
-text,-9.600749932246847,-116.34521484375,,,Wononscopoiroc,,7,0,0,0,,,Bodies of Water
-text,-34.34343606848294,-109.46777343750001,,,Waramaug,,7,0,0,0,,,Bodies of Water
-text,-56.05976947910657,-121.44287109375001,,,Kanoshal,,7,0,0,0,,,Bodies of Water
-text,-56.13330691237569,-59.41406250000001,,,Quonisepaug,,7,0,0,0,,,Bodies of Water
-text,-50.81981826215653,4.899902343750001,,,Wyassup,,7,0,0,0,,,Bodies of Water
-text,-49.19606400072379,3.8671875000000004,,,Mahmansuck,,7,0,0,0,,,Bodies of Water
-text,-48.61838518688487,11.601562500000002,,,Yawgoag,,5,0,0,0,,,Bodies of Water
-text,-49.00905080938206,13.139648437500002,,,Winchek,,5,0,0,0,,,Bodies of Water
-text,-51.944264879028765,29.267578125000004,,,Chipchug,,5,0,0,0,,,Bodies of Water
-text,-57.040729838360875,18.808593750000004,,,Watchaug,,5,0,0,0,,,Bodies of Water
-text,-53.68369534495074,27.465820312500004,,,Aguebauaug,,5,0,0,0,,,Bodies of Water
-text,20.879342971957897,22.21435546875,,,Hobomoco,,3,0,0,0,,,Bodies of Water
-text,46.24100579395699,14.790200027175716,,,Unchechewhaton,,5,0,0,0,,,Bodies of Water
-text,45.69141355901332,-28.433346256397478,,,Mattawa,,3,0,0,0,,,Bodies of Water
-text,-2.6573545009375485,-112.6092050940509,,,Hackankamonk,,6,0,0,0,,,Bodies of Water
-text,3.425704292015428,12.48046875,,,Manchaug,,5,56,0,0,,,Bodies of Water
-text,-4.193807734214353,20.390625000000004,,,Chokalog,,5,0,0,0,,,Bodies of Water
-text,-47.20488569704063,-94.76806640625001,,,Quassapaug,,7,0,0,0,,,Bodies of Water
-text,-36.61547689037306,122.87109375000001,,,Wequaquet,,4,0,0,0,,,Bodies of Water
-text,-31.334881833100955,143.19580078125003,,,Massiby,,7,-20,0,0,,,Bodies of Water
-text,-49.196002035473335,46.5380859375,,,Woonachaset,,4,0,0,0,,,Geographical Locations
-text,-3.8862779472549307,-64.37988281250001,,,Congamond,,7,-80,0,0,,,Bodies of Water
-text,-61.67943790870445,1.8457688662052398,,,Wicopesset,,3,0,0,0,,,Geographical Locations
-text,-54.711614819498465,23.13788087860384,,,Paquiset,,5,0,0,0,,,Bodies of Water
-text,-46.513792848481856,71.91942117223316,,,Paskumanset ,,5,0,0,0,,,Bodies of Water
-text,-41.951338971647125,47.02141863379473,,,Chibachuweset ,,5,0,0,0,,,Geographical Locations
-text,-39.639468617241036,50.009798495602645,,,Chisawannock,,5,0,0,0,,,Geographical Locations
-text,-46.39267584235039,43.22102017351436,,,Quinunlcut ,,5,0,0,0,,,Geographical Locations
-text,-47.561657599781086,45.15379215844869,,,Aquopimonquk ,,5,0,0,0,,,Geographical Locations
-text,53.0936976235228,89.55965115107843,,,Agawam,,6,0,0,0,,,Settlements
-text,-48.137018484279025,-92.50492390075328,,,Meshapock,,6,0,0,0,,,Settlements
-text,-49.58228824034103,-89.95404136308912,,,Naugatuck,,6,0,0,0,,,Settlements
-text,-59.88859039393346,-68.11518506909607,,,Totoket,,6,0,0,0,,,Settlements
-text,-62.246888547856656,-73.91570335427505,,,Mioonktuck,,6,0,0,0,,,Settlements
-text,-62.46160496515689,-39.83331129165111,,,Pochaug,,6,0,0,0,,,Settlements
-text,-61.88709608905768,-33.28804828910797,,,Pashesauke,,6,0,0,0,,,Settlements
-text,-59.25480647478875,-13.315224246233583,,,Pequotauk,,6,0,0,0,,,Settlements
-text,-58.36726366448147,-2.702012177300084,,,Mistic,,6,0,0,0,,,Settlements
-text,-59.81137296969263,-4.831724521069415,,,Noank,,6,0,0,0,,,Settlements
-text,-56.789121967927656,2.8785083629072,,,Asupsuck,,6,0,0,0,,,Settlements
-text,-59.511789280392115,2.593940343893273,,,Aushnook,,6,0,0,0,,,Settlements
-text,-59.05174764761254,4.792027733958949,,,Wequetequock,,6,0,0,0,,,Settlements
-text,-44.52760571857897,36.84939361414983,,,Cocumcosuck,,5,0,0,0,,,Settlements
-text,-43.6920917086009,30.67477315482552,,,Woossowenbiskw,,5,0,0,0,,,Settlements
-text,-46.34718365448894,64.62348030855172,,,Acoaxet,,5,0,0,0,,,Settlements
-text,-43.11748160856244,56.99769485394992,,,Espowett,,5,0,0,0,,,Settlements
-text,-20.468099350519722,77.8710362264454,,,Wampanucket,,7,0,0,0,,,Settlements
-text,-13.988195352060007,72.16012605525368,,,Titicut,,7,0,0,0,,,Settlements
-text,-16.846586744088103,69.36855506987028,,,Cohannet,,7,0,0,0,,,Settlements
-text,-16.29903259997615,80.20154300720772,,,Namasachet,,7,0,0,0,,,Settlements
-text,20.03507341605914,66.88503680747169,,,Uniquititquessett,,4,0,0,0,,,Settlements
-text,14.029586440616434,-109.02670143532063,,,Oustonuck,,5,0,0,0,,,Settlements
-text,11.931858584012664,-110.16818661278329,,,Scatekook,,5,0,0,0,,,Settlements
-text,23.5644267743393,-106.10590772534609,,,Wnahtukook,,5,0,0,0,,,Settlements
-text,-34.30759287914818,-98.08508286433172,,,Peatan,,5,0,0,0,,,Settlements
-text,-65.14629225164387,-91.44821485869174,,,Pisquheege,,7,0,0,0,,,Settlements
-text,-64.6333606369832,-86.94292460352015,,,Wepowaug,,7,0,0,0,,,Settlements
-text,-27.799870511822157,103.64738621463917,,,Comasskumkanit,,7,0,0,0,,,Settlements
-text,27.896987499832555,36.869213245927774,,,Penobscot,,5,0,0,0,,,Settlements
-text,32.13903686440613,67.89572968906776,,,Winnisimmet,,5,0,0,0,,,Settlements
-text,34.90358058364418,71.08388499918719,,,Winnisimmet,,5,0,0,0,,,Settlements
-text,-4.653124537311702,0.4193294401477488,,,Maanexit,,5,0,0,0,,,Settlements
-text,-14.391734022653369,10.043698018975347,,,Quaddick,,5,0,0,0,,,Settlements
-text,-11.69560464311918,7.517656097640383,,,Quinnatisset,,5,0,0,0,,,Settlements
-text,-21.47353538728909,4.176472870583311,,,Attawangan,,5,0,0,0,,,Settlements
-text,13.710035342476681,-9.799804687500002,,,Podunk,,5,0,0,0,,,Bodies of Water
-text,8.102738577783168,-10.56884765625,,,Putikookuppogg,,3,0,0,0,,,Bodies of Water
+text,41.0130657870063,36.36474609375001,,,Nashope,,7,0,0,0,,,
+text,18.396230138028827,88.94531250000001,,,Quonahassit,,7,0,0,0,,,
+text,11.243062041947772,66.31347656250001,,,Punkapoag,,7,0,0,0,,,
