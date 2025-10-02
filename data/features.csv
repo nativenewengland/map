@@ -272,6 +272,10 @@ marker,-28.03319784767635,106.10595703125001,settlement,Marker,,,,,,,,{},Settlem
 marker,-63.37183226679281,151.56738281250003,settlement,Marker,,,,,,,,{},Settlements
 marker,-63.44068640036803,144.66796875000003,settlement,Marker,,,,,,,,{},Settlements
 marker,-59.60109549032134,150.93017578125003,settlement,Marker,,,,,,,,{},Settlements
+marker,-32.37996146435729,58.75488281250001,agriculture,Marker,,,,,,,,{},
+marker,-33.11915022676886,58.86474609375001,agriculture,Shawamet,,,,,,,,{},
+marker,-33.43144133557529,56.99707031250001,agriculture,Mattapoisett,,,,,,,,{},
+marker,-34.27083595165,54.75585937500001,agriculture,Toowooset,,,,,,,,{},
 text,-55.00282580979324,96.28417968750001,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-53.12040528310657,101.90917968750001,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-52.26815737376817,100.72265625000001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -311,7 +315,7 @@ text,-77.19570508665286,-143.9446752320028,,,Nissequogue,"Nissequogue homelands 
 text,-8.363855266221476,-72.37792968750001,,,Paugussett,Paugussett homelands along the lower Housatonic River.,24,0,0,0,,,Tribes
 text,-54.825433284376075,-45.966796875,,,Pequot,Pequot homelands surrounding the lower Thames River.,24,0,0,0,,,Tribes
 text,-2.6577377901397883,-54.00878906250001,,,Podunk,Podunk homelands on the east side of the Connecticut River.,24,0,0,0,,,Tribes
-text,-33.06392419812064,47.724609375,,,Pokanoket,Pokanoket (Wampanoag) homelands around Mount Hope and Narragansett Bay.,20,0,0,0,,,Tribes
+text,-31.87755764334002,46.99951171875001,,,Pokanoket,Pokanoket (Wampanoag) homelands around Mount Hope and Narragansett Bay.,20,0,0,0,,,Tribes
 text,-15.284185114076433,-90.17578125000001,,,Quinnipiac,Quinnipiac homelands at the mouth of the Quinnipiac River.,24,0,0,0,,,Tribes
 text,-78.86850415610446,-131.1195136082202,,,Rockaway,Rockaway (Reckgawawank) Lenape homelands on the Rockaway Peninsula.,24,0,0,0,,,Tribes
 text,-26.74561038219901,-62.49023437500001,,,Schaghticoke,Schaghticoke homelands near the confluence of the Housatonic and Ten Mile Rivers.,24,0,0,0,,,Tribes
@@ -415,7 +419,6 @@ text,-59.511789280392115,2.593940343893273,,,Aushnook,,6,0,0,0,,,Settlements
 text,-59.05174764761254,4.792027733958949,,,Wequetequock,,6,0,0,0,,,Settlements
 text,-44.52760571857897,36.84939361414983,,,Cocumcosuck,,5,0,0,0,,,Settlements
 text,-43.6920917086009,30.67477315482552,,,Woossowenbiskw,,5,0,0,0,,,Settlements
-<<<<<<< HEAD
 text,-46.36209301204983,64.62158203125001,,,Acoaxet,,5,0,0,0,,,Settlements
 text,-43.72347489611481,72.15820312500001,,,Copatneast,Thick woods or brush. An area south of Adamsville on the West Branch.,5,0,0,0,,,Geographical Locations
 text,-36.47430675509521,60.68847656250001,,,Copicut,Dense pine woods or swamp. The Copicut Woods are located in Fall River.,5,30,0,0,,,Geographical Locations
@@ -435,27 +438,6 @@ text,-39.639537564366705,65.85205078125001,,,Quansetor Nutaquanset,The place of 
 text,-45.69083283645817,67.45605468750001,,,Shimsuet,"An area on the east side of the East Branch, about a mile south of Hix Bridge.",5,0,0,0,,,Geographical Locations
 text,-44.11914151643736,70.37841796875001,,,Wasontuxsett,The area of land that is on the east side of the East Branch north of Hix Bridge or a brook that joins the river.,5,0,0,0,,,Geographical Locations
 text,-43.707593504052944,66.77490234375001,,,Watuppa,They draw water.,5,0,0,0,,,Bodies of Water
-=======
-text,-46.34718365448894,64.62348030855172,,,Acoaxet,,5,0,0,0,,,Settlements
-text,-46.25718365448894,64.54348030855172,,,Copatneast,"Thick woods or brush. An area south of Adamsville on the West Branch.",5,0,0,0,,,Geographical Locations
-text,-46.20718365448894,64.70348030855172,,,Copicut,"Dense pine woods or swamp. The Copicut Woods are located in Fall River.",5,0,0,0,,,Geographical Locations
-text,-46.29718365448894,64.76348030855173,,,HussunnegkorHassanegk,"Cellar dwelling, cave, cavern, or enclosure with stone flaggings or stone house. This is the earliest form of Horseneck.",5,0,0,0,,,Geographical Locations
-text,-46.40718365448894,64.70348030855172,,,Mashtuxet,"Reed or grass brook. A brook that flowed into Allen’s Pond.",5,0,0,0,,,Bodies of Water
-text,-46.45718365448894,64.60348030855172,,,Masquamskiesett or Mashuamskesett,"At the place of the red standing stone. The east side of the East Branch of the Westport River, two miles south of Hix Bridge.",5,0,0,0,,,Geographical Locations
-text,-46.32718365448894,64.50348030855172,,,Nanekumsick,"A cedar swamp in northern Westport.",5,0,0,0,,,Geographical Locations
-text,-46.28718365448894,64.65348030855172,,,Nonoquechage,"Richmond Pond.",5,0,0,0,,,Bodies of Water
-text,-46.33718365448894,64.80348030855173,,,Noquochoke,"His small piece of land or land at the fork. The East Branch of the Westport River.",5,0,0,0,,,Bodies of Water
-text,-46.35718365448894,64.90348030855173,,,Paquachuck,"At the clear or open hill. Westport Point.",5,0,0,0,,,Geographical Locations
-text,-46.21718365448894,64.60348030855172,,,Paschetest,"A swamp in the northeast corner of Westport.",5,0,0,0,,,Geographical Locations
-text,-46.17718365448894,64.50348030855172,,,Peetskeshuet,"On the east side of the East Branch, about one mile south of South Westport.",5,0,0,0,,,Geographical Locations
-text,-46.14718365448894,64.65348030855172,,,Poquanset,"At the opening. The natural harbor at the end of Westport Point.",5,0,0,0,,,Bodies of Water
-text,-46.09718365448894,64.75348030855173,,,Poganset,"At the pond. Devol Pond.",5,0,0,0,,,Bodies of Water
-text,-46.11718365448894,64.85348030855173,,,Quannachuck,"At the long hill. The swamp between Westport Factory and the Watuppa Pond.",5,0,0,0,,,Geographical Locations
-text,-46.07718365448894,64.95348030855173,,,Quansetor Nutaquanset,"The place of the terrible fire or at the burnt woods.",5,0,0,0,,,Geographical Locations
-text,-46.26718365448894,64.85348030855173,,,Shimsuet,"An area on the east side of the East Branch, about a mile south of Hix Bridge.",5,0,0,0,,,Geographical Locations
-text,-46.24718365448894,64.75348030855173,,,Wasontuxsett,"The area of land that is on the east side of the East Branch north of Hix Bridge or a brook that joins the river.",5,0,0,0,,,Geographical Locations
-text,-46.04718365448894,64.70348030855172,,,Watuppa,"They draw water.",5,0,0,0,,,Bodies of Water
->>>>>>> 8afdeb43f0b42f53c247f4f1aadc54577224ddb9
 text,-43.11748160856244,56.99769485394992,,,Espowett,,5,0,0,0,,,Settlements
 text,-20.468099350519722,77.8710362264454,,,Wampanucket,,7,0,0,0,,,Settlements
 text,-14.051330743518175,72.22412109375001,,,Titicut,,7,0,0,0,,,Settlements
@@ -542,3 +524,6 @@ text,-25.60190226111574,63.85253906250001,,,Assonet,,5,0,0,0,,,Settlements
 text,-35.92464453144098,53.52539062500001,,,Montaup,,5,0,0,0,,,Settlements
 text,-30.56226095049943,49.2626953125,,,Sowams,,5,0,0,0,,,Settlements
 text,-22.207749178410847,62.70996093750001,,,Kteticut,,7,-92,0,0,,,Rivers
+text,-32.63937487360668,56.16210937500001,,,Weyposet,,7,-75,0,0,,,Rivers
+text,-27.15692045688088,63.32519531250001,,,Assonet,,7,-56,0,0,,,Rivers
+text,-23.84564988765934,67.01660156250001,,,Mastucksett,,7,61,0,0,,,Rivers
