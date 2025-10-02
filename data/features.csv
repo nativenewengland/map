@@ -25,7 +25,7 @@ marker,-4.981505049328246,77.16796875000001,rock,Marker,,,,,,,,{},
 marker,10.746969318460001,22.148437500000004,settlement,Hassanamesit ,"""Place of Small Stones""",,,,,,,{},
 marker,18.95824648598139,36.18896484375001,agriculture,Marker,,,,,,,,{},
 marker,25.878994400196202,-48.9990234375,agriculture,Marker,,,,,,,,{},
-marker,-24.246964554300924,105.11718750000001,agriculture,Marker,,,,,,,,{},
+marker,-24.226928664976363,105.05126953125001,agriculture,Planting grounds,,"The site of an ""Ancient Indian Plantation"" ",,,,,,{},
 marker,41.046216814520655,38.6279296875,seamonster,A'pcinic,,"A'pcinic was a horned and beaked sea monster said to live in Lake Nagog, the monster reportedly dragged a tentacled arms along the shoreline when hungry to find its next meal.",,,,,,{},
 marker,41.77131167976407,37.19970703125001,forts,Nashoba Fort,,,,,,,,{},Forts
 marker,-46.99524110694595,65.45654296875001,settlement,Acoaxet,,,,,,,,{},Settlements
@@ -263,10 +263,12 @@ marker,8.99360046428003,-48.0322265625,settlement,Marker,,,,,,,,{},Settlements
 marker,53.133589829244826,61.67724609375001,mine,Mine,fgfdgd,dfgdfgd,,,,,,{},Mines/Quarries
 marker,17.476432197195518,69.60937500000001,mine,Mine,fgfdgd,dfgdfgd,,,,,,{},Mines/Quarries
 marker,17.790535393588975,70.31250000000001,mine,Mine,fgfdgd,dfgdfgd,,,,,,{},Mines/Quarries
-marker,-16.44662227164663,103.64501953125001,rock,Marker,,,,,,,,{},
-marker,-28.5941685062326,106.08398437500001,rock,Marker,,,,,,,,{},
+marker,-16.46769474828897,103.75488281250001,rock,Sacrifice Rock,,The sacrifice rock was a particular stone which tradition held one should place a small stone or stick upon when traveling past it. This would help the traveler become closer to the Manitou a fundamental and omnipresent life force that Algonquian,,,,,,{},
+marker,-28.729130483430154,105.97412109375,rock,Sacrifice Rock ,,The sacrifice rock was a particular stone which tradition held one should place a small stone or stick upon when traveling past it. This would help the traveler become closer to the Manitou a fundamental and omnipresent life force that Algonquian,,,,,,{},
 marker,-37.63163475580644,114.82910156250001,settlement,Marker,,,,,,,,{},Settlements
 marker,-47.66538735632655,99.38232421875001,settlement,Marker,,,,,,,,{},Settlements
+marker,-28.401064827220896,110.2587890625,rock,Sigamore Hill,,Sigamore Hill was an important meeting site used by the Wampanoag ,,,,,,{},
+marker,-28.03319784767635,106.10595703125001,settlement,Marker,,,,,,,,{},Settlements
 text,-55.00282580979324,96.28417968750001,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-53.12040528310657,101.90917968750001,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-52.26815737376817,100.72265625000001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -322,14 +324,14 @@ text,-60.321147194219755,-105.8073484903449,,,Wappinger,Wappinger homelands span
 text,-57.657157596582984,-35.41992187500001,,,Western Niantic,Western Niantic homelands near the mouth of the Connecticut River.,24,0,0,0,,,Tribes
 text,-69.31043717139833,-127.60414123535158,,,Siwanogs,,24,0,0,0,,,Tribes
 text,17.602139123350852,11.975097656250002,,“the place of the hard rock”,Sagatabscot ,is a hill in the southeastern part of Worcester.[^¹],3,0,0,0,,,Mountains
-text,20.50935458871459,13.425292968750002,,Quinsikamon,Quinsigamond,Quinsikamon,7,76,0,0,,,
+text,20.262197124246534,13.557128906250002,,Quinsikamon,Quinsigamond,Quinsikamon,7,76,0,0,,,
 text,68.07330474079025,-53.96484375000001,,,Monadnock,"g “place of the surpassing, or",14,0,0,0,,,
 text,12.189703804004086,20.214843750000004,,"""Place of Small Stones""",Hassanamesit ,,7,0,0,0,,,
 text,0.6591651462894632,-15.380859375000002,,“to a black deposit between two hills”,Tantiusques,,5,0,0,0,,,Mountains
 text,42.01665183556825,38.34228515625001,,,Nagog,,6,0,0,0,,,
 text,31.50362930577303,-61.56738281250001,,,Unquomonk,,7,0,0,0,,,Mountains
 text,-50.14874640066278,57.67822265625001,,"""where the water pours forth""",Sakonnet," 'Sekonnet', 'Seaconnet', 'Sakonnet', 'Saconnet', 'Sakonett', or 'Segonet'.",15,0,0,0,,,Tribes
-text,-54.673830965931145,10.217285156250002,," ""land in the middle"" or ""land between""",Ashawague ,,6,0,0,0,,,
+text,-54.69923352848138,10.283203125000002,," ""land in the middle"" or ""land between""",Ashawague ,,6,0,0,0,,,
 text,-64.73664139557683,-56.29394531250001,,,Massauqunnock,,6,0,0,0,,,Geographical Locations
 text,-63.97596090918337,-62.22656250000001,,,Kuttomquch ,,6,0,0,0,,,Geographical Locations
 text,-58.75680543225761,125.74951171875001,,,Mooskeiakit,,5,0,0,0,,,Geographical Locations
@@ -352,7 +354,7 @@ text,-76.80575496970872,-50.42724609375001,,,Achabachawesuck,,4,0,0,0,,,
 text,-77.05419428289703,-51.19628906250001,,,Quogue,,4,0,0,0,,,
 text,-3.4037578795775887,142.07519531250003,,,Pamet,,7,0,0,0,,,Settlements
 text,0.615222552406841,133.83544921875003,,,Meeshawn,,7,0,0,0,,,Settlements
-text,-2.7016350479445204,144.44824218750003,,“a place of springs.”,Tashmuit,The highlands of Pamet ,6,45,0,0,,,Geographical Locations
+text,-3.5572827265412794,144.22851562500003,,“a place of springs.”,Tashmuit,"The highlands of Pamet which were valued for its fertile soil and fresh springs, both of which were utilized by the local peoples. ",6,52,2,0,,,Geographical Locations
 text,-6.7737162387535,144.49218750000003,,,Pamet,,13,0,0,0,,,Territories
 text,-45.93587062119053,50.42724609375001,,,Aquidnet,,11,0,0,0,,,Geographical Locations
 text,-54.87660665410869,98.17382812500001,,,NOEPE,,32,0,0,0,,,
@@ -423,7 +425,7 @@ text,23.5644267743393,-106.10590772534609,,,Wnahtukook,,5,0,0,0,,,Settlements
 text,-34.30759287914818,-98.08508286433172,,,Peatan,,5,0,0,0,,,Settlements
 text,-65.14629225164387,-91.44821485869174,,,Pisquheege,,7,0,0,0,,,Settlements
 text,-64.6333606369832,-86.94292460352015,,,Wepowaug,,7,0,0,0,,,Settlements
-text,-27.799870511822157,103.64738621463917,,,Comasskumkanit,,7,0,0,0,,,Settlements
+text,-27.839076094777816,103.82080078125001,,,Comasskumkanit,,7,0,0,0,,,Settlements
 text,27.896987499832555,36.869213245927774,,,Penobscot,,5,0,0,0,,,Settlements
 text,32.13903686440613,67.89572968906776,,,Winnisimmet,,5,0,0,0,,,Settlements
 text,34.90358058364418,71.08388499918719,,,Winnisimmet,,5,0,0,0,,,Settlements
@@ -466,7 +468,7 @@ text,-27.196014383173296,38.54003906250001,,,Mashpaug,,7,0,0,0,,,Settlements
 text,55.32914440840507,-39.06738281250001,,,Squakeag,,7,0,0,0,,,Settlements
 text,44.9336963896947,-51.13037109375,,,Pocumtuck,,7,0,0,0,,,Settlements
 text,59.18718526575666,64.62158203125001,,,Pentucket,,7,0,0,0,,,Settlements
-text,58.722598828043395,80.81542968750001,,,Kwaskwaikikwen,,7,0,0,0,,,Settlements
+text,58.676937672586924,80.72753906250001,,,Kwaskwaikikwen,,7,0,0,0,,,Settlements
 text,60.673178565817715,67.06054687500001,,,Kenoza,,7,0,0,0,,,Settlements
 text,52.1874047455997,61.78710937500001,,,Cochichawick,,7,0,0,0,,,Settlements
 text,50.359480346298696,72.44384765625001,,,Shenewemedy ,,7,0,0,0,,,Settlements
@@ -483,3 +485,6 @@ text,-28.57487404744697,82.35351562500001,,,Snipatuit ,,5,0,0,0,,,Bodies of Wate
 text,-5.703447982149503,83.40820312500001,,,Munponset,,5,0,0,0,,,Bodies of Water
 text,-9.40571004160001,61.04003906250001,,,Winnecunnet ,,5,0,0,0,,,Bodies of Water
 text,-9.362352822055593,68.07128906250001,,,Nippenicket,,5,0,0,0,,,Bodies of Water
+text,-49.696061819115656,41.04492187500001,,,Aquidnesue,,4,0,0,0,,,Geographical Locations
+text,-58.68835857268097,19.775390625,,,Pawaget,,5,0,0,0,,,Bodies of Water
+text,-57.01681401739112,-4.108886718750001,,,Sickenames,,5,0,0,0,,,Bodies of Water
