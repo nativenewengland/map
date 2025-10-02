@@ -17,7 +17,7 @@ marker,-0.2636709443366629,-14.172363281250002,mine,Tantiusques,“to a black de
 marker,-41.426253195072704,39.57275390625001,agriculture,Marker,,,,,,,,{},
 marker,48.1367666796927,-43.98925781250001,settlement,Marker,,,,,,,,{},
 marker,54.67383096593114,-37.79296875000001,settlement,Marker,,,,,,,,{},
-marker,25.363882272740256,-50.2294921875,settlement,Marker,,,,,,,,{},
+marker,25.403584973186703,-49.94384765625001,settlement,Nonotuck,,,,,,,,{},
 marker,25.859223554761407,-47.85644531250001,settlement,Marker,,,,,,,,{},
 marker,-62.33941057752869,-31.508789062500004,settlement,Marker,,,,,,,,{},
 marker,-58.97266715450153,87.29736328125001,settlement,Marker,,,,,,,,{},
@@ -126,7 +126,7 @@ marker,-48.19538740833338,-91.23046875,settlement,Marker,,,,,,,,{},Settlements
 marker,-49.65340458843789,-88.94531250000001,settlement,Marker,,,,,,,,{},Settlements
 marker,-33.46810795527895,-19.577636718750004,settlement,Marker,,,,,,,,{},Settlements
 marker,-17.308687886770024,81.40869140625001,settlement,Marker,,,,,,,,{},Settlements
-marker,-11.178401873711772,98.32763671875001,settlement,Patuxet,,,,,,,,{},Settlements
+marker,-11.178401873711772,98.21777343750001,settlement,Patuxet,,,,,,,,{},Settlements
 marker,55.99838095535963,-96.064453125,settlement,Hoosic,,,,,,,,{},Settlements
 marker,-80.95264429702812,-162.42187500000003,settlement,Nayack,,,,,,,,{},Settlements
 marker,11.005904459659451,-109.40185546875001,settlement,Marker,,,,,,,,{},Settlements
@@ -208,8 +208,8 @@ marker,-5.354150760822185,-52.11914062500001,settlement,Marker,,,,,,,,{},Settlem
 marker,47.2341248761915,50.62536157662888,settlement,Marker,,,,,,,,{},Settlements
 marker,24.106507079653614,68.77368269159157,settlement,Marker,,,,,,,,{},Settlements
 marker,22.33013090638646,68.11425647457186,settlement,Marker,,,,,,,,{},Settlements
-marker,22.30981041486445,70.70799959484937,settlement,Marker,,,,,,,,{},Settlements
-marker,23.05968103206843,71.67515804647824,settlement,Marker,,,,,,,,{},Settlements
+marker,22.30981041486445,70.70799959484937,capital,Moswetuset ,,,,,,,,{},Settlements
+marker,22.776181505086505,71.45507812500001,settlement,Musquantum,,,,,,,,{},Settlements
 marker,22.573745338624363,71.85100503768348,settlement,Marker,,,,,,,,{},Settlements
 marker,19.973414902296028,68.37907060301313,settlement,Marker,,,,,,,,{},Settlements
 marker,16.109226968604325,90.70342905307433,settlement,Marker,,,,,,,,{},Settlements
@@ -276,6 +276,10 @@ marker,-32.37996146435729,58.75488281250001,agriculture,Marker,,,,,,,,{},
 marker,-33.11915022676886,58.86474609375001,agriculture,Shawamet,,,,,,,,{},
 marker,-33.43144133557529,56.99707031250001,agriculture,Mattapoisett,,,,,,,,{},
 marker,-34.27083595165,54.75585937500001,agriculture,Toowooset,,,,,,,,{},
+marker,18.812717856407776,72.57568359375001,settlement,Passanageset,,,,,,,,{},Settlements
+marker,-15.432500881886043,107.11669921875,settlement,Manomet,,,,,,,,{},Settlements
+marker,25.16517336866393,-48.42773437500001,agriculture,Marker,,,,,,,,{},
+marker,24.786734541988906,-48.69140625,agriculture,Marker,,,,,,,,{},
 text,-55.00282580979324,96.28417968750001,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-53.12040528310657,101.90917968750001,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-52.26815737376817,100.72265625000001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -453,7 +457,7 @@ text,-64.6333606369832,-86.94292460352015,,,Wepowaug,,7,0,0,0,,,Settlements
 text,-27.839076094777816,103.82080078125001,,,Comasskumkanit,,7,0,0,0,,,Settlements
 text,27.896987499832555,36.869213245927774,,,Penobscot,,5,0,0,0,,,Settlements
 text,32.13903686440613,67.89572968906776,,,Winnisimmet,,5,0,0,0,,,Settlements
-text,34.90358058364418,71.08388499918719,,,Winnisimmet,,5,0,0,0,,,Settlements
+text,34.59704151614417,71.67480468750001,,,Winnisimmet,,5,0,0,0,,,Settlements
 text,-4.653124537311702,0.4193294401477488,,,Maanexit,,5,0,0,0,,,Settlements
 text,-14.391734022653369,10.043698018975347,,,Quaddick,,5,0,0,0,,,Settlements
 text,-11.69560464311918,7.517656097640383,,,Quinnatisset,,5,0,0,0,,,Settlements
@@ -515,7 +519,7 @@ text,-57.01681401739112,-4.108886718750001,,,Sickenames,,5,0,0,0,,,Bodies of Wat
 text,-59.18718526575666,149.98535156250003,,,Squatesit,,5,0,0,0,,,Settlements
 text,-51.84935276370606,57.23876953125,,,Saconet,,5,0,0,0,,,Settlements
 text,-34.016241889667015,151.47949218750003,,,Manamoycke,,7,0,0,0,,,Settlements
-text,-11.049038346537094,97.07519531250001,,,Patuxet,,7,0,0,0,,,Settlements
+text,-11.264612212504428,96.52587890625001,,,Patuxet,,7,0,0,0,,,Settlements
 text,-18.729501999072138,41.35253906250001,,,Pawtuxet,Pokanoket (Wampanoag) homelands around Mount Hope and Narragansett Bay.,14,0,0,0,,,Tribes
 text,-23.241346102386135,34.84863281250001,,,Coweset,Pokanoket (Wampanoag) homelands around Mount Hope and Narragansett Bay.,14,0,0,0,,,Tribes
 text,-43.97700467496408,74.81689453125001,,,Apponagansett,,5,0,0,0,,,Settlements
@@ -527,3 +531,6 @@ text,-22.207749178410847,62.70996093750001,,,Kteticut,,7,-92,0,0,,,Rivers
 text,-32.63937487360668,56.16210937500001,,,Weyposet,,7,-75,0,0,,,Rivers
 text,-27.15692045688088,63.32519531250001,,,Assonet,,7,-56,0,0,,,Rivers
 text,-23.84564988765934,67.01660156250001,,,Mastucksett,,7,61,0,0,,,Rivers
+text,41.705728515237524,36.49658203125001,,,Nashobah,,5,0,0,0,,,Settlements
+text,-14.349547837185362,106.01806640625001,,,Manomet,,7,0,0,0,,,Settlements
+text,26.391869671769022,-51.13037109375,,,Nonotuck,,7,0,0,0,,,Settlements
