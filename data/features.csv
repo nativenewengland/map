@@ -26,7 +26,12 @@ marker,10.746969318460001,22.148437500000004,settlement,Hassanamesit ,"""Place o
 marker,18.95824648598139,36.18896484375001,agriculture,Marker,,,,,,,,{},
 marker,25.878994400196202,-48.9990234375,agriculture,Marker,,,,,,,,{},
 marker,-24.226928664976363,105.05126953125001,agriculture,Planting grounds,,"The site of an ""Ancient Indian Plantation"" ",,,,,,{},
-marker,41.046216814520655,38.6279296875,seamonster,A'pcinic,,"A'pcinic was a horned and beaked sea monster said to live in Lake Nagog, the monster reportedly dragged a tentacled arms along the shoreline when hungry to find its next meal.",,,,,,{},
+marker,41.046216814520655,38.6279296875,seamonster,A'pcinic,,"A'pcinic was a horned and beaked sea monster said to live in Lake Nagog, the monster reportedly dragged a tentacled arms along the shoreline when hungry to find its next meal.[^1]
+
+
+
+
+[^1]:https://newenglandfolklore.blogspot.com/2013/04/praying-indians-and-tentacled-lake.html",,,,,,{},
 marker,41.77131167976407,37.19970703125001,forts,Nashoba Fort,,,,,,,,{},Forts
 marker,-46.99524110694595,65.45654296875001,settlement,Acoaxet,,,,,,,,{},Settlements
 marker,-30.410781790845878,104.63378906250001,pteroglyph,Bourne Stone,,,,,,,,{},Petroglyph
@@ -131,7 +136,7 @@ marker,55.99838095535963,-96.064453125,settlement,Hoosic,,,,,,,,{},Settlements
 marker,-80.95264429702812,-162.42187500000003,settlement,Nayack,,,,,,,,{},Settlements
 marker,11.005904459659451,-109.40185546875001,settlement,Marker,,,,,,,,{},Settlements
 marker,13.966054081318314,-107.86376953125001,settlement,Marker,,,,,,,,{},Settlements
-marker,22.69512018496571,-104.91943359375001,settlement,Marker,,,,,,,,{},Settlements
+marker,22.69512018496571,-104.91943359375001,settlement,Wnahtukook,,,,,,,,{},Settlements
 marker,-16.99375545289455,-116.27929687500001,settlement,Marker,,,,,,,,{},Settlements
 marker,-58.859223547066584,-2.0874023437500004,settlement,Marker,,,,,,,,{},Settlements
 marker,-60.29429873400916,-4.042968750000001,settlement,Marker,,,,,,,,{},Settlements
@@ -141,8 +146,8 @@ marker,-40.094872337893925,-18.171386718750004,settlement,Marker,,,,,,,,{},Settl
 marker,36.03133177633189,21.071777343750004,settlement,Marker,,,,,,,,{},Settlements
 marker,51.33061163769853,47.32910156250001,settlement,Marker,,,,,,,,{},Settlements
 marker,37.92977319243816,23.80833384119878,settlement,Marker,,,,,,,,{},Settlements
-marker,43.43696596521823,51.70166015625001,settlement,Marker,,,,,,,,{},Settlements
-marker,40.27952566881291,56.05224609375001,settlement,Marker,,,,,,,,{},Settlements
+marker,43.43696596521823,51.70166015625001,settlement,Marker,,![Map from 1642](images/04-Map-1642.jpg),,,,,,{},Settlements
+marker,40.21246025329131,56.030281649008565,settlement,Marker,,![Map from 1642](images/04-Map-1642.jpg),,,,,,{},Settlements
 marker,27.0982539061379,38.03466796875001,settlement,Marker,,,,,,,,{},Settlements
 marker,24.32707654001865,31.113281250000004,settlement,Marker,,,,,,,,{},Settlements
 marker,-14.41340016520608,10.9423828125,settlement,Marker,,,,,,,,{},Settlements
@@ -205,7 +210,7 @@ marker,-7.601531395848714,-57.78808593750001,settlement,Marker,,,,,,,,{},Settlem
 marker,-5.7695453247274875,-46.07666015625001,settlement,Marker,,,,,,,,{},Settlements
 marker,-9.946517823755379,-40.80322265625001,settlement,Marker,,,,,,,,{},Settlements
 marker,-5.354150760822185,-52.11914062500001,settlement,Marker,,,,,,,,{},Settlements
-marker,47.2341248761915,50.62536157662888,settlement,Marker,,,,,,,,{},Settlements
+marker,47.2341248761915,50.62536157662888,settlement,Marker,,![Map from 1642](images/04-Map-1642.jpg),,,,,,{},Settlements
 marker,24.106507079653614,68.77368269159157,settlement,Marker,,,,,,,,{},Settlements
 marker,22.33013090638646,68.11425647457186,settlement,Marker,,,,,,,,{},Settlements
 marker,22.30981041486445,70.70799959484937,capital,Moswetuset ,,,,,,,,{},Settlements
@@ -280,6 +285,7 @@ marker,18.812717856407776,72.57568359375001,settlement,Passanageset,,,,,,,,{},Se
 marker,-15.432500881886043,107.11669921875,settlement,Manomet,,,,,,,,{},Settlements
 marker,25.16517336866393,-48.42773437500001,agriculture,Marker,,,,,,,,{},
 marker,24.786734541988906,-48.69140625,agriculture,Marker,,,,,,,,{},
+marker,31.725882537641308,-131.22224688860555,settlement,Marker,,,,,,,,{},Settlements
 text,-55.00282580979324,96.28417968750001,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-53.12040528310657,101.90917968750001,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-52.26815737376817,100.72265625000001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -305,7 +311,7 @@ text,-72.76643494811363,-71.73513141636457,,,Corchaug,Corchaug territory on the 
 text,-56.32872090717995,-14.39208984375,,,Eastern Niantic,Eastern Niantic homelands along the Niantic River in Connecticut.,24,0,0,0,,,Tribes
 text,-60.08676274626006,-60.60058593750001,,,Hammonasset,Hammonasset homelands along the central Connecticut shoreline.,24,0,0,0,,,Tribes
 text,-69.16724012600773,-49.949353504869585,,,Manhanset,"Manhanset people of Shelter Island, between Long Island's forks.",24,0,0,0,,,Tribes
-text,0.8649062261496583,-73.83331060386206,,,Manissean,Manissean (Manitou) homelands on Block Island.,24,0,0,0,,,Tribes
+text,-66.98836600973269,23.16686297828692,,,Manissean,Manissean (Manitou) homelands on Block Island.,24,0,0,0,,,Tribes
 text,23.32208001137844,48.16406250000001,,,Massachusett,Massachusett homelands around the Shawmut Peninsula (Boston).,24,0,0,0,,,Tribes
 text,-39.368279149160124,-39.46289062500001,,,Mashantucket Pequot,Mashantucket Pequot homelands near the Pawcatuck River.,24,0,0,0,,,Tribes
 text,-79.65392213419594,-146.93163540003792,,,Matinecock,Matinecock homelands on Long Island's north shore.,24,0,0,0,,,Tribes
@@ -450,7 +456,7 @@ text,-16.29903259997615,80.20154300720772,,,Namasachet,Nemasket,7,0,0,0,,,Settle
 text,20.03507341605914,66.88503680747169,,,Uniquititquessett,,4,0,0,0,,,Settlements
 text,14.029586440616434,-109.02670143532063,,,Oustonuck,,5,0,0,0,,,Settlements
 text,11.931858584012664,-110.16818661278329,,,Scatekook,,5,0,0,0,,,Settlements
-text,23.5644267743393,-106.10590772534609,,,Wnahtukook,,5,0,0,0,,,Settlements
+text,23.5644267743393,-106.10590772534609,,,Wnahtukook,Waubtucook,5,0,0,0,,,Settlements
 text,-34.30759287914818,-98.08508286433172,,,Peatan,,5,0,0,0,,,Settlements
 text,-65.14629225164387,-91.44821485869174,,,Pisquheege,,7,0,0,0,,,Settlements
 text,-64.6333606369832,-86.94292460352015,,,Wepowaug,,7,0,0,0,,,Settlements
@@ -534,3 +540,13 @@ text,-23.84564988765934,67.01660156250001,,,Mastucksett,,7,61,0,0,,,Rivers
 text,41.705728515237524,36.49658203125001,,,Nashobah,,5,0,0,0,,,Settlements
 text,-14.349547837185362,106.01806640625001,,,Manomet,,7,0,0,0,,,Settlements
 text,26.391869671769022,-51.13037109375,,,Nonotuck,,7,0,0,0,,,Settlements
+text,40.02757526111039,46.58187523133773,,,Musketaquid,,5,0,0,0,,,Settlements
+text,32.50625615680383,-132.40458245675012,,,Kaunaumeek,Waubtucook,5,0,0,0,,,Settlements
+text,31.05408391778296,-111.79687500000001,,The People of the Waters That Are Never Still,Muhheconneok ,"As more and more Europeans settled here, the Mohicans lost their ownership of the land and found themselves increasingly dependent on the settlers for goods that they had traditionally sourced from nature. Eventually the Mohicans were pushed east to the Housatonic River in what is now Massachusetts. The tribe was also catastrophically affected by diseases that the Europeans brought, which decreased their numbers greatly.
+
+In the mid-1780s, the Stockbridge Mohican people moved to New Stockbridge near Oneida Lake, where they had been offered a tract of land. However land companies focused on profit proposed that New York State remove all Indians from within its borders, and the tribe was forced to move again, this time to the White River area in what is now Indiana.
+
+Meanwhile, missionaries, agents from the state of New York, and commissioners from the War Department were negotiating with the Menominee and Ho- Chunk (Winnebago) for a large tract of land on which to relocate the Indigenous people from New York in what is now Wisconsin. A treaty was negotiated in 1822 and the Stockbridge Mohicans moved yet again, this time to the reservation in Wisconsin, where they still reside today.[^1]
+
+
+[^1]:https://flyingdeernaturecenter.org/the-muhheconneok/",24,0,0,0,,,Tribes
