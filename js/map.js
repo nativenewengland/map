@@ -1101,8 +1101,45 @@ function loadFeaturesFromCSV(text) {
   var markers = [];
   var textLabels = [];
   var polygons = [];
-  var lines = text.trim().split(/\r?\n/);
-  lines.slice(1).forEach(function (line) {
+  var source = (text || '').trim();
+  if (!source) {
+    return { markers: markers, textLabels: textLabels, polygons: polygons };
+  }
+
+  var rows = [];
+  var current = '';
+  var inQuotes = false;
+
+  for (var i = 0; i < source.length; i++) {
+    var ch = source[i];
+    if (ch === '"') {
+      if (inQuotes) {
+        if (source[i + 1] === '"') {
+          current += '""';
+          i += 1;
+        } else {
+          inQuotes = false;
+          current += ch;
+        }
+      } else {
+        inQuotes = true;
+        current += ch;
+      }
+    } else if (!inQuotes && (ch === '\n' || ch === '\r')) {
+      rows.push(current);
+      current = '';
+      if (ch === '\r' && source[i + 1] === '\n') {
+        i += 1;
+      }
+    } else {
+      current += ch;
+    }
+  }
+  if (current.length > 0 || rows.length === 0) {
+    rows.push(current);
+  }
+
+  rows.slice(1).forEach(function (line) {
     if (!line.trim()) return;
     var cols = parseCsvRow(line);
     var type = cols[0];
