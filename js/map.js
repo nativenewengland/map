@@ -602,8 +602,8 @@ function showInfo(title, subheader, description) {
     }
   }
   var sanitizeConfig = {
-    ADD_TAGS: ['section', 'sup', 'ol', 'li', 'a'],
-    ADD_ATTR: ['id', 'href'],
+    ADD_TAGS: ['section', 'sup', 'ol', 'li', 'a', 'img'],
+    ADD_ATTR: ['id', 'href', 'src', 'alt', 'title'],
   };
   var html = rendered;
   if (typeof DOMPurify !== 'undefined' && DOMPurify && typeof DOMPurify.sanitize === 'function') {
