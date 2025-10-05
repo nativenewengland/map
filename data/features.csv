@@ -215,8 +215,8 @@ marker,-5.354150760822185,-52.11914062500001,settlement,Marker,,,,,,,,{},Settlem
 marker,47.2341248761915,50.62536157662888,settlement,Marker,,![Map from 1642](images/04-Map-1642.jpg),,,,,,{},Settlements
 marker,24.106507079653614,68.77368269159157,settlement,Marker,,,,,,,,{},Settlements
 marker,22.33013090638646,68.11425647457186,settlement,Marker,,,,,,,,{},Settlements
-marker,22.30981041486445,70.70799959484937,capital,Moswetuset ,,,,,,,,{},Settlements
-marker,22.776181505086505,71.45507812500001,settlement,Musquantum,,,,,,,,{},Settlements
+marker,22.30981041486445,70.70799959484937,capital,Moswetuset ,,![ME_Boston_Map_28x36_Flat-1-e1490057999642](images/ME_Boston_Map_28x36_Flat-1-e1490057999642.jpg),,,,,,{},Settlements
+marker,22.776181505086505,71.45507812500001,settlement,Musquantum,,![ME_Boston_Map_28x36_Flat-1-e1490057999642](images/ME_Boston_Map_28x36_Flat-1-e1490057999642.jpg),,,,,,{},Settlements
 marker,22.573745338624363,71.85100503768348,settlement,Marker,,,,,,,,{},Settlements
 marker,19.973414902296028,68.37907060301313,settlement,Marker,,,,,,,,{},Settlements
 marker,16.109226968604325,90.70342905307433,settlement,Marker,,,,,,,,{},Settlements
@@ -283,11 +283,13 @@ marker,-32.37996146435729,58.75488281250001,agriculture,Marker,,,,,,,,{},
 marker,-33.11915022676886,58.86474609375001,agriculture,Shawamet,,,,,,,,{},
 marker,-33.43144133557529,56.99707031250001,agriculture,Mattapoisett,,,,,,,,{},
 marker,-34.27083595165,54.75585937500001,agriculture,Toowooset,,,,,,,,{},
-marker,18.812717856407776,72.57568359375001,settlement,Passanageset,,,,,,,,{},Settlements
+marker,18.812717856407776,72.57568359375001,settlement,Passanageset,,![ME_Boston_Map_28x36_Flat-1-e1490057999642](images/ME_Boston_Map_28x36_Flat-1-e1490057999642.jpg),,,,,,{},Settlements
 marker,-15.432500881886043,107.11669921875,settlement,Manomet,,,,,,,,{},Settlements
 marker,25.16517336866393,-48.42773437500001,agriculture,Marker,,,,,,,,{},
 marker,24.786734541988906,-48.69140625,agriculture,Marker,,,,,,,,{},
 marker,31.725882537641308,-131.22224688860555,settlement,Marker,,,,,,,,{},Settlements
+marker,20.42728254369537,71.76268299147884,agriculture,Marker,,![ME_Boston_Map_28x36_Flat-1-e1490057999642](images/ME_Boston_Map_28x36_Flat-1-e1490057999642.jpg),,,,,,{},
+marker,20.653777076652563,71.0376869836534,agriculture,Planting Fields ,,![ME_Boston_Map_28x36_Flat-1-e1490057999642](images/ME_Boston_Map_28x36_Flat-1-e1490057999642.jpg),,,,,,{},
 text,-55.00282580979324,96.28417968750001,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-53.12040528310657,101.90917968750001,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-52.26815737376817,100.72265625000001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -471,7 +473,7 @@ text,-14.391734022653369,10.043698018975347,,,Quaddick,,5,0,0,0,,,Settlements
 text,-11.69560464311918,7.517656097640383,,,Quinnatisset,,5,0,0,0,,,Settlements
 text,-21.47353538728909,4.176472870583311,,,Attawangan,,5,0,0,0,,,Settlements
 text,13.539262853432747,-9.667996472297618,,,Podunk,,5,-40,0,0,,,Bodies of Water
-text,8.102738577783168,-10.56884765625,,,Putikookuppogg,,3,0,0,0,,,Bodies of Water
+text,8.015684329318784,-11.227925695325423,,,Putikookuppogg,,4,0,0,0,,,Bodies of Water
 text,-63.38167869302983,147.65625000000003,,,Toupchue,,3,0,0,0,,,Bodies of Water
 text,-63.045001015420105,146.46972656250003,,,Madequecham,,3,0,0,0,,,Bodies of Water
 text,-63.51917465269721,143.43750000000003,,,Wammasquid,,5,0,0,0,,,Geographical Locations
@@ -554,7 +556,7 @@ Meanwhile, missionaries, agents from the state of New York, and commissioners fr
 [^1]:https://flyingdeernaturecenter.org/the-muhheconneok/",24,0,0,0,,,Tribes
 text,16.448309250183947,69.91765136213205,,,Housickwissick,,4,0,0,0,,,Geographical Locations
 text,15.559624524776702,64.13823595808995,,,Massa(wa)chusett,,7,-12,0,0,,,Geographical Locations
-text,19.707090311556236,71.63083781321298,,,Passonagessit,,4,0,0,0,,,Geographical Locations
+text,19.64256946203327,71.49903267826588,,,Passonagessit,![ME_Boston_Map_28x36_Flat-1-e1490057999642](images/ME_Boston_Map_28x36_Flat-1-e1490057999642.jpg),4,0,0,0,,,Geographical Locations
 text,22.350927664954572,69.80772955603156,,,Moswetuset,,4,0,0,0,,,Geographical Locations
 text,30.181197723251778,66.84206781589243,,,Musquantum,,4,0,0,0,,,Geographical Locations
 text,20.94098538139971,68.42283924147884,,,Neponset,,4,0,0,0,,,Geographical Locations
@@ -569,3 +571,5 @@ text,35.72465804042076,72.83953412355683,,,Abousett,,4,0,0,0,,,Geographical Loca
 text,36.963177033353084,74.07011992325785,,,Sauguset,,4,0,0,0,,,Geographical Locations
 text,32.32132440176417,65.76537993734482,,,Mystic,,4,0,0,0,,,Geographical Locations
 text,35.51054763950284,60.38321269004152,,,Aberjona,,4,0,0,0,,,Geographical Locations
+text,-58.632947944494255,132.01287692598905,,,Nantucket,,32,0,0,0,,,
+text,23.543622313905296,70.48885109722865,,,Musquantum,,4,0,0,0,,,Geographical Locations
