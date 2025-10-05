@@ -214,8 +214,8 @@ marker,-9.946517823755379,-40.80322265625001,settlement,Marker,,,,,,,,{},Settlem
 marker,-5.354150760822185,-52.11914062500001,settlement,Marker,,,,,,,,{},Settlements
 marker,47.2341248761915,50.62536157662888,settlement,Marker,,![Map from 1642](images/04-Map-1642.jpg),,,,,,{},Settlements
 marker,24.106507079653614,68.77368269159157,settlement,Marker,,,,,,,,{},Settlements
-marker,22.33013090638646,68.11425647457186,settlement,Marker,,,,,,,,{},Settlements
-marker,22.30981041486445,70.70799959484937,capital,Moswetuset ,,![ME_Boston_Map_28x36_Flat-1-e1490057999642](images/ME_Boston_Map_28x36_Flat-1-e1490057999642.jpg),,,,,,{},Settlements
+marker,22.33013090638646,68.11425647457186,settlement,Mattapan,,,,,,,,{},Settlements
+marker,22.431304682863786,70.55422078053705,capital,Moswetuset ,,![ME_Boston_Map_28x36_Flat-1-e1490057999642](images/ME_Boston_Map_28x36_Flat-1-e1490057999642.jpg),,,,,,{},Settlements
 marker,22.776181505086505,71.45507812500001,settlement,Musquantum,,![ME_Boston_Map_28x36_Flat-1-e1490057999642](images/ME_Boston_Map_28x36_Flat-1-e1490057999642.jpg),,,,,,{},Settlements
 marker,22.573745338624363,71.85100503768348,settlement,Marker,,,,,,,,{},Settlements
 marker,19.973414902296028,68.37907060301313,settlement,Marker,,,,,,,,{},Settlements
@@ -288,8 +288,8 @@ marker,-15.432500881886043,107.11669921875,settlement,Manomet,,,,,,,,{},Settleme
 marker,25.16517336866393,-48.42773437500001,agriculture,Marker,,,,,,,,{},
 marker,24.786734541988906,-48.69140625,agriculture,Marker,,,,,,,,{},
 marker,31.725882537641308,-131.22224688860555,settlement,Marker,,,,,,,,{},Settlements
-marker,20.42728254369537,71.76268299147884,agriculture,Marker,,![ME_Boston_Map_28x36_Flat-1-e1490057999642](images/ME_Boston_Map_28x36_Flat-1-e1490057999642.jpg),,,,,,{},
-marker,20.653777076652563,71.0376869836534,agriculture,Planting Fields ,,![ME_Boston_Map_28x36_Flat-1-e1490057999642](images/ME_Boston_Map_28x36_Flat-1-e1490057999642.jpg),,,,,,{},
+marker,20.4270128142574,71.54299955255291,agriculture,Massachusetts Planting Fields,,![ME_Boston_Map_28x36_Flat-1-e1490057999642](images/ME_Boston_Map_28x36_Flat-1-e1490057999642.jpg),,,,,,{},
+marker,20.653777076652563,71.0376869836534,agriculture,Massachusetts Planting Fields,,![ME_Boston_Map_28x36_Flat-1-e1490057999642](images/ME_Boston_Map_28x36_Flat-1-e1490057999642.jpg),,,,,,{},
 text,-55.00282580979324,96.28417968750001,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-53.12040528310657,101.90917968750001,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-52.26815737376817,100.72265625000001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -557,14 +557,14 @@ Meanwhile, missionaries, agents from the state of New York, and commissioners fr
 text,16.448309250183947,69.91765136213205,,,Housickwissick,,4,0,0,0,,,Geographical Locations
 text,15.559624524776702,64.13823595808995,,,Massa(wa)chusett,,7,-12,0,0,,,Geographical Locations
 text,19.64256946203327,71.49903267826588,,,Passonagessit,![ME_Boston_Map_28x36_Flat-1-e1490057999642](images/ME_Boston_Map_28x36_Flat-1-e1490057999642.jpg),4,0,0,0,,,Geographical Locations
-text,22.350927664954572,69.80772955603156,,,Moswetuset,,4,0,0,0,,,Geographical Locations
+text,22.471919044631637,69.91697678622356,,,Moswetuset,,4,0,0,0,,,Geographical Locations
 text,30.181197723251778,66.84206781589243,,,Musquantum,,4,0,0,0,,,Geographical Locations
 text,20.94098538139971,68.42283924147884,,,Neponset,,4,0,0,0,,,Geographical Locations
-text,21.146397818990206,66.53412104107639,,,Mattapan,,4,0,0,0,,,Geographical Locations
+text,22.26843848543499,67.32410786080958,,,Mattapan,,4,0,0,0,,,Geographical Locations
 text,26.647527304437542,68.44478109517594,,,Mattapannock,,4,0,0,0,,,Geographical Locations
 text,28.41904662408636,66.64387343313597,,,Mushauwomuk,,4,0,0,0,,,Geographical Locations
 text,20.34515469621985,75.71715122593143,,,Mishawum,,4,0,0,0,,,Geographical Locations
-text,28.39898305613113,59.72352476041869,,,Nonatum,,4,0,0,0,,,Geographical Locations
+text,28.613397658582368,59.41410562357409,,,Nonatum,,4,0,0,0,,,Geographical Locations
 text,28.93832049973028,60.47074292517258,,,Pequusset,,4,0,0,0,,,Geographical Locations
 text,33.82989789019304,62.49182070647435,,,Menotomett,,4,0,0,0,,,Geographical Locations
 text,35.72465804042076,72.83953412355683,,,Abousett,,4,0,0,0,,,Geographical Locations
@@ -573,3 +573,6 @@ text,32.32132440176417,65.76537993734482,,,Mystic,,4,0,0,0,,,Geographical Locati
 text,35.51054763950284,60.38321269004152,,,Aberjona,,4,0,0,0,,,Geographical Locations
 text,-58.632947944494255,132.01287692598905,,,Nantucket,,32,0,0,0,,,
 text,23.543622313905296,70.48885109722865,,,Musquantum,,4,0,0,0,,,Geographical Locations
+text,12.768902773319255,64.13819899502647,,,Ponkapoag,,5,0,0,0,,,Bodies of Water
+text,-10.047996260143039,85.25211970193185,,,Monatiquot ,,3,0,0,-5,,,Rivers
+text,9.23226773945612,69.1479184161971,,,Cochato,,3,-45,0,0,,,Rivers
