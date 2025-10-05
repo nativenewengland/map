@@ -345,7 +345,7 @@ text,-69.31043717139833,-127.60414123535158,,,Siwanogs,,24,0,0,0,,,Tribes
 text,17.602139123350852,11.975097656250002,,“the place of the hard rock”,Sagatabscot ,is a hill in the southeastern part of Worcester.[^¹],3,0,0,0,,,Mountains
 text,20.262197124246534,13.557128906250002,,Quinsikamon,Quinsigamond,Quinsikamon,7,76,0,0,,,
 text,68.07330474079025,-53.96484375000001,,,Monadnock,"g “place of the surpassing, or",14,0,0,0,,,
-text,12.189703804004086,20.214843750000004,,"""Place of Small Stones""",Hassanamesit ,,7,0,0,0,,,
+text,11.82444165146143,20.258782901989424,,"""Place of Small Stones""",Hassanamesit ,,7,0,0,0,,,
 text,0.6591651462894632,-15.380859375000002,,“to a black deposit between two hills”,Tantiusques,,5,0,0,0,,,Mountains
 text,42.01665183556825,38.34228515625001,,,Nagog,,6,0,0,0,,,
 text,31.50362930577303,-61.56738281250001,,,Unquomonk,,7,0,0,0,,,Mountains
@@ -470,7 +470,7 @@ text,-4.653124537311702,0.4193294401477488,,,Maanexit,,5,0,0,0,,,Settlements
 text,-14.391734022653369,10.043698018975347,,,Quaddick,,5,0,0,0,,,Settlements
 text,-11.69560464311918,7.517656097640383,,,Quinnatisset,,5,0,0,0,,,Settlements
 text,-21.47353538728909,4.176472870583311,,,Attawangan,,5,0,0,0,,,Settlements
-text,13.710035342476681,-9.799804687500002,,,Podunk,,5,0,0,0,,,Bodies of Water
+text,13.539262853432747,-9.667996472297618,,,Podunk,,5,-40,0,0,,,Bodies of Water
 text,8.102738577783168,-10.56884765625,,,Putikookuppogg,,3,0,0,0,,,Bodies of Water
 text,-63.38167869302983,147.65625000000003,,,Toupchue,,3,0,0,0,,,Bodies of Water
 text,-63.045001015420105,146.46972656250003,,,Madequecham,,3,0,0,0,,,Bodies of Water
@@ -552,23 +552,20 @@ Meanwhile, missionaries, agents from the state of New York, and commissioners fr
 
 
 [^1]:https://flyingdeernaturecenter.org/the-muhheconneok/",24,0,0,0,,,Tribes
-text,22.146653165892012,73.82812500000001,,,szaz,,6,0,0,0,,,Geographical Locations
-text,22.146653165892012,74.62812500000001,,,Housickwissick,,4,0,0,0,,,Geographical Locations
-text,22.40641274125576,74.58477879336053,,,Massa(wa)chusett,,4,0,0,0,,,Geographical Locations
-text,22.638023336043744,74.45943740751713,,,Passonagessit,,4,0,0,0,,,Geographical Locations
-text,22.816386348502036,74.26568352649795,,,Moswetuset,,4,0,0,0,,,Geographical Locations
-text,22.922173378643475,74.02451338971265,,,Musquantum,,4,0,0,0,,,Geographical Locations
-text,22.94392076029735,73.76206152362215,,,Uniquitquesett,,4,0,0,0,,,Geographical Locations
-text,22.87927182721606,73.50676866027764,,,Neponset,,4,0,0,0,,,Geographical Locations
-text,22.735232294430517,73.28629974269943,,,Mattapan,,4,0,0,0,,,Geographical Locations
-text,22.52741108032167,73.12454599903482,,,Mattapannock,,4,0,0,0,,,Geographical Locations
-text,22.2783288381166,73.03903595727783,,,Mushauwomuk,,4,0,0,0,,,Geographical Locations
-text,22.014977493667423,73.03903595727783,,,Mishawum,,4,0,0,0,,,Geographical Locations
-text,21.765895251462354,73.12454599903482,,,Winnisimmit,,4,0,0,0,,,Geographical Locations
-text,21.558074037353506,73.28629974269943,,,Nonatum,,4,0,0,0,,,Geographical Locations
-text,21.414034504567965,73.50676866027764,,,Pequusset,,4,0,0,0,,,Geographical Locations
-text,21.349385571486675,73.76206152362215,,,Menotomett,,4,0,0,0,,,Geographical Locations
-text,21.37113295314055,74.02451338971265,,,Abousett,,4,0,0,0,,,Geographical Locations
-text,21.476919983281988,74.26568352649795,,,Sauguset,,4,0,0,0,,,Geographical Locations
-text,21.65528299574028,74.45943740751713,,,Mystic,,4,0,0,0,,,Geographical Locations
-text,21.886893590528263,74.58477879336053,,,Aberjona,,4,0,0,0,,,Geographical Locations
+text,16.448309250183947,69.91765136213205,,,Housickwissick,,4,0,0,0,,,Geographical Locations
+text,15.559624524776702,64.13823595808995,,,Massa(wa)chusett,,7,-12,0,0,,,Geographical Locations
+text,19.707090311556236,71.63083781321298,,,Passonagessit,,4,0,0,0,,,Geographical Locations
+text,22.350927664954572,69.80772955603156,,,Moswetuset,,4,0,0,0,,,Geographical Locations
+text,30.181197723251778,66.84206781589243,,,Musquantum,,4,0,0,0,,,Geographical Locations
+text,20.94098538139971,68.42283924147884,,,Neponset,,4,0,0,0,,,Geographical Locations
+text,21.146397818990206,66.53412104107639,,,Mattapan,,4,0,0,0,,,Geographical Locations
+text,26.647527304437542,68.44478109517594,,,Mattapannock,,4,0,0,0,,,Geographical Locations
+text,28.41904662408636,66.64387343313597,,,Mushauwomuk,,4,0,0,0,,,Geographical Locations
+text,20.34515469621985,75.71715122593143,,,Mishawum,,4,0,0,0,,,Geographical Locations
+text,28.39898305613113,59.72352476041869,,,Nonatum,,4,0,0,0,,,Geographical Locations
+text,28.93832049973028,60.47074292517258,,,Pequusset,,4,0,0,0,,,Geographical Locations
+text,33.82989789019304,62.49182070647435,,,Menotomett,,4,0,0,0,,,Geographical Locations
+text,35.72465804042076,72.83953412355683,,,Abousett,,4,0,0,0,,,Geographical Locations
+text,36.963177033353084,74.07011992325785,,,Sauguset,,4,0,0,0,,,Geographical Locations
+text,32.32132440176417,65.76537993734482,,,Mystic,,4,0,0,0,,,Geographical Locations
+text,35.51054763950284,60.38321269004152,,,Aberjona,,4,0,0,0,,,Geographical Locations
