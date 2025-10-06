@@ -290,6 +290,7 @@ marker,24.786734541988906,-48.69140625,agriculture,Marker,,,,,,,,{},
 marker,31.725882537641308,-131.22224688860555,settlement,Marker,,,,,,,,{},Settlements
 marker,20.4270128142574,71.54299955255291,agriculture,Massachusetts Planting Fields,,![ME_Boston_Map_28x36_Flat-1-e1490057999642](images/ME_Boston_Map_28x36_Flat-1-e1490057999642.jpg),,,,,,{},
 marker,20.653777076652563,71.0376869836534,agriculture,Massachusetts Planting Fields,,![ME_Boston_Map_28x36_Flat-1-e1490057999642](images/ME_Boston_Map_28x36_Flat-1-e1490057999642.jpg),,,,,,{},
+marker,-63.02508423410086,87.91259295262459,fishing,Marker,,,,,,,,{},
 text,-55.00282580979324,96.28417968750001,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-53.12040528310657,101.90917968750001,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-52.26815737376817,100.72265625000001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -309,7 +310,17 @@ text,-52.829320910313726,100.89843750000001,,,PONANASAUSIG,To spread their wings
 text,-53.59250480903937,99.93164062500001,,,QUATAQUETUCA,Red crabs,1,0,0,0,,,
 text,-53.00156227459147,99.60205078125001,,,SANSHUWACHU,Brook lodge,1,0,0,0,,,
 text,-53.488045536056205,105.46875000000001,,,Demo,,1,0,0,0,,,
-text,-63.05531863767043,85.9142663862525,,,Cappoaquit,,8,0,0,0,,,Geographical Locations
+text,-63.05531863767043,85.9142663862525,,"""Refuge Place"" ",Cappoaquit,"Cappoaquit was an island south of Noepe used for fishing and used as a summer camping ground 
+
+At the time of European arrival, Cappoaquit was inhabited by the Powwow Tequenoman who was believed to hold dominion over it. 
+
+
+Judge Sewall in 1702 says of Nomans Land, that the ""Inhabitants (are) mostly of the 7th day Indians,"" i. e., Sabbatarian Baptists.[^1]
+
+
+
+
+[^1]:http://history.vineyard.net/dukes/bnk2c_71.htm",8,0,0,0,,,Geographical Locations
 text,-78.38342792107784,-162.5682401582486,,,Canarsie,Canarsie Lenape homelands in present-day Brooklyn.,24,0,0,0,,,Tribes
 text,-72.76643494811363,-71.73513141636457,,,Corchaug,Corchaug territory on the North Fork of Long Island.,24,0,0,0,,,Tribes
 text,-56.32872090717995,-14.39208984375,,,Eastern Niantic,Eastern Niantic homelands along the Niantic River in Connecticut.,24,0,0,0,,,Tribes
@@ -576,5 +587,5 @@ text,23.543622313905296,70.48885109722865,,,Musquantum,,4,0,0,0,,,Geographical L
 text,12.768902773319255,64.13819899502647,,,Ponkapoag,,5,0,0,0,,,Bodies of Water
 text,-10.047996260143039,85.25211970193185,,,Monatiquot ,,3,0,0,-5,,,Rivers
 text,9.23226773945612,69.1479184161971,,,Cochato,,3,-45,0,0,,,Rivers
-text,4.529955477411383,50.18596325706011,,,test,,39,0,0,-22,,,
+text,6.839332620020318,44.03452014011298,,,test,,39,0,0,-22,,,
 text,-19.14018915719224,-8.282263698067704,,,test,,39,0,0,-22,,,
