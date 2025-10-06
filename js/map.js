@@ -1569,8 +1569,18 @@ function addTextLabelToMap(data) {
     var sweep = data.curve > 0 ? 0 : 1;
     var pathId = 'text-curve-' + Date.now() + Math.random().toString(36).slice(2);
     var d = 'M0,0 A' + r + ',' + r + ' 0 0,' + sweep + ' ' + pathWidth + ',0';
+    var fontSizeValue = parseFloat(data.size);
+    if (!Number.isFinite(fontSizeValue) || fontSizeValue <= 0) {
+      fontSizeValue = 1;
+    }
+    var svgWidth = Math.max(pathWidth, 1);
+    var svgHeight = Math.max(fontSizeValue, 1);
     var svgHtml =
-      '<svg xmlns="http://www.w3.org/2000/svg" style="transform: rotate(' +
+      '<svg xmlns="http://www.w3.org/2000/svg" width="' +
+      svgWidth +
+      '" height="' +
+      svgHeight +
+      '" style="overflow: visible; transform: rotate(' +
       (data.angle || 0) +
       'deg);"><path id="' +
       pathId +
@@ -2341,13 +2351,6 @@ map.on(L.Draw.Event.DELETED, function (e) {
   savePolygons();
   updateEditToolbar();
 });
-
-var runOverlayOcrButton = document.getElementById('run-overlay-ocr');
-if (runOverlayOcrButton) {
-  runOverlayOcrButton.addEventListener('click', function () {
-    runOverlayOcrAndDownload();
-  });
-}
 
 document.getElementById('save-changes').addEventListener('click', function () {
   exportFeaturesToCSV();
