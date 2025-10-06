@@ -439,7 +439,17 @@ async function extractOverlayLabels(eventOrOptions) {
 
 // User-supplied overlay image should be placed at overlays/overlay.png
 var baseOverlay = L.imageOverlay('overlays/overlay.png', overlayBounds).addTo(map);
-baseOverlay.once('load', extractOverlayLabels);
+var overlayReadyPromise = new Promise(function (resolve) {
+  function finish(success) {
+    resolve(success);
+  }
+  baseOverlay.once('load', function () {
+    finish(true);
+  });
+  baseOverlay.once('error', function () {
+    finish(false);
+  });
+});
 tiles.once('load', function () {
   baseZoom = map.getZoom();
   rescaleIcons();
@@ -1661,31 +1671,59 @@ function addTextLabelToMap(data) {
 }
 
 // Always load features from CSV
+var resolveFeaturesLoaded;
+var featuresLoadedFlag = false;
+var featuresLoadedPromise = new Promise(function (resolve) {
+  resolveFeaturesLoaded = resolve;
+});
+
+function markFeaturesLoaded(success) {
+  if (featuresLoadedFlag) {
+    return;
+  }
+  featuresLoadedFlag = true;
+  resolveFeaturesLoaded(success !== false);
+}
+
 fetch('data/features.csv')
   .then(function (r) {
     return r.text();
   })
   .then(function (csv) {
-    var parsed = loadFeaturesFromCSV(csv);
-    parsed.markers.forEach(function (m) {
-      customMarkers.push(m);
-      addMarkerToMap(m);
-    });
-    parsed.textLabels.forEach(function (t) {
-      if (containsTextLabel(customTextLabels, t)) {
-        return;
-      }
-      customTextLabels.push(t);
-      addTextLabelToMap(t);
-    });
-    parsed.polygons.forEach(function (p) {
-      customPolygons.push(p);
-      addPolygonToMap(p);
-    });
+    try {
+      var parsed = loadFeaturesFromCSV(csv);
+      parsed.markers.forEach(function (m) {
+        customMarkers.push(m);
+        addMarkerToMap(m);
+      });
+      parsed.textLabels.forEach(function (t) {
+        if (containsTextLabel(customTextLabels, t)) {
+          return;
+        }
+        customTextLabels.push(t);
+        addTextLabelToMap(t);
+      });
+      parsed.polygons.forEach(function (p) {
+        customPolygons.push(p);
+        addPolygonToMap(p);
+      });
+      markFeaturesLoaded(true);
+    } catch (err) {
+      markFeaturesLoaded(false);
+      throw err;
+    }
   })
   .catch(function (err) {
     console.error('Failed to load features.csv', err);
+    markFeaturesLoaded(false);
   });
+
+Promise.all([overlayReadyPromise, featuresLoadedPromise]).then(function (results) {
+  var overlayLoaded = results[0];
+  if (overlayLoaded) {
+    extractOverlayLabels();
+  }
+});
 
 
 // //// START OF MARKERS
