@@ -80,6 +80,10 @@ html, body{
     z-index: 1100;
 }
 
+#credits-panel.hidden {
+    display: none;
+}
+
 #credits-panel .credits-content {
     background: #ffffff;
     color: #1a1a1a;
