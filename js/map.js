@@ -1517,6 +1517,54 @@ function addMarkerToMap(data) {
   return customMarker;
 }
 
+function measureCurvedTextWidth(text, fontSize, letterSpacing) {
+  if (!text) {
+    return 0;
+  }
+
+  var sizeValue = parseFloat(fontSize);
+  if (!Number.isFinite(sizeValue) || sizeValue <= 0) {
+    sizeValue = 1;
+  }
+
+  var spacingValue = parseFloat(letterSpacing);
+  if (!Number.isFinite(spacingValue)) {
+    spacingValue = 0;
+  }
+
+  var width = 0;
+  if (typeof document !== 'undefined' && document.body) {
+    var span = document.createElement('span');
+    span.className = 'text-label__measure';
+    span.style.position = 'absolute';
+    span.style.visibility = 'hidden';
+    span.style.pointerEvents = 'none';
+    span.style.whiteSpace = 'pre';
+    span.style.fontSize = sizeValue + 'px';
+    span.style.letterSpacing = spacingValue + 'px';
+    span.style.left = '-9999px';
+    span.style.top = '-9999px';
+    span.textContent = text;
+    document.body.appendChild(span);
+    width = span.getBoundingClientRect().width;
+    document.body.removeChild(span);
+  }
+
+  if (!Number.isFinite(width) || width <= 0) {
+    var charCount = text.length;
+    if (charCount > 0) {
+      width = sizeValue * charCount + spacingValue * Math.max(charCount - 1, 0);
+      if (!Number.isFinite(width) || width <= 0) {
+        width = sizeValue * charCount;
+      }
+    } else {
+      width = 0;
+    }
+  }
+
+  return width;
+}
+
 function addTextLabelToMap(data) {
   if (data.subheader === undefined || data.subheader === null) {
     data.subheader = '';
@@ -1525,15 +1573,7 @@ function addTextLabelToMap(data) {
   var textIcon;
   var pathWidth = 0;
   if (data.curve) {
-    var tempSpan = document.createElement('span');
-    tempSpan.style.fontSize = data.size + 'px';
-    tempSpan.style.letterSpacing = data.spacing + 'px';
-    tempSpan.style.whiteSpace = 'pre';
-    tempSpan.style.visibility = 'hidden';
-    tempSpan.textContent = data.text;
-    document.body.appendChild(tempSpan);
-    pathWidth = tempSpan.getBoundingClientRect().width;
-    document.body.removeChild(tempSpan);
+    pathWidth = measureCurvedTextWidth(data.text, data.size, data.spacing);
     var r = Math.abs(data.curve);
     var sweep = data.curve > 0 ? 0 : 1;
     var pathId = 'text-curve-' + Date.now() + Math.random().toString(36).slice(2);
@@ -2053,15 +2093,7 @@ function editTextForm(labelMarker) {
     var textIcon;
     var pathWidth = 0;
     if (curve) {
-      var tempSpan = document.createElement('span');
-      tempSpan.style.fontSize = size + 'px';
-      tempSpan.style.letterSpacing = spacing + 'px';
-      tempSpan.style.whiteSpace = 'pre';
-      tempSpan.style.visibility = 'hidden';
-      tempSpan.textContent = text;
-      document.body.appendChild(tempSpan);
-      pathWidth = tempSpan.getBoundingClientRect().width;
-      document.body.removeChild(tempSpan);
+      pathWidth = measureCurvedTextWidth(text, size, spacing);
       var r = Math.abs(curve);
       var sweep = curve > 0 ? 0 : 1;
       var pathId = 'text-curve-' + Date.now() + Math.random().toString(36).slice(2);

@@ -121,7 +121,8 @@ html, body{
     height: auto !important;
     text-align: center;
 }
-.text-label__inner span {
+.text-label__inner span,
+.text-label__measure {
     font-family: 'Roboto', 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
     font-weight: bold;
     color: #333;
@@ -129,6 +130,13 @@ html, body{
     line-height: 1;
     letter-spacing: 0;
     transform-origin: top center;
+}
+
+.text-label__measure {
+    position: absolute;
+    visibility: hidden;
+    white-space: pre;
+    pointer-events: none;
 }
 .text-label__inner svg {
     overflow: visible;
