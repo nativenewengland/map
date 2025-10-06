@@ -20,7 +20,7 @@ marker,-41.426253195072704,39.57275390625001,agriculture,Marker,,,,,,,,{},
 marker,48.1367666796927,-43.98925781250001,settlement,Marker,,,,,,,,{},
 marker,54.67383096593114,-37.79296875000001,settlement,Marker,,,,,,,,{},
 marker,25.403584973186703,-49.94384765625001,settlement,Nonotuck,,,,,,,,{},
-marker,25.859223554761407,-47.85644531250001,settlement,Marker,,,,,,,,{},
+marker,26.155267744564583,-48.273795628065834,settlement,Marker,,,,,,,,{},
 marker,-62.33941057752869,-31.508789062500004,settlement,Marker,,,,,,,,{},
 marker,-58.97266715450153,87.29736328125001,settlement,Marker,,,,,,,,{},
 marker,-4.981505049328246,77.16796875000001,rock,Marker,,,,,,,,{},
@@ -336,7 +336,7 @@ text,-72.76619493972098,-36.42071459256301,,,Montaukett,Montaukett homelands at 
 text,-34.84996950050357,-35.77148437500001,,,Mohegan,Mohegan homelands along the Thames River in Connecticut.,31,0,0,0,,,Tribes
 text,-31.278550858946517,15.996093750000002,,,Narragansett,Narragansett homelands along the southern Rhode Island coast.,24,0,0,0,,,Tribes
 text,-16.977487354364566,147.83354003549164,,,Nauset,Nauset (Cape Cod) Wampanoag homelands on the outer Cape.,24,0,0,0,,,Tribes
-text,46.78550049126467,-39.515112036948125,,,Nipmuc,"Nipmuc homelands across central Massachusetts and northern Connecticut. Nipnet, Nipmook or Nipmuck",24,0,0,0,,,Tribes
+text,22.609599841723895,0.5148490443191812,,,Nipmuc,"Nipmuc homelands across central Massachusetts and northern Connecticut. Nipnet, Nipmook or Nipmuck",24,0,0,0,,,Tribes
 text,-77.19570508665286,-143.9446752320028,,,Nissequogue,"Nissequogue homelands around present-day Smithtown, Long Island.",24,0,0,0,,,Tribes
 text,-8.363855266221476,-72.37792968750001,,,Paugussett,Paugussett homelands along the lower Housatonic River.,24,0,0,0,,,Tribes
 text,-54.825433284376075,-45.966796875,,,Pequot,Pequot homelands surrounding the lower Thames River.,24,0,0,0,,,Tribes
@@ -511,8 +511,8 @@ text,44.15068115978094,-47.4169921875,,,Quinnitekuk,,5,0,0,0,,,Rivers
 text,45.300000000000004,-47.20000000000001,,,Mattamacket,,5,0,0,0,,,Bodies of Water
 text,44.15068115978094,-45.900000000000006,,,Taughkannacoas Islands,,5,0,0,0,,,Bodies of Water
 text,43.10000000000001,-47.20000000000001,,,Alliancook,,5,0,0,0,,,Bodies of Water
-text,44.69068115978094,-47.1369921875,,,Skakeat Squakheag,,5,0,0,0,,,Geographical Locations
-text,44.49068115978094,-48.0719921875,,,Nallaharcomgon,,5,0,0,0,,,Geographical Locations
+text,54.00513849003675,-37.970996854968924,,,Skakeat Squakheag,,5,0,0,0,,,Geographical Locations
+text,52.749165171699985,-42.78071376757689,,,Nallahamcomgon,"Nallahamcomgon, now Bennett's meadow was a field that served as the boundry between the Squakeag and Pocumtuck territory.",5,0,0,0,,,Geographical Locations
 text,44.050681159780936,-48.6519921875,,,Puckommegon,,5,0,0,0,,,Geographical Locations
 text,43.730681159780936,-49.3269921875,,,Paugen,,5,0,0,0,,,Geographical Locations
 text,43.53068115978094,-48.3319921875,,,Suns Skowohkk,,5,0,0,0,,,Geographical Locations
@@ -566,7 +566,7 @@ text,36.21068115978094,-47.4169921875,,,Poggotussue,,5,0,0,0,,,Geographical Loca
 text,35.800681159780936,-47.5869921875,,,Amiskwatamal,,5,0,0,0,,,Geographical Locations
 text,35.660681159780935,-49.2269921875,,,Wenckocamaug,,5,0,0,0,,,Geographical Locations
 text,35.410681159780935,-49.5469921875,,,Massaco,,5,0,0,0,,,Geographical Locations
-text,35.15068115978094,-47.4869921875,,,Nashaway, Quaboag and Quinnebaug Nipmuk: Pocumtuk, Podunk, Norwotuk, Woronok, Massaco,,5,0,0,0,,,Geographical Locations
+text,35.15068115978094,-47.4869921875,,,Nashaway, Quaboag and Quinnebaug Nipmuk: Pocumtuk,14,0,0,0,,,0
 text,34.910681159780935,-47.4869921875,,,Mashapaug and Sokoki Wobankai Nations Territories,,5,0,0,0,,,Geographical Locations
 text,47.78363463526379,-35.20019531250001,,,Papacontuckquash,,5,0,0,0,,,Rivers
 text,-20.694461597907797,43.57177734375001,,,Pawtucket,,7,0,0,0,,,Settlements
@@ -656,3 +656,36 @@ text,-38.30809432604605,111.99729824152816,,,Mashpee,,7,0,0,0,,,Settlements
 text,-37.02004767128328,108.52315543349253,,,Paupoesit,,7,0,0,0,,,Settlements
 text,-40.597270634420255,106.85285549813123,,,Ashimuit,,7,0,0,0,,,Settlements
 text,-42.19793797708907,108.74260704300252,,,Waquoit,,7,0,0,0,,,Settlements
+text,7.623009673716924,-54.3165295530166,,,Agawam,,24,0,0,0,,,Tribes
+text,24.044616678835595,-53.6133360513407,,,Nonotuck,"The Nonotucks or Norwottucks, who originally claimed the country from the head of the falls to Mount Wequomps (now Sugarloaf), had
+villages and forts on both sides of the river. They had several plant- ing fields of 12 to 20 acres each; the hills to the west were covered
+with chestnut trees which furnished a store of nuts ; and the swamps
+and plains abounded in deer, wild turkeys and other game.[^1]
+
+
+[^1]:https://upload.wikimedia.org/wikipedia/commons/2/2e/A_history_of_the_town_of_Northfield%2C_Massachusetts%2C_for_150_years_%28IA_historyoftownofn00tem%29.pdf",24,0,0,0,,,Tribes
+text,47.63387523460074,-54.57829708142709,,,Pacomptock,,24,0,0,0,,,Tribes
+text,57.0403859234177,-44.51688926953872,,,Squakheag,,24,0,0,0,,,Tribes
+text,19.062117883514652,-53.52539062500001,,,Pocomtuc Confederacy,"Pocomtuck, Pocumtuc, Pocumtuck
+
+According to Gookin, who wrote Historical Sketches of the Indians^ the Pacomptocks (including the Nonotucks) were subject to the sachem of the Massachusetts nation.",14,0,0,0,,,
+text,38.42777351132902,-53.21777343750001,,"""A place where a hill drops off.""",Wequamps ,"Wequomps
+
+
+It is said the mountain is the carcass of a human-eating giant beaver who lived in a lake now occupied by the Connecticut River. The people complained to the god Hobomok that the beaver was greedy, and consuming all their resources. In response Hobomok decided to kill the beaver with a club he fashioned from a large tree. After the struggle, the beaver died, sank to the bottom of the lake, turned to stone, and became what is now Wequamps Mountain. 
+
+Geological evidence shows that 15,000 years ago the area was infact a massive post-glacial lake and that a now extinct species of giant beaver as big as black bears once inhabited the area about the same time ",10,0,0,0,,,Mountains
+text,37.43997405227057,-53.30566406250001,,"""at the point of or extremity of a place where a hill drops off.",Weckwannuck ,"
+
+
+
+
+
+
+
+
+
+
+
+
+Today the area is known as Sugarloaf Brook.",5,0,0,0,,,Rivers
