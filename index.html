@@ -17,12 +17,46 @@
     <div id="map"></div>
     <button id="save-changes">Save Changes</button>
     <button id="run-overlay-ocr">Run Overlay OCR</button>
+    <button
+        id="credits-toggle"
+        class="floating-button"
+        type="button"
+        aria-haspopup="dialog"
+        aria-controls="credits-panel"
+        aria-expanded="false"
+    >
+        Credits
+    </button>
     <div id="mouse-coords"></div>
     <div id="info-panel" class="hidden">
         <button id="close-info" class="close-button">&times;</button>
         <h2 id="info-title"></h2>
         <h3 id="info-subheader" class="info-subheader hidden"></h3>
         <div id="info-description"></div>
+    </div>
+    <div id="credits-panel" class="hidden" aria-hidden="true">
+        <div
+            class="credits-content"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="credits-title"
+            tabindex="-1"
+        >
+            <button id="close-credits" class="close-button" aria-label="Close credits">&times;</button>
+            <h2 id="credits-title">Credits</h2>
+            <p>
+                This Indigenous History Map is a collaborative effort combining historical research,
+                cartographic illustration, and software development to make archival knowledge more accessible.
+            </p>
+            <ul>
+                <li><strong>Historical Research &amp; Writing:</strong> Indigenous History Map Project Team</li>
+                <li><strong>Cartography &amp; Illustration:</strong> Adapted from 17th century map sources in the public domain</li>
+                <li><strong>Software Development:</strong> Community contributors and maintainers</li>
+            </ul>
+            <p>
+                We are grateful to the many Indigenous scholars, culture bearers, and archivists whose work informs this project.
+            </p>
+        </div>
     </div>
     <div id="marker-form-overlay" class="hidden">
         <div id="marker-form">
