@@ -2342,13 +2342,6 @@ map.on(L.Draw.Event.DELETED, function (e) {
   updateEditToolbar();
 });
 
-var runOverlayOcrButton = document.getElementById('run-overlay-ocr');
-if (runOverlayOcrButton) {
-  runOverlayOcrButton.addEventListener('click', function () {
-    runOverlayOcrAndDownload();
-  });
-}
-
 document.getElementById('save-changes').addEventListener('click', function () {
   exportFeaturesToCSV();
 });
