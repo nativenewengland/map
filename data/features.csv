@@ -291,6 +291,7 @@ marker,31.725882537641308,-131.22224688860555,settlement,Marker,,,,,,,,{},Settle
 marker,20.4270128142574,71.54299955255291,agriculture,Massachusetts Planting Fields,,![ME_Boston_Map_28x36_Flat-1-e1490057999642](images/ME_Boston_Map_28x36_Flat-1-e1490057999642.jpg),,,,,,{},
 marker,20.653777076652563,71.0376869836534,agriculture,Massachusetts Planting Fields,,![ME_Boston_Map_28x36_Flat-1-e1490057999642](images/ME_Boston_Map_28x36_Flat-1-e1490057999642.jpg),,,,,,{},
 marker,-63.02508423410086,87.91259295262459,fishing,Marker,,,,,,,,{},
+marker,-43.67709060906243,32.62939453125001,forts,Marker,,,,,,,,{},
 text,-55.00282580979324,96.28417968750001,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-53.12040528310657,101.90917968750001,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-52.26815737376817,100.72265625000001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -540,7 +541,7 @@ text,-57.01681401739112,-4.108886718750001,,,Sickenames,,5,0,0,0,,,Bodies of Wat
 text,-59.18718526575666,149.98535156250003,,,Squatesit,,5,0,0,0,,,Settlements
 text,-51.84935276370606,57.23876953125,,,Saconet,,5,0,0,0,,,Settlements
 text,-34.016241889667015,151.47949218750003,,,Manamoycke,,7,0,0,0,,,Settlements
-text,-11.264612212504428,96.52587890625001,,,Patuxet,,7,0,0,0,,,Settlements
+text,-11.178451544473875,97.05322265625001,,,Patuxet,,7,0,0,0,,,Settlements
 text,-18.729501999072138,41.35253906250001,,,Pawtuxet,Pokanoket (Wampanoag) homelands around Mount Hope and Narragansett Bay.,14,0,0,0,,,Tribes
 text,-23.241346102386135,34.84863281250001,,,Coweset,Pokanoket (Wampanoag) homelands around Mount Hope and Narragansett Bay.,14,0,0,0,,,Tribes
 text,-43.97700467496408,74.81689453125001,,,Apponagansett,,5,0,0,0,,,Settlements
@@ -585,5 +586,7 @@ text,35.51054763950284,60.38321269004152,,,Aberjona,,4,0,0,0,,,Geographical Loca
 text,-58.632947944494255,132.01287692598905,,,Nantucket,,32,0,0,0,,,
 text,23.543622313905296,70.48885109722865,,,Musquantum,,4,0,0,0,,,Geographical Locations
 text,12.768902773319255,64.13819899502647,,,Ponkapoag,,5,0,0,0,,,Bodies of Water
-text,15.946773422846057,72.46789168042679,,,Monatiquot ,,3,0,0,-5,,,Rivers
+text,15.792338830762365,72.46582031250001,,,Monatiquot ,,3,0,0,-5,,,Rivers
 text,9.23226773945612,69.1479184161971,,,Cochato,,3,-45,0,0,,,Rivers
+text,-51.28935049038226,29.289550781250004,,,Chippuxet,,4,-54,0,0,,,Rivers
+text,-52.11994425337956,37.02392578125001,,,Pettaquamscutt ,,4,54,0,0,,,Rivers
