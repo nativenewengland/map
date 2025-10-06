@@ -1058,6 +1058,17 @@ function rescaleTextLabels() {
             text.style.fontSize = m._baseFontSize * scale + 'px';
             text.style.letterSpacing = (m._baseLetterSpacing || 0) * scale + 'px';
           }
+          if (m._baseSvgWidth) {
+            var scaledSvgWidth = m._baseSvgWidth * scale;
+            svg.setAttribute('width', scaledSvgWidth);
+            svg.style.width = scaledSvgWidth + 'px';
+          }
+          if (m._baseSvgHeight || m._baseFontSize) {
+            var baseHeight = m._baseSvgHeight || m._baseFontSize;
+            var scaledSvgHeight = baseHeight * scale;
+            svg.setAttribute('height', scaledSvgHeight);
+            svg.style.height = scaledSvgHeight + 'px';
+          }
           if (m._baseCurve) {
             var path = svg.querySelector('path');
             if (path) {
@@ -1563,6 +1574,8 @@ function addTextLabelToMap(data) {
   if (data.spacing === undefined) data.spacing = 0;
   var textIcon;
   var pathWidth = 0;
+  var baseSvgWidth = null;
+  var baseSvgHeight = null;
   if (data.curve) {
     pathWidth = measureCurvedTextWidth(data.text, data.size, data.spacing);
     var r = Math.abs(data.curve);
@@ -1575,6 +1588,8 @@ function addTextLabelToMap(data) {
     }
     var svgWidth = Math.max(pathWidth, 1);
     var svgHeight = Math.max(fontSizeValue, 1);
+    baseSvgWidth = svgWidth;
+    baseSvgHeight = svgHeight;
     var svgHtml =
       '<svg xmlns="http://www.w3.org/2000/svg" width="' +
       svgWidth +
@@ -1672,6 +1687,11 @@ function addTextLabelToMap(data) {
   if (data.curve) {
     m._baseCurve = data.curve;
     m._basePathWidth = pathWidth;
+    m._baseSvgWidth = baseSvgWidth;
+    m._baseSvgHeight = baseSvgHeight;
+  } else {
+    m._baseSvgWidth = null;
+    m._baseSvgHeight = null;
   }
   m._data = data;
   m._markerType = 'text';
