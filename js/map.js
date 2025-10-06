@@ -439,7 +439,17 @@ async function extractOverlayLabels(eventOrOptions) {
 
 // User-supplied overlay image should be placed at overlays/overlay.png
 var baseOverlay = L.imageOverlay('overlays/overlay.png', overlayBounds).addTo(map);
-baseOverlay.once('load', extractOverlayLabels);
+var overlayReadyPromise = new Promise(function (resolve) {
+  function finish(success) {
+    resolve(success);
+  }
+  baseOverlay.once('load', function () {
+    finish(true);
+  });
+  baseOverlay.once('error', function () {
+    finish(false);
+  });
+});
 tiles.once('load', function () {
   baseZoom = map.getZoom();
   rescaleIcons();
@@ -1517,6 +1527,35 @@ function addMarkerToMap(data) {
   return customMarker;
 }
 
+function measureCurvedTextWidth(text, fontSize, letterSpacing) {
+  if (!text) {
+    return 0;
+  }
+  var span = document.createElement('span');
+  span.className = 'text-label__measure';
+  var sizeValue = parseFloat(fontSize);
+  if (!Number.isFinite(sizeValue)) {
+    sizeValue = 0;
+  }
+  var spacingValue = parseFloat(letterSpacing);
+  if (!Number.isFinite(spacingValue)) {
+    spacingValue = 0;
+  }
+  span.style.position = 'absolute';
+  span.style.visibility = 'hidden';
+  span.style.pointerEvents = 'none';
+  span.style.whiteSpace = 'pre';
+  span.style.fontSize = sizeValue + 'px';
+  span.style.letterSpacing = spacingValue + 'px';
+  span.style.left = '-9999px';
+  span.style.top = '-9999px';
+  span.textContent = text;
+  document.body.appendChild(span);
+  var width = span.getBoundingClientRect().width;
+  document.body.removeChild(span);
+  return width;
+}
+
 function addTextLabelToMap(data) {
   if (data.subheader === undefined || data.subheader === null) {
     data.subheader = '';
@@ -1525,15 +1564,7 @@ function addTextLabelToMap(data) {
   var textIcon;
   var pathWidth = 0;
   if (data.curve) {
-    var tempSpan = document.createElement('span');
-    tempSpan.style.fontSize = data.size + 'px';
-    tempSpan.style.letterSpacing = data.spacing + 'px';
-    tempSpan.style.whiteSpace = 'pre';
-    tempSpan.style.visibility = 'hidden';
-    tempSpan.textContent = data.text;
-    document.body.appendChild(tempSpan);
-    pathWidth = tempSpan.getBoundingClientRect().width;
-    document.body.removeChild(tempSpan);
+    pathWidth = measureCurvedTextWidth(data.text, data.size, data.spacing);
     var r = Math.abs(data.curve);
     var sweep = data.curve > 0 ? 0 : 1;
     var pathId = 'text-curve-' + Date.now() + Math.random().toString(36).slice(2);
@@ -1640,31 +1671,59 @@ function addTextLabelToMap(data) {
 }
 
 // Always load features from CSV
+var resolveFeaturesLoaded;
+var featuresLoadedFlag = false;
+var featuresLoadedPromise = new Promise(function (resolve) {
+  resolveFeaturesLoaded = resolve;
+});
+
+function markFeaturesLoaded(success) {
+  if (featuresLoadedFlag) {
+    return;
+  }
+  featuresLoadedFlag = true;
+  resolveFeaturesLoaded(success !== false);
+}
+
 fetch('data/features.csv')
   .then(function (r) {
     return r.text();
   })
   .then(function (csv) {
-    var parsed = loadFeaturesFromCSV(csv);
-    parsed.markers.forEach(function (m) {
-      customMarkers.push(m);
-      addMarkerToMap(m);
-    });
-    parsed.textLabels.forEach(function (t) {
-      if (containsTextLabel(customTextLabels, t)) {
-        return;
-      }
-      customTextLabels.push(t);
-      addTextLabelToMap(t);
-    });
-    parsed.polygons.forEach(function (p) {
-      customPolygons.push(p);
-      addPolygonToMap(p);
-    });
+    try {
+      var parsed = loadFeaturesFromCSV(csv);
+      parsed.markers.forEach(function (m) {
+        customMarkers.push(m);
+        addMarkerToMap(m);
+      });
+      parsed.textLabels.forEach(function (t) {
+        if (containsTextLabel(customTextLabels, t)) {
+          return;
+        }
+        customTextLabels.push(t);
+        addTextLabelToMap(t);
+      });
+      parsed.polygons.forEach(function (p) {
+        customPolygons.push(p);
+        addPolygonToMap(p);
+      });
+      markFeaturesLoaded(true);
+    } catch (err) {
+      markFeaturesLoaded(false);
+      throw err;
+    }
   })
   .catch(function (err) {
     console.error('Failed to load features.csv', err);
+    markFeaturesLoaded(false);
   });
+
+Promise.all([overlayReadyPromise, featuresLoadedPromise]).then(function (results) {
+  var overlayLoaded = results[0];
+  if (overlayLoaded) {
+    extractOverlayLabels();
+  }
+});
 
 
 // //// START OF MARKERS
@@ -2053,15 +2112,7 @@ function editTextForm(labelMarker) {
     var textIcon;
     var pathWidth = 0;
     if (curve) {
-      var tempSpan = document.createElement('span');
-      tempSpan.style.fontSize = size + 'px';
-      tempSpan.style.letterSpacing = spacing + 'px';
-      tempSpan.style.whiteSpace = 'pre';
-      tempSpan.style.visibility = 'hidden';
-      tempSpan.textContent = text;
-      document.body.appendChild(tempSpan);
-      pathWidth = tempSpan.getBoundingClientRect().width;
-      document.body.removeChild(tempSpan);
+      pathWidth = measureCurvedTextWidth(text, size, spacing);
       var r = Math.abs(curve);
       var sweep = curve > 0 ? 0 : 1;
       var pathId = 'text-curve-' + Date.now() + Math.random().toString(36).slice(2);
