@@ -292,6 +292,7 @@ marker,20.4270128142574,71.54299955255291,agriculture,Massachusetts Planting Fie
 marker,20.653777076652563,71.0376869836534,agriculture,Massachusetts Planting Fields,,![ME_Boston_Map_28x36_Flat-1-e1490057999642](images/ME_Boston_Map_28x36_Flat-1-e1490057999642.jpg),,,,,,{},
 marker,-63.02508423410086,87.91259295262459,fishing,Marker,,,,,,,,{},
 marker,-43.67709060906243,32.62939453125001,forts,Marker,,,,,,,,{},
+marker,-31.541089879585822,81.43066406250001,settlement,Marker,,,,,,,,{},Settlements
 text,-55.00282580979324,96.28417968750001,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-53.12040528310657,101.90917968750001,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-52.26815737376817,100.72265625000001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -425,7 +426,7 @@ text,-3.8862779472549307,-64.37988281250001,,,Congamond,,7,-80,0,0,,,Bodies of W
 text,-61.67943790870445,1.8457688662052398,,,Wicopesset,,3,0,0,0,,,Geographical Locations
 text,-54.711614819498465,23.13788087860384,,,Paquiset,,5,0,0,0,,,Bodies of Water
 text,-46.513792848481856,71.91942117223316,,,Paskumanset ,,5,0,0,0,,,Bodies of Water
-text,-41.951338971647125,47.02141863379473,,,Chibachuweset ,,5,0,0,0,,,Geographical Locations
+text,-42.56926437219384,45.39550781250001,,,Chibachuweset ,Chibachuwese,8,-77,0,0,,,Geographical Locations
 text,-39.639468617241036,50.009798495602645,,,Chisawannock,,5,0,0,0,,,Geographical Locations
 text,-46.39267584235039,43.22102017351436,,,Quinunlcut ,,5,0,0,0,,,Geographical Locations
 text,-47.561657599781086,45.15379215844869,,,Aquopimonquk ,,5,0,0,0,,,Geographical Locations
@@ -466,7 +467,7 @@ text,-43.707593504052944,66.77490234375001,,,Watuppa,They draw water.,5,0,0,0,,,
 text,-43.11748160856244,56.99769485394992,,,Espowett,,5,0,0,0,,,Settlements
 text,-20.468099350519722,77.8710362264454,,,Wampanucket,,7,0,0,0,,,Settlements
 text,-14.051330743518175,72.22412109375001,,,Titicut,,7,0,0,0,,,Settlements
-text,-16.678293098288513,69.85107421875001,,,Cohannet,Cohaanet,7,0,0,0,,,Settlements
+text,-16.720385051693988,69.45556640625001,,,Cohannet,"Cohaanet, Cohannett",7,0,0,0,,,Settlements
 text,-16.29903259997615,80.20154300720772,,,Namasachet,Nemasket,7,0,0,0,,,Settlements
 text,20.03507341605914,66.88503680747169,,,Uniquititquessett,,4,0,0,0,,,Settlements
 text,14.029586440616434,-109.02670143532063,,,Oustonuck,,5,0,0,0,,,Settlements
@@ -592,7 +593,7 @@ text,-25.918526162075153,75.14648437500001,,,Apponaqut,,5,0,0,0,,,Bodies of Wate
 text,-25.045792240303435,79.80468750000001,,,Quittacas,,5,0,0,0,,,Bodies of Water
 text,-28.57487404744697,82.35351562500001,,,Snipatuit ,,5,0,0,0,,,Bodies of Water
 text,-5.703447982149503,83.40820312500001,,,Munponset,,5,0,0,0,,,Bodies of Water
-text,-9.40571004160001,61.04003906250001,,,Winnecunnet ,,5,0,0,0,,,Bodies of Water
+text,-9.384032109601689,61.45751953125001,,,Winnecunnet ,,5,0,0,0,,,Bodies of Water
 text,-9.362352822055593,68.07128906250001,,,Nippenicket,,5,0,0,0,,,Bodies of Water
 text,-49.696061819115656,41.04492187500001,,,Aquidnesue,,4,0,0,0,,,Geographical Locations
 text,-58.68835857268097,19.775390625,,,Pawaget,,5,0,0,0,,,Bodies of Water
@@ -644,12 +645,12 @@ text,32.32132440176417,65.76537993734482,,,Mystic,,4,0,0,0,,,Geographical Locati
 text,35.51054763950284,60.38321269004152,,,Aberjona,,4,0,0,0,,,Geographical Locations
 text,-58.632947944494255,132.01287692598905,,,Nantucket,,32,0,0,0,,,
 text,23.543622313905296,70.48885109722865,,,Musquantum,,4,0,0,0,,,Geographical Locations
-text,12.768902773319255,64.13819899502647,,,Ponkapoag,,5,0,0,0,,,Bodies of Water
+text,12.661777510388525,64.64355468750001,,,Ponkapoag,,3,-7,0,0,,,Bodies of Water
 text,15.792338830762365,72.46582031250001,,,Monatiquot ,,3,0,0,-5,,,Rivers
 text,9.23226773945612,69.1479184161971,,,Cochato,,3,-45,0,0,,,Rivers
 text,-51.28935049038226,29.289550781250004,,,Chippuxet,,4,-54,0,0,,,Rivers
 text,-52.11994425337956,37.02392578125001,,,Pettaquamscutt ,,4,54,0,0,,,Rivers
-text,-53.943028051779564,82.3089172991487,,,Asnawana,,5,0,0,0,,,Geographical Locations
+text,-54.00776876193477,80.55175781250001,,,Asnawana,,8,-12,1,90,,,Geographical Locations
 text,-30.619059260924562,152.81958363488377,,,Ewnews,,3,0,0,0,,,Geographical Locations
 text,-36.68608187767096,113.81790112001666,,,Santuit,,7,0,0,0,,,Settlements
 text,-38.30809432604605,111.99729824152816,,,Mashpee,,7,0,0,0,,,Settlements
@@ -689,3 +690,5 @@ text,37.43997405227057,-53.30566406250001,,"""at the point of or extremity of a 
 
 
 Today the area is known as Sugarloaf Brook.",5,0,0,0,,,Rivers
+text,-24.246964554300924,36.03515625000001,,,Potowomut,,3,-26,0,-42,,,Rivers
+text,-31.42866311735861,80.11230468750001,,,Agawams,,7,0,0,0,,,Settlements
