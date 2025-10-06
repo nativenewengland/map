@@ -477,7 +477,7 @@ text,8.015684329318784,-11.227925695325423,,,Putikookuppogg,,4,0,0,0,,,Bodies of
 text,-63.38167869302983,147.65625000000003,,,Toupchue,,3,0,0,0,,,Bodies of Water
 text,-63.045001015420105,146.46972656250003,,,Madequecham,,3,0,0,0,,,Bodies of Water
 text,-63.51917465269721,143.43750000000003,,,Wammasquid,,5,0,0,0,,,Geographical Locations
-text,-60.51126142110656,125.55175338290364,,,Nopque ,Nopque was an area of coast on the island of Tuckernuck used as canoe docks,3,30,5,0,,,Bodies of Water
+text,-60.61927021789213,126.65039556368947,,,Nopque ,Nopque was an area of coast on the island of Tuckernuck used as canoe docks,3,22,3,0,,,Bodies of Water
 text,-60.80206374467982,129.33105468750003,,,Tuckernuck,,5,17,0,0,,,Geographical Locations
 text,-62.985179715993766,150.33691406250003,,,Oggawame,,5,0,0,0,,,Geographical Locations
 text,-60.673178565817715,151.80908203125003,,,Sesachacha,,3,0,0,0,,,Bodies of Water
@@ -555,7 +555,7 @@ Meanwhile, missionaries, agents from the state of New York, and commissioners fr
 
 [^1]:https://flyingdeernaturecenter.org/the-muhheconneok/",24,0,0,0,,,Tribes
 text,16.448309250183947,69.91765136213205,,,Housickwissick,,4,0,0,0,,,Geographical Locations
-text,15.559624524776702,64.13823595808995,,“the place of the great hills”,Massawachusett,,7,-12,0,0,,,Geographical Locations
+text,15.559624524776702,64.13823595808995,,,Massa(wa)chusett,,7,-12,0,0,,,Geographical Locations
 text,19.64256946203327,71.49903267826588,,,Passonagessit,![ME_Boston_Map_28x36_Flat-1-e1490057999642](images/ME_Boston_Map_28x36_Flat-1-e1490057999642.jpg),4,0,0,0,,,Geographical Locations
 text,22.471919044631637,69.91697678622356,,,Moswetuset,,4,0,0,0,,,Geographical Locations
 text,30.181197723251778,66.84206781589243,,,Musquantum,,4,0,0,0,,,Geographical Locations
@@ -574,5 +574,7 @@ text,35.51054763950284,60.38321269004152,,,Aberjona,,4,0,0,0,,,Geographical Loca
 text,-58.632947944494255,132.01287692598905,,,Nantucket,,32,0,0,0,,,
 text,23.543622313905296,70.48885109722865,,,Musquantum,,4,0,0,0,,,Geographical Locations
 text,12.768902773319255,64.13819899502647,,,Ponkapoag,,5,0,0,0,,,Bodies of Water
-text,39.08408796844194,62.054033999586174,,,Monatiquot ,,3,0,0,-5,,,Rivers
+text,-10.047996260143039,85.25211970193185,,,Monatiquot ,,3,0,0,-5,,,Rivers
 text,9.23226773945612,69.1479184161971,,,Cochato,,3,-45,0,0,,,Rivers
+text,4.529955477411383,50.18596325706011,,,test,,39,0,0,-22,,,
+text,-19.14018915719224,-8.282263698067704,,,test,,39,0,0,-22,,,
