@@ -120,6 +120,10 @@ html, body{
     width: auto !important;
     height: auto !important;
     text-align: center;
+    pointer-events: none;
+}
+.text-label__inner {
+    pointer-events: none;
 }
 .text-label__inner span,
 .text-label__measure {
@@ -132,6 +136,13 @@ html, body{
     transform-origin: top center;
 }
 
+.text-label__inner span,
+.text-label__inner svg text,
+.text-label__inner svg textPath,
+.text-label__inner svg tspan {
+    pointer-events: auto;
+}
+
 .text-label__measure {
     position: absolute;
     visibility: hidden;
@@ -141,6 +152,7 @@ html, body{
 .text-label__inner svg {
     overflow: visible;
     transform-origin: top center;
+    pointer-events: none;
 }
 
 /* Marker form styles */
