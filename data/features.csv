@@ -3,14 +3,16 @@ marker,-21.80030805097259,44.89013671875001,settlement,Pawtucket,,,,,,,,{},Settl
 marker,-76.97024507077676,-90.19775390625001,settlement,Marker,,,,,,,,{},
 marker,-0.48337991318247436,135.2636894644682,settlement,Marker,,,,,,,,{},Settlements
 marker,-4.4997617436205255,143.10791015625003,settlement,Marker,,,,,,,,{},Settlements
-marker,-20.015381961202028,152.51259230309853,forts,Unknown Fort or Palisade Village,,"Upon arrival in Cape Cod, the Pilgrims discovered the ruins of a walled fortress or palisaded village filled with remains of local Nauset who had died from disease near the mouth of Pamet River, at Truro. Unaware of its native origins, the pilgrims assumed the location to be of European Christian construction and falsely mistook it as a graveyard. In the Pilgrims Journal the following is written.
+marker,-20.015381961202028,152.51259230309853,forts,Unknown Fort or Palisade Village,,"Upon arrival in Cape Cod, the Pilgrims discovered the ruins of a walled fortress or palisaded village filled with remains of local Nauset who had died from disease. Unaware of its native origins, the pilgrims assumed the location to be of European Christian construction and falsely mistook it as a graveyard. In the Pilgrims Journal the following is written.[^¹]
 
-""We found a great burying place, one part whereof was encompassed with a large Palazado, like a Church-yard, with yong spires foure or five yards long, set as close one by another as they could two or three foot in the ground, within it was full of Graves, some bigger, and some lesse, some were also paled about, & others had like an Indian house made over them, but not matted: those Graves were more sumptuous than those at Corne-hill, yet we digged none of them up,. but onely viewed them, and went our way; without the Palazado were graves also, but not so costl.""",,,,,,{},Forts
-marker,-5.8127569137510084,143.37156579734759,forts,Marker,,[^¹] dfgdfgdf g,,,,,,{},
+[^¹]: ""We found a great burying place, one part whereof was encompassed with a large Palazado, like a Church-yard, with yong spires foure or five yards long, set as close one by another as they could two or three foot in the ground, within it was full of Graves, some bigger, and some lesse, some were also paled about, & others had like an Indian house made over them, but not matted: those Graves were more sumptuous than those at Corne-hill, yet we digged none of them up,. but onely viewed them, and went our way; without the Palazado were graves also, but not so costl.""",,,,,,{},Forts
+marker,-5.8127569137510084,143.3276367140934,forts,Unknown Fort or Palisade Village,,"Upon arrival in Cape Cod, the Pilgrims discovered the ruins of a walled fortress or palisaded village near the mouth of Pamet River, at Truro. Unaware of its native origins, the pilgrims assumed the location to be of European Christian construction. [^¹]
+
+[^¹]: ""Not far from this place we found the remainder of an old fort, or palisade, which as we conceived had been made by some Christians. This was also hard by that place which we thought had been a river, unto which we went and found it so to be, dividing itself into two arms by a high bank. Standing right by the cut or mouth which came from the sea, that which was next unto us was the less; the other arm was more than twice as big, and not unlike to be a harbor for ships. But whether it be a fresh river, or only an indraught of the sea, we had no time to discover, for we had commandment to be out but two days. Here also we saw two canoes, the one on the one side, the other on the other side; we could not believe it was a canoe, till we came near it.""",,,,,,{},Forts
 marker,-66.57448342017541,29.157714843750004,forts,Marker,,It was described as a native fort in 1661 and an English fortification in 1705.,,,,,,{},Forts
 marker,-76.14822912651843,-144.40378202944026,rock,Mishow,,"The Grey Mare and Mishow were two  boulders said to have been placed in their location by Manitou, the boulders served as an important ritual site used for sacred ceremonies.",,,,,,{},
-marker,-21.412044527198127,152.99608087382487,agriculture,Marker,,,,,,,,{},
-marker,-21.289503937039772,153.36971045535952,wigwam,Marker,,,,,,,,{},
+marker,-21.88190519004537,152.31445313198495,agriculture,Four or Five houses with Planting Grounds,,"From this place we went and found more corn-ground, but not of this year. As we ranged we light on four or five Indian houses, which had been lately dwelt in, but they were uncovered, and had no mats about them, else they were like those we found at Cornhill but had not been so lately dwelt in. There was nothing left but two or three pieces of old mats, and a little sedge. Also, a little further we found two baskets full of parched acorns hid in the ground, which we supposed had been corn when we began to dig the same; we cast earth thereon again and went our way. All this while we saw no people.",,,,,,{},
+marker,-21.57571893245848,152.16064453125003,wigwam,Four or Five homes with Planting Grounds,,"From this place we went and found more corn-ground, but not of this year. As we ranged we light on four or five Indian houses, which had been lately dwelt in, but they were uncovered, and had no mats about them, else they were like those we found at Cornhill but had not been so lately dwelt in. There was nothing left but two or three pieces of old mats, and a little sedge. Also, a little further we found two baskets full of parched acorns hid in the ground, which we supposed had been corn when we began to dig the same; we cast earth thereon again and went our way. All this while we saw no people.",,,,,,{},
 marker,19.621892180319374,11.645507812500002,mine,Coal Mine,fgfdgd,dfgdfgd,,,,,,{},Mines/Quarries
 marker,44.2294565683017,-49.65820312500001,capital,Pocumtuck,,,,,,,,{},
 marker,-45.70617928533085,57.01904296875001,agriculture,Marker,,,,,,,,{},
@@ -413,8 +415,11 @@ text,-76.03201380959756,-45.28564453125,,,Tianna,,4,35,0,0,,,
 text,-76.80575496970872,-50.42724609375001,,,Achabachawesuck,,4,0,0,0,,,
 text,-77.05419428289703,-51.19628906250001,,,Quogue,,4,0,0,0,,,
 text,-3.4037578795775887,142.07519531250003,,,Pamet,,7,0,0,0,,,Settlements
-text,0.615222552406841,133.83544921875003,,,Meeshawn,,7,0,0,0,,,Settlements
-text,-3.5572827265412794,144.22851562500003,,“a place of springs.”,Tashmuit,"The highlands of Pamet which were valued for its fertile soil and fresh springs, both of which were utilized by the local peoples. ",6,52,2,0,,,Geographical Locations
+text,0.615222552406841,133.83544921875003,,,Meeshawn,Meeshaun ,7,0,0,0,,,Settlements
+text,-3.5572827265412794,144.22851562500003,,“a place of springs.”,Tashmuit,"The highlands of Pamet which were valued for its fertile soil and fresh springs, both of which were utilized by the local peoples. 
+
+![North_Truro_from_the_south](images/North_Truro_from_the_south.png)
+",6,52,2,0,,,Geographical Locations
 text,-6.7737162387535,144.49218750000003,,,Pamet,,13,0,0,0,,,Territories
 text,-45.93587062119053,50.42724609375001,,,Aquidnet,,11,0,0,0,,,Geographical Locations
 text,-54.87660665410869,98.17382812500001,,,NOEPE,,32,0,0,0,,,
