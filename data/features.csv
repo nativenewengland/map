@@ -293,6 +293,7 @@ marker,20.653777076652563,71.0376869836534,agriculture,Massachusetts Planting Fi
 marker,-63.02508423410086,87.91259295262459,fishing,Marker,,,,,,,,{},
 marker,-43.67709060906243,32.62939453125001,forts,Marker,,,,,,,,{},
 marker,-31.541089879585822,81.43066406250001,settlement,Marker,,,,,,,,{},Settlements
+marker,-13.325484885597936,145.28320312500003,settlement,Marker,,,,,,,,{},Settlements
 text,-55.00282580979324,96.28417968750001,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-53.12040528310657,101.90917968750001,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-52.26815737376817,100.72265625000001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -692,3 +693,5 @@ text,37.43997405227057,-53.30566406250001,,"""at the point of or extremity of a 
 Today the area is known as Sugarloaf Brook.",5,0,0,0,,,Rivers
 text,-24.246964554300924,36.03515625000001,,,Potowomut,,3,-26,0,-42,,,Rivers
 text,-31.42866311735861,80.11230468750001,,,Agawams,,7,0,0,0,,,Settlements
+text,-12.340001834116316,143.21777343750003,,"""Rushing water"" ",Chequessett ,Chequessett was the name of an inlet or where the tide rushes in and out of the land.,4,-51,0,0,,,Geographical Locations
+text,-13.261333170798274,143.85498046875003,,,Pononakanet,,6,0,0,0,,,
