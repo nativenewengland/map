@@ -624,6 +624,10 @@ var territoriesLayer = L.featureGroup();
 var territoryMarkersLayer = L.layerGroup();
 var Settlements = L.layerGroup();
 var territoriesOverlay = L.layerGroup([territoriesLayer, territoryMarkersLayer]);
+// Text labels use a bold sans-serif stack; mirror it when measuring glyph widths.
+var TEXT_LABEL_FONT_FAMILY = "Roboto, 'Open Sans', 'Helvetica Neue', Arial, sans-serif";
+var textMeasurementContext = null;
+var textMeasurementSpan = null;
 
 Settlements.addTo(map);
 territoriesOverlay.addTo(map);
@@ -1396,32 +1400,90 @@ function addMarkerToMap(data) {
   return customMarker;
 }
 
+// Use an offscreen canvas to avoid forcing synchronous DOM layout when measuring curved text.
+function getTextMeasurementContext() {
+  if (textMeasurementContext) {
+    return textMeasurementContext;
+  }
+  if (typeof document === 'undefined') {
+    return null;
+  }
+  var canvas = document.createElement('canvas');
+  var ctx = canvas.getContext && canvas.getContext('2d');
+  if (!ctx) {
+    return null;
+  }
+  textMeasurementContext = ctx;
+  return textMeasurementContext;
+}
+
+// Fallback DOM-based measurement used if the canvas API is unavailable.
+function getTextMeasurementSpan() {
+  if (textMeasurementSpan && textMeasurementSpan.parentNode) {
+    return textMeasurementSpan;
+  }
+  if (typeof document === 'undefined' || !document.body) {
+    return null;
+  }
+  var span = document.createElement('span');
+  span.className = 'text-label__measure';
+  span.style.position = 'absolute';
+  span.style.visibility = 'hidden';
+  span.style.whiteSpace = 'pre';
+  span.style.pointerEvents = 'none';
+  span.style.left = '-9999px';
+  span.style.top = '-9999px';
+  span.style.fontFamily = TEXT_LABEL_FONT_FAMILY;
+  span.style.fontWeight = 'bold';
+  document.body.appendChild(span);
+  textMeasurementSpan = span;
+  return textMeasurementSpan;
+}
+
+// Approximate the rendered width of curved text so we can size the supporting SVG path.
 function measureCurvedTextWidth(text, fontSize, letterSpacing) {
   if (!text) {
     return 0;
   }
-  var span = document.createElement('span');
-  span.className = 'text-label__measure';
+  var value = String(text);
   var sizeValue = parseFloat(fontSize);
-  if (!Number.isFinite(sizeValue)) {
-    sizeValue = 0;
+  if (!Number.isFinite(sizeValue) || sizeValue <= 0) {
+    return 0;
   }
   var spacingValue = parseFloat(letterSpacing);
   if (!Number.isFinite(spacingValue)) {
     spacingValue = 0;
   }
-  span.style.position = 'absolute';
-  span.style.visibility = 'hidden';
-  span.style.pointerEvents = 'none';
-  span.style.whiteSpace = 'pre';
-  span.style.fontSize = sizeValue + 'px';
-  span.style.letterSpacing = spacingValue + 'px';
-  span.style.left = '-9999px';
-  span.style.top = '-9999px';
-  span.textContent = text;
-  document.body.appendChild(span);
-  var width = span.getBoundingClientRect().width;
-  document.body.removeChild(span);
+  var width = 0;
+  var ctx = getTextMeasurementContext();
+  if (ctx) {
+    var font = 'bold ' + sizeValue + 'px ' + TEXT_LABEL_FONT_FAMILY;
+    if (ctx.font !== font) {
+      ctx.font = font;
+    }
+    var metrics = ctx.measureText ? ctx.measureText(value) : null;
+    if (metrics && typeof metrics.width === 'number') {
+      width = metrics.width;
+    }
+    if (spacingValue) {
+      width += spacingValue * Math.max(0, value.length - 1);
+    }
+  }
+  if (!Number.isFinite(width) || width <= 0) {
+    var span = getTextMeasurementSpan();
+    if (!span) {
+      width = 0;
+    } else {
+      span.style.fontSize = sizeValue + 'px';
+      span.style.letterSpacing = spacingValue + 'px';
+      span.textContent = value;
+      var rect = span.getBoundingClientRect();
+      width = rect && rect.width ? rect.width : 0;
+    }
+  }
+  if (!Number.isFinite(width) || width < 0) {
+    width = 0;
+  }
   return width;
 }
 
