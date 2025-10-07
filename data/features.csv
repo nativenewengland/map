@@ -7,7 +7,7 @@ marker,-20.015381961202028,152.51259230309853,forts,Unknown Fort or Palisade Vil
 
 ""We found a great burying place, one part whereof was encompassed with a large Palazado, like a Church-yard, with yong spires foure or five yards long, set as close one by another as they could two or three foot in the ground, within it was full of Graves, some bigger, and some lesse, some were also paled about, & others had like an Indian house made over them, but not matted: those Graves were more sumptuous than those at Corne-hill, yet we digged none of them up,. but onely viewed them, and went our way; without the Palazado were graves also, but not so costl.""",,,,,,{},Forts
 marker,-5.814505235409476,143.50309075890496,forts,Marker,,[^¹] dfgdfgdf g,,,,,,{},
-marker,-66.57448342017541,29.157714843750004,forts,Marker,,,,,,,,{},
+marker,-66.57448342017541,29.157714843750004,forts,Marker,,It was described as a native fort in 1661 and an English fortification in 1705.,,,,,,{},Forts
 marker,-76.14822912651843,-144.40378202944026,rock,Mishow,,"The Grey Mare and Mishow were two  boulders said to have been placed in their location by Manitou, the boulders served as an important ritual site used for sacred ceremonies.",,,,,,{},
 marker,-21.412044527198127,152.99608087382487,agriculture,Marker,,,,,,,,{},
 marker,-21.289503937039772,153.36971045535952,wigwam,Marker,,,,,,,,{},
@@ -300,7 +300,7 @@ marker,-21.53484700204879,147.41455078125003,wigwam,Two Unidentified Homes Encou
 marker,-59.05189565078284,-10.238752004857291,forts,Fort Hill,,[^¹] dfgdfgdf g,,,,,,{},
 marker,-55.528562934867665,-11.95352595922982,forts,Fort Shamtok,,[^¹] dfgdfgdf g,,,,,,{},
 marker,-59.899964678333895,-5.822796866167483,forts,Fort Mystic,,[^¹] dfgdfgdf g,,,,,,{},Forts
-marker,-61.75305590057011,5.714902581135376,forts,Fort Niniget,,[^¹] dfgdfgdf g,,,,,,{},Forts
+marker,-61.026645071114565,11.799316234010101,forts,Fort Niniget,,[^¹] dfgdfgdf g,,,,,,{},Forts
 marker,-71.43416801575344,1.8017578125000002,forts,Fort Montauk,,"[^¹] An old Montauk fort was reportedly situated on ,the eastern extremity of Montauk Point near Fresh Pond; the pond is near the Hither (Nominick) Hills. The fort had supposedly ·fallen into decay by the time the English arrived in 1640. Smith and Solecki visited the area on a survey in 1947, but no trace· of the fort could be seen",,,,,,{},Forts
 marker,-71.21604917397931,-28.124749400481367,forts,Fort Manhnnett,,[^¹] dfgdfgdf g,,,,,,{},Forts
 marker,-72.7967975917526,-42.321949332480116,forts,Fort Corchaug,,"[^¹] Fort Corchaug, although it is accessible to a major waterway, appears to have functioned as a refuge as well as a wampum manufactory",,,,,,{},Forts
@@ -710,3 +710,4 @@ text,-12.340001834116316,143.21777343750003,,"""Rushing water"" ",Chequessett ,C
 text,-13.261333170798274,143.85498046875003,,,Pononakanet,,6,0,0,0,,,
 text,58.124466615596354,-168.84275654139205,,People of the Flint,Kanienʼkehá꞉ka,Mohawk,24,0,0,0,,,Tribes
 text,-71.41316867778343,1.2744140690740615,,,Nominick,Nominick known as Hither Hills today were a group of hills. ,3,-22,1,0,,,Mountains
+text,-31.128217552664182,121.28906246581501,,"""Long Point"" ",Chummaquid,,6,0,3,0,,,Bodies of Water
