@@ -301,11 +301,12 @@ marker,-59.05189565078284,-10.238752004857291,forts,Fort Hill,,[^¹] dfgdfgdf g,
 marker,-55.528562934867665,-11.95352595922982,forts,Fort Shamtok,,[^¹] dfgdfgdf g,,,,,,{},
 marker,-59.899964678333895,-5.822796866167483,forts,Fort Mystic,,[^¹] dfgdfgdf g,,,,,,{},Forts
 marker,-61.75305590057011,5.714902581135376,forts,Fort Niniget,,[^¹] dfgdfgdf g,,,,,,{},Forts
-marker,-71.47599236055213,1.8025024510696854,forts,Fort Montauk,,[^¹] dfgdfgdf g,,,,,,{},Forts
+marker,-71.43416801575344,1.8017578125000002,forts,Fort Montauk,,"[^¹] An old Montauk fort was reportedly situated on ,the eastern extremity of Montauk Point near Fresh Pond; the pond is near the Hither (Nominick) Hills. The fort had supposedly ·fallen into decay by the time the English arrived in 1640. Smith and Solecki visited the area on a survey in 1947, but no trace· of the fort could be seen",,,,,,{},Forts
 marker,-71.21604917397931,-28.124749400481367,forts,Fort Manhnnett,,[^¹] dfgdfgdf g,,,,,,{},Forts
-marker,-72.7967975917526,-42.321949332480116,forts,Fort Corchaug,,[^¹] dfgdfgdf g,,,,,,{},Forts
+marker,-72.7967975917526,-42.321949332480116,forts,Fort Corchaug,,"[^¹] Fort Corchaug, although it is accessible to a major waterway, appears to have functioned as a refuge as well as a wampum manufactory",,,,,,{},Forts
 marker,-75.50834193457236,-40.890955761552576,forts,Fort Shinnecock,,[^¹] dfgdfgdf g,,,,,,{},Forts
-marker,-79.71861079737243,-107.22656250000001,forts,Fort Massepes,,[^¹] dfgdfgdf g,,,,,,{},Forts
+marker,-79.71861079737243,-107.22656250000001,forts,Fort Massapeag,,"[^¹] Only one site on Long Island, Fort Massapeag, which may have been built under the supervision of the Dutch in 1656, meets Ceci's criteria for a trading station. Because of its small size, it could not have served as a refuge from possible attack for a large Indianpopulation. It was a wampum manufactory.",,,,,,{},Forts
+marker,-66.44245198617834,-115.40038949426483,forts,Wappinger Fort,,"[^¹] Mentioned in the literature was an Indian that had been attacked by the Dutch in 1644 on Strickland's Plains at Poundridge, Westchester County, New York (Brodhead 1859:I: 390-391). Some 500 Indians were said to have been slaughtered there, while the Dutch suffered only 15 wounded. No archaeological reports that we know of have· confirmed this event.",,,,,,{},Forts
 text,-55.00282580979324,96.28417968750001,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-53.12040528310657,101.90917968750001,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-52.26815737376817,100.72265625000001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -708,3 +709,4 @@ text,-31.42866311735861,80.11230468750001,,,Agawams,,7,0,0,0,,,Settlements
 text,-12.340001834116316,143.21777343750003,,"""Rushing water"" ",Chequessett ,Chequessett was the name of an inlet or where the tide rushes in and out of the land.,4,-51,0,0,,,Geographical Locations
 text,-13.261333170798274,143.85498046875003,,,Pononakanet,,6,0,0,0,,,
 text,58.124466615596354,-168.84275654139205,,People of the Flint,Kanienʼkehá꞉ka,Mohawk,24,0,0,0,,,Tribes
+text,-71.41316867778343,1.2744140690740615,,,Nominick,Nominick known as Hither Hills today were a group of hills. ,3,-22,1,0,,,Mountains
