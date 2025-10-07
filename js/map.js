@@ -259,10 +259,6 @@ var tiles = L.tileLayer('map/{z}/{x}/{y}.jpg', {
     }, 50);
   }
 })();
-// Overlay extracted from image and used for OCR/template matching
-// Use world bounds so the overlay spans the entire map
-var overlayBounds = [[-85, -180], [85, 180]];
-
 function textLabelsMatch(a, b) {
   if (!a || !b) return false;
   var textA = (a.text || '').trim();
@@ -296,160 +292,6 @@ function containsTextLabel(collection, candidate) {
   });
 }
 
-async function extractOverlayLabels(eventOrOptions) {
-  var options = eventOrOptions;
-  if (options && options.type && options.target) {
-    options = {};
-  }
-  options = options || {};
-  var autoSave = options.autoSave !== false;
-
-  function buildResult(overrides) {
-    return Object.assign(
-      {
-        labelsAdded: 0,
-        totalWords: 0,
-        saveResult: null,
-        error: null,
-      },
-      overrides || {}
-    );
-  }
-
-  if (typeof Tesseract === 'undefined' || !Tesseract || !Tesseract.recognize) {
-    console.warn('Tesseract.js is not available; skipping overlay label extraction.');
-    return buildResult({ error: 'tesseract-unavailable' });
-  }
-
-  var image = new Image();
-  image.crossOrigin = 'anonymous';
-
-  var imageLoadPromise = new Promise(function (resolve, reject) {
-    image.onload = function () {
-      resolve();
-    };
-    image.onerror = function (event) {
-      reject(event);
-    };
-  });
-
-  image.src = 'overlays/overlay.png';
-  if (image.complete && image.naturalWidth !== 0) {
-    image.onload();
-  }
-
-  try {
-    await imageLoadPromise;
-  } catch (error) {
-    console.error('Failed to load overlay image for OCR.', error);
-    return buildResult({ error: 'overlay-load-failed' });
-  }
-
-  var width = image.naturalWidth || image.width;
-  var height = image.naturalHeight || image.height;
-
-  if (!width || !height) {
-    console.warn('Overlay image has invalid dimensions; skipping label extraction.');
-    return buildResult({ error: 'invalid-overlay-dimensions' });
-  }
-
-  var recognition;
-  try {
-    recognition = await Tesseract.recognize(image, 'eng');
-  } catch (error) {
-    console.error('Failed to perform OCR on overlay image.', error);
-    return buildResult({ error: 'ocr-failed' });
-  }
-
-  var words = (recognition && recognition.data && recognition.data.words) || [];
-  if (!Array.isArray(words) || words.length === 0) {
-    return buildResult();
-  }
-
-  var south = overlayBounds[0][0];
-  var west = overlayBounds[0][1];
-  var north = overlayBounds[1][0];
-  var east = overlayBounds[1][1];
-  var latSpan = north - south;
-  var lngSpan = east - west;
-
-  var labelsAddedCount = 0;
-
-  words.forEach(function (word) {
-    var text = (word.text || '').trim();
-    if (!text) {
-      return;
-    }
-
-    var bbox = word.bbox;
-    if (!bbox) {
-      return;
-    }
-
-    var x0 = bbox.x0;
-    var x1 = bbox.x1;
-    var y0 = bbox.y0;
-    var y1 = bbox.y1;
-
-    if (
-      typeof x0 !== 'number' ||
-      typeof x1 !== 'number' ||
-      typeof y0 !== 'number' ||
-      typeof y1 !== 'number'
-    ) {
-      return;
-    }
-
-    var centerX = (x0 + x1) / 2;
-    var centerY = (y0 + y1) / 2;
-
-    var lng = west + (centerX / width) * lngSpan;
-    var lat = north - (centerY / height) * latSpan;
-    var fontSize = Math.max(1, y1 - y0);
-
-    var labelData = {
-      lat: lat,
-      lng: lng,
-      text: text,
-      subheader: '',
-      description: '',
-      size: fontSize,
-      angle: 0,
-      spacing: 0,
-      curve: 0,
-      overlay: '',
-    };
-
-    if (containsTextLabel(customTextLabels, labelData)) {
-      return;
-    }
-
-    addTextLabelToMap(labelData);
-    customTextLabels.push(labelData);
-    labelsAddedCount++;
-  });
-
-  var saveResult = null;
-  if (labelsAddedCount > 0 && autoSave) {
-    saveResult = await saveTextLabels();
-  }
-
-  return buildResult({ labelsAdded: labelsAddedCount, totalWords: words.length, saveResult: saveResult });
-}
-
-// User-supplied overlay image should be placed at overlays/overlay.png
-var baseOverlay = L.imageOverlay('overlays/overlay.png', overlayBounds).addTo(map);
-var overlayReadyPromise = new Promise(function (resolve) {
-  function finish(success) {
-    resolve(success);
-  }
-  baseOverlay.once('load', function () {
-    finish(true);
-  });
-  baseOverlay.once('error', function () {
-    finish(false);
-  });
-});
 tiles.once('load', function () {
   baseZoom = map.getZoom();
   rescaleIcons();
@@ -1716,21 +1558,6 @@ function addTextLabelToMap(data) {
   return m;
 }
 
-// Always load features from CSV
-var resolveFeaturesLoaded;
-var featuresLoadedFlag = false;
-var featuresLoadedPromise = new Promise(function (resolve) {
-  resolveFeaturesLoaded = resolve;
-});
-
-function markFeaturesLoaded(success) {
-  if (featuresLoadedFlag) {
-    return;
-  }
-  featuresLoadedFlag = true;
-  resolveFeaturesLoaded(success !== false);
-}
-
 fetch('data/features.csv')
   .then(function (r) {
     return r.text();
@@ -1753,23 +1580,13 @@ fetch('data/features.csv')
         customPolygons.push(p);
         addPolygonToMap(p);
       });
-      markFeaturesLoaded(true);
     } catch (err) {
-      markFeaturesLoaded(false);
       throw err;
     }
   })
   .catch(function (err) {
     console.error('Failed to load features.csv', err);
-    markFeaturesLoaded(false);
   });
-
-Promise.all([overlayReadyPromise, featuresLoadedPromise]).then(function (results) {
-  var overlayLoaded = results[0];
-  if (overlayLoaded) {
-    extractOverlayLabels();
-  }
-});
 
 
 // //// START OF MARKERS
