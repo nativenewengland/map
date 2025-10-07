@@ -1046,6 +1046,22 @@ function rescaleTextLabels() {
   var scale = Math.pow(2, map.getZoom() - baseZoom);
   allTextLabels.forEach(function (m) {
     if (m._icon) {
+      var inner = m._icon.querySelector('.text-label__inner');
+      if (!inner) {
+        return;
+      }
+      inner.style.transformOrigin = 'top left';
+      inner.style.transform = 'scale(' + scale + ')';
+    }
+  });
+}
+function rescaleTextLabels() {
+  if (baseZoom === undefined) {
+    baseZoom = map.getZoom();
+  }
+  var scale = Math.pow(2, map.getZoom() - baseZoom);
+  allTextLabels.forEach(function (m) {
+    if (m._icon) {
       var span = m._icon.querySelector('span');
       if (span) {
         span.style.fontSize = m._baseFontSize * scale + 'px';
@@ -2186,13 +2202,6 @@ function editTextForm(labelMarker) {
     labelMarker.setIcon(textIcon);
     labelMarker._baseFontSize = size;
     labelMarker._baseLetterSpacing = spacing;
-    if (curve) {
-      labelMarker._baseCurve = curve;
-      labelMarker._basePathWidth = pathWidth;
-    } else {
-      delete labelMarker._baseCurve;
-      delete labelMarker._basePathWidth;
-    }
     data.text = text;
     data.subheader = subheader;
     data.description = description;
