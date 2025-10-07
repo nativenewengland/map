@@ -1046,29 +1046,12 @@ function rescaleTextLabels() {
   var scale = Math.pow(2, map.getZoom() - baseZoom);
   allTextLabels.forEach(function (m) {
     if (m._icon) {
-      var span = m._icon.querySelector('span');
-      if (span) {
-        span.style.fontSize = m._baseFontSize * scale + 'px';
-        span.style.letterSpacing = (m._baseLetterSpacing || 0) * scale + 'px';
-      } else {
-        var svg = m._icon.querySelector('svg');
-        if (svg) {
-          var text = svg.querySelector('text');
-          if (text) {
-            text.style.fontSize = m._baseFontSize * scale + 'px';
-            text.style.letterSpacing = (m._baseLetterSpacing || 0) * scale + 'px';
-          }
-          if (m._baseCurve) {
-            var path = svg.querySelector('path');
-            if (path) {
-              var width = (m._basePathWidth || 0) * scale;
-              var r = Math.abs(m._baseCurve) * scale;
-              var sweep = m._baseCurve > 0 ? 0 : 1;
-              path.setAttribute('d', 'M0,0 A' + r + ',' + r + ' 0 0,' + sweep + ' ' + width + ',0');
-            }
-          }
-        }
+      var inner = m._icon.querySelector('.text-label__inner');
+      if (!inner) {
+        return;
       }
+      inner.style.transformOrigin = 'top left';
+      inner.style.transform = 'scale(' + scale + ')';
     }
   });
 }
@@ -1669,10 +1652,6 @@ function addTextLabelToMap(data) {
   data.overlay = overlayName;
   m._baseFontSize = data.size;
   m._baseLetterSpacing = data.spacing;
-  if (data.curve) {
-    m._baseCurve = data.curve;
-    m._basePathWidth = pathWidth;
-  }
   m._data = data;
   m._markerType = 'text';
   allTextLabels.push(m);
@@ -2166,13 +2145,6 @@ function editTextForm(labelMarker) {
     labelMarker.setIcon(textIcon);
     labelMarker._baseFontSize = size;
     labelMarker._baseLetterSpacing = spacing;
-    if (curve) {
-      labelMarker._baseCurve = curve;
-      labelMarker._basePathWidth = pathWidth;
-    } else {
-      delete labelMarker._baseCurve;
-      delete labelMarker._basePathWidth;
-    }
     data.text = text;
     data.subheader = subheader;
     data.description = description;
