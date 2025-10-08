@@ -575,10 +575,10 @@ var ChambersIcon = createScaledIcon({
 var CampsIcon = createScaledIcon({
   iconUrl: 'icons/fire.png',
   iconRetinaUrl: 'icons/fire.png',
-  iconSize: [1.875, 1.875],
-  iconAnchor: [0.9375, 1.875],
-  popupAnchor: [0.1875, -1.875],
-  tooltipAnchor: [0.9375, -0.9375],
+  iconSize: [0.9375, 0.9375],
+  iconAnchor: [0.46875, 0.9375],
+  popupAnchor: [0.09375, -0.9375],
+  tooltipAnchor: [0.46875, -0.46875],
 });
 
 var seaMonsterIconHeight = 2.8125;
