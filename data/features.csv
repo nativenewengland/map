@@ -323,6 +323,7 @@ In July 1674 the English ordered that an elderly Nobscusset man named Hoken  who
 [^3]:https://www.dennishistoricalsociety.org/sites/default/files/2019-07/Jul1987.pdf",,,,,,{},
 marker,-26.195724725221005,146.77717534081972,camps,Marker,,,,,,,,{},
 marker,12.0395291064696,22.192383186426973,chambers,Upton Stone Chamber ,,,,,,,,{},Ceremonial Stone Landscapes
+marker,64.650123754094,-39.66180298693398,settlement,Marker,,,,,,,,{},
 text,-55.00282580979324,96.28417968750001,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-53.12040528310657,101.90917968750001,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-52.26815737376817,100.72265625000001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -381,7 +382,7 @@ text,-76.20596704314148,-78.13476562500001,,,Setalcott,Setalcott (Setauket) home
 text,-73.9891972630182,-48.009566547570316,,,Shinnecock,Shinnecock homelands near Shinnecock Bay on Long Island.,24,0,0,0,,,Tribes
 text,-36.73490706670716,-90.48572927900707,,,Tunxis,Tunxis homelands in the Farmington River Valley.,24,0,0,0,,,Tribes
 text,-74.21333248041581,-95.62940360654963,,,Unkechaug,Unkechaug (Poospatuck) homelands on Long Island's south shore.,24,0,0,0,,,Tribes
-text,-75.29941037564522,-79.89257812500001,,,Unquachog,Unqua homelands near present-day Seaford and Massapequa.,24,0,0,0,,,Tribes
+text,-75.39779877737388,-85.23309122513776,,,Unquachog,Unqua homelands near present-day Seaford and Massapequa.,24,0,0,0,,,Tribes
 text,-12.811801316582619,56.6455078125,,,Wampanoag,Wampanoag homelands across Plymouth and Bristol counties.,24,0,0,0,,,Tribes
 text,-47.694974341862824,-52.29492187500001,,,Wangunk,Wangunk homelands along the lower Connecticut River.,24,0,0,0,,,Tribes
 text,-60.321147194219755,-105.8073484903449,,,Wappinger,Wappinger homelands spanning southwestern Connecticut and the lower Hudson Valley.,24,0,0,0,,,Tribes
@@ -543,66 +544,59 @@ text,38.42777351132902,-100.50292968750001,,,Pontoosuck,,6,0,0,0,,,Bodies of Wat
 text,49.993615462541136,-65.17089843750001,,,Paugemtuk,,5,0,0,0,,,Rivers
 text,44.15068115978094,-47.4169921875,,,Quinnitekuk,,5,0,0,0,,,Rivers
 text,45.300000000000004,-47.20000000000001,,,Mattamacket,,5,0,0,0,,,Bodies of Water
-text,44.15068115978094,-45.900000000000006,,,Taughkannacoas Islands,,5,0,0,0,,,Bodies of Water
-text,43.10000000000001,-47.20000000000001,,,Alliancook,,5,0,0,0,,,Bodies of Water
-text,54.00513849003675,-37.970996854968924,,,Skakeat Squakheag,,5,0,0,0,,,Geographical Locations
+text,44.21372213673447,-43.94586385056617,,,Taughkannacoas Islands,,5,0,0,0,,,Bodies of Water
 text,52.749165171699985,-42.78071376757689,,,Nallahamcomgon,"Nallahamcomgon, now Bennett's meadow was a field that served as the boundry between the Squakeag and Pocumtuck territory.",5,0,0,0,,,Geographical Locations
-text,44.050681159780936,-48.6519921875,,,Puckommegon,,5,0,0,0,,,Geographical Locations
-text,43.730681159780936,-49.3269921875,,,Paugen,,5,0,0,0,,,Geographical Locations
-text,43.53068115978094,-48.3319921875,,,Suns Skowohkk,,5,0,0,0,,,Geographical Locations
-text,43.19068115978094,-48.2594921875,,,Saci Mi (Papacontuckquash),,5,0,0,0,,,Geographical Locations
-text,43.060681159780934,-46.2169921875,,,Papacontuckquash,,5,0,0,0,,,Geographical Locations
-text,42.82068115978094,-47.5819921875,,,Sa Inpskeshoa,,5,0,0,0,,,Geographical Locations
-text,42.22068115978094,-48.5269921875,,,Neqwomt,,5,0,0,0,,,Geographical Locations
-text,42.03068115978094,-49.0819921875,,,Weekquunnuch,,5,0,0,0,,,Geographical Locations
-text,41.81068115978094,-48.6269921875,,,Amiskw Alow,,5,0,0,0,,,Geographical Locations
+text,42.69837902593775,-44.75939728743217,,,Puckommegon,,5,0,0,0,,,Geographical Locations
+text,43.357197138732246,-43.94595057986873,,,Papacontuckquash,,5,0,0,0,,,Geographical Locations
+text,41.96764334885846,-49.32843362769474,,,Weekquunnuch,,5,0,0,0,,,Geographical Locations
+text,41.72211466934566,-49.24054919764493,,,Amiskw Alow,,5,0,0,0,,,Geographical Locations
 text,41.81068115978094,-47.9619921875,,,Kia,,5,0,0,0,,,Geographical Locations
 text,41.71068115978094,-46.4869921875,,,Pottapaug,,5,0,0,0,,,Geographical Locations
 text,41.60068115978094,-47.8719921875,,,Bivahs,,5,0,0,0,,,Geographical Locations
-text,41.51068115978094,-47.5169921875,,,Siok,,5,0,0,0,,,Geographical Locations
-text,41.26068115978094,-48.6069921875,,,Mattawan,,5,0,0,0,,,Geographical Locations
-text,41.050681159780936,-49.0719921875,,,Mins,,5,0,0,0,,,Geographical Locations
-text,41.050681159780936,-48.4369921875,,,Barhar,,5,0,0,0,,,Geographical Locations
+text,41.32729109134357,-47.94421823344656,,,Siok,,5,0,0,0,,,Geographical Locations
+text,41.14554725011771,-49.328408847893996,,,Mattawan,,5,0,0,0,,,Geographical Locations
+text,41.673032872008385,-50.62456015853709,,,Mins,,5,0,0,0,,,Geographical Locations
+text,40.74719880504101,-48.91099652359601,,,Barhar,,5,0,0,0,,,Geographical Locations
 text,40.97068115978094,-47.0619921875,,,Nea,,5,0,0,0,,,Geographical Locations
 text,40.870681159780936,-47.7719921875,,,Omanacig,,5,0,0,0,,,Geographical Locations
-text,40.82068115978094,-48.6169921875,,,Weauitayaug,,5,0,0,0,,,Geographical Locations
+text,40.5304466703332,-53.56794207370912,,,Weauitayaug,,5,0,0,0,,,Geographical Locations
 text,40.730681159780936,-46.4419921875,,,Temes,,5,0,0,0,,,Geographical Locations
-text,40.57068115978094,-48.6169921875,,,Kapawank,,5,0,0,0,,,Geographical Locations
-text,40.51068115978094,-47.8869921875,,,Seca Naot,,5,0,0,0,,,Geographical Locations
+text,40.296234472367466,-50.69033564343292,,,Kapawank,,5,0,0,0,,,Geographical Locations
+text,41.17878236958771,-50.690125015126746,,,Seca Naot,,5,0,0,0,,,Geographical Locations
 text,40.17068115978094,-46.5569921875,,,Menemesty,,5,0,0,0,,,Geographical Locations
 text,40.10068115978094,-48.7119921875,,,Pacha,,5,0,0,0,,,Geographical Locations
-text,40.03068115978094,-49.6469921875,,,Akikons,,5,0,0,0,,,Geographical Locations
-text,39.910681159780935,-48.8219921875,,,Asotalak,,5,0,0,0,,,Geographical Locations
+text,39.82537379917438,-51.50337967923455,,,Akikons,,5,0,0,0,,,Geographical Locations
+text,39.74095356213108,-49.72386710079256,,,Asotalak,,5,0,0,0,,,Geographical Locations
 text,39.740681159780934,-47.9369921875,,,Poa,,5,0,0,0,,,Geographical Locations
-text,39.71068115978094,-48.6919921875,,,Nerwotuk,,5,0,0,0,,,Geographical Locations
-text,39.450681159780935,-48.6369921875,,,Kuna,,5,0,0,0,,,Geographical Locations
+text,39.47007903116007,-49.32843362769474,,,Nerwotuk,,5,0,0,0,,,Geographical Locations
+text,38.959312620807985,-49.89954923158966,,,Kuna,,5,0,0,0,,,Geographical Locations
 text,39.26068115978094,-47.9419921875,,,Wanmagoekset,,5,0,0,0,,,Geographical Locations
 text,39.01068115978094,-48.0119921875,,,Chusick,,5,0,0,0,,,Geographical Locations
 text,38.82068115978094,-46.1469921875,,,Serhan,,5,0,0,0,,,Geographical Locations
 text,38.620681159780936,-45.7869921875,,,Letone,,5,0,0,0,,,Geographical Locations
-text,38.31068115978094,-49.5369921875,,,Woninohe / Wol,,5,0,0,0,,,Geographical Locations
+text,36.35014229753896,-51.76694624008148,,,Woninohe / Wol,,5,0,0,0,,,Geographical Locations
 text,38.270681159780935,-47.9719921875,,,Ricoh,,5,0,0,0,,,Geographical Locations
 text,38.130681159780934,-46.5519921875,,,Ashquash,,5,0,0,0,,,Geographical Locations
 text,37.75068115978094,-48.1469921875,,,Nyaset,,5,0,0,0,,,Geographical Locations
 text,37.57068115978094,-49.2269921875,,,Pochasuch,,5,0,0,0,,,Geographical Locations
-text,37.51068115978094,-48.0869921875,,,Aalok,,5,0,0,0,,,Geographical Locations
+text,36.26174805031505,-42.760288240443984,,,Aalok,,5,0,0,0,,,Geographical Locations
 text,37.43068115978094,-46.8869921875,,,Quasiak,,5,0,0,0,,,Geographical Locations
-text,37.43068115978094,-46.2869921875,,,Tantasgues,,5,0,0,0,,,Geographical Locations
-text,37.19068115978094,-48.0169921875,,,Massa,,5,0,0,0,,,Geographical Locations
+text,37.71864767595437,-45.63739287975545,,,Tantasgues,,5,0,0,0,,,Geographical Locations
+text,37.97899631531391,-43.44122995588779,,,Massa,,5,0,0,0,,,Geographical Locations
 text,36.990681159780934,-46.7619921875,,,Matewemesik,,5,0,0,0,,,Geographical Locations
-text,36.97068115978094,-48.4969921875,,,Asan,,5,0,0,0,,,Geographical Locations
-text,36.83068115978094,-47.9219921875,,,Muskikoshitash,,5,0,0,0,,,Geographical Locations
-text,36.57068115978094,-48.0669921875,,,Suckompsk,,5,0,0,0,,,Geographical Locations
+text,37.3352955688924,-42.782372405797254,,,Asan,,5,0,0,0,,,Geographical Locations
+text,35.46040247405223,-43.4631716373869,,,Muskikoshitash,,5,0,0,0,,,Geographical Locations
+text,36.809332505513524,-43.77074546023562,,,Suckompsk,,5,0,0,0,,,Geographical Locations
 text,36.53068115978094,-46.5219921875,,,Mashapaus,,5,0,0,0,,,Geographical Locations
-text,36.450681159780935,-45.5719921875,,,Quinnebaue,,5,0,0,0,,,Geographical Locations
-text,36.33068115978094,-48.0569921875,,,Suis,,5,0,0,0,,,Geographical Locations
-text,36.21068115978094,-47.4169921875,,,Poggotussue,,5,0,0,0,,,Geographical Locations
-text,35.800681159780936,-47.5869921875,,,Amiskwatamal,,5,0,0,0,,,Geographical Locations
+text,36.3150976559187,-45.46145675600091,,,Quinnebaue,,5,0,0,0,,,Geographical Locations
+text,36.10233165333265,-47.702735837952915,,,Suis,,5,0,0,0,,,Geographical Locations
+text,36.08459717002052,-46.31866912250909,,,Poggotussue,,5,0,0,0,,,Geographical Locations
+text,35.65726852636389,-45.945288840013625,,,Amiskwatamal,,5,0,0,0,,,Geographical Locations
 text,35.660681159780935,-49.2269921875,,,Wenckocamaug,,5,0,0,0,,,Geographical Locations
 text,35.410681159780935,-49.5469921875,,,Massaco,,5,0,0,0,,,Geographical Locations
 text,35.15068115978094,-47.4869921875,,,Nashaway, Quaboag and Quinnebaug Nipmuk: Pocumtuk,14,0,0,0,,,0
-text,34.910681159780935,-47.4869921875,,,Mashapaug and Sokoki Wobankai Nations Territories,,5,0,0,0,,,Geographical Locations
-text,47.78363463526379,-35.20019531250001,,,Papacontuckquash,,5,0,0,0,,,Rivers
+text,50.96147828339582,-46.49392148490192,,,Mashapaug and Sokoki Wobankai Nations Territories,,5,0,0,0,,,Geographical Locations
+text,47.93109492259736,-30.10397629094216,,,Papacontuckquash,,8,13,0,0,,,Rivers
 text,-20.694461597907797,43.57177734375001,,,Pawtucket,,7,0,0,0,,,Settlements
 text,-22.695120184965695,44.36279296875,,,Seacuncke,,7,0,0,0,,,Settlements
 text,-22.39071391683855,39.92431640625001,,,Moshosick,,7,0,0,0,,,Settlements
@@ -660,7 +654,7 @@ Meanwhile, missionaries, agents from the state of New York, and commissioners fr
 
 [^1]:https://flyingdeernaturecenter.org/the-muhheconneok/",24,0,0,0,,,Tribes
 text,16.448309250183947,69.91765136213205,,,Housickwissick,,4,0,0,0,,,Geographical Locations
-text,15.559624524776702,64.13823595808995,,,Massawachusett,,7,-12,0,0,,,Geographical Locations
+text,15.559624524776702,64.13823595808995,,"""the place of the great hills""",Massawachusett,,7,-12,0,0,,,Mountains
 text,19.64256946203327,71.49903267826588,,,Passonagessit,![ME_Boston_Map_28x36_Flat-1-e1490057999642](images/ME_Boston_Map_28x36_Flat-1-e1490057999642.jpg),4,0,0,0,,,Geographical Locations
 text,22.471919044631637,69.91697678622356,,,Moswetuset,,4,0,0,0,,,Geographical Locations
 text,30.181197723251778,66.84206781589243,,,Musquantum,,4,0,0,0,,,Geographical Locations
@@ -735,3 +729,8 @@ text,-26.273698890875846,151.7870487476951,,,Tonset,,6,0,0,0,,,
 text,-24.166447931778855,152.07263265164022,,,Weeset,,6,0,0,0,,,
 text,-31.78424557684737,152.75397361367214,,"""at the deep fishing place,"" or ""lookout place.""",Monamesset,,3,0,0,0,,,Geographical Locations
 text,-36.36822869576792,133.11051323531308,,,Pawkannawkut,,6,0,0,0,,,
+text,65.34864542564475,-40.60616258442037,,,Ktsi pontekw,,6,0,0,0,,,Settlements
+text,49.02415781991267,-36.979497262635824,,,Corroheagan,,5,0,0,0,,,Geographical Locations
+text,49.325992011261164,-46.82559099929916,,,Wisatinoag,"Wisatinoag was a sacred burial place that had been in use for at least 6,000 years prior to the arrival of Europeans in the region. Strategically placed in an upland location, it allowed the ancestors of the local peoples to keep watch over their villages and crop plots below",5,0,0,0,,,Geographical Locations
+text,36.91427327278093,-54.66842717631346,,“Beaver tail hill place”,Amiskwônowôkoik,,7,0,0,0,,,
+text,48.28422591656822,-46.87000145904557,,,Peskeomskut ,,6,0,0,0,,,Settlements
