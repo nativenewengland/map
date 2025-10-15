@@ -549,6 +549,15 @@ var MineIcon = createScaledIcon({
   tooltipAnchor: [0.9375, -0.9375],
 });
 
+var EarthworksIcon = createScaledIcon({
+  iconUrl: 'icons/earthworks.png',
+  iconRetinaUrl: 'icons/earthworks.png',
+  iconSize: [1.875, 1.875],
+  iconAnchor: [0.9375, 1.875],
+  popupAnchor: [0.1875, -1.875],
+  tooltipAnchor: [0.9375, -0.9375],
+});
+
 // Preserve the original 39x17 aspect ratio of the fort icon while keeping the
 // consistent marker height used throughout the map.
 var fortIconHeight = 1.875;
@@ -604,6 +613,7 @@ var iconMap = {
   agriculture: AgricultureIcon,
   pteroglyph: PteroglyphIcon,
   mine: MineIcon,
+  earthworks: EarthworksIcon,
   forts: FortsIcon,
   chambers: ChambersIcon,
   seamonster: SeaMonsterIcon,
