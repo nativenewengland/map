@@ -208,7 +208,6 @@ marker,-26.941552470150757,150.53466796875003,settlement,Marker,,,,,,,,{},Settle
 marker,-27.019854480761342,148.62304687500003,settlement,Marker,,,,,,,,{},Settlements
 marker,-34.16199077965677,153.41308593750003,settlement,Manamoycke,,,,,,,,{},Settlements
 marker,38.82245799763665,-16.413574218750004,settlement,Marker,,,,,,,,{},Settlements
-marker,50.652875230903255,56.29394531250001,forts,Marker,,,,,,,,{},
 marker,49.69627036272315,51.48193359375001,settlement,Marker,,,,,,,,{},Settlements
 marker,-7.601531395848714,-57.78808593750001,settlement,Marker,,,,,,,,{},Settlements
 marker,-5.7695453247274875,-46.07666015625001,settlement,Marker,,,,,,,,{},Settlements
@@ -324,6 +323,8 @@ In July 1674 the English ordered that an elderly Nobscusset man named Hoken  who
 marker,12.0395291064696,22.192383186426973,chambers,Upton Stone Chamber ,,,,,,,,{},Ceremonial Stone Landscapes
 marker,64.650123754094,-39.66180298693398,settlement,Marker,,,,,,,,{},
 marker,-79.70290666685683,-161.12547416821354,camps,Marker,,,,,,,,{},
+marker,50.56913827577431,55.47971723836509,settlement,Marker,,,,,,,,{},Settlements
+marker,50.59692665798444,56.73212822024983,chambers,Indian Cellar ,,,,,,,,{},Ceremonial Stone Landscapes
 text,-55.00282580979324,96.28417968750001,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-53.12040528310657,101.90917968750001,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-52.26815737376817,100.72265625000001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
