@@ -325,6 +325,11 @@ marker,64.650123754094,-39.66180298693398,settlement,Marker,,,,,,,,{},
 marker,-79.70290666685683,-161.12547416821354,camps,Marker,,,,,,,,{},
 marker,50.56913827577431,55.47971723836509,settlement,Marker,,,,,,,,{},Settlements
 marker,50.59692665798444,56.73212822024983,chambers,Indian Cellar ,,,,,,,,{},Ceremonial Stone Landscapes
+marker,49.92251535398227,55.12927787853792,chambers,Turtle Mound,,,,,,,,{},Ceremonial Stone Landscapes
+marker,50.972248776241464,55.722642362772355,earthworks,Marker,,,,,,,,{},
+marker,50.77789638793299,56.31595407554184,earthworks,Marker,,,,,,,,{},
+marker,60.6624586458736,72.81679121660294,earthworks,Marker,,https://www.stonestructures.org/html/tours-ma.html,,,,,,{},
+marker,52.01201528560231,99.997130867139,earthworks,Eye of the Turtle of Turtle Island,,"Gage, M. Turtle Mound, Haskins Park, Poole Hill, Rockport, Massachusetts.",,,,,,{},
 text,-55.00282580979324,96.28417968750001,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-53.12040528310657,101.90917968750001,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-52.26815737376817,100.72265625000001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -614,7 +619,7 @@ text,48.32703913063479,79.25537109375001,,,Nahumkeak ,,7,0,0,0,,,Settlements
 text,50.75035931136963,94.52636718750001,,,Wenesquawam ,,7,0,0,0,,,Settlements
 text,45.99696161820381,76.24511718750001,,,Wahquamesecok ,,7,0,0,0,,,Settlements
 text,40.1452892956766,78.79394531250001,,,Massabequash ,,7,0,0,0,,,Settlements
-text,54.88924640307589,63.58886718750001,,,Cochichewick,,5,0,0,0,,,Bodies of Water
+text,54.82601536942836,63.852539093412,,,Cochichewick,,4,35,0,0,,,Bodies of Water
 text,47.39834920035926,78.88183593750001,,,Michigamea,,5,0,0,0,,,Bodies of Water
 text,-22.63429269379352,77.03613281250001,,,Assawompsett,,5,0,0,0,,,Bodies of Water
 text,-25.918526162075153,75.14648437500001,,,Apponaqut,,5,0,0,0,,,Bodies of Water
