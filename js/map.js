@@ -549,13 +549,18 @@ var MineIcon = createScaledIcon({
   tooltipAnchor: [0.9375, -0.9375],
 });
 
+// Preserve the native aspect ratio of the wide Earthworks illustration while
+// keeping the shared marker height for consistent scaling.
+var earthworksIconHeight = 1.875;
+var earthworksIconWidth = (685 / 227) * earthworksIconHeight;
+
 var EarthworksIcon = createScaledIcon({
   iconUrl: 'icons/earthworks.png',
   iconRetinaUrl: 'icons/earthworks.png',
-  iconSize: [1.875, 1.875],
-  iconAnchor: [0.9375, 1.875],
-  popupAnchor: [0.1875, -1.875],
-  tooltipAnchor: [0.9375, -0.9375],
+  iconSize: [earthworksIconWidth, earthworksIconHeight],
+  iconAnchor: [earthworksIconWidth / 2, earthworksIconHeight],
+  popupAnchor: [0, -earthworksIconHeight],
+  tooltipAnchor: [earthworksIconWidth / 2, -earthworksIconHeight / 2],
 });
 
 // Preserve the original 39x17 aspect ratio of the fort icon while keeping the
