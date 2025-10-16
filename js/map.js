@@ -551,6 +551,7 @@ var MineIcon = createScaledIcon({
 
 // Preserve the native aspect ratio of the wide Earthworks illustration while
 // keeping the shared marker height for consistent scaling.
+
 var earthworksIconHeight = 1.875 / 2;
 var earthworksIconWidth = (685 / 227) * earthworksIconHeight;
 
