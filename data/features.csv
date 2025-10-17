@@ -24,7 +24,7 @@ marker,54.67383096593114,-37.79296875000001,settlement,Marker,,,,,,,,{},
 marker,25.403584973186703,-49.94384765625001,settlement,Nonotuck,,,,,,,,{},
 marker,26.155267744564583,-48.273795628065834,settlement,Marker,,,,,,,,{},
 marker,-62.33941057752869,-31.508789062500004,settlement,Marker,,,,,,,,{},
-marker,-58.96134281481858,87.47314453125,settlement,Marker,,,,,,,,{},
+marker,-59.3556624873046,88.22009383600171,settlement,Marker,,,,,,,,{},
 marker,-4.981505049328246,77.16796875000001,rock,Marker,,,,,,,,{},
 marker,10.746969318460001,22.148437500000004,settlement,Hassanamesit ,"""Place of Small Stones""",,,,,,,{},
 marker,18.95824648598139,36.18896484375001,agriculture,Marker,,,,,,,,{},
@@ -824,3 +824,7 @@ text,-42.763232601127406,148.82090662902357,,"""look-out place"" or ""deep water
 text,-72.32913739787085,-15.314941406250002,,,Acabonack,,5,0,0,0,,,Settlements
 text,-79.70291005763919,-157.74169921875003,,,Werpos ,,5,0,0,0,,,Settlements
 text,-52.948588368139255,103.51318359375,,"""damp/wet thicket or woods.""",Ogkeshkuppe,,6,-65,1,0,,,
+text,-58.74539152474415,86.2645416659574,,,Mashatanauke ,(in the vicinity of Old South Road): Big town (main settlement),7,0,0,0,,,Settlements
+text,-59.87785772495905,86.85779626660454,,,Aquinnah ,,9,34,0,0,,,Settlements
+text,-52.20087371733219,101.16207022543438,,,Tashmoo,,6,69,0,0,,,Bodies of Water
+text,-54.52107933590939,106.50138654461875,,,Sengekontacket ,,4,53,0,0,,,
