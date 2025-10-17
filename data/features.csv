@@ -325,11 +325,6 @@ marker,64.650123754094,-39.66180298693398,settlement,Marker,,,,,,,,{},
 marker,-79.70290666685683,-161.12547416821354,camps,Marker,,,,,,,,{},
 marker,50.56913827577431,55.47971723836509,settlement,Marker,,,,,,,,{},Settlements
 marker,50.59692665798444,56.73212822024983,chambers,Indian Cellar ,,,,,,,,{},Ceremonial Stone Landscapes
-marker,49.92251535398227,55.12927787853792,chambers,Turtle Mound,,,,,,,,{},Ceremonial Stone Landscapes
-marker,50.972248776241464,55.722642362772355,earthworks,Marker,,,,,,,,{},
-marker,50.77789638793299,56.31595407554184,earthworks,Marker,,,,,,,,{},
-marker,60.6624586458736,72.81679121660294,earthworks,Marker,,https://www.stonestructures.org/html/tours-ma.html,,,,,,{},
-marker,52.01201528560231,99.997130867139,earthworks,Eye of the Turtle of Turtle Island,,"Gage, M. Turtle Mound, Haskins Park, Poole Hill, Rockport, Massachusetts.",,,,,,{},
 text,-55.00282580979324,96.28417968750001,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-53.12040528310657,101.90917968750001,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-52.26815737376817,100.72265625000001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -619,7 +614,7 @@ text,48.32703913063479,79.25537109375001,,,Nahumkeak ,,7,0,0,0,,,Settlements
 text,50.75035931136963,94.52636718750001,,,Wenesquawam ,,7,0,0,0,,,Settlements
 text,45.99696161820381,76.24511718750001,,,Wahquamesecok ,,7,0,0,0,,,Settlements
 text,40.1452892956766,78.79394531250001,,,Massabequash ,,7,0,0,0,,,Settlements
-text,54.82601536942836,63.852539093412,,,Cochichewick,,4,35,0,0,,,Bodies of Water
+text,54.88924640307589,63.58886718750001,,,Cochichewick,,5,0,0,0,,,Bodies of Water
 text,47.39834920035926,78.88183593750001,,,Michigamea,,5,0,0,0,,,Bodies of Water
 text,-22.63429269379352,77.03613281250001,,,Assawompsett,,5,0,0,0,,,Bodies of Water
 text,-25.918526162075153,75.14648437500001,,,Apponaqut,,5,0,0,0,,,Bodies of Water
@@ -748,7 +743,10 @@ text,65.34864542564475,-40.60616258442037,,,Ktsi pontekw,,6,0,0,0,,,Settlements
 text,49.02415781991267,-36.979497262635824,,,Corroheagan,,5,0,0,0,,,Geographical Locations
 text,49.325992011261164,-46.82559099929916,,,Wisatinoag,"Wisatinoag was a sacred burial place that had been in use for at least 6,000 years prior to the arrival of Europeans in the region. Strategically placed in an upland location, it allowed the ancestors of the local peoples to keep watch over their villages and crop plots below",5,0,0,0,,,Geographical Locations
 text,36.91427327278093,-54.66842717631346,,“Beaver tail hill place”,Amiskwônowôkoik,,7,0,0,0,,,
-text,48.28422591656822,-46.87000145904557,,,Peskeomskut ,,6,0,0,0,,,Settlements
+text,48.28422591656822,-46.87000145904557,,,Peskeomskut ,"Wissatinnewag-Peskeompskut
+Wissatinnewag, the Algonquin word for ""shining hill"", was once a village on the Connecticut River, where the Pocumtuck, Abenaki and Nipmuck lived year-round.  Indigenous people from several other tribes, including the Wampanoag and the Narragansett would visit every spring to fish near the Great Falls. This village was inhabited for thousands of years and Wissatinnewag was the last remaining undeveloped piece of what had been this extensive village.
+
+",6,0,0,0,,,Settlements
 text,-62.613766623077154,138.8232426745136,,,Acamy,“The Pond Acamy” (1659) identified Hummock Pond as a boundary between Wampanoag residents and English settlers.,3,-40,0,0,,,
 text,-63.722566051769455,126.56249959112664,,,Ahapahconset,Documented in 1690 near Squam Pond.,3,0,0,0,,,
 text,-63.30131448220205,128.36425742906766,,,Apaqunuminnohkit,Recorded in 1668 for an unidentified locality northeast of Quaise.,3,0,0,0,,,
