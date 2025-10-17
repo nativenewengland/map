@@ -302,7 +302,7 @@ marker,-59.05189565078284,-10.238752004857291,forts,Fort Hill,,[^¹] dfgdfgdf g,
 marker,-55.528562934867665,-11.95352595922982,forts,Fort Shamtok,,[^¹] dfgdfgdf g,,,,,,{},
 marker,-59.899964678333895,-5.822796866167483,forts,Fort Mystic,,[^¹] dfgdfgdf g,,,,,,{},Forts
 marker,-61.026645071114565,11.799316234010101,forts,Fort Niniget,,[^¹] dfgdfgdf g,,,,,,{},Forts
-marker,-71.43416801575344,1.8017578125000002,forts,Fort Montauk,,"[^¹] An old Montauk fort was reportedly situated on ,the eastern extremity of Montauk Point near Fresh Pond; the pond is near the Hither (Nominick) Hills. The fort had supposedly ·fallen into decay by the time the English arrived in 1640. Smith and Solecki visited the area on a survey in 1947, but no trace· of the fort could be seen",,,,,,{},Forts
+marker,-71.43416801575344,1.8017578125000002,forts,Fort Montauk,,"[^¹] An old Montauk fort was reportedly situated on ,the eastern extremity of Montauk Point near Fresh Pond; the pond is near the Hither (Nominick) Hills. The fort had supposedly ·fallen into decay by the time the English arrived in 1640.",,,,,,{},Forts
 marker,-71.21604917397931,-28.124749400481367,forts,Fort Manhnnett,,[^¹] dfgdfgdf g,,,,,,{},Forts
 marker,-72.7967975917526,-42.321949332480116,forts,Fort Corchaug,,"[^¹] Fort Corchaug, although it is accessible to a major waterway, appears to have functioned as a refuge as well as a wampum manufactory",,,,,,{},Forts
 marker,-75.50834193457236,-40.890955761552576,forts,Fort Shinnecock,,[^¹] dfgdfgdf g,,,,,,{},Forts
@@ -325,6 +325,7 @@ marker,64.650123754094,-39.66180298693398,settlement,Marker,,,,,,,,{},
 marker,-79.70290666685683,-161.12547416821354,camps,Marker,,,,,,,,{},
 marker,50.56913827577431,55.47971723836509,settlement,Marker,,,,,,,,{},Settlements
 marker,50.59692665798444,56.73212822024983,chambers,Indian Cellar ,,,,,,,,{},Ceremonial Stone Landscapes
+marker,-79.71627864940642,-157.14843750000003,settlement,Werpos ,,,,,,,,{},
 text,-55.00282580979324,96.28417968750001,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-53.12040528310657,101.90917968750001,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-52.26815737376817,100.72265625000001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -820,3 +821,5 @@ text,-61.65,134.5,,,Weweda Pond,Seventeenth-century name for today’s Weweeder 
 text,-60.2942289626928,151.32568345927612,,,Wonnashquoom,"Earlier Wunnasquam, referring to Squam Pond and Sachem Nickanoose’s headquarters.",3,0,0,0,,,
 text,-63.18468254518509,134.36178388664234,,,Wonnahktih,1690 record of an unknown location near Sesachacha.,3,0,0,0,,,
 text,-42.763232601127406,148.82090662902357,,"""look-out place"" or ""deep water""",Monomoy ,,10,-75,0,0,,,Geographical Locations
+text,-72.32913739787085,-15.314941406250002,,,Acabonack,,5,0,0,0,,,Settlements
+text,-79.70291005763919,-157.74169921875003,,,Werpos ,,5,0,0,0,,,Settlements
