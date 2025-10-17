@@ -24,7 +24,7 @@ marker,54.67383096593114,-37.79296875000001,settlement,Marker,,,,,,,,{},
 marker,25.403584973186703,-49.94384765625001,settlement,Nonotuck,,,,,,,,{},
 marker,26.155267744564583,-48.273795628065834,settlement,Marker,,,,,,,,{},
 marker,-62.33941057752869,-31.508789062500004,settlement,Marker,,,,,,,,{},
-marker,-58.97266715450153,87.29736328125001,settlement,Marker,,,,,,,,{},
+marker,-58.96134281481858,87.47314453125,settlement,Marker,,,,,,,,{},
 marker,-4.981505049328246,77.16796875000001,rock,Marker,,,,,,,,{},
 marker,10.746969318460001,22.148437500000004,settlement,Hassanamesit ,"""Place of Small Stones""",,,,,,,{},
 marker,18.95824648598139,36.18896484375001,agriculture,Marker,,,,,,,,{},
@@ -326,6 +326,7 @@ marker,-79.70290666685683,-161.12547416821354,camps,Marker,,,,,,,,{},
 marker,50.56913827577431,55.47971723836509,settlement,Marker,,,,,,,,{},Settlements
 marker,50.59692665798444,56.73212822024983,chambers,Indian Cellar ,,,,,,,,{},Ceremonial Stone Landscapes
 marker,-79.71627864940642,-157.14843750000003,settlement,Werpos ,,,,,,,,{},
+marker,-57.124001816760575,113.77441406250001,settlement,Marker,,,,,,,,{},
 text,-55.00282580979324,96.28417968750001,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-53.12040528310657,101.90917968750001,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-52.26815737376817,100.72265625000001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -344,7 +345,6 @@ text,-56.72862197314074,108.76464843750001,,,PAQUAAHUNAUK,Quahog land,1,0,0,0,,,
 text,-52.829320910313726,100.89843750000001,,,PONANASAUSIG,To spread their wings,1,0,0,0,,,
 text,-53.59250480903937,99.93164062500001,,,QUATAQUETUCA,Red crabs,1,0,0,0,,,
 text,-53.00156227459147,99.60205078125001,,,SANSHUWACHU,Brook lodge,1,0,0,0,,,
-text,-53.488045536056205,105.46875000000001,,,Demo,,1,0,0,0,,,
 text,-63.05531863767043,85.9142663862525,,"""Refuge Place"" ",Cappoaquit,"Cappoaquit was an island south of Noepe used for fishing and used as a summer camping ground 
 
 At the time of European arrival, Cappoaquit was inhabited by the Powwow Tequenoman who was believed to hold dominion over it. 
@@ -427,7 +427,7 @@ text,-3.5572827265412794,144.22851562500003,,“a place of springs.”,Tashmuit,
 ",6,52,2,0,,,Geographical Locations
 text,-6.7737162387535,144.49218750000003,,,Pamet,,13,0,0,0,,,Territories
 text,-45.93587062119053,50.42724609375001,,,Aquidnet,,11,0,0,0,,,Geographical Locations
-text,-54.87660665410869,98.17382812500001,,,NOEPE,,32,0,0,0,,,
+text,-55.216547833210726,96.92138671875001,,,NOEPE,,32,0,5,0,,,
 text,-80.75355618944563,-163.38867187500003,,,Nayack ,,7,0,0,0,,,Settlements
 text,-79.56850599323725,-161.82861328125003,,"""Nut Island""",Pagganck,,4,0,0,0,,,Geographical Locations
 text,60.04358934572451,64.43395614624025,,,Wemesit,,12,0,0,0,,,
@@ -823,3 +823,4 @@ text,-63.18468254518509,134.36178388664234,,,Wonnahktih,1690 record of an unknow
 text,-42.763232601127406,148.82090662902357,,"""look-out place"" or ""deep water""",Monomoy ,,10,-75,0,0,,,Geographical Locations
 text,-72.32913739787085,-15.314941406250002,,,Acabonack,,5,0,0,0,,,Settlements
 text,-79.70291005763919,-157.74169921875003,,,Werpos ,,5,0,0,0,,,Settlements
+text,-52.948588368139255,103.51318359375,,"""damp/wet thicket or woods.""",Ogkeshkuppe,,6,-65,1,0,,,
