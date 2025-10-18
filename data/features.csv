@@ -336,8 +336,30 @@ marker,-72.84850201835972,-11.71142578125,settlement,Marker,,,,,,,,{},Settlement
 marker,-73.05464165865112,-10.502929687500002,settlement,Marker,,,,,,,,{},Settlements
 marker,-70.97402838932706,2.2631835937500004,settlement,Marker,,,,,,,,{},Settlements
 marker,-73.08023943580535,-11.887207031250002,forts,Fort ,,,,,,,,{},Forts
-marker,-71.84596256651874,-28.388671875000004,settlement,Marker,,,,,,,,{},Settlements
+marker,-71.55969222946285,-34.14550781250001,settlement,Marker,,,,,,,,{},Settlements
 marker,-73.16953636227886,-22.126464843750004,settlement,Marker,,,,,,,,{},Settlements
+marker,-68.02402198693447,-27.114257812500004,settlement,Marker,,,,,,,,{},Settlements
+marker,-68.19605229820671,-25.11474609375,settlement,Marker,,,,,,,,{},Settlements
+marker,-69.81689109911444,-32.95898437500001,settlement,Marker,,,,,,,,{},Settlements
+marker,-70.56880331763341,-35.04638671875001,settlement,Marker,,,,,,,,{},Settlements
+marker,-71.21607526596131,-39.83642578125,settlement,Marker,,,,,,,,{},Settlements
+marker,-71.23728930162322,-38.86962890625001,settlement,Marker,,,,,,,,{},Settlements
+marker,-70.7724429742589,-38.67187500000001,settlement,Marker,,,,,,,,{},Settlements
+marker,-69.63415831720734,-31.442871093750004,settlement,Marker,,,,,,,,{},Settlements
+marker,-71.23022052382078,-36.80419921875001,settlement,Marker,,,,,,,,{},Settlements
+marker,-71.46213966619457,-36.89208984375001,settlement,Marker,,,,,,,,{},Settlements
+marker,-71.49703690095419,-38.12255859375001,settlement,Marker,,,,,,,,{},Settlements
+marker,-71.80141030136787,-38.43017578125001,settlement,Marker,,,,,,,,{},Settlements
+marker,-74.72961516378618,-53.50341796875001,settlement,Marker,,,,,,,,{},Settlements
+marker,-74.58426829888151,-52.11914062500001,settlement,Marker,,,,,,,,{},Settlements
+marker,-74.36667478672422,-52.14111328125001,settlement,Marker,,,,,,,,{},Settlements
+marker,-74.2597383709313,-50.97656250000001,settlement,Marker,,,,,,,,{},Settlements
+marker,-74.2597383709313,-47.94433593750001,settlement,Marker,,,,,,,,{},Settlements
+marker,-72.60712040027555,-42.91259765625,settlement,Marker,,,,,,,,{},Settlements
+marker,-72.77708126440069,-43.59375000000001,settlement,Marker,,,,,,,,{},Settlements
+marker,-72.41563109719552,-40.89111328125001,settlement,Marker,,,,,,,,{},Settlements
+marker,-72.08743247624157,-40.38574218750001,settlement,Marker,,,,,,,,{},Settlements
+marker,-72.05361149670412,-38.69384765625001,settlement,Marker,,,,,,,,{},Settlements
 text,-55.00282580979324,96.28417968750001,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-53.12040528310657,101.90917968750001,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-52.26815737376817,100.72265625000001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -847,4 +869,4 @@ text,-72.77057418574792,-10.898437500000002,,,Potinack,,5,0,0,0,,,
 text,-72.46203877644956,-9.997558593750002,,,Nominick,,5,0,0,0,,,
 text,-72.20867825343294,-9.140625000000002,,,Neapeague,,5,0,0,0,,,
 text,-66.71385654790883,-19.841308593750004,,,Manittuwond,,8,0,0,0,,,
-text,-73.31524578498036,-41.15478515625001,,,Anchannock,,8,0,0,0,,,
+text,-73.40961261539776,-40.01220703125001,," ""land well wooded"" or ""a place full of timber.""",Anchannock,,4,45,0,0,,,
