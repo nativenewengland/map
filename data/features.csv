@@ -342,7 +342,7 @@ marker,-68.02402198693447,-27.114257812500004,settlement,Marker,,,,,,,,{},Settle
 marker,-68.19605229820671,-25.11474609375,settlement,Marker,,,,,,,,{},Settlements
 marker,-69.81689109911444,-32.95898437500001,settlement,Marker,,,,,,,,{},Settlements
 marker,-70.56880331763341,-35.04638671875001,settlement,Marker,,,,,,,,{},Settlements
-marker,-71.21607526596131,-39.83642578125,settlement,Marker,,,,,,,,{},Settlements
+marker,-71.16648590317222,-39.83642578125,settlement,Marker,,,,,,,,{},Settlements
 marker,-71.23728930162322,-38.86962890625001,settlement,Marker,,,,,,,,{},Settlements
 marker,-70.7724429742589,-38.67187500000001,settlement,Marker,,,,,,,,{},Settlements
 marker,-68.95050024546569,-29.311523437500004,settlement,Marker,,,,,,,,{},Settlements
@@ -364,6 +364,12 @@ marker,51.34433866059924,56.05224609375001,earthworks,Marker,,,,,,,,{},
 marker,50.77815527465925,56.31591796875,earthworks,Marker,,,,,,,,{},
 marker,-68.46379955520322,-25.598144531250004,earthworks,Native Burial Site,,,,,,,,{},
 marker,-70.89507794040429,-24.895019531250004,earthworks,Native Burial Site,,,,,,,,{},
+marker,-78.52557254138316,-148.73291015625003,settlement,Werpos ,,,,,,,,{},
+marker,-78.30495507232303,-150.07324218750003,settlement,Werpos ,,,,,,,,{},
+marker,-78.85094562059197,-148.84277343750003,settlement,Werpos ,,,,,,,,{},
+marker,-81.4008017052346,-146.14013671875003,settlement,Werpos ,,,,,,,,{},
+marker,-81.30832090051811,-144.51416015625003,settlement,Werpos ,,,,,,,,{},
+marker,-81.24165957439662,-142.62451171875003,settlement,Werpos ,,,,,,,,{},
 text,-55.00282580979324,96.28417968750001,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-53.12040528310657,101.90917968750001,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-52.26815737376817,100.72265625000001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -403,7 +409,9 @@ text,23.32208001137844,48.16406250000001,,,Massachusett,Massachusett homelands a
 text,-39.368279149160124,-39.46289062500001,,,Mashantucket Pequot,Mashantucket Pequot homelands near the Pawcatuck River.,24,0,0,0,,,Tribes
 text,-79.65392213419594,-146.93163540003792,,,Matinecock,Matinecock homelands on Long Island's north shore.,24,0,0,0,,,Tribes
 text,-76.01582449107187,-109.50898851393923,,,Merrick,Merrick (Merokee) territory on Long Island's south shore.,24,0,0,0,,,Tribes
-text,-72.76619493972098,-36.42071459256301,,,Montaukett,Montaukett homelands at the eastern tip of Long Island.,24,0,0,0,,,Tribes
+text,-72.76619493972098,-36.42071459256301,,"""high or hilly land"" or ""the fort country""",Montaukett ,"Montaukett homelands at the eastern tip of Long Island.
+
+Montauk, or Manatacut, or Meuntacut, or Montaukut",24,0,0,0,,,Tribes
 text,-34.84996950050357,-35.77148437500001,,,Mohegan,Mohegan homelands along the Thames River in Connecticut.,31,0,0,0,,,Tribes
 text,-31.278550858946517,15.996093750000002,,,Narragansett,Narragansett homelands along the southern Rhode Island coast.,24,0,0,0,,,Tribes
 text,-17.26672782352052,147.61230468750003,,,Nauset,Nauset (Cape Cod) Wampanoag homelands on the outer Cape.,24,0,0,0,,,Tribes
@@ -871,9 +879,15 @@ text,-69.78654510363337,3.8012695312500004,,,Shawango,,5,0,0,0,,,Settlements
 text,-69.3570863282203,-13.535156250000002,,,Manchonack,,8,0,0,0,,,
 text,-72.77057418574792,-10.898437500000002,,,Potinack,,5,0,0,0,,,
 text,-72.46203877644956,-9.997558593750002,,,Nominick,,5,0,0,0,,,
-text,-72.20867825343294,-9.140625000000002,,,Neapeague,,5,0,0,0,,,
+text,-72.20867825343294,-9.140625000000002,, “land of water”,Neapeague,,5,0,0,0,,,
 text,-66.71385654790883,-19.841308593750004,,,Manittuwond,,8,0,0,0,,,
 text,-73.40961261539776,-40.01220703125001,," ""land well wooded"" or ""a place full of timber.""",Anchannock,,4,45,0,0,,,
 text,-71.44117085172384,-25.795898437500004,,,Mashomuck,,4,45,0,0,,,
 text,-67.80094414922863,-26.850585937500004,,,Poquatuck,,4,0,0,0,,,
 text,-68.04867651098903,-26.740722656250004,,,Saugust,,4,0,0,0,,,
+text,-71.60134862675984,-42.86865234375,,,Yennicock,,10,-40,0,0,,,
+text,-71.20899878425502,-40.38574218750001,,,Mattituck,,4,0,0,0,,,
+text,-70.30393290852346,-30.498046875000004,,“an island sheltered by islands”,Manhansack-aha-quash-awamock,,6,0,0,0,,,
+text,-75.9842000057889,-60.29296875000001,,"""land of tribute""",Paumanack ,"Paumanack was the name for Eastern Long Island, known as the land of tribute because it was the origin and manufacturing point for wampum shells that were used for paying tribute.
+
+Pommanocc 1639 Pamunke (1648), Pammanack (1656), Pawmanack (1658), Paumanuck and Paumanche (1659), and Pommanock (1665),[3] and later Paumanack and Pomonok",14,-20,4,0,,,
