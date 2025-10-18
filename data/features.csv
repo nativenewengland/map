@@ -148,7 +148,7 @@ marker,-56.860985750644886,3.9111328125000004,settlement,Marker,,,,,,,,{},Settle
 marker,-60.04288763076307,3.7133789062500004,settlement,Marker,,,,,,,,{},Settlements
 marker,-40.094872337893925,-18.171386718750004,settlement,Marker,,,,,,,,{},Settlements
 marker,36.03133177633189,21.071777343750004,settlement,Marker,,,,,,,,{},Settlements
-marker,51.33061163769853,47.32910156250001,settlement,Marker,,,,,,,,{},Settlements
+marker,51.303145259199084,47.35107421875001,settlement,Marker,,,,,,,,{},Settlements
 marker,37.92977319243816,23.80833384119878,settlement,Marker,,,,,,,,{},Settlements
 marker,43.43696596521823,51.70166015625001,settlement,Marker,,![Map from 1642](images/04-Map-1642.jpg),,,,,,{},Settlements
 marker,40.21246025329131,56.030281649008565,settlement,Marker,,![Map from 1642](images/04-Map-1642.jpg),,,,,,{},Settlements
@@ -323,7 +323,7 @@ In July 1674 the English ordered that an elderly Nobscusset man named Hoken  who
 marker,12.0395291064696,22.192383186426973,chambers,Upton Stone Chamber ,,,,,,,,{},Ceremonial Stone Landscapes
 marker,64.650123754094,-39.66180298693398,settlement,Marker,,,,,,,,{},
 marker,-79.70290666685683,-161.12547416821354,camps,Marker,,,,,,,,{},
-marker,50.56913827577431,55.47971723836509,settlement,Marker,,,,,,,,{},Settlements
+marker,50.52739681329302,55.61279296875001,settlement,Marker,,,,,,,,{},Settlements
 marker,50.59692665798444,56.73212822024983,chambers,Indian Cellar ,,,,,,,,{},Ceremonial Stone Landscapes
 marker,-79.71627864940642,-157.14843750000003,settlement,Werpos ,,,,,,,,{},
 marker,-57.124001816760575,113.77441406250001,settlement,Marker,,,,,,,,{},
@@ -345,7 +345,7 @@ marker,-70.56880331763341,-35.04638671875001,settlement,Marker,,,,,,,,{},Settlem
 marker,-71.21607526596131,-39.83642578125,settlement,Marker,,,,,,,,{},Settlements
 marker,-71.23728930162322,-38.86962890625001,settlement,Marker,,,,,,,,{},Settlements
 marker,-70.7724429742589,-38.67187500000001,settlement,Marker,,,,,,,,{},Settlements
-marker,-69.63415831720734,-31.442871093750004,settlement,Marker,,,,,,,,{},Settlements
+marker,-68.95050024546569,-29.311523437500004,settlement,Marker,,,,,,,,{},Settlements
 marker,-71.23022052382078,-36.80419921875001,settlement,Marker,,,,,,,,{},Settlements
 marker,-71.46213966619457,-36.89208984375001,settlement,Marker,,,,,,,,{},Settlements
 marker,-71.49703690095419,-38.12255859375001,settlement,Marker,,,,,,,,{},Settlements
@@ -360,6 +360,10 @@ marker,-72.77708126440069,-43.59375000000001,settlement,Marker,,,,,,,,{},Settlem
 marker,-72.41563109719552,-40.89111328125001,settlement,Marker,,,,,,,,{},Settlements
 marker,-72.08743247624157,-40.38574218750001,settlement,Marker,,,,,,,,{},Settlements
 marker,-72.05361149670412,-38.69384765625001,settlement,Marker,,,,,,,,{},Settlements
+marker,51.34433866059924,56.05224609375001,earthworks,Marker,,,,,,,,{},
+marker,50.77815527465925,56.31591796875,earthworks,Marker,,,,,,,,{},
+marker,-68.46379955520322,-25.598144531250004,earthworks,Native Burial Site,,,,,,,,{},
+marker,-70.89507794040429,-24.895019531250004,earthworks,Native Burial Site,,,,,,,,{},
 text,-55.00282580979324,96.28417968750001,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-53.12040528310657,101.90917968750001,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-52.26815737376817,100.72265625000001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -870,3 +874,6 @@ text,-72.46203877644956,-9.997558593750002,,,Nominick,,5,0,0,0,,,
 text,-72.20867825343294,-9.140625000000002,,,Neapeague,,5,0,0,0,,,
 text,-66.71385654790883,-19.841308593750004,,,Manittuwond,,8,0,0,0,,,
 text,-73.40961261539776,-40.01220703125001,," ""land well wooded"" or ""a place full of timber.""",Anchannock,,4,45,0,0,,,
+text,-71.44117085172384,-25.795898437500004,,,Mashomuck,,4,45,0,0,,,
+text,-67.80094414922863,-26.850585937500004,,,Poquatuck,,4,0,0,0,,,
+text,-68.04867651098903,-26.740722656250004,,,Saugust,,4,0,0,0,,,
