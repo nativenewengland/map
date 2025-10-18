@@ -52,7 +52,7 @@ marker,-72.24891676830892,-27.004394531250004,settlement,Marker,,,,,,,,{},Settle
 marker,-72.57424976385356,-23.26904296875,settlement,Marker,,,,,,,,{},Settlements
 marker,-70.12542991464234,4.855957031250001,settlement,Marker,,,,,,,,{},Settlements
 marker,-74.45524706208214,-34.34326171875001,settlement,Marker,,,,,,,,{},Settlements
-marker,-73.07384351277217,-31.552734375000004,settlement,Marker,,,,,,,,{},Settlements
+marker,-72.46865875387394,-21.796875000000004,settlement,Marker,,,,,,,,{},Settlements
 marker,-75.66675882465918,-42.42919921875001,settlement,Marker,,,,,,,,{},Settlements
 marker,-75.85591106616448,-42.64892578125001,settlement,Marker,,,,,,,,{},Settlements
 marker,-76.03201380959756,-42.20947265625,settlement,Marker,,,,,,,,{},Settlements
@@ -137,7 +137,7 @@ marker,-33.46810795527895,-19.577636718750004,settlement,Marker,,,,,,,,{},Settle
 marker,-17.308687886770024,81.40869140625001,settlement,Marker,,,,,,,,{},Settlements
 marker,-11.178401873711772,98.21777343750001,settlement,Patuxet,,,,,,,,{},Settlements
 marker,55.99838095535963,-96.064453125,settlement,Hoosic,,,,,,,,{},Settlements
-marker,-80.95264429702812,-162.42187500000003,settlement,Nayack,,,,,,,,{},Settlements
+marker,-80.90066856076275,-162.00439453125003,settlement,Nayack,,,,,,,,{},Settlements
 marker,11.005904459659451,-109.40185546875001,settlement,Marker,,,,,,,,{},Settlements
 marker,13.966054081318314,-107.86376953125001,settlement,Marker,,,,,,,,{},Settlements
 marker,22.69512018496571,-104.91943359375001,settlement,Wnahtukook,,,,,,,,{},Settlements
@@ -327,6 +327,17 @@ marker,50.56913827577431,55.47971723836509,settlement,Marker,,,,,,,,{},Settlemen
 marker,50.59692665798444,56.73212822024983,chambers,Indian Cellar ,,,,,,,,{},Ceremonial Stone Landscapes
 marker,-79.71627864940642,-157.14843750000003,settlement,Werpos ,,,,,,,,{},
 marker,-57.124001816760575,113.77441406250001,settlement,Marker,,,,,,,,{},
+marker,-80.83790672822796,-162.37792968750003,agriculture,Marker,,,,,,,,{},
+marker,-80.9422727563339,-162.20214843750003,agriculture,Marker,,,,,,,,{},
+marker,-80.89719300308133,-162.46582031250003,agriculture,Marker,,,,,,,,{},
+marker,-80.05425525934193,-159.45556640625003,agriculture,Marker,,,,,,,,{},
+marker,-72.48189144841272,-8.371582031250002,settlement,Marker,,,,,,,,{},Settlements
+marker,-72.84850201835972,-11.71142578125,settlement,Marker,,,,,,,,{},Settlements
+marker,-73.05464165865112,-10.502929687500002,settlement,Marker,,,,,,,,{},Settlements
+marker,-70.97402838932706,2.2631835937500004,settlement,Marker,,,,,,,,{},Settlements
+marker,-73.08023943580535,-11.887207031250002,forts,Fort ,,,,,,,,{},Forts
+marker,-71.84596256651874,-28.388671875000004,settlement,Marker,,,,,,,,{},Settlements
+marker,-73.16953636227886,-22.126464843750004,settlement,Marker,,,,,,,,{},Settlements
 text,-55.00282580979324,96.28417968750001,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-53.12040528310657,101.90917968750001,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-52.26815737376817,100.72265625000001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -428,7 +439,7 @@ text,-3.5572827265412794,144.22851562500003,,“a place of springs.”,Tashmuit,
 text,-6.7737162387535,144.49218750000003,,,Pamet,,13,0,0,0,,,Territories
 text,-45.93587062119053,50.42724609375001,,,Aquidnet,,11,0,0,0,,,Geographical Locations
 text,-55.216547833210726,96.92138671875001,,,NOEPE,,32,0,5,0,,,
-text,-80.75355618944563,-163.38867187500003,,,Nayack ,,7,0,0,0,,,Settlements
+text,-80.71109268759261,-162.81738281250003,,,Nayack ,,7,0,0,0,,,Settlements
 text,-79.56850599323725,-161.82861328125003,,"""Nut Island""",Pagganck,,4,0,0,0,,,Geographical Locations
 text,60.04358934572451,64.43395614624025,,,Wemesit,,12,0,0,0,,,
 text,-57.9875380732216,21.945447921752933,,,Paguet,,14,0,0,0,,,
@@ -830,3 +841,10 @@ text,-52.20087371733219,101.16207022543438,,,Tashmoo,,6,69,0,0,,,Bodies of Water
 text,-54.52107933590939,106.50138654461875,,,Sengekontacket ,,4,53,0,0,,,
 text,-45.966272818409834,82.2431117349996,,"""bay with coves,""",Poughkeeste,"Today known as Buzzards Bay
 ",18,-21,5,0,,,
+text,-69.78654510363337,3.8012695312500004,,,Shawango,,5,0,0,0,,,Settlements
+text,-69.3570863282203,-13.535156250000002,,,Manchonack,,8,0,0,0,,,
+text,-72.77057418574792,-10.898437500000002,,,Potinack,,5,0,0,0,,,
+text,-72.46203877644956,-9.997558593750002,,,Nominick,,5,0,0,0,,,
+text,-72.20867825343294,-9.140625000000002,,,Neapeague,,5,0,0,0,,,
+text,-66.71385654790883,-19.841308593750004,,,Manittuwond,,8,0,0,0,,,
+text,-73.31524578498036,-41.15478515625001,,,Anchannock,,8,0,0,0,,,
