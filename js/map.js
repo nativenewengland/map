@@ -264,6 +264,15 @@ function textLabelsMatch(a, b) {
   var textA = (a.text || '').trim();
   var textB = (b.text || '').trim();
   if (textA !== textB) return false;
+  var altNamesA =
+    a.altNames === undefined || a.altNames === null
+      ? ''
+      : String(a.altNames).trim();
+  var altNamesB =
+    b.altNames === undefined || b.altNames === null
+      ? ''
+      : String(b.altNames).trim();
+  if (altNamesA !== altNamesB) return false;
   var subheaderA =
     a.subheader === undefined || a.subheader === null
       ? ''
@@ -424,9 +433,21 @@ function createScaledIcon(options) {
   return L.icon(scaled);
 }
 
-function showInfo(title, subheader, description) {
+function showInfo(title, altNames, subheader, description) {
   var panel = document.getElementById('info-panel');
   document.getElementById('info-title').textContent = title;
+  var altNamesElement = document.getElementById('info-alt-names');
+  if (altNamesElement) {
+    var hasAltNames =
+      typeof altNames === 'string' ? altNames.trim() !== '' : Boolean(altNames);
+    if (hasAltNames) {
+      altNamesElement.textContent = String(altNames);
+      altNamesElement.classList.remove('hidden');
+    } else {
+      altNamesElement.textContent = '';
+      altNamesElement.classList.add('hidden');
+    }
+  }
   var subheaderElement = document.getElementById('info-subheader');
   if (subheaderElement) {
     var hasSubheader =
@@ -1048,30 +1069,32 @@ function loadFeaturesFromCSV(text) {
         lng: parseFloat(cols[2]),
         icon: cols[3] || 'wigwam',
         name: cols[4],
-        subheader: cols[5] || '',
-        description: cols[6],
-        style: cols[12] ? JSON.parse(cols[12]) : undefined,
-        overlay: cols[13] || '',
+        altNames: cols[5] || '',
+        subheader: cols[6] || '',
+        description: cols[7],
+        style: cols[13] ? JSON.parse(cols[13]) : undefined,
+        overlay: cols[14] || '',
       });
     } else if (type === 'text') {
       textLabels.push({
         lat: parseFloat(cols[1]),
         lng: parseFloat(cols[2]),
-        subheader: cols[4] || '',
-        text: cols[5],
-        description: cols[6],
-        size: parseFloat(cols[7]) || 14,
-        angle: parseFloat(cols[8]) || 0,
-        spacing: parseFloat(cols[9]) || 0,
-        curve: parseFloat(cols[10]) || 0,
-        overlay: cols[13] || '',
+        text: cols[4],
+        altNames: cols[5] || '',
+        subheader: cols[6] || '',
+        description: cols[7],
+        size: parseFloat(cols[8]) || 14,
+        angle: parseFloat(cols[9]) || 0,
+        spacing: parseFloat(cols[10]) || 0,
+        curve: parseFloat(cols[11]) || 0,
+        overlay: cols[14] || '',
       });
     } else if (type === 'polygon') {
       polygons.push({
         name: cols[4],
-        description: cols[6],
-        coords: cols[11] ? JSON.parse(cols[11]) : [],
-        style: cols[12] ? JSON.parse(cols[12]) : undefined,
+        description: cols[7],
+        coords: cols[12] ? JSON.parse(cols[12]) : [],
+        style: cols[13] ? JSON.parse(cols[13]) : undefined,
       });
     }
   });
@@ -1086,7 +1109,7 @@ function escapeCsvValue(val) {
 
 function buildFeaturesCSV() {
   var rows = [
-    'type,lat,lng,icon,name/subheader,subheader/text,description,size,angle,spacing,curve,coords,style,overlay'
+    'type,lat,lng,icon,name/text,alt_names,subheader/text,description,size,angle,spacing,curve,coords,style,overlay'
   ];
 
   customMarkers.forEach(function (m) {
@@ -1097,6 +1120,7 @@ function buildFeaturesCSV() {
         escapeCsvValue(m.lng),
         escapeCsvValue(m.icon),
         escapeCsvValue(m.name),
+        escapeCsvValue(m.altNames || ''),
         escapeCsvValue(m.subheader || ''),
         escapeCsvValue(m.description),
         '',
@@ -1117,8 +1141,9 @@ function buildFeaturesCSV() {
         escapeCsvValue(t.lat),
         escapeCsvValue(t.lng),
         '',
-        escapeCsvValue(t.subheader || ''),
         escapeCsvValue(t.text),
+        escapeCsvValue(t.altNames || ''),
+        escapeCsvValue(t.subheader || ''),
         escapeCsvValue(t.description),
         escapeCsvValue(t.size),
         escapeCsvValue(t.angle),
@@ -1139,6 +1164,7 @@ function buildFeaturesCSV() {
         '',
         '',
         escapeCsvValue(p.name),
+        '',
         '',
         escapeCsvValue(p.description),
         '',
@@ -1381,11 +1407,15 @@ function addMarkerToMap(data) {
   if (data.subheader === undefined || data.subheader === null) {
     data.subheader = '';
   }
+  if (data.altNames === undefined || data.altNames === null) {
+    data.altNames = '';
+  }
   var customMarker = createMarker(
     data.lat,
     data.lng,
     icon,
     data.name,
+    data.altNames,
     data.subheader,
     data.description
   );
@@ -1407,6 +1437,7 @@ function addMarkerToMap(data) {
         m.lat === data.lat &&
         m.lng === data.lng &&
         m.name === data.name &&
+        (m.altNames || '') === (data.altNames || '') &&
         (m.subheader || '') === (data.subheader || '')
       );
     });
@@ -1507,6 +1538,9 @@ function addTextLabelToMap(data) {
   if (data.subheader === undefined || data.subheader === null) {
     data.subheader = '';
   }
+  if (data.altNames === undefined || data.altNames === null) {
+    data.altNames = '';
+  }
   if (data.spacing === undefined) data.spacing = 0;
   var textIcon;
   var pathWidth = 0;
@@ -1575,7 +1609,7 @@ function addTextLabelToMap(data) {
         this._icon.classList.add('marker-selected');
         selectedMarker = this;
       }
-      showInfo(data.text, data.subheader, data.description);
+      showInfo(data.text, data.altNames, data.subheader, data.description);
     })
     .on('dblclick', function (ev) {
       L.DomEvent.stopPropagation(ev);
@@ -1596,6 +1630,7 @@ function addTextLabelToMap(data) {
           t.lat === data.lat &&
           t.lng === data.lng &&
           t.text === data.text &&
+          (t.altNames || '') === (data.altNames || '') &&
           t.size === data.size &&
           t.description === data.description &&
           t.angle === data.angle &&
@@ -1669,7 +1704,7 @@ fetch('data/features.csv')
 
 // //// START OF MARKERS
 // 1. Marker declarations
-function createMarker(lat, lng, icon, name, subheader, description) {
+function createMarker(lat, lng, icon, name, altNames, subheader, description) {
   var m = L.marker([lat, lng], { icon: icon, draggable: true })
     .on('click', function (e) {
       L.DomEvent.stopPropagation(e);
@@ -1679,8 +1714,13 @@ function createMarker(lat, lng, icon, name, subheader, description) {
         selectedMarker = this;
       }
       var d =
-        this._data || { name: name, subheader: subheader, description: description };
-      showInfo(d.name, d.subheader, d.description);
+        this._data || {
+          name: name,
+          altNames: altNames,
+          subheader: subheader,
+          description: description,
+        };
+      showInfo(d.name, d.altNames, d.subheader, d.description);
     })
     .on('dragend', function () {
       if (m._data) {
@@ -1806,10 +1846,12 @@ function showMarkerForm(latlng) {
   if (overlaySelect) {
     overlaySelect.value = '';
   }
+  document.getElementById('marker-alt-names').value = '';
   document.getElementById('marker-subheader').value = '';
 
   function submitHandler() {
     var name = document.getElementById('marker-name').value || 'Marker';
+    var altNames = document.getElementById('marker-alt-names').value || '';
     var subheader = document.getElementById('marker-subheader').value || '';
     var description =
       document.getElementById('marker-description').value || '';
@@ -1819,6 +1861,7 @@ function showMarkerForm(latlng) {
       lat: latlng.lat,
       lng: latlng.lng,
       name: name,
+      altNames: altNames,
       subheader: subheader,
       description: description,
       icon: iconKey,
@@ -1840,6 +1883,7 @@ function showMarkerForm(latlng) {
     cancelBtn.removeEventListener('click', cancelHandler);
     convertBtn.classList.add('hidden');
     document.getElementById('marker-name').value = '';
+    document.getElementById('marker-alt-names').value = '';
     document.getElementById('marker-subheader').value = '';
     document.getElementById('marker-description').value = '';
     document.getElementById('marker-icon').value = 'wigwam';
@@ -1864,6 +1908,7 @@ function editMarkerForm(marker) {
   convertBtn.classList.remove('hidden');
 
   document.getElementById('marker-name').value = marker._data.name || '';
+  document.getElementById('marker-alt-names').value = marker._data.altNames || '';
   document.getElementById('marker-subheader').value = marker._data.subheader || '';
   document.getElementById('marker-description').value = marker._data.description || '';
   document.getElementById('marker-icon').value = marker._data.icon || 'wigwam';
@@ -1874,12 +1919,14 @@ function editMarkerForm(marker) {
 
   function submitHandler() {
     var name = document.getElementById('marker-name').value || 'Marker';
+    var altNames = document.getElementById('marker-alt-names').value || '';
     var subheader = document.getElementById('marker-subheader').value || '';
     var description = document.getElementById('marker-description').value || '';
     var iconKey = document.getElementById('marker-icon').value || 'wigwam';
     var overlayValue = overlaySelect ? overlaySelect.value : '';
 
     marker._data.name = name;
+    marker._data.altNames = altNames;
     marker._data.subheader = subheader;
     marker._data.description = description;
     marker._data.icon = iconKey;
@@ -1908,6 +1955,7 @@ function editMarkerForm(marker) {
     cancelBtn.removeEventListener('click', cancelHandler);
     convertBtn.removeEventListener('click', convertHandler);
     document.getElementById('marker-name').value = '';
+    document.getElementById('marker-alt-names').value = '';
     document.getElementById('marker-subheader').value = '';
     document.getElementById('marker-description').value = '';
     document.getElementById('marker-icon').value = 'wigwam';
@@ -1957,6 +2005,7 @@ function showTextForm(latlng) {
   if (overlaySelect) {
     overlaySelect.value = '';
   }
+  document.getElementById('text-label-alt-names').value = '';
 
   function submitHandler() {
     var text = document.getElementById('text-label-text').value || '';
@@ -1964,6 +2013,7 @@ function showTextForm(latlng) {
       cleanup();
       return;
     }
+    var altNames = document.getElementById('text-label-alt-names').value || '';
     var subheader = document.getElementById('text-label-subheader').value || '';
     var description = document.getElementById('text-label-description').value || '';
     var size = parseFloat(document.getElementById('text-label-size').value) || 14;
@@ -1975,6 +2025,7 @@ function showTextForm(latlng) {
       lat: latlng.lat,
       lng: latlng.lng,
       text: text,
+      altNames: altNames,
       subheader: subheader,
       description: description,
       size: size,
@@ -1999,6 +2050,7 @@ function showTextForm(latlng) {
     cancelBtn.removeEventListener('click', cancelHandler);
     convertBtn.classList.add('hidden');
     document.getElementById('text-label-text').value = '';
+    document.getElementById('text-label-alt-names').value = '';
     document.getElementById('text-label-subheader').value = '';
     document.getElementById('text-label-description').value = '';
     document.getElementById('text-label-size').value = '14';
@@ -2024,6 +2076,7 @@ function editTextForm(labelMarker) {
   var data = labelMarker._data;
 
   document.getElementById('text-label-text').value = data.text || '';
+  document.getElementById('text-label-alt-names').value = data.altNames || '';
   document.getElementById('text-label-subheader').value = data.subheader || '';
   document.getElementById('text-label-description').value = data.description || '';
   document.getElementById('text-label-size').value = data.size || 14;
@@ -2043,6 +2096,7 @@ function editTextForm(labelMarker) {
       return;
     }
     var subheader = document.getElementById('text-label-subheader').value || '';
+    var altNames = document.getElementById('text-label-alt-names').value || '';
     var description = document.getElementById('text-label-description').value || '';
     var size = parseFloat(document.getElementById('text-label-size').value) || 14;
     var angle = parseFloat(document.getElementById('text-label-angle').value) || 0;
@@ -2098,6 +2152,7 @@ function editTextForm(labelMarker) {
     labelMarker._baseFontSize = size;
     labelMarker._baseLetterSpacing = spacing;
     data.text = text;
+    data.altNames = altNames;
     data.subheader = subheader;
     data.description = description;
     data.size = size;
@@ -2126,6 +2181,7 @@ function editTextForm(labelMarker) {
     convertBtn.removeEventListener('click', convertHandler);
     convertBtn.classList.add('hidden');
     document.getElementById('text-label-text').value = '';
+    document.getElementById('text-label-alt-names').value = '';
     document.getElementById('text-label-subheader').value = '';
     document.getElementById('text-label-description').value = '';
     document.getElementById('text-label-size').value = '14';
@@ -2161,6 +2217,7 @@ function convertMarkerToText(marker) {
     lat: data.lat,
     lng: data.lng,
     text: data.name || '',
+    altNames: data.altNames || '',
     subheader: data.subheader || '',
     description: data.description || '',
     size: 14,
@@ -2194,6 +2251,7 @@ function convertTextToMarker(labelMarker) {
     lat: data.lat,
     lng: data.lng,
     name: data.text || 'Marker',
+    altNames: data.altNames || '',
     subheader: data.subheader || '',
     description: data.description || '',
     icon: 'wigwam',
