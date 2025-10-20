@@ -411,7 +411,7 @@ text,11.82444165146143,20.258782901989424,,Hassanamesit ,,"""Place of Small Ston
 text,0.6591651462894632,-15.380859375000002,,Tantiusques,,“to a black deposit between two hills”,,5,0,0,0,,,Mountains
 text,42.01665183556825,38.34228515625001,,Nagog,,,,6,0,0,0,,,
 text,31.50362930577303,-61.56738281250001,,Unquomonk,,,,7,0,0,0,,,Mountains
-text,-50.14874640066278,57.67822265625001,,Sakonnet,,"""where the water pours forth"""," 'Sekonnet', 'Seaconnet', 'Sakonnet', 'Saconnet', 'Sakonett', or 'Segonet'.",15,0,0,0,,,Tribes
+text,-50.14874640066278,57.67822265625001,,Sakonnet," 'Sekonnet', 'Seaconnet', 'Sakonnet', 'Saconnet', 'Sakonett', Saugkonnet 'Segonet'.","""where the water pours forth""",,15,0,0,0,,,Tribes
 text,-54.69923352848138,10.283203125000002,,Ashawague ,," ""land in the middle"" or ""land between""",,6,0,0,0,,,
 text,-64.73664139557683,-56.29394531250001,,Massauqunnock,,,,6,0,0,0,,,Geographical Locations
 text,-63.97596090918337,-62.22656250000001,,Kuttomquch ,,,,6,0,0,0,,,Geographical Locations
@@ -434,7 +434,7 @@ text,-76.03201380959756,-45.28564453125,,Tianna,,,,4,35,0,0,,,
 text,-76.80575496970872,-50.42724609375001,,Achabachawesuck,,,,4,0,0,0,,,
 text,-77.05419428289703,-51.19628906250001,,Quogue,,,,4,0,0,0,,,
 text,-3.4037578795775887,142.07519531250003,,Pamet,,,,7,0,0,0,,,Settlements
-text,0.615222552406841,133.83544921875003,,Meeshawn,,,Meeshaun ,7,0,0,0,,,Settlements
+text,0.615222552406841,133.83544921875003,,Meeshawn,"Meeshaun,  Mushawn",,Meeshaun ,7,0,0,0,,,Settlements
 text,-3.5572827265412794,144.22851562500003,,Tashmuit,,“a place of springs.”,"The highlands of Pamet which were valued for its fertile soil and fresh springs, both of which were utilized by the local people. ![North_Truro_from_the_south](images/North_Truro_from_the_south.png) ",6,52,2,0,,,Geographical Locations
 text,-6.7737162387535,144.49218750000003,,Pamet,,,,13,0,0,0,,,Territories
 text,-45.93587062119053,50.42724609375001,,Aquidnet,,,,11,0,0,0,,,Geographical Locations
@@ -640,7 +640,7 @@ text,-58.68835857268097,19.775390625,,Pawaget,,,,5,0,0,0,,,Bodies of Water
 text,-57.01681401739112,-4.108886718750001,,Sickenames,,,,5,0,0,0,,,Bodies of Water
 text,-59.18718526575666,149.98535156250003,,Squatesit,,,,5,0,0,0,,,Settlements
 text,-51.84935276370606,57.23876953125,,Saconet,,,,5,0,0,0,,,Settlements
-text,-34.016241889667015,151.47949218750003,,Manamoycke,Manomoyick,,,7,0,0,0,,,Settlements
+text,-34.016241889667015,151.47949218750003,,Manamoycke,"Manomoyick, Monomoyk",,,7,0,0,0,,,Settlements
 text,-11.178451544473875,97.05322265625001,,Patuxet,,,,7,0,0,0,,,Settlements
 text,-18.729501999072138,41.35253906250001,,Pawtuxet,,,Pokanoket (Wampanoag) homelands around Mount Hope and Narragansett Bay.,14,0,0,0,,,Tribes
 text,-23.241346102386135,34.84863281250001,,Coweset,,,Pokanoket (Wampanoag) homelands around Mount Hope and Narragansett Bay.,14,0,0,0,,,Tribes
@@ -684,7 +684,7 @@ text,-13.261333170798274,143.85498046875003,,Pononakanet,,,,6,0,0,0,,,
 text,58.124466615596354,-168.84275654139205,,Kanienʼkehá꞉ka,,People of the Flint,Mohawk,24,0,0,0,,,Tribes
 text,-71.41316867778343,1.2744140690740615,,Nominick,,,Nominick known as Hither Hills today were a group of hills. ,3,-22,1,0,,,Mountains
 text,-31.128217552664182,121.28906246581501,,Chummaquid,,"""Long Point"" ",,6,0,3,0,,,Bodies of Water
-text,-26.076490241548964,147.37055831417953,,Nanskaket,,,,6,0,0,0,,,
+text,-26.076490241548964,147.37055831417953,,Nanskaket,Namaskaket,,,6,0,0,0,,,
 text,-26.273698890875846,151.7870487476951,,Tonset,,,,6,0,0,0,,,
 text,-24.166447931778855,152.07263265164022,,Weeset,Weesit,,,6,0,0,0,,,
 text,-31.78424557684737,152.75397361367214,,Monamesset,,"""at the deep fishing place,"" or ""lookout place.""",,3,0,0,0,,,Geographical Locations
@@ -805,7 +805,7 @@ text,-34.34343606848294,146.51367187500003,,Sauguatucket,,,Sequatucket,7,0,0,0,,
 text,-32.58384932565661,139.68017578125003,,Mattachseese,,"""old lands by the border of water.""",,14,0,0,0,,,Geographical Locations
 text,-29.45873118535533,152.95166015625003,,Squanacot,,,,3,0,0,0,,,Geographical Locations
 text,-30.95876857077986,150.732421875,,Monawoyick ,,,,6,0,0,0,,,Bodies of Water
-text,-27.410785702577023,153.61083984375003,,Pochet,,,,6,0,0,0,,,Bodies of Water
+text,-27.916619715016818,153.72070312500003,,Pochet,,,,6,0,0,0,,,Bodies of Water
 text,-28.22697003891834,151.32568359375,,Namequoit,,,,3,0,0,0,,,Bodies of Water
 text,-31.672083485607388,146.29394531250003,,Askaonkton,,,,8,0,0,0,,,Geographical Locations
 text,-31.18460913574325,147.83203125000003,,Weqnaset,,,,6,0,0,0,,,Geographical Locations
@@ -813,7 +813,7 @@ text,-32.546813173515154,149.41406250000003,,Monomesset,,,,4,-46,0,0,,,Geographi
 text,-35.76434347966718,151.12792968750003,,Saguanset,,,,4,-35,0,0,,,Geographical Locations
 text,-33.192730941906916,152.49023437500003,,Catchpinecote,,,,4,0,0,0,,,Geographical Locations
 text,-29.017748018496047,149.34814453125003,,Potanumicut,Potanunquut,,,4,-46,0,0,,,Geographical Locations
-text,-35.2815006578912,125.41992187500001,,Mattachee,,,Mattakeeset,6,0,0,0,,,
+text,-35.2815006578912,125.41992187500001,,Mattacheese,,,,6,0,0,0,,,
 text,-29.935895213372433,136.12060546875003,,Nobscusset ,,,Pawkunnawkut,6,0,0,0,,,
 text,-28.071907727176228,144.55817775163504,,Sauquatucket,,,Pawkunnawkut,6,0,0,0,,,
 text,-46.89020997262433,98.02001953125,,Nobsque ,,,,7,0,0,0,,,Settlements
@@ -840,3 +840,5 @@ text,32.32132440176417,65.76537993734482,,Mystic,,,4,4,0,0,0,,,
 text,35.51054763950284,60.38321269004152,,Aberjona,,,4,5,0,0,0,,,
 text,-54.965001642304124,132.51694871338532,,Nantucket,,"Natocke and Nantican [^¹] [^¹]:Worth, Henry B. Land Records: Extracted from Nantucket Lands and Land Owners. Nantucket Historical Association, 1901. http://dunhamwilcox.net/ma/nantucket_land.htm",32,14,0,0,0,,,
 text,38.42777351132902,-53.21777343750001,,"""A place where a hill drops off.""",Wequamps ,,"Wequomps It is said the mountain is the carcass of a human-eating giant beaver who lived in a lake now occupied by the Connecticut River. The people complained to the god Hobomok that the beaver was greedy, and consuming all their resources. In response Hobomok decided to kill the beaver with a club he fashioned from a large tree. After the struggle, the beaver died, sank to the bottom of the lake, turned to stone, and became what is now Wequamps Mountain. Geological evidence shows that 15,000 years ago the area was infact a massive post-glacial lake and that a now extinct species of giant beaver as big as black bears once inhabited the area about the same time ",10,0,0,0,,,Mountains
+text,-30.902427738444473,139.13085937500003,,Saquducket,,,Sa,5,-20,0,0,,,Bodies of Water
+text,-33.81540064025878,125.66162109375001,,Mattacheeset,,,Mattakeeset,6,0,0,0,,,
