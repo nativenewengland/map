@@ -21,7 +21,7 @@ marker,25.403584973186703,-49.94384765625001,settlement,Nonotuck,,,,,,,,,{},
 marker,26.155267744564583,-48.273795628065834,settlement,Marker,,,,,,,,,{},
 marker,-62.33941057752869,-31.508789062500004,settlement,Marker,,,,,,,,,{},
 marker,-59.3556624873046,88.22009383600171,settlement,Marker,,,,,,,,,{},
-marker,-4.981505049328246,77.16796875000001,rock,Marker,,,,,,,,,{},
+marker,-4.981505049328246,77.16796875000001,rock,Wonnocoote ,,,,,,,,,{},
 marker,10.746969318460001,22.148437500000004,settlement,Hassanamesit ,,"""Place of Small Stones""",,,,,,,{},
 marker,18.95824648598139,36.18896484375001,agriculture,Marker,,,,,,,,,{},
 marker,25.878994400196202,-48.9990234375,agriculture,Marker,,,,,,,,,{},
@@ -351,6 +351,14 @@ marker,-35.19176696594738,148.35937500000003,settlement,Manamoycke,,,,,,,,,{},Se
 marker,-33.06404075235115,150.49072265625003,earthworks,Native Burial Site,,,,,,,,,{},
 marker,-30.16473849049732,150.24902343750003,earthworks,Native Burial Site,,,,,,,,,{},
 marker,-30.977035022255258,136.1210383728144,rock,Hokum Rock,,,Hokum Rock's was a massive boulder that was said to serve as a council spot when meetings were held by a local leader who bears the rock's name.[^1] In July 1674 the English ordered that an elderly Nobscusset man named Hoken  who was said to live by the rock be arrested and sold into slavery in Barbadoes for his ill temper and crimnal actions against the English.[^2] He was eventually exiled to Rhode Island.[^3] If both accounts are true it's likely that the rock held significance to the local people. [^1]:https://www.dennishistoricalsociety.org/sites/default/files/2019-07/Jun1979.pdf [^2]:https://www.wickedlocal.com/story/register/2008/05/28/local-legend/39698300007/?gnt-cfr=1&gca-cat=p&gca-uir=true&gca-epti=z119388e000900v119388b0093xxd119365&gca-ft=114&gca-ds=sophi [^3]:https://www.dennishistoricalsociety.org/sites/default/files/2019-07/Jul1987.pdf,,,,,,{},
+marker,47.279229002570844,-22.236328125000004,settlement,Marker,,,,,,,,,{},Settlements
+marker,11.738302371436854,25.510253906250004,settlement,Hassanamesit ,,"""Place of Small Stones""",,,,,,,{},
+marker,29.53522956294847,41.70410156250001,settlement,Marker,,,,,,,,,{},Settlements
+marker,-17.748686651728793,80.59570312500001,pteroglyph,Hand Rock,,,,,,,,,{},Petroglyph
+marker,-18.583775688370928,79.91455078125001,pteroglyph,Great Rock,,,,,,,,,{},Petroglyph
+marker,-19.373340713364044,85.40771484375001,pteroglyph,Marker ,,,,,,,,,{},Petroglyph
+marker,-23.926013033021192,80.70556640625001,pteroglyph,Marker ,,,,,,,,,{},Petroglyph
+marker,-50.94458443495011,27.751464843750004,forts,Chemunganoc ,,,A Narragansett Indian stronghold. Described in historical sources as a 60-yard square stone and earthwork with no bastions. It may have been built by Dutch traders in the 1630's for the Niantic Indians against the Pequot Indians. Exact location undetermined (possibly on Shumuncanuc Hill ?) near Carolina ,,,,,,{},
 text,-55.00282580979324,96.28417968750001,,AGUNNINAH,,,The shore of the island,1,0,0,0,,,
 text,-53.12040528310657,101.90917968750001,,KEITAHSIMET,,,Place of a great spring,1,0,0,0,,,
 text,-52.26815737376817,100.72265625000001,,KUPPEGON,,,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -389,7 +397,7 @@ text,-77.19570508665286,-143.9446752320028,,Nissequogue,,,"Nissequogue homelands
 text,-8.363855266221476,-72.37792968750001,,Paugussett,,,Paugussett homelands along the lower Housatonic River.,24,0,0,0,,,Tribes
 text,-54.825433284376075,-45.966796875,,Pequot,,,Pequot homelands surrounding the lower Thames River.,24,0,0,0,,,Tribes
 text,-2.6577377901397883,-54.00878906250001,,Podunk,,,Podunk homelands on the east side of the Connecticut River.,24,0,0,0,,,Tribes
-text,-31.87755764334002,46.99951171875001,,Pokanoket,,,Pokanoket (Wampanoag) homelands around Mount Hope and Narragansett Bay.,20,0,0,0,,,Tribes
+text,-32.546813173515154,47.19726562500001,,Pokanoket,,,Pokanoket (Wampanoag) homelands around Mount Hope and Narragansett Bay.,20,0,0,0,,,Tribes
 text,-15.284185114076433,-90.17578125000001,,Quinnipiac,,,Quinnipiac homelands at the mouth of the Quinnipiac River.,24,0,0,0,,,Tribes
 text,-78.86850415610446,-131.1195136082202,,Rockaway,,,Rockaway (Reckgawawank) Lenape homelands on the Rockaway Peninsula.,24,0,0,0,,,Tribes
 text,-26.74561038219901,-62.49023437500001,,Schaghticoke,,,Schaghticoke homelands near the confluence of the Housatonic and Ten Mile Rivers.,24,0,0,0,,,Tribes
@@ -461,7 +469,7 @@ text,-57.040729838360875,18.808593750000004,,Watchaug,,,,5,0,0,0,,,Bodies of Wat
 text,-53.68369534495074,27.465820312500004,,Aguebauaug,,,,5,0,0,0,,,Bodies of Water
 text,20.879342971957897,22.21435546875,,Hobomoco,,,,3,0,0,0,,,Bodies of Water
 text,46.24100579395699,14.790200027175716,,Unchechewhaton,,,,5,0,0,0,,,Bodies of Water
-text,45.69141355901332,-28.433346256397478,,Mattawa,,,,3,0,0,0,,,Bodies of Water
+text,45.767522962149904,-28.652343750000004,,Mattawa,,,,4,0,0,0,,,Bodies of Water
 text,-2.6573545009375485,-112.6092050940509,,Hackankamonk,,,,6,0,0,0,,,Bodies of Water
 text,3.425704292015428,12.48046875,,Manchaug,,,,5,56,0,0,,,Bodies of Water
 text,-4.193807734214353,20.390625000000004,,Chokalog,,,,5,0,0,0,,,Bodies of Water
@@ -612,7 +620,7 @@ text,50.96147828339582,-46.49392148490192,,Mashapaug and Sokoki Wobankai Nations
 text,47.93109492259736,-30.10397629094216,,Papacontuckquash,,,,8,13,0,0,,,Rivers
 text,-20.694461597907797,43.57177734375001,,Pawtucket,,,,7,0,0,0,,,Settlements
 text,-22.695120184965695,44.36279296875,,Seacuncke,,,,7,0,0,0,,,Settlements
-text,-22.39071391683855,39.92431640625001,,Moshosick,,,,7,0,0,0,,,Settlements
+text,-22.471954507739227,39.46289062500001,,Moshosick,,,,7,0,0,0,,,Settlements
 text,-25.383735254706856,41.77001953125001,,Wachemoqt,,,,7,0,0,0,,,Settlements
 text,-27.196014383173296,38.54003906250001,,Mashpaug,,,,7,0,0,0,,,Settlements
 text,55.32914440840507,-39.06738281250001,,Squakeag,,,,7,0,0,0,,,Settlements
@@ -628,10 +636,10 @@ text,45.99696161820381,76.24511718750001,,Wahquamesecok ,,,,7,0,0,0,,,Settlement
 text,40.1452892956766,78.79394531250001,,Massabequash ,,,,7,0,0,0,,,Settlements
 text,54.88924640307589,63.58886718750001,,Cochichewick,,,,5,0,0,0,,,Bodies of Water
 text,47.39834920035926,78.88183593750001,,Michigamea,,,,5,0,0,0,,,Bodies of Water
-text,-22.63429269379352,77.03613281250001,,Assawompsett,,,,5,0,0,0,,,Bodies of Water
-text,-25.918526162075153,75.14648437500001,,Apponaqut,,,,5,0,0,0,,,Bodies of Water
-text,-25.045792240303435,79.80468750000001,,Quittacas,,,,5,0,0,0,,,Bodies of Water
-text,-28.57487404744697,82.35351562500001,,Snipatuit ,,,,5,0,0,0,,,Bodies of Water
+text,-22.532853707527117,77.49755859375001,,Assawompsett,,,,5,0,0,0,,,Bodies of Water
+text,-25.97779895546436,75.84960937500001,,Apponaqut,,,,7,85,0,0,,,Bodies of Water
+text,-25.878994400196202,79.78271484375001,,Quittacas,,,,5,0,0,0,,,Bodies of Water
+text,-28.671310915880834,82.19970703125001,,Snipatuit ,,,,5,-76,0,0,,,Bodies of Water
 text,-5.703447982149503,83.40820312500001,,Munponset,,,,5,0,0,0,,,Bodies of Water
 text,-9.384032109601689,61.45751953125001,,Winnecunnet ,,,,5,0,0,0,,,Bodies of Water
 text,-9.362352822055593,68.07128906250001,,Nippenicket,,,,5,0,0,0,,,Bodies of Water
@@ -644,7 +652,7 @@ text,-34.016241889667015,151.47949218750003,,Manamoycke,"Manomoyick, Monomoyk",,
 text,-11.178451544473875,97.05322265625001,,Patuxet,,,,7,0,0,0,,,Settlements
 text,-18.729501999072138,41.35253906250001,,Pawtuxet,,,Pokanoket (Wampanoag) homelands around Mount Hope and Narragansett Bay.,14,0,0,0,,,Tribes
 text,-23.241346102386135,34.84863281250001,,Coweset,,,Pokanoket (Wampanoag) homelands around Mount Hope and Narragansett Bay.,14,0,0,0,,,Tribes
-text,-43.97700467496408,74.81689453125001,,Apponagansett,,,,5,0,0,0,,,Settlements
+text,-43.96119063892026,74.15771484375001,,Apponagansett,,,,7,0,0,0,,,Settlements
 text,-36.27970720524017,57.85400390625,,Quequechand,,,,5,0,0,0,,,Settlements
 text,-25.60190226111574,63.85253906250001,,Assonet,,,,5,0,0,0,,,Settlements
 text,-35.92464453144098,53.52539062500001,,Montaup,,,,5,0,0,0,,,Settlements
@@ -663,7 +671,7 @@ text,12.661777510388525,64.64355468750001,,Ponkapoag,,,,3,-7,0,0,,,Bodies of Wat
 text,15.792338830762365,72.46582031250001,,Monatiquot ,,,,3,0,0,-5,,,Rivers
 text,9.23226773945612,69.1479184161971,,Cochato,,,,3,-45,0,0,,,Rivers
 text,-51.28935049038226,29.289550781250004,,Chippuxet,,,,4,-54,0,0,,,Rivers
-text,-52.11994425337956,37.02392578125001,,Pettaquamscutt ,,,,4,54,0,0,,,Rivers
+text,-51.87649097061476,37.11181640625001,,Pettaquamscutt ,,,,4,54,0,0,,,Rivers
 text,-54.00776876193477,80.55175781250001,,Asnawana,,,,8,-12,1,90,,,Geographical Locations
 text,-30.619059260924562,152.81958363488377,,Ewnews,,,,3,0,0,0,,,Geographical Locations
 text,-36.68608187767096,113.81790112001666,,Santuit,,,,7,0,0,0,,,Settlements
@@ -774,7 +782,7 @@ text,-58.74539152474415,86.2645416659574,,Mashatanauke ,,,(in the vicinity of Ol
 text,-59.987912041060916,87.31922204785454,,Aquinnah ,,,,9,34,0,0,,,Settlements
 text,-52.20087371733219,101.16207022543438,,Tashmoo,,,,6,69,0,0,,,Bodies of Water
 text,-54.52107933590939,106.50138654461875,,Sengekontacket ,,,,4,53,0,0,,,
-text,-45.966272818409834,82.2431117349996,,Poughkeeste,,"""bay with coves,""",Today known as Buzzards Bay ,18,-21,5,0,,,
+text,-48.25394114463432,98.67919921875001,,Nobska ,,,,3,37,0,0,,,
 text,-69.78654510363337,3.8012695312500004,,Shawango,,,,5,0,0,0,,,Settlements
 text,-69.3570863282203,-13.535156250000002,,Manchonack,,,,8,0,0,0,,,
 text,-72.77057418574792,-10.898437500000002,,Potinack,,,,5,0,0,0,,,
@@ -822,7 +830,7 @@ text,-36.26253760985168,149.37011718750003,,Matchapoxet,,,,4,-35,0,0,,,Geographi
 text,-39.368279149160124,-39.46289062500001,,Mashantucket Pequot,,Mashantucket Pequot homelands near the Pawcatuck River.,24,14,0,0,0,,,
 text,31.05408391778296,-111.79687500000001,,Muhheconneok,,The People of the Waters That Are Never Still,"As more and more Europeans settled here, the Mohicans lost their ownership of the land and found themselves increasingly dependent on the settlers for goods that they had traditionally sourced from nature. Eventually the Mohicans were pushed east to the Housatonic River in what is now Massachusetts. The tribe was also catastrophically affected by diseases that the Europeans brought, which decreased their numbers greatly. In the mid-1780s, the Stockbridge Mohican people moved to New Stockbridge near Oneida Lake, where they had been offered a tract of land. However land companies focused on profit proposed that New York State remove all Indians from within its borders, and the tribe was forced to move again, this time to the White River area in what is now Indiana. Meanwhile, missionaries, agents from the state of New York, and commissioners from the War Department were negotiating with the Menominee and Ho- Chunk (Winnebago) for a large tract of land on which to relocate the Indigenous people from New York in what is now Wisconsin. A treaty was negotiated in 1822 and the Stockbridge Mohicans moved yet again, this time to the reservation in Wisconsin, where they still reside today.[^1] [^1]:https://flyingdeernaturecenter.org/the-muhheconneok/",24,0,0,0,,,Tribes
 text,16.448309250183947,69.91765136213205,,Housickwissick,,,4,5,0,0,0,,,
-text,15.559624524776702,64.13823595808995,,Massawachusett,Massawachusett,"""the place of the great hills""",,7,-12,0,0,,,Mountains
+text,15.580710739162123,63.36914062500001,,Massawachusett,Massawachusett,"""the place of the great hills""",,6,-10,1,0,,,Mountains
 text,19.64256946203327,71.49903267826588,,Passonagessit,,![ME_Boston_Map_28x36_Flat-1-e1490057999642](images/ME_Boston_Map_28x36_Flat-1-e1490057999642.jpg),4,4,0,0,0,,,
 text,22.471919044631637,69.91697678622356,,Moswetuset,,,4,4,0,0,0,,,
 text,30.181197723251778,66.84206781589243,,Musquantum,,,4,4,0,0,0,,,
@@ -839,6 +847,55 @@ text,36.963177033353084,74.07011992325785,,Sauguset,,,4,5,0,0,0,,,
 text,32.32132440176417,65.76537993734482,,Mystic,,,4,4,0,0,0,,,
 text,35.51054763950284,60.38321269004152,,Aberjona,,,4,5,0,0,0,,,
 text,-54.965001642304124,132.51694871338532,,Nantucket,,"Natocke and Nantican [^¹] [^¹]:Worth, Henry B. Land Records: Extracted from Nantucket Lands and Land Owners. Nantucket Historical Association, 1901. http://dunhamwilcox.net/ma/nantucket_land.htm",32,14,0,0,0,,,
-text,38.42777351132902,-53.21777343750001,,"""A place where a hill drops off.""",Wequamps ,,"Wequomps It is said the mountain is the carcass of a human-eating giant beaver who lived in a lake now occupied by the Connecticut River. The people complained to the god Hobomok that the beaver was greedy, and consuming all their resources. In response Hobomok decided to kill the beaver with a club he fashioned from a large tree. After the struggle, the beaver died, sank to the bottom of the lake, turned to stone, and became what is now Wequamps Mountain. Geological evidence shows that 15,000 years ago the area was infact a massive post-glacial lake and that a now extinct species of giant beaver as big as black bears once inhabited the area about the same time ",10,0,0,0,,,Mountains
+text,38.42777351132902,-53.21777343750001,,Wequamps ,,"""A place where a hill drops off.""","Wequomps It is said the mountain is the carcass of a human-eating giant beaver who lived in a lake now occupied by the Connecticut River. The people complained to the god Hobomok that the beaver was greedy, and consuming all their resources. In response Hobomok decided to kill the beaver with a club he fashioned from a large tree. After the struggle, the beaver died, sank to the bottom of the lake, turned to stone, and became what is now Wequamps Mountain. Geological evidence shows that 15,000 years ago the area was infact a massive post-glacial lake and that a now extinct species of giant beaver as big as black bears once inhabited the area about the same time ",10,0,0,0,,,Mountains
 text,-30.902427738444473,139.13085937500003,,Saquducket,,,Sa,5,-20,0,0,,,Bodies of Water
 text,-33.81540064025878,125.66162109375001,,Mattacheeset,,,Mattakeeset,6,0,0,0,,,
+text,-39.926588421909436,86.46240234375001,,Antassawamock ,,,,3,-45,0,0,,,Geographical Locations
+text,-43.34116005412307,100.19531250000001,,Sippewissett,,,,3,65,0,0,,,Geographical Locations
+text,-39.147102707700746,100.48095703125,,Sachonesset,,,,7,0,0,0,,,Settlements
+text,-44.84029065139799,82.79296875000001,,Poughkeeste,,"""bay with coves,""",Today known as Buzzards Bay ,18,-40,5,0,,,
+text,-46.78501604269255,99.82177734375,,Quamquissett,,,,2,37,0,0,,,
+text,-44.96479793033102,103.88671875000001,,Teaticket ,,,,3,-85,0,0,,,Geographical Locations
+text,-43.16512263158296,111.75292968750001,,Weesquabs,,,,7,0,0,0,,,Settlements
+text,-39.757879992021756,114.10400390625001,,Cotuit,,,,7,0,0,0,,,Settlements
+text,-39.79165483525342,116.96044921875,,Cotachessett,,,,7,0,0,0,,,Settlements
+text,-28.84467368077178,104.23828125000001,,Manamet,,,,15,0,0,0,,,Tribes
+text,-44.96479793033102,108.94042968750001,,Weeqayut,,,,4,-85,0,0,,,Bodies of Water
+text,-40.597270634420255,105.49072265625001,,Coonemesett,,,,3,-85,0,0,,,Bodies of Water
+text,-45.85941212790755,105.22705078125001,,Acapesket,,,,3,85,0,0,,,Geographical Locations
+text,-45.460130637921,107.1826171875,,Menauhant,,,,3,85,0,0,,,Geographical Locations
+text,-39.130060242135094,74.79492187500001,,Achushnet,,,,15,0,0,0,,,Tribes
+text,-40.380028402511826,77.54150390625001,,Achushnet,,,,7,0,0,0,,,Settlements
+text,-45.19752230305683,1.8017578125000002,,Pachaug,,,,7,0,0,0,,,Bodies of Water
+text,-44.38669150215206,9.953613281250002,,Paugamoug,,,,7,0,0,0,,,Bodies of Water
+text,-19.12440952808487,13.77685546875,,Ponaganset,,,,7,0,0,0,,,Bodies of Water
+text,-11.910353555774101,27.795410156250004,,Nipsachuck,,,,5,0,0,0,,,Settlements
+text,-15.072123545811683,20.456542968750004,,Chepachet,,,,5,0,0,0,,,Settlements
+text,-16.235772090429844,24.19189453125,,Absalona ,,,,6,0,0,0,,,Mountains
+text,39.65645604812829,-17.951660156250004,,Nichewaug,,,,7,0,0,0,,,Settlements
+text,48.019324184801185,-23.2470703125,,Pequig,,,,7,0,0,0,,,Settlements
+text,54.43171285946844,-38.58398437500001,,Coassock ,,,,5,45,0,0,,,Geographical Locations
+text,29.171348850951507,-14.809570312500002,,Menameset ,,,,7,0,0,0,,,Settlements
+text,30.44867367928756,-1.77978515625,,Naquag,,,,7,0,0,0,,,Geographical Locations
+text,17.035777250427195,9.42626953125,,Pakachoag,,,,7,0,0,0,,,
+text,19.269665296502332,5.405273437500001,,Tataesset,,,,7,0,0,0,,,
+text,19.932041306115536,34.95849609375001,,Mangunkaquog,,"""Place of Small Stones""",,7,0,0,0,,,
+text,21.04349121680354,37.83691406250001,,Waushakamaug,,"""Place of Small Stones""",,7,0,0,0,,,
+text,24.387127324604506,40.51757812500001,,Cochituate,,"""Place of Small Stones""",,7,0,0,0,,,
+text,51.984880139916655,45.94482421875,,Pawtucket,,,,7,0,0,0,,,Settlements
+text,50.44351305245807,50.42724609375001,,Wamesit,,,,7,0,0,0,,,Settlements
+text,62.36999628130772,64.84130859375001,,Pawtucket,,,,12,-33,3,0,,,
+text,-13.496472765758952,94.39453125000001,,Patuxet,,,,15,0,0,0,,,Tribes
+text,-4.915832801313164,76.35498046875001,,Wonnocoote ,,,,4,0,0,0,,,
+text,-26.88288045572338,90.46142578125001,,Weweantic ,,,,6,85,0,0,,,Rivers
+text,-29.55434512574828,96.41601562500001,,Agawam,,,,15,0,0,0,,,Tribes
+text,-31.728167146023935,60.62255859375,,Kteticut ,,,,6,-45,0,0,,,Rivers
+text,-36.3151251474805,49.63623046875001,,Poppasquash,,,,5,0,0,0,,,Settlements
+text,-34.415973384481866,52.58056640625001,,Waypoyset,,,,5,0,0,0,,,Settlements
+text,-27.371767300523032,43.13232421875,,Annawanscoate,,,,7,0,0,0,,,Settlements
+text,-31.09057409495418,37.39746093750001,,Toskeunke,,,,7,0,0,0,,,Settlements
+text,-30.145127183376115,40.47363281250001,,Pawtuxets,,,,7,0,0,0,,,Settlements
+text,-31.85889704445453,40.40771484375001,,Shawomet,,,,7,0,0,0,,,Settlements
+text,-31.55981453201843,50.47119140625001,,Kickimuit,,,,5,0,0,0,,,Settlements
+text,-30.334953881988564,45.15380859375001,,Annawomscutt,,,,4,-85,0,0,,,Rivers
+text,-52.32191088594772,37.06787109375001,,Coojoot,,Cajoot Cajout ,Coojoot was a graphite mine used by the Narragansett from the Woodland era until 1657,3,0,0,0,,,Mines/Quarries
