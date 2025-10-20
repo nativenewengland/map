@@ -1,7 +1,7 @@
 type,lat,lng,icon,name/subheader,subheader/text,description,size,angle,spacing,curve,coords,style,overlay
 marker,-21.80030805097259,44.89013671875001,settlement,Pawtucket,,,,,,,,{},Settlements
 marker,-76.97024507077676,-90.19775390625001,settlement,Marker,,,,,,,,{},
-marker,-0.48337991318247436,135.2636894644682,settlement,Marker,,,,,,,,{},Settlements
+marker,-0.48337991318247436,135.2636894644682,settlement,Meeshawn,,,,,,,,{},Settlements
 marker,-4.4997617436205255,143.10791015625003,settlement,Marker,,,,,,,,{},Settlements
 marker,-20.015381961202028,152.51259230309853,forts,Unknown Fort or Palisade Village,,"Upon arrival in Cape Cod, the Pilgrims discovered the ruins of a walled fortress or palisaded village filled with remains of local Nauset who had died from disease. Unaware of its native origins, the pilgrims assumed the location to be of European Christian construction and falsely mistook it as a graveyard. In the Pilgrims Journal the following is written.[^¹]
 
@@ -12,7 +12,7 @@ marker,-5.8127569137510084,143.3276367140934,forts,Unknown Fort or Palisade Vill
 marker,-66.57448342017541,29.157714843750004,forts,Marker,,It was described as a native fort in 1661 and an English fortification in 1705.,,,,,,{},Forts
 marker,-76.14822912651843,-144.40378202944026,rock,Mishow,,"The Grey Mare and Mishow were two  boulders said to have been placed in their location by Manitou, the boulders served as an important ritual site used for sacred ceremonies.",,,,,,{},
 marker,-21.88190519004537,152.31445313198495,agriculture,Four or Five houses with Planting Grounds,,"From this place we went and found more corn-ground, but not of this year. As we ranged we light on four or five Indian houses, which had been lately dwelt in, but they were uncovered, and had no mats about them, else they were like those we found at Cornhill but had not been so lately dwelt in. There was nothing left but two or three pieces of old mats, and a little sedge. Also, a little further we found two baskets full of parched acorns hid in the ground, which we supposed had been corn when we began to dig the same; we cast earth thereon again and went our way. All this while we saw no people.",,,,,,{},
-marker,-21.57571893245848,152.16064453125003,wigwam,Four or Five homes with Planting Grounds,,"From this place we went and found more corn-ground, but not of this year. As we ranged we light on four or five Indian houses, which had been lately dwelt in, but they were uncovered, and had no mats about them, else they were like those we found at Cornhill but had not been so lately dwelt in. There was nothing left but two or three pieces of old mats, and a little sedge. Also, a little further we found two baskets full of parched acorns hid in the ground, which we supposed had been corn when we began to dig the same; we cast earth thereon again and went our way. All this while we saw no people.",,,,,,{},
+marker,-21.57571893245848,152.16064453125003,wigwam,Four or Five homes with Planting Grounds,,"""From this place we went and found more corn-ground, but not of this year. As we ranged we light on four or five Indian houses, which had been lately dwelt in, but they were uncovered, and had no mats about them, else they were like those we found at Cornhill but had not been so lately dwelt in. There was nothing left but two or three pieces of old mats, and a little sedge. Also, a little further we found two baskets full of parched acorns hid in the ground, which we supposed had been corn when we began to dig the same; we cast earth thereon again and went our way. All this while we saw no people.""",,,,,,{},
 marker,19.621892180319374,11.645507812500002,mine,Coal Mine,fgfdgd,dfgdfgd,,,,,,{},Mines/Quarries
 marker,44.2294565683017,-49.65820312500001,capital,Pocumtuck,,,,,,,,{},
 marker,-45.70617928533085,57.01904296875001,agriculture,Marker,,,,,,,,{},
@@ -370,6 +370,7 @@ marker,-78.85094562059197,-148.84277343750003,settlement,Werpos ,,,,,,,,{},
 marker,-81.4008017052346,-146.14013671875003,settlement,Werpos ,,,,,,,,{},
 marker,-81.30832090051811,-144.51416015625003,settlement,Werpos ,,,,,,,,{},
 marker,-81.24165957439662,-142.62451171875003,settlement,Werpos ,,,,,,,,{},
+marker,-35.19176696594738,148.35937500000003,settlement,Manamoycke,,,,,,,,{},Settlements
 text,-55.00282580979324,96.28417968750001,,,AGUNNINAH,The shore of the island,1,0,0,0,,,
 text,-53.12040528310657,101.90917968750001,,,KEITAHSIMET,Place of a great spring,1,0,0,0,,,
 text,-52.26815737376817,100.72265625000001,,,KUPPEGON,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -406,7 +407,7 @@ text,-60.08676274626006,-60.60058593750001,,,Hammonasset,Hammonasset homelands a
 text,-69.16724012600773,-49.949353504869585,,,Manhanset,"Manhanset people of Shelter Island, between Long Island's forks.",24,0,0,0,,,Tribes
 text,-66.98836600973269,23.16686297828692,,,Manissean,Manissean (Manitou) homelands on Block Island.,24,0,0,0,,,Tribes
 text,23.32208001137844,48.16406250000001,,,Massachusett,Massachusett homelands around the Shawmut Peninsula (Boston).,24,0,0,0,,,Tribes
-text,-39.368279149160124,-39.46289062500001,,,Mashantucket Pequot,Mashantucket Pequot homelands near the Pawcatuck River.,24,0,0,0,,,Tribes
+text,-37.23032838760386,-39.90234375000001,,,Mashantucket Pequot,Mashantucket Pequot homelands near the Pawcatuck River.,24,0,0,0,,,Tribes
 text,-79.65392213419594,-146.93163540003792,,,Matinecock,Matinecock homelands on Long Island's north shore.,24,0,0,0,,,Tribes
 text,-76.01582449107187,-109.50898851393923,,,Merrick,Merrick (Merokee) territory on Long Island's south shore.,24,0,0,0,,,Tribes
 text,-72.76619493972098,-36.42071459256301,,"""high or hilly land"" or ""the fort country""",Montaukett ,"Montaukett homelands at the eastern tip of Long Island.
@@ -466,7 +467,7 @@ text,-76.80575496970872,-50.42724609375001,,,Achabachawesuck,,4,0,0,0,,,
 text,-77.05419428289703,-51.19628906250001,,,Quogue,,4,0,0,0,,,
 text,-3.4037578795775887,142.07519531250003,,,Pamet,,7,0,0,0,,,Settlements
 text,0.615222552406841,133.83544921875003,,,Meeshawn,Meeshaun ,7,0,0,0,,,Settlements
-text,-3.5572827265412794,144.22851562500003,,“a place of springs.”,Tashmuit,"The highlands of Pamet which were valued for its fertile soil and fresh springs, both of which were utilized by the local peoples. 
+text,-3.5572827265412794,144.22851562500003,,“a place of springs.”,Tashmuit,"The highlands of Pamet which were valued for its fertile soil and fresh springs, both of which were utilized by the local people. 
 
 ![North_Truro_from_the_south](images/North_Truro_from_the_south.png)
 ",6,52,2,0,,,Geographical Locations
@@ -784,7 +785,7 @@ text,-26.076490241548964,147.37055831417953,,,Nanskaket,,6,0,0,0,,,
 text,-26.273698890875846,151.7870487476951,,,Tonset,,6,0,0,0,,,
 text,-24.166447931778855,152.07263265164022,,,Weeset,,6,0,0,0,,,
 text,-31.78424557684737,152.75397361367214,,"""at the deep fishing place,"" or ""lookout place.""",Monamesset,,3,0,0,0,,,Geographical Locations
-text,-36.36822869576792,133.11051323531308,,,Pawkannawkut,,6,0,0,0,,,
+text,-36.36822869576792,133.11051323531308,,,Pawkannawkut,Pawkunnawkut,6,0,0,0,,,
 text,65.34864542564475,-40.60616258442037,,,Ktsi pontekw,,6,0,0,0,,,Settlements
 text,49.02415781991267,-36.979497262635824,,,Corroheagan,,5,0,0,0,,,Geographical Locations
 text,49.325992011261164,-46.82559099929916,,,Wisatinoag,"Wisatinoag was a sacred burial place that had been in use for at least 6,000 years prior to the arrival of Europeans in the region. Strategically placed in an upland location, it allowed the ancestors of the local peoples to keep watch over their villages and crop plots below",5,0,0,0,,,Geographical Locations
@@ -891,3 +892,29 @@ text,-70.30393290852346,-30.498046875000004,,“an island sheltered by islands�
 text,-75.9842000057889,-60.29296875000001,,"""land of tribute""",Paumanack ,"Paumanack was the name for Eastern Long Island, known as the land of tribute because it was the origin and manufacturing point for wampum shells that were used for paying tribute.
 
 Pommanocc 1639 Pamunke (1648), Pammanack (1656), Pawmanack (1658), Paumanuck and Paumanche (1659), and Pommanock (1665),[3] and later Paumanack and Pomonok",14,-20,4,0,,,
+text,-54.64841250231668,75.73974609375001,,,Poocuohhunkkunnah ,,5,0,0,0,,,Geographical Locations
+text,-50.84757295365388,88.76953125,,,Cataymucke,,9,-48,0,0,,,Geographical Locations
+text,5.834616165610059,-64.75341796875001,,,Worrinoke,,5,23,0,0,,,Rivers
+text,3.8423316311549156,-60.13916015625001,,,Pontoosic,,5,-23,0,0,,,Rivers
+text,8.211490323420694,-63.94042968750001,,,Pochassic,,5,0,0,0,,,Rivers
+text,12.189703804004086,-66.37939453125001,,,Woronocos,,18,0,0,0,,,Tribes
+text,10.941191793456534,-67.91748046875001,,,Woronoake,,5,76,0,0,,,Rivers
+text,9.860628145365903,-61.52343750000001,,,Tomhaumucke,,5,-76,0,0,,,Rivers
+text,-49.28214015975995,-23.356933593750004,,,Mashepaug,,8,0,0,0,,,Bodies of Water
+text,-42.03297433244139,-33.35449218750001,,,Ashowat,,6,0,0,0,,,Settlements
+text,-39.16414104768743,-19.335937500000004,,,Poquechanneeg,,6,0,0,0,,,Settlements
+text,-42.940339233631825,-43.8134765625,,,Pocotopaug,,8,0,0,0,,,Bodies of Water
+text,-34.34343606848294,146.51367187500003,,,Sauguatucket,Sequatucket,7,0,0,0,,,Settlements
+text,-32.58384932565661,139.68017578125003,,"""old lands by the border of water.""",Mattachseese,,14,0,0,0,,,Geographical Locations
+text,-29.45873118535533,152.95166015625003,,,Squanacot,,3,0,0,0,,,Geographical Locations
+text,-30.95876857077986,150.732421875,,,Monawoyick ,,6,0,0,0,,,Bodies of Water
+text,-27.410785702577023,153.61083984375003,,,Pochet,,6,0,0,0,,,Bodies of Water
+text,-28.22697003891834,151.32568359375,,,Namequoit,,3,0,0,0,,,Bodies of Water
+text,-31.672083485607388,146.29394531250003,,,Askaonkton,,8,0,0,0,,,Geographical Locations
+text,-31.18460913574325,147.83203125000003,,,Weqnaset,,6,0,0,0,,,Geographical Locations
+text,-32.546813173515154,149.41406250000003,,,Monomesset,,4,-46,0,0,,,Geographical Locations
+text,-35.76434347966718,151.12792968750003,,,Saguanset,,4,-35,0,0,,,Geographical Locations
+text,-33.192730941906916,152.49023437500003,,,Catchpinecote,,4,0,0,0,,,Geographical Locations
+text,-29.017748018496047,149.34814453125003,,,Potanumicut,,4,-46,0,0,,,Geographical Locations
+text,-35.2815006578912,125.41992187500001,,,Mattachee,Mattakeeset,6,0,0,0,,,
+text,-29.935895213372433,136.12060546875003,,,Nobscusset ,Pawkunnawkut,6,0,0,0,,,
