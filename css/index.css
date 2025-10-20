@@ -289,6 +289,11 @@ html, body{
     margin-bottom: 8px;
 }
 
+#marker-form label:first-of-type,
+#text-form label:first-of-type {
+    margin-bottom: 4px;
+}
+
 #marker-form input,
 #marker-form select,
 #marker-form textarea,
