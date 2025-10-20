@@ -130,6 +130,14 @@ html, body{
     text-align: center;
 }
 
+.info-alt-names {
+    text-align: center;
+    font-size: 0.95em;
+    margin: 0.05em 0 0.3em;
+    color: #444;
+    font-style: italic;
+}
+
 .info-subheader {
     text-align: center;
     font-size: 0.95em;
