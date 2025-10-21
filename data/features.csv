@@ -292,7 +292,7 @@ marker,-6.246728287806848,144.09627113428928,wigwam,Two Unidentified Homes Encou
 marker,-59.05189565078284,-10.238752004857291,forts,Fort Hill,,,[^¹] dfgdfgdf g,,,,,,{},
 marker,-55.528562934867665,-11.95352595922982,forts,Fort Shamtok,,,[^¹] dfgdfgdf g,,,,,,{},
 marker,-59.899964678333895,-5.822796866167483,forts,Fort Mystic,,,[^¹] dfgdfgdf g,,,,,,{},Forts
-marker,-61.026645071114565,11.799316234010101,forts,Fort Niniget,,,[^¹] dfgdfgdf g,,,,,,{},Forts
+marker,-61.98040250271992,11.997085308375503,forts,Fort Niniget,,,[^¹] dfgdfgdf g,,,,,,{},Forts
 marker,-71.43416801575344,1.8017578125000002,forts,Fort Montauk,,,"[^¹] An old Montauk fort was reportedly situated on ,the eastern extremity of Montauk Point near Fresh Pond; the pond is near the Hither (Nominick) Hills. The fort had supposedly ·fallen into decay by the time the English arrived in 1640.",,,,,,{},Forts
 marker,-71.21604917397931,-28.124749400481367,forts,Fort Manhnnett,,,[^¹] dfgdfgdf g,,,,,,{},Forts
 marker,-72.7967975917526,-42.321949332480116,forts,Fort Corchaug,,,"[^¹] Fort Corchaug, although it is accessible to a major waterway, appears to have functioned as a refuge as well as a wampum manufactory",,,,,,{},Forts
@@ -408,14 +408,14 @@ text,-26.74561038219901,-62.49023437500001,,Schaghticoke,,,Schaghticoke homeland
 text,-77.91475737592121,-115.48264463361654,,Secatogue,,,Secatogue homelands around Islip on Long Island.,24,0,0,0,,,Tribes
 text,-76.20596704314148,-78.13476562500001,,Setalcott,,,Setalcott (Setauket) homelands on Long Island's north shore.,24,0,0,0,,,Tribes
 text,-73.9891972630182,-48.009566547570316,,Shinnecock,,,Shinnecock homelands near Shinnecock Bay on Long Island.,24,0,0,0,,,Tribes
-text,-36.73490706670716,-90.48572927900707,,Tunxis,,"""the point where the river bends""",Tunxis homelands in the Farmington River Valley.,24,0,0,0,,,Tribes
-text,-36.215,-88.052,,Suckiaug,,"""black fertile earth""","Suckiaug was the Tunxis village along the rich intervale at the confluence of the Connecticut and Park Rivers, later forming the core of Hartford.",20,0,0,0,,,Tribes
-text,-35.742,-85.912,,Matianuck,,"""at the great tree""","Matianuck referred to the great tree that marked the Tunxis planting grounds on the meadows of present-day Windsor along the Connecticut River.",20,0,0,0,,,Tribes
-text,-35.658,-84.297,,Poquonnock,,"""cleared land""","Poquonnock described the open Tunxis fields near modern Windsor where families farmed along the Poquonock River.",20,0,0,0,,,Tribes
-text,-37.112,-92.843,,Massaco,,"""place of much water""","Massaco marked the Tunxis fishing and planting grounds on the broad meadows of the Farmington River in what is now Simsbury.",20,0,0,0,,,Tribes
-text,-36.862,-91.327,,Tunxis Sepus,,"""little river place""","Tunxis Sepus named the Farmington River itself— the ""little river"" that threads through the center of the Tunxis homeland.",20,0,0,0,,,Tribes
-text,-36.978,-92.118,,Weatogue,,"""at the bend in the river""","Weatogue identified the Tunxis village settled on the sweeping bend of the Farmington River between present-day Simsbury and Avon.",20,0,0,0,,,Tribes
-text,-37.462,-94.017,,Nassahegon,,"""between the rocks""","Nassahegon referred to the stony uplands west of the Farmington River in modern Granby that Tunxis hunters used for seasonal camps.",20,0,0,0,,,Tribes
+text,-36.84447593061207,-89.36270799212208,,Tunxis,,"""the point where the river bends""",Tunxis homelands in the Farmington River Valley.,24,0,0,0,,,Tribes
+text,-36.215,-88.052,,Suckiaug,,"""black fertile earth""","Suckiaug was the Tunxis village along the rich intervale at the confluence of the Connecticut and Park Rivers, later forming the core of Hartford.",5,0,0,0,,,Tribes
+text,-35.742,-85.912,,Matianuck,,"""at the great tree""",Matianuck referred to the great tree that marked the Tunxis planting grounds on the meadows of present-day Windsor along the Connecticut River.,6,0,0,0,,,Tribes
+text,-35.658,-84.297,,Poquonnock,,"""cleared land""",Poquonnock described the open Tunxis fields near modern Windsor where families farmed along the Poquonock River.,5,0,0,0,,,Tribes
+text,-37.112,-92.843,,Massaco,,"""place of much water""",Massaco marked the Tunxis fishing and planting grounds on the broad meadows of the Farmington River in what is now Simsbury.,5,0,0,0,,,Tribes
+text,-36.862,-91.327,,Tunxis Sepus,,"""little river place""","Tunxis Sepus named the Farmington River itself— the ""little river"" that threads through the center of the Tunxis homeland.",3,0,0,0,,,Tribes
+text,-36.978,-92.118,,Weatogue,,"""at the bend in the river""",Weatogue identified the Tunxis village settled on the sweeping bend of the Farmington River between present-day Simsbury and Avon.,4,0,0,0,,,
+text,-37.462,-94.017,,Nassahegon,,"""between the rocks""",Nassahegon referred to the stony uplands west of the Farmington River in modern Granby that Tunxis hunters used for seasonal camps.,3,0,0,0,,,Tribes
 text,-74.21333248041581,-95.62940360654963,,Unkechaug,,,Unkechaug (Poospatuck) homelands on Long Island's south shore.,24,0,0,0,,,Tribes
 text,-75.39779877737388,-85.23309122513776,,Unquachog,,,Unqua homelands near present-day Seaford and Massapequa.,24,0,0,0,,,Tribes
 text,-12.811801316582619,56.6455078125,,Wampanoag,,,Wampanoag homelands across Plymouth and Bristol counties.,24,0,0,0,,,Tribes
@@ -931,3 +931,4 @@ text,-1.7136116598836224,38.18847656250001,,Monashackotoog,,,,14,0,0,0,,,Tribes
 text,1.625758360412755,32.87109375000001,,Wusquowhananawkit ,,"""at the pigeon country""",,14,0,0,0,,,Tribes
 text,76.45520341078418,93.33984375000001,,Accominta,,,,12,0,0,0,,,Tribes
 text,55.677584411089526,76.37695312500001,,Agawam,,"""fish curing place""",,15,0,0,0,,,Tribes
+text,57.98360215912974,-35.857615483939256,,Putchaug ,,"""turning place"" or ""division place""",a brook ,6,0,0,0,,,Rivers
