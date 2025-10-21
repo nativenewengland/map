@@ -408,11 +408,11 @@ text,-26.74561038219901,-62.49023437500001,,Schaghticoke,,,Schaghticoke homeland
 text,-77.91475737592121,-115.48264463361654,,Secatogue,,,Secatogue homelands around Islip on Long Island.,24,0,0,0,,,Tribes
 text,-76.20596704314148,-78.13476562500001,,Setalcott,,,Setalcott (Setauket) homelands on Long Island's north shore.,24,0,0,0,,,Tribes
 text,-73.9891972630182,-48.009566547570316,,Shinnecock,,,Shinnecock homelands near Shinnecock Bay on Long Island.,24,0,0,0,,,Tribes
-text,-36.73490706670716,-90.48572927900707,,Tunxis,,,Tunxis homelands in the Farmington River Valley.,24,0,0,0,,,Tribes
+text,-36.73490706670716,-90.48572927900707,,Tunxis,,"""the point where the river bends""",Tunxis homelands in the Farmington River Valley.,24,0,0,0,,,Tribes
 text,-74.21333248041581,-95.62940360654963,,Unkechaug,,,Unkechaug (Poospatuck) homelands on Long Island's south shore.,24,0,0,0,,,Tribes
 text,-75.39779877737388,-85.23309122513776,,Unquachog,,,Unqua homelands near present-day Seaford and Massapequa.,24,0,0,0,,,Tribes
 text,-12.811801316582619,56.6455078125,,Wampanoag,,,Wampanoag homelands across Plymouth and Bristol counties.,24,0,0,0,,,Tribes
-text,-47.694974341862824,-52.29492187500001,,Wangunk,,,Wangunk homelands along the lower Connecticut River.,24,0,0,0,,,Tribes
+text,-47.694974341862824,-52.29492187500001,,Wangunk,Wongunk,"""at the bend""",Wangunk homelands along the lower Connecticut River.,24,0,0,0,,,Tribes
 text,-60.321147194219755,-105.8073484903449,,Wappinger,,,Wappinger homelands spanning southwestern Connecticut and the lower Hudson Valley.,24,0,0,0,,,Tribes
 text,-57.657157596582984,-35.41992187500001,,Western Niantic,,,Western Niantic homelands near the mouth of the Connecticut River.,24,0,0,0,,,Tribes
 text,-69.31043717139833,-127.60414123535158,,Siwanogs,,,,24,0,0,0,,,Tribes
@@ -683,7 +683,7 @@ text,-38.30809432604605,111.99729824152816,,Mashpee,,,,7,0,0,0,,,Settlements
 text,-37.02004767128328,108.52315543349253,,Paupoesit,,,,7,0,0,0,,,Settlements
 text,-40.597270634420255,106.85285549813123,,Ashimuit,,,,7,0,0,0,,,Settlements
 text,-42.19793797708907,108.74260704300252,,Waquoit,,,,7,0,0,0,,,Settlements
-text,7.623009673716924,-54.3165295530166,,Agawam,,,,24,0,0,0,,,Tribes
+text,7.623009673716924,-54.3165295530166,,Agawam,, 'fish curing place',,24,0,0,0,,,Tribes
 text,24.044616678835595,-53.6133360513407,,Nonotuck,,,"The Nonotucks or Norwottucks, who originally claimed the country from the head of the falls to Mount Wequomps (now Sugarloaf), had villages and forts on both sides of the river. They had several plant- ing fields of 12 to 20 acres each; the hills to the west were covered with chestnut trees which furnished a store of nuts ; and the swamps and plains abounded in deer, wild turkeys and other game.[^1] [^1]:https://upload.wikimedia.org/wikipedia/commons/2/2e/A_history_of_the_town_of_Northfield%2C_Massachusetts%2C_for_150_years_%28IA_historyoftownofn00tem%29.pdf",24,0,0,0,,,Tribes
 text,47.63387523460074,-54.57829708142709,,Pacomptock,,,,24,0,0,0,,,Tribes
 text,57.0403859234177,-44.51688926953872,,Squakheag,,,,24,0,0,0,,,Tribes
@@ -892,7 +892,7 @@ text,62.36999628130772,64.84130859375001,,Pawtucket,,,,12,-33,3,0,,,
 text,-13.496472765758952,94.39453125000001,,Patuxet,,,,15,0,0,0,,,Tribes
 text,-4.915832801313164,76.35498046875001,,Wonnocoote ,,,,4,0,0,0,,,
 text,-26.88288045572338,90.46142578125001,,Weweantic ,,,,6,85,0,0,,,Rivers
-text,-29.55434512574828,96.41601562500001,,Agawam,,,,15,0,0,0,,,Tribes
+text,-29.55434512574828,96.41601562500001,,Agawam,,"""fish curing place""",,15,0,0,0,,,Tribes
 text,-31.728167146023935,60.62255859375,,Kteticut ,,,,6,-45,0,0,,,Rivers
 text,-36.3151251474805,49.63623046875001,,Poppasquash,,,,5,0,0,0,,,Settlements
 text,-34.415973384481866,52.58056640625001,,Waypoyset,,,,5,0,0,0,,,Settlements
@@ -917,8 +917,10 @@ text,-11.566143767762856,17.446289062500004,,Pascoag,,,,4,-86,0,0,,,Rivers
 text,-15.580710739162123,37.74902343750001,,Mittaubscut,,,,5,26,0,0,,,Rivers
 text,-10.531020008464976,36.43066406250001,,Sneechteconet,,,,5,26,0,0,,,Rivers
 text,-9.42738661503235,24.675292968750004,,Mittaubscut,,,,5,26,0,0,,,Rivers
-text,-6.882800241767556,30.454101562500004,,Wunnashowatuckoog,,,Pokanoket (Wampanoag) homelands around Mount Hope and Narragansett Bay.,14,0,0,0,,,Tribes
+text,-6.882800241767556,30.454101562500004,,Wunnashowatuckoog,,"""people at the fork of the river""",,14,0,0,0,,,Tribes
 text,6.577303118123887,26.586914062500004,,Nipnet,,,Pokanoket (Wampanoag) homelands around Mount Hope and Narragansett Bay.,14,0,0,0,,,Tribes
 text,-6.708253968671543,13.754882812500002,,Cowesett,,,Pokanoket (Wampanoag) homelands around Mount Hope and Narragansett Bay.,14,0,0,0,,,Tribes
-text,-1.7136116598836224,38.18847656250001,,Monashackotoog,,,Pokanoket (Wampanoag) homelands around Mount Hope and Narragansett Bay.,14,0,0,0,,,Tribes
-text,1.625758360412755,32.87109375000001,,Wusquowhananawkit ,,,Pokanoket (Wampanoag) homelands around Mount Hope and Narragansett Bay.,14,0,0,0,,,Tribes
+text,-1.7136116598836224,38.18847656250001,,Monashackotoog,,,,14,0,0,0,,,Tribes
+text,1.625758360412755,32.87109375000001,,Wusquowhananawkit ,,"""at the pigeon country""",,14,0,0,0,,,Tribes
+text,76.45520341078418,93.33984375000001,,Accominta,,,,12,0,0,0,,,Tribes
+text,55.677584411089526,76.37695312500001,,Agawam,,"""fish curing place""",,15,0,0,0,,,Tribes
