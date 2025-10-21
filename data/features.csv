@@ -137,7 +137,7 @@ marker,22.69512018496571,-104.91943359375001,settlement,Wnahtukook,,,,,,,,,{},Se
 marker,-16.99375545289455,-116.27929687500001,settlement,Marker,,,,,,,,,{},Settlements
 marker,-58.859223547066584,-2.0874023437500004,settlement,Marker,,,,,,,,,{},Settlements
 marker,-60.29429873400916,-4.042968750000001,settlement,Marker,,,,,,,,,{},Settlements
-marker,-56.860985750644886,3.9111328125000004,settlement,Marker,,,,,,,,,{},Settlements
+marker,-56.860985750644886,3.9770507812500004,settlement,Marker,,,,,,,,,{},Settlements
 marker,-60.04288763076307,3.7133789062500004,settlement,Marker,,,,,,,,,{},Settlements
 marker,-40.094872337893925,-18.171386718750004,settlement,Marker,,,,,,,,,{},Settlements
 marker,36.03133177633189,21.071777343750004,settlement,Marker,,,,,,,,,{},Settlements
@@ -361,6 +361,8 @@ marker,-18.583775688370928,79.91455078125001,pteroglyph,Great Rock,,,,,,,,,{},Pe
 marker,-19.373340713364044,85.40771484375001,pteroglyph,Marker ,,,,,,,,,{},Petroglyph
 marker,-23.926013033021192,80.70556640625001,pteroglyph,Marker ,,,,,,,,,{},Petroglyph
 marker,-50.94458443495011,27.751464843750004,forts,Chemunganoc ,,,A Narragansett Indian stronghold. Described in historical sources as a 60-yard square stone and earthwork with no bastions. It may have been built by Dutch traders in the 1630's for the Niantic Indians against the Pequot Indians. Exact location undetermined (possibly on Shumuncanuc Hill ?) near Carolina ,,,,,,{},
+marker,-59.07444815466584,6.08642578125,settlement,Marker,,,,,,,,,{},Settlements
+marker,-48.92249926375824,35.11230468750001,pteroglyph,Gardiner Petroglyph,,,,,,,,,{},Petroglyph
 text,-55.00282580979324,96.28417968750001,,AGUNNINAH,,,The shore of the island,1,0,0,0,,,
 text,-53.12040528310657,101.90917968750001,,KEITAHSIMET,,,Place of a great spring,1,0,0,0,,,
 text,-52.26815737376817,100.72265625000001,,KUPPEGON,,,A good enclosure for shelter/hitching,1,0,0,0,,,
@@ -452,7 +454,7 @@ text,-55.216547833210726,96.92138671875001,,NOEPE,,,,32,0,5,0,,,
 text,-80.71109268759261,-162.81738281250003,,Nayack ,,,,7,0,0,0,,,Settlements
 text,-79.56850599323725,-161.82861328125003,,Pagganck,,"""Nut Island""",,4,0,0,0,,,Geographical Locations
 text,60.04358934572451,64.43395614624025,,Wemesit,,,,12,0,0,0,,,
-text,-57.9875380732216,21.945447921752933,,Paguet,,,,14,0,0,0,,,
+text,-57.55120803456642,23.005371093750004,,Weekapaug,,,,6,0,0,0,,,
 text,-62.7595586121253,-87.47159957885744,,Hammonasett,,,,14,0,0,0,,,
 text,-43.65588781419645,-61.32637023925782,,Scatacook,,,,14,0,0,0,,,
 text,64.92354174306499,-69.08203125000001,,Hoosac,,,,14,0,0,0,,,
@@ -901,3 +903,22 @@ text,-31.85889704445453,40.40771484375001,,Shawomet,,,,7,0,0,0,,,Settlements
 text,-31.55981453201843,50.47119140625001,,Kickimuit,,,,5,0,0,0,,,Settlements
 text,-30.334953881988564,45.15380859375001,,Annawomscutt,,,,4,-85,0,0,,,Rivers
 text,-52.32191088594772,37.06787109375001,,Coojoot,,Cajoot Cajout ,Coojoot was a graphite mine used by the Narragansett from the Woodland era until 1657,3,0,0,0,,,Mines/Quarries
+text,-63.11463763252091,-6.5478515625,,Munnawtawkit ,,,,6,-25,2,0,,,Geographical Locations
+text,-60.500525410511294,-7.602539062500001,,Niantic,,,,5,0,0,0,,,Geographical Locations
+text,-58.68835857268097,15.051269531250002,,Misquamicut ,,,,5,0,0,0,,,Geographical Locations
+text,-60.04290359809165,10.72265625,,Massachaug,,,,5,-12,0,0,,,Bodies of Water
+text,-59.58997510773555,15.534667968750002,,Quooocontaug,,,,5,-27,0,0,,,Bodies of Water
+text,-57.79794388498275,5.910644531250001,,Pawcatuck,,,,5,-90,2,0,,,Rivers
+text,-58.309488840677645,35.11230468750001,,Weyanitoke,,,,3,0,0,0,,,Geographical Locations
+text,-32.602361666817515,-20.786132812500004,,Willlmantic,,,,6,0,0,0,,,Settlements
+text,-22.268764039073968,27.597656250000004,,Moswansicut,,,,4,85,0,0,,,Bodies of Water
+text,-2.152813583128846,4.921875000000001,,Chabunagungamaug ,,,,7,0,0,0,,,Bodies of Water
+text,-11.566143767762856,17.446289062500004,,Pascoag,,,,4,-86,0,0,,,Rivers
+text,-15.580710739162123,37.74902343750001,,Mittaubscut,,,,5,26,0,0,,,Rivers
+text,-10.531020008464976,36.43066406250001,,Sneechteconet,,,,5,26,0,0,,,Rivers
+text,-9.42738661503235,24.675292968750004,,Mittaubscut,,,,5,26,0,0,,,Rivers
+text,-6.882800241767556,30.454101562500004,,Wunnashowatuckoog,,,Pokanoket (Wampanoag) homelands around Mount Hope and Narragansett Bay.,14,0,0,0,,,Tribes
+text,6.577303118123887,26.586914062500004,,Nipnet,,,Pokanoket (Wampanoag) homelands around Mount Hope and Narragansett Bay.,14,0,0,0,,,Tribes
+text,-6.708253968671543,13.754882812500002,,Cowesett,,,Pokanoket (Wampanoag) homelands around Mount Hope and Narragansett Bay.,14,0,0,0,,,Tribes
+text,-1.7136116598836224,38.18847656250001,,Monashackotoog,,,Pokanoket (Wampanoag) homelands around Mount Hope and Narragansett Bay.,14,0,0,0,,,Tribes
+text,1.625758360412755,32.87109375000001,,Wusquowhananawkit ,,,Pokanoket (Wampanoag) homelands around Mount Hope and Narragansett Bay.,14,0,0,0,,,Tribes
