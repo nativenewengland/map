@@ -35,6 +35,19 @@
         <h3 id="info-subheader" class="info-subheader hidden"></h3>
         <div id="info-description"></div>
     </div>
+    <div
+        id="image-lightbox"
+        class="hidden"
+        role="dialog"
+        aria-modal="true"
+        aria-hidden="true"
+    >
+        <div class="lightbox-content">
+            <button type="button" class="lightbox-close" aria-label="Close image">&times;</button>
+            <img id="lightbox-image" alt="" />
+            <p id="lightbox-caption" class="lightbox-caption hidden"></p>
+        </div>
+    </div>
     <div id="credits-panel" class="hidden" aria-hidden="true">
         <div
             class="credits-content"
