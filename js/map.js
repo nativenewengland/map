@@ -603,6 +603,109 @@ document.getElementById('close-info').addEventListener('click', function () {
   clearSelectedMarker();
 });
 
+var infoDescriptionElement = document.getElementById('info-description');
+var imageLightboxElement = document.getElementById('image-lightbox');
+var lightboxImageElement = document.getElementById('lightbox-image');
+var lightboxCaptionElement = document.getElementById('lightbox-caption');
+var lightboxCloseButton = document.querySelector('#image-lightbox .lightbox-close');
+
+function closeLightbox() {
+  if (!imageLightboxElement) {
+    return;
+  }
+
+  imageLightboxElement.classList.add('hidden');
+  imageLightboxElement.setAttribute('aria-hidden', 'true');
+
+  if (lightboxImageElement) {
+    lightboxImageElement.removeAttribute('src');
+    lightboxImageElement.removeAttribute('alt');
+  }
+
+  if (lightboxCaptionElement) {
+    lightboxCaptionElement.textContent = '';
+    lightboxCaptionElement.classList.add('hidden');
+  }
+
+  document.removeEventListener('keydown', handleLightboxKeydown, true);
+}
+
+function openLightbox(imageSrc, captionText) {
+  if (!imageLightboxElement || !lightboxImageElement) {
+    return;
+  }
+
+  lightboxImageElement.setAttribute('src', imageSrc);
+  if (captionText) {
+    lightboxImageElement.setAttribute('alt', captionText);
+  } else {
+    lightboxImageElement.removeAttribute('alt');
+  }
+
+  if (lightboxCaptionElement) {
+    if (captionText) {
+      lightboxCaptionElement.textContent = captionText;
+      lightboxCaptionElement.classList.remove('hidden');
+    } else {
+      lightboxCaptionElement.textContent = '';
+      lightboxCaptionElement.classList.add('hidden');
+    }
+  }
+
+  imageLightboxElement.classList.remove('hidden');
+  imageLightboxElement.setAttribute('aria-hidden', 'false');
+
+  document.addEventListener('keydown', handleLightboxKeydown, true);
+
+  if (lightboxCloseButton && typeof lightboxCloseButton.focus === 'function') {
+    lightboxCloseButton.focus();
+  }
+}
+
+function handleLightboxKeydown(event) {
+  if (event && event.key === 'Escape') {
+    closeLightbox();
+  }
+}
+
+if (lightboxCloseButton) {
+  lightboxCloseButton.addEventListener('click', function () {
+    closeLightbox();
+  });
+}
+
+if (imageLightboxElement) {
+  imageLightboxElement.addEventListener('click', function (event) {
+    if (event && event.target === imageLightboxElement) {
+      closeLightbox();
+    }
+  });
+}
+
+if (infoDescriptionElement) {
+  infoDescriptionElement.addEventListener('click', function (event) {
+    if (!event) {
+      return;
+    }
+
+    var target = event.target;
+    var tagName = target && target.tagName ? target.tagName.toLowerCase() : '';
+    if (!target || tagName !== 'img') {
+      return;
+    }
+
+    var src = target.getAttribute('src');
+    if (!src) {
+      return;
+    }
+
+    event.preventDefault();
+
+    var caption = target.getAttribute('alt') || target.getAttribute('title') || '';
+    openLightbox(src, caption);
+  });
+}
+
 map.on('click', function () {
   document.getElementById('info-panel').classList.add('hidden');
   clearSelectedMarker();
