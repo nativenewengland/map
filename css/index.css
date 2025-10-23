@@ -289,6 +289,21 @@ html, body{
     margin-bottom: 8px;
 }
 
+.description-file-actions {
+    margin: 6px 0;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.description-file-actions button {
+    margin-top: 0;
+}
+
+.description-file-input {
+    display: none;
+}
+
 #marker-form label:first-of-type,
 #text-form label:first-of-type {
     margin-bottom: 4px;
