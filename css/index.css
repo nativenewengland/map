@@ -350,6 +350,10 @@ html, body{
     z-index: 1200;
 }
 
+#image-lightbox.hidden {
+    display: none;
+}
+
 #image-lightbox .lightbox-content {
     position: relative;
     max-width: 90vw;
