@@ -72,7 +72,11 @@
                 <input type="text" id="marker-subheader">
             </label>
             <label>Description:
-                <small>Supports Markdown (e.g., <code>**bold**</code>, <code>![alt](url)</code> for images) and footnotes (pair <code>[^1]</code> with <code>[^1]: Source details</code>).</small>
+                <small>Supports Markdown (e.g., <code>**bold**</code>, <code>![alt](url)</code> for images) and footnotes (pair <code>[^1]</code> with <code>[^1]: Source details</code>). Use “Insert File” to embed images or documents directly.</small>
+                <div class="description-file-actions">
+                    <input type="file" id="marker-description-file" class="description-file-input" accept="image/*,text/*,application/pdf">
+                    <button type="button" id="marker-description-insert">Insert File</button>
+                </div>
                 <textarea id="marker-description"></textarea>
             </label>
             <label>Icon:
@@ -132,7 +136,11 @@
                 <input type="text" id="text-label-subheader">
             </label>
             <label>Description:
-                <small>Supports Markdown (e.g., <code>**bold**</code>, <code>![alt](url)</code> for images) and footnotes (pair <code>[^1]</code> with <code>[^1]: Source details</code>).</small>
+                <small>Supports Markdown (e.g., <code>**bold**</code>, <code>![alt](url)</code> for images) and footnotes (pair <code>[^1]</code> with <code>[^1]: Source details</code>). Use “Insert File” to embed images or documents directly.</small>
+                <div class="description-file-actions">
+                    <input type="file" id="text-description-file" class="description-file-input" accept="image/*,text/*,application/pdf">
+                    <button type="button" id="text-description-insert">Insert File</button>
+                </div>
                 <textarea id="text-label-description"></textarea>
             </label>
             <label>Size:
