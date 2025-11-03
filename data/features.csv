@@ -458,7 +458,7 @@ text,-60.321147194219755,-105.8073484903449,,Wappinger,,,Wappinger homelands spa
 text,-57.657157596582984,-35.41992187500001,,Western Niantic,,,Western Niantic homelands near the mouth of the Connecticut River.,24,0,0,0,,,Tribes
 text,-69.31043717139833,-127.60414123535158,,Siwanogs,,,,24,0,0,0,,,Tribes
 text,17.602139123350852,11.975097656250002,,Sagatabscot ,,“the place of the hard rock”,is a hill in the southeastern part of Worcester.[^¹],3,0,0,0,,,Mountains
-text,20.262197124246534,13.557128906250002,,Quinsigamond,,Quinsikamon,Quinsikamon,7,76,0,0,,,
+text,20.262197124246534,13.557128906250002,,Quinsigamond,“the pickerel fishing place”,Quinsikamon,Quinsikamon,7,76,0,0,,,
 text,68.07330474079025,-53.96484375000001,,Monadnock,,,"g “place of the surpassing, or",14,0,0,0,,,
 text,11.82444165146143,20.258782901989424,,Hassanamesit ,,"""Place of Small Stones""",,7,0,0,0,,,
 text,0.6591651462894632,-15.380859375000002,,Tantiusques,,“to a black deposit between two hills”,,5,0,0,0,,,Mountains
@@ -560,7 +560,7 @@ text,-49.325121991040014,66.04980468750001,,Poquanset,,"""At the opening""",The 
 text,-42.01665183556823,62.86376953125001,,Poganset,,,At the pond. Devol Pond.,3,-65,0,0,,,Bodies of Water
 text,-44.63739123445586,68.70849609375001,,Quannachuck,,,At the long hill. The swamp between Westport Factory and the Watuppa Pond.,5,0,0,0,,,Geographical Locations
 text,-39.639537564366705,65.85205078125001,,Quansetor Nutaquanset,,,The place of the terrible fire or at the burnt woods.,5,0,0,0,,,Geographical Locations
-text,-45.75219336063107,67.28027343750001,,Shimsuet,,,"An area on the east side of the East Branch, about a mile south of Hix Bridge.",5,0,0,0,,,Geographical Locations
+text,-45.69083283645817,67.45605468750001,,Shimsuet,,,"An area on the east side of the East Branch, about a mile south of Hix Bridge.",5,0,0,0,,,Geographical Locations
 text,-44.11914151643736,70.37841796875001,,Wasontuxsett,,,The area of land that is on the east side of the East Branch north of Hix Bridge or a brook that joins the river.,5,0,0,0,,,Geographical Locations
 text,-43.707593504052944,66.77490234375001,,Watuppa,,,They draw water.,5,0,0,0,,,Bodies of Water
 text,-43.11748160856244,56.99769485394992,,Espowett,,,,5,0,0,0,,,Settlements
@@ -921,8 +921,8 @@ text,48.019324184801185,-23.2470703125,,Pequig,,,,7,0,0,0,,,Settlements
 text,54.43171285946844,-38.58398437500001,,Coassock ,,,,5,45,0,0,,,Geographical Locations
 text,29.171348850951507,-14.809570312500002,,Menameset ,,,,7,0,0,0,,,Settlements
 text,30.44867367928756,-1.77978515625,,Naquag,,,,7,0,0,0,,,Geographical Locations
-text,17.035777250427195,9.42626953125,,Pakachoag,,,,7,0,0,0,,,
-text,19.269665296502332,5.405273437500001,,Tataesset,,,,7,0,0,0,,,
+text,17.035777250427195,9.42626953125,,Pakachoag,Packachoog ,," Packachoog is the name of a hill in the southeastern part of the City of Worcester, as well as the name of the Blackstone River. ",7,0,0,0,,,
+text,19.269665296502332,5.405273437500001,,Tataesset,Tatnick ,“at the great hill”,"Tataesset was the name of a brook, a hill, and village.",7,0,0,0,,,
 text,19.932041306115536,34.95849609375001,,Mangunkaquog,,"""Place of Small Stones""",,7,0,0,0,,,
 text,21.04349121680354,37.83691406250001,,Waushakamaug,,"""Place of Small Stones""",,7,0,0,0,,,
 text,24.387127324604506,40.51757812500001,,Cochituate,,"""Place of Small Stones""",,7,0,0,0,,,
