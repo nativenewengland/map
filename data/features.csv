@@ -355,7 +355,7 @@ marker,-30.16473849049732,150.24902343750003,earthworks,Native Burial Site,,,,,,
 marker,-30.977035022255258,136.1210383728144,rock,Hokum Rock,,,Hokum Rock's was a massive boulder that was said to serve as a council spot when meetings were held by a local leader who bears the rock's name.[^1] In July 1674 the English ordered that an elderly Nobscusset man named Hoken  who was said to live by the rock be arrested and sold into slavery in Barbadoes for his ill temper and crimnal actions against the English.[^2] He was eventually exiled to Rhode Island.[^3] If both accounts are true it's likely that the rock held significance to the local people. [^1]:https://www.dennishistoricalsociety.org/sites/default/files/2019-07/Jun1979.pdf [^2]:https://www.wickedlocal.com/story/register/2008/05/28/local-legend/39698300007/?gnt-cfr=1&gca-cat=p&gca-uir=true&gca-epti=z119388e000900v119388b0093xxd119365&gca-ft=114&gca-ds=sophi [^3]:https://www.dennishistoricalsociety.org/sites/default/files/2019-07/Jul1987.pdf,,,,,,{},
 marker,47.279229002570844,-22.236328125000004,settlement,Marker,,,,,,,,,{},Settlements
 marker,11.738302371436854,25.510253906250004,settlement,Hassanamesit ,,"""Place of Small Stones""",,,,,,,{},
-marker,29.53522956294847,41.70410156250001,settlement,Marker,,,,,,,,,{},Settlements
+marker,29.53522956294847,41.70410156250001,settlement,Goodman Hill ,,,,,,,,,{},Settlements
 marker,-17.748686651728793,80.59570312500001,pteroglyph,Hand Rock,,,,,,,,,{},Petroglyph
 marker,-18.583775688370928,79.91455078125001,pteroglyph,Great Rock,,,,,,,,,{},Petroglyph
 marker,-19.373340713364044,85.40771484375001,pteroglyph,Marker ,,,,,,,,,{},Petroglyph
@@ -369,6 +369,8 @@ marker,8.948342272107851,-45.525372025585845,settlement,Marker,,,,,,,,,{},Settle
 marker,20.097206227083888,78.66210937500001,fishing,Marker,,,,,,,,,{},
 marker,21.207828482243247,45.505371286847904,settlement,Natick,,,,,,,,,{},Settlements
 marker,27.466539645294674,31.35498069359003,settlement,Marker,,,,,,,,,{},Settlements
+marker,29.171341482692327,32.12402354330709,agriculture,Marker,,,,,,,,,{},
+marker,28.979230834652927,32.56347669475885,settlement,Marker,,,,,,,,,{},Settlements
 text,-61.2,10.8,,Acqueednuck,,,Acqueednuck (a branch of the Pawtuxet River) & Pond in Washington County. Possibly derived from ukque-dene-auke 'place at the end of the hill' or ogque-adene-auke 'place beyond the hill'. Now known as the Quidnic River.,5,0,0,0,,,
 text,-61.2,11.4,,Allum Pond,,,"Allum (or Wallum) Pond in Providence County, named for the Quinebaug Nipmuc sachem Allums, whose name meant 'The Fox'.",5,0,0,0,,,
 text,-61.2,12,,Aqueedenuck,,,Aqueedenuck in Washington County meaning 'at the island' or possibly 'place beyond the hill'.,5,0,0,0,,,
@@ -615,7 +617,7 @@ text,50.1628523613064,-65.54443359375001,,Paugemtuk,,,,8,-14,0,0,,,Rivers
 text,44.15068115978094,-47.4169921875,,Quinnitekuk,,,,5,0,0,0,,,Rivers
 text,45.300000000000004,-47.20000000000001,,Mattamacket,,,,5,0,0,0,,,Bodies of Water
 text,44.21372213673447,-43.94586385056617,,Taughkannacoas Islands,,,,5,0,0,0,,,Bodies of Water
-text,52.749165171699985,-42.78071376757689,,Nallahamcomgon,,,"Nallahamcomgon, now Bennett's meadow was a field that served as the boundry between the Squakeag and Pocumtuck territory.",5,0,0,0,,,Geographical Locations
+text,51.6175764277927,-43.615722706508365,,Nallahamcomgon,,,"Nallahamcomgon, now Bennett's meadow was a field that served as the boundry between the Squakeag and Pocumtuck territory.",5,55,0,0,,,Geographical Locations
 text,42.69837902593775,-44.75939728743217,,Puckommegon,,,,5,0,0,0,,,Geographical Locations
 text,43.357197138732246,-43.94595057986873,,Papacontuckquash,,,,5,0,0,0,,,Geographical Locations
 text,41.96764334885846,-49.32843362769474,,Weekquunnuch,,,,5,0,0,0,,,Geographical Locations
@@ -1078,4 +1080,16 @@ text,-3.3164816815073506,93.7792971937438,,Namassakeesett,,,,7,0,0,0,,,Bodies of
 text,-1.1864470761913188,95.47119142873402,,Nishamagoquanett,,,,3,0,0,0,,,
 text,24.226982532410496,57.85400388641119,,Nonatum,,,4,6,0,0,0,,,
 text,28.284951553591984,29.794921844580458,,Okommakamesit,,,,5,0,0,0,,,Settlements
-text,29.743477300551824,30.827636911847904,,Whipsuopenike,,,,5,0,0,0,,,Settlements
+text,29.743477300551824,30.827636911847904,,Whipsuppenike,,"""place of great or sudden death or dying.""",Whipsuppenike was the name of a hill and planting ground and settlement inhabited by the Nipmuc.,5,0,0,0,,,Settlements
+text,36.73910052101692,34.98046858467645,,Pompositticut,,,,7,0,0,0,,,
+text,37.80545061661771,42.49511718220963,,Nashawtuc,,,,6,0,0,0,,,
+text,37.92746666587364,45.85693381329967,,Musketaquid,,,,5,0,0,0,,,Settlements
+text,41.07932570552366,54.77783201405636,,Shawshinok,,,,7,0,0,0,,,Settlements
+text,33.632838453022224,59.85351568980685,,Misticke,,,,7,0,0,0,,,Settlements
+text,32.95302826165103,59.65576177165353,,Menotomet,,,4,3,0,0,0,,,
+text,33.541120364980685,62.62207026224164,,Abousett,,,4,4,0,0,0,,,
+text,30.18152433795424,62.81982418039494,,Pequusset,,,4,4,0,0,0,,,
+text,29.76289765511265,59.17236319131399,,Squibnocket,,,,7,0,0,0,,,Settlements
+text,28.748411368027856,51.04248041716907,,Mattapannock,,,,7,0,0,0,,,
+text,29.87879924752034,53.70117142664258,,Quinnebequi,,,,7,0,0,0,,,
+text,-57.36546210859709,110.21484355954729,,Chappaquiddick,,,,9,34,0,0,,,Settlements
