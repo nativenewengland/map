@@ -364,6 +364,7 @@ marker,-50.94458443495011,27.751464843750004,forts,Chemunganoc ,,,A Narragansett
 marker,-59.07444815466584,6.08642578125,settlement,Marker,,,,,,,,,{},Settlements
 marker,-48.92249926375824,35.11230468750001,pteroglyph,Gardiner Petroglyph,,,,,,,,,{},Petroglyph
 marker,52.03897658307622,96.6796875,settlement,"""Wigwam Point""",,,,,,,,,{},Settlements
+marker,40.780622877109245,82.46337890625001,forts,Marker,,,,,,,,,{},
 text,-61.2,10.8,,Acqueednuck,,,Acqueednuck (a branch of the Pawtuxet River) & Pond in Washington County. Possibly derived from ukque-dene-auke 'place at the end of the hill' or ogque-adene-auke 'place beyond the hill'. Now known as the Quidnic River.,5,0,0,0,,,
 text,-61.2,11.4,,Allum Pond,,,"Allum (or Wallum) Pond in Providence County, named for the Quinebaug Nipmuc sachem Allums, whose name meant 'The Fox'.",5,0,0,0,,,
 text,-61.2,12,,Aqueedenuck,,,Aqueedenuck in Washington County meaning 'at the island' or possibly 'place beyond the hill'.,5,0,0,0,,,
@@ -978,3 +979,8 @@ text,12.361460269069257,-10.744628906250002,,Quobagud,,,,7,0,0,0,,,
 text,11.458456449145606,-10.261230468750002,,Putikookuppogg,,,,7,0,0,0,,,
 text,16.719502322687266,-16.611328125000004,,Wekabaug,,,,7,0,0,0,,,
 text,14.19993134294845,-22.126464843750004,,Quaboag,,,,24,0,0,0,,,Tribes
+text,42.21233888583593,59.50195312500001,,Naumkeag,,,Massachusett homelands around the Shawmut Peninsula (Boston).,20,0,0,0,,,Tribes
+text,60.88770004207789,70.04882812500001,,Merrimack,,,,11,-35,2,0,,,Tribes
+text,31.858875549139846,61.74316406250001,,Mishawams,,,,8,0,0,0,,,Tribes
+text,49.80964585402084,57.39257812500001,,Shawshins,,,,20,0,0,0,,,Tribes
+text,50.176894070076976,42.890625,,Wamesit,,,,20,0,0,0,,,Tribes
