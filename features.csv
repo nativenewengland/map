@@ -366,6 +366,7 @@ marker,-48.92249926375824,35.11230468750001,pteroglyph,Gardiner Petroglyph,,,,,,
 marker,52.03897658307622,96.6796875,settlement,"""Wigwam Point""",,,,,,,,,{},Settlements
 marker,40.780622877109245,82.46337890625001,forts,Marker,,,,,,,,,{},
 marker,8.948342272107851,-45.525372025585845,settlement,Marker,,,,,,,,,{},Settlements
+marker,20.097206227083888,78.66210937500001,fishing,Marker,,,,,,,,,{},
 text,-61.2,10.8,,Acqueednuck,,,Acqueednuck (a branch of the Pawtuxet River) & Pond in Washington County. Possibly derived from ukque-dene-auke 'place at the end of the hill' or ogque-adene-auke 'place beyond the hill'. Now known as the Quidnic River.,5,0,0,0,,,
 text,-61.2,11.4,,Allum Pond,,,"Allum (or Wallum) Pond in Providence County, named for the Quinebaug Nipmuc sachem Allums, whose name meant 'The Fox'.",5,0,0,0,,,
 text,-61.2,12,,Aqueedenuck,,,Aqueedenuck in Washington County meaning 'at the island' or possibly 'place beyond the hill'.,5,0,0,0,,,
@@ -407,7 +408,7 @@ text,-53.409531853086435,110.34667968750001,,MASAPIQUOT,Skunk Place,,,3,0,0,0,,,
 text,-53.87844040332883,109.79736328125001,,SANCHIACATTUATUCK,,,Place where the wood is rotten,2,1,0,0,,,
 text,-53.146770330850835,109.79736328125001,,SANNAMENACK,,,Eat much,3,0,0,0,,,
 text,-53.2257684357902,112.52197265625001,,SAQUENAUSAUQUANN,,,Early summer or lay rich eels,3,0,0,0,,,
-text,-53.787671844350285,112.67578125,,TAKEMMY,,,Cold water,3,0,0,0,,,
+text,-54.457266680933856,95.47119140625,,TAKEMMY,,,Cold water,7,0,0,0,,,
 text,-56.365250136856076,109.5556640625,,TASHQUIMMACASSICK,,,Black fish place,4,0,0,0,,,
 text,-54.239550531561775,110.32470703125001,,MASHIANAUKE,,,Big town,3,0,0,0,,,
 text,-54.239550531561775,112.52197265625001,,MASSAPOOTOOQUAK,,,Land of great blowing holes,1,0,0,0,,,
@@ -892,7 +893,7 @@ text,35.72465804042076,72.83953412355683,,Abousett,,,4,5,0,0,0,,,
 text,36.963177033353084,74.07011992325785,,Sauguset,,,4,5,0,0,0,,,
 text,32.32132440176417,65.76537993734482,,Mystic,,,4,4,0,0,0,,,
 text,35.51054763950284,60.38321269004152,,Aberjona,,,4,5,0,0,0,,,
-text,-54.965001642304124,132.51694871338532,,Nantucket,,"Natocke and Nantican [^¹] [^¹]:Worth, Henry B. Land Records: Extracted from Nantucket Lands and Land Owners. Nantucket Historical Association, 1901. http://dunhamwilcox.net/ma/nantucket_land.htm",32,14,0,0,0,,,
+text,-62.02152819100765,142.47070312500003,,Nantucket,,"Natocke and Nantican [^¹] [^¹]:Worth, Henry B. Land Records: Extracted from Nantucket Lands and Land Owners. Nantucket Historical Association, 1901. http://dunhamwilcox.net/ma/nantucket_land.htm",32,14,0,0,0,,,
 text,38.42777351132902,-53.21777343750001,,Wequamps ,,"""A place where a hill drops off.""","Wequomps It is said the mountain is the carcass of a human-eating giant beaver who lived in a lake now occupied by the Connecticut River. The people complained to the god Hobomok that the beaver was greedy, and consuming all their resources. In response Hobomok decided to kill the beaver with a club he fashioned from a large tree. After the struggle, the beaver died, sank to the bottom of the lake, turned to stone, and became what is now Wequamps Mountain. Geological evidence shows that 15,000 years ago the area was infact a massive post-glacial lake and that a now extinct species of giant beaver as big as black bears once inhabited the area about the same time ",10,0,0,0,,,Mountains
 text,-30.902427738444473,139.13085937500003,,Saquducket,,,Sa,5,-20,0,0,,,Bodies of Water
 text,-33.81540064025878,125.66162109375001,,Mattacheeset,,,Mattakeeset,6,0,0,0,,,
@@ -1026,3 +1027,38 @@ text,4.214662512454028,-50.05281818863504,,Accomsick,,,,8,0,0,0,,,Geographical L
 text,10.639114339905174,-43.52731936358496,,Chicopi,,,,8,0,0,0,,,Rivers
 text,12.61842300676354,-51.39036590411805,,Wullamansepe,,,,8,0,0,0,,,Geographical Locations
 text,22.47157038218241,-56.071955940995736,,Pawaagonick,,,,8,0,0,0,,,Geographical Locations
+text,-49.095481475720774,64.29216896945348,,Cocoesit ,,,,4,-34,0,0,,,Bodies of Water
+text,-58.436233157945246,111.00585937500001,,Mattakeset,,,,3,0,0,0,,,
+text,-58.04300405858761,114.89501953125001,,Poucha,,,,3,45,0,0,,,
+text,-57.621875380195455,112.91748046875001,,Washaqua,,,,3,0,0,0,,,
+text,-58.37867853932655,114.56542968750001,,Wasque,,,,3,0,0,0,,,
+text,-56.57158903959722,106.94091796875001,,Wintucket,,,,3,0,0,0,,,
+text,-58.44773280389084,104.21630859375001,,Faqua,,,,3,0,0,0,,,
+text,-57.97315745102812,102.78808593750001,,Watcha,,,,3,0,0,0,,,
+text,-54.20101023973888,102.85400390625,,Tashmoo,,,,3,0,0,0,,,
+text,-51.69979984974194,105.62255859375001,,Sanchekantackett,,,,3,0,0,0,,,
+text,-57.9265172853711,96.74560546875,,Quansue,,,,3,0,0,0,,,
+text,-60.28340847828243,89.58251953125001,,Squibnocket,,,,3,0,0,0,,,
+text,-59.20968817840925,89.89013671875001,,Menemsha,,,,3,0,0,0,,,
+text,-59.24341475839977,92.48291015625,,Wequobsket,,,,3,-25,0,0,,,
+text,-59.667740581649625,90.87890625000001,,Kashaquitsa,,,,3,0,0,0,,,
+text,-36.580246601498644,33.35449218750001,,Mettaubscut,,,,5,0,0,0,,,Settlements
+text,-44.5278427984555,33.79394531250001,,Annaquatucket,,,,3,22,0,0,,,Rivers
+text,-35.74651225991851,38.91357421875,,Nausauket,,,,5,0,0,0,,,Geographical Locations
+text,-34.03445260967645,18.808593750000004,,Pawchauquet,,,,7,0,0,0,,,Rivers
+text,-40.93011520598305,55.70068359375,,Nonaquaket,,,,5,0,0,0,,,Geographical Locations
+text,-37.160316546736766,62.29248046875001,,Watuppa,,,,5,0,0,0,,,Geographical Locations
+text,-40.413496049701955,60.77636718750001,,Pocasset,,,,14,0,0,0,,,Tribes
+text,34.016241889667036,13.688964843750002,,Waushacum,,,,5,0,0,0,,,Settlements
+text,36.8268747428773,20.061035156250004,,Nashaway,,,,5,0,0,0,,,Settlements
+text,37.73596920859053,17.666015625000004,,Nashua,,,,5,0,0,0,,,Settlements
+text,15.580242087650872,77.1024832719483,,Weechagask,,,,6,0,0,0,,,
+text,-33.7404408514939,55.65639136357758,,Mattapoisett,,,,5,0,0,0,,,Geographical Locations
+text,-27.451256009893587,55.96404093006036,,Mattapoisett,,,,12,0,0,0,,,Tribes
+text,-30.14448501545586,34.01265193704311,,Maushapogue,,,,5,0,0,0,,,Settlements
+text,-29.209646173942872,37.44165504984573,,Pesaumkamesquesit,,,,2,0,0,0,,,Settlements
+text,-28.825425374477224,39.70468123961169,,Papaquinapaug,,,,2,0,0,0,,,Settlements
+text,-27.97561985621553,35.7476685688726,,Antashantuck,,,,2,0,0,0,,,Bodies of Water
+text,-26.354081104440404,36.18722324483,,Tabamapaug,,,,2,0,0,0,,,Bodies of Water
+text,-27.07877135237314,35.6615703182713,,Chaubatick,,,,4,0,0,0,,,
+text,-26.727347638958253,38.75861809918099,,Mashpaug,,,,2,0,0,0,,,Bodies of Water

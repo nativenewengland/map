@@ -367,6 +367,8 @@ marker,52.03897658307622,96.6796875,settlement,"""Wigwam Point""",,,,,,,,,{},Set
 marker,40.780622877109245,82.46337890625001,forts,Marker,,,,,,,,,{},
 marker,8.948342272107851,-45.525372025585845,settlement,Marker,,,,,,,,,{},Settlements
 marker,20.097206227083888,78.66210937500001,fishing,Marker,,,,,,,,,{},
+marker,21.207828482243247,45.505371286847904,settlement,Natick,,,,,,,,,{},Settlements
+marker,27.466539645294674,31.35498069359003,settlement,Marker,,,,,,,,,{},Settlements
 text,-61.2,10.8,,Acqueednuck,,,Acqueednuck (a branch of the Pawtuxet River) & Pond in Washington County. Possibly derived from ukque-dene-auke 'place at the end of the hill' or ogque-adene-auke 'place beyond the hill'. Now known as the Quidnic River.,5,0,0,0,,,
 text,-61.2,11.4,,Allum Pond,,,"Allum (or Wallum) Pond in Providence County, named for the Quinebaug Nipmuc sachem Allums, whose name meant 'The Fox'.",5,0,0,0,,,
 text,-61.2,12,,Aqueedenuck,,,Aqueedenuck in Washington County meaning 'at the island' or possibly 'place beyond the hill'.,5,0,0,0,,,
@@ -425,7 +427,7 @@ text,-56.32872090717995,-14.39208984375,,Eastern Niantic,,,Eastern Niantic homel
 text,-60.08676274626006,-60.60058593750001,,Hammonasset,,,Hammonasset homelands along the central Connecticut shoreline.,24,0,0,0,,,Tribes
 text,-69.16724012600773,-49.949353504869585,,Manhanset,,,"Manhanset people of Shelter Island, between Long Island's forks.",24,0,0,0,,,Tribes
 text,-66.98836600973269,23.16686297828692,,Manisess,,,Manissean (Manitou) homelands on Block Island.,24,0,0,0,,,Tribes
-text,23.32208001137844,48.16406250000001,,Massachusett,,,Massachusett homelands around the Shawmut Peninsula (Boston).,24,0,0,0,,,Tribes
+text,23.24131508728885,48.27392578786296,,Massachusett,,,Massachusett homelands around the Shawmut Peninsula (Boston).,24,0,0,0,,,Tribes
 text,-37.23032838760386,-39.90234375000001,,Mashantucket Pequot,,,Mashantucket Pequot homelands near the Pawcatuck River.,24,0,0,0,,,Tribes
 text,-79.65392213419594,-146.93163540003792,,Matinecock,,,Matinecock homelands on Long Island's north shore.,24,0,0,0,,,Tribes
 text,-76.01582449107187,-109.50898851393923,,Merrick,,,Merrick (Merokee) territory on Long Island's south shore.,24,0,0,0,,,Tribes
@@ -955,7 +957,7 @@ text,-57.79794388498275,5.910644531250001,,Pawcatuck,,,,5,-90,2,0,,,Rivers
 text,-58.309488840677645,35.11230468750001,,Weyanitoke,,,,3,0,0,0,,,Geographical Locations
 text,-32.602361666817515,-20.786132812500004,,Willlmantic,,,,6,0,0,0,,,Settlements
 text,-22.268764039073968,27.597656250000004,,Moswansicut,,,,4,85,0,0,,,Bodies of Water
-text,-2.152813583128846,4.921875000000001,,Chabunagungamaug ,,,,7,0,0,0,,,Bodies of Water
+text,-2.3504905943515104,5.361328151451762,,Chabunagungamaug ,,,,7,56,0,0,,,Bodies of Water
 text,-11.566143767762856,17.446289062500004,,Pascoag,,,,4,-86,0,0,,,Rivers
 text,-15.580710739162123,37.74902343750001,,Mittaubscut,,,,5,26,0,0,,,Rivers
 text,-10.531020008464976,36.43066406250001,,Sneechteconet,,,,5,26,0,0,,,Rivers
@@ -1062,3 +1064,18 @@ text,-27.97561985621553,35.7476685688726,,Antashantuck,,,,2,0,0,0,,,Bodies of Wa
 text,-26.354081104440404,36.18722324483,,Tabamapaug,,,,2,0,0,0,,,Bodies of Water
 text,-27.07877135237314,35.6615703182713,,Chaubatick,,,,4,0,0,0,,,
 text,-26.727347638958253,38.75861809918099,,Mashpaug,,,,2,0,0,0,,,Bodies of Water
+text,13.68867957091947,28.850097684024345,,Maspenock,,,,7,20,0,0,,,Bodies of Water
+text,8.798375565661866,30.27832032969365,,Magomiscock,,,,5,51,0,0,,,
+text,2.940908769394139,28.344726705339543,,Tatumasket,,,,4,20,0,0,,,Bodies of Water
+text,4.676064766002433,2.153319924981623,,Pegan,,,Pokanoket (Wampanoag) homelands around Mount Hope and Narragansett Bay.,14,0,0,0,,,Tribes
+text,0.2855167712380866,-0.7470703786294219,,Chabanakongkomun,,,,7,0,0,0,,,Bodies of Water
+text,-0.6161676160267727,15.556640709645652,,Waeuntug,,,,7,0,0,0,,,
+text,4.193080101169764,72.64160151091907,,Manamooskeagin,,,,5,0,0,0,,,
+text,0.06587576145997566,80.7934571463152,,Tunk,,,,7,0,0,0,,,Geographical Locations
+text,-0.549291114777605,82.83691402282234,,Namassukeesett,,,,7,0,0,0,,,Bodies of Water
+text,1.8893650006118803,85.64941401620943,,Mattakeeesett,,,,7,0,0,0,,,Bodies of Water
+text,-3.3164816815073506,93.7792971937438,,Namassakeesett,,,,7,0,0,0,,,Bodies of Water
+text,-1.1864470761913188,95.47119142873402,,Nishamagoquanett,,,,3,0,0,0,,,
+text,24.226982532410496,57.85400388641119,,Nonatum,,,4,6,0,0,0,,,
+text,28.284951553591984,29.794921844580458,,Okommakamesit,,,,5,0,0,0,,,Settlements
+text,29.743477300551824,30.827636911847904,,Whipsuopenike,,,,5,0,0,0,,,Settlements
