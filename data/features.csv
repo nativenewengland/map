@@ -421,7 +421,7 @@ text,-72.76643494811363,-71.73513141636457,,Corchaug,,,Corchaug territory on the
 text,-56.32872090717995,-14.39208984375,,Eastern Niantic,,,Eastern Niantic homelands along the Niantic River in Connecticut.,24,0,0,0,,,Tribes
 text,-60.08676274626006,-60.60058593750001,,Hammonasset,,,Hammonasset homelands along the central Connecticut shoreline.,24,0,0,0,,,Tribes
 text,-69.16724012600773,-49.949353504869585,,Manhanset,,,"Manhanset people of Shelter Island, between Long Island's forks.",24,0,0,0,,,Tribes
-text,-66.98836600973269,23.16686297828692,,Manissean,,,Manissean (Manitou) homelands on Block Island.,24,0,0,0,,,Tribes
+text,-66.98836600973269,23.16686297828692,,Manisess,,,Manissean (Manitou) homelands on Block Island.,24,0,0,0,,,Tribes
 text,23.32208001137844,48.16406250000001,,Massachusett,,,Massachusett homelands around the Shawmut Peninsula (Boston).,24,0,0,0,,,Tribes
 text,-37.23032838760386,-39.90234375000001,,Mashantucket Pequot,,,Mashantucket Pequot homelands near the Pawcatuck River.,24,0,0,0,,,Tribes
 text,-79.65392213419594,-146.93163540003792,,Matinecock,,,Matinecock homelands on Long Island's north shore.,24,0,0,0,,,Tribes
@@ -600,13 +600,13 @@ text,-59.64554025144323,148.82080078125003,,Quaise,,,,5,0,0,0,,,Settlements
 text,-56.619976528450195,151.04003906250003,,Satucket,,,,5,0,0,0,,,Settlements
 text,-60.8502623930218,136.73583984375003,,Cuppammet,,,,5,0,0,0,,,Settlements
 text,-60.26161708284461,144.95361328125003,,Coatue,,,,5,-27,0,0,,,Geographical Locations
-text,-53.51418452077112,-122.62939453125001,,Kohanga,,,,5,0,0,0,,,Geographical Locations
+text,-53.51418452077112,-122.62939453125001,,Kohanga,,,,7,0,0,0,,,Geographical Locations
 text,-62.451405884537564,-104.7216796875,,Tashua,,,,5,0,0,0,,,Geographical Locations
 text,3.995780512963038,-106.96289062500001,,Outhotonnook ,,,,10,60,0,0,,,Geographical Locations
 text,-63.27318217465046,-42.40722656250001,,Pecukwunnaune,,,,6,0,0,0,,,Geographical Locations
 text,41.541477666790286,-99.86572265625,,Moonkeek-Shoonkeek,,,,6,0,0,0,,,Bodies of Water
 text,38.42777351132902,-100.50292968750001,,Pontoosuck,,,,6,0,0,0,,,Bodies of Water
-text,49.993615462541136,-65.17089843750001,,Paugemtuk,,,,5,0,0,0,,,Rivers
+text,50.1628523613064,-65.54443359375001,,Paugemtuk,,,,8,-14,0,0,,,Rivers
 text,44.15068115978094,-47.4169921875,,Quinnitekuk,,,,5,0,0,0,,,Rivers
 text,45.300000000000004,-47.20000000000001,,Mattamacket,,,,5,0,0,0,,,Bodies of Water
 text,44.21372213673447,-43.94586385056617,,Taughkannacoas Islands,,,,5,0,0,0,,,Bodies of Water
@@ -967,3 +967,14 @@ text,55.677584411089526,76.37695312500001,,Agawam,,"""fish curing place""",,15,0
 text,57.98360215912974,-35.857615483939256,,Putchaug ,,"""turning place"" or ""division place""",a brook ,6,0,0,0,,,Rivers
 text,-46.28622391806706,43.154296875,,Quinunlcut ,,,,5,0,0,0,,,Geographical Locations
 text,51.97134580885172,95.95458984375001,,Annisquam,," ""top of the rock""",,3,-59,0,0,,,Geographical Locations
+text,56.571622891252225,-96.94335937500001,,Hoosic,,,,7,0,0,0,,,Settlements
+text,-52.10759796860641,-79.14550781250001,,Quinnipacs,,,,24,0,0,0,,,Tribes
+text,-4.937732992108119,-15.227050781250002,,Mashapaug,,,,5,-85,0,0,,,Bodies of Water
+text,-0.7250958011906423,-14.655761718750002,,Quassink,,,,5,-85,0,0,,,Bodies of Water
+text,5.222223276005257,-10.832519531250002,,Tantaskwe,,,,7,0,0,0,,,
+text,8.840622209790851,-20.456542968750004,,Ashquoach,,,,7,0,0,0,,,
+text,10.682192001443196,-10.239257812500002,,Quacumquasit,,,,4,0,0,0,,,Bodies of Water
+text,12.361460269069257,-10.744628906250002,,Quobagud,,,,7,0,0,0,,,
+text,11.458456449145606,-10.261230468750002,,Putikookuppogg,,,,7,0,0,0,,,
+text,16.719502322687266,-16.611328125000004,,Wekabaug,,,,7,0,0,0,,,
+text,14.19993134294845,-22.126464843750004,,Quaboag,,,,24,0,0,0,,,Tribes
