@@ -365,6 +365,7 @@ marker,-59.07444815466584,6.08642578125,settlement,Marker,,,,,,,,,{},Settlements
 marker,-48.92249926375824,35.11230468750001,pteroglyph,Gardiner Petroglyph,,,,,,,,,{},Petroglyph
 marker,52.03897658307622,96.6796875,settlement,"""Wigwam Point""",,,,,,,,,{},Settlements
 marker,40.780622877109245,82.46337890625001,forts,Marker,,,,,,,,,{},
+marker,8.948342272107851,-45.525372025585845,settlement,Marker,,,,,,,,,{},Settlements
 text,-61.2,10.8,,Acqueednuck,,,Acqueednuck (a branch of the Pawtuxet River) & Pond in Washington County. Possibly derived from ukque-dene-auke 'place at the end of the hill' or ogque-adene-auke 'place beyond the hill'. Now known as the Quidnic River.,5,0,0,0,,,
 text,-61.2,11.4,,Allum Pond,,,"Allum (or Wallum) Pond in Providence County, named for the Quinebaug Nipmuc sachem Allums, whose name meant 'The Fox'.",5,0,0,0,,,
 text,-61.2,12,,Aqueedenuck,,,Aqueedenuck in Washington County meaning 'at the island' or possibly 'place beyond the hill'.,5,0,0,0,,,
@@ -984,3 +985,35 @@ text,60.88770004207789,70.04882812500001,,Merrimack,,,,11,-35,2,0,,,Tribes
 text,31.858875549139846,61.74316406250001,,Mishawams,,,,8,0,0,0,,,Tribes
 text,49.80964585402084,57.39257812500001,,Shawshins,,,,20,0,0,0,,,Tribes
 text,50.176894070076976,42.890625,,Wamesit,,,,20,0,0,0,,,Tribes
+text,-21.514094753506065,-40.825624144474055,,Podunks,,,,24,0,0,0,,,Tribes
+text,-24.68664485513709,-43.24182911899314,,Hockanum,,,,8,0,0,0,,,Geographical Locations
+text,-17.623081791311755,-42.18754594628294,,Scantcook,,,,8,0,0,0,,,Geographical Locations
+text,-15.622333062222129,-49.45870019691301,,Namferoke,,,,8,0,0,0,,,Geographical Locations
+text,-5.8340905990263385,-48.668575929801925,,Mayawaug,,,,8,0,0,0,,,Geographical Locations
+text,-6.030813641859155,-43.74738706096039,,Nameroke,,,,8,0,0,0,,,Geographical Locations
+text,-5.068421300285728,-41.85800204881588,,Scitico,,,,8,0,0,0,,,Geographical Locations
+text,-2.220396434530004,-44.04221682604441,,Watchuet,,,,8,0,0,0,,,Geographical Locations
+text,3.469661506957474,-44.604433988874966,,Watchoge,,,,8,0,0,0,,,Geographical Locations
+text,0.37357363475563404,-48.098138405078956,,Pecousic,,,,8,0,0,0,,,Geographical Locations
+text,0.9447434323532743,-54.80132328270097,,Wequanshausicke,,,,8,0,0,0,,,Geographical Locations
+text,2.833418335720682,-51.239781245786816,,Quana,,,,8,0,0,0,,,Geographical Locations
+text,1.625758360412755,-48.845165856808045,,Agawam,,,,8,0,0,0,,,Geographical Locations
+text,3.7326577974143516,-48.42782010214845,,Usquaiok,,,,8,0,0,0,,,Geographical Locations
+text,8.385393448027209,-50.77891881436943,,Chickupee,,,,8,0,0,0,,,Geographical Locations
+text,7.798592702914954,-47.834239968275654,,Ganuk,,,,8,0,0,0,,,Geographical Locations
+text,9.035102785265014,-48.95501689132256,,Scanun,,,,8,0,0,0,,,Geographical Locations
+text,8.991725127277657,-46.18491911515059,,Skipmuck,,,,8,0,0,0,,,Geographical Locations
+text,53.904442556582964,3.9994153330357434,,Wataic,,,,5,0,0,0,,,Geographical Locations
+text,52.348670396929265,20.041658807924215,,Wistequassuck,,,,5,0,0,0,,,Geographical Locations
+text,50.59774866271025,13.621430305915087,,Cocatoonemaugs,,,,20,0,0,0,,,Tribes
+text,42.617828691742126,11.249902026116075,,Nashaway,,,,20,0,0,0,,,Tribes
+text,37.85710740085716,1.9243107244973467,,Wachuset,,,,20,0,0,0,,,Tribes
+text,49.18145516865171,21.4018325634487,,Squannassit,,,,8,65,1,0,,,Rivers
+text,48.63431394003992,29.443873737890645,,Petapawag,,,,5,0,0,0,,,Geographical Locations
+text,18.312882947086592,89.69173373551898,,Quonahassit,,,,5,0,0,0,,,
+text,16.34159001371537,90.15349017862722,,Musquashcut,,,4,5,65,0,0,,,
+text,18.396710576404068,57.9644550308036,,Neponset,,,,24,0,0,0,,,Tribes
+text,14.392853718208817,66.59864347106584,,Housickwissick,,,4,5,0,0,0,,,
+text,-35.31729403099959,143.45981556484378,,Wooncepitt,,,,3,0,0,0,,,Bodies of Water
+text,-35.6754764728431,146.0074680032366,,Skinequit,,,,3,0,0,0,,,Bodies of Water
+text,-35.97801642411154,146.60137879896763,,Maspatucke,,,,3,0,0,0,,,Rivers
