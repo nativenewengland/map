@@ -366,6 +366,7 @@ marker,-48.92249926375824,35.11230468750001,pteroglyph,Gardiner Petroglyph,,,,,,
 marker,52.03897658307622,96.6796875,settlement,"""Wigwam Point""",,,,,,,,,{},Settlements
 marker,40.780622877109245,82.46337890625001,forts,Marker,,,,,,,,,{},
 marker,8.948342272107851,-45.525372025585845,settlement,Marker,,,,,,,,,{},Settlements
+marker,20.097206227083888,78.66210937500001,fishing,Marker,,,,,,,,,{},
 text,-61.2,10.8,,Acqueednuck,,,Acqueednuck (a branch of the Pawtuxet River) & Pond in Washington County. Possibly derived from ukque-dene-auke 'place at the end of the hill' or ogque-adene-auke 'place beyond the hill'. Now known as the Quidnic River.,5,0,0,0,,,
 text,-61.2,11.4,,Allum Pond,,,"Allum (or Wallum) Pond in Providence County, named for the Quinebaug Nipmuc sachem Allums, whose name meant 'The Fox'.",5,0,0,0,,,
 text,-61.2,12,,Aqueedenuck,,,Aqueedenuck in Washington County meaning 'at the island' or possibly 'place beyond the hill'.,5,0,0,0,,,
@@ -1051,3 +1052,13 @@ text,-40.413496049701955,60.77636718750001,,Pocasset,,,,14,0,0,0,,,Tribes
 text,34.016241889667036,13.688964843750002,,Waushacum,,,,5,0,0,0,,,Settlements
 text,36.8268747428773,20.061035156250004,,Nashaway,,,,5,0,0,0,,,Settlements
 text,37.73596920859053,17.666015625000004,,Nashua,,,,5,0,0,0,,,Settlements
+text,15.580242087650872,77.1024832719483,,Weechagask,,,,6,0,0,0,,,
+text,-33.7404408514939,55.65639136357758,,Mattapoisett,,,,5,0,0,0,,,Geographical Locations
+text,-27.451256009893587,55.96404093006036,,Mattapoisett,,,,12,0,0,0,,,Tribes
+text,-30.14448501545586,34.01265193704311,,Maushapogue,,,,5,0,0,0,,,Settlements
+text,-29.209646173942872,37.44165504984573,,Pesaumkamesquesit,,,,2,0,0,0,,,Settlements
+text,-28.825425374477224,39.70468123961169,,Papaquinapaug,,,,2,0,0,0,,,Settlements
+text,-27.97561985621553,35.7476685688726,,Antashantuck,,,,2,0,0,0,,,Bodies of Water
+text,-26.354081104440404,36.18722324483,,Tabamapaug,,,,2,0,0,0,,,Bodies of Water
+text,-27.07877135237314,35.6615703182713,,Chaubatick,,,,4,0,0,0,,,
+text,-26.727347638958253,38.75861809918099,,Mashpaug,,,,2,0,0,0,,,Bodies of Water
