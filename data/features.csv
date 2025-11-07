@@ -687,7 +687,7 @@ text,45.99696161820381,76.24511718750001,,Wahquamesecok ,,,,7,0,0,0,,,Settlement
 text,40.1452892956766,78.79394531250001,,Massabequash ,,,,7,0,0,0,,,Settlements
 text,54.88924640307589,63.58886718750001,,Cochichewick,,,,5,0,0,0,,,Bodies of Water
 text,47.39834920035926,78.88183593750001,,Michigamea,,,,5,0,0,0,,,Bodies of Water
-text,-22.532853707527117,77.49755859375001,,Assawompsett,,,,5,0,0,0,,,Bodies of Water
+text,-22.532853707527117,77.49755859375001,,Assawompsett,Assowamsoo,,,5,0,0,0,,,Bodies of Water
 text,-25.97779895546436,75.84960937500001,,Apponaqut,,,,7,85,0,0,,,Bodies of Water
 text,-25.878994400196202,79.78271484375001,,Quittacas,,,,5,0,0,0,,,Bodies of Water
 text,-28.671310915880834,82.19970703125001,,Snipatuit ,,,,5,-76,0,0,,,Bodies of Water
@@ -1096,3 +1096,7 @@ text,-57.36546210859709,110.21484355954729,,Chappaquiddick,,,,9,34,0,0,,,Settlem
 text,35.711270695529144,-48.44947576607331,,Nepesoneag,,,,5,-55,0,0,,,Geographical Locations
 text,39.281369144056065,-46.004165665812415,,Kunckquachu,,,,5,55,0,0,,,Geographical Locations
 text,39.04483904467182,-49.262648008259326,,Wequamps,,,,5,98,0,0,,,Geographical Locations
+text,-24.547185249055268,79.34332216305758,,Nahteawanet,,"""four cornered gap,"" or ""square shaped hole.""",,4,-30,0,0,,,Geographical Locations
+text,-25.36389383379064,78.24466307042381,,Mashquomoh ,Massquamak,,Mashquomoh was a swamp,3,65,0,0,,,Geographical Locations
+text,-23.94607262876238,79.32128643448664,,Chupipoggut,,,,3,-76,0,0,,,Bodies of Water
+text,-25.244665091497478,78.92576810993313,,Sasonkususett,,,,2,58,0,0,,,Bodies of Water
