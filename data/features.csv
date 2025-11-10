@@ -433,7 +433,7 @@ text,23.24131508728885,48.27392578786296,,Massachusett,,,Massachusett homelands 
 text,-37.23032838760386,-39.90234375000001,,Mashantucket Pequot,,,Mashantucket Pequot homelands near the Pawcatuck River.,24,0,0,0,,,Tribes
 text,-79.65392213419594,-146.93163540003792,,Matinecock,,,Matinecock homelands on Long Island's north shore.,24,0,0,0,,,Tribes
 text,-76.01582449107187,-109.50898851393923,,Merrick,,,Merrick (Merokee) territory on Long Island's south shore.,24,0,0,0,,,Tribes
-text,-72.76619493972098,-36.42071459256301,,Montaukett ,,"""high or hilly land"" or ""the fort country""","Montaukett homelands at the eastern tip of Long Island. Montauk, or Manatacut, or Meuntacut, or Montaukut",24,0,0,0,,,Tribes
+text,-72.76619493972098,-36.42071459256301,,Montaukett ,"Montauk, Manatacut, Meuntacut, Montaukut","""high or hilly land"" or ""the fort country""","Montaukett homelands at the eastern tip of Long Island. Montauk, or Manatacut, or Meuntacut, or Montaukut",24,0,0,0,,,Tribes
 text,-34.84996950050357,-35.77148437500001,,Mohegan,,,Mohegan homelands along the Thames River in Connecticut.,31,0,0,0,,,Tribes
 text,-31.278550858946517,15.996093750000002,,Narragansett,,,Narragansett homelands along the southern Rhode Island coast.,24,0,0,0,,,Tribes
 text,-17.26672782352052,147.61230468750003,,Nauset,,,Nauset (Cape Cod) Wampanoag homelands on the outer Cape.,24,0,0,0,,,Tribes
@@ -834,11 +834,11 @@ text,-59.987912041060916,87.31922204785454,,Aquinnah ,,,,9,34,0,0,,,Settlements
 text,-52.20087371733219,101.16207022543438,,Tashmoo,,,,6,69,0,0,,,Bodies of Water
 text,-54.52107933590939,106.50138654461875,,Sengekontacket ,,,,4,53,0,0,,,
 text,-48.25394114463432,98.67919921875001,,Nobska ,,,,3,37,0,0,,,
-text,-69.78654510363337,3.8012695312500004,,Shawango,,,,5,0,0,0,,,Settlements
+text,-69.78654510363337,3.8012695312500004,,Shagwannock ,Shawango ,,,5,0,0,0,,,Settlements
 text,-69.3570863282203,-13.535156250000002,,Manchonack,,,,8,0,0,0,,,
 text,-72.77057418574792,-10.898437500000002,,Potinack,,,,5,0,0,0,,,
 text,-72.46203877644956,-9.997558593750002,,Nominick,,,,5,0,0,0,,,
-text,-72.20867825343294,-9.140625000000002,,Neapeague,, “land of water”,,5,0,0,0,,,
+text,-72.20867825343294,-9.140625000000002,,Neapeague,,“land of water”,,5,0,0,0,,,
 text,-66.71385654790883,-19.841308593750004,,Manittuwond,,,,8,0,0,0,,,
 text,-73.40961261539776,-40.01220703125001,,Anchannock,," ""land well wooded"" or ""a place full of timber.""",,4,45,0,0,,,
 text,-71.44117085172384,-25.795898437500004,,Mashomuck,,,,4,45,0,0,,,
@@ -1101,3 +1101,7 @@ text,-25.36389383379064,78.24466307042381,,Mashquomoh ,Massquamak,,Mashquomoh wa
 text,-23.94607262876238,79.32128643448664,,Chupipoggut,,,,3,-76,0,0,,,Bodies of Water
 text,-25.244665091497478,78.92576810993313,,Sasonkususett,,,,2,58,0,0,,,Bodies of Water
 text,22.87744046489714,80.88134765625,,Nantasket ,,"""low-tide place"" or ""where tides meet""",Nantasket was a tidal island connected to the mainland by a sandbar that would emerge only at low tide. ,6,67,0,0,,,
+text,-70.66360693648447,1.9995117187500002,,Wyandannee,,,,5,36,0,0,,,Bodies of Water
+text,-70.61990681823112,4.724121093750001,,Wompenanit,,,,5,-24,0,0,,,Settlements
+text,-70.31133703000764,1.9116210937500002,,Munchogue,,,,3,0,0,0,,,Settlements
+text,-70.31133703000764,5.163574218750001,,Munchogue,,,,3,0,0,0,,,Settlements
