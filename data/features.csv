@@ -444,7 +444,9 @@ text,-54.825433284376075,-45.966796875,,Pequot,,,Pequot homelands surrounding th
 text,-2.6577377901397883,-54.00878906250001,,Podunk,,,Podunk homelands on the east side of the Connecticut River.,24,0,0,0,,,Tribes
 text,-32.546813173515154,47.19726562500001,,Pokanoket,,,Pokanoket (Wampanoag) homelands around Mount Hope and Narragansett Bay.,20,0,0,0,,,Tribes
 text,-15.284185114076433,-90.17578125000001,,Quinnipiac,,,Quinnipiac homelands at the mouth of the Quinnipiac River.,24,0,0,0,,,Tribes
-text,-78.86850415610446,-131.1195136082202,,Rockaway,,,Rockaway (Reckgawawank) Lenape homelands on the Rockaway Peninsula.,24,0,0,0,,,Tribes
+text,-78.86850415610446,-131.1195136082202,,Rockaway,,"""Sandy Land""","Rockaway (Reckgawawank) Lenape homelands on the Rockaway Peninsula.
+
+Rechuaaki",24,0,0,0,,,Tribes
 text,-26.74561038219901,-62.49023437500001,,Schaghticoke,,,Schaghticoke homelands near the confluence of the Housatonic and Ten Mile Rivers.,24,0,0,0,,,Tribes
 text,-77.91475737592121,-115.48264463361654,,Secatogue,,,Secatogue homelands around Islip on Long Island.,24,0,0,0,,,Tribes
 text,-76.20596704314148,-78.13476562500001,,Setalcott,,,Setalcott (Setauket) homelands on Long Island's north shore.,24,0,0,0,,,Tribes
@@ -1105,3 +1107,13 @@ text,-70.66360693648447,1.9995117187500002,,Wyandannee,,,,5,36,0,0,,,Bodies of W
 text,-70.61990681823112,4.724121093750001,,Wompenanit,,,,5,-24,0,0,,,Settlements
 text,-70.31133703000764,1.9116210937500002,,Munchogue,,,,3,0,0,0,,,Settlements
 text,-70.31133703000764,5.163574218750001,,Munchogue,,,,3,0,0,0,,,Settlements
+text,-79.39204037713941,-165.10295812074625,,Nyack,,"""point of land.""",Today known as the lower hudson river,11,-40,2,0,,,
+text,-77.78632729395049,-164.08980463087858,,Hopocan,,"""tobacco pipe""",Named after the serpentine stone that was used to make pipes,7,0,0,0,,,
+text,-76.0585148934235,-160.4003013175049,,Mahicannituck,"Mahicannituckw, Mohicannituck","""the great tidal river."" ",Today known as the lower hudson river,11,-65,2,0,,,
+text,-78.13439396655495,-159.96059400963424,,Mannahatta,,"""where we gather wood for bows."" or ""island of many hills.""",,7,0,0,0,,,
+text,-77.61770905279674,-158.1140046794906,,Muscootah,,"""grassland."" or ""great fire""","Today known as Harlem Plains, Muscootah was a field.",7,0,0,0,,,
+text,-77.11799308410038,-155.25885776057316,,Moshulu,,"""canoe-wood""","Today known as the Harlem River, Moshulu was an important creek for which dugout canoes were made from the sycamore trees, (moshuliminschi or canoe trees) that lined its banks. ",7,65,0,0,,,Rivers
+text,-77.55142261109472,-174.94632341153664,,Aquackanonk,,"""at the fish weirs"" ",,7,0,0,0,,,
+text,-76.21676532394291,-173.0530751950034,,Passiac,,"""at the chasm"" ",,7,0,0,0,,,
+text,-64.45390359105039,-91.58181828597324,,Housatonic/Awasss-Adenak,,"""beyond the moutnains""",,7,65,0,0,,,Rivers
+text,-72.71187873046874,-28.476541890578055,,Sagabonack,,"""ground nuts""",,5,0,0,0,,,
