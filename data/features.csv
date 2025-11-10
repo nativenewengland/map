@@ -257,7 +257,6 @@ marker,2.3943223575350774,-47.52685546875001,settlement,Marker,,,,,,,,,{},Settle
 marker,2.591888984149953,-50.07568359375001,settlement,Marker,,,,,,,,,{},Settlements
 marker,2.833317196855306,-50.64697265625001,settlement,Marker,,,,,,,,,{},Settlements
 marker,3.3160183381615123,-50.09765625000001,settlement,Marker,,,,,,,,,{},Settlements
-marker,3.7984839750369748,-50.62500000000001,settlement,Marker,,,,,,,,,{},Settlements
 marker,4.368320420876243,-50.03173828125001,settlement,Marker,,,,,,,,,{},Settlements
 marker,8.167993177231883,-49.6142578125,settlement,Marker,,,,,,,,,{},Settlements
 marker,8.99360046428003,-48.0322265625,settlement,Marker,,,,,,,,,{},Settlements
@@ -1026,9 +1025,9 @@ text,-35.6754764728431,146.0074680032366,,Skinequit,,,,3,0,0,0,,,Bodies of Water
 text,-35.97801642411154,146.60137879896763,,Maspatucke,,,,3,0,0,0,,,Rivers
 text,-37.97886520433578,39.02337562631631,,Potowomut,,,,5,0,0,0,,,Geographical Locations
 text,-34.651290459844525,36.21144132856735,,Apponaug,,,,5,0,0,0,,,Geographical Locations
-text,6.271630778218564,-56.55777629125812,,Pachasock,,,,6,0,0,0,,,Geographical Locations
+text,6.468107861162584,-56.73337095827076,,Pachasock,,,,6,0,0,0,,,Geographical Locations
 text,5.418906319365926,-50.29536596076164,,Nayass,,,,8,0,0,0,,,Geographical Locations
-text,4.630777756481724,-52.00759791519215,,Ramapauc,,,,8,0,0,0,,,Geographical Locations
+text,4.609234796925002,-51.94338685422926,,Ramapauc,Ramapogue ,"""a wet or marshy place,"" or ""a place of standing water.""",Ramapauc was a marsh ,5,34,0,0,,,Geographical Locations
 text,4.214662512454028,-50.05281818863504,,Accomsick,,,,8,0,0,0,,,Geographical Locations
 text,10.639114339905174,-43.52731936358496,,Chicopi,,,,8,0,0,0,,,Rivers
 text,12.61842300676354,-51.39036590411805,,Wullamansepe,,,,8,0,0,0,,,Geographical Locations
@@ -1117,3 +1116,6 @@ text,-77.55142261109472,-174.94632341153664,,Aquackanonk,,"""at the fish weirs""
 text,-76.21676532394291,-173.0530751950034,,Passiac,,"""at the chasm"" ",,7,0,0,0,,,
 text,-64.45390359105039,-91.58181828597324,,Housatonic/Awasss-Adenak,,"""beyond the moutnains""",,7,65,0,0,,,Rivers
 text,-72.71187873046874,-28.476541890578055,,Sagabonack,,"""ground nuts""",,5,0,0,0,,,
+text,4.149186255062188,-54.404279700481716,,Mittineague,,“abandoned fields” or “the remains of an encampment.” ,,5,-7,0,0,,,Geographical Locations
+text,5.13470982805229,-58.16166231259391,,Paucatuck ,,“a river that opens out after passing through a narrow channel”,"Paucatuck was the term for the area on the north bank of the Westfield River, between the two trap ridges.",5,-7,0,0,,,Geographical Locations
+text,5.46269381696677,-54.580390701232865,,Tattom ,Tawtum,,"Tattom was an area of land that in 1667 was inhabited by a native woman named Paupsunnuck who sold the land to John Pynchon of Springfield in exchange for ""wampum & some Coates."" ",6,0,0,0,,,Geographical Locations
