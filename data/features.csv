@@ -370,6 +370,25 @@ marker,21.207828482243247,45.505371286847904,settlement,Natick,,,,,,,,,{},Settle
 marker,27.466539645294674,31.35498069359003,settlement,Marker,,,,,,,,,{},Settlements
 marker,29.171341482692327,32.12402354330709,agriculture,Marker,,,,,,,,,{},
 marker,28.979230834652927,32.56347669475885,settlement,Marker,,,,,,,,,{},Settlements
+marker,-29.21015124532252,51.85483672772701,rock,King’s Rock on Sachem’s Knoll,,,"King’s Rock is located on
+the west side of Market
+Street (Route 136) near
+the Swansea-Warren
+line on Sachem’s Knoll
+where Natives from all
+over New England used
+to celebrate their victories in tribal wars and
+talk about their peace treaties. On the top of this
+Rock can be seen a long groove where Indian
+women were said to have ground their corn.
+ A balanced or “perched” rock that may have
+been placed by Native Americans sits on private
+property on the east side of Market Street across
+from King’s Rock. Rocks like this were used to
+mark celestial events like the vernal equinox and
+the position of the stars, as well as for ceremonial
+purposes. Parking is available on the southbound
+side of Market Street at Johnson’s Market.",,,,,,{},
 text,-60.89845416440834,10.612823882882934,,Acqueednuck,,,Acqueednuck (a branch of the Pawtuxet River) & Pond in Washington County. Possibly derived from ukque-dene-auke 'place at the end of the hill' or ogque-adene-auke 'place beyond the hill'. Now known as the Quidnic River.,5,0,0,0,,,
 text,-60.983792642110764,8.899382623436482,,Allum Pond,,,"Allum (or Wallum) Pond in Providence County, named for the Quinebaug Nipmuc sachem Allums, whose name meant 'The Fox'.",5,0,0,0,,,
 text,-61.111363821203184,10.4374651260328,,Aqueedenuck,,,Aqueedenuck in Washington County meaning 'at the island' or possibly 'place beyond the hill'.,5,0,0,0,,,
@@ -1052,7 +1071,7 @@ text,-44.5278427984555,33.79394531250001,,Annaquatucket,,,,3,22,0,0,,,Rivers
 text,-35.74651225991851,38.91357421875,,Nausauket,,,,5,0,0,0,,,Geographical Locations
 text,-34.03445260967645,18.808593750000004,,Pawchauquet,,,,7,0,0,0,,,Rivers
 text,-40.93011520598305,55.70068359375,,Nonaquaket,,,,5,0,0,0,,,Geographical Locations
-text,-37.160316546736766,62.29248046875001,,Watuppa,,,,5,0,0,0,,,Geographical Locations
+text,-35.81787974885091,60.99603098631344,,Watuppa,,,,12,-65,1,0,,,Geographical Locations
 text,-40.413496049701955,60.77636718750001,,Pocasset,,,,14,0,0,0,,,Tribes
 text,34.016241889667036,13.688964843750002,,Waushacum,,,,5,0,0,0,,,Settlements
 text,36.8268747428773,20.061035156250004,,Nashaway,,,,5,0,0,0,,,Settlements
@@ -1119,3 +1138,9 @@ text,-72.71187873046874,-28.476541890578055,,Sagabonack,,"""ground nuts""",,5,0,
 text,4.149186255062188,-54.404279700481716,,Mittineague,,“abandoned fields” or “the remains of an encampment.” ,,5,-7,0,0,,,Geographical Locations
 text,5.13470982805229,-58.16166231259391,,Paucatuck ,,“a river that opens out after passing through a narrow channel”,"Paucatuck was the term for the area on the north bank of the Westfield River, between the two trap ridges.",5,-7,0,0,,,Geographical Locations
 text,5.46269381696677,-54.580390701232865,,Tattom ,Tawtum,,"Tattom was an area of land that in 1667 was inhabited by a native woman named Paupsunnuck who sold the land to John Pynchon of Springfield in exchange for ""wampum & some Coates."" ",6,0,0,0,,,Geographical Locations
+text,-19.165965319504174,63.65465962887688,,Chippascutt,,,,6,-45,0,0,,,Rivers
+text,-30.297013712501723,41.3084054589403,,Patucket,,,,12,75,3,0,,,Geographical Locations
+text,-35.2994413942731,49.85565576555446,,Toowooset,,,,8,0,2,0,,,Geographical Locations
+text,-32.063914702133296,47.658612403465895,,Chachacust,,,"Chachacust was the name of the land between the two branches of the
+River Sowams known today as  New Meadow Neck",5,0,0,0,,,Geographical Locations
+text,-29.019013890869886,48.669739300175536,,Nockum,,,Nockum is a hill,5,0,0,0,,,Geographical Locations
