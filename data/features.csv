@@ -724,7 +724,7 @@ text,12.661777510388525,64.64355468750001,,Ponkapoag,,,,3,-7,0,0,,,Bodies of Wat
 text,15.792338830762365,72.46582031250001,,Monatiquot ,,,,3,0,0,-5,,,Rivers
 text,9.23226773945612,69.1479184161971,,Cochato,,,,3,-45,0,0,,,Rivers
 text,-51.28935049038226,29.289550781250004,,Chippuxet,,,,4,-54,0,0,,,Rivers
-text,-51.87649097061476,37.11181640625001,,Pettaquamscutt ,,,,4,54,0,0,,,Rivers
+text,-50.68081704104108,36.54102712043336,,Pettaquamscutt ,Pettaguamiscot,,,4,90,2,0,,,Rivers
 text,-54.00776876193477,80.55175781250001,,Asnawana,,,,8,-12,1,90,,,Geographical Locations
 text,-30.619059260924562,152.81958363488377,,Ewnews,,,,3,0,0,0,,,Geographical Locations
 text,-36.68608187767096,113.81790112001666,,Santuit,,,,7,0,0,0,,,Settlements
@@ -958,7 +958,7 @@ text,-58.68835857268097,15.051269531250002,,Misquamicut ,,,,5,0,0,0,,,Geographic
 text,-60.04290359809165,10.72265625,,Massachaug,,,,5,-12,0,0,,,Bodies of Water
 text,-59.58997510773555,15.534667968750002,,Quooocontaug,,,,5,-27,0,0,,,Bodies of Water
 text,-57.79794388498275,5.910644531250001,,Pawcatuck,,,,5,-90,2,0,,,Rivers
-text,-58.309488840677645,35.11230468750001,,Weyanitoke,,,,3,0,0,0,,,Geographical Locations
+text,-58.18230276909869,34.98041217150756,,Weyanitoke,,,,3,43,0,0,,,Geographical Locations
 text,-32.602361666817515,-20.786132812500004,,Willlmantic,,,,6,0,0,0,,,Settlements
 text,-22.268764039073968,27.597656250000004,,Moswansicut,,,,4,85,0,0,,,Bodies of Water
 text,-2.3504905943515104,5.361328151451762,,Chabunagungamaug ,,,,7,56,0,0,,,Bodies of Water
@@ -1017,7 +1017,7 @@ text,42.617828691742126,11.249902026116075,,Nashaway,,,,20,0,0,0,,,Tribes
 text,37.85710740085716,1.9243107244973467,,Wachuset,,,,20,0,0,0,,,Tribes
 text,49.18145516865171,21.4018325634487,,Squannassit,,,,8,65,1,0,,,Rivers
 text,48.63431394003992,29.443873737890645,,Petapawag,,,,5,0,0,0,,,Geographical Locations
-text,18.312882947086592,89.69173373551898,,Quonahassit,,,,5,0,0,0,,,
+text,18.312882947086592,89.69173373551898,,Quonahassit,"Conihosset, Cohasset ","""long rocky place"" or ""fishing promontory.""",,5,0,0,0,,,Settlements
 text,16.34159001371537,90.15349017862722,,Musquashcut,,,4,5,65,0,0,,,
 text,18.396710576404068,57.9644550308036,,Neponset,,,,24,0,0,0,,,Tribes
 text,14.392853718208817,66.59864347106584,,Housickwissick,,,4,5,0,0,0,,,
@@ -1126,3 +1126,5 @@ text,-35.2994413942731,49.85565576555446,,Toowooset,,,,8,0,2,0,,,Geographical Lo
 text,-32.063914702133296,47.658612403465895,,Chachacust,,,"Chachacust was the name of the land between the two branches of the
 River Sowams known today as  New Meadow Neck",5,0,0,0,,,Geographical Locations
 text,-29.019013890869886,48.669739300175536,,Nockum,,,Nockum is a hill,5,0,0,0,,,Geographical Locations
+text,-57.63364251484207,28.674316406250004,,Mattoomuc,,,,2,-32,0,0,,,Bodies of Water
+text,-51.34434318669432,39.550818968994975,,Wesquogue,,,,2,-25,0,0,,,Bodies of Water
