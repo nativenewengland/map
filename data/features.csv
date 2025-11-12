@@ -520,7 +520,7 @@ text,-48.61838518688487,11.601562500000002,,Yawgoag,,,,5,0,0,0,,,Bodies of Water
 text,-49.00905080938206,13.139648437500002,,Winchek,,,,5,0,0,0,,,Bodies of Water
 text,-51.944264879028765,29.267578125000004,,Chipchug,,,,5,0,0,0,,,Bodies of Water
 text,-57.040729838360875,18.808593750000004,,Watchaug,,,,5,0,0,0,,,Bodies of Water
-text,-53.68369534495074,27.465820312500004,,Aguebauaug,,,,5,0,0,0,,,Bodies of Water
+text,-53.68369534495074,27.465820312500004,,Aguebapaug,,,,5,0,0,0,,,Bodies of Water
 text,20.879342971957897,22.21435546875,,Hobomoco,,,,3,0,0,0,,,Bodies of Water
 text,46.24100579395699,14.790200027175716,,Unchechewhaton,,,,5,0,0,0,,,Bodies of Water
 text,45.767522962149904,-28.652343750000004,,Mattawa,,,,4,0,0,0,,,Bodies of Water
@@ -1024,7 +1024,7 @@ text,14.392853718208817,66.59864347106584,,Housickwissick,,,4,5,0,0,0,,,
 text,-35.31729403099959,143.45981556484378,,Wooncepitt,,,,3,0,0,0,,,Bodies of Water
 text,-35.6754764728431,146.0074680032366,,Skinequit,,,,3,0,0,0,,,Bodies of Water
 text,-35.97801642411154,146.60137879896763,,Maspatucke,,,,3,0,0,0,,,Rivers
-text,-37.97886520433578,39.02337562631631,,Potowomut,,,,5,0,0,0,,,Geographical Locations
+text,-38.61687046392973,37.792997507181006,,Potowomut,,,,5,-55,0,0,,,Geographical Locations
 text,-34.651290459844525,36.21144132856735,,Apponaug,,,,5,0,0,0,,,Geographical Locations
 text,6.468107861162584,-56.73337095827076,,Pachasock,,,,6,0,0,0,,,Geographical Locations
 text,5.418906319365926,-50.29536596076164,,Nayass,,,,8,0,0,0,,,Geographical Locations
@@ -1128,3 +1128,4 @@ River Sowams known today as  New Meadow Neck",5,0,0,0,,,Geographical Locations
 text,-29.019013890869886,48.669739300175536,,Nockum,,,Nockum is a hill,5,0,0,0,,,Geographical Locations
 text,-57.63364251484207,28.674316406250004,,Mattoomuc,,,,2,-32,0,0,,,Bodies of Water
 text,-51.34434318669432,39.550818968994975,,Wesquogue,,,,2,-25,0,0,,,Bodies of Water
+text,-38.39329883362506,43.59370526660733,,Chibacaweda,,,,5,-55,0,0,,,Geographical Locations
