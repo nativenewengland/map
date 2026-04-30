@@ -372,6 +372,7 @@ marker,29.171341482692327,32.12402354330709,agriculture,Marker,,,,,,,,,{},
 marker,28.979230834652927,32.56347669475885,settlement,Marker,,,,,,,,,{},Settlements
 marker,-29.21015124532252,51.85483672772701,rock,King’s Rock on Sachem’s Knoll,,,"King’s Rock is located on the west side of Market Street (Route 136) near the Swansea-Warren line on Sachem’s Knoll where Natives from all over New England used to celebrate their victories in tribal wars and talk about their peace treaties. On the top of this Rock can be seen a long groove where Indian women were said to have ground their corn. A balanced or “perched” rock that may have been placed by Native Americans sits on private property on the east side of Market Street across from King’s Rock. Rocks like this were used to mark celestial events like the vernal equinox and the position of the stars, as well as for ceremonial purposes. Parking is available on the southbound side of Market Street at Johnson’s Market.",,,,,,{},
 marker,-53.13335218093951,37.353515515273294,rock,Pettaquamscutt ,Pettaquamscot ,,Pettaquamscutt was a large rock and noted landmark in the area that was used as a meeting spot for treaties and negotiations by the Narragansett peoples. ,,,,,,{},
+marker,20.653003201079088,6.789344822792472,rock,Wunneompset,,"""good rock"" or ""beautiful rock.""",,,,,,,{},
 text,-60.89845416440834,10.612823882882934,,Acqueednuck,,,Acqueednuck (a branch of the Pawtuxet River) & Pond in Washington County. Possibly derived from ukque-dene-auke 'place at the end of the hill' or ogque-adene-auke 'place beyond the hill'. Now known as the Quidnic River.,5,0,0,0,,,
 text,-60.983792642110764,8.899382623436482,,Allum Pond,,,"Allum (or Wallum) Pond in Providence County, named for the Quinebaug Nipmuc sachem Allums, whose name meant 'The Fox'.",5,0,0,0,,,
 text,-61.111363821203184,10.4374651260328,,Aqueedenuck,,,Aqueedenuck in Washington County meaning 'at the island' or possibly 'place beyond the hill'.,5,0,0,0,,,
@@ -438,7 +439,7 @@ text,-72.76619493972098,-36.42071459256301,,Montaukett ,"Montauk, Manatacut, Meu
 text,-34.84996950050357,-35.77148437500001,,Mohegan,,,Mohegan homelands along the Thames River in Connecticut.,31,0,0,0,,,Tribes
 text,-31.278550858946517,15.996093750000002,,Narragansett,,,Narragansett homelands along the southern Rhode Island coast.,24,0,0,0,,,Tribes
 text,-17.26672782352052,147.61230468750003,,Nauset,,,Nauset (Cape Cod) Wampanoag homelands on the outer Cape.,24,0,0,0,,,Tribes
-text,22.609599841723895,0.5148490443191812,,Nipmuc,dsfsdf,sdfds,"Nipmuc homelands across central Massachusetts and northern Connecticut. Nipnet, Nipmook or Nipmuck",24,0,0,0,,,Tribes
+text,24.04615132426507,1.6256847880185048,,Nipmuc,dsfsdf,sdfds,"Nipmuc homelands across central Massachusetts and northern Connecticut. Nipnet, Nipmook or Nipmuck",24,0,0,0,,,Tribes
 text,-77.19570508665286,-143.9446752320028,,Nissequogue,,,"Nissequogue homelands around present-day Smithtown, Long Island.",24,0,0,0,,,Tribes
 text,-8.363855266221476,-72.37792968750001,,Paugussett,,,Paugussett homelands along the lower Housatonic River.,24,0,0,0,,,Tribes
 text,-54.825433284376075,-45.966796875,,Pequot,,,Pequot homelands surrounding the lower Thames River.,24,0,0,0,,,Tribes
@@ -1140,3 +1141,4 @@ text,-42.90813176655833,12.65625001741695,,Nesquaheaque,,,,7,45,0,0,,,Mountains
 text,-40.41344823605795,12.678222633607952,,Tippecariset,,,,4,0,0,0,,,Bodies of Water
 text,-39.859139960562786,10.898437433815623,,Wickaboxet,,,,4,0,0,0,,,Bodies of Water
 text,-33.541410774043456,45.021954410991746,,Namquit,,,,4,0,0,0,,,Geographical Locations
+text,21.22792841954463,5.646984098386518,,Wunneompset,,"""good rock"" or ""beautiful rock.""",,4,0,0,0,,,
