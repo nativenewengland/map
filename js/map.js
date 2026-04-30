@@ -894,6 +894,39 @@ var overlays = {
   Territories: territoriesOverlay,
 };
 
+var overlayLegendIcons = {
+  Settlements: 'settlement',
+  'Planting Grounds': 'agriculture',
+  'Fishing Weirs': 'fishing',
+  'Mines/Quarries': 'mine',
+  Petroglyph: 'pteroglyph',
+  Forts: 'forts',
+};
+
+function getOverlayLabelMarkup(name) {
+  var iconKey = overlayLegendIcons[name];
+  if (!iconKey || !iconMap[iconKey] || !iconMap[iconKey].options) {
+    return name;
+  }
+  var iconOptions = iconMap[iconKey].options;
+  var iconUrl = iconOptions.iconUrl || '';
+  var iconSize = iconOptions.iconSize || [16, 16];
+  var width = iconSize[0] || 16;
+  var height = iconSize[1] || 16;
+  return (
+    '<span class="overlay-label">' +
+      '<img class="overlay-label__icon" src="' +
+      iconUrl +
+      '" alt="" width="' +
+      width +
+      '" height="' +
+      height +
+      '">' +
+      '<span>' + name + '</span>' +
+    '</span>'
+  );
+}
+
 var additionalOverlayNames = [
   'Ceremonial Stone Landscapes',
   'Mountains',
@@ -936,7 +969,11 @@ function populateOverlaySelects() {
 }
 
 populateOverlaySelects();
-L.control.layers(null, overlays).addTo(map);
+var layerControlOverlays = {};
+Object.keys(overlays).forEach(function (name) {
+  layerControlOverlays[getOverlayLabelMarkup(name)] = overlays[name];
+});
+L.control.layers(null, layerControlOverlays).addTo(map);
 
 function clearSelectedMarker() {
   if (selectedMarker && selectedMarker._icon) {
