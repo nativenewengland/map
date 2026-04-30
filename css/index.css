@@ -202,6 +202,18 @@ html, body{
     display: none;
 }
 
+.overlay-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.overlay-label__icon {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+}
+
 /* Glow effect for markers */
 .leaflet-marker-icon:hover,
 .marker-selected {
