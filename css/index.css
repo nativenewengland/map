@@ -183,9 +183,12 @@ html, body{
     margin-bottom: 0.5em;
 }
 
+
 #info-description .footnotes a {
     color: inherit;
     text-decoration: underline;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
 #info-panel .close-button {
