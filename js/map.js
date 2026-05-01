@@ -1465,11 +1465,13 @@ function sendFeaturesCsvToServer(csvContent) {
 function triggerCsvDownload(csvContent) {
   var blob = new Blob([csvContent], { type: 'text/csv' });
   var a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
+  var objectUrl = URL.createObjectURL(blob);
+  a.href = objectUrl;
   a.download = 'features.csv';
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
+  URL.revokeObjectURL(objectUrl);
 }
 
 function exportFeaturesToCSV() {
@@ -1485,8 +1487,6 @@ function saveMarkers() {
 
 function saveTextLabels() {
   updateEditToolbar();
-  var csvContent = buildFeaturesCSV();
-  
 }
 
 function savePolygons() {
