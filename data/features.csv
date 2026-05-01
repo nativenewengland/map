@@ -724,7 +724,7 @@ text,26.391869671769022,-51.13037109375,,Nonotuck,,,,7,0,0,0,,,Settlements
 text,40.02757526111039,46.58187523133773,,Musketaquid,,,,5,0,0,0,,,Settlements
 text,32.50625615680383,-132.40458245675012,,Kaunaumeek,,,Waubtucook,5,0,0,0,,,Settlements
 text,23.543622313905296,70.48885109722865,,Musquantum,,,,4,0,0,0,,,Geographical Locations
-text,12.661777510388525,64.64355468750001,,Ponkapoag,,,,3,-7,0,0,,,Bodies of Water
+text,12.661777510388525,64.64355468750001,,Ponkapoag,Punkapoag,,,3,-7,0,0,,,Bodies of Water
 text,15.792338830762365,72.46582031250001,,Monatiquot ,,,,3,0,0,-5,,,Rivers
 text,9.23226773945612,69.1479184161971,,Cochato,,,,3,-45,0,0,,,Rivers
 text,-51.28935049038226,29.289550781250004,,Chippuxet,,,,4,-54,0,0,,,Rivers
@@ -891,7 +891,7 @@ text,15.580710739162123,63.36914062500001,,Massawachusett,Massawachusett,"""the 
 text,19.64256946203327,71.49903267826588,,Passonagessit,,![ME_Boston_Map_28x36_Flat-1-e1490057999642](images/ME_Boston_Map_28x36_Flat-1-e1490057999642.jpg),4,4,0,0,0,,,
 text,22.471919044631637,69.91697678622356,,Moswetuset,,,4,4,0,0,0,,,
 text,30.181197723251778,66.84206781589243,,Musquantum,,,4,4,0,0,0,,,
-text,20.94098538139971,68.42283924147884,,Neponset,,,4,4,0,0,0,,,
+text,20.94098538139971,68.42283924147884,,Neponset,Neponsett,,4,4,0,0,0,,,
 text,22.26843848543499,67.32410786080958,,Mattapan,,,4,4,0,0,0,,,
 text,26.647527304437542,68.44478109517594,,Mattapannock,,,4,4,0,0,0,,,
 text,28.41904662408636,66.64387343313597,,Mushauwomuk,,"“boat landing place,” ""canoe landing place,"" ""place to ferry across.”",4 https://erroluys.com/boston/WorkingNotesShawmut.htm,4,0,0,0,,,
@@ -921,8 +921,8 @@ text,-44.96479793033102,108.94042968750001,,Weeqayut,,,,4,-85,0,0,,,Bodies of Wa
 text,-40.597270634420255,105.49072265625001,,Coonemesett,,,,3,-85,0,0,,,Bodies of Water
 text,-45.85941212790755,105.22705078125001,,Acapesket,,,,3,85,0,0,,,Geographical Locations
 text,-45.460130637921,107.1826171875,,Menauhant,,,,3,85,0,0,,,Geographical Locations
-text,-39.130060242135094,74.79492187500001,,Achushnet,,,,15,0,0,0,,,Tribes
-text,-40.380028402511826,77.54150390625001,,Achushnet,,,,7,0,0,0,,,Settlements
+text,-39.130060242135094,74.79492187500001,,Achushnet,Acushnett,,,15,0,0,0,,,Tribes
+text,-40.380028402511826,77.54150390625001,,Achushnet,Acushnett,,,7,0,0,0,,,Settlements
 text,-45.19752230305683,1.8017578125000002,,Pachaug,,,,7,0,0,0,,,Bodies of Water
 text,-44.2924045429833,10.305175763833054,,Paugamoug,,,,5,24,0,0,,,Bodies of Water
 text,-19.12440952808487,13.77685546875,,Ponaganset,,,,7,0,0,0,,,Bodies of Water
@@ -1023,7 +1023,7 @@ text,49.18145516865171,21.4018325634487,,Squannassit,,,,8,65,1,0,,,Rivers
 text,48.61838997511776,29.399401709259255,,Petapawag,,,,5,0,0,0,,,Geographical Locations
 text,18.312882947086592,89.69173373551898,,Quonahassit,"Conihosset, Cohasset ","""long rocky place"" or ""fishing promontory.""",,5,0,0,0,,,Settlements
 text,16.34159001371537,90.15349017862722,,Musquashcut,,,4,5,65,0,0,,,
-text,18.396710576404068,57.9644550308036,,Neponset,,,,24,0,0,0,,,Tribes
+text,18.396710576404068,57.9644550308036,,Neponset,Neponsett,,,24,0,0,0,,,Tribes
 text,14.392853718208817,66.59864347106584,,Housickwissick,,,4,5,0,0,0,,,
 text,-35.31729403099959,143.45981556484378,,Wooncepitt,,,,3,0,0,0,,,Bodies of Water
 text,-35.6754764728431,146.0074680032366,,Skinequit,,,,3,0,0,0,,,Bodies of Water
@@ -1098,7 +1098,7 @@ text,30.18152433795424,62.81982418039494,,Pequusset,,,4,4,0,0,0,,,
 text,29.76289765511265,59.17236319131399,,Squibnocket,,,,7,0,0,0,,,Settlements
 text,28.748411368027856,51.04248041716907,,Mattapannock,,,,7,0,0,0,,,
 text,29.87879924752034,53.70117142664258,,Quinnebequi,,,,7,0,0,0,,,
-text,-57.36546210859709,110.21484355954729,,Chappaquiddick,,,,9,34,0,0,,,Settlements
+text,-57.36546210859709,110.21484355954729,,Chappaquiddick,Chappaquidgick,,,9,34,0,0,,,Settlements
 text,35.711270695529144,-48.44947576607331,,Nepesoneag,,,,5,-55,0,0,,,Geographical Locations
 text,39.281369144056065,-46.004165665812415,,Kunckquachu,,,,5,55,0,0,,,Geographical Locations
 text,39.04483904467182,-49.262648008259326,,Wequamps,,,,5,98,0,0,,,Geographical Locations
