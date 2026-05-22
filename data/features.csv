@@ -375,6 +375,7 @@ marker,-53.13335218093951,37.353515515273294,rock,Pettaquamscutt ,Pettaquamscot 
 marker,20.653003201079088,6.789344822792472,rock,Wunneompset,,"""good rock"" or ""beautiful rock.""",,,,,,,{},
 marker,11.458448159973091,39.85841311086713,settlement,Mucksquit,,"""place of much grass""",,,,,,,{},
 marker,21.28944859331388,5.800818309722252,earthworks,Indian Amphitheatre,,,,,,,,,{},
+marker,-76.13769503020939,-154.00634765625003,rock,Shorakkapoch ,,,,,,,,,{},
 text,-60.89845416440834,10.612823882882934,,Acqueednuck,,,Acqueednuck (a branch of the Pawtuxet River) & Pond in Washington County. Possibly derived from ukque-dene-auke 'place at the end of the hill' or ogque-adene-auke 'place beyond the hill'. Now known as the Quidnic River.,5,0,0,0,,,
 text,-60.983792642110764,8.899382623436482,,Allum Pond,,,"Allum (or Wallum) Pond in Providence County, named for the Quinebaug Nipmuc sachem Allums, whose name meant 'The Fox'.",5,0,0,0,,,
 text,-61.111363821203184,10.4374651260328,,Aqueedenuck,,,Aqueedenuck in Washington County meaning 'at the island' or possibly 'place beyond the hill'.,5,0,0,0,,,
@@ -1149,3 +1150,5 @@ text,11.523059118255802,38.298322235709456,,Mucksquit,,"""place of much grass"""
 text,16.53078037975007,41.792643685000314,,Chabboquasett ,,,,5,51,0,0,,,
 text,7.07913109666215,33.530313029162514,,Moshcock,,“a haunt for bears.” ,,4,51,0,0,,,
 text,45.690837896009434,25.839880809722253,,Nonacoicus,,Nunnacôquis,"Nonacoicus was a tract of land. Due to its similarity to the word Nunnacôquis which translated to ""Indian Earthen Pot"" it is likely that the name designated a pot-shaped area of land or that it may have been the location of a soapstone quarry used for making pots. ",5,0,0,0,,,Geographical Locations
+text,-76.12189296324112,-154.97314453125003,,Shorakkapoch,,,,4,0,0,0,,,Geographical Locations
+text,-79.0049621603135,-160.40039062500003,,Kintecoying,,,,4,0,0,0,,,Geographical Locations
