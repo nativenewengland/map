@@ -376,6 +376,15 @@ marker,20.653003201079088,6.789344822792472,rock,Wunneompset,,"""good rock"" or 
 marker,11.458448159973091,39.85841311086713,settlement,Mucksquit,,"""place of much grass""",,,,,,,{},
 marker,21.28944859331388,5.800818309722252,earthworks,Indian Amphitheatre,,,,,,,,,{},
 marker,-76.13769503020939,-154.00634765625003,rock,Shorakkapoch ,,,,,,,,,{},
+marker,-79.46455976888949,-160.94970703125003,settlement,Werpos ,,,,,,,,,{},
+marker,-79.28222742700227,-159.27978515625003,settlement,Werpos ,,,,,,,,,{},
+marker,-79.25768197738242,-158.35693359375003,settlement,Werpos ,,,,,,,,,{},
+marker,-79.05096467804663,-158.18115234375003,settlement,Werpos ,,,,,,,,,{},
+marker,-79.02589601423401,-159.41162109375003,settlement,Werpos ,,,,,,,,,{},
+marker,-78.70771427480673,-158.18115234375003,settlement,Werpos ,,,,,,,,,{},
+marker,-78.8488210819389,-160.55419921875003,settlement,Werpos ,,,,,,,,,{},
+marker,-78.70341090948182,-160.31250000000003,settlement,Werpos ,,,,,,,,,{},
+marker,-79.03007805844823,-158.95019531250003,agriculture,Marker,,,,,,,,,{},
 text,-60.89845416440834,10.612823882882934,,Acqueednuck,,,Acqueednuck (a branch of the Pawtuxet River) & Pond in Washington County. Possibly derived from ukque-dene-auke 'place at the end of the hill' or ogque-adene-auke 'place beyond the hill'. Now known as the Quidnic River.,5,0,0,0,,,
 text,-60.983792642110764,8.899382623436482,,Allum Pond,,,"Allum (or Wallum) Pond in Providence County, named for the Quinebaug Nipmuc sachem Allums, whose name meant 'The Fox'.",5,0,0,0,,,
 text,-61.111363821203184,10.4374651260328,,Aqueedenuck,,,Aqueedenuck in Washington County meaning 'at the island' or possibly 'place beyond the hill'.,5,0,0,0,,,
@@ -428,7 +437,7 @@ text,-53.00156227459147,112.91748046875001,,PONANASAUSIG,,,To spread their wings
 text,-52.97510818173529,108.63281250000001,,QUATAQUETUCA,,,Red crabs,3,0,0,0,,,
 text,-52.908902047770255,111.55517578125001,,SANSHUWACHU,,,Brook lodge,3,0,0,0,,,
 text,-63.05531863767043,85.9142663862525,,Cappoaquit,,"""Refuge Place"" ","Cappoaquit was an island south of Noepe used for fishing and used as a summer camping ground At the time of European arrival, Cappoaquit was inhabited by the Powwow Tequenoman who was believed to hold dominion over it. Judge Sewall in 1702 says of Nomans Land, that the ""Inhabitants (are) mostly of the 7th day Indians,"" i. e., Sabbatarian Baptists.[^1] [^1]:http://history.vineyard.net/dukes/bnk2c_71.htm",8,0,0,0,,,Geographical Locations
-text,-78.38342792107784,-162.5682401582486,,Canarsie,,,Canarsie Lenape homelands in present-day Brooklyn.,24,0,0,0,,,Tribes
+text,-78.18858618658851,-162.42187500000003,,Canarsie,,,Canarsie Lenape homelands in present-day Brooklyn.,20,0,0,0,,,Tribes
 text,-72.76643494811363,-71.73513141636457,,Corchaug,,,Corchaug territory on the North Fork of Long Island.,24,0,0,0,,,Tribes
 text,-56.32872090717995,-14.39208984375,,Eastern Niantic,,,Eastern Niantic homelands along the Niantic River in Connecticut.,24,0,0,0,,,Tribes
 text,-60.08676274626006,-60.60058593750001,,Hammonasset,,,Hammonasset homelands along the central Connecticut shoreline.,24,0,0,0,,,Tribes
