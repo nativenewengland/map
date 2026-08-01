@@ -1165,11 +1165,11 @@ marker,-27.959091,111.484651,settlement,Shawme,Shawme village,Upper Shawme Pond 
 marker,-32.968300,89.969209,settlement,Sippican,Sippicans; Sippican village,"Head of Sippican Harbor, Marion",Historical Wampanoag village on land near the head of Sippican Harbor.,,,,,,{},Settlements
 marker,-34.250233,100.720556,settlement,Pispogutt,Pisspogutt; Pispoqutt; Pisspogutt,Approximate historical location,Approximate historical placement in the Pocasset area of Bourne.,,,,,,{},Settlements
 marker,-37.02004767128328,108.52315543349253,settlement,Pawpoesit,Paupoesit; Pawpoesett,Paupoesit label location,Historical Wampanoag settlement at the location identified by the existing Paupoesit label.,,,,,,{},Settlements
-marker,-60.112055,102.611208,settlement,Nashamoisett,Nashamoies; Nashamoiess; Nashamois,"Nashamois Neck, southwest of Edgartown",Historical Wampanoag community associated with Nashamois Neck.,,,,,,{},Settlements
-marker,-62.984538,88.629909,settlement,Nashuakemmukut,Nashuakemmuck; Nashanekammuck; Nashawahkamuk; Nashaue-komuk; Tahanio; Talhanio,Chilmark,Combined Chilmark marker; current evidence does not justify separate exact locations for Tahanio and Nashuakemmukut.,,,,,,{},Settlements
+marker,-57.4986304322132,105.53180945785293,settlement,Nashamoisett,Nashamoies; Nashamoiess; Nashamois,"Nashamois Neck, southwest of Edgartown",Historical Wampanoag community associated with Nashamois Neck.,,,,,,{},Settlements
+marker,-55.28839410830355,94.06085426115139,settlement,Nashawahkamuk,Nashuakemmukut; Nashuakemmuck; Nashanekammuck; Nashaue-komuk,Approximate historical area — Chilmark,Combined Chilmark marker; current evidence does not justify separate exact locations for Tahanio and Nashuakemmukut.,,,,,,{},Settlements
 marker,-13.482883,77.660373,settlement,Pachade,Patchut; Pachaeg; Pochade; Pachage; Purchade,Approximate—Purchade Neck area,Approximate point on the Nemasket River corridor near the Middleborough–Bridgewater boundary.,,,,,,{},Settlements
 marker,-22.695120184965695,44.36279296875,settlement,Seekonk,Seaconke; Secunk; Seacunck; Seakunk; Seacuncke,Existing Seacuncke label location,Historical Wampanoag settlement at the location identified by the existing Seacuncke label.,,,,,,{},Settlements
-marker,-51.311882,88.559477,settlement,Naushon,Naushon Island,Center of Naushon Island,Historical Wampanoag settlement on Naushon Island.,,,,,,{},Settlements
+marker,-51.727552824288885,89.1732298729916,settlement,Naushon,Naushon Island,Center of Naushon Island,Historical Wampanoag settlement on Naushon Island.,,,,,,{},Settlements
 text,-33.7404408514939,55.65639136357758,,Mattapusit,,,,7,0,0,0,,,Settlements
 text,-29.604750,101.919036,,Aptuxcet,,,,7,0,0,0,,,Settlements
 text,-24.753550,147.248545,,Namskaket,,,,7,0,0,0,,,Settlements
@@ -1177,8 +1177,8 @@ text,-27.959091,111.484651,,Shawme,,,,7,0,0,0,,,Settlements
 text,-32.968300,89.969209,,Sippican,,,,7,0,0,0,,,Settlements
 text,-34.250233,100.720556,,Pispogutt,,,,7,0,0,0,,,Settlements
 text,-37.02004767128328,108.52315543349253,,Pawpoesit,,,,7,0,0,0,,,Settlements
-text,-60.112055,102.611208,,Nashamoisett,,,,7,0,0,0,,,Settlements
-text,-62.984538,88.629909,,Nashuakemmukut,,,,7,0,0,0,,,Settlements
+text,-57.4986304322132,105.53180945785293,,Nashamoisett,,,,7,0,0,0,,,Settlements
+text,-55.28839410830355,94.06085426115139,,Nashawahkamuk,,,,7,0,0,0,,,Settlements
 text,-13.482883,77.660373,,Pachade,,,,7,0,0,0,,,Settlements
 text,-22.695120184965695,44.36279296875,,Seekonk,,,,7,0,0,0,,,Settlements
-text,-51.311882,88.559477,,Naushon,,,,7,0,0,0,,,Settlements
+text,-51.727552824288885,89.1732298729916,,Naushon,,,,7,0,0,0,,,Settlements
