@@ -167,22 +167,28 @@ html, body{
 }
 
 #info-description .footnotes {
-    margin-top: 0.75em;
-    padding-top: 0.5em;
-    border-top: 1px solid #ddd;
-    font-size: 0.85em;
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #ccc;
+    font-size: 0.78em;
+    line-height: 1.35;
     text-align: left;
 }
 
 #info-description .footnotes ol {
     margin: 0;
-    padding-left: 1.25em;
+    padding-left: 1.5rem;
 }
 
 #info-description .footnotes li {
-    margin-bottom: 0.5em;
+    margin: 0.4rem 0;
+    padding-left: 0.2rem;
 }
 
+#info-description .footnotes li p {
+    display: inline;
+    margin: 0;
+}
 
 #info-description .footnotes a {
     color: inherit;
