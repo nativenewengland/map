@@ -419,18 +419,15 @@ text,-62.7,10.8,,Wayunkeke Hill,,,Wayunkeke Hill in Providence County meaning 'a
 text,-63.04499226631996,15.46865725760124,,Wincheck Pond,,,Wincheck Pond in Washington County meaning 'at the pleasant place'.,5,0,0,0,,,
 text,-4.3952996037272465,26.235351629795574,,Woonsocket Hill,,,Woonsocket Hill and Reservoir in Providence County meaning 'place of steep descent' or possibly 'two brook place' from Niswesocket.,5,0,0,0,,,
 text,-60.52215754533236,86.81396484375001,,AGUNNINAH,,,The shore of the island,4,0,0,0,,,
-text,-53.69670647530323,112.10449218750001,,KEITAHSIMET,,,Place of a great spring,1,0,0,0,,,
-text,-53.82659674299411,115.00488281250001,,KUPPEGON,,,A good enclosure for shelter/hitching,1,0,0,0,,,
+text,-53.5,97.3,,Kuppiegon,Kuppeigon; Kuppegen; Kuppegon; Cape Higgon,,A good enclosure for shelter or thicket,1,0,0,0,,,Geographical Locations
 text,-51.508742458803326,103.09570312500001,,MANNASAAK,,,A bush/brush place,3,0,0,0,,,
-text,-53.409531853086435,110.34667968750001,,MASAPIQUOT,Skunk Place,,,3,0,0,0,,,
-text,-51.48229067288054,105.77636689428361,,SANCHIACATTUATUCK,,,Place where the wood is rotten,2,1,0,0,,,
+text,-57.35,100.9,,Sakunket,Masapiquot,Probable identification; spelling requires source confirmation,Skunk place,3,0,0,0,,,Geographical Locations
 text,-53.146770330850835,109.79736328125001,,SANNAMENACK,,,Eat much,3,0,0,0,,,
-text,-53.2257684357902,112.52197265625001,,SAQUENAUSAUQUANN,,,Early summer or lay rich eels,3,0,0,0,,,
+text,-50.95,103.0,,Sequinauk,Saquenausauquann,,"A Wampanoag place north of Sengekontacket, possibly associated with seasonal summer settlement.",3,0,0,0,,,Geographical Locations
 text,-54.457266680933856,95.47119140625,,TAKEMMY,,,Cold water,7,0,0,0,,,
 text,-56.365250136856076,109.5556640625,,TASHQUIMMACASSICK,,,Black fish place,4,0,0,0,,,
 text,-58.296526909822504,86.8359357871675,,MASHIANAUKE,,,Big town,3,0,0,0,,,
-text,-54.239550531561775,112.52197265625001,,MASSAPOOTOOQUAK,,,Land of great blowing holes,1,0,0,0,,,
-text,-53.618579364895176,108.54492187500001,,MESPESHAUTUK,,,At the edge of the cliff,3,0,0,0,,,
+text,-57.9265172853711,96.74560546875,,Massapootoeauke,Massapootooquak,,Land of great blowing—whales,1,0,0,0,,,Geographical Locations
 text,-56.09655575056831,94.19677734375001,,NASHANEAUPE,,,They went there,2,0,0,0,,,
 text,-56.72862197314074,108.76464843750001,,PAQUAAHUNAUK,,,Quahog land,3,0,0,0,,,
 text,-53.00156227459147,112.91748046875001,,PONANASAUSIG,,,To spread their wings,1,0,0,0,,,
@@ -1055,10 +1052,10 @@ text,-58.37867853932655,114.56542968750001,,Wasque,,,,3,0,0,0,,,
 text,-56.57158903959722,106.94091796875001,,Wintucket,,,,3,0,0,0,,,
 text,-58.44773280389084,104.21630859375001,,Faqua,,,,3,0,0,0,,,
 text,-57.97315745102812,102.78808593750001,,Watcha,,,,3,0,0,0,,,
-text,-54.20101023973888,102.85400390625,,Tashmoo,,,,3,0,0,0,,,
-text,-51.69979984974194,105.62255859375001,,Sanchekantackett,,,,3,0,0,0,,,
+text,-54.20101023973888,102.85400390625,,Kehtashimet,Keitahsimet,,"Kehtashimet is the Wampanoag name associated with Lake Tashmoo in Vineyard Haven, meaning 'place of a great spring.'",3,0,0,0,,,Bodies of Water
+text,-51.69979984974194,105.62255859375001,,Sanchiacantacket,Sanchiacattuatuuck; Sanchekantackett; Sengekontacket,,,3,0,0,0,,,Bodies of Water
 text,-57.9265172853711,96.74560546875,,Quansue,,,,3,0,0,0,,,
-text,-60.28340847828243,89.58251953125001,,Squibnocket,,,,3,0,0,0,,,
+text,-60.28340847828243,89.58251953125,,Msquepunauket,Mespeshautuk; Squibnocket,,At the place of the red cliff or bank,3,0,0,0,,,Geographical Locations
 text,-59.20968817840925,89.89013671875001,,Menemsha,,,,3,0,0,0,,,
 text,-59.24341475839977,92.48291015625,,Wequobsket,,,,3,-25,0,0,,,
 text,-59.667740581649625,90.87890625000001,,Kashaquitsa,,,,3,0,0,0,,,
