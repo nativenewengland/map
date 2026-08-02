@@ -619,20 +619,19 @@ text,-11.69560464311918,7.517656097640383,,Quinnatisset,,,,5,0,0,0,,,Settlements
 text,-21.47353538728909,4.176472870583311,,Attawangan,,,,5,0,0,0,,,Settlements
 text,13.539262853432747,-9.667996472297618,,Podunk,,,,5,-40,0,0,,,Bodies of Water
 text,8.015684329318784,-11.227925695325423,,Putikookuppogg,,,,4,0,0,0,,,Bodies of Water
-text,-63.38167869302983,147.65625000000003,,Toupchue,,,,3,0,0,0,,,Bodies of Water
+text,-63.381679,147.656250,,Toupchue,Toochahy; Touphchue Pond,Approximate historical location,"Possibly Touphchue Pond on the south shore, though the original record is unclear.",3,0,0,0,,,Bodies of Water
 text,-63.045001015420105,146.46972656250003,,Madequecham,,,,3,0,0,0,,,Bodies of Water
 text,-63.51917465269721,143.43750000000003,,Wammasquid,,,,5,0,0,0,,,Geographical Locations
 text,-60.61927021789213,126.65039556368947,,Nopque ,,,Nopque was an area of coast on the island of Tuckernuck used as canoe docks and a landing spot for those traveling to the island from Noepe,3,22,3,0,,,Bodies of Water
 text,-60.80206374467982,129.33105468750003,,Tuckernuck,,,Petockenock and Tuckanucket,5,17,0,0,,,Geographical Locations
 text,-62.985179715993766,150.33691406250003,,Oggawame,,,,5,0,0,0,,,Geographical Locations
 text,-60.791350301043764,151.65527344476888,,Sesachacha,,,,2.5,-45,0,0,,,Bodies of Water
-text,-60.00965882727966,140.51544014903416,,Cuppammet,,,,3,0,0,0,,,Bodies of Water
+text,-60.009659,140.515440,,Capaum Pond,Cuppammet Harbour; Cuppammet; Cuppame Harbour; Capaum Pond,,"Historic harbor now Capaum Pond, closed by storm-driven sand after about 1717.",3,0,0,0,,,Bodies of Water
 text,-62.60345318745797,142.93212890625003,,Miacomit,,,,5,0,0,0,,,Settlements
 text,-61.4597705702975,141.76757812500003,,Wesco,,,,5,0,0,0,,,Settlements
-text,-61.27023279000062,146.86523437500003,,Shimmoh,,,,5,0,0,0,,,Settlements
-text,-59.64554025144323,148.82080078125003,,Quaise,,,,5,0,0,0,,,Settlements
+text,-61.270233,146.865234,,Shimmoh,Shimmo,,Area around the spring west of Shimmo Creek noted since 1668.,5,0,0,0,,,Settlements
+text,-59.645540,148.820801,,Quaise,Masquetuck; Masquatuck; Mascotuck; Quaus; Quayz,,"Mr. Thomas Mayhew's Neck, the reed or red land now known as Quaise. Quaise, the reed-colored neck also called Masquetuck.",5,0,0,0,,,Settlements
 text,-56.619976528450195,151.04003906250003,,Satucket,,,,5,0,0,0,,,Settlements
-text,-60.8502623930218,136.73583984375003,,Cuppammet,,,,5,0,0,0,,,Settlements
 text,-60.26161708284461,144.95361328125003,,Coatue,,,,5,-27,0,0,,,Geographical Locations
 text,-53.51418452077112,-122.62939453125001,,Kohanga,,,,7,0,0,0,,,Geographical Locations
 text,-62.451405884537564,-104.7216796875,,Tashua,,,,5,0,0,0,,,Geographical Locations
@@ -798,7 +797,6 @@ text,-58.85,136,,Cocyeama,,,Valley near Shimmo Spring and Aquidnese cited in 168
 text,-58.06468480327568,131.74573233701878,,Codspannett ,,,Field Named in 1659 north of Hummock Pond.,3,0,0,0,,,
 text,-59.5902570233949,150.9999466089566,,Coscaty,,,"Woods and meadow at Coskata, recorded as Causkata in 1778.",3,0,0,0,,,
 text,-55.986091528233594,146.82124672339057,,Coweightuet,,,"Seventeenth-century name for Coatue and Great Point, necks used for cedar and prickly pear habitats.",3,40,0,0,,,
-text,-59.7344575971002,135.59506113090006,,Cuppammet Harbour,,,"Historic harbor now Capaum Pond, closed by storm-driven sand after about 1717.",3,0,0,0,,,
 text,-62.66531443113899,131.44040851794531,,Hashkinnitchaohket,,,Unknown 1668 locality near Quaise.,3,0,0,0,,,
 text,-59.02923630990909,136.0981317997053,,Kestokas Field,,,Field of unknown location in the Polpis area cited in 1715.,3,0,0,0,,,
 text,-63.05373700909547,131.6821286736465,,Machupunes,,,1742 reference to a south shore locality of unknown position.,3,0,0,0,,,
@@ -808,9 +806,8 @@ text,-58.89317804538598,139.13090171410946,,Mardadpoquehy,,,Described as the swa
 text,-59.2,140.5,,Mashaam,,,"Land granted in 1670 along the route to Coatue on the south side of meadows, likely Coskata.",3,0,0,0,,,
 text,-62.51136365576643,129.33105463298358,,Mashquapomtit,,,1668 reference to an unidentified spot northeast of Quaise.,3,0,0,0,,,
 text,-59.333107649718485,134.05599433736535,,Masquapock,,,"Creek with pond and marsh crossed by the Pocomo–Coatue cart path, noted for reddish waters.",3,0,0,0,,,
-text,-59.523303933678385,135.72561983859944,,Masquetuck,,,"Mr. Thomas Mayhew's Neck, the reed or red land now known as Quaise.",3,0,0,0,,,
 text,-62.824006437912416,146.4038094532927,,Mattaquitchame Pond,,,Seventeenth-century name for today’s Madequecham Pond and valley on the south shore.,3,0,0,0,,,
-text,-59.55,137.5,,Mawtukkit,,,Early form of Madaket on Nantucket’s west end.,3,0,0,0,,,
+text,-61.750000,135.800000,,Madaket,Mawtukkit,,Early form of Madaket on Nantucket’s west end.,3,0,0,0,,,
 text,-59.37792353711362,138.99902343750003,,Mekinnoowake,,,1690 record of a locality near Sesachacha Pond.,3,0,0,0,,,
 text,-59.55,140.5,,Monnument Harbor,,,"Also Wheeler’s Creek or Monomoy, covering the tidal creeks and meadows northeast of town.",3,0,0,0,,,
 text,-58.12361997309641,133.79223778414652,,Myacomet Pond,,,"Listed in 1695 as Moyacomet, later the Christian Indian village at the south shore pond.",3,0,0,0,,,
@@ -821,7 +818,7 @@ text,-59.82270219068666,137.48242325649178,,Nashayte,,,"“The neck but one nort
 text,-62.84428021975802,150.64453283279423,,Oggawame,,,"“Where the church meets,” headquarters of Waunuchmamuck east of Gibbs Pond.",3,0,0,0,,,
 text,-60.097659530055935,133.46206224938294,,Ongquahqam,,,Described in 1669 as a flaggy marsh west of Masquetuck.,3,0,0,0,,,
 text,-62.61279513678846,125.66162036322962,,Pakpannogkahkunnut,,,Recorded near Squam Pond in 1676.,3,0,0,0,,,
-text,-60.07576553829018,135.24167099267706,,Pakummohquoh,,,"Neck now called Pocomo, bounded by rivers, marsh, and Squam Swamp.",3,0,0,0,,,
+text,-59.869788,148.999199,,Pocomo,Pakummohquoh,,"Neck now called Pocomo, bounded by rivers, marsh, and Squam Swamp.",3,0,0,0,,,
 text,-60.25,137.5,,Pasocha,,,The great valley east of Tom Nevers Head.,3,0,0,0,,,
 text,-60.009878164923066,137.39450440541881,,Penetahpah,,,"The next creek east of Abram’s Point above Ashimmo, noted in 1669.",3,0,0,0,,,
 text,-60.13060421293185,148.82080146997444,,Poatpes,,"""divided or branch harbor."" ","Also Podpis or Polpis,Palpus a well-known neck on Nantucket. ",5,28,0,0,,,
@@ -830,18 +827,15 @@ text,-62.082825668213516,149.5458999294335,,Pquaopuachus,,,Islands of upland wit
 text,-59.096552870102464,133.50576058374472,,Pukquotanussut,,,Land near Squam Pond given to Matakekin and George Hums by Nickanoose in 1696.,3,0,0,0,,,
 text,-59.61221219518693,152.27050781250003,,Quaquakunnuttummukutaut,,,Unlocated region near Squam Pond cited in 1690.,3,0,0,0,,,
 text,-60.32684330514656,135.7909450598177,,Quaquat,,,Region north of Siasconset Pasture mentioned in 1773.,3,0,0,0,,,
-text,-60.38120686847151,136.97736970606238,,Quaus,,,"Quaise, the reed-colored neck also called Masquetuck.",3,0,0,0,,,
-text,-60.44632358889771,138.1637943523071,,Quonsue,,,Area near present Consue Spring recorded in 1721.,3,0,0,0,,,
+text,-61.850000,142.450000,,Quonsue,Consue Springs,Approximate historical location near Consue Springs,Area near present Consue Spring recorded in 1721.,3,0,0,0,,,
 text,-59.67847738032657,139.0425030197965,,Sanckatanck,,,"Place near the “blew cleft,” essentially Sankaty Head.",3,0,0,0,,,
 text,-57.70283970353806,134.73785233293887,,Seanakonkonit,,,"Likely Tom Nevers Pond, recorded simply as “the pond” in 1668.",3,0,0,0,,,
-text,-57.84350243786012,136.95731642277238,,Shimmo,,,Area around the spring west of Shimmo Creek noted since 1668.,3,0,0,0,,,
 text,-59.84438247319222,139.1108484308195,,Shuakimmo Creek,,,"Creek also called Showakemmoe or “The Snake Place,” with Read Spring at its head.",3,0,0,0,,,
 text,-59.35496812872613,137.2420930022795,,Sisackochat,,,Originally for an area with cod-fishing stages south of Sesachacha Pond.,3,0,0,0,,,
-text,-60.25044376854941,138.95602369844357,,Sisiasconset,,,"Early spelling of today’s Siasconset, long a fishing and whaling village.",3,0,0,0,,,
+text,-62.669746,152.393241,,Siasconset,Sisiasconset,,"Early spelling of today’s Siasconset, long a fishing and whaling village.",3,0,0,0,,,
 text,-60.402789388835224,140.14244834468826,,Squatesit,,,"One of the three Christian Indian worship places in 1674, perhaps near Maskatuk Creek.",3,0,0,0,,,
 text,-61.058326206179345,138.86714516089057,,Stewakininkers,,,"Rattlesnake Hill, the junction of several boundary lines at Shuakimmo Creek’s head.",3,0,0,0,,,
 text,-60.95,140.5,,Tawtemeo,,,"Translated by Macy as “the hummock pond,” serving as a boundary marker.",3,0,0,0,,,
-text,-58.983882326673296,132.09966582714588,,Toochahy,,,"Possibly Touphchue Pond on the south shore, though the original record is unclear.",3,0,0,0,,,
 text,-63.459626708834264,131.52832019074663,,Tuppockommack,,,Unlocated site south of Shimmo cited in 1678.,3,0,0,0,,,
 text,-61.3,134.5,,Wahquatnoy,,,Neck along the beach between Quidnet and Sankaty used for worship in 1674.,3,0,0,0,,,
 text,-63.92687024112367,143.89892643363018,,Wammasquid,,,"One of the 1674 Christian Indian meeting places, possibly at Aquidnet Point.",3,0,0,0,,,
