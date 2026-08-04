@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - tmp/wc3-loading-screen-extraction
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
