@@ -15,50 +15,144 @@ permissions:
 jobs:
   extract:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
 
       - name: Install video tools
         run: |
-          python -m pip install --upgrade yt-dlp
+          python -m pip install --upgrade "yt-dlp[default]"
           sudo apt-get update
           sudo apt-get install -y ffmpeg
 
-      - name: Download source video
+      - name: Fetch watch pages and storyboard sheets
         run: |
-          yt-dlp --no-playlist \
-            -f "bv*[height<=1080]+ba/b[height<=1080]/b" \
-            --merge-output-format mp4 \
-            -o source.mp4 \
-            "https://www.youtube.com/watch?v=eq2v0T4Hcf0"
+          mkdir -p diagnostics storyboards
+          UA='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36'
+          curl -L --compressed -A "$UA" \
+            'https://www.youtube.com/watch?v=eq2v0T4Hcf0' \
+            -o diagnostics/youtube_watch.html || true
+          curl -L --compressed -A "$UA" \
+            'https://www.youtube.com/embed/eq2v0T4Hcf0' \
+            -o diagnostics/youtube_embed.html || true
+          python - <<'PY'
+          import html as html_lib
+          import json
+          import math
+          import re
+          import urllib.request
+          from pathlib import Path
 
-      - name: Extract full-resolution frames
+          out = Path('storyboards')
+          out.mkdir(exist_ok=True)
+          specs = []
+          for page in Path('diagnostics').glob('youtube_*.html'):
+              text = page.read_text(encoding='utf-8', errors='ignore')
+              patterns = [
+                  r'"playerStoryboardSpecRenderer"\s*:\s*\{\s*"spec"\s*:\s*"((?:\\.|[^"\\])*)"',
+                  r'"spec"\s*:\s*"((?:https?:)?\\?/\\?/i\.ytimg\.com\\?/sb\\?/eq2v0T4Hcf0(?:\\.|[^"\\])*)"',
+              ]
+              for pattern in patterns:
+                  for raw in re.findall(pattern, text):
+                      try:
+                          decoded = json.loads('"' + raw + '"')
+                      except Exception:
+                          decoded = raw.replace('\\u0026', '&').replace('\\/', '/')
+                      decoded = html_lib.unescape(decoded)
+                      if decoded not in specs:
+                          specs.append(decoded)
+
+          Path('diagnostics/storyboard_specs.txt').write_text('\n\n'.join(specs), encoding='utf-8')
+          ua = {'User-Agent': 'Mozilla/5.0'}
+          downloaded = 0
+          for spec_index, spec in enumerate(specs):
+              parts = spec.split('|')
+              if len(parts) < 2:
+                  continue
+              template = parts[0]
+              for level_index, level in enumerate(parts[1:]):
+                  fields = level.split('#')
+                  if len(fields) < 8:
+                      continue
+                  try:
+                      width, height, count, cols, rows = map(int, fields[:5])
+                  except ValueError:
+                      continue
+                  sigh = fields[-1]
+                  sheets = max(1, math.ceil(count / max(1, cols * rows)))
+                  for sheet in range(sheets):
+                      url = template
+                      replacements = {
+                          '$L': str(level_index),
+                          '$N': f'M{sheet}',
+                          '$M': f'M{sheet}',
+                          '$sigh': sigh,
+                      }
+                      for old, new in replacements.items():
+                          url = url.replace(old, new)
+                      if url.startswith('//'):
+                          url = 'https:' + url
+                      target = out / f'spec{spec_index}_level{level_index}_{width}x{height}_sheet{sheet:03d}.jpg'
+                      try:
+                          req = urllib.request.Request(url, headers=ua)
+                          with urllib.request.urlopen(req, timeout=30) as response:
+                              target.write_bytes(response.read())
+                          downloaded += 1
+                      except Exception as exc:
+                          with open('diagnostics/storyboard_errors.txt', 'a', encoding='utf-8') as f:
+                              f.write(f'{url}\n{exc!r}\n\n')
+          print(f'Downloaded {downloaded} storyboard sheets')
+          PY
+
+      - name: Try embedded YouTube clients
+        run: |
+          set +e
+          : > diagnostics/yt-dlp.log
+          for client in tv_embedded web_embedded web_safari mweb android_vr; do
+            echo "===== CLIENT: $client =====" | tee -a diagnostics/yt-dlp.log
+            yt-dlp --no-playlist --js-runtimes node \
+              --extractor-args "youtube:player_client=$client" \
+              -f "bv*[height<=1080]+ba/b[height<=1080]/b" \
+              --merge-output-format mp4 \
+              -o source.mp4 \
+              'https://www.youtube.com/watch?v=eq2v0T4Hcf0' \
+              2>&1 | tee -a diagnostics/yt-dlp.log
+            if [ -s source.mp4 ]; then
+              exit 0
+            fi
+          done
+          exit 0
+
+      - name: Extract full-resolution video frames when available
         run: |
           mkdir -p frames scene_frames
-          ffmpeg -hide_banner -loglevel error -i source.mp4 \
-            -vf "fps=2" -q:v 2 frames/frame_%04d.jpg
-          ffmpeg -hide_banner -loglevel error -i source.mp4 \
-            -vf "select='gt(scene,0.06)'" -fps_mode vfr -q:v 2 scene_frames/scene_%04d.jpg
-          ffprobe -v error -show_entries format=duration:stream=width,height,r_frame_rate \
-            -of default=noprint_wrappers=1 source.mp4 > video_metadata.txt
-          python - <<'PY'
+          if [ -s source.mp4 ]; then
+            ffmpeg -hide_banner -loglevel error -i source.mp4 \
+              -vf "fps=2" -q:v 2 frames/frame_%04d.jpg
+            ffmpeg -hide_banner -loglevel error -i source.mp4 \
+              -vf "select='gt(scene,0.06)'" -fps_mode vfr -q:v 2 scene_frames/scene_%04d.jpg
+            ffprobe -v error -show_entries format=duration:stream=width,height,r_frame_rate \
+              -of default=noprint_wrappers=1 source.mp4 > diagnostics/video_metadata.txt
+            python - <<'PY'
           from pathlib import Path
           files = sorted(Path('frames').glob('frame_*.jpg'))
-          with open('frame_timestamps.csv', 'w', encoding='utf-8') as f:
+          with open('diagnostics/frame_timestamps.csv', 'w', encoding='utf-8') as f:
               f.write('filename,timestamp_seconds\n')
               for i, path in enumerate(files):
                   f.write(f'{path.name},{i / 2:.1f}\n')
           PY
+          fi
 
-      - name: Upload extracted frames
+      - name: Upload extracted material
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: wc3-loading-screen-frames
           path: |
             frames/
             scene_frames/
-            video_metadata.txt
-            frame_timestamps.csv
+            storyboards/
+            diagnostics/
+          if-no-files-found: warn
           compression-level: 0
           retention-days: 1
