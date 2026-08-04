@@ -25,6 +25,94 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y ffmpeg
 
+      - name: Try public privacy-front-end APIs
+        run: |
+          mkdir -p diagnostics
+          set +e
+          for api in \
+            https://pipedapi.kavin.rocks \
+            https://pipedapi.tokhmi.xyz \
+            https://pipedapi.moomoo.me \
+            https://pipedapi.syncpundit.io \
+            https://api-piped.mha.fi \
+            https://piped-api.garudalinux.org; do
+            name=$(echo "$api" | sed 's#https://##;s#[^A-Za-z0-9]#_#g')
+            curl -fL --compressed --connect-timeout 15 --max-time 90 \
+              -A 'Mozilla/5.0' "$api/streams/eq2v0T4Hcf0" \
+              -o "diagnostics/piped_${name}.json"
+          done
+          for api in \
+            https://invidious.nerdvpn.de \
+            https://yt.chocolatemoo53.com; do
+            name=$(echo "$api" | sed 's#https://##;s#[^A-Za-z0-9]#_#g')
+            curl -fL --compressed --connect-timeout 15 --max-time 90 \
+              -A 'Mozilla/5.0' "$api/api/v1/videos/eq2v0T4Hcf0?local=true" \
+              -o "diagnostics/invidious_${name}.json"
+          done
+          python - <<'PY'
+          import json
+          import re
+          import subprocess
+          from pathlib import Path
+
+          candidates = []
+          reports = []
+          for path in Path('diagnostics').glob('piped_*.json'):
+              try:
+                  data = json.loads(path.read_text(encoding='utf-8'))
+              except Exception as exc:
+                  reports.append(f'{path.name}: invalid JSON: {exc!r}')
+                  continue
+              streams = data.get('videoStreams') or []
+              reports.append(f'{path.name}: {len(streams)} video streams; error={data.get("error")!r}')
+              for stream in streams:
+                  url = stream.get('url')
+                  if not url:
+                      continue
+                  quality = str(stream.get('quality') or '')
+                  match = re.search(r'(\d+)', quality)
+                  height = int(match.group(1)) if match else int(stream.get('height') or 0)
+                  codec = str(stream.get('codec') or stream.get('format') or '')
+                  candidates.append((min(height, 1080), height <= 1080, 'piped', codec, url, path.name))
+
+          for path in Path('diagnostics').glob('invidious_*.json'):
+              try:
+                  data = json.loads(path.read_text(encoding='utf-8'))
+              except Exception as exc:
+                  reports.append(f'{path.name}: invalid JSON: {exc!r}')
+                  continue
+              streams = (data.get('adaptiveFormats') or []) + (data.get('formatStreams') or [])
+              reports.append(f'{path.name}: {len(streams)} video streams; error={data.get("error")!r}')
+              for stream in streams:
+                  if not str(stream.get('type') or '').startswith('video/'):
+                      continue
+                  url = stream.get('url')
+                  if not url:
+                      continue
+                  height = int(stream.get('height') or 0)
+                  candidates.append((min(height, 1080), height <= 1080, 'invidious', str(stream.get('type')), url, path.name))
+
+          Path('diagnostics/frontend_api_report.txt').write_text('\n'.join(reports), encoding='utf-8')
+          candidates.sort(key=lambda x: (x[1], x[0]), reverse=True)
+          with open('diagnostics/frontend_stream_candidates.txt', 'w', encoding='utf-8') as f:
+              for item in candidates:
+                  f.write(repr(item[:-1]) + f' from {item[-1]}\n')
+
+          for score, within, kind, codec, url, source in candidates:
+              print(f'Trying {kind} stream height={score}, codec={codec}, source={source}')
+              proc = subprocess.run([
+                  'curl', '-fL', '--retry', '2', '--connect-timeout', '20', '--max-time', '180',
+                  '-A', 'Mozilla/5.0', url, '-o', 'source.mp4'
+              ], text=True, capture_output=True)
+              with open('diagnostics/frontend_download.log', 'a', encoding='utf-8') as f:
+                  f.write(f'\nSOURCE {source}\nURL {url}\nRETURN {proc.returncode}\n{proc.stdout}\n{proc.stderr}\n')
+              target = Path('source.mp4')
+              if proc.returncode == 0 and target.exists() and target.stat().st_size > 100000:
+                  print(f'Downloaded {target.stat().st_size} bytes')
+                  break
+              target.unlink(missing_ok=True)
+          PY
+
       - name: Fetch watch pages and storyboard sheets
         run: |
           mkdir -p diagnostics storyboards
@@ -82,13 +170,7 @@ jobs:
                   sheets = max(1, math.ceil(count / max(1, cols * rows)))
                   for sheet in range(sheets):
                       url = template
-                      replacements = {
-                          '$L': str(level_index),
-                          '$N': f'M{sheet}',
-                          '$M': f'M{sheet}',
-                          '$sigh': sigh,
-                      }
-                      for old, new in replacements.items():
+                      for old, new in {'$L': str(level_index), '$N': f'M{sheet}', '$M': f'M{sheet}', '$sigh': sigh}.items():
                           url = url.replace(old, new)
                       if url.startswith('//'):
                           url = 'https:' + url
@@ -105,10 +187,11 @@ jobs:
           PY
 
       - name: Try embedded YouTube clients
+        if: ${{ hashFiles('source.mp4') == '' }}
         run: |
           set +e
           : > diagnostics/yt-dlp.log
-          for client in tv_embedded web_embedded web_safari mweb android_vr; do
+          for client in web_embedded web_safari mweb android_vr; do
             echo "===== CLIENT: $client =====" | tee -a diagnostics/yt-dlp.log
             yt-dlp --no-playlist --js-runtimes node \
               --extractor-args "youtube:player_client=$client" \
