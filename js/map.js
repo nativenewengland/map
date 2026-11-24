@@ -14,6 +14,8 @@ var tiles = L.tileLayer('map/{z}/{x}/{y}.jpg', {
   maxNativeZoom: 6,
 }).addTo(map);
 
+var activeFootnoteFeatureTitle = '';
+
 (function configureMarkedFootnotes() {
   var placeholderPrefix = '§§FOOTNOTE_REF_';
   var placeholderSuffix = '_END§§';
@@ -83,6 +85,35 @@ var tiles = L.tileLayer('map/{z}/{x}/{y}.jpg', {
       return { cleaned: cleaned, definitions: definitions };
     }
 
+    function extractTrailingInlineFootnoteDefinitions(markdown, definitions) {
+      var markerPattern = /(^|[ \t])\[\^([^\]\r\n]+)\]:[ \t]*/g;
+      var matches = [];
+      var match;
+
+      while ((match = markerPattern.exec(markdown)) !== null) {
+        matches.push({
+          start: match.index + match[1].length,
+          contentStart: markerPattern.lastIndex,
+          label: match[2].trim(),
+        });
+      }
+
+      if (!matches.length) {
+        return markdown;
+      }
+
+      var body = markdown.slice(0, matches[0].start).trimEnd();
+      matches.forEach(function (item, index) {
+        var end = index + 1 < matches.length ? matches[index + 1].start : markdown.length;
+        var content = markdown.slice(item.contentStart, end).trim();
+        if (content && !Object.prototype.hasOwnProperty.call(definitions, item.label)) {
+          definitions[item.label] = content;
+        }
+      });
+
+      return body;
+    }
+
     return {
       hooks: {
         preprocess: function (markdown) {
@@ -97,9 +128,21 @@ var tiles = L.tileLayer('map/{z}/{x}/{y}.jpg', {
           var refIndex = Object.create(null);
           var refCounts = Object.create(null);
 
-          var cleanedMarkdown = extracted.cleaned.join('\n').replace(/\[\^([^\]]+)\]/g, function (match, rawLabel) {
+          var cleanedMarkdown = extracted.cleaned.join('\n');
+          cleanedMarkdown = extractTrailingInlineFootnoteDefinitions(cleanedMarkdown, definitions);
+          cleanedMarkdown = cleanedMarkdown.replace(/\[\^([^\]]+)\]/g, function (match, rawLabel) {
             var label = rawLabel.trim();
             if (!label) {
+              return match;
+            }
+            if (!definitions[label] || !definitions[label].trim()) {
+              console.warn(
+                'Missing footnote definition for label "' +
+                  label +
+                  '" in feature "' +
+                  (activeFootnoteFeatureTitle || 'unknown') +
+                  '".'
+              );
               return match;
             }
             if (!Object.prototype.hasOwnProperty.call(refIndex, label)) {
@@ -159,8 +202,11 @@ var tiles = L.tileLayer('map/{z}/{x}/{y}.jpg', {
           }
 
           var itemsHtml = state.refOrder
-            .map(function (label, idx) {
-              var index = idx + 1;
+            .filter(function (label) {
+              return Boolean(state.definitions[label] && state.definitions[label].trim());
+            })
+            .map(function (label) {
+              var index = state.refIndex[label];
               var raw = state.definitions[label] || '';
               var contentHtml = raw;
               if (raw) {
@@ -578,6 +624,7 @@ function showInfo(title, altNames, subheader, description) {
     markdown = String(description);
   }
   var rendered = markdown;
+  activeFootnoteFeatureTitle = title || '';
   if (typeof marked !== 'undefined' && marked) {
     if (typeof marked.parse === 'function') {
       rendered = marked.parse(markdown);
