@@ -5,6 +5,7 @@ var map = L.map('map', {
   attributionControl: false,
   maxZoom: 6,
 }).setView([0, 0], 4);
+var baseZoom = map.getZoom();
 
 var tiles = L.tileLayer('map/{z}/{x}/{y}.jpg', {
   continuousWorld: false,
@@ -459,7 +460,6 @@ function containsTextLabel(collection, candidate) {
 }
 
 tiles.once('load', function () {
-  baseZoom = map.getZoom();
   rescaleIcons();
   rescaleTextLabels();
 });
@@ -915,7 +915,6 @@ var customTextLabels = [];
 var customPolygons = [];
 var allMarkers = [];
 var allTextLabels = [];
-var baseZoom;
 var selectedMarker = null;
 var markerClipboardData = null;
 var markerClipboardType = null;
@@ -1099,9 +1098,6 @@ function highlightMarker(marker) {
 }
 
 function rescaleIcons() {
-  if (baseZoom === undefined) {
-    baseZoom = map.getZoom();
-  }
   var scale = Math.pow(2, map.getZoom() - baseZoom);
 
   function scaleSizeComponent(value) {
@@ -1226,9 +1222,6 @@ function rescaleIcons() {
 }
 
 function rescaleTextLabels() {
-  if (baseZoom === undefined) {
-    baseZoom = map.getZoom();
-  }
   var scale = Math.pow(2, map.getZoom() - baseZoom);
   allTextLabels.forEach(function (m) {
     if (m._icon) {
@@ -1242,9 +1235,6 @@ function rescaleTextLabels() {
   });
 }
 function rescaleTextLabels() {
-  if (baseZoom === undefined) {
-    baseZoom = map.getZoom();
-  }
   var scale = Math.pow(2, map.getZoom() - baseZoom);
   allTextLabels.forEach(function (m) {
     if (m._icon) {
