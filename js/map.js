@@ -308,7 +308,7 @@ var activeFootnoteFeatureTitle = '';
 
 var DESCRIPTION_EMBED_FILE_LIMIT = 4 * 1024 * 1024;
 var DESCRIPTION_ALLOWED_URI_REGEXP =
-  /^(?:(?:https?|mailto|ftp|tel|data:(?:image|text|application\/pdf)[^]*$)|#)/i;
+  /^(?:(?:https?|mailto|ftp|tel|data:(?:image|text|application\/pdf)[^]*$)|#|(?:\.\/)?images\/)/i;
 
 function escapeMarkdownTextForEmbed(value) {
   if (value === null || value === undefined) {
@@ -771,7 +771,7 @@ var SettlementsIcon = createScaledIcon({
   iconUrl: 'icons/settlement.png',
   iconRetinaUrl: 'icons/settlement.png',
   iconSize: [2.8125, 2.8125],
-  iconAnchor: [1.3125, 2.8125],
+  iconAnchor: [1.40625, 1.40625],
   popupAnchor: [0.1875, -2.8125],
   tooltipAnchor: [1.3125, -1.3125],
 });
