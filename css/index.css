@@ -440,3 +440,18 @@ html, body{
     z-index: 1000;
     pointer-events: none;
 }
+.leaflet-tooltip.planting-field-icon {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    pointer-events: none;
+}
+
+.planting-field-icon img {
+    display: block;
+    width: 14px;
+    height: 14px;
+    object-fit: contain;
+}
+

@@ -761,10 +761,11 @@ map.on('click', function () {
 var WigwamIcon = createScaledIcon({
   iconUrl: 'icons/wigwam.png',
   iconRetinaUrl: 'icons/wigwam.png',
-  iconSize: [1.875, 1.875],
-  iconAnchor: [0.9375, 1.875],
-  popupAnchor: [0.1875, -1.875],
-  tooltipAnchor: [0.9375, -0.9375],
+  fixedScreenSize: true,
+  iconSize: [9, 9],
+  iconAnchor: [4.5, 9],
+  popupAnchor: [0, -9],
+  tooltipAnchor: [4.5, -4.5],
 });
 
 var SettlementsIcon = createScaledIcon({
@@ -1152,7 +1153,7 @@ function rescaleIcons() {
 
   allMarkers.forEach(function (m) {
     var base = m._baseIconOptions;
-    if (!base) {
+    if (!base || base.fixedScreenSize) {
       return;
     }
     var opts = Object.assign({}, base);
@@ -1394,6 +1395,7 @@ function loadFeaturesFromCSV(text) {
         description: cols[7],
         coords: cols[12] ? JSON.parse(cols[12]) : [],
         style: cols[13] ? JSON.parse(cols[13]) : undefined,
+        overlay: cols[14] || '',
       });
     }
   });
@@ -1472,7 +1474,7 @@ function buildFeaturesCSV() {
         '',
         escapeCsvValue(JSON.stringify(p.coords)),
         escapeCsvValue(JSON.stringify(p.style || {})),
-        ''
+        escapeCsvValue(p.overlay || '')
       ].join(',')
     );
   });
@@ -1599,11 +1601,23 @@ function addPolygonToMap(data) {
     },
     data.style || {}
   );
-  var poly = L.polygon(data.coords, opts).addTo(territoriesLayer);
+  var layer = getOverlayLayer(data.overlay) || territoriesLayer;
+  var poly = L.polygon(data.coords, opts).addTo(layer);
+  if (data.overlay === 'Planting Grounds') {
+    var icon = document.createElement('img');
+    icon.src = AgricultureIcon.options.iconUrl;
+    icon.alt = 'Planting field';
+    poly.bindTooltip(icon, {
+      permanent: true,
+      direction: 'center',
+      className: 'planting-field-icon',
+      opacity: 1,
+    });
+  }
   poly._data = data;
   setPolygonPopup(poly);
   poly.on('contextmenu', function () {
-    territoriesLayer.removeLayer(poly);
+    layer.removeLayer(poly);
     customPolygons = customPolygons.filter(function (p) {
       return p !== data;
     });

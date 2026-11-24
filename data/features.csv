@@ -435,13 +435,13 @@ text,-53.5,97.3,,Kuppiegon,Kuppeigon; Kuppegen; Kuppegon; Cape Higgon,,A good en
 text,-51.508742458803326,103.09570312500001,,MANNASAAK,,,A bush/brush place,3,0,0,0,,,
 text,-57.35,100.9,,Sakunket,Masapiquot,Probable identification; spelling requires source confirmation,Skunk place,3,0,0,0,,,Geographical Locations
 text,-53.146770330850835,109.79736328125001,,SANNAMENACK,,,Eat much,3,0,0,0,,,
-text,-50.95,103.0,,Sequinauk,Saquenausauquann,,"A Wampanoag place north of Sengekontacket, possibly associated with seasonal summer settlement.",3,0,0,0,,,Geographical Locations
-text,-54.457266680933856,95.47119140625,,TAKEMMY,,,Cold water,7,0,0,0,,,
+text,-50.95,103.0,,Sequinauk,Saquenausauquann,,"A Wampanoag place north of Sengekontacket, possibly associated with seasonal summer settlement. User-supplied Noepe place-name map: Sequinauk — Early summer land (perhaps a summer encampment).",3,0,0,0,,,Geographical Locations
+text,-54.457266680933856,95.47119140625,,TAKEMMY,Taakemmy,,Cold water User-supplied Noepe place-name map: Taakemmy — Where he or she strikes it (a corn grinding place).,7,0,0,0,,,
 text,-56.365250136856076,109.5556640625,,TASHQUIMMACASSICK,,,Black fish place,4,0,0,0,,,
 text,-58.296526909822504,86.8359357871675,,MASHIANAUKE,,,Big town,3,0,0,0,,,
-text,-57.9265172853711,96.74560546875,,Massapootoeauke,Massapootooquak,,Land of great blowing—whales,1,0,0,0,,,Geographical Locations
+text,-57.9265172853711,96.74560546875,,Massapootoeauke,Massapootooquak,,Land of great blowing—whales User-supplied Noepe place-name map: Massapootoeauke — Land of great blowing (whales).,1,0,0,0,,,Geographical Locations
 text,-56.09655575056831,94.19677734375001,,NASHANEAUPE,,,They went there,2,0,0,0,,,
-text,-56.72862197314074,108.76464843750001,,PAQUAAHUNAUK,,,Quahog land,3,0,0,0,,,
+text,-56.72862197314074,108.76464843750001,,PAQUAAHUNAUK,Paquahauke,,Quahog land User-supplied Noepe place-name map: Paquahauke — Quahaug land.,3,0,0,0,,,
 text,-53.00156227459147,112.91748046875001,,PONANASAUSIG,,,To spread their wings,1,0,0,0,,,
 text,-52.97510818173529,108.63281250000001,,QUATAQUETUCA,,,Red crabs,3,0,0,0,,,
 text,-52.908902047770255,111.55517578125001,,SANSHUWACHU,,,Brook lodge,3,0,0,0,,,
@@ -525,7 +525,7 @@ text,0.615222552406841,133.83544921875003,,Meeshawn,"Meeshaun,  Mushawn",,Meesha
 text,-3.5572827265412794,144.22851562500003,,Tashmuit,,“a place of springs.”,"The highlands of Pamet which were valued for its fertile soil and fresh springs, both of which were utilized by the local people. ![North_Truro_from_the_south](images/North_Truro_from_the_south.png) ",6,52,2,0,,,Geographical Locations
 text,-6.7737162387535,144.49218750000003,,Pamet,,,,13,0,0,0,,,Territories
 text,-45.93587062119053,50.42724609375001,,Aquidnet,,,,11,0,0,0,,,Geographical Locations
-text,-55.216547833210726,96.92138671875001,,NOEPE,,,,32,0,5,0,,,
+text,-55.216547833210726,96.92138671875001,,NOEPE,,,User-supplied Noepe place-name map: NOEPE — Dry land (refers to all of Martha’s Vineyard).,32,0,5,0,,,
 text,-80.71109268759261,-162.81738281250003,,Nayack ,,,,7,0,0,0,,,Settlements
 text,-79.56850599323725,-161.82861328125003,,Pagganck,,"""Nut Island""",,4,0,0,0,,,Geographical Locations
 text,60.04358934572451,64.43395614624025,,Wemesit,,,,12,0,0,0,,,
@@ -852,8 +852,8 @@ text,-42.763232601127406,148.82090662902357,,Monomoy ,,"""look-out place"" or ""
 text,-72.32913739787085,-15.314941406250002,,Acabonack,,,,5,0,0,0,,,Settlements
 text,-79.70291005763919,-157.74169921875003,,Werpos ,,,,5,0,0,0,,,Settlements
 text,-52.948588368139255,103.51318359375,,Ogkeshkuppe,,"""damp/wet thicket or woods.""",,6,-65,1,0,,,
-text,-58.74539152474415,86.2645416659574,,Mashatanauke ,,,(in the vicinity of Old South Road): Big town (main settlement),7,0,0,0,,,Settlements
-text,-59.987912041060916,87.31922204785454,,Aquinnah ,,,,9,34,0,0,,,Settlements
+text,-58.74539152474415,86.2645416659574,,Mashatanauke ,Mashanauke,,(in the vicinity of Old South Road): Big town (main settlement) User-supplied Noepe place-name map: Mashanauke — Big town.,7,0,0,0,,,Settlements
+text,-59.987912041060916,87.31922204785454,,Aquinnah ,,,User-supplied Noepe place-name map: Aquinnah — The shore or end of the island.,9,34,0,0,,,Settlements
 text,-52.20087371733219,101.16207022543438,,Tashmoo,,,,6,69,0,0,,,Bodies of Water
 text,-54.52107933590939,106.50138654461875,,Sengekontacket ,,,,4,53,0,0,,,
 text,-48.25394114463432,98.67919921875001,,Nobska ,,,,3,37,0,0,,,
@@ -1057,16 +1057,16 @@ text,10.639114339905174,-43.52731936358496,,Chicopi,,,,8,0,0,0,,,Rivers
 text,12.61842300676354,-51.39036590411805,,Wullamansepe,,,,8,0,0,0,,,Geographical Locations
 text,22.47157038218241,-56.071955940995736,,Pawaagonick,,,,8,0,0,0,,,Geographical Locations
 text,-49.095481475720774,64.29216896945348,,Cocoesit ,,,,4,-34,0,0,,,Bodies of Water
-text,-58.436233157945246,111.00585937500001,,Mattakeset,,,,3,0,0,0,,,
+text,-58.436233157945246,111.00585937500001,,Mattakeset,Mattaukeset,,User-supplied Noepe place-name map: spelled Mattaukeset.,3,0,0,0,,,
 text,-58.04300405858761,114.89501953125001,,Poucha,,,,3,45,0,0,,,
 text,-57.621875380195455,112.91748046875001,,Washaqua,,,,3,0,0,0,,,
-text,-58.37867853932655,114.56542968750001,,Wasque,,,,3,0,0,0,,,
+text,-58.37867853932655,114.56542968750001,,Wasque,Wannasque,,User-supplied Noepe place-name map: spelled Wannasque.,3,0,0,0,,,
 text,-56.57158903959722,106.94091796875001,,Wintucket,,,,3,0,0,0,,,
 text,-58.44773280389084,104.21630859375001,,Faqua,,,,3,0,0,0,,,
 text,-57.97315745102812,102.78808593750001,,Watcha,,,,3,0,0,0,,,
 text,-54.20101023973888,102.85400390625,,Kehtashimet,Keitahsimet,,"Kehtashimet is the Wampanoag name associated with Lake Tashmoo in Vineyard Haven, meaning 'place of a great spring.'",3,0,0,0,,,Bodies of Water
-text,-51.69979984974194,105.62255859375001,,Sanchiacantacket,Sanchiacattuatuuck; Sanchekantackett; Sengekontacket,,,3,0,0,0,,,Bodies of Water
-text,-57.9265172853711,96.74560546875,,Quansue,,,,3,0,0,0,,,
+text,-51.69979984974194,105.62255859375001,,Sanchiacantacket,Sanchiacattuatuuck; Sanchekantackett; Sengekontacket,,User-supplied Noepe place-name map: Sanchiacantacket — Place where the brook flows into the river.,3,0,0,0,,,Bodies of Water
+text,-57.9265172853711,96.74560546875,,Quansue,Quansoo,,User-supplied Noepe place-name map: spelled Quansoo.,3,0,0,0,,,
 text,-60.28340847828243,89.58251953125,,Msquepunauket,Mespeshautuk; Squibnocket,,At the place of the red cliff or bank,3,0,0,0,,,Geographical Locations
 text,-59.20968817840925,89.89013671875001,,Menemsha,,,,3,0,0,0,,,
 text,-59.24341475839977,92.48291015625,,Wequobsket,,,,3,-25,0,0,,,
@@ -1117,7 +1117,7 @@ text,30.18152433795424,62.81982418039494,,Pequusset,,,4,4,0,0,0,,,
 text,29.76289765511265,59.17236319131399,,Squibnocket,,,,7,0,0,0,,,Settlements
 text,28.748411368027856,51.04248041716907,,Mattapannock,,,,7,0,0,0,,,
 text,29.87879924752034,53.70117142664258,,Quinnebequi,,,,7,0,0,0,,,
-text,-57.36546210859709,110.21484355954729,,Chappaquiddick,Chappaquidgick,,,9,34,0,0,,,Settlements
+text,-57.36546210859709,110.21484355954729,,Chappaquiddick,Chappaquidgick; Tchepiaquidenet,,User-supplied Noepe place-name map: Tchepiaquidenet — Place of separate island.,9,34,0,0,,,Settlements
 text,35.711270695529144,-48.44947576607331,,Nepesoneag,,,,5,-55,0,0,,,Geographical Locations
 text,39.281369144056065,-46.004165665812415,,Kunckquachu,,,,5,55,0,0,,,Geographical Locations
 text,39.04483904467182,-49.262648008259326,,Wequamps,,,,5,98,0,0,,,Geographical Locations
@@ -1365,8 +1365,250 @@ text,-32.968300,89.969209,,Sippican,,,,7,0,0,0,,,Settlements
 text,-34.250233,100.720556,,Pispogutt,,,,7,0,0,0,,,Settlements
 text,-37.02004767128328,108.52315543349253,,Pawpoesit,,,,7,0,0,0,,,Settlements
 text,-57.4986304322132,105.53180945785293,,Nashamoisett,,,,7,0,0,0,,,Settlements
-text,-55.28839410830355,94.06085426115139,,Nashawahkamuk,,,,7,0,0,0,,,Settlements
+text,-55.28839410830355,94.06085426115139,,Nashawahkamuk,,,User-supplied Noepe place-name map: Nashawahkamuk — Between the land (common land for hunting).,7,0,0,0,,,Settlements
 text,-13.482883,77.660373,,Pachade,,,,7,0,0,0,,,Settlements
 text,-22.695120184965695,44.36279296875,,Seekonk,,,,7,0,0,0,,,Settlements
 text,-51.727552824288885,89.1732298729916,,Naushon,,,,7,0,0,0,,,Settlements
 >>>>>>> 4eb91958739a00e5f4fee17e770ba483c56adf1b
+polygon,,,,Planting field near Nayack,,,Hatched planting field shown on Native Long Island (Long Island Culture History Lab & Museum). The outline and placement are approximate.,,,,,"[[-80.7786602,-162.9703125],[-80.6997365,-162.365625],[-80.6615928,-161.0349609],[-80.6886509,-159.9169922],[-80.7487533,-159.5830078],[-80.8479774,-159.7798828],[-80.9167779,-160.4197266],[-80.9364595,-161.7398438],[-80.8848093,-162.7945313]]","{""color"":""#725224"",""fillColor"":""#d4a94c"",""weight"":1,""fillOpacity"":0.55}",Planting Grounds
+polygon,,,,Planting field near Gowanus,,,Hatched planting field shown on Native Long Island (Long Island Culture History Lab & Museum). The outline and placement are approximate.,,,,,"[[-80.0349581,-160.4654297],[-79.9429809,-160.0664062],[-79.9233162,-159.0433594],[-79.9392966,-158.3384766],[-80.0407359,-158.7023438],[-80.0720003,-159.4792969]]","{""color"":""#725224"",""fillColor"":""#d4a94c"",""weight"":1,""fillOpacity"":0.55}",Planting Grounds
+polygon,,,,Planting field near Canapaukah,,,Hatched planting field shown on Native Long Island (Long Island Culture History Lab & Museum). The outline and placement are approximate.,,,,,"[[-79.1422345,-156.5226563],[-79.0911233,-156.2220703],[-79.0711455,-155.7052734],[-79.0947819,-155.4152344],[-79.1339533,-155.6419922],[-79.1917907,-156.0814453],[-79.1927796,-156.3855469]]","{""color"":""#725224"",""fillColor"":""#d4a94c"",""weight"":1,""fillOpacity"":0.55}",Planting Grounds
+polygon,,,,Planting field near Canapaukah,,,Hatched planting field shown on Native Long Island (Long Island Culture History Lab & Museum). The outline and placement are approximate.,,,,,"[[-79.1127251,-155.2587891],[-79.0764764,-155.1691406],[-79.0711455,-154.8298828],[-79.0931191,-154.7085938],[-79.1293132,-154.8316406],[-79.1352788,-155.0707031]]","{""color"":""#725224"",""fillColor"":""#d4a94c"",""weight"":1,""fillOpacity"":0.55}",Planting Grounds
+polygon,,,,North shore planting field,,,Hatched planting field shown on Native Long Island (Long Island Culture History Lab & Museum). The outline and placement are approximate.,,,,,"[[-77.9344226,-148.0113281],[-77.8666272,-147.4681641],[-77.8459194,-146.3800781],[-77.8407371,-145.5697266],[-77.8813972,-144.3462891],[-77.9270717,-143.9332031],[-77.9949,-143.5675781],[-78.1193034,-143.8066406],[-78.1795876,-144.5132813],[-78.2874829,-144.8771484],[-78.3384013,-145.546875],[-78.3241804,-146.5154297],[-78.2678406,-147.2572266],[-78.1799477,-147.5103516],[-78.0747088,-147.6861328]]","{""color"":""#725224"",""fillColor"":""#d4a94c"",""weight"":1,""fillOpacity"":0.55}",Planting Grounds
+polygon,,,,Planting field near Makeopaca,,,Hatched planting field shown on Native Long Island (Long Island Culture History Lab & Museum). The outline and placement are approximate.,,,,,"[[-80.6980319,-155.8634766],[-80.6738498,-155.0460938],[-80.6923476,-153.8384766],[-80.7411202,-153.2847656],[-80.8124013,-153.7154297],[-80.8627837,-154.5099609],[-80.8421042,-155.4626953],[-80.7994817,-155.8511719]]","{""color"":""#725224"",""fillColor"":""#d4a94c"",""weight"":1,""fillOpacity"":0.55}",Planting Grounds
+polygon,,,,Planting field near Canarsie,,,Hatched planting field shown on Native Long Island (Long Island Culture History Lab & Museum). The outline and placement are approximate.,,,,,"[[-79.8776958,-152.8154297],[-79.796745,-152.325],[-79.7489937,-151.5867187],[-79.7605616,-151.1560547],[-79.8253522,-150.8625],[-79.88912,-151.0734375],[-79.9610756,-151.6253906],[-79.9791381,-152.1755859],[-79.9356111,-152.7873047]]","{""color"":""#725224"",""fillColor"":""#d4a94c"",""weight"":1,""fillOpacity"":0.55}",Planting Grounds
+polygon,,,,Planting field near Canarsie,,,Hatched planting field shown on Native Long Island (Long Island Culture History Lab & Museum). The outline and placement are approximate.,,,,,"[[-80.0986346,-153.6697266],[-80.0431677,-153.0949219],[-80.0194327,-152.3373047],[-80.0270461,-151.9048828],[-80.0835101,-151.5058594],[-80.1378513,-151.7783203],[-80.1408616,-152.7222656],[-80.1251982,-153.6539063]]","{""color"":""#725224"",""fillColor"":""#d4a94c"",""weight"":1,""fillOpacity"":0.55}",Planting Grounds
+polygon,,,,Planting field near Canarsie,,,Hatched planting field shown on Native Long Island (Long Island Culture History Lab & Museum). The outline and placement are approximate.,,,,,"[[-80.0638142,-151.59375],[-79.9947255,-151.2439453],[-79.9546388,-150.6111328],[-79.9580109,-149.8060547],[-80.0002212,-149.765625],[-80.0974255,-150.3369141],[-80.1025632,-151.0470703]]","{""color"":""#725224"",""fillColor"":""#d4a94c"",""weight"":1,""fillOpacity"":0.55}",Planting Grounds
+polygon,,,,Planting field near Hassockey,,,Hatched planting field shown on Native Long Island (Long Island Culture History Lab & Museum). The outline and placement are approximate.,,,,,"[[-79.7764854,-146.6103516],[-79.7370996,-146.2675781],[-79.7327141,-145.7402344],[-79.748368,-145.3552734],[-79.7964336,-145.4132813],[-79.875224,-145.7279297],[-79.9319242,-146.4486328],[-79.885725,-146.5769531]]","{""color"":""#725224"",""fillColor"":""#d4a94c"",""weight"":1,""fillOpacity"":0.55}",Planting Grounds
+polygon,,,,Planting field near Hassockey,,,Hatched planting field shown on Native Long Island (Long Island Culture History Lab & Museum). The outline and placement are approximate.,,,,,"[[-79.9399108,-146.2183594],[-79.9091587,-145.9599609],[-79.8974486,-145.5855469],[-79.9100826,-145.5134766],[-79.9619948,-145.7595703],[-79.9779145,-145.9546875]]","{""color"":""#725224"",""fillColor"":""#d4a94c"",""weight"":1,""fillOpacity"":0.55}",Planting Grounds
+polygon,,,,Planting field near Hassockey,,,Hatched planting field shown on Native Long Island (Long Island Culture History Lab & Museum). The outline and placement are approximate.,,,,,"[[-79.9791381,-145.4818359],[-79.9518789,-145.2005859],[-79.9540255,-144.9650391],[-79.997779,-145.0722656],[-80.0285681,-145.2779297]]","{""color"":""#725224"",""fillColor"":""#d4a94c"",""weight"":1,""fillOpacity"":0.55}",Planting Grounds
+polygon,,,,Planting field near Hassockey,,,Hatched planting field shown on Native Long Island (Long Island Culture History Lab & Museum). The outline and placement are approximate.,,,,,"[[-79.9788322,-144.8490234],[-79.9426739,-144.5361328],[-79.9187018,-143.8628906],[-79.9131617,-143.465625],[-79.9659771,-143.578125],[-80.0072392,-143.9753906],[-80.0541035,-144.7154297],[-80.0401279,-144.9703125]]","{""color"":""#725224"",""fillColor"":""#d4a94c"",""weight"":1,""fillOpacity"":0.55}",Planting Grounds
+polygon,,,,Planting field near Kantuck,,,Hatched planting field shown on Native Long Island (Long Island Culture History Lab & Museum). The outline and placement are approximate.,,,,,"[[-76.3257414,-128.9882812],[-76.2373659,-128.5417969],[-76.2306734,-127.7982422],[-76.174918,-127.1988281],[-76.1791178,-126.4271484],[-76.2252333,-126.0791016],[-76.340278,-126.4376953],[-76.4601428,-126.3287109],[-76.5340219,-126.6011719],[-76.5270613,-127.1707031],[-76.4510859,-127.9740234],[-76.3891757,-128.8529297]]","{""color"":""#725224"",""fillColor"":""#d4a94c"",""weight"":1,""fillOpacity"":0.55}",Planting Grounds
+polygon,,,,Planting field near Setauket,,,Hatched planting field shown on Native Long Island (Long Island Culture History Lab & Museum). The outline and placement are approximate.,,,,,"[[-74.2997445,-92.3923828],[-74.2253684,-92.1919922],[-74.1323959,-91.5802734],[-74.1035336,-91.0634766],[-74.1242234,-90.8701172],[-74.2296686,-91.0160156],[-74.3382279,-91.3324219],[-74.3429725,-91.8386719]]","{""color"":""#725224"",""fillColor"":""#d4a94c"",""weight"":1,""fillOpacity"":0.55}",Planting Grounds
+polygon,,,,Planting field near Setauket,,,Hatched planting field shown on Native Long Island (Long Island Culture History Lab & Museum). The outline and placement are approximate.,,,,,"[[-74.4907738,-92.6771484],[-74.4568957,-92.5611328],[-74.4503,-91.7507813],[-74.5137885,-91.8457031],[-74.5095638,-92.5839844]]","{""color"":""#725224"",""fillColor"":""#d4a94c"",""weight"":1,""fillOpacity"":0.55}",Planting Grounds
+polygon,,,,Planting field near Noccomack,,,Hatched planting field shown on Native Long Island (Long Island Culture History Lab & Museum). The outline and placement are approximate.,,,,,"[[-78.054351,-73.3992187],[-78.0459798,-72.8683594],[-78.0572613,-72.1107422],[-78.1211127,-72.0949219],[-78.1849876,-72.39375],[-78.2585438,-72.6996094],[-78.3209783,-73.0494141],[-78.2771301,-73.2621094],[-78.1896656,-73.2902344]]","{""color"":""#725224"",""fillColor"":""#d4a94c"",""weight"":1,""fillOpacity"":0.55}",Planting Grounds
+polygon,,,,Planting field near Pequash,,,Hatched planting field shown on Native Long Island (Long Island Culture History Lab & Museum). The outline and placement are approximate.,,,,,"[[-71.296284,-38.4556641],[-71.1730106,-38.2429687],[-71.0518085,-37.828125],[-71.0118129,-37.2410156],[-71.0203902,-36.7066406],[-71.092862,-36.6310547],[-71.2641273,-36.9949219],[-71.3334515,-37.4589844],[-71.3503223,-38.1708984]]","{""color"":""#725224"",""fillColor"":""#d4a94c"",""weight"":1,""fillOpacity"":0.55}",Planting Grounds
+polygon,,,,Planting field near Wickapogue,,,Hatched planting field shown on Native Long Island (Long Island Culture History Lab & Museum). The outline and placement are approximate.,,,,,"[[-74.731004,-32.4193359],[-74.7189634,-32.0097656],[-74.7333184,-31.3751953],[-74.7115492,-30.8285156],[-74.7217428,-30.4962891],[-74.8168708,-30.7054687],[-74.8866913,-31.0728516],[-74.8944807,-31.7847656],[-74.9292557,-32.1697266],[-74.852739,-32.3384766]]","{""color"":""#725224"",""fillColor"":""#d4a94c"",""weight"":1,""fillOpacity"":0.55}",Planting Grounds
+text,-79.1522368,-159.2151745,,Mespaetches,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-78.9499780,-157.6032003,,Canapaukah,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-78.6521737,-122.2433450,,Kiscasutta,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-79.8874668,-159.9333108,,Ihpetonga,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-80.0193384,-159.9740510,,Marechkawick,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-79.6698389,-157.2664302,,Matowcas,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-80.1182252,-159.9889810,,Gowanus,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-79.3252122,-144.2566113,,Jamaica,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-79.7064549,-145.3974063,,Conorasset,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-79.8354612,-136.0709639,,Massepe,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-80.2995887,-154.6404043,,Muskyttehool,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-79.9335957,-149.7624678,,Hohosboco,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-80.1905690,-149.9824414,,Sucos,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-80.3306719,-152.4178140,,Castateum,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-80.4900986,-158.0237554,,Keskaechquerem,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-80.5574713,-156.1076473,,Shanscomacocke,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-80.4109090,-151.9157556,,Wimbacco,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-80.5273861,-153.2512802,,Macutteris,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-80.6957745,-158.2017227,,Mechawanienck,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-80.7416595,-156.9783105,,Makeopaca,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-80.7806985,-160.7691331,,Techkonis,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-80.8444342,-161.1180363,,Wichquawanck,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-80.9839123,-159.4163207,,Massabarkem,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-81.0206139,-159.3294071,,Moeung,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-80.6104701,-149.1094817,,Winippague,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-80.8707513,-149.1872182,,Equendito,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-80.9675563,-153.4738218,,Hoopaninak,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-81.2323655,-158.3766596,,Mannahanning,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-81.1155331,-153.0801897,,Narrioch,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-81.0865776,-145.5681238,,Nameoke,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-81.2361512,-147.6167181,,Rechouwhacky,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-81.0416523,-142.5343977,,Copwax,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-80.9390758,-140.1120705,,Coekwas,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-80.8606002,-135.7107923,,Seatquaa,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-80.7257650,-135.6021092,,Hapax,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-80.2123678,-142.7138982,,Hassockey,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-80.2337258,-120.0332948,,Wooruskhouse,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-80.2971009,-117.8238198,,Sichetanyhacky,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-77.6371501,-135.5129257,,Manhasset,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-75.8551724,-132.2857338,,Mosquetah,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-76.1412087,-133.6367860,,Cometico,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-76.1501888,-131.5165452,,Papequatunk,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-76.1697484,-129.8685784,,Checkachagin,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-76.2150348,-129.8659386,,Matinnecock,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-76.1751165,-127.5052139,,Kantuck,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-75.4184682,-118.9386969,,Operhoweseck,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-75.5012912,-115.4070753,,Ketanomocke,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-75.6434896,-112.7732615,,Assawannama,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-74.3436888,-115.2121352,,Anendesak,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-74.7053437,-111.6420854,,Opcatkontycke,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-74.8631186,-110.6041818,,Unshemamuck,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-74.6679390,-106.9122263,,Siongo,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-74.7574731,-107.3280066,,Arhakaamunk,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-74.9363410,-105.2984651,,Shockeyoune,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-75.3191129,-108.9351546,,Arhakaamunk,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-74.9060218,-100.5484474,,Sherawoug,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-75.0998507,-94.9612315,,Wopowog,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-75.2341188,-94.9238853,,Memanusack,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-75.3118597,-96.3985136,,Cutsgunsuck,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-75.8950228,-107.9045286,,Nisinckqueghacky,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-76.1739478,-110.7654388,,Nesaquaque Accompsett,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-76.3635260,-110.0206869,,Winnecomac,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-76.2519709,-122.5510177,,Machaquatuck,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-76.1980538,-121.0122130,,Wauwepex,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-76.6246372,-125.7090749,,Syosset,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-76.8184890,-118.9486107,,Wallage,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-77.0296548,-123.6173958,,Lusam,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-76.9704403,-110.2633300,,Massakack,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-77.2072750,-117.3350612,,Rungcatamy,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-77.3177754,-116.8779541,,Messtopass,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-77.4228670,-116.6772142,,Mannatto,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-76.7803197,-99.9554652,,Hauppauge,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-76.7481750,-94.2682608,,Nasseconset,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-74.3161358,-92.2574071,,Minasseroke,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-74.5078020,-92.7077874,,Setauket,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-74.5251698,-89.8935107,,Poquott,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-74.6053383,-92.2178859,,Nassakeag,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-74.6219328,-87.0554167,,Souwassett,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-74.7047887,-89.3140024,,Cumsewogue,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-74.3686186,-85.2328874,,Nonowantuck,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-73.5806851,-71.3249195,,Pahquahkossit,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-73.3751434,-60.9343315,,Roanoke,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-75.0908681,-62.4433954,,Napock,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-74.9050418,-61.0837286,,Conungum,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-75.9227406,-80.2656226,,Coram,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-73.1613389,-47.1986652,,Aquebogue,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-72.7839287,-44.5963181,,Miamogue,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-73.0827596,-44.9084635,,Assasquage,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-73.2971616,-44.6405086,,Conegums,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-74.0747486,-46.9869430,,Nobbs,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-74.3233861,-48.2892127,,Messemenuck,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-74.4543547,-47.8285251,,Rapahamuck,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-77.1904928,-81.1589976,,Yaphank,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-77.3973060,-79.4040740,,Asawsunce,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-77.7181379,-78.3151637,,Connecticut,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-77.7080106,-76.5321045,,Mastic,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-77.9134433,-81.9110488,,Noccomack,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-78.0913976,-80.9811659,,Squassucks,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-77.8071952,-74.8960065,,Poosepatuck,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-77.8903976,-72.7329918,,Waspeunk,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-77.9666988,-75.9889044,,Quailcan,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-77.9554111,-71.8168861,,Squorums,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-78.0182172,-71.7422682,,Musquatax,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-78.1636731,-75.5357399,,Noccomack,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-78.2631455,-72.2179860,,Pattersquash,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-78.3863256,-86.1957353,,Patchogue,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-78.6080261,-84.9102797,,Namkee,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-78.6490949,-85.1978785,,Manowtassquot,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-78.4202599,-80.7880173,,Acombamack,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-78.3715586,-90.3988009,,Connetquot,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-78.7371002,-88.1383795,,Essachias,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-78.7669181,-85.6504057,,Neckapauge,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-78.9564148,-94.5209711,,Penataquit,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-79.0695759,-95.2113902,,Awixa,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-78.9736202,-91.8613083,,Orawac,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-79.0962950,-93.0109156,,Winganhauppauge,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-79.1930599,-91.6365682,,Cantasquntah,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-79.3056946,-96.3762184,,Missatuck,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-79.3770857,-95.6674442,,Scoquams,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-79.4202717,-95.5254862,,Cuscomquorom,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-79.5216546,-95.6618238,,Sampawams,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-79.6828263,-97.3143012,,Saghtekoos,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-79.8424368,-98.9400409,,Santapogue,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-79.6064050,-100.2067108,,Arasecoseagge,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-79.6910667,-99.8982121,,Neguntatogue,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-79.8018768,-100.4175515,,Manetuck,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-79.5778669,-100.7653668,,Anuskkummikak,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-80.0305354,-99.2651231,,Screeunkas,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-79.7565481,-104.0844280,,Copiag,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-79.9616661,-103.3969753,,Masquetux,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-79.9963712,-103.1846478,,Arrasquaug,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-79.9970618,-106.0505033,,Ruskatux,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-79.8918733,-107.6145981,,Massapequa,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-79.7331755,-105.2718679,,Araca,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-79.9288539,-111.9324141,,Wantagh,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-80.0863790,-111.5001830,,Tatamuckatakis,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-80.2154851,-102.0460692,,Squaw,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-80.3068905,-99.3953377,,Gilgo,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-79.1311487,-102.4329791,,Nipscop,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-76.8956468,-74.3606801,,Wampmissic,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-77.3137604,-70.8029386,,Moriches,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-77.4819151,-68.6083593,,Paquatuck,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-77.4323354,-67.2659344,,Watchogue,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-77.5917544,-65.3517790,,Compowams,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-77.4808179,-65.0898050,,Seatuck,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-77.5933187,-64.2847381,,Mattuck,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-77.3182128,-64.2932104,,Speonk,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-77.2632894,-64.3271071,,Massapootupaug,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-77.3818051,-60.6229194,,Apocock,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-77.5063544,-58.6741040,,Potunk,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-77.4138471,-57.9534990,,Nonunke,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-77.1309490,-61.1923926,,Monabaugs,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-76.9418288,-60.7615189,,Ketchaponack,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-77.2658343,-54.5011977,,Quantuck,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-77.3271863,-52.5588629,,Aspatuck,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-77.1343947,-48.3622625,,Assups,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-77.7052549,-67.1555610,,Areshunk,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-77.7919940,-66.6627264,,Warratta,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-77.8183606,-68.2533910,,Senex Mamanock,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-77.8680437,-64.7225494,,Cochimunchanke,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-78.0794828,-63.9429553,,Cupsage,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-75.4532437,-40.8451818,,Enaughquamuck,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-75.2941463,-36.9469166,,Tuckahoe,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-74.4075874,-28.9487910,,Seapoose,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-74.3216050,-29.4541116,,Mecox,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-75.6444197,-35.5051500,,Jabash,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-75.5487307,-37.1642216,,Agawom,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-74.2088000,-30.5179544,,Killis,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-73.8949785,-27.8226665,,Sagaponack,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-73.5684305,-28.1516733,,Poxabog,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-72.6316008,-31.3330233,,Weckatuck,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-72.9073613,-28.5878105,,Mashashimuet,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-72.8787218,-25.7417832,,Wigwagonock,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-73.5864545,-18.8363919,,Amagansett,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-73.7615283,-18.4164351,,Pantigo,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-74.0795561,-19.9918913,,Appaquogue,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-70.8353336,-39.6334930,,Peconic,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-71.7061875,-40.5658284,,Momoweta,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-71.7411217,-40.5404509,,Cutchogue,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-71.5571330,-40.1291777,,Pesapunck,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-71.8176292,-40.5457701,,Nabiachage,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-70.1802723,-39.1233652,,Minnapaugs,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-70.7479148,-39.0123249,,Pequash,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-70.6447259,-37.9995378,,Patchummuck,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-70.4445038,-36.7063264,,Hashamomuk,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-69.8024908,-35.1641442,,Mantoobaugs,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-70.1883689,-34.5278347,,Manhansuck,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-70.5799789,-34.4755442,,Payaquotusk,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-70.2044348,-30.8053701,,Chequit,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-70.7806936,-31.0245006,,Manhansie,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-70.9010063,-28.1318916,,Sachem neck,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-70.4690132,-27.0424685,,Sungic,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-72.1467651,-22.3633404,,Ashawagh,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-72.3209377,-22.5349884,,Mogkompskut,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-72.7730489,-15.8033968,,Copeces,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-72.1297484,-3.8029707,,Nonkhunganki,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-72.0026681,-3.6985713,,Choppauhshapaugausuck,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-71.7822639,-0.8315828,,Wattuquasset,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-71.3267476,-3.2071666,,Wuchebehsuck,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-71.1914409,-4.0412488,,Quanuntowunk,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-70.8968974,-3.8451408,,Qunnunks,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-70.4447835,0.2663774,,Shawango,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-70.7006254,2.6019252,,Manunkquiaug,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-70.9310743,0.2968909,,Mahchongitchuge,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-71.2305444,2.4786764,,Montauk,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-67.7363322,-26.3495688,,Poquatuck,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-66.9379058,-20.3058941,,Manittuwond,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-76.4965347,-62.3328519,,Owenamchock,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-78.3171958,-120.2180790,,Sewanhacky,,,Place name shown on Native Long Island (Long Island Culture History Lab & Museum). Placement is approximate.,4,0,0,0,,{},Geographical Locations
+text,-51.9713458,100.3710938,,Ashappaquonset,,,User-supplied Noepe place-name map. Approximate placement.,4,0,0,0,,{},Geographical Locations
+text,-51.9171676,102.4365234,,Nobnocket,,,User-supplied Noepe place-name map. Approximate placement.,4,0,0,0,,{},Geographical Locations
+text,-53.4618904,97.6025391,,Makoniky,,,User-supplied Noepe place-name map. Approximate placement.,4,0,0,0,,{},Geographical Locations
+text,-54.2652241,97.1191406,,Manitouwattootan,,,User-supplied Noepe place-name map. Approximate placement. The legend gives the meaning “God’s town (Christiantown)”.,4,0,0,0,,{},Geographical Locations
+text,-54.5465795,102.5244141,,Wequtukqauke,,,User-supplied Noepe place-name map. Approximate placement.,4,0,0,0,,{},Geographical Locations
+text,-55.7271101,96.6357422,,Waskosim,,,User-supplied Noepe place-name map. Approximate placement. The legend gives the meaning “New stone”.,4,0,0,0,,{},Geographical Locations
+text,-56.3895835,96.2402344,,Tiasquin,,,User-supplied Noepe place-name map. Approximate placement.,4,0,0,0,,{},Geographical Locations
+text,-58.3325671,90.6591797,,Wawitukq,,,"User-supplied Noepe place-name map. Approximate placement. The legend gives the meaning “Winding, twisting river”.",4,0,0,0,,{},Geographical Locations
+text,-59.9330004,91.0107422,,Nashaquitsa,,,User-supplied Noepe place-name map. Approximate placement. The legend gives the meaning “At the little divided island”.,4,0,0,0,,{},Geographical Locations
+text,-58.4017117,97.5146484,,Ukqukeset,,,User-supplied Noepe place-name map. Approximate placement.,4,0,0,0,,{},Geographical Locations
+text,-57.8914974,105.5566406,,Winnetukqet,,,User-supplied Noepe place-name map. Approximate placement. The legend gives the meaning “Place of good river”.,4,0,0,0,,{},Geographical Locations
+text,-58.0546319,109.9072266,,Katama,,,User-supplied Noepe place-name map. Approximate placement.,4,0,0,0,,{},Geographical Locations
+text,-55.8999561,108.8525391,,Nunne-Pog,,,User-supplied Noepe place-name map. Approximate placement. The legend gives the meaning ““When there is water there” (freshwater pond)”.,4,0,0,0,,{},Geographical Locations
+text,-54.5210815,113.9501953,,Capoag,,,User-supplied Noepe place-name map. Approximate placement.,4,0,0,0,,{},Geographical Locations
