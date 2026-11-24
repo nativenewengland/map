@@ -450,8 +450,8 @@ html, body{
 
 .planting-field-icon img {
     display: block;
-    width: 14px;
-    height: 14px;
+    width: var(--planting-field-size, 4px);
+    height: var(--planting-field-size, 4px);
     object-fit: contain;
 }
 

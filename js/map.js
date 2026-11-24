@@ -1150,6 +1150,10 @@ function rescaleIcons() {
     return rounded;
   }
 
+  map.getContainer().style.setProperty(
+    '--planting-field-size',
+    scaleSizeComponent(AgricultureIcon.options.iconSize[0]) + 'px'
+  );
   allMarkers.forEach(function (m) {
     var base = m._baseIconOptions;
     if (!base) {
