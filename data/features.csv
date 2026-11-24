@@ -127,12 +127,12 @@ marker,16.846605106396304,10.898437500000002,settlement,Marker,,,,,,,,,{},Settle
 marker,20.673905264672843,13.974609375000002,settlement,Marker,,,,,,,,,{},Settlements
 marker,-62.48187744898419,-38.6279296875,settlement,Pochaug,,,,,,,,,{},Settlements
 marker,-49.224772722794825,-20.676269531250004,settlement,Marker,,,,,,,,,{},Settlements
-marker,-21.493963563064455,5.229492187500001,settlement,Attawangan,,,,,,,,,{},Settlements
+marker,-21.493963563064455,5.229492187500001,settlement,Attawangan,Attawaugan,,,,,,,,{},Settlements
 marker,6.533645130567532,-59.80957031250001,settlement,Marker,,,,,,,,,{},Settlements
-marker,-34.361576287484176,-97.294921875,settlement,Peatan,,,,,,,,,{},Settlements
+marker,-34.361576287484176,-97.294921875,settlement,Peatan,Peantam,,,,,,,,{},Settlements
 marker,-48.19538740833338,-91.23046875,settlement,Meshapock,,,,,,,,,{},Settlements
 marker,-49.65340458843789,-88.94531250000001,settlement,Naugatuck,,,,,,,,,{},Settlements
-marker,-33.46810795527895,-19.577636718750004,settlement,Willlmantic,,,,,,,,,{},Settlements
+marker,-33.46810795527895,-19.577636718750004,settlement,Willlmantic,Willimantic,,,,,,,,{},Settlements
 marker,-17.308687886770024,81.40869140625001,settlement,Namasachet,,,Nemasket,,,,,,{},Settlements
 marker,-11.178401873711772,98.21777343750001,settlement,Patuxet,,,,,,,,,{},Settlements
 marker,55.99838095535963,-96.064453125,settlement,Hoosic,,,,,,,,,{},Settlements
@@ -141,7 +141,7 @@ marker,11.005904459659451,-109.40185546875001,settlement,Scatekook,,,,,,,,,{},Se
 marker,13.966054081318314,-107.86376953125001,settlement,Oustonuck,,,,,,,,,{},Settlements
 marker,22.69512018496571,-104.91943359375001,settlement,Wnahtukook,,,,,,,,,{},Settlements
 marker,-16.99375545289455,-116.27929687500001,settlement,Marker,,,,,,,,,{},Settlements
-marker,-58.859223547066584,-2.0874023437500004,settlement,Mistic,,,,,,,,,{},Settlements
+marker,-58.859223547066584,-2.0874023437500004,settlement,Mistic,Mystic,,,,,,,,{},Settlements
 marker,-60.29429873400916,-4.042968750000001,settlement,Noank,,,,,,,,,{},Settlements
 marker,-56.860985750644886,3.9770507812500004,settlement,Asupsuck,,,,,,,,,{},Settlements
 marker,-60.04288763076307,3.7133789062500004,settlement,Marker,,,,,,,,,{},Settlements
@@ -154,7 +154,7 @@ marker,40.21246025329131,56.030281649008565,settlement,Shawshinok,,,![Map from 1
 marker,27.0982539061379,38.03466796875001,settlement,Penobscot,,,,,,,,,{},Settlements
 marker,24.32707654001865,31.113281250000004,settlement,Marker,,,,,,,,,{},Settlements
 marker,-14.41340016520608,10.9423828125,settlement,Quaddick,,,,,,,,,{},Settlements
-marker,-11.759814674441921,8.613281250000002,settlement,Quinnatisset,,,,,,,,,{},Settlements
+marker,-11.759814674441921,8.613281250000002,settlement,Quinnatisset,Quinetusset,,,,,,,,{},Settlements
 marker,-5.725311447610142,1.0766601562500002,settlement,Maanexit,,,,,,,,,{},Settlements
 marker,-15.982453522973495,21.4453125,settlement,Chepachet,,,,,,,,,{},Settlements
 marker,29.516110386062277,-12.502441406250002,settlement,Marker,,,,,,,,,{},Settlements
@@ -222,7 +222,7 @@ marker,19.973414902296028,68.37907060301313,settlement,Uniquititquessett,,,,,,,,
 marker,16.109226968604325,90.70342905307433,settlement,Marker,,,,,,,,,{},Settlements
 marker,18.374796455267646,90.5495629357697,settlement,Quonahassit,"Conihosset, Cohasset","""long rocky place"" or ""fishing promontory.""",,,,,,,{},Settlements
 marker,12.33962698536624,93.09845680197498,settlement,Marker,,,,,,,,,{},Settlements
-marker,-62.92495331310624,-54.512344055454875,settlement,Marker,,,,,,,,,{},Settlements
+marker,-62.92495331310624,-54.512344055454875,settlement,Menunketuck,,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate.",,,,,,{},Settlements
 marker,-63.19396652496589,-5.229023781412564,settlement,Marker,,,,,,,,,{},Settlements
 marker,-63.03503351575593,-3.536496491062007,settlement,Marker,,,,,,,,,{},Settlements
 marker,-23.725111266606707,45.28594858432432,settlement,Pawtucket,,,,,,,,,{},Settlements
@@ -1613,3 +1613,44 @@ text,-58.0546319,109.9072266,,Katama,,,User-supplied Noepe place-name map. Appro
 text,-55.8999561,108.8525391,,Nunne-Pog,,,User-supplied Noepe place-name map. Approximate placement. The legend gives the meaning ““When there is water there” (freshwater pond)”.,4,0,0,0,,{},Geographical Locations
 text,-54.5210815,113.9501953,,Capoag,,,User-supplied Noepe place-name map. Approximate placement.,4,0,0,0,,{},Geographical Locations
 marker,-71.0169598,5.8447266,wigwam,Wigwam(s),,,Wigwam site shown on Native Long Island (Long Island Culture History Lab & Museum). Location approximated from the printed map.,,,,,,{},Settlements
+marker,-20.3240236,-75.0366211,settlement,Nepaug,,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate.",,,,,,{},Settlements
+marker,-35.4427709,-78.9477539,settlement,Pequabuck,,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate.",,,,,,{},Settlements
+marker,-45.3830193,-83.9575195,settlement,Mattatuck,Matetacoke; Matitacooke,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate. Alternate forms are recorded for the locality in J. Hammond Trumbull’s Indian Names of Places in Connecticut (1881).",,,,,,{},Settlements
+marker,-44.9958826,-99.9096680,settlement,Pomeraug,,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate.",,,,,,{},Settlements
+marker,-55.4663994,-105.5126953,settlement,Potatuck,,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate.",,,,,,{},Settlements
+marker,-53.8525266,-86.8359375,settlement,Capage,,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate.",,,,,,{},Settlements
+marker,-57.4685892,-92.3730469,settlement,Squantuck,,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate.",,,,,,{},Settlements
+marker,-61.4282606,-119.0258789,settlement,Titicus,,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate.",,,,,,{},Settlements
+marker,-68.2693868,-101.6894531,settlement,Unquawa,,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate.",,,,,,{},Settlements
+marker,-64.8395971,-105.2270508,settlement,Aspetuck,,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate.",,,,,,{},Settlements
+marker,-69.0450013,-109.5556641,settlement,Saugatuck,,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate.",,,,,,{},Settlements
+marker,-69.3493386,-112.5219727,settlement,Norwalke,,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate.",,,,,,{},Settlements
+marker,-71.2231492,-118.0151367,settlement,Noroton,,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate.",,,,,,{},Settlements
+marker,-71.7464317,-121.8383789,settlement,Shippan,,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate.",,,,,,{},Settlements
+marker,-23.6243946,-38.6279297,settlement,Appaquag,,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate.",,,,,,{},Settlements
+marker,-29.5925654,-48.0102539,settlement,Pyquag,Pyaquag,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate. Alternate forms are recorded for the locality in J. Hammond Trumbull’s Indian Names of Places in Connecticut (1881).",,,,,,{},Settlements
+marker,-30.2211019,-41.4843750,settlement,Naubuc,Nabuck; Hanabuc,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate. Alternate forms are recorded for the locality in J. Hammond Trumbull’s Indian Names of Places in Connecticut (1881).",,,,,,{},Settlements
+marker,-42.7147322,-51.6577148,settlement,Mattabesec,,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate.",,,,,,{},Settlements
+marker,-43.4210088,-47.9443359,settlement,Pocowset,,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate.",,,,,,{},Settlements
+marker,-51.5224161,-53.1518555,settlement,Coginchaug,,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate.",,,,,,{},Settlements
+marker,-52.0119365,-41.2426758,settlement,Cockaponset,,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate.",,,,,,{},Settlements
+marker,-49.8238091,-38.3862305,settlement,Machimoodus,,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate.",,,,,,{},Settlements
+marker,-56.2555575,-37.1997070,settlement,Pattaquonk,,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate.",,,,,,{},Settlements
+marker,-30.7323927,3.5375977,settlement,Wauregan,,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate.",,,,,,{},Settlements
+marker,-35.5143431,5.5151367,settlement,Moosup,,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate.",,,,,,{},Settlements
+marker,-36.2797072,9.7778320,settlement,Oneco,,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate.",,,,,,{},Settlements
+marker,-46.5286347,-7.3168945,settlement,Shetucket,,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate.",,,,,,{},Settlements
+marker,-46.5135156,-11.9311523,settlement,Yantic,,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate.",,,,,,{},Settlements
+marker,-49.8238091,-8.6572266,settlement,Poquetanock,,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate.",,,,,,{},Settlements
+marker,-14.2643831,-118.2348633,settlement,Wequadnack,Weguadnack,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate.",,,,,,{},Settlements
+marker,-32.1942087,-121.1132812,settlement,Scatacook,Pachquatooch,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate. Alternate forms are recorded for the locality in J. Hammond Trumbull’s Indian Names of Places in Connecticut (1881).",,,,,,{},Settlements
+marker,-42.1959688,-117.7075195,settlement,Waramaug,,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate.",,,,,,{},Settlements
+marker,-17.1827791,-59.8754883,settlement,Massaco,,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate.",,,,,,{},Settlements
+marker,-20.1797235,-61.6772461,settlement,Weatogue,,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate.",,,,,,{},Settlements
+marker,-5.8346162,-48.6694336,settlement,Mayawaug,,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate.",,,,,,{},Settlements
+marker,-3.9519409,-38.8037109,settlement,Nameroke,,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate.",,,,,,{},Settlements
+marker,-8.2114903,-34.8706055,settlement,Scitico,Skittico,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate. Alternate forms are recorded for the locality in J. Hammond Trumbull’s Indian Names of Places in Connecticut (1881).",,,,,,{},Settlements
+marker,-24.2068896,-49.7680664,settlement,Suckiaug,,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate.",,,,,,{},Settlements
+marker,-24.6869524,-43.2421875,settlement,Hockanum,,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate.",,,,,,{},Settlements
+marker,-4.9377243,-15.2270508,settlement,Mashapaug,,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate.",,,,,,{},Settlements
+marker,-44.8402907,1.6479492,settlement,Pachaug,,,"Village shown on Mathias Spiess and Hayden L. Griswold’s Map of Connecticut Circa 1625: Indian Trails, Villages, Sachemdoms (1930). Placement is approximate.",,,,,,{},Settlements
