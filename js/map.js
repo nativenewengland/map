@@ -761,11 +761,10 @@ map.on('click', function () {
 var WigwamIcon = createScaledIcon({
   iconUrl: 'icons/wigwam.png',
   iconRetinaUrl: 'icons/wigwam.png',
-  fixedScreenSize: true,
-  iconSize: [9, 9],
-  iconAnchor: [4.5, 9],
-  popupAnchor: [0, -9],
-  tooltipAnchor: [4.5, -4.5],
+  iconSize: [1.875, 1.875],
+  iconAnchor: [0.9375, 1.875],
+  popupAnchor: [0, -1.875],
+  tooltipAnchor: [0.9375, -0.9375],
 });
 
 var SettlementsIcon = createScaledIcon({
@@ -1153,7 +1152,7 @@ function rescaleIcons() {
 
   allMarkers.forEach(function (m) {
     var base = m._baseIconOptions;
-    if (!base || base.fixedScreenSize) {
+    if (!base) {
       return;
     }
     var opts = Object.assign({}, base);
