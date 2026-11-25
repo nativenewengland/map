@@ -2960,5 +2960,33 @@ document.getElementById('save-changes').addEventListener('click', function () {
   });
 })();
 
-
-
+// Site locations use the main artwork's CRS. The Albany area is approximate:
+// registered from Suckiaug, Pocumtuck and Patuxet in projected artwork space.
+const colonialSites = [
+  { name: 'Gosnold’s Cuttyhunk post', point: [-55.25, 77], country: 'english',
+    from: '1602-06-04', detail: 'The expedition reached Cuttyhunk on May 25 Old Style (June 4 Gregorian). Temporary English post on an islet in Westend Pond. Marker shows the western end of Cuttyhunk at this map scale.',
+    source: 'https://www.whalingmuseum.org/old-dartmouth-historical-society-sketches/old-dartmouth-historical-sketch-no-4/' },
+  { name: 'Fort Nassau', point: [50.622, -136.227], country: 'dutch',
+    from: '1614', detail: 'Dutch trading post on Castle Island south of Albany. The founding is dated to 1614 or 1615. The timeline uses 1614 at year precision. The position is approximate.',
+    source: 'https://museum.dmna.ny.gov/forts/nassau' },
+  { name: 'Plymouth at Patuxet', point: [-11.24, 98.05], country: 'english',
+    from: '1621-01-04', detail: 'English settlement at Patuxet. The timeline begins when construction of the common house started on December 25, 1620 Old Style (January 4, 1621 Gregorian).',
+    source: 'https://www.gutenberg.org/cache/epub/4106/pg4106.html' },
+  { name: 'Fort Orange', point: [52.103, -135.729], country: 'dutch',
+    from: '1624', detail: 'Dutch West India Company trading post on the Hudson at present-day Albany. Approximate map position; the timeline uses the founding year because the exact date is uncertain.',
+    source: 'https://nysm.nysed.gov/exhibitions/ongoing/fort-orange' },
+];
+for (const site of colonialSites) {
+  const icon = iconMap['settlement-' + site.country];
+  const marker = L.marker(site.point, { icon, title: site.name, alt: site.name })
+    .bindPopup('<strong>' + site.name + '</strong><br>' + site.detail + ' <a href="' + site.source + '">Source</a>');
+  marker._baseIconOptions = icon.options;
+  allMarkers.push(marker);
+  const update = date => {
+    const visible = date.slice(0, site.from.length) >= site.from;
+    if (visible && !Settlements.hasLayer(marker)) Settlements.addLayer(marker);
+    if (!visible && Settlements.hasLayer(marker)) Settlements.removeLayer(marker);
+  };
+  document.addEventListener('mapdatechange', event => update(event.detail));
+  update(document.getElementById('map-date').value);
+}
