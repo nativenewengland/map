@@ -25,7 +25,15 @@ var tiles = L.tileLayer('map/{z}/{x}/{y}.jpg', {
 var artworkBounds = L.latLngBounds(map.unproject([0, 8192], 5), map.unproject([8192, 0], 5));
 map.createPane('vectorGeography').style.zIndex = 205;
 function geographyLayer(file, order) {
-  return L.imageOverlay('hydro/' + file + '.svg', artworkBounds, {
+  // Each SVG spans 1024 master-artwork units, one world tile at zoom 3.
+  return L.tileLayer('hydro/tiles/' + file + '/{x}/{y}.svg', {
+    bounds: artworkBounds,
+    noWrap: true,
+    minZoom: 2,
+    maxZoom: 6,
+    minNativeZoom: 3,
+    maxNativeZoom: 3,
+    keepBuffer: 0,
     pane: 'vectorGeography',
     zIndex: order,
     interactive: false,
