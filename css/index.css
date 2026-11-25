@@ -462,3 +462,35 @@ html, body{
     z-index: 1200;
     text-decoration: none;
 }
+
+#map-timeline {
+    position: fixed;
+    bottom: 20px;
+    right: 225px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 12px;
+    border-radius: 20px;
+    background: #fff;
+    color: #162b63;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+    font: 14px Roboto, Arial, sans-serif;
+    font-variant-numeric: tabular-nums;
+}
+
+#map-year {
+    width: clamp(95px, 23vw, 300px);
+    height: 22px;
+    margin: 0;
+    accent-color: #1f3c88;
+    cursor: pointer;
+}
+
+@media (max-width: 700px) {
+    #map-timeline {
+        right: 20px;
+        bottom: 66px;
+    }
+}

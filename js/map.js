@@ -915,6 +915,14 @@ var CampsIcon = createScaledIcon({
 var seaMonsterIconHeight = 2.8125;
 var seaMonsterIconWidth = (391 / 530) * seaMonsterIconHeight;
 
+var ShipIcon = createScaledIcon({
+  iconUrl: 'icons/ship.png',
+  iconSize: [3.75, 2.8125],
+  iconAnchor: [1.875, 2.8125],
+  popupAnchor: [0, -2.8125],
+  tooltipAnchor: [1.875, -1.40625],
+});
+
 var SeaMonsterIcon = createScaledIcon({
   iconUrl: 'icons/seamonster.png',
   iconRetinaUrl: 'icons/seamonster.png',
@@ -938,6 +946,7 @@ var iconMap = {
   earthworks: EarthworksIcon,
   forts: FortsIcon,
   chambers: ChambersIcon,
+  ship: ShipIcon,
   seamonster: SeaMonsterIcon,
   camps: CampsIcon,
 };
