@@ -28,6 +28,27 @@ export function loadTerritories(svg, data) {
   const areas = make('g');
   areas.setAttribute('transform', 'translate(100 90)');
   areas.setAttribute('clip-path', 'url(#land-clip)');
+  // Exclude inland water even when the user hides the painted water layers.
+  const waterMask = make('mask');
+  waterMask.id = 'polity-dry-land';
+  waterMask.setAttribute('maskUnits', 'userSpaceOnUse');
+  const frame = make('rect');
+  for (const [key, value] of Object.entries({x: 0, y: 0, width: 2799, height: 3511})) {
+    waterMask.setAttribute(key, value);
+    frame.setAttribute(key, value);
+  }
+  frame.setAttribute('fill', 'white');
+  waterMask.append(frame);
+  const water = make('g');
+  water.style.filter = 'brightness(0)';
+  for (const id of ['lake-fill', 'channel', 'streams']) {
+    const feature = make('use');
+    feature.setAttribute('href', '#' + id);
+    water.append(feature);
+  }
+  waterMask.append(water);
+  svg.querySelector('defs').append(waterMask);
+  areas.setAttribute('mask', 'url(#polity-dry-land)');
   const seats = make('g');
   layer.append(areas, seats);
   const select = document.querySelector('#polity-select');

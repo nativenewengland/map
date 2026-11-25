@@ -1667,6 +1667,34 @@ function editPolygonForm(poly) {
   }
 }
 
+// Keep polygon coordinates editable while masking their paint to the artwork.
+var territoryRenderer = L.svg();
+territoryRenderer.on('add', function () {
+  var root = territoryRenderer._container;
+  var ns = root.namespaceURI;
+  var mask = document.createElementNS(ns, 'mask');
+  mask.id = 'main-territory-land';
+  mask.setAttribute('maskUnits', 'userSpaceOnUse');
+  var image = document.createElementNS(ns, 'image');
+  image.setAttribute('href', 'hydro/territory-mask.png');
+  mask.appendChild(image);
+  root.prepend(mask);
+  territoryRenderer._rootGroup.setAttribute('mask', 'url(#main-territory-land)');
+
+  function alignMask() {
+    var corner = map.latLngToLayerPoint(artworkBounds.getNorthWest());
+    var size = 8192 * map.getZoomScale(map.getZoom(), 5);
+    for (var element of [image, mask]) {
+      element.setAttribute('x', corner.x);
+      element.setAttribute('y', corner.y);
+      element.setAttribute('width', size);
+      element.setAttribute('height', size);
+    }
+  }
+  alignMask();
+  territoryRenderer.on('update', alignMask);
+});
+
 function addPolygonToMap(data) {
   var opts = Object.assign(
     {
@@ -1678,7 +1706,7 @@ function addPolygonToMap(data) {
     data.style || {}
   );
   var layer = getOverlayLayer(data.overlay) || territoriesLayer;
-  var poly = L.polygon(data.coords, opts).addTo(layer);
+  var poly = L.polygon(data.coords, Object.assign(opts, { renderer: territoryRenderer })).addTo(layer);
   if (data.overlay === 'Planting Grounds') {
     var icon = document.createElement('img');
     icon.src = AgricultureIcon.options.iconUrl;
