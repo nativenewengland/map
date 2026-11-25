@@ -62,18 +62,60 @@ export function loadTerritories(svg, data) {
       describe(record, map.mouseEventToLatLng(event));
     });
   }
+  function drawArea(record) {
+    const area = make('path');
+    const vertices = record.outline.map(vertex => {
+      const [x, y] = polityPoint(vertex);
+      return (x - 100).toFixed(2) + ',' + (y - 90).toFixed(2);
+    });
+    area.setAttribute('d', 'M' + vertices.join(' ') + 'Z');
+    area.setAttribute('vector-effect', 'non-scaling-stroke');
+    bind(area, record);
+    areas.append(area);
+    return area;
+  }
+  const pattern = make('pattern');
+  pattern.id = 'unresolved-territory';
+  pattern.setAttribute('patternUnits', 'userSpaceOnUse');
+  pattern.setAttribute('width', 12);
+  pattern.setAttribute('height', 12);
+  const hatch = make('path');
+  hatch.setAttribute('d', 'M0,12L12,0');
+  hatch.setAttribute('stroke', '#675e52');
+  hatch.setAttribute('opacity', '.3');
+  pattern.append(hatch);
+  svg.querySelector('defs').append(pattern);
+  const unresolved = make('rect');
+  unresolved.setAttribute('width', 2799);
+  unresolved.setAttribute('height', 3511);
+  unresolved.setAttribute('fill', 'url(#unresolved-territory)');
+  // Knock regional extents out of the hatch, retaining transparent terrain colors.
+  const mask = make('mask');
+  mask.id = 'territory-gaps';
+  mask.setAttribute('maskUnits', 'userSpaceOnUse');
+  const field = unresolved.cloneNode();
+  field.setAttribute('fill', 'white');
+  mask.append(field);
+  svg.querySelector('defs').append(mask);
+  unresolved.setAttribute('mask', 'url(#territory-gaps)');
+  areas.append(unresolved);
+  const colors = ['#aa6639', '#327983', '#88588f', '#63782e', '#a04f57', '#466aa0'];
+  function clearHatch(area) {
+    const cut = make('path');
+    cut.setAttribute('d', area.getAttribute('d'));
+    cut.setAttribute('fill', 'black');
+    mask.append(cut);
+  }
+  data.regionalAreas.forEach((record, index) => {
+    const area = drawArea(record);
+    area.style.fill = colors[index % colors.length];
+    area.style.stroke = area.style.fill;
+    area.style.fillOpacity = '.28';
+    clearHatch(area);
+  });
   for (const [index, record] of data.records.entries()) {
     const point = polityPoint(record.at);
-    if (record.outline) {
-      const area = make('path');
-      area.setAttribute('d', 'M' + record.outline.map(vertex => {
-        const [x, y] = polityPoint(vertex);
-        return (x - 100).toFixed(2) + ',' + (y - 90).toFixed(2);
-      }).join(' ') + 'Z');
-      area.setAttribute('vector-effect', 'non-scaling-stroke');
-      bind(area, record);
-      areas.append(area);
-    }
+    if (record.outline) clearHatch(drawArea(record));
     if (!groups.has(record.region)) {
       const group = document.createElement('optgroup');
       group.label = record.region;
@@ -91,12 +133,16 @@ export function loadTerritories(svg, data) {
     seats.append(seat);
   }
   function resizeSeats() {
+    seats.style.display = map.getZoom() >= -3 ? '' : 'none';
     const radius = 3 / (terrainScale * 2 ** map.getZoom());
     for (const seat of seats.children) seat.setAttribute('r', radius);
   }
   map.on('zoomend', resizeSeats);
   resizeSeats();
-  svg.append(layer);
+  // Keep inland water and its shoreline visible over the political artwork.
+  const ocean = svg.getElementById('ocean');
+  layer.setAttribute('transform', 'translate(-100 -90)');
+  ocean.before(layer);
   addToggle(panel.querySelector('.features'), layer.id, 'Polities c. 1600');
   select.addEventListener('change', () => {
     if (!select.value) return;
