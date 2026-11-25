@@ -5,7 +5,7 @@ import { polityPoint } from '../1/polities.js';
 let regional;
 let inset;
 let selectedVoyage;
-function regionalMap() {
+function regionalMap(region) {
   if (!regional) {
     inset = document.createElement('aside');
     inset.id = 'voyage-region';
@@ -26,6 +26,7 @@ function regionalMap() {
       }
     });
   }
+  inset.firstElementChild.textContent = region + ' · Terrain by Xlicer';
   inset.hidden = false;
   regional.invalidateSize();
   return regional;
@@ -42,7 +43,7 @@ function regionalPoint(location) {
 
 // Each stop has a Gregorian playback date, position and interpretation.
 // Interpolate between consecutive stops; repeated positions represent a stay.
-function leg(name, stops, url = narratives, credit = source, north = false) {
+function leg(name, stops, url = narratives, credit = source, north = false, outward, walkerView) {
   const days = [];
   const positions = stops.map(stop => north ? regionalPoint(stop[1]) : stop[1]);
   for (let i = 0; i < stops.length; i++) {
@@ -58,7 +59,7 @@ function leg(name, stops, url = narratives, credit = source, north = false) {
       // Round the outer Cape offshore on both eastbound expeditions.
       let path = [point];
       if (stops[i][3] && count > 0) {
-        const bends = [previous, ...stops[i][3], positions[i]];
+        const bends = [previous, ...(north ? stops[i][3].map(regionalPoint) : stops[i][3]), positions[i]];
         const sample = t => {
           const scaled = t * (bends.length - 1);
           const k = Math.min(bends.length - 2, Math.floor(scaled));
@@ -69,13 +70,33 @@ function leg(name, stops, url = narratives, credit = source, north = false) {
         path.push(sample(fraction));
       }
       days.push({ date: day, path, note: (step === count ? note : stops[i - 1][2]) +
-        ' The playback dates between documented stops and the sailing track are illustrative.' });
+        (walkerView ? ' The path and daily dates illustrate the claim; intermediate locations are unverified.' : ' The playback dates between documented stops and the sailing track are illustrative.') });
     }
   }
   let bounds;
   if (north) bounds = L.latLngBounds(positions).pad(0.35);
-  addTimelineVoyage(name, days, url, credit, north ? () => {
-    const view = regionalMap();
+  // Short water corridors lead from the final anchorage into open water.
+  // The last segment supplies the heading for the visual exit.
+  const departures = north ? {
+    'George Waymouth': [[-69.27, 43.75], [-69.0, 43.6]],
+    'George Popham and Ralegh Gilbert': [[-69.77, 43.72], [-69.70, 43.66], [-69.48, 43.60]],
+    'Henry Hudson': [[-69.05, 43.57], [-69.15, 43.35]],
+    'Samuel Argall': [[-69.12, 43.55], [-69.30, 43.35]],
+    'De Mons and Champlain': [[-70.52, 42.65], [-70.48, 42.50]],
+    'John Smith': [[-70.52, 42.65], [-70.48, 42.50]],
+    'Tisquantum and Thomas Dermer': [[-70.52, 42.65], [-70.48, 42.50]],
+  } : {
+    'Giovanni da Verrazzano': [[-58, 44], [-64, 50], [-66, 65]],
+    'Bartholomew Gosnold': [[-59, 75], [-64, 80], [-67, 115], [-69, 155]],
+    'Martin Pring': [[-7, 131], [5, 128], [7, 146], [7, 166]],
+    'De Mons and Champlain': [[-15, 156], [2, 150], [16, 149]],
+    'John Smith': [[7, 150], [15, 152]],
+    'Thomas Hunt': [[-23, 166], [-24, 179]],
+    'Tisquantum and Thomas Dermer': [[-10, 112], [3, 128], [4, 145], [-6, 153], [-30, 160], [-48, 159], [-64, 151], [-70, 113], [-72, 70]],
+  };
+  const exit = outward || departures[name];
+  addTimelineVoyage(name, days, url, credit, walkerView || (north ? () => {
+    const view = regionalMap(typeof north === 'string' ? north : 'Gulf of Maine');
     if (view._voyageBounds !== bounds) {
       view.fitBounds(bounds, { padding: [25, 25], maxZoom: 1, animate: false });
       view._voyageBounds = bounds;
@@ -86,9 +107,9 @@ function leg(name, stops, url = narratives, credit = source, north = false) {
       map.setView(positions[0], 3);
     }
     return map;
-  });
+  }), north ? exit.map(regionalPoint) : exit, walkerView ? PersonIcon : ShipIcon);
   if (!expeditions.some(entry => entry.name === name)) {
-    expeditions.push({ name, date: stops[0][0], point: north ? null : positions[0] });
+    expeditions.push({ name, date: stops[0][0], point: north || walkerView ? null : positions[0] });
   }
 }
 
@@ -199,6 +220,86 @@ leg('Tisquantum and Thomas Dermer', [
   ['1619-06-07', [22, 110], 'Passage across Massachusetts Bay.'],
   ['1619-06-10', patuxet, 'Tisquantum returned to Patuxet after an epidemic had devastated his community. The arrival day is approximate.'],
 ], 'https://www.biographi.ca/en/bio/dermer_thomas_1E.html', 'Dictionary of Canadian Biography');
+
+// New York routes use geographic coordinates on the registered terrain sheet.
+const lowerBay = [-74.043, 40.512];
+const narrows = [-74.041, 40.605];
+const battery = [-74.021, 40.697];
+const ny = 'New York and adjacent waters';
+leg('Verrazzano · New York Harbor', [
+  ['1524-04-25', [-73.93, 40.37], 'April 1524. Illustrative approach to the Lenape coast.'],
+  ['1524-04-26', lowerBay, 'The Dauphine anchored off Staten Island. A smaller boat explored toward the Narrows.'],
+  ['1524-04-27', [-73.86, 40.48], 'The expedition continued east along the Atlantic coast. Playback days are approximate.'],
+  ['1524-04-28', [-72.08, 40.87], 'Off southern Long Island, heading toward the eastern end of the island.'],
+], 'https://www.nps.gov/parkhistory/online_books/gate/battery_weed_clr.pdf', 'National Park Service', ny,
+  [[-71.93, 41.01], [-71.75, 41.06]]);
+
+const hudsonLower = [narrows, battery, [-74.015, 40.75], [-73.96, 40.83], [-73.91, 40.94],
+  [-73.89, 41.05], [-73.89, 41.15], [-73.96, 41.22], [-73.97, 41.25],
+  [-73.95, 41.29], [-73.98, 41.32], [-73.96, 41.38], [-73.99, 41.40]];
+const hudsonUpper = [[-74.00, 41.49], [-73.96, 41.58], [-73.94, 41.72],
+  [-73.95, 41.82], [-73.96, 41.92], [-73.94, 42.00], [-73.91, 42.08],
+  [-73.91, 42.16], [-73.84, 42.23], [-73.78, 42.26], [-73.79, 42.34], [-73.76, 42.40]];
+const highlands = [-73.99, 41.44];
+leg('Henry Hudson · Hudson River', [
+  ['1609-09-13', lowerBay, 'The Half Moon entered Lower New York Bay on September 3 in the English journal calendar.'],
+  ['1609-09-22', [-74.043, 40.62], 'Through the Narrows toward Manhattan.', [narrows]],
+  ['1609-09-25', highlands, 'Sailing upriver through the Hudson Highlands.', hudsonLower.slice(1)],
+  ['1609-09-29', [-73.76, 42.57], 'Upper tidal Hudson near present-day Albany. The plotted northern anchorage is approximate.', hudsonUpper],
+  ['1609-10-03', [-73.76, 42.57], 'The ship lay in the upper river before returning downstream.'],
+  ['1609-10-08', highlands, 'Returning south along the tidal Hudson.', [...hudsonUpper].reverse()],
+  ['1609-10-12', battery, 'Back near Manhattan.', hudsonLower.slice(2).reverse()],
+  ['1609-10-14', lowerBay, 'Departed the river for the Atlantic on October 4 in the English journal calendar.', [narrows]],
+], 'https://extapps.dec.ny.gov/docs/remediation_hudson_pdf/hrlpex1609ts.pdf', 'New York State Department of Environmental Conservation', ny,
+  [[-73.98, 40.47], [-73.82, 40.41]]);
+
+leg('Adriaen Block · Onrust', [
+  ['1614-05-15', [-74.009, 40.701], 'Manhattan, 1614. The month and days are illustrative.'],
+  ['1614-05-16', [-73.923, 40.78], 'The Onrust passed through the East River and Hell Gate.', [[-73.978, 40.71], [-73.968, 40.733], [-73.946, 40.76], [-73.939, 40.777]]],
+  ['1614-05-17', [-73.77, 40.806], 'East toward Long Island Sound.', [[-73.906, 40.789], [-73.867, 40.795], [-73.828, 40.803], [-73.794, 40.797]]],
+  ['1614-05-20', [-73.33, 40.99], 'East through the Sound between Long Island and the mainland.'],
+  ['1614-05-24', [-72.39, 41.24], 'Approaching the Connecticut River from Long Island Sound. Block also explored upriver.'],
+], 'https://s-media.nyc.gov/agencies/lpc/arch_reports/1428.pdf', 'New York City archaeological survey', ny,
+  [[-72.12, 41.23], [-72.07, 41.24], [-71.92, 41.29]]);
+
+// The claimed endpoints lie outside the main artwork. Show the whole journey
+// on a geographic locator and identify every intermediate position as illustrative.
+let walkingMap;
+let walkingPanel;
+function ingramMap() {
+  if (!walkingMap) {
+    walkingPanel = document.createElement('aside');
+    walkingPanel.className = 'walking-journey';
+    const caption = document.createElement('div');
+    caption.textContent = 'David Ingram · reported journey, illustrative route';
+    const canvas = document.createElement('div');
+    walkingPanel.append(caption, canvas);
+    document.body.append(walkingPanel);
+    walkingMap = L.map(canvas, { zoomControl: false, zoomSnap: 0.25 });
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    }).addTo(walkingMap);
+    walkingMap.fitBounds([[22.2, -98], [45.3, -66]], { padding: [14, 14] });
+    walkingMap.on('layerremove', event => {
+      if (event.layer instanceof L.Marker) walkingPanel.hidden = true;
+    });
+  }
+  walkingPanel.hidden = false;
+  walkingMap.invalidateSize();
+  return walkingMap;
+}
+
+leg('David Ingram · reported overland journey', [
+  ['1568-10-18', [22.25, -97.86], 'October 1568: left on the Gulf of Mexico near present-day Tampico.'],
+  ['1568-11-28', [26.5, -98.4], 'Illustrative overland passage north from the Gulf coast.'],
+  ['1569-01-12', [31.2, -95.0], 'The surviving account does not establish a daily itinerary.'],
+  ['1569-03-18', [33.6, -85.4], 'Illustrative passage across the southeastern interior.'],
+  ['1569-05-25', [37.8, -78.5], 'Illustrative northeastern course.'],
+  ['1569-07-10', [41.1, -74.3], 'Illustrative passage through the Northeast.'],
+  ['1569-08-18', [43.25, -70.85], 'The exact route through New England is unknown.'],
+  ['1569-09-20', [45.28, -66.08], 'Autumn 1569: a French vessel reportedly took the travelers aboard. The Saint John River on the Bay of Fundy is one proposed endpoint.'],
+  ['1569-09-21', [45.28, -66.08], 'End of the reconstructed walk. The travelers reported returning to Europe by ship.'],
+], 'https://www.biographi.ca/en/bio/ingram_david_1E.html', 'Dictionary of Canadian Biography', false, [], ingramMap);
 
 expeditions.push(
   { name: 'Poutrincourt and Champlain', date: '1606-10-02', point: nauset },

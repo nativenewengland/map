@@ -511,7 +511,7 @@ html, body{
 }
 
 #voyage-picker { max-width: 6em; min-width: 0; }
-#voyage-region {
+#voyage-region, .walking-journey {
     position: fixed;
     bottom: 125px;
     left: 12px;
@@ -522,8 +522,8 @@ html, body{
     overflow: hidden;
     box-shadow: 0 1px 6px #0005;
 }
-#voyage-region > div:first-child { padding: 5px 8px; font: 14px sans-serif; }
-#voyage-region > div:last-child { height: min(245px, 32vh); }
+#voyage-region > div:first-child, .walking-journey > div:first-child { padding: 5px 8px; font: 14px sans-serif; }
+#voyage-region > div:last-child, .walking-journey > div:last-child { height: min(245px, 32vh); }
 
 #timeline-speeds { display: inline-flex; gap: 2px; flex-shrink: 0; }
 #timeline-speeds button { font: inherit; font-size: 12px; padding: 3px; cursor: pointer; color: #203c87; background: white; border: 1px solid #abb6cd; border-radius: 4px; }
@@ -531,4 +531,14 @@ html, body{
 @media (max-width: 540px) {
     #map-timeline { flex-wrap: wrap; }
     #map-day { min-width: 65px; }
+}
+
+.voyage-crossing {
+    position: absolute;
+    bottom: calc(100% + 6px);
+    right: 0;
+    background: white;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 13px;
 }

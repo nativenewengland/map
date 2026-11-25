@@ -938,7 +938,10 @@ const mayflowerApproach = [
   { date: '1620-11-18', path: [[-2, 168]], note: 'Illustrative offshore approach.' },
   { date: '1620-11-19', path: [[-5, 153], [-16, 156], [-25, 159]], note: 'Cape Cod sighted. The ship sailed south, encountered shoals, and turned back.' },
   { date: '1620-11-20', path: [[-15, 155], [-6, 150], [2, 145]], note: 'Approximate return course toward the tip of Cape Cod.' },
-  { date: '1620-11-21', path: [[3, 138], [2.8, 132], [1, 130], [-3, 131], [-5.7, 134], [-5.7, 136.4], [-2.4, 136.2]], note: 'Anchored in present-day Provincetown Harbor.' },
+  { date: '1620-11-21', until: '1620-12-24', path: [[3, 138], [2.8, 132], [1, 130], [-3, 131], [-5.7, 134], [-5.7, 136.4], [-2.4, 136.2]], note: 'At anchor in Provincetown Harbor while scouting parties explored by shallop.' },
+  { date: '1620-12-25', path: [[-5.7, 136.4], [-6, 130], [-9, 113], [-6, 130], [-5.7, 136.4], [-2.4, 136.2]], note: 'First crossing attempt. Contrary winds forced the ship back toward Cape Cod.' },
+  { date: '1620-12-26', until: '1621-04-14', path: [[-5.7, 136.4], [-6, 130], [-9, 113], [-10.5, 103.8]], note: 'At anchor off Patuxet in Plymouth Harbor, where the ship spent the winter.' },
+  { date: '1621-04-15', path: [[-9, 113], [2.5, 127], [4, 142], [2, 152], [-3, 179]], note: 'Sailed from Plymouth for England and cleared Cape Cod.' },
 ];
 const champlainApproach = [
   { date: '1606-10-02', path: [[-23, 157]], note: 'Off Nauset Harbor (Mallebarre). The expedition continued south along the outer Cape.' },
@@ -946,13 +949,42 @@ const champlainApproach = [
   { date: '1606-10-04', until: '1606-10-20', path: [[-38.15, 151], [-37.1, 149.6], [-36.6, 149]], note: 'Stage Harbor (Port Fortuné), in Monomoyick territory. This marker represents the harbor stay.' },
 ];
 
-function addTimelineVoyage(name, days, source, sourceName, target = () => map) {
+function addTimelineVoyage(name, days, source, sourceName, target = () => map, departure = [], traveler = ShipIcon) {
   const ship = L.marker(days[0].path[0], {
-    icon: L.icon({ iconUrl: ShipIcon.options.iconUrl, iconSize: [32, 24], iconAnchor: [16, 12] }),
+    icon: L.icon({ iconUrl: traveler.options.iconUrl, iconSize: traveler === PersonIcon ? [16, 24] : [32, 24], iconAnchor: traveler === PersonIcon ? [8, 24] : [16, 12] }),
     title: name, alt: name,
   });
   let approachIndex = -1;
   let approachFrame;
+
+  let view;
+  const lastDay = days[days.length - 1];
+  const after = Date.parse(lastDay.until || lastDay.date) + 86400000;
+
+  function sailOffscreen() {
+    ship.closePopup();
+    const start = view.project(ship.getLatLng());
+    const points = [start, ...departure.map(point => view.project(point))];
+    const last = points[points.length - 1];
+    const heading = points.length > 1 ? last.subtract(points[points.length - 2]) : L.point(1, 0);
+    const unit = heading.divideBy(heading.distanceTo(L.point(0, 0)) || 1);
+    const bounds = view.getPixelBounds();
+    // Even at minimum zoom, carry the entire icon beyond the current viewport.
+    const reach = last.distanceTo(bounds.getCenter()) + bounds.getSize().distanceTo(L.point(0, 0)) + 48;
+    points.push(last.add(unit.multiplyBy(reach)));
+    const started = performance.now();
+    const duration = Math.max(400, dayInterval() * 2);
+    function move(now) {
+      const progress = Math.min(1, (now - started) / duration) * (points.length - 1);
+      const i = Math.min(points.length - 2, Math.floor(progress));
+      const position = points[i].add(points[i + 1].subtract(points[i]).multiplyBy(progress - i));
+      ship.setLatLng(view.unproject(position));
+      if (progress < points.length - 1) approachFrame = requestAnimationFrame(move);
+      else if (view.getBounds().pad(0.08).contains(ship.getLatLng())) sailOffscreen();
+      else ship.remove();
+    }
+    approachFrame = requestAnimationFrame(move);
+  }
 
   function update(date) {
     const index = days.findIndex(day => date >= day.date && date <= (day.until || day.date));
@@ -961,7 +993,8 @@ function addTimelineVoyage(name, days, source, sourceName, target = () => map) {
     const previous = approachIndex;
     approachIndex = index;
     if (index === -1) {
-      ship.remove();
+      if (traveler !== PersonIcon && previous === days.length - 1 && Date.parse(date) === after) sailOffscreen();
+      else ship.remove();
       return;
     }
     const day = days[index];
@@ -969,7 +1002,8 @@ function addTimelineVoyage(name, days, source, sourceName, target = () => map) {
     ship.bindPopup('<strong>' + name + '</strong><br>' + date + ' (Gregorian). ' + day.note +
       ' Route and positions are approximate. <a href="' + source + '">' + sourceName + '</a>');
     if (index === previous || previous < 0 || Math.abs(previous - index) !== 1 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      ship.setLatLng(destination).addTo(target());
+      view = target();
+      ship.setLatLng(destination).addTo(view);
       return;
     }
     const forward = index > previous;
@@ -992,9 +1026,23 @@ function addTimelineVoyage(name, days, source, sourceName, target = () => map) {
 }
 
 addTimelineVoyage('Mayflower', mayflowerApproach,
-  'https://www.pilgrimhall.org/the-pilgrims-landing-in-america/', 'Pilgrim Hall Museum');
+  'https://www.gutenberg.org/cache/epub/4106/pg4106.html', 'The Mayflower and Her Log');
+// The Atlantic crossing continues beyond the illustrated New England coast.
+const crossingStatus = document.createElement('output');
+crossingStatus.className = 'voyage-crossing';
+document.getElementById('map-timeline').append(crossingStatus);
+function updateCrossing(date) {
+  crossingStatus.hidden = date < '1621-04-16' || date > '1621-05-16';
+  if (crossingStatus.hidden) return;
+  const elapsed = (Date.parse(date) - Date.UTC(1621, 3, 15)) / 86400000;
+  crossingStatus.textContent = elapsed === 31 ? 'Mayflower arrived in England' :
+    'Mayflower at sea for England · Day ' + elapsed + ' of 31';
+}
+document.addEventListener('mapdatechange', event => updateCrossing(event.detail));
+updateCrossing(document.getElementById('map-date').value);
+
 addTimelineVoyage('Poutrincourt and Champlain', champlainApproach,
-  'https://www.etourchatham.org/champlain.html', 'Chatham Historical Society');
+  'https://www.etourchatham.org/champlain.html', 'Chatham Historical Society', () => map, [[-38.15, 151], [-38.15, 155], [-32, 159], [-20, 159], [3, 150], [20, 150]]);
 
 var SeaMonsterIcon = createScaledIcon({
   iconUrl: 'icons/seamonster.png',
