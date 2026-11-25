@@ -935,10 +935,27 @@ var overlayTargetGroups = {
   Territories: territoryMarkersLayer,
 };
 
+// Approximate alignment to the project's basemap in zoom-6 tile pixels.
+var glastonburyOverlay = L.imageOverlay(
+  'overlays/na-mapgBury.png',
+  L.latLngBounds(map.unproject([5660, 9631], 6), map.unproject([6513, 10146], 6)),
+  {
+    alt: 'Indian Map of Glastonbury, labeled 1600',
+    opacity: 0.68,
+  }
+);
+
 var overlays = {
   Settlements: Settlements,
   Territories: territoriesOverlay,
+  'Glastonbury (1600)': glastonburyOverlay,
 };
+
+map.on('overlayadd', function (event) {
+  if (event.layer === glastonburyOverlay) {
+    map.fitBounds(glastonburyOverlay.getBounds(), { padding: [24, 24] });
+  }
+});
 
 var overlayLegendIcons = {
   Settlements: 'settlement',
