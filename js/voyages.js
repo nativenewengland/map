@@ -169,8 +169,15 @@ leg('De Mons and Champlain', [
   ['1605-07-21', nauset, 'Nauset Harbor, charted as Mallebarre.', [[2, 147], [-7, 153]]],
 ]);
 
+leg('Nahanada · probable return with Thomas Hanham', [
+  ['1606-08-15', [-68.85, 43.48], 'Illustrative approach to Maine. The exact arrival date and track are unknown.'],
+  ['1606-08-19', [-69.17, 43.69], 'Nahanada had been kidnapped by George Waymouth in 1605. Hanham’s expedition likely brought him home in 1606.'],
+  ['1606-08-22', [-69.51, 43.82], 'Approximate landfall near Pemaquid. Nahanada was in Maine to meet the Popham expedition in 1607.'],
+], 'https://www.americanindianmagazine.org/sites/default/files/2018-01/NMAI-FALL-2015-reduced.pdf', 'Smithsonian National Museum of the American Indian', true,
+  [[-69.43, 43.72], [-69.25, 43.56]]);
+
 leg('George Popham and Ralegh Gilbert', [
-  ['1607-08-15', monhegan, 'The expedition reached Monhegan before sailing to Pemaquid.'],
+  ['1607-08-15', monhegan, 'The expedition reached Monhegan before sailing to Pemaquid. Skidwarres, kidnapped by Waymouth in 1605, returned aboard the Mary and John and interpreted. Nahanada met the expedition in Maine.'],
   ['1607-08-20', [-69.52, 43.84], 'Pemaquid coast.'],
   ['1607-08-22', [-69.64, 43.73], 'West along the coast toward Sagadahoc.'],
   ['1607-08-28', [-69.78, 43.75], 'At the mouth of the Kennebec, where the expedition established Fort St. George.'],
@@ -211,7 +218,7 @@ leg('Thomas Hunt', [
 ], 'https://plimoth.org/for-teachers/teacher-tools/educational-resources', 'Plimoth Patuxet Museums');
 
 leg('Tisquantum and Thomas Dermer', [
-  ['1619-05-29', monhegan, 'Dermer recorded leaving Monhegan on May 19, Old Style, in an open pinnace. Tisquantum was returning home.'],
+  ['1619-05-29', monhegan, 'Dermer recorded leaving Monhegan on May 19, Old Style, in an open pinnace. Tisquantum was returning home after Thomas Hunt kidnapped him in 1614.'],
   ['1619-06-01', [-70.16, 43.42], 'South along the coast. The intermediate days are estimated.'],
   ['1619-06-04', [-70.56, 42.75], 'Approach to Massachusetts Bay.'],
 ], narratives, source, true);
@@ -360,10 +367,84 @@ atlanticVoyage('Charles Leigh Ã‚Â· Hopewell', [
   ['1597-06-28', [47.79,-61.47], 'The crew fished off Brion Island before continuing among the Magdalens.'],
 ], 'https://www.biographi.ca/en/bio/leigh_charles_1E.html', 'Dictionary of Canadian Biography', [[47.61,-61.34],[47.25,-60.8],[47.15,-59.55],[46.7,-58.7]]);
 
+// The month and day of Epenow's escape are uncertain.
+const epenow = 'Epenow’s return to Noepe (1614)';
+const epenowSite = [-53.5, 85];
+addTimelineVoyage(epenow, [{
+  date: '1614-01-01',
+  until: '1614-12-31',
+  path: [epenowSite],
+  note: 'Shown throughout 1614 at an approximate location off Martha’s Vineyard. Epenow, a Wampanoag man kidnapped in 1611, persuaded Ferdinando Gorges to send him back as a guide by telling him about gold. Gorges also assigned Assacomet, one of Waymouth\'s former captives, as a guide on this expedition. When people from the island approached in canoes, he jumped from Nicholas Hobson’s ship and escaped.',
+}], 'https://www.bia.gov/sites/default/files/media_document/076_pf.pdf', 'Bureau of Indian Affairs historical account', () => map, null);
+expeditions.push({ name: epenow, date: '1614-01-01', point: epenowSite });
+
+// Dermer dated the wreck retrospectively. Show it at year precision.
+const frenchWreck = 'Unnamed French shipwreck (c. 1616)';
+addTimelineVoyage(frenchWreck, [{
+  date: '1616-01-01',
+  until: '1616-12-31',
+  path: [outerCape],
+  note: 'Shown throughout 1616 because the wreck date is approximate. In 1619 Thomas Dermer reported meeting two French survivors of a wreck off northeastern Cape Cod about three years earlier. The ship’s name is unknown.',
+}], 'https://www.cyberlibrary.org/en/books/sailors-narratives-of-voyages-along-the-new-england-coast-1524-4dc6ec98/chapters/14/', 'Thomas Dermer’s 1619 letter', () => map, null);
+expeditions.push({ name: frenchWreck, date: '1616-01-01', point: outerCape });
+
+const frenchSurvivors = 'French shipwreck survivors (1619)';
+const nemasket = [-17.3087, 81.4087];
+for (const [location, point] of [
+  ['Nummastaquyt (present-day Middleborough)', nemasket],
+  ['Mastachusit (greater Boston area)', [28.42, 66.64]],
+]) {
+  addTimelineVoyage('French survivor at ' + location, [{
+    date: '1619-01-01',
+    until: '1619-12-31',
+    path: [point],
+    note: 'While traveling with Tisquantum in 1619, Thomas Dermer reported securing the release of a French shipwreck survivor here. The date within 1619 and exact location are uncertain.',
+  }], 'https://www.cyberlibrary.org/en/books/sailors-narratives-of-voyages-along-the-new-england-coast-1524-4dc6ec98/chapters/14/', 'Thomas Dermer, 1619 letter', () => map, null, PersonIcon);
+}
+expeditions.push({ name: frenchSurvivors, date: '1619-01-01', point: [5, 74] });
+
 expeditions.push(
   { name: 'Poutrincourt and Champlain', date: '1606-10-02', point: nauset },
   { name: 'Mayflower', date: '1620-11-17', point: [1, 179] }
 );
+const shipwrecks = [
+  {
+    name: 'Delight wreck', date: '1583-08-01', until: '1583-09-30',
+    point: [43.93, -60.0], alternative: [45.85, -60.1],
+    note: 'Gilbert’s flagship ran aground after leaving Newfoundland in August 1583. Richard Clarke survived. Sable Island and Gabarus Bay are competing identifications. The timeline displays the wreck at approximate seasonal precision.',
+    source: 'https://www.biographi.ca/en/bio/307',
+  },
+  {
+    name: 'Chancewell wreck', date: '1597-06-01', until: '1597-08-31',
+    point: [46.31, -60.53],
+    note: 'The Hopewell’s companion struck rocks off Cape Breton. St. Ann’s Bay is a proposed location. The crew beached the vessel, which Basque fishermen then stripped. The display window represents summer 1597.',
+    source: 'https://www.biographi.ca/en/bio/johnson_george_1F.html',
+  },
+  {
+    name: 'Sparrow-Hawk wreck', date: '1626-12-01', until: '1627-02-28',
+    point: nauset, main: true,
+    note: 'A Virginia-bound English vessel went aground off Nauset in winter 1626–27. Nauset people alerted Plymouth, and William Bradford brought supplies. The marker shows the approximate wreck area throughout the winter.',
+    source: 'https://mass.cultureelerfgoed.nl/sparrow-hawk',
+  },
+  {
+    name: 'Angel Gabriel wreck', date: '1635-08-01', until: '1635-08-31',
+    point: [43.875, -69.525],
+    note: 'The ship wrecked during a hurricane at Pemaquid in August 1635. The marker shows the harbor at month precision. The wreck remains have not been located.',
+    source: 'https://www.maine.gov/dacf/parks/discover_history_explore_nature/history/colonialpemaquid/gabriel.shtml',
+  },
+];
+for (const wreck of shipwrecks) {
+  const points = wreck.alternative ? [wreck.point, wreck.alternative] : [wreck.point];
+  const harborView = wreck.main ? () => map : () => geographicLocator(wreck.name,
+    wreck.alternative ? L.latLngBounds(points).pad(0.25) : L.latLng(wreck.point).toBounds(50000));
+  for (const point of points) {
+    const name = wreck.alternative ? wreck.name + (point === wreck.point ? ' · Sable Island hypothesis' : ' · Gabarus Bay hypothesis') : wreck.name;
+    addTimelineVoyage(name, [{ date: wreck.date, until: wreck.until, path: [point], note: wreck.note }],
+      wreck.source, 'Historical account', harborView, null);
+  }
+  expeditions.push({ name: wreck.name, date: wreck.date, point: wreck.main ? wreck.point : null });
+}
+
 expeditions.sort((a, b) => a.date.localeCompare(b.date));
 for (const entry of expeditions) picker.add(new Option(entry.date.slice(0, 4) + ' Ãƒâ€šÃ‚Â· ' + entry.name, entry.date));
 picker.addEventListener('change', () => {

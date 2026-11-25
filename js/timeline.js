@@ -30,8 +30,8 @@ const playButton = document.getElementById('timeline-play');
 const coordinates = document.getElementById('mouse-coords');
 const timeline = document.getElementById('map-timeline');
 let playTimer;
-let timelineRate = 1;
 const rateButtons = document.querySelectorAll('#timeline-speeds button');
+let timelineRate = Number(document.querySelector('#timeline-speeds [aria-pressed="true"]').dataset.rate);
 function dayInterval() { return 500 / timelineRate; }
 for (const button of rateButtons) {
     button.addEventListener('click', () => {
