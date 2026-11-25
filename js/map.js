@@ -8,6 +8,7 @@ var map = L.map('map', {
   zoomAnimation: true,
   markerZoomAnimation: true,
   attributionControl: false,
+  minZoom: 2,
   maxZoom: 6,
 }).setView([0, 0], 4);
 var baseZoom = map.getZoom();
@@ -20,14 +21,25 @@ var tiles = L.tileLayer('map/{z}/{x}/{y}.jpg', {
   maxNativeZoom: 6,
 });
 
-// Each vector tile traces a 4-by-4 block of the original tiles at this zoom.
-var vectorTiles = L.tileLayer('map-vector/{z}/{x}/{y}.svg', {
-  tileSize: 1024,
-  zoomOffset: -2,
-  noWrap: true,
-  minZoom: 2,
-  maxZoom: 6,
-}).addTo(map);
+// The source artwork is a 32-by-32 tile sheet at zoom 5.
+var artworkBounds = L.latLngBounds(map.unproject([0, 8192], 5), map.unproject([8192, 0], 5));
+map.createPane('vectorGeography').style.zIndex = 205;
+function geographyLayer(file, order) {
+  return L.imageOverlay('hydro/' + file + '.svg', artworkBounds, {
+    pane: 'vectorGeography',
+    zIndex: order,
+    interactive: false,
+  });
+}
+
+var oceanBackdrop = geographyLayer('ocean', 0);
+var vectorGeography = {
+  Land: geographyLayer('land', 1),
+  Lakes: geographyLayer('lakes', 2),
+  Rivers: geographyLayer('rivers', 3),
+  Coastline: geographyLayer('coast', 4),
+};
+var vectorBase = L.layerGroup([oceanBackdrop]).addTo(map);
 
 var activeFootnoteFeatureTitle = '';
 
@@ -473,7 +485,7 @@ function containsTextLabel(collection, candidate) {
   });
 }
 
-vectorTiles.once('load', function () {
+oceanBackdrop.once('load', function () {
   rescaleIcons();
   rescaleTextLabels();
 });
@@ -1050,10 +1062,31 @@ var layerControlOverlays = {};
 Object.keys(overlays).forEach(function (name) {
   layerControlOverlays[getOverlayLabelMarkup(name)] = overlays[name];
 });
-L.control.layers({
-  'Vector artwork': vectorTiles,
+var geographyControl = L.control.layers({
+  'Vector artwork': vectorBase,
   'Original artwork': tiles,
 }, layerControlOverlays).addTo(map);
+
+var visibleGeography = new Set(Object.values(vectorGeography));
+function showVectorGeography() {
+  Object.entries(vectorGeography).forEach(function ([name, layer]) {
+    geographyControl.addOverlay(layer, 'Basemap: ' + name);
+    if (visibleGeography.has(layer)) layer.addTo(map);
+  });
+}
+function hideVectorGeography() {
+  Object.values(vectorGeography).forEach(function (layer) {
+    if (map.hasLayer(layer)) visibleGeography.add(layer);
+    else visibleGeography.delete(layer);
+    geographyControl.removeLayer(layer);
+    map.removeLayer(layer);
+  });
+}
+showVectorGeography();
+// Leaflet applies the checked overlays after changing the base radio button.
+map.on('baselayerchange', function (event) {
+  queueMicrotask(event.layer === vectorBase ? showVectorGeography : hideVectorGeography);
+});
 
 function clearSelectedMarker() {
   if (selectedMarker && selectedMarker._icon) {
