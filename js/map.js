@@ -800,14 +800,17 @@ var WigwamIcon = createScaledIcon({
   tooltipAnchor: [0.9375, -0.9375],
 });
 
-var SettlementsIcon = createScaledIcon({
-  iconUrl: 'icons/settlement.png',
-  iconRetinaUrl: 'icons/settlement.png',
-  iconSize: [2.8125, 2.8125],
-  iconAnchor: [1.40625, 1.40625],
-  popupAnchor: [0.1875, -2.8125],
-  tooltipAnchor: [1.3125, -1.3125],
-});
+function settlementIcon(file) {
+  return createScaledIcon({
+    iconUrl: file,
+    iconRetinaUrl: file,
+    iconSize: [2.8125, 2.8125],
+    iconAnchor: [1.40625, 1.40625],
+    popupAnchor: [0.1875, -2.8125],
+    tooltipAnchor: [1.3125, -1.3125],
+  });
+}
+var SettlementsIcon = settlementIcon('icons/settlement.png');
 
 var CapitalIcon = createScaledIcon({
   iconUrl: 'icons/capital.png',
@@ -1058,6 +1061,10 @@ var SeaMonsterIcon = createScaledIcon({
 var iconMap = {
   wigwam: WigwamIcon,
   settlement: SettlementsIcon,
+  'settlement-dutch': settlementIcon('icons/settlement-dutch.png'),
+  'settlement-swedish': settlementIcon('icons/settlement-swedish.png'),
+  'settlement-french': settlementIcon('icons/settlement-french.png'),
+  'settlement-english': settlementIcon('icons/settlement-english.png'),
   capital: CapitalIcon,
   rock: RockIcon,
   fishing: FishingIcon,

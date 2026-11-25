@@ -11,7 +11,7 @@ function regionalMap(region) {
     inset.id = 'voyage-region';
     inset.setAttribute('aria-label', 'Regional voyage map');
     const caption = document.createElement('div');
-    caption.textContent = 'Gulf of Maine Ã‚Â· Terrain by Xlicer';
+    caption.textContent = 'Gulf of Maine Ãƒâ€šÃ‚Â· Terrain by Xlicer';
     const canvas = document.createElement('div');
     inset.append(caption, canvas);
     document.body.append(inset);
@@ -26,7 +26,7 @@ function regionalMap(region) {
       }
     });
   }
-  inset.firstElementChild.textContent = region + ' Â· Terrain by Xlicer';
+  inset.firstElementChild.textContent = region + ' Ã‚Â· Terrain by Xlicer';
   inset.hidden = false;
   regional.invalidateSize();
   return regional;
@@ -150,7 +150,7 @@ leg('Martin Pring', [
 leg('George Waymouth', [
   ['1605-05-27', [-69.22, 43.57], 'Approach of the Archangel to the midcoast islands.'],
   ['1605-05-28', monhegan, 'Monhegan vicinity.'],
-  ['1605-06-01', [-69.34, 43.89], 'Island anchorage near the Saint George peninsula. WaymouthÃ¢â‚¬â„¢s crew kidnapped five Indigenous people during this expedition.'],
+  ['1605-06-01', [-69.34, 43.89], 'Island anchorage near the Saint George peninsula. WaymouthÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢s crew kidnapped five Indigenous people during this expedition.'],
   ['1605-06-21', [-69.27, 43.97], 'River exploration. The precise river identification has been debated.'],
   ['1605-06-26', [-69.29, 43.85], 'Departure from the Maine coast.'],
 ], narratives, source, true);
@@ -186,13 +186,13 @@ leg('Henry Hudson', [
 leg('Samuel Argall', [
   ['1610-08-06', gulf, 'Summer fishing voyage from Virginia. Dates shown approximate the regional visit.'],
   ['1610-08-11', [-69.02, 43.75], 'Approach to the coastal fishing grounds.'],
-  ['1610-08-16', penobscotMouth, 'Penobscot Bay vicinity in the published account of ArgallÃ¢â‚¬â„¢s voyage.'],
+  ['1610-08-16', penobscotMouth, 'Penobscot Bay vicinity in the published account of ArgallÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢s voyage.'],
   ['1610-08-22', [-69.05, 43.72], 'Offshore fishing grounds.'],
 ], narratives, source, true);
 
 leg('John Smith', [
   ['1614-04-25', [-69.28, 43.63], 'Spring approach to Monhegan. Dates illustrate the survey season.'],
-  ['1614-04-28', monhegan, 'Monhegan was the expeditionÃ¢â‚¬â„¢s base. Smith surveyed the coast in a smaller boat.'],
+  ['1614-04-28', monhegan, 'Monhegan was the expeditionÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢s base. Smith surveyed the coast in a smaller boat.'],
   ['1614-06-01', monhegan, 'Starting the illustrated southward coastal survey.'],
   ['1614-06-07', [-70.22, 43.46], 'Survey off the southern Maine coast.'],
   ['1614-06-12', [-70.55, 42.74], 'Approaching Cape Ann.'],
@@ -226,7 +226,7 @@ const lowerBay = [-74.043, 40.512];
 const narrows = [-74.041, 40.605];
 const battery = [-74.021, 40.697];
 const ny = 'New York and adjacent waters';
-leg('Verrazzano Â· New York Harbor', [
+leg('Verrazzano Ã‚Â· New York Harbor', [
   ['1524-04-25', [-73.93, 40.37], 'April 1524. Illustrative approach to the Lenape coast.'],
   ['1524-04-26', lowerBay, 'The Dauphine anchored off Staten Island. A smaller boat explored toward the Narrows.'],
   ['1524-04-27', [-73.86, 40.48], 'The expedition continued east along the Atlantic coast. Playback days are approximate.'],
@@ -241,7 +241,7 @@ const hudsonUpper = [[-74.00, 41.49], [-73.96, 41.58], [-73.94, 41.72],
   [-73.95, 41.82], [-73.96, 41.92], [-73.94, 42.00], [-73.91, 42.08],
   [-73.91, 42.16], [-73.84, 42.23], [-73.78, 42.26], [-73.79, 42.34], [-73.76, 42.40]];
 const highlands = [-73.99, 41.44];
-leg('Henry Hudson Â· Hudson River', [
+leg('Henry Hudson Ã‚Â· Hudson River', [
   ['1609-09-13', lowerBay, 'The Half Moon entered Lower New York Bay on September 3 in the English journal calendar.'],
   ['1609-09-22', [-74.043, 40.62], 'Through the Narrows toward Manhattan.', [narrows]],
   ['1609-09-25', highlands, 'Sailing upriver through the Hudson Highlands.', hudsonLower.slice(1)],
@@ -253,7 +253,23 @@ leg('Henry Hudson Â· Hudson River', [
 ], 'https://extapps.dec.ny.gov/docs/remediation_hudson_pdf/hrlpex1609ts.pdf', 'New York State Department of Environmental Conservation', ny,
   [[-73.98, 40.47], [-73.82, 40.41]]);
 
-leg('Adriaen Block Â· Onrust', [
+// The contemporary account establishes the season and destination. These
+// calendar days space the animation along the river, including the return.
+const fortOrange = [-73.75, 42.644];
+const upperApproach = [...hudsonUpper, [-73.77, 42.47], [-73.76, 42.54], [-73.76, 42.59]];
+leg('Nieu Nederlandt · Fort Orange', [
+  ['1624-06-01', lowerBay, 'The Nieu Nederlandt arrived in May or June carrying colonists for the Dutch West India Company. All days shown for this voyage are illustrative.'],
+  ['1624-06-03', battery, 'Passing Manhattan into the Hudson.', [narrows]],
+  ['1624-06-06', highlands, 'Following the tidal river north.', hudsonLower.slice(2)],
+  ['1624-06-10', fortOrange, 'Fort Orange, in Mahican country at present-day Albany. Colonists established the post in 1624.', upperApproach],
+  ['1624-09-20', fortOrange, 'The marker represents the Fort Orange phase. The length of this anchorage is an estimate.'],
+  ['1624-09-24', highlands, 'Illustrative downstream passage. The ship returned to the Netherlands with a cargo of furs.', [...upperApproach].reverse()],
+  ['1624-09-28', battery, 'Returning past Manhattan.', hudsonLower.slice(2).reverse()],
+  ['1624-09-30', lowerBay, 'Outbound through New York Harbor. The ship was back in the Netherlands in November.', [narrows]],
+], 'https://encyclopedia.nahc-mapping.org/shipjourney/1624-new-netherland', 'Mapping Early New York', ny,
+  [[-73.98, 40.47], [-73.82, 40.41]]);
+
+leg('Adriaen Block Ã‚Â· Onrust', [
   ['1614-05-15', [-74.009, 40.701], 'Manhattan, 1614. The month and days are illustrative.'],
   ['1614-05-16', [-73.923, 40.78], 'The Onrust passed through the East River and Hell Gate.', [[-73.978, 40.71], [-73.968, 40.733], [-73.946, 40.76], [-73.939, 40.777]]],
   ['1614-05-17', [-73.77, 40.806], 'East toward Long Island Sound.', [[-73.906, 40.789], [-73.867, 40.795], [-73.828, 40.803], [-73.794, 40.797]]],
@@ -294,7 +310,7 @@ function geographicLocator(label, bounds) {
   return walkingMap;
 }
 
-leg('David Ingram Â· reported overland journey', [
+leg('David Ingram Ã‚Â· reported overland journey', [
   ['1568-10-18', [22.25, -97.86], 'October 1568: left on the Gulf of Mexico near present-day Tampico.'],
   ['1568-11-28', [26.5, -98.4], 'Illustrative overland passage north from the Gulf coast.'],
   ['1569-01-12', [31.2, -95.0], 'The surviving account does not establish a daily itinerary.'],
@@ -305,7 +321,7 @@ leg('David Ingram Â· reported overland journey', [
   ['1569-09-20', [45.28, -66.08], 'Autumn 1569: a French vessel reportedly took the travelers aboard. The Saint John River on the Bay of Fundy is one proposed endpoint.'],
   ['1569-09-21', [45.28, -66.08], 'End of the reconstructed walk. The travelers reported returning to Europe by ship.'],
 ], 'https://www.biographi.ca/en/bio/ingram_david_1E.html', 'Dictionary of Canadian Biography', false, [],
-  () => geographicLocator('David Ingram Â· reported journey, illustrative route', [[22.2, -98], [45.3, -66]]), PersonIcon);
+  () => geographicLocator('David Ingram Ã‚Â· reported journey, illustrative route', [[22.2, -98], [45.3, -66]]), PersonIcon);
 
 // These waters lie beyond the regional terrain sheet. Each view frames the
 // local voyage segment; long Atlantic crossings are described in the popup.
@@ -314,27 +330,27 @@ function atlanticVoyage(name, stops, url, credit, exit) {
   leg(name, stops, url, credit, false, exit, () => geographicLocator(name, bounds));
 }
 
-atlanticVoyage('San Juan Â· Basque whaling voyage', [
+atlanticVoyage('San Juan Ã‚Â· Basque whaling voyage', [
   ['1565-06-01', [51.82, -54.9], 'Illustrative summer approach to Labrador from the Atlantic. The playback dates are seasonal estimates.'],
   ['1565-06-07', [51.72, -56.40], 'Approaching the Basque whaling station through the Strait of Belle Isle.'],
   ['1565-06-09', [51.726, -56.427], 'Red Bay. The crew prepared whale oil for shipment to Europe.'],
   ['1565-10-31', [51.726, -56.427], 'The loaded San Juan sank in Red Bay in 1565. This date marks the end of the animation; the exact day is uncertain.'],
 ], 'https://shipwrecksnl.ca/spsnl-shipwreck-timeline/', 'Shipwreck Preservation Society of Newfoundland and Labrador', null);
 
-atlanticVoyage('Bonaventure Â· Breton walrus fishery', [
+atlanticVoyage('Bonaventure Ã‚Â· Breton walrus fishery', [
   ['1591-05-04', [47.17, -59.53], 'Breton vessels approached the Magdalen Islands. Daily positions and timing are illustrative.'],
   ['1591-05-08', [47.32, -61.49], 'Approaching the islands known to the crews as Ramea.'],
-  ['1591-05-12', [47.28, -61.75], 'The Bonaventure and a companion vessel took walrus for oil, hides and tusks. La Court de PrÃ©-Ravillon outfitted the expedition.'],
+  ['1591-05-12', [47.28, -61.75], 'The Bonaventure and a companion vessel took walrus for oil, hides and tusks. La Court de PrÃƒÂ©-Ravillon outfitted the expedition.'],
   ['1591-06-20', [47.28, -61.75], 'Illustrative departure. On the return voyage an English privateer captured the Bonaventure near the Isles of Scilly and took it to Bristol.'],
 ], 'https://www.biographi.ca/en/bio.php?id_nbr=386', 'Dictionary of Canadian Biography', [[47.18,-60.8],[47.15,-59.55],[46.85,-58.7]]);
 
-atlanticVoyage('Henry May Â· Bermuda escape voyage', [
+atlanticVoyage('Henry May Ã‚Â· Bermuda escape voyage', [
   ['1594-05-21', [32.40,-64.64], 'May and fellow survivors left Bermuda on May 11, Old Style, aboard a bark they had built after a shipwreck.'],
   ['1594-05-25', [38,-62.8], 'Illustrative position on the passage north.'],
   ['1594-05-30', [45.93,-59.73], 'Land sighted near Cape Breton on May 20, Old Style. The plotted landfall is approximate.'],
 ], 'https://www.biographi.ca/en/bio/461', 'Dictionary of Canadian Biography', [[46.15,-59.5],[46.55,-59.2]]);
 
-atlanticVoyage('Charles Leigh Â· Hopewell', [
+atlanticVoyage('Charles Leigh Ã‚Â· Hopewell', [
   ['1597-05-28', [46.7,-50.9], 'Hopewell and Chancewell reached the Grand Banks on May 18, Old Style.'],
   ['1597-05-30', [47.82,-53.0], 'The ships rendezvoused in Conception Bay.', [[48.04,-52.45],[48.12,-52.72]]],
   ['1597-06-04', [47.02,-52.85], 'Leigh sought small boats at Ferryland and Renews.', [[48.12,-52.72],[48.0,-52.42],[47.5,-52.47]]],
@@ -349,7 +365,7 @@ expeditions.push(
   { name: 'Mayflower', date: '1620-11-17', point: [1, 179] }
 );
 expeditions.sort((a, b) => a.date.localeCompare(b.date));
-for (const entry of expeditions) picker.add(new Option(entry.date.slice(0, 4) + ' Ã‚Â· ' + entry.name, entry.date));
+for (const entry of expeditions) picker.add(new Option(entry.date.slice(0, 4) + ' Ãƒâ€šÃ‚Â· ' + entry.name, entry.date));
 picker.addEventListener('change', () => {
   const entry = expeditions.find(item => item.date === picker.value);
   if (!entry) return;
