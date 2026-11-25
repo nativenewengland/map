@@ -1,0 +1,39 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  height: 100vh;
+  height: 100dvh;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  font-family: system-ui, sans-serif;
+  color: #26332d;
+}
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  padding: 8px 16px;
+  background: #faf8ef;
+  border-bottom: 1px solid #c6c9b8;
+}
+.toolbar h1 { margin: 0; font-size: 1rem; }
+.toolbar a { color: #244f45; }
+.toolbar button {
+  font: inherit;
+  color: inherit;
+  background: #fff;
+  border: 1px solid #a6b1a6;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+#terrain-map { background: #dbebe6; }
+#map-error, noscript {
+  position: absolute;
+  z-index: 500;
+  inset: 50px auto auto 16px;
+  background: #fff;
+  padding: 8px;
+}

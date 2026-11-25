@@ -454,3 +454,11 @@ html, body{
     height: var(--planting-field-size, 4px);
     object-fit: contain;
 }
+
+#terrain-map-link {
+    position: fixed;
+    bottom: 20px;
+    right: 110px;
+    z-index: 1200;
+    text-decoration: none;
+}

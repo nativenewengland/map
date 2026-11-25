@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Northeast Terrain Map | Native New England</title>
+  <link rel="stylesheet" href="../js/leaflet.css">
+  <link rel="stylesheet" href="terrain.css">
+  <script defer src="../js/leaflet.js"></script>
+  <script defer src="terrain.js"></script>
+</head>
+<body>
+  <header class="toolbar">
+    <a href="../">Original map</a>
+    <h1>Northeast Terrain</h1>
+    <button id="reset-view" type="button">Fit map</button>
+  </header>
+  <main id="terrain-map" aria-label="Interactive terrain map of northeastern North America" tabindex="0">
+    <p id="map-error" role="status" hidden>The terrain image could not load. <a href="terrain.png">Open the image directly.</a></p>
+    <noscript><a href="terrain.png">Open the full-resolution terrain map</a></noscript>
+  </main>
+</body>
+</html>
