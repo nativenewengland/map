@@ -1,11 +1,13 @@
 'use strict';
 
-const imageWidth = 2994;
-const imageHeight = 3688;
+// Map units per SVG viewBox unit at Leaflet zoom 0.
+const terrainScale = 10;
+const imageWidth = 2994 * terrainScale;
+const imageHeight = 3688 * terrainScale;
 const imageBounds = L.latLngBounds([[0, 0], [imageHeight, imageWidth]]);
 const map = L.map('terrain-map', {
   crs: L.CRS.Simple,
-  minZoom: -8,
+  minZoom: -12,
   maxZoom: 1,
   zoomSnap: 0.25,
   zoomDelta: 0.5,
