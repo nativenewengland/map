@@ -45,3 +45,14 @@ body {
 .bands { padding-left: 10px; }
 .swatch { width: 16px; height: 12px; border: 1px solid #0003; }
 @media (max-width: 480px) { .toolbar { padding: 6px 8px; gap: 4px 8px; } .toolbar h1 { font-size: .86rem; } }
+#territories path {
+  fill: #61456c;
+  fill-opacity: .035;
+  stroke: #54375f;
+  stroke-width: .85;
+  stroke-dasharray: 4 2;
+  stroke-linejoin: round;
+  pointer-events: visiblePainted;
+  cursor: pointer;
+}
+#territories path:hover { fill-opacity: .12; }

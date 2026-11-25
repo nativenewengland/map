@@ -59,6 +59,46 @@ async function loadTerrain() {
     master.indeterminate = !master.checked && inputs.some(input => input.checked);
   });
   panel.hidden = false;
+  loadTerritories(svg).catch(() => {
+    document.querySelector('#territory-error').hidden = false;
+  });
+}
+
+async function loadTerritories(svg) {
+  const response = await fetch('territories.json');
+  if (!response.ok) throw new Error('Territories unavailable');
+  const territories = await response.json();
+  const group = document.createElementNS(svg.namespaceURI, 'g');
+  group.id = 'territories';
+  group.setAttribute('transform', 'translate(100 90)');
+  group.setAttribute('clip-path', 'url(#land-clip)');
+  for (const territory of territories) {
+    const path = document.createElementNS(svg.namespaceURI, 'path');
+    path.setAttribute('d', 'M' + territory.outline.map(([x, y]) => (x - 100) + ',' + (y - 90)).join(' ') + 'Z');
+    path.setAttribute('vector-effect', 'non-scaling-stroke');
+    const title = document.createElementNS(svg.namespaceURI, 'title');
+    title.textContent = territory.name;
+    path.append(title);
+    path.addEventListener('click', event => {
+      const content = document.createElement('section');
+      const name = document.createElement('strong');
+      name.textContent = territory.name;
+      const note = document.createElement('p');
+      note.textContent = territory.note;
+      content.append(name, note);
+      for (const url of territory.sources) {
+        const link = document.createElement('a');
+        link.href = url;
+        link.textContent = url.includes('creativecommons.org') ? 'License' : 'Source';
+        content.append(link, ' ');
+      }
+      L.DomEvent.stopPropagation(event);
+      L.popup().setLatLng(map.mouseEventToLatLng(event)).setContent(content).openOn(map);
+    });
+    group.append(path);
+  }
+  svg.append(group);
+  addToggle(panel.querySelector('.features'), group.id, 'Territories');
 }
 
 loadTerrain().catch(() => { document.getElementById('map-error').hidden = false; });
