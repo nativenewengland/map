@@ -13,13 +13,53 @@ const map = L.map('terrain-map', {
   maxBoundsViscosity: 0.85,
 });
 
-L.imageOverlay('terrain.png', imageBounds, {
-  alt: 'Xlicer terrain map of northeastern North America',
-  attribution: 'Terrain map by Xlicer',
-}).on('error', () => {
-  document.getElementById('map-error').hidden = false;
-}).addTo(map);
+const panel = document.querySelector('#layer-controls');
+const master = document.querySelector('#elevation');
+const colors = ['#cadab3', '#e3e7c2', '#f9f1c0', '#dac09f', '#d5a38f', '#c37d75'];
 
+function addToggle(container, id, name, color) {
+  const label = document.createElement('label');
+  const input = document.createElement('input');
+  input.type = 'checkbox';
+  input.checked = true;
+  input.dataset.layer = id;
+  label.append(input);
+  if (color) {
+    const swatch = document.createElement('span');
+    swatch.className = 'swatch';
+    swatch.style.backgroundColor = color;
+    label.append(swatch);
+  }
+  label.append(name);
+  container.append(label);
+}
+
+async function loadTerrain() {
+  const response = await fetch('terrain.svg');
+  if (!response.ok) throw new Error('Terrain unavailable');
+  const svg = new DOMParser().parseFromString(await response.text(), 'image/svg+xml').documentElement;
+  if (svg.localName !== 'svg') throw new Error('Invalid terrain');
+  L.svgOverlay(svg, imageBounds, { attribution: 'Terrain map by Xlicer' }).addTo(map);
+  for (const id of ['land', 'ocean', 'lakes', 'rivers', 'coast']) {
+    addToggle(panel.querySelector('.features'), id, id === 'coast' ? 'Coastline' : id[0].toUpperCase() + id.slice(1));
+  }
+  const bands = panel.querySelector('.bands');
+  colors.forEach((color, index) => addToggle(bands, 'band' + (index + 1), 'Band ' + (index + 1), color));
+  panel.addEventListener('change', event => {
+    const inputs = [...bands.querySelectorAll('input')];
+    if (event.target === master) {
+      for (const input of inputs) input.checked = master.checked;
+    }
+    for (const input of panel.querySelectorAll('[data-layer]')) {
+      svg.getElementById(input.dataset.layer).style.display = input.checked ? '' : 'none';
+    }
+    master.checked = inputs.every(input => input.checked);
+    master.indeterminate = !master.checked && inputs.some(input => input.checked);
+  });
+  panel.hidden = false;
+}
+
+loadTerrain().catch(() => { document.getElementById('map-error').hidden = false; });
 function fitMap() {
   map.fitBounds(imageBounds, { padding: [12, 12], animate: false });
 }

@@ -13,11 +13,19 @@
   <header class="toolbar">
     <a href="../">Original map</a>
     <h1>Northeast Terrain</h1>
+    <details id="layer-controls" hidden>
+      <summary>Layers</summary>
+      <div class="layer-panel">
+        <div class="features"></div>
+        <label><input id="elevation" type="checkbox" checked> Elevation</label>
+        <div class="bands"></div>
+      </div>
+    </details>
     <button id="reset-view" type="button">Fit map</button>
   </header>
   <main id="terrain-map" aria-label="Interactive terrain map of northeastern North America" tabindex="0">
-    <p id="map-error" role="status" hidden>The terrain image could not load. <a href="terrain.png">Open the image directly.</a></p>
-    <noscript><a href="terrain.png">Open the full-resolution terrain map</a></noscript>
+    <p id="map-error" role="status" hidden>The terrain could not load. <a href="terrain.svg">Open the vector map.</a></p>
+    <noscript><a href="terrain.svg">Open the full-resolution terrain map</a></noscript>
   </main>
 </body>
 </html>
