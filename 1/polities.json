@@ -1,0 +1,371 @@
+{
+  "period": "circa 1600",
+  "sources": {
+    "league": [
+      "Haudenosaunee Confederacy · Who We Are",
+      "https://www.haudenosauneeconfederacy.com/who-we-are/"
+    ],
+    "five": [
+      "Smithsonian NMAI · Haudenosaunee Territory in 1600",
+      "https://americanindian.si.edu/sites/1/files/pdf/education/haudenosauneeguide.pdf"
+    ],
+    "wendat": [
+      "Coming Together · Wendat community formation",
+      "https://www.asau.ru/files/pdf/2036197.pdf"
+    ],
+    "rock": [
+      "Dictionary of Canadian Biography · Atironta",
+      "https://www.biographi.ca/en/bio/atironta_1615_1F.html"
+    ],
+    "niagara": [
+      "New York DEC · Eighteenmile Creek historical assessment",
+      "https://extapps.dec.ny.gov/data/DecDocs/932156/Report.HW.932156.2011-12-01.DraftFinalEighteenmileCreekRAPStageIIUpdate.pdf"
+    ],
+    "tess": [
+      "Dictionary of Canadian Biography · Tessouat",
+      "https://www.biographi.ca/en/bio.php?id_nbr=286"
+    ],
+    "iro": [
+      "Dictionary of Canadian Biography · Iroquet",
+      "https://www.biographi.ca/en/bio/iroquet_1F.html"
+    ],
+    "batis": [
+      "Dictionary of Canadian Biography · Batiscan",
+      "https://www.biographi.ca/en/bio.php?id_nbr=46"
+    ],
+    "innu": [
+      "Dictionary of Canadian Biography · Anadabijou",
+      "https://www.biographi.ca/en/bio/anadabijou_1E.html"
+    ],
+    "saco": [
+      "Dictionary of Canadian Biography · Messamouet",
+      "https://www.biographi.ca/en/bio/467?revision_id=35781"
+    ],
+    "ast": [
+      "Dictionary of Canadian Biography · Asticou",
+      "https://www.biographi.ca/en/bio/asticou_1E.html"
+    ],
+    "pass": [
+      "Dictionary of Canadian Biography · Panounias",
+      "https://www.biographi.ca/en/bio/panounias_1E.html"
+    ],
+    "lake": [
+      "Vermont Division for Historic Preservation · Lake Champlain",
+      "https://outside.vermont.gov/agency/ACCD/ACCD_Web_Docs/HP/Resources_Rules/Digging_Into_Archaeology/Lake_Champlain_Voyages_of_Discovery.pdf"
+    ],
+    "bands": [
+      "National Park Service · Connecticut Valley historical landscape",
+      "https://www.nps.gov/parkhistory/online_books/mabi/mansion_grounds_clr1.pdf"
+    ],
+    "pok": [
+      "Plimoth Patuxet Museums · Plymouth–Pokanoket alliance",
+      "https://plimoth.org/yath/unit-2/plymouth-pokanoket-alliance"
+    ],
+    "mash": [
+      "Interior Department · Mashpee historical findings",
+      "https://mashpeewampanoagtribe-nsn.gov/s/IA11147-Mashpee-Wampanoag-Tribe-Land-into-Trust-Decision-FINAL-ASIA-122221.pdf"
+    ],
+    "cape": [
+      "Cape Cod National Seashore · Historic Resource Study",
+      "https://irma.nps.gov/DataStore/FileSource/Get/2245755?filename=Historic_Resource_Study-2.pdf"
+    ],
+    "bay": [
+      "Massachusetts Historical Commission · Massachusetts Bay archaeology",
+      "https://www.sec.state.ma.us/divisions/mhc/archaeology/download/Big_Dig_book.pdf"
+    ],
+    "ri": [
+      "Elisha Potter · Early History of Narragansett",
+      "https://tile.loc.gov/storage-services/public/gdcmassbookdig/earlyhistoryofna00pott/earlyhistoryofna00pott_bw.pdf"
+    ],
+    "deer": [
+      "Historic Deerfield · Pocumtuck Homeland",
+      "https://www.historic-deerfield.org/tours/"
+    ],
+    "nip": [
+      "National Register · Hassanamisco Reservation",
+      "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/44/7975/63797544/content/electronic-records/rg-079/NPS_MA/11000615.pdf"
+    ],
+    "ct": [
+      "Town of Wethersfield · Wangunk government",
+      "https://www.wethersfieldct.gov/DocumentCenter/View/7118/Town-Government-Panels-2025-V6"
+    ],
+    "peq": [
+      "Connecticut cultural resources assessment · Thames region",
+      "https://portal.ct.gov/-/media/csc/1_dockets-medialibrary/1_media_do500_600/do526/applicantsubmissions/application/app-f---combined.pdf"
+    ],
+    "li": [
+      "Usufruct in the Land of Tribute · Early Long Island",
+      "https://scholarworks.wm.edu/bitstreams/f3a778b2-1a6b-458a-b8a0-921746e57201/download"
+    ],
+    "hud": [
+      "U.S. Army Corps · Hudson Valley cultural resources",
+      "https://www.nan.usace.army.mil/Portals/37/Appendix%20A8_Tier%201%20Cultural%20Resources_SEP2022.pdf"
+    ],
+    "del": [
+      "C. A. Weslager · Dutch Explorers in the Delaware Valley, ch. 5",
+      "https://penelope.uchicago.edu/Thayer/E/Gazetteer/Places/America/United_States/_Topics/history/_Texts/WESDDV/5*.html"
+    ],
+    "lower": [
+      "Cornell · From Big House to Longhouse",
+      "https://ecommons.cornell.edu/bitstream/1813/30724/1/smt45.pdf"
+    ],
+    "sass": [
+      "National Park Service · Chester and Sassafras watersheds",
+      "https://www.nps.gov/cajo/learn/upload/CAJO_FINAL-ICL-REPORT_2023_0314-508.pdf"
+    ],
+    "mary": [
+      "Maryland State Archives · Chesapeake communities in 1608",
+      "https://msa.maryland.gov/msa/speccol/sc2200/sc2221/000017/000018/pdf/d005113a.pdf"
+    ],
+    "pisc": [
+      "National Park Service · Piscataway archaeological assessment",
+      "https://irma.nps.gov/DataStore/FileSource/Get/2315243?filename=AOA_PISC_VOLUME_I-FINAL_508.pdf"
+    ],
+    "pow": [
+      "Encyclopedia Virginia · Wahunsenacawh and the paramount chiefdom",
+      "https://encyclopediavirginia.org/entries/powhatan-d-1618/"
+    ],
+    "district": [
+      "Virginia Beach archaeological assessment · early chiefdoms",
+      "https://s3.us-east-1.amazonaws.com/virginia-beach-departments-docs/planning/Boards-Commissions/Historic-Preservation-Commission/VB-Archaeological-Assessment-Northern-Half.pdf"
+    ],
+    "tide": [
+      "Encyclopedia Virginia · Chiefdoms in 1607",
+      "https://encyclopediavirginia.org/1156hpr-6662029004adb04/"
+    ],
+    "mon": [
+      "Monacan Indian Nation · historical chronology",
+      "https://www.monacannation.gov/step-back-in-time.html"
+    ],
+    "ott": [
+      "Library and Archives Canada · Early Algonquin history",
+      "https://www.collectionscanada.gc.ca/obj/s4/f2/dsk3/ftp05/MQ55912.pdf"
+    ],
+    "maine": [
+      "Abbe Museum · A Meeting of Nations",
+      "https://www.abbemuseum.org/s/St-Sauveur-A-Meeting-of-Nations-Exhibit-Catalog.pdf"
+    ],
+    "atik": [
+      "Library and Archives Canada · Atikamekw land use and family territories",
+      "https://central.bac-lac.gc.ca/.item?app=Library&id=TC-QMM-104589&oclc_number=794606131&op=pdf"
+    ],
+    "valley": [
+      "Massachusetts Historical Commission · Connecticut Valley regional survey",
+      "https://www.sec.state.ma.us/divisions/mhc/preservation/survey/regional-reports/archives/CTValley.pdf"
+    ],
+    "noepe": [
+      "Indigenous Land Ownership in 17th Century Mission Communities",
+      "https://escholarship.org/content/qt97b775t5/qt97b775t5.pdf"
+    ],
+    "so": [
+      "Encyclopedia Virginia · Indigenous peoples of Virginia's southern rivers",
+      "https://encyclopediavirginia.org/entries/languages-and-interpreters-in-early-virginia-indian-society/"
+    ],
+    "mad": [
+      "Ottawa archaeological assessment · contact-period river groups",
+      "https://webcast.ottawa.ca/plan/All_Image%20Referencing_Zoning%20Bylaw%20Amendment%20Application_Image%20Reference_2022-06-02%20-%20Stage%201%20and%202%20Archaeological%20Assessment%20-%20D02-02-22-0053.PDF"
+    ],
+    "nipi": [
+      "Algonquin Nation · Algonquin History in the Ottawa River Watershed",
+      "https://new-wordpress.algonquinnation.ca/wp-content/uploads/2015/08/algonquin-history-james-morrison-sicani-oct-2006-revisedpublic.pdf"
+    ],
+    "nipmap": [
+      "Hassanamisco Nipmuc Nation · contact-period bands",
+      "https://nipmucnation.org/history"
+    ],
+    "paug": [
+      "Historical evidence · Paugussett and Turkey Hill",
+      "https://www.bia.gov/sites/default/files/dup/assets/as-ia/ofa/petition/081_gldhlp_CT/081_pf2.pdf"
+    ],
+    "chow": [
+      "National Park Service · Menatonan",
+      "https://www.nps.gov/people/menatonan.htm"
+    ],
+    "sakonnet": [
+      "Little Compton Historical Society · Sakonnet",
+      "https://littlecompton.org/historical-resources/a-brief-history-of-little-compton-rhode-island/"
+    ],
+    "niantic": [
+      "Dartmouth · Niantic historical annotation",
+      "https://collections.dartmouth.edu/archive/text/occom/validation/775165-validation.html"
+    ],
+    "longisland": [
+      "US Fish and Wildlife Service · Long Island historical resources",
+      "https://www.fws.gov/rivers/sites/default/files/documents/Long%20Island%20NWR%20Complex%20Final%20CCP%20and%20EA.pdf"
+    ],
+    "cajo": [
+      "National Park Service · peoples of the Chesapeake voyages",
+      "https://www.nps.gov/cajo/getinvolved/upload/SignificanceStatement-2.pdf"
+    ],
+    "capeann": [
+      "American Antiquarian Society · Champlain at Cape Ann",
+      "https://www.americanantiquarian.org/node/11055"
+    ]
+  },
+  "review": [
+    [
+      "Ottawa, St. Lawrence and Wabanaki country",
+      "Stadacona and Hochelaga are recorded in the 1530s. Champlain's 1603 journey does not establish them as continuing seats. Political affiliations in the northern interior remain unresolved.",
+      "https://ontarioarchaeology.org/wp-content/uploads/OA_web_100.pdf"
+    ],
+    [
+      "Great Lakes and northern New York",
+      "The Deer nation's admission to the Wendat confederacy is usually placed around 1610. The reconstruction distinguishes that later membership. Some western seats are beyond the terrain frame.",
+      "https://www.asau.ru/files/pdf/2036197.pdf"
+    ],
+    [
+      "Southern New England and Long Island",
+      "The Hassanamisco history also identifies Pegan and Nipnet. Their separate seats and jurisdiction around 1600 require further evidence.",
+      "https://nipmucnation.org/history"
+    ],
+    [
+      "Southern New England and Long Island",
+      "Nantucket accounts identify Wanackmamack, Nicornoose, Autopscot and Potconet in connection with 1659. The distribution of authority among their predecessors in 1600 remains open.",
+      "https://upload.wikimedia.org/wikipedia/commons/d/d4/Nantucket%3B_a_history_%28IA_nantuckethistory01doug%29.pdf"
+    ],
+    [
+      "Hudson, Delaware and Susquehanna valleys",
+      "Kechemeckes, Little Siconese, Asomoches, Armewamese, Axion, Mosilian, Sewapois, Narraticons, Okanickon and Minguannan also occur in later records. Their circa-1600 seats and relationships have yet to be established here.",
+      "https://penelope.uchicago.edu/Thayer/E/Gazetteer/Places/America/United_States/_Topics/history/_Texts/WESDDV/5*.html"
+    ],
+    [
+      "Hudson, Delaware and Susquehanna valleys",
+      "The archaeological labels Shenks Ferry and Monongahela do not establish a single polity for each settlement area. The western and central Pennsylvania interior remains an evidence gap.",
+      "https://npshistory.com/publications/choh/aie-v1-2011.pdf"
+    ],
+    [
+      "Chesapeake, Delmarva and Virginia Piedmont",
+      "The Monacan Nation records Tauxnitanias, Shackaconias, Outponcas, Tegoneaes, Whonkentyaes, Stegarakes and Hassinnungas in the 1608 account of Mannahoac tribute. Individual seats await defensible placement.",
+      "https://www.monacannation.gov/step-back-in-time.html"
+    ],
+    [
+      "Chesapeake, Delmarva and Virginia Piedmont",
+      "The 1607 reconstruction identifies 28–32 groups under Wahunsenacawh. Membership changed through conquest and diplomacy. The map distinguishes the six inherited districts from later evidence.",
+      "https://encyclopediavirginia.org/entries/powhatan-d-1618/"
+    ],
+    [
+      "Chesapeake, Delmarva and Virginia Piedmont",
+      "Opiscopank, lower and upper Cuttatawomen, Pissaseck, Nantaughtacund and Onawmanient are individually named in the 1608 voyage region. Local placements and political affiliations at the target date remain under review.",
+      "https://www.nps.gov/cajo/getinvolved/upload/SignificanceStatement-2.pdf"
+    ]
+  ],
+  "records": [
+    {"name": "Haudenosaunee Grand Council", "region": "Great Lakes and northern New York", "at": [-76.15, 42.99], "source": "league", "evidence": "Onondaga country was the meeting region of the confederate council. The marker locates the region; the council site moved over time."},
+    {"name": "Seneca", "region": "Great Lakes and northern New York", "at": [-77.55, 42.87], "source": "five", "evidence": "Original schematic of the Genesee valley and western Finger Lakes, following the west-to-east arrangement in the Smithsonian's circa-1600 teaching map. The perimeter generalizes the core area.", "outline": [[-78.48, 43.31], [-77.94, 43.43], [-77.28, 43.3], [-76.98, 43.27], [-76.94, 42.94], [-77.01, 42.52], [-77.19, 42.28], [-77.64, 42.33], [-78, 42.48], [-78.34, 42.78]], "parent": "Haudenosaunee Confederacy"},
+    {"name": "Cayuga", "region": "Great Lakes and northern New York", "at": [-76.7, 42.83], "source": "five", "evidence": "Original schematic of the Cayuga Lake country, following the west-to-east arrangement in the Smithsonian's circa-1600 teaching map. The perimeter generalizes the core area.", "outline": [[-76.98, 43.27], [-76.7, 43.33], [-76.47, 43.34], [-76.45, 43.01], [-76.37, 42.69], [-76.43, 42.39], [-76.72, 42.34], [-77.01, 42.52], [-76.94, 42.94]], "parent": "Haudenosaunee Confederacy"},
+    {"name": "Onondaga", "region": "Great Lakes and northern New York", "at": [-76.04, 42.95], "source": "five", "evidence": "Original schematic of the central New York around Onondaga, following the west-to-east arrangement in the Smithsonian's circa-1600 teaching map. The perimeter generalizes the core area.", "outline": [[-76.47, 43.34], [-76.21, 43.48], [-75.96, 43.32], [-75.88, 43.1], [-75.91, 42.86], [-76.04, 42.57], [-76.37, 42.69], [-76.45, 43.01]], "parent": "Haudenosaunee Confederacy"},
+    {"name": "Oneida", "region": "Great Lakes and northern New York", "at": [-75.59, 43.02], "source": "five", "evidence": "Original schematic of the Oneida Lake and the uplands to its south, following the west-to-east arrangement in the Smithsonian's circa-1600 teaching map. The perimeter generalizes the core area.", "outline": [[-75.96, 43.32], [-75.64, 43.46], [-75.35, 43.39], [-75.2, 43.15], [-75.21, 42.9], [-75.49, 42.66], [-75.91, 42.86], [-75.88, 43.1]], "parent": "Haudenosaunee Confederacy"},
+    {"name": "Mohawk", "region": "Great Lakes and northern New York", "at": [-74.58, 42.94], "source": "five", "evidence": "Original schematic of the Mohawk River valley, following the west-to-east arrangement in the Smithsonian's circa-1600 teaching map. The perimeter generalizes the core area.", "outline": [[-75.35, 43.39], [-74.99, 43.54], [-74.55, 43.51], [-74.12, 43.34], [-73.96, 43.1], [-74.08, 42.81], [-74.45, 42.72], [-74.84, 42.79], [-75.21, 42.9], [-75.2, 43.15]], "parent": "Haudenosaunee Confederacy"},
+    {"name": "Wendat · Bear nation", "region": "Great Lakes and northern New York", "at": [-80.04, 44.75], "source": "wendat", "evidence": "One of the two founding nations of the Wendat confederacy, in the Georgian Bay region.", "parent": "Wendat Confederacy"},
+    {"name": "Wendat · Cord nation", "region": "Great Lakes and northern New York", "at": [-79.86, 44.69], "source": "wendat", "evidence": "Founding member in Wendake. Location indicates the regional homeland.", "parent": "Wendat Confederacy"},
+    {"name": "Wendat · Rock nation", "region": "Great Lakes and northern New York", "at": [-79.48, 44.54], "source": "rock", "evidence": "Joined the confederacy around 1590. Champlain recorded the chief Atironta at Cahiagué in 1615; location approximate.", "parent": "Wendat Confederacy"},
+    {"name": "Neutral communities", "region": "Great Lakes and northern New York", "at": [-79.98, 43.16], "source": "niagara", "evidence": "Niagara frontier and lands west of the river. The contact-era name covers several communities; their internal boundaries remain unresolved."},
+    {"name": "Wenro", "region": "Great Lakes and northern New York", "at": [-78.4, 42.36], "source": "niagara", "evidence": "Western New York regional placement. The limits separating Wenro, Erie and Neutral communities are uncertain."},
+    {"name": "Erie communities", "region": "Great Lakes and northern New York", "at": [-79.53, 42.39], "source": "niagara", "evidence": "Southern Lake Erie shore. The regional designation does not resolve the individual constituent towns."},
+    {"name": "Kichesipirini · Tessouat", "region": "Ottawa, St. Lawrence and Wabanaki country", "at": [-77.03, 45.82], "source": "tess", "evidence": "Morrison Island on the Ottawa River was a political and trading center. Tessouat appears in accounts from 1603–13."},
+    {"name": "Iroquet's people", "region": "Ottawa, St. Lawrence and Wabanaki country", "at": [-73.13, 46.05], "source": "iro", "evidence": "Diplomatic meeting area at the Richelieu–St. Lawrence junction around 1609–10. This marker indicates a rendezvous, not a capital."},
+    {"name": "Batiscan's community", "region": "Ottawa, St. Lawrence and Wabanaki country", "at": [-72.55, 46.35], "source": "batis", "evidence": "Algonquin political leadership in the Trois-Rivières region, documented by 1611. The marker locates the region."},
+    {"name": "Anadabijou's Innu community", "region": "Ottawa, St. Lawrence and Wabanaki country", "at": [-69.71, 48.13], "source": "innu", "evidence": "Meeting at Pointe Saint-Mathieu near Tadoussac in 1603. This documents leadership at the gathering, without defining a frontier."},
+    {"name": "Bessabes' Penobscot alliance", "region": "Ottawa, St. Lawrence and Wabanaki country", "at": [-68.8, 44.79], "source": "ast", "evidence": "Contact-era sagamore associated with the Penobscot region. The outline marks the lower river corridor; the reach of alliances extended beyond it.", "outline": [[-68.99, 45.08], [-68.77, 45.13], [-68.58, 45.02], [-68.58, 44.78], [-68.68, 44.62], [-68.67, 44.43], [-68.82, 44.39], [-68.94, 44.6], [-68.99, 44.82]]},
+    {"name": "Ouagimou's Passamaquoddy community", "region": "Ottawa, St. Lawrence and Wabanaki country", "at": [-67.1, 45.05], "source": "pass", "evidence": "Ouagimou is identified as a Passamaquoddy chief in the accounts of Panounias. The marker indicates the bay region."},
+    {"name": "Secoudon's Wolastoqiyik community", "region": "Ottawa, St. Lawrence and Wabanaki country", "at": [-66.1, 45.32], "source": "pass", "evidence": "Secoudon appears as a Malecite chief in the early French accounts. The point is a regional locator for the lower Wolastoq."},
+    {"name": "Chouacoët · Onemechin", "region": "Ottawa, St. Lawrence and Wabanaki country", "at": [-70.39, 43.49], "source": "saco", "evidence": "Onemechin and Marchin met visitors at Saco in 1606. The marker indicates the documented meeting community. The drawn core approximates the locality described in the source.", "outline": [[-70.45, 43.54], [-70.38, 43.55], [-70.32, 43.51], [-70.34, 43.46], [-70.4, 43.45], [-70.45, 43.49]]},
+    {"name": "Missisquoi", "region": "Ottawa, St. Lawrence and Wabanaki country", "at": [-73.11, 44.91], "source": "lake", "evidence": "Western Abenaki community at the northeastern end of Lake Champlain. The outline follows the lower Missisquoi and adjacent shore.", "outline": [[-73.22, 45.04], [-73.04, 45.03], [-72.9, 44.93], [-72.96, 44.83], [-73.1, 44.8], [-73.24, 44.86]]},
+    {"name": "Winooski", "region": "Ottawa, St. Lawrence and Wabanaki country", "at": [-73.22, 44.5], "source": "lake", "evidence": "The Vermont archaeological account distinguishes the Winooski and Missisquoi bands. This point marks the lower Winooski."},
+    {"name": "Cowasuck", "region": "Ottawa, St. Lawrence and Wabanaki country", "at": [-72.05, 44.1], "source": "bands", "evidence": "Upper Connecticut Valley around Cowass and the Great Oxbow. The outline follows the valley near the principal village.", "outline": [[-72.08, 44.23], [-71.96, 44.23], [-71.97, 44.1], [-72.01, 44.01], [-72.12, 43.97], [-72.15, 44.07]]},
+    {"name": "Pigwacket", "region": "Ottawa, St. Lawrence and Wabanaki country", "at": [-70.98, 44.02], "source": "bands", "evidence": "Upper Saco intervales around Fryeburg. An approximate valley core is shown.", "outline": [[-71.12, 44.13], [-70.96, 44.13], [-70.84, 44.05], [-70.82, 43.97], [-70.95, 43.9], [-71.08, 43.98]]},
+    {"name": "Pennacook", "region": "Ottawa, St. Lawrence and Wabanaki country", "at": [-71.57, 43.27], "source": "bands", "evidence": "Middle Merrimack around present-day Concord. The extent of later alliances cannot establish a circa-1600 frontier.", "outline": [[-71.69, 43.4], [-71.52, 43.4], [-71.43, 43.27], [-71.42, 43.13], [-71.52, 43.09], [-71.65, 43.2]]},
+    {"name": "Sokoki", "region": "Ottawa, St. Lawrence and Wabanaki country", "at": [-72.51, 42.86], "source": "bands", "evidence": "Middle Connecticut River, near the southern Vermont–Massachusetts reach. Regional locator; the historical name has had varying uses."},
+    {"name": "Pokanoket", "region": "Southern New England and Long Island", "at": [-71.28, 41.73], "source": "pok", "evidence": "Sowams and the eastern shore of Narragansett Bay. Wampanoag sachem Ousamequin is directly documented in 1621; the outline shows the local core.", "outline": [[-71.35, 41.8], [-71.24, 41.85], [-71.13, 41.81], [-71.13, 41.71], [-71.2, 41.64], [-71.31, 41.63]]},
+    {"name": "Patuxet", "region": "Southern New England and Long Island", "at": [-70.66, 41.96], "source": "mash", "evidence": "Plymouth harbor community occupied before the early seventeenth-century epidemics. Its separate political status in 1600 is unresolved."},
+    {"name": "Mashpee", "region": "Southern New England and Long Island", "at": [-70.49, 41.64], "source": "mash", "evidence": "Upper Cape Wampanoag community. The administrative boundaries of later Mashpee do not establish the older extent."},
+    {"name": "Nauset", "region": "Southern New England and Long Island", "at": [-69.98, 41.84], "source": "cape", "evidence": "Outer Cape communities associated with Nauset. The drawn core follows the outer arm and excludes the western Cape.", "outline": [[-70.08, 42.08], [-69.94, 42.09], [-69.91, 41.89], [-69.9, 41.68], [-69.97, 41.66], [-70.06, 41.77], [-70.06, 41.87], [-70.13, 42.01]]},
+    {"name": "Mystic / Pawtucket", "region": "Southern New England and Long Island", "at": [-71.11, 42.42], "source": "bay", "evidence": "Northern Massachusetts Bay leadership associated with Nanepashemet, killed in 1619. The Mystic valley is a regional locator."},
+    {"name": "Neponset", "region": "Southern New England and Long Island", "at": [-71.05, 42.26], "source": "bay", "evidence": "Southern Massachusetts Bay community on the Neponset River, subsequently documented under Chickataubut."},
+    {"name": "Narragansett", "region": "Southern New England and Long Island", "at": [-71.57, 41.44], "source": "ri", "evidence": "Core mainland west of Narragansett Bay. The Pawcatuck frontier is described as contested; the outline stops short of assigning it exclusively.", "outline": [[-71.68, 41.56], [-71.53, 41.62], [-71.41, 41.58], [-71.42, 41.42], [-71.5, 41.35], [-71.64, 41.33], [-71.7, 41.43]]},
+    {"name": "Cowesett", "region": "Southern New England and Long Island", "at": [-71.46, 41.69], "source": "ri", "evidence": "Community along the western shore of upper Narragansett Bay. Later accounts describe tribute relations with Narragansett."},
+    {"name": "Shawomet", "region": "Southern New England and Long Island", "at": [-71.41, 41.71], "source": "ri", "evidence": "Warwick area. Later accounts identify Shawomet separately in Narragansett tributary relations."},
+    {"name": "Pocumtuck", "region": "Southern New England and Long Island", "at": [-72.6, 42.55], "source": "deer", "evidence": "Deerfield and middle Connecticut River intervales. The polygon marks the confluence area.", "outline": [[-72.76, 42.65], [-72.58, 42.68], [-72.49, 42.59], [-72.52, 42.46], [-72.64, 42.43], [-72.74, 42.51]]},
+    {"name": "Hassanamisco", "region": "Southern New England and Long Island", "at": [-71.69, 42.21], "source": "nip", "evidence": "Nipmuc community in the Grafton area. The marker locates the homeland; precise local jurisdiction in 1600 remains unresolved."},
+    {"name": "Wangunk", "region": "Southern New England and Long Island", "at": [-72.64, 41.6], "source": "ct", "evidence": "Middle Connecticut bend. Later testimony describes a network of towns under related sachems.", "outline": [[-72.75, 41.72], [-72.6, 41.74], [-72.52, 41.62], [-72.57, 41.5], [-72.67, 41.51], [-72.72, 41.62]]},
+    {"name": "Tunxis", "region": "Southern New England and Long Island", "at": [-72.83, 41.72], "source": "ct", "evidence": "Farmington River community, named in accounts of Wangunk diplomatic and kinship relations."},
+    {"name": "Quinnipiac", "region": "Southern New England and Long Island", "at": [-72.89, 41.31], "source": "ct", "evidence": "New Haven harbor community, named in accounts of Wangunk diplomatic and kinship relations."},
+    {"name": "Pequot", "region": "Southern New England and Long Island", "at": [-71.98, 41.39], "source": "peq", "evidence": "Lower Thames and Mystic region. The limits of the seventeenth-century Pequot sphere changed over time.", "outline": [[-72.09, 41.5], [-71.97, 41.53], [-71.83, 41.45], [-71.83, 41.32], [-72.02, 41.3], [-72.1, 41.38]]},
+    {"name": "Western Niantic", "region": "Southern New England and Long Island", "at": [-72.19, 41.33], "source": "peq", "evidence": "Niantic Bay regional placement. Later political relations with Pequot do not establish an exact earlier frontier."},
+    {"name": "Shinnecock", "region": "Southern New England and Long Island", "at": [-72.43, 40.89], "source": "li", "evidence": "South Fork community around Shinnecock Bay, one of several local political communities documented on eastern Long Island. The drawn core approximates the locality described in the source.", "outline": [[-72.5, 40.91], [-72.44, 40.93], [-72.37, 40.91], [-72.37, 40.87], [-72.43, 40.85], [-72.5, 40.86]]},
+    {"name": "Montaukett", "region": "Southern New England and Long Island", "at": [-71.99, 41.05], "source": "li", "evidence": "Eastern South Fork. This outline indicates the Montauk peninsula core.", "outline": [[-72.11, 41.06], [-71.99, 41.09], [-71.85, 41.08], [-71.84, 41.03], [-72.04, 40.99], [-72.12, 41]]},
+    {"name": "Corchaug", "region": "Southern New England and Long Island", "at": [-72.48, 41.02], "source": "li", "evidence": "North Fork community across the bay from Shinnecock and Montaukett. Its inland limits are uncertain."},
+    {"name": "Mohican", "region": "Hudson, Delaware and Susquehanna valleys", "at": [-73.75, 42.47], "source": "hud", "evidence": "Upper Hudson core south of Albany and along the river. Later records give better evidence for internal leadership than survives for 1600.", "outline": [[-73.89, 42.87], [-73.65, 42.86], [-73.55, 42.62], [-73.58, 42.36], [-73.67, 42.12], [-73.84, 42.12], [-73.9, 42.37]]},
+    {"name": "Wappinger", "region": "Hudson, Delaware and Susquehanna valleys", "at": [-73.93, 41.6], "source": "hud", "evidence": "East bank of the middle Hudson. Core around the Wappinger Creek drainage; affiliation of neighboring local groups varied.", "outline": [[-73.95, 41.78], [-73.76, 41.78], [-73.7, 41.65], [-73.77, 41.52], [-73.92, 41.5]]},
+    {"name": "Esopus", "region": "Hudson, Delaware and Susquehanna valleys", "at": [-74.04, 41.94], "source": "lower", "evidence": "Local community in the Esopus Creek and Kingston area. Seventeenth-century names are used retrospectively; authority over adjoining communities in 1600 is uncertain."},
+    {"name": "Hackensack", "region": "Hudson, Delaware and Susquehanna valleys", "at": [-74.05, 40.9], "source": "lower", "evidence": "Local community in the lower Hackensack River area. Seventeenth-century names are used retrospectively; authority over adjoining communities in 1600 is uncertain."},
+    {"name": "Tappan", "region": "Hudson, Delaware and Susquehanna valleys", "at": [-73.95, 41.02], "source": "lower", "evidence": "Local community in the west bank near the Tappan Zee area. Seventeenth-century names are used retrospectively; authority over adjoining communities in 1600 is uncertain."},
+    {"name": "Wiechquaeskeck", "region": "Hudson, Delaware and Susquehanna valleys", "at": [-73.85, 41], "source": "lower", "evidence": "Local community in the lower Hudson east bank area. Seventeenth-century names are used retrospectively; authority over adjoining communities in 1600 is uncertain."},
+    {"name": "Canarsee", "region": "Hudson, Delaware and Susquehanna valleys", "at": [-73.91, 40.64], "source": "lower", "evidence": "Local community in the western Long Island around Jamaica Bay area. Seventeenth-century names are used retrospectively; authority over adjoining communities in 1600 is uncertain."},
+    {"name": "Sanhickan", "region": "Hudson, Delaware and Susquehanna valleys", "at": [-74.77, 40.22], "source": "del", "evidence": "Regional placement at the Delaware falls at Trenton. Later Dutch-era records distinguish local bands along the Delaware; the perimeter and succession circa 1600 are uncertain."},
+    {"name": "Mantese", "region": "Hudson, Delaware and Susquehanna valleys", "at": [-75.2, 39.84], "source": "del", "evidence": "Regional placement at the lower Mantua Creek area. Later Dutch-era records distinguish local bands along the Delaware; the perimeter and succession circa 1600 are uncertain."},
+    {"name": "Passayunk", "region": "Hudson, Delaware and Susquehanna valleys", "at": [-75.18, 39.91], "source": "del", "evidence": "Regional placement at the lower Schuylkill. Later Dutch-era records distinguish local bands along the Delaware; the perimeter and succession circa 1600 are uncertain."},
+    {"name": "Brandywine community", "region": "Hudson, Delaware and Susquehanna valleys", "at": [-75.55, 39.75], "source": "del", "evidence": "Regional placement at the Brandywine and Christina confluence. Later Dutch-era records distinguish local bands along the Delaware; the perimeter and succession circa 1600 are uncertain."},
+    {"name": "Great Siconese", "region": "Hudson, Delaware and Susquehanna valleys", "at": [-75.15, 38.78], "source": "del", "evidence": "Regional placement at the Swanendael, near Lewes. Later Dutch-era records distinguish local bands along the Delaware; the perimeter and succession circa 1600 are uncertain."},
+    {"name": "Ramcock", "region": "Hudson, Delaware and Susquehanna valleys", "at": [-74.96, 40.01], "source": "del", "evidence": "Regional placement at the Rancocas Creek area. Later Dutch-era records distinguish local bands along the Delaware; the perimeter and succession circa 1600 are uncertain."},
+    {"name": "Susquehannock", "region": "Hudson, Delaware and Susquehanna valleys", "at": [-76.46, 39.98], "source": "sass", "evidence": "Lower Susquehanna valley settlement corridor upstream of Chesapeake Bay. Smith encountered a delegation in 1608. The polygon represents the valley core.", "outline": [[-76.76, 40.16], [-76.59, 40.18], [-76.38, 40.02], [-76.23, 39.84], [-76.15, 39.7], [-76.27, 39.72], [-76.5, 39.91], [-76.67, 40.03]]},
+    {"name": "Piscataway", "region": "Chesapeake, Delmarva and Virginia Piedmont", "at": [-77.01, 38.69], "source": "pisc", "evidence": "Moyaone and the Maryland shore of the Potomac. The tayac's influence linked several settlements. Polygon indicates the immediate river core.", "outline": [[-77.05, 38.78], [-76.94, 38.79], [-76.88, 38.64], [-76.93, 38.49], [-77.04, 38.46], [-77.09, 38.62]]},
+    {"name": "Nacotchtank", "region": "Chesapeake, Delmarva and Virginia Piedmont", "at": [-76.99, 38.86], "source": "mary", "evidence": "Anacostia River town identified in the 1608 reconstruction. Its relationship to the Piscataway tayac around 1600 is uncertain."},
+    {"name": "Patuxent", "region": "Chesapeake, Delmarva and Virginia Piedmont", "at": [-76.68, 38.49], "source": "mary", "evidence": "Chiefdom on the Patuxent. The polygon follows the middle and lower river core.", "outline": [[-76.72, 38.64], [-76.6, 38.61], [-76.5, 38.45], [-76.45, 38.34], [-76.52, 38.32], [-76.64, 38.43]]},
+    {"name": "Tockwogh", "region": "Chesapeake, Delmarva and Virginia Piedmont", "at": [-75.99, 39.37], "source": "sass", "evidence": "Smith visited this fortified community on the Sassafras in 1608. The exact town site is unresolved."},
+    {"name": "Ozinies / Wicomiss", "region": "Chesapeake, Delmarva and Virginia Piedmont", "at": [-75.99, 39.15], "source": "sass", "evidence": "Chester River regional placement. The identification is debated; Smith had no recorded face-to-face meeting."},
+    {"name": "Nanticoke", "region": "Chesapeake, Delmarva and Virginia Piedmont", "at": [-75.77, 38.56], "source": "mary", "evidence": "Nanticoke River and Kuskarawock region in the 1608 account. The outline represents the lower valley core.", "outline": [[-75.93, 38.36], [-75.83, 38.32], [-75.69, 38.47], [-75.55, 38.66], [-75.65, 38.72], [-75.79, 38.59]]},
+    {"name": "Accohannock", "region": "Chesapeake, Delmarva and Virginia Piedmont", "at": [-75.76, 37.6], "source": "mary", "evidence": "Eastern Shore community around Accohannock Creek, recorded in the early Chesapeake accounts."},
+    {"name": "Accomack", "region": "Chesapeake, Delmarva and Virginia Piedmont", "at": [-75.89, 37.4], "source": "mary", "evidence": "Southern Eastern Shore. The point distinguishes Accomack from neighboring Accohannock."},
+    {"name": "Patawomeck", "region": "Chesapeake, Delmarva and Virginia Piedmont", "at": [-77.31, 38.36], "source": "pisc", "evidence": "Virginia bank of the Potomac around Potomac Creek. Its diplomatic relationships shifted during the early seventeenth century."},
+    {"name": "Mannahoac", "region": "Chesapeake, Delmarva and Virginia Piedmont", "at": [-77.66, 38.38], "source": "mon", "evidence": "Upper Rappahannock political network described in 1608. Amorolek named several affiliated towns. The outline indicates the river corridor above the falls.", "outline": [[-78.12, 38.57], [-77.89, 38.62], [-77.63, 38.51], [-77.46, 38.33], [-77.54, 38.22], [-77.77, 38.31], [-78, 38.42]]},
+    {"name": "Monacan", "region": "Chesapeake, Delmarva and Virginia Piedmont", "at": [-78.32, 37.79], "source": "mon", "evidence": "James River Piedmont communities above the fall line. The regional outline is a reconstruction of the central river corridor.", "outline": [[-78.73, 37.95], [-78.43, 37.99], [-78.11, 37.86], [-77.81, 37.7], [-77.6, 37.57], [-77.75, 37.51], [-78.07, 37.62], [-78.39, 37.71], [-78.66, 37.76]]},
+    {"name": "Tsenacomoco", "region": "Chesapeake, Delmarva and Virginia Piedmont", "at": [-76.6, 37.42], "source": "pow", "evidence": "Wahunsenacawh's paramount chiefdom. Werowocomoco is the locator. The six inherited districts form its early core; the larger 1607 alliance developed through expansion."},
+    {"name": "Powhatan town", "region": "Chesapeake, Delmarva and Virginia Piedmont", "at": [-77.4, 37.52], "source": "district", "evidence": "One of the six inherited districts. Marker locates the James River falls district; the precise frontier is unknown. The drawn core approximates the locality described in the source.", "parent": "Tsenacomoco", "outline": [[-77.46, 37.56], [-77.37, 37.55], [-77.34, 37.5], [-77.35, 37.47], [-77.41, 37.48], [-77.45, 37.51]]},
+    {"name": "Arrohateck", "region": "Chesapeake, Delmarva and Virginia Piedmont", "at": [-77.38, 37.42], "source": "district", "evidence": "One of the six inherited districts. Marker locates the James below the falls district; the precise frontier is unknown. The drawn core approximates the locality described in the source.", "parent": "Tsenacomoco", "outline": [[-77.42, 37.47], [-77.35, 37.47], [-77.3, 37.44], [-77.3, 37.38], [-77.36, 37.37], [-77.4, 37.41]]},
+    {"name": "Appamattuck", "region": "Chesapeake, Delmarva and Virginia Piedmont", "at": [-77.37, 37.27], "source": "district", "evidence": "One of the six inherited districts. Marker locates the lower Appomattox district; the precise frontier is unknown. The drawn core approximates the locality described in the source.", "parent": "Tsenacomoco", "outline": [[-77.44, 37.25], [-77.42, 37.31], [-77.33, 37.33], [-77.28, 37.32], [-77.27, 37.28], [-77.36, 37.23]]},
+    {"name": "Pamunkey", "region": "Chesapeake, Delmarva and Virginia Piedmont", "at": [-76.99, 37.56], "source": "district", "evidence": "One of the six inherited districts. Marker locates the lower Pamunkey district; the precise frontier is unknown. The drawn core approximates the locality described in the source.", "parent": "Tsenacomoco", "outline": [[-77.12, 37.59], [-77.05, 37.62], [-76.95, 37.6], [-76.85, 37.54], [-76.82, 37.49], [-76.9, 37.48], [-77.03, 37.53]]},
+    {"name": "Youghtanund", "region": "Chesapeake, Delmarva and Virginia Piedmont", "at": [-77.23, 37.7], "source": "district", "evidence": "One of the six inherited districts. Marker locates the upper Pamunkey district; the precise frontier is unknown. The drawn core approximates the locality described in the source.", "parent": "Tsenacomoco", "outline": [[-77.48, 37.8], [-77.33, 37.83], [-77.2, 37.76], [-77.11, 37.66], [-77.13, 37.61], [-77.23, 37.65], [-77.36, 37.73]]},
+    {"name": "Mattaponi", "region": "Chesapeake, Delmarva and Virginia Piedmont", "at": [-76.92, 37.68], "source": "district", "evidence": "One of the six inherited districts. Marker locates the Mattaponi River district; the precise frontier is unknown. The drawn core approximates the locality described in the source.", "parent": "Tsenacomoco", "outline": [[-77.19, 37.88], [-77.09, 37.88], [-76.98, 37.77], [-76.88, 37.67], [-76.8, 37.57], [-76.83, 37.54], [-76.94, 37.64], [-77.08, 37.77]]},
+    {"name": "Chickahominy", "region": "Chesapeake, Delmarva and Virginia Piedmont", "at": [-77.07, 37.39], "source": "district", "evidence": "River communities governed by a council of elders. Shown separately from Wahunsenacawh's inherited chiefdoms.", "outline": [[-77.27, 37.52], [-77.14, 37.51], [-76.97, 37.38], [-76.91, 37.27], [-77.01, 37.27], [-77.15, 37.38]]},
+    {"name": "Paspahegh", "region": "Chesapeake, Delmarva and Virginia Piedmont", "at": [-76.87, 37.21], "source": "tide", "evidence": "Tidewater chiefdom documented by 1607. The point locates the district; its exact extent and date of incorporation around 1600 remain uncertain."},
+    {"name": "Weanock", "region": "Chesapeake, Delmarva and Virginia Piedmont", "at": [-77.07, 37.29], "source": "tide", "evidence": "Tidewater chiefdom documented by 1607. The point locates the district; its exact extent and date of incorporation around 1600 remain uncertain."},
+    {"name": "Kiskiack", "region": "Chesapeake, Delmarva and Virginia Piedmont", "at": [-76.57, 37.3], "source": "tide", "evidence": "Tidewater chiefdom documented by 1607. The point locates the district; its exact extent and date of incorporation around 1600 remain uncertain."},
+    {"name": "Nansemond", "region": "Chesapeake, Delmarva and Virginia Piedmont", "at": [-76.54, 36.83], "source": "tide", "evidence": "Tidewater chiefdom documented by 1607. The point locates the district; its exact extent and date of incorporation around 1600 remain uncertain."},
+    {"name": "Warraskoyack", "region": "Chesapeake, Delmarva and Virginia Piedmont", "at": [-76.58, 36.99], "source": "tide", "evidence": "Tidewater chiefdom documented by 1607. The point locates the district; its exact extent and date of incorporation around 1600 remain uncertain."},
+    {"name": "Quiyoughcohannock", "region": "Chesapeake, Delmarva and Virginia Piedmont", "at": [-76.95, 37.15], "source": "tide", "evidence": "Tidewater chiefdom documented by 1607. The point locates the district; its exact extent and date of incorporation around 1600 remain uncertain."},
+    {"name": "Kecoughtan", "region": "Chesapeake, Delmarva and Virginia Piedmont", "at": [-76.34, 37.02], "source": "tide", "evidence": "Tidewater chiefdom documented by 1607. The point locates the district; its exact extent and date of incorporation around 1600 remain uncertain."},
+    {"name": "Weskarini", "region": "Ottawa, St. Lawrence and Wabanaki country", "at": [-75.02, 45.77], "source": "ott", "evidence": "Petite Nation, Rouge and Lièvre tributaries north of the Ottawa. Outline indicates the lower tributary region, where the group is placed in early seventeenth-century accounts.", "outline": [[-75.63, 45.59], [-75.57, 45.86], [-75.34, 46.1], [-74.96, 46.17], [-74.69, 46.1], [-74.53, 45.89], [-74.66, 45.65], [-75.02, 45.6]]},
+    {"name": "Atikamekw Nehirowisiwok · upper Saint-Maurice", "region": "Ottawa, St. Lawrence and Wabanaki country", "at": [-73.87, 47.74], "source": "atik", "evidence": "Regional locator for autonomous family groups along the upper Saint-Maurice. Individual local political units and their limits circa 1600 remain unresolved."},
+    {"name": "Nanrantsouak / Norridgewock", "region": "Ottawa, St. Lawrence and Wabanaki country", "at": [-69.88, 44.77], "source": "maine", "evidence": "Upper Kennebec community near present-day Old Point. The outline generalizes the river reach; the historical village's size varied.", "outline": [[-70.01, 44.88], [-69.88, 44.89], [-69.73, 44.8], [-69.7, 44.71], [-69.85, 44.67], [-69.96, 44.74]]},
+    {"name": "Arosaguntacook", "region": "Ottawa, St. Lawrence and Wabanaki country", "at": [-70.2, 44.13], "source": "maine", "evidence": "Androscoggin River people. Point locates the river corridor rather than an identified chiefly residence."},
+    {"name": "Agawam · Connecticut Valley", "region": "Southern New England and Long Island", "at": [-72.59, 42.09], "source": "valley", "evidence": "The regional survey places the core between Enfield Falls and South Hadley. Outline follows those floodplains.", "outline": [[-72.65, 42.25], [-72.54, 42.27], [-72.5, 42.17], [-72.55, 42.04], [-72.58, 41.96], [-72.65, 41.97], [-72.68, 42.11]]},
+    {"name": "Nonotuck", "region": "Southern New England and Long Island", "at": [-72.62, 42.33], "source": "valley", "evidence": "Connecticut River intervales near Northampton and Hadley; the marker locates the valley community."},
+    {"name": "Squakheag", "region": "Southern New England and Long Island", "at": [-72.45, 42.69], "source": "valley", "evidence": "Northfield reach of the Connecticut, a distinct northern settlement core."},
+    {"name": "Woronoco", "region": "Southern New England and Long Island", "at": [-72.74, 42.12], "source": "valley", "evidence": "Community on the Westfield River, west of the Agawam floodplains."},
+    {"name": "Aquinnah", "region": "Southern New England and Long Island", "at": [-70.81, 41.34], "source": "noepe", "evidence": "One of four major sachemships recorded on Noepe in the seventeenth century. The point locates the district; earlier boundaries remain uncertain."},
+    {"name": "Taakemmy", "region": "Southern New England and Long Island", "at": [-70.69, 41.4], "source": "noepe", "evidence": "One of four major sachemships recorded on Noepe in the seventeenth century. The point locates the district; earlier boundaries remain uncertain."},
+    {"name": "Nunnepog", "region": "Southern New England and Long Island", "at": [-70.54, 41.39], "source": "noepe", "evidence": "One of four major sachemships recorded on Noepe in the seventeenth century. The point locates the district; earlier boundaries remain uncertain."},
+    {"name": "Chappaquiddick", "region": "Southern New England and Long Island", "at": [-70.48, 41.38], "source": "noepe", "evidence": "One of four major sachemships recorded on Noepe in the seventeenth century. The point locates the district; earlier boundaries remain uncertain."},
+    {"name": "Nottoway", "region": "Chesapeake, Delmarva and Virginia Piedmont", "at": [-77.18, 36.88], "source": "so", "evidence": "Regional placement on the Nottoway River around the coastal plain–Piedmont transition. The source locates the people without delineating chiefly jurisdiction."},
+    {"name": "Meherrin", "region": "Chesapeake, Delmarva and Virginia Piedmont", "at": [-77.53, 36.57], "source": "so", "evidence": "Meherrin River regional placement. Boundaries among its early local communities remain uncertain."},
+    {"name": "Matouweskarini", "region": "Ottawa, St. Lawrence and Wabanaki country", "at": [-76.73, 45.39], "source": "mad", "evidence": "Madawaska River group upstream of Ottawa. Marker identifies the river drainage."},
+    {"name": "Kinounchepirini", "region": "Ottawa, St. Lawrence and Wabanaki country", "at": [-76.89, 45.54], "source": "mad", "evidence": "Bonnechere River group in the Ottawa watershed. The record supports a river affiliation."},
+    {"name": "Nipissirini", "region": "Ottawa, St. Lawrence and Wabanaki country", "at": [-80, 46.31], "source": "nipi", "evidence": "Champlain visited the summer community on the north shore of Lake Nipissing in 1615; associated territory also extended along the Mattawa."},
+    {"name": "Quinsigamond", "region": "Southern New England and Long Island", "at": [-71.76, 42.26], "source": "nipmap", "evidence": "The Hassanamisco Nipmuc Nation identifies this band on its contact-period map. Marker locates the Lake Quinsigamond area."},
+    {"name": "Nashaway", "region": "Southern New England and Long Island", "at": [-71.68, 42.46], "source": "nipmap", "evidence": "The Hassanamisco Nipmuc Nation identifies this band on its contact-period map. Marker locates the Nashua confluence near Lancaster area. The drawn core approximates the locality described in the source.", "outline": [[-71.73, 42.51], [-71.64, 42.52], [-71.61, 42.46], [-71.65, 42.4], [-71.7, 42.4], [-71.74, 42.46]]},
+    {"name": "Assabet", "region": "Southern New England and Long Island", "at": [-71.47, 42.43], "source": "nipmap", "evidence": "The Hassanamisco Nipmuc Nation identifies this band on its contact-period map. Marker locates the Assabet River area."},
+    {"name": "Quaboag", "region": "Southern New England and Long Island", "at": [-72.1, 42.19], "source": "nipmap", "evidence": "The Hassanamisco Nipmuc Nation identifies this band on its contact-period map. Marker locates the Quaboag Pond and river area. The drawn core approximates the locality described in the source.", "outline": [[-72.18, 42.23], [-72.09, 42.24], [-72.04, 42.2], [-72.06, 42.15], [-72.14, 42.16], [-72.18, 42.19]]},
+    {"name": "Paugussett", "region": "Southern New England and Long Island", "at": [-73.08, 41.32], "source": "paug", "evidence": "Lower Naugatuck–Housatonic confluence. Land records document the community later in the seventeenth century. The drawn core approximates the locality described in the source.", "outline": [[-73.12, 41.38], [-73.05, 41.37], [-73.03, 41.32], [-73.07, 41.26], [-73.12, 41.25], [-73.14, 41.3]]},
+    {"name": "Chesepian", "region": "Chesapeake, Delmarva and Virginia Piedmont", "at": [-76.07, 36.88], "source": "district", "evidence": "Great Neck and Lynnhaven region at the southern mouth of Chesapeake Bay. Archaeological and early historical evidence places a community here before Jamestown."},
+    {"name": "Chowanoke", "region": "Chesapeake, Delmarva and Virginia Piedmont", "at": [-76.77, 36.24], "source": "chow", "evidence": "Chowan River district under Menatonan in the 1580s. This southern margin entry uses the earlier English expedition as its dated anchor."},
+    {"name": "Sakonnet", "region": "Southern New England and Long Island", "at": [-71.16, 41.51], "source": "sakonnet", "evidence": "Local Wampanoag community on the eastern shore of the Sakonnet River, around Little Compton. The drawn core approximates the locality described in the source.", "outline": [[-71.21, 41.6], [-71.12, 41.59], [-71.1, 41.53], [-71.12, 41.46], [-71.19, 41.45], [-71.22, 41.52]]},
+    {"name": "Eastern Niantic", "region": "Southern New England and Long Island", "at": [-71.67, 41.37], "source": "niantic", "evidence": "Southwestern Rhode Island coastal district. Later alliances and named sachems are better documented than the political frontier in 1600."},
+    {"name": "Unkechaug", "region": "Southern New England and Long Island", "at": [-72.83, 40.79], "source": "longisland", "evidence": "Local community on the south shore of Long Island around the lower Forge River. Regional locator."},
+    {"name": "Cape Ann / Beauport", "region": "Southern New England and Long Island", "at": [-70.66, 42.61], "source": "capeann", "evidence": "Champlain recorded the community at Gloucester harbor in 1606. Its political perimeter remains uncertain."},
+    {"name": "Rappahannock", "region": "Chesapeake, Delmarva and Virginia Piedmont", "at": [-76.9, 37.94], "source": "cajo", "evidence": "Community identified during the 1608 voyages. The point indicates the middle Rappahannock region. Its precise earlier district is uncertain."},
+    {"name": "Moraughtachund", "region": "Chesapeake, Delmarva and Virginia Piedmont", "at": [-76.65, 37.8], "source": "cajo", "evidence": "Community identified during the 1608 voyages. The point indicates the lower Rappahannock region. Its precise earlier district is uncertain."},
+    {"name": "Wicocomoco", "region": "Chesapeake, Delmarva and Virginia Piedmont", "at": [-76.37, 37.92], "source": "cajo", "evidence": "Community identified during the 1608 voyages. The point indicates the Virginia shore near the Potomac mouth region. Its precise earlier district is uncertain."},
+    {"name": "Chicacoan / Sekakawon", "region": "Chesapeake, Delmarva and Virginia Piedmont", "at": [-76.53, 38.09], "source": "cajo", "evidence": "Community identified during the 1608 voyages. The point indicates the Northern Neck along the Potomac region. Its precise earlier district is uncertain."}
+  ]
+}

@@ -64,45 +64,6 @@ async function loadTerrain() {
   });
 }
 
-async function loadTerritories(svg) {
-  const territories = await downloadTerritories();
-  const group = document.createElementNS(svg.namespaceURI, 'g');
-  group.id = 'territories';
-  group.setAttribute('transform', 'translate(100 90)');
-  group.setAttribute('clip-path', 'url(#land-clip)');
-  for (const territory of territories) {
-    const path = document.createElementNS(svg.namespaceURI, 'path');
-    path.setAttribute('d', territory.path);
-    path.setAttribute('fill-rule', 'evenodd');
-    path.setAttribute('vector-effect', 'non-scaling-stroke');
-    let hue = 0;
-    for (const character of territory.name) hue = (hue * 31 + character.codePointAt(0)) % 360;
-    path.setAttribute('stroke', 'hsl(' + hue + ' 32% 30%)');
-    path.setAttribute('stroke-width', '1');
-    path.setAttribute('fill', 'hsl(' + hue + ' 45% 48%)');
-    path.setAttribute('fill-opacity', '.15');
-    const title = document.createElementNS(svg.namespaceURI, 'title');
-    title.textContent = territory.name;
-    path.append(title);
-    path.addEventListener('click', event => {
-      const content = document.createElement('section');
-      const name = document.createElement('strong');
-      name.textContent = territory.name;
-      const note = document.createElement('p');
-      note.textContent = [territory.other, territory.family].filter(Boolean).join(' · ');
-      const source = document.createElement('a');
-      source.href = territoryRecord;
-      source.textContent = 'Driver et al. (1953), digitized by Charles Perreault (2025)';
-      content.append(name, note, source);
-      L.DomEvent.stopPropagation(event);
-      L.popup().setLatLng(map.mouseEventToLatLng(event)).setContent(content).openOn(map);
-    });
-    group.append(path);
-  }
-  svg.append(group);
-  addToggle(panel.querySelector('.features'), group.id, 'Territories');
-}
-
 loadTerrain().catch(() => { document.getElementById('map-error').hidden = false; });
 function fitMap() {
   map.fitBounds(imageBounds, { padding: [12, 12], animate: false });

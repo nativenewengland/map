@@ -52,3 +52,21 @@ body {
   cursor: pointer;
 }
 #territories path:hover { stroke-width: 1.6; }
+#territories path {
+  fill: #785b83;
+  fill-opacity: .14;
+  stroke: #583952;
+  stroke-width: 1;
+  stroke-dasharray: 4 2;
+}
+#territories circle {
+  fill: #663e41;
+  stroke: #fff5da;
+  stroke-width: 1;
+  pointer-events: all;
+  cursor: pointer;
+}
+.layer-panel { width: min(230px, 76vw); }
+#polity-select { width: 100%; margin: 4px 0 8px; }
+#polity-key small { display: block; }
+#coverage-notes { margin: 5px 0; font-size: .82rem; }

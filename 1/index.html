@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="../js/leaflet.css">
   <link rel="stylesheet" href="terrain.css">
   <script defer src="../js/leaflet.js"></script>
-  <script defer src="homelands.js"></script>
+  <script defer src="polities.js"></script>
   <script defer src="terrain.js"></script>
 </head>
 <body>
@@ -18,8 +18,13 @@
       <summary>Layers</summary>
       <div class="layer-panel">
         <div class="features"></div>
-        <small>Approximate historical ethnolinguistic homelands. Sources span several centuries. <a href="https://doi.org/10.5334/joad.185">Driver–Perreault map</a> · <a href="https://creativecommons.org/licenses/by-nc/2.5/">CC BY-NC 2.5</a></small>
-        <p id="territory-error" role="status" hidden>The historical data could not load from Zenodo.</p>
+        <div id="polity-key" hidden>
+          <label for="polity-select">Find a polity or community</label>
+          <select id="polity-select"><option value="">Choose a name</option></select>
+          <small>Dots mark approximate localities. Dashed outlines show reconstructed core areas. Open an entry for its evidence and date.</small>
+          <details id="coverage-notes"><summary>Coverage and open questions</summary></details>
+        </div>
+        <p id="territory-error" role="status" hidden>The political inventory could not load.</p>
         <label><input id="elevation" type="checkbox" checked> Elevation</label>
         <div class="bands"></div>
       </div>
