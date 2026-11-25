@@ -18,6 +18,15 @@ var tiles = L.tileLayer('map/{z}/{x}/{y}.jpg', {
   minZoom: 2,
   maxZoom: 6,
   maxNativeZoom: 6,
+});
+
+// Each vector tile traces a 4-by-4 block of the original tiles at this zoom.
+var vectorTiles = L.tileLayer('map-vector/{z}/{x}/{y}.svg', {
+  tileSize: 1024,
+  zoomOffset: -2,
+  noWrap: true,
+  minZoom: 2,
+  maxZoom: 6,
 }).addTo(map);
 
 var activeFootnoteFeatureTitle = '';
@@ -464,7 +473,7 @@ function containsTextLabel(collection, candidate) {
   });
 }
 
-tiles.once('load', function () {
+vectorTiles.once('load', function () {
   rescaleIcons();
   rescaleTextLabels();
 });
@@ -1041,7 +1050,10 @@ var layerControlOverlays = {};
 Object.keys(overlays).forEach(function (name) {
   layerControlOverlays[getOverlayLabelMarkup(name)] = overlays[name];
 });
-L.control.layers(null, layerControlOverlays).addTo(map);
+L.control.layers({
+  'Vector artwork': vectorTiles,
+  'Original artwork': tiles,
+}, layerControlOverlays).addTo(map);
 
 function clearSelectedMarker() {
   if (selectedMarker && selectedMarker._icon) {
