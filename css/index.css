@@ -466,6 +466,7 @@ html, body{
 #map-timeline {
     position: fixed;
     bottom: 20px;
+    left: var(--timeline-left, 165px);
     right: 225px;
     z-index: 1000;
     display: flex;
@@ -481,7 +482,8 @@ html, body{
 }
 
 #map-year {
-    width: clamp(95px, 23vw, 300px);
+    flex: 1;
+    min-width: 0;
     height: 22px;
     margin: 0;
     accent-color: #1f3c88;
@@ -490,7 +492,18 @@ html, body{
 
 @media (max-width: 700px) {
     #map-timeline {
+        left: 10px;
         right: 20px;
         bottom: 66px;
     }
+}
+
+#timeline-play {
+    width: 26px;
+    height: 26px;
+    border: 0;
+    border-radius: 50%;
+    background: #1f3c88;
+    color: white;
+    cursor: pointer;
 }
