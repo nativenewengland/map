@@ -1,6 +1,6 @@
 // Project original longitude/latitude placements to the registered terrain sheet.
 // NAD83 / North America Albers with standard parallels at 20 and 60 degrees.
-function polityPoint([longitude, latitude]) {
+export function polityPoint([longitude, latitude]) {
   const rad = Math.PI / 180;
   const flattening = 1 / 298.257222101;
   const e = Math.sqrt(2 * flattening - flattening ** 2);

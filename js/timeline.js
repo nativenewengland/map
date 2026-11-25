@@ -30,6 +30,19 @@ const playButton = document.getElementById('timeline-play');
 const coordinates = document.getElementById('mouse-coords');
 const timeline = document.getElementById('map-timeline');
 let playTimer;
+let timelineRate = 1;
+const rateButtons = document.querySelectorAll('#timeline-speeds button');
+function dayInterval() { return 500 / timelineRate; }
+for (const button of rateButtons) {
+    button.addEventListener('click', () => {
+        timelineRate = Number(button.dataset.rate);
+        for (const option of rateButtons) option.setAttribute('aria-pressed', String(option === button));
+        if (playTimer !== undefined) {
+            clearInterval(playTimer);
+            playTimer = setInterval(advanceDay, dayInterval());
+        }
+    });
+}
 
 new ResizeObserver(() => {
     timeline.style.setProperty('--timeline-left', coordinates.getBoundingClientRect().right + 10 + 'px');
@@ -61,7 +74,7 @@ playButton.addEventListener('click', () => {
     playButton.textContent = 'Ⅱ';
     playButton.title = 'Pause timeline';
     playButton.setAttribute('aria-label', playButton.title);
-    playTimer = setInterval(advanceDay, 500);
+    playTimer = setInterval(advanceDay, dayInterval());
 });
 
 daySlider.addEventListener('pointerdown', pauseTimeline);

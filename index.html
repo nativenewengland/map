@@ -18,6 +18,12 @@
     <div id="map"></div>
     <div id="map-timeline">
         <button id="timeline-play" type="button" aria-label="Play timeline" title="Play timeline">&#9654;</button>
+        <div id="timeline-speeds" role="group" aria-label="Timeline playback speed">
+            <button type="button" data-rate="1" aria-pressed="true">1&times;</button>
+            <button type="button" data-rate="2" aria-pressed="false">2&times;</button>
+            <button type="button" data-rate="4" aria-pressed="false">4&times;</button>
+        </div>
+        <select id="voyage-picker" aria-label="Jump to a voyage"><option value="">Voyages</option></select>
         <label for="map-day">Date</label>
         <input id="map-day" type="range" min="0" step="1">
         <input id="map-date" type="date" aria-label="Exact map date" min="1500-01-01" max="1700-12-31" value="1600-01-01">
@@ -191,6 +197,7 @@
     <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script>
     <script src="js/timeline.js"></script>
     <script src="js/map.js"></script>
+    <script type="module" src="js/voyages.js"></script>
 </body>
 </html>
 

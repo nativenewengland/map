@@ -946,7 +946,7 @@ const champlainApproach = [
   { date: '1606-10-04', until: '1606-10-20', path: [[-38.15, 151], [-37.1, 149.6], [-36.6, 149]], note: 'Stage Harbor (Port Fortuné), in Monomoyick territory. This marker represents the harbor stay.' },
 ];
 
-function addTimelineVoyage(name, days, source, sourceName) {
+function addTimelineVoyage(name, days, source, sourceName, target = () => map) {
   const ship = L.marker(days[0].path[0], {
     icon: L.icon({ iconUrl: ShipIcon.options.iconUrl, iconSize: [32, 24], iconAnchor: [16, 12] }),
     title: name, alt: name,
@@ -969,7 +969,7 @@ function addTimelineVoyage(name, days, source, sourceName) {
     ship.bindPopup('<strong>' + name + '</strong><br>' + date + ' (Gregorian). ' + day.note +
       ' Route and positions are approximate. <a href="' + source + '">' + sourceName + '</a>');
     if (index === previous || previous < 0 || Math.abs(previous - index) !== 1 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      ship.setLatLng(destination).addTo(map);
+      ship.setLatLng(destination).addTo(target());
       return;
     }
     const forward = index > previous;
@@ -977,8 +977,9 @@ function addTimelineVoyage(name, days, source, sourceName) {
       ...days[forward ? index : previous].path];
     if (!forward) points.reverse();
     const start = performance.now();
+    const duration = Math.min(430, dayInterval() * 0.86);
     function move(now) {
-      const progress = Math.min(1, (now - start) / 430) * (points.length - 1);
+      const progress = Math.min(1, (now - start) / duration) * (points.length - 1);
       const i = Math.min(points.length - 2, Math.floor(progress));
       const fraction = progress - i;
       ship.setLatLng(points[i].map((v, axis) => v + (points[i + 1][axis] - v) * fraction));

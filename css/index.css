@@ -509,3 +509,26 @@ html, body{
     color: white;
     cursor: pointer;
 }
+
+#voyage-picker { max-width: 6em; min-width: 0; }
+#voyage-region {
+    position: fixed;
+    bottom: 125px;
+    left: 12px;
+    z-index: 800;
+    width: min(330px, 78vw);
+    background: white;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 1px 6px #0005;
+}
+#voyage-region > div:first-child { padding: 5px 8px; font: 14px sans-serif; }
+#voyage-region > div:last-child { height: min(245px, 32vh); }
+
+#timeline-speeds { display: inline-flex; gap: 2px; flex-shrink: 0; }
+#timeline-speeds button { font: inherit; font-size: 12px; padding: 3px; cursor: pointer; color: #203c87; background: white; border: 1px solid #abb6cd; border-radius: 4px; }
+#timeline-speeds button[aria-pressed="true"] { color: white; background: #203c87; }
+@media (max-width: 540px) {
+    #map-timeline { flex-wrap: wrap; }
+    #map-day { min-width: 65px; }
+}
