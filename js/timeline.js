@@ -1,12 +1,29 @@
-const yearSlider = document.getElementById('map-year');
-const yearOutput = document.getElementById('selected-year');
+const daySlider = document.getElementById('map-day');
+const dateField = document.getElementById('map-date');
+const dayMs = 86400000;
+const firstDay = Date.parse(dateField.min);
+const dateFormat = new Intl.DateTimeFormat('en-US', {
+    year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC',
+});
 
-function displayMapYear() {
-    yearOutput.value = yearSlider.value;
+daySlider.max = (Date.parse(dateField.max) - firstDay) / dayMs;
+daySlider.value = (Date.parse(dateField.defaultValue) - firstDay) / dayMs;
+
+function displayDate() {
+    dateField.valueAsNumber = firstDay + daySlider.valueAsNumber * dayMs;
+    daySlider.setAttribute('aria-valuetext', dateFormat.format(dateField.valueAsNumber));
 }
 
-yearSlider.addEventListener('input', displayMapYear);
-window.addEventListener('pageshow', displayMapYear);
+daySlider.addEventListener('input', displayDate);
+dateField.addEventListener('focus', pauseTimeline);
+dateField.addEventListener('input', () => {
+    if (dateField.value && dateField.validity.valid) {
+        daySlider.value = (dateField.valueAsNumber - firstDay) / dayMs;
+        displayDate();
+    }
+});
+dateField.addEventListener('blur', displayDate);
+window.addEventListener('pageshow', displayDate);
 
 const playButton = document.getElementById('timeline-play');
 const coordinates = document.getElementById('mouse-coords');
@@ -25,10 +42,10 @@ function pauseTimeline() {
     playButton.setAttribute('aria-label', playButton.title);
 }
 
-function advanceYear() {
-    yearSlider.stepUp();
-    yearSlider.dispatchEvent(new Event('input', { bubbles: true }));
-    if (yearSlider.value === yearSlider.max) pauseTimeline();
+function advanceDay() {
+    daySlider.stepUp();
+    daySlider.dispatchEvent(new Event('input', { bubbles: true }));
+    if (daySlider.value === daySlider.max) pauseTimeline();
 }
 
 playButton.addEventListener('click', () => {
@@ -36,16 +53,16 @@ playButton.addEventListener('click', () => {
         pauseTimeline();
         return;
     }
-    if (yearSlider.value === yearSlider.max) {
-        yearSlider.value = yearSlider.min;
-        yearSlider.dispatchEvent(new Event('input', { bubbles: true }));
+    if (daySlider.value === daySlider.max) {
+        daySlider.value = daySlider.min;
+        daySlider.dispatchEvent(new Event('input', { bubbles: true }));
     }
     playButton.textContent = 'Ⅱ';
     playButton.title = 'Pause timeline';
     playButton.setAttribute('aria-label', playButton.title);
-    playTimer = setInterval(advanceYear, 500);
+    playTimer = setInterval(advanceDay, 500);
 });
 
-yearSlider.addEventListener('pointerdown', pauseTimeline);
-yearSlider.addEventListener('keydown', pauseTimeline);
+daySlider.addEventListener('pointerdown', pauseTimeline);
+daySlider.addEventListener('keydown', pauseTimeline);
 window.addEventListener('pagehide', pauseTimeline);

@@ -481,7 +481,9 @@ html, body{
     font-variant-numeric: tabular-nums;
 }
 
-#map-year {
+#map-date { font: inherit; color: inherit; }
+
+#map-day {
     flex: 1;
     min-width: 0;
     height: 22px;

@@ -18,9 +18,9 @@
     <div id="map"></div>
     <div id="map-timeline">
         <button id="timeline-play" type="button" aria-label="Play timeline" title="Play timeline">&#9654;</button>
-        <label for="map-year">Year</label>
-        <input id="map-year" type="range" min="1500" max="1700" step="1" value="1600">
-        <output for="map-year" id="selected-year">1600</output>
+        <label for="map-day">Date</label>
+        <input id="map-day" type="range" min="0" step="1">
+        <input id="map-date" type="date" aria-label="Exact map date" min="1500-01-01" max="1700-12-31" value="1600-01-01">
     </div>
     <a id="terrain-map-link" class="floating-button" href="1/">Terrain map</a>
     <button id="save-changes">Save Changes</button>
@@ -112,6 +112,7 @@
                     <option value="earthworks">Earthworks</option>
                     <option value="forts">Forts</option>
                     <option value="chambers">Chambers</option>
+                    <option value="person">Person</option>
                     <option value="ship">Ship</option>
                     <option value="seamonster">Sea Monster</option>
                     <option value="camps">Camps</option>
