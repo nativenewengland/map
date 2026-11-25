@@ -40,14 +40,13 @@ function geographyLayer(file, order) {
   });
 }
 
-var oceanBackdrop = geographyLayer('ocean', 0);
 var vectorGeography = {
   Land: geographyLayer('land', 1),
   Lakes: geographyLayer('lakes', 2),
   Rivers: geographyLayer('rivers', 3),
   Coastline: geographyLayer('coast', 4),
 };
-var vectorBase = L.layerGroup([oceanBackdrop]).addTo(map);
+var vectorBase = L.layerGroup().addTo(map);
 
 var activeFootnoteFeatureTitle = '';
 
@@ -493,7 +492,7 @@ function containsTextLabel(collection, candidate) {
   });
 }
 
-oceanBackdrop.once('load', function () {
+vectorGeography.Land.once('load', function () {
   rescaleIcons();
   rescaleTextLabels();
 });
