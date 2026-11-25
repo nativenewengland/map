@@ -12,6 +12,7 @@ daySlider.value = (Date.parse(dateField.defaultValue) - firstDay) / dayMs;
 function displayDate() {
     dateField.valueAsNumber = firstDay + daySlider.valueAsNumber * dayMs;
     daySlider.setAttribute('aria-valuetext', dateFormat.format(dateField.valueAsNumber));
+    document.dispatchEvent(new CustomEvent('mapdatechange', { detail: dateField.value }));
 }
 
 daySlider.addEventListener('input', displayDate);

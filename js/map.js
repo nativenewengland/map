@@ -931,6 +931,70 @@ var ShipIcon = createScaledIcon({
   tooltipAnchor: [1.875, -1.40625],
 });
 
+// Approximate course in the artwork's coordinates. Each row ends at that day's
+// displayed position. The intermediate bends keep playback offshore around the hook.
+const mayflowerApproach = [
+  { date: '1620-11-17', path: [[1, 179]], note: 'Illustrative offshore approach.' },
+  { date: '1620-11-18', path: [[-2, 168]], note: 'Illustrative offshore approach.' },
+  { date: '1620-11-19', path: [[-5, 153], [-16, 156], [-25, 159]], note: 'Cape Cod sighted. The ship sailed south, encountered shoals, and turned back.' },
+  { date: '1620-11-20', path: [[-15, 155], [-6, 150], [2, 145]], note: 'Approximate return course toward the tip of Cape Cod.' },
+  { date: '1620-11-21', path: [[3, 138], [2.8, 132], [1, 130], [-3, 131], [-5.7, 134], [-5.7, 136.4], [-2.4, 136.2]], note: 'Anchored in present-day Provincetown Harbor.' },
+];
+const champlainApproach = [
+  { date: '1606-10-02', path: [[-23, 157]], note: 'Off Nauset Harbor (Mallebarre). The expedition continued south along the outer Cape.' },
+  { date: '1606-10-03', path: [[-31, 158], [-35, 157], [-38.15, 154]], note: 'Approaching Monomoit. Wampanoag guides helped the crew find shelter after its rudder was damaged.' },
+  { date: '1606-10-04', until: '1606-10-20', path: [[-38.15, 151], [-37.1, 149.6], [-36.6, 149]], note: 'Stage Harbor (Port Fortuné), in Monomoyick territory. This marker represents the harbor stay.' },
+];
+
+function addTimelineVoyage(name, days, source, sourceName) {
+  const ship = L.marker(days[0].path[0], {
+    icon: L.icon({ iconUrl: ShipIcon.options.iconUrl, iconSize: [32, 24], iconAnchor: [16, 12] }),
+    title: name, alt: name,
+  });
+  let approachIndex = -1;
+  let approachFrame;
+
+  function update(date) {
+    const index = days.findIndex(day => date >= day.date && date <= (day.until || day.date));
+    if (index === -1 && approachIndex === -1) return;
+    cancelAnimationFrame(approachFrame);
+    const previous = approachIndex;
+    approachIndex = index;
+    if (index === -1) {
+      ship.remove();
+      return;
+    }
+    const day = days[index];
+    const destination = day.path[day.path.length - 1];
+    ship.bindPopup('<strong>' + name + '</strong><br>' + date + ' (Gregorian). ' + day.note +
+      ' Route and positions are approximate. <a href="' + source + '">' + sourceName + '</a>');
+    if (index === previous || previous < 0 || Math.abs(previous - index) !== 1 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      ship.setLatLng(destination).addTo(map);
+      return;
+    }
+    const forward = index > previous;
+    const points = [days[forward ? previous : index].path.slice(-1)[0],
+      ...days[forward ? index : previous].path];
+    if (!forward) points.reverse();
+    const start = performance.now();
+    function move(now) {
+      const progress = Math.min(1, (now - start) / 430) * (points.length - 1);
+      const i = Math.min(points.length - 2, Math.floor(progress));
+      const fraction = progress - i;
+      ship.setLatLng(points[i].map((v, axis) => v + (points[i + 1][axis] - v) * fraction));
+      if (progress < points.length - 1) approachFrame = requestAnimationFrame(move);
+    }
+    approachFrame = requestAnimationFrame(move);
+  }
+  document.addEventListener('mapdatechange', event => update(event.detail));
+  update(document.getElementById('map-date').value);
+}
+
+addTimelineVoyage('Mayflower', mayflowerApproach,
+  'https://www.pilgrimhall.org/the-pilgrims-landing-in-america/', 'Pilgrim Hall Museum');
+addTimelineVoyage('Poutrincourt and Champlain', champlainApproach,
+  'https://www.etourchatham.org/champlain.html', 'Chatham Historical Society');
+
 var SeaMonsterIcon = createScaledIcon({
   iconUrl: 'icons/seamonster.png',
   iconRetinaUrl: 'icons/seamonster.png',
