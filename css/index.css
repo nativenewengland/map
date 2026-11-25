@@ -454,29 +454,3 @@ html, body{
     height: var(--planting-field-size, 4px);
     object-fit: contain;
 }
-
-
-.territory-inset {
-  box-sizing: border-box;
-  width: min(340px, calc(100vw - 32px));
-  max-height: 75vh;
-  overflow: auto;
-  padding: 10px;
-  color: #302822;
-  background: #faf6ed;
-  border: 1px solid #594d42;
-  border-radius: 4px;
-}
-
-.territory-inset img {
-  display: block;
-  width: 100%;
-  height: min(58vh, 535px);
-  object-fit: contain;
-}
-
-.territory-inset__close {
-  float: right;
-  margin-left: 8px;
-  cursor: pointer;
-}
