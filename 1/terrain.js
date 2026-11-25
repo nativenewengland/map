@@ -76,6 +76,12 @@ async function loadTerritories(svg) {
     const path = document.createElementNS(svg.namespaceURI, 'path');
     path.setAttribute('d', 'M' + territory.outline.map(([x, y]) => (x - 100) + ',' + (y - 90)).join(' ') + 'Z');
     path.setAttribute('vector-effect', 'non-scaling-stroke');
+    const style = territory.style;
+    path.setAttribute('stroke', style.color);
+    path.setAttribute('stroke-width', style.weight);
+    path.setAttribute('stroke-dasharray', style.dashArray);
+    path.setAttribute('fill', style.fillColor);
+    path.setAttribute('fill-opacity', style.fillOpacity);
     const title = document.createElementNS(svg.namespaceURI, 'title');
     title.textContent = territory.name;
     path.append(title);
