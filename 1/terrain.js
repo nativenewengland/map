@@ -59,9 +59,27 @@ async function loadTerrain() {
     master.indeterminate = !master.checked && inputs.some(input => input.checked);
   });
   panel.hidden = false;
-  loadTerritories(svg).catch(() => {
-    document.querySelector('#territory-error').hidden = false;
-  });
+  const error = document.querySelector('#territory-error');
+  let attempt = 0;
+  async function openInventory() {
+    error.hidden = true;
+    const suffix = attempt++ ? '?retry=' + attempt : '';
+    try {
+      const [module, response] = await Promise.all([
+        import('./polities.js' + suffix),
+        fetch('polities.json' + suffix, { cache: 'no-cache' }),
+      ]);
+      if (!response.ok) throw new Error('Inventory request returned HTTP ' + response.status);
+      module.loadTerritories(svg, await response.json());
+    } catch (cause) {
+      console.error('Political inventory', cause);
+      if (attempt === 1) return openInventory();
+      error.querySelector('span').textContent = 'The political inventory could not load. ' + cause.message;
+      error.hidden = false;
+    }
+  }
+  document.querySelector('#retry-inventory').addEventListener('click', openInventory);
+  openInventory();
 }
 
 loadTerrain().catch(() => { document.getElementById('map-error').hidden = false; });

@@ -7,8 +7,7 @@
   <link rel="stylesheet" href="../js/leaflet.css">
   <link rel="stylesheet" href="terrain.css">
   <script defer src="../js/leaflet.js"></script>
-  <script defer src="polities.js"></script>
-  <script defer src="terrain.js"></script>
+  <script defer src="terrain.js?v=2"></script>
 </head>
 <body>
   <header class="toolbar">
@@ -24,7 +23,7 @@
           <small>Dots mark approximate localities. Dashed outlines show reconstructed core areas. Open an entry for its evidence and date.</small>
           <details id="coverage-notes"><summary>Coverage and open questions</summary></details>
         </div>
-        <p id="territory-error" role="status" hidden>The political inventory could not load.</p>
+        <p id="territory-error" role="status" hidden><span></span> <button type="button" id="retry-inventory">Retry</button></p>
         <label><input id="elevation" type="checkbox" checked> Elevation</label>
         <div class="bands"></div>
       </div>

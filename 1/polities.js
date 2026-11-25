@@ -21,10 +21,7 @@ function polityPoint([longitude, latitude]) {
     (693.98675636 + 119.28221351 * x - 773.17284545 * y) * 3688 / 1106];
 }
 
-async function loadTerritories(svg) {
-  const response = await fetch('polities.json');
-  if (!response.ok) throw new Error('Political inventory unavailable');
-  const data = await response.json();
+export function loadTerritories(svg, data) {
   const make = tag => document.createElementNS(svg.namespaceURI, tag);
   const layer = make('g');
   layer.id = 'territories';
