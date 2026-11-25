@@ -2976,6 +2976,83 @@ const colonialSites = [
     from: '1624', detail: 'Dutch West India Company trading post on the Hudson at present-day Albany. Approximate map position; the timeline uses the founding year because the exact date is uncertain.',
     source: 'https://nysm.nysed.gov/exhibitions/ongoing/fort-orange' },
 ];
+const townSources = {
+  "MA": "https://www.sec.state.ma.us/divisions/cis/historical/incorporation-settlement.htm",
+  "NH": "https://www.americanancestors.org/sites/default/files/2023-02/class%201%20settlement%20wksht.pdf",
+  "CT": "https://www.cga.ct.gov/asp/content/constitutions/HistoricDates.htm",
+  "RI": "https://preservation.ri.gov/sites/g/files/xkgbur406/files/pdfs_zips_downloads/survey_pdfs/bristol.pdf",
+  "NY": "https://www.nps.gov/articles/000/timeline.htm",
+  "RS": "https://preservation.ri.gov/sites/g/files/xkgbur406/files/pdfs_zips_downloads/national_pdfs/east_providence/eapr_historic-resources-of-east-providence.pdf",
+  "SA": "https://static.libnet.info/images/pdfs/acpl/Genealogy/New_England_handout.pdf",
+  "WO": "https://woburnma.gov/about-woburn/history/",
+  "EX": "https://www.exeternh.gov/community/about-exeter",
+  "FL": "https://www.nycgovparks.org/parks/amhersfort-park/history"
+};
+const townNotes = {
+  "Boston": "Early settlement at Shawmut is listed in 1625. Boston was established as a town in 1630.",
+  "Windsor": "A Plymouth Colony trading post was established in 1633. English settlement expanded in 1634 and 1635.",
+  "Sandwich": "The organized settlement dates to 1637. The state town table lists earlier settlement in 1630.",
+  "Rehoboth / Seekonk": "The original Rehoboth settlement at Seekonk is shown at the approximate location of the 1643 Ring of the Green in present-day Rumford."
+};
+const earlyTowns = [
+  ["Gloucester","1623",[52,97],"MA"],
+  ["Dover","1623",[77,91],"NH"],
+  ["Portsmouth area (Odiorne Point)","1623",[73,106],"NH"],
+  ["Hull","1624",[26.4,77.8],"MA"],
+  ["Duxbury","1624",[-5.4,100.4],"MA"],
+  ["New Amsterdam","1624",[-77,-169],"NY"],
+  ["Quincy (Mount Wollaston)","1625",[19,70],"MA"],
+  ["Salem","1626",[44,81],"MA"],
+  ["Lynn","1629",[38,75],"MA"],
+  ["Marblehead","1629",[44.6,87.6],"MA"],
+  ["Manchester-by-the-Sea","1629",[49,91],"MA"],
+  ["Boston","1625",[28.42,67.44],"MA"],
+  ["Cambridge","1630",[29,59],"MA"],
+  ["Charlestown","1630",[31,65],"MA"],
+  ["Dorchester","1630",[23,65],"MA"],
+  ["Medford","1630",[34,62],"MA"],
+  ["Roxbury","1630",[25,63],"MA"],
+  ["Scituate","1630",[12,91],"MA"],
+  ["Watertown","1630",[30,54],"MA"],
+  ["Hanson","1632",[1,83],"MA"],
+  ["Marshfield","1632",[3,95],"MA"],
+  ["Hingham","1633",[19.6,80],"MA"],
+  ["Ipswich","1633",[53.07,90.62],"MA"],
+  ["Windsor","1633",[-16,-49],"CT"],
+  ["Braintree","1634",[16,71],"MA"],
+  ["Essex","1634",[51.6,95.6],"MA"],
+  ["Wethersfield","1634",[-31,-50],"CT"],
+  ["Concord","1635",[37.8,42.5],"MA"],
+  ["Dedham","1635",[22,55],"MA"],
+  ["Newbury","1635",[59.6,85],"MA"],
+  ["Topsfield","1635",[50,78],"MA"],
+  ["Wenham","1635",[48,83],"MA"],
+  ["Saybrook","1635",[-62,-37],"CT"],
+  ["Danvers","1636",[46,76],"MA"],
+  ["Milton","1636",[21,64],"MA"],
+  ["Rehoboth / Seekonk","1643",[-22.69,44.36],"RS"],
+  ["Springfield","1636",[7.62,-54.32],"MA"],
+  ["Hartford","1636",[-24.21,-49.77],"CT"],
+  ["Providence","1636",[-23,38],"RI"],
+  ["Billerica","1637",[43,48],"MA"],
+  ["Sandwich","1637",[-30.4,118],"SA"],
+  ["Sudbury","1638",[33,39],"MA"],
+  ["Taunton","1638",[-17.83,70.8],"MA"],
+  ["Tewksbury","1637",[48,52],"MA"],
+  ["Woburn","1640",[38,59],"WO"],
+  ["Exeter","1638",[70,86],"EX"],
+  ["Flatlands","1636",[-78.4,-151],"FL"],
+];
+for (const [name, from, point, sourceKey] of earlyTowns) {
+  colonialSites.push({
+    name, from, point,
+    country: sourceKey === 'NY' || sourceKey === 'FL' ? 'dutch' : 'english',
+    detail: (townNotes[name] || 'Colonial settlement recorded in ' + from + '.') +
+      ' The marker uses year-level dating and an approximate position on this map.',
+    source: townSources[sourceKey],
+  });
+}
+
 for (const site of colonialSites) {
   const icon = iconMap['settlement-' + site.country];
   const marker = L.marker(site.point, { icon, title: site.name, alt: site.name })

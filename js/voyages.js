@@ -445,10 +445,70 @@ for (const wreck of shipwrecks) {
   expeditions.push({ name: wreck.name, date: wreck.date, point: wreck.main ? wreck.point : null });
 }
 
+function englishDate(date) {
+  return new Date(Date.parse(date) + 10 * 86400000).toISOString().slice(0, 10);
+}
+const arrivals1630 = 'https://www.colonialsociety.org/node/519';
+const arrivalPorts = {
+  Salem: [43.8, 83], Nantasket: [26.4, 79], Charlestown: [30, 67],
+  Plymouth: patuxet, 'Massachusetts Bay': [35, 93],
+};
+for (const [vessel, harbor, first, last] of [
+  ['Lyon', 'Salem', '05-01', '05-31'], ['Mary and John', 'Nantasket', '05-30'],
+  ['Arbella', 'Salem', '06-12'], ['Jewell', 'Salem', '06-13'],
+  ['Ambrose', 'Salem', '06-18'], ['Talbot', 'Salem', '07-02'],
+  ['Mayflower (1630)', 'Charlestown', '07-01', '07-31'],
+  ...['Whale', 'Hopewell', 'William and Francis', 'Tryal', 'Charles'].map(
+    vessel => [vessel, 'Massachusetts Bay', '07-01', '07-31']),
+  ['Success', 'Salem', '07-06'], ['Gift', 'Charlestown', '08-20'],
+  ['Handmaid', 'Plymouth', '10-29'],
+]) {
+  const date = englishDate('1630-' + first);
+  const point = arrivalPorts[harbor];
+  const name = vessel + ' — ' + harbor;
+  if (last) {
+    addTimelineVoyage(name, [{ date, until: englishDate('1630-' + last), path: [point],
+      note: 'Approximate receiving area. The display window represents the arrival month, not the length of the stay.' }],
+      arrivals1630, 'Colonial Society of Massachusetts, 1630 shipping table', () => map, null);
+    expeditions.push({ name, date, point });
+  } else {
+    const previous = new Date(Date.parse(date) - 86400000).toISOString().slice(0, 10);
+    leg(name, [[previous, [point[0] + 1, point[1] + 4], 'Illustrative final approach.'],
+      [date, point, 'Recorded arrival at ' + harbor + '. English date converted to Gregorian.']],
+      arrivals1630, 'Colonial Society of Massachusetts, 1630 shipping table', false, null);
+  }
+}
+
+const shippingLists = 'https://www.gcoe.lit.nagoya-u.ac.jp/result/pdf/3-1_%E7%AC%A0%E4%BA%95%28E%29.pdf';
+const bostonPort = [42.36,-71.045], jamaicaPort = [17.94,-76.84];
+for (const [vessel, outbound, start, end, estimate] of [
+  ['Katherine', true, '1686-03-01', '1686-04-19', 'departure'],
+  ['Katherine', false, '1686-06-15', '1686-08-09'],
+  ['Katherine', true, '1686-10-01', '1686-11-24', 'departure'],
+  ['Katherine', false, '1686-12-23', '1687-02-01', 'arrival'],
+  ['Mary & Elizabeth', true, '1687-04-15', '1687-06-01'],
+  ['Mary & Elizabeth', true, '1686-05-02', '1686-07-12'],
+  ['Mary & Elizabeth', false, '1686-08-07', '1686-09-20'],
+]) {
+  const bends = [[42.34,-70.85],[42.25,-69.8],[41,-68.9],[35,-69],[22,-70],[18,-74.1],[17.7,-76.5]];
+  const direction = outbound ? 'Boston to Jamaica' : 'Jamaica to Boston';
+  atlanticVoyage(vessel + ' — ' + direction + ' (' + start + ')', [
+    [start, outbound ? bostonPort : jamaicaPort, estimate === 'departure' ? 'Departure date estimated for playback.' : 'Departure as dated in the shipping-list chart.'],
+    [end, outbound ? jamaicaPort : bostonPort, estimate === 'arrival' ? 'Arrival date estimated for playback.' : 'Arrival as dated in the shipping-list chart.', outbound ? bends : bends.reverse()],
+  ], shippingLists, 'Toshikazu Kasai, Naval Office shipping-list itineraries', null);
+}
+const stLawrenceApproach = [[42.4,-70.6],[43,-65.8],[43.1,-65.3],[44.8,-59.6],[47.2,-59.4],[49.3,-63.8],[49.3,-67],[48.2,-69.4]];
+atlanticVoyage('William Phips — Quebec expedition (about 32 vessels)', [
+  ['1690-08-19', [42.32,-70.88], 'The fleet sailed from Hull on August 19 or 20. One marker represents the expedition.'],
+  ['1690-10-16', [46.82,-71.19], 'Fleet off Quebec.', stLawrenceApproach],
+  ['1690-10-24', [46.82,-71.19], 'Withdrawal from Quebec in late October.'],
+  ['1690-11-29', bostonPort, 'Approximate return. The fleet dispersed and individual vessels returned on different dates.', [...stLawrenceApproach].reverse()],
+], 'https://www.biographi.ca/en/bio.php?id_nbr=519', 'Dictionary of Canadian Biography', null);
+
 expeditions.sort((a, b) => a.date.localeCompare(b.date));
 for (const entry of expeditions) picker.add(new Option(entry.date.slice(0, 4) + ' Ãƒâ€šÃ‚Â· ' + entry.name, entry.date));
 picker.addEventListener('change', () => {
-  const entry = expeditions.find(item => item.date === picker.value);
+  const entry = expeditions[picker.selectedIndex - 1];
   if (!entry) return;
   selectedVoyage = entry.name;
   pauseTimeline();
