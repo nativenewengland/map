@@ -40,7 +40,9 @@ export function loadTerritories(svg, data) {
     title.textContent = record.name;
     const note = document.createElement('p');
     note.textContent = record.evidence;
-    section.append(title, note);
+    const scope = document.createElement('p');
+    scope.textContent = record.type;
+    section.append(title, scope, note);
     if (record.parent) {
       const relation = document.createElement('p');
       relation.textContent = 'Political affiliation: ' + record.parent;
@@ -74,48 +76,15 @@ export function loadTerritories(svg, data) {
     areas.append(area);
     return area;
   }
-  const pattern = make('pattern');
-  pattern.id = 'unresolved-territory';
-  pattern.setAttribute('patternUnits', 'userSpaceOnUse');
-  pattern.setAttribute('width', 12);
-  pattern.setAttribute('height', 12);
-  const hatch = make('path');
-  hatch.setAttribute('d', 'M0,12L12,0');
-  hatch.setAttribute('stroke', '#675e52');
-  hatch.setAttribute('opacity', '.3');
-  pattern.append(hatch);
-  svg.querySelector('defs').append(pattern);
-  const unresolved = make('rect');
-  unresolved.setAttribute('width', 2799);
-  unresolved.setAttribute('height', 3511);
-  unresolved.setAttribute('fill', 'url(#unresolved-territory)');
-  // Knock regional extents out of the hatch, retaining transparent terrain colors.
-  const mask = make('mask');
-  mask.id = 'territory-gaps';
-  mask.setAttribute('maskUnits', 'userSpaceOnUse');
-  const field = unresolved.cloneNode();
-  field.setAttribute('fill', 'white');
-  mask.append(field);
-  svg.querySelector('defs').append(mask);
-  unresolved.setAttribute('mask', 'url(#territory-gaps)');
-  areas.append(unresolved);
   const colors = ['#aa6639', '#327983', '#88588f', '#63782e', '#a04f57', '#466aa0'];
-  function clearHatch(area) {
-    const cut = make('path');
-    cut.setAttribute('d', area.getAttribute('d'));
-    cut.setAttribute('fill', 'black');
-    mask.append(cut);
-  }
-  data.regionalAreas.forEach((record, index) => {
-    const area = drawArea(record);
-    area.style.fill = colors[index % colors.length];
-    area.style.stroke = area.style.fill;
-    area.style.fillOpacity = '.28';
-    clearHatch(area);
-  });
   for (const [index, record] of data.records.entries()) {
     const point = polityPoint(record.at);
-    if (record.outline) clearHatch(drawArea(record));
+    if (record.outline) {
+      const area = drawArea(record);
+      area.style.fill = colors[index % colors.length];
+      area.style.fillOpacity = '.28';
+      if (record.type === 'Political network') area.classList.add('political-network');
+    }
     if (!groups.has(record.region)) {
       const group = document.createElement('optgroup');
       group.label = record.region;

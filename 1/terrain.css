@@ -70,3 +70,5 @@ body {
 #polity-select { width: 100%; margin: 4px 0 8px; }
 #polity-key small { display: block; }
 #coverage-notes { margin: 5px 0; font-size: .82rem; }
+
+#territories .political-network { stroke-dasharray: 9 3; stroke-width: 1.5; }
