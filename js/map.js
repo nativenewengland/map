@@ -993,7 +993,7 @@ function addTimelineVoyage(name, days, source, sourceName, target = () => map, d
     const previous = approachIndex;
     approachIndex = index;
     if (index === -1) {
-      if (traveler !== PersonIcon && previous === days.length - 1 && Date.parse(date) === after) sailOffscreen();
+      if (traveler !== PersonIcon && departure !== null && previous === days.length - 1 && Date.parse(date) === after) sailOffscreen();
       else ship.remove();
       return;
     }
