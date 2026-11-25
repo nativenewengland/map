@@ -1031,6 +1031,32 @@ function populateOverlaySelects() {
   populateOverlayOptions(document.getElementById('text-overlay'));
 }
 
+var newHampshireTerritories = L.layerGroup();
+overlays['New Hampshire territories (Map B)'] = newHampshireTerritories;
+
+var newHampshireInset = L.control({ position: 'bottomleft' });
+newHampshireInset.onAdd = function () {
+  var panel = L.DomUtil.create('section', 'territory-inset');
+  panel.setAttribute('aria-label', 'New Hampshire territories reference');
+  L.DomEvent.disableClickPropagation(panel);
+  L.DomEvent.disableScrollPropagation(panel);
+  var heading = L.DomUtil.create('b', '', panel);
+  heading.textContent = 'New Hampshire territories';
+  var close = L.DomUtil.create('button', 'territory-inset__close', panel);
+  close.type = 'button';
+  close.setAttribute('aria-label', 'Close New Hampshire territories');
+  close.textContent = '×';
+  L.DomEvent.on(close, 'click', function () { map.removeLayer(newHampshireTerritories); });
+  var image = L.DomUtil.create('img', '', panel);
+  image.src = 'overlays/new-hampshire-territories.svg';
+  image.alt = 'Thirteen schematic territory outlines traced from the supplied Map B.';
+  var caption = L.DomUtil.create('small', '', panel);
+  caption.textContent = 'Traced from Map B. Approximate historical areas.';
+  return panel;
+};
+newHampshireTerritories.on('add', function () { newHampshireInset.addTo(map); });
+newHampshireTerritories.on('remove', function () { newHampshireInset.remove(); });
+
 populateOverlaySelects();
 var layerControlOverlays = {};
 Object.keys(overlays).forEach(function (name) {
