@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="../js/leaflet.css">
   <link rel="stylesheet" href="terrain.css">
   <script defer src="../js/leaflet.js"></script>
+  <script defer src="homelands.js"></script>
   <script defer src="terrain.js"></script>
 </head>
 <body>
@@ -17,8 +18,8 @@
       <summary>Layers</summary>
       <div class="layer-panel">
         <div class="features"></div>
-        <small>Territories show approximate historical homelands. Coverage is partial.</small>
-        <p id="territory-error" role="status" hidden>Territory boundaries could not load.</p>
+        <small>Approximate historical ethnolinguistic homelands. Sources span several centuries. <a href="https://doi.org/10.5334/joad.185">Driver–Perreault map</a> · <a href="https://creativecommons.org/licenses/by-nc/2.5/">CC BY-NC 2.5</a></small>
+        <p id="territory-error" role="status" hidden>The historical data could not load from Zenodo.</p>
         <label><input id="elevation" type="checkbox" checked> Elevation</label>
         <div class="bands"></div>
       </div>
