@@ -3064,7 +3064,8 @@
           -75.39,
           48.29
         ]
-      ]
+      ],
+      "politicalExtent": false
     },
     {
       "name": "Nanrantsouak / Norridgewock",
@@ -3419,7 +3420,8 @@
           -80.89,
           45.92
         ]
-      ]
+      ],
+      "politicalExtent": false
     },
     {
       "name": "Quinsigamond",
@@ -3992,7 +3994,8 @@
           -70.04,
           46.34
         ]
-      ]
+      ],
+      "politicalExtent": false
     },
     {
       "name": "Tionontati",
@@ -4353,7 +4356,8 @@
           -69.74,
           43.98
         ]
-      ]
+      ],
+      "politicalExtent": false
     },
     {
       "name": "Taconnet",
@@ -4434,7 +4438,8 @@
           47.12
         ]
       ],
-      "type": "Reconstructed territorial core"
+      "type": "Reconstructed territorial core",
+      "politicalExtent": false
     },
     {
       "name": "Saugeen Anishabeg (Lake Timiskaming)",
@@ -4487,7 +4492,8 @@
           47.51
         ]
       ],
-      "type": "Reconstructed territorial core"
+      "type": "Reconstructed territorial core",
+      "politicalExtent": false
     },
     {
       "name": "Wolf Lake Anishinabeg (Kipawa and Dumoine)",
@@ -4552,7 +4558,8 @@
           46.77
         ]
       ],
-      "type": "Reconstructed territorial core"
+      "type": "Reconstructed territorial core",
+      "politicalExtent": false
     },
     {
       "name": "Agawam (Ipswich and Cape Ann)",
@@ -4889,7 +4896,8 @@
           -70.19,
           45.91
         ]
-      ]
+      ],
+      "politicalExtent": false
     },
     {
       "name": "Norwalke",
@@ -4991,7 +4999,8 @@
           -73.56,
           41.02
         ]
-      ]
+      ],
+      "politicalExtent": false
     }
   ]
 }

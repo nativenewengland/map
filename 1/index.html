@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="../js/leaflet.css">
   <link rel="stylesheet" href="terrain.css">
   <script defer src="../js/leaflet.js"></script>
-  <script defer src="../js/homeland-context.js"></script>
   <script defer src="terrain.js?v=2"></script>
 </head>
 <body>
@@ -21,7 +20,7 @@
         <div id="polity-key" hidden>
           <label for="polity-select">Find a polity or community</label>
           <select id="polity-select"><option value="">Choose a name</option></select>
-          <small>Click any land for historical evidence. Dashed outlines mark approximate territorial cores. Long dashes mark political networks. Light hatching shows where only regional evidence is available. Zoom in for recorded localities.</small>
+          <small>Dashed outlines show reconstructed territories of named political communities. Long dashes identify political networks. Unshaded land has no assigned polity. Zoom in for recorded localities.</small>
           <details id="coverage-notes"><summary>Coverage and open questions</summary></details>
         </div>
         <p id="territory-error" role="status" hidden><span></span> <button type="button" id="retry-inventory">Retry</button></p>

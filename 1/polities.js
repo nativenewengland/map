@@ -51,73 +51,10 @@ export function loadTerritories(svg, data) {
   areas.setAttribute('mask', 'url(#polity-dry-land)');
   const seats = make('g');
   layer.append(areas, seats);
-  const pattern = make('pattern');
-  pattern.id = 'regional-evidence-hatch';
-  pattern.setAttribute('patternUnits', 'userSpaceOnUse');
-  pattern.setAttribute('width', 12);
-  pattern.setAttribute('height', 12);
-  const stripe = make('path');
-  stripe.setAttribute('d', 'M-1 1L1 -1M0 12L12 0M11 13L13 11');
-  stripe.setAttribute('stroke', '#75694f');
-  stripe.setAttribute('opacity', '.32');
-  pattern.append(stripe);
-  svg.querySelector('defs').append(pattern);
-  const context = make('use');
-  context.setAttribute('href', '#land-shape');
-  context.setAttribute('fill-rule', 'evenodd');
-  context.setAttribute('fill', 'url(#regional-evidence-hatch)');
-  context.style.pointerEvents = 'visibleFill';
-  context.style.cursor = 'pointer';
-  areas.append(context);
   const waterPaths = ['lake-fill', 'channel', 'streams'].map(id => svg.getElementById(id));
   function localPoint(event) {
     return new DOMPoint(event.clientX, event.clientY).matrixTransform(areas.getScreenCTM().inverse());
   }
-  const places = data.records.map(record => ({record, point: polityPoint(record.at)}));
-  context.addEventListener('click', event => {
-    const local = localPoint(event);
-    if (waterPaths.some(path => path.isPointInFill(local))) return;
-    L.DomEvent.stopPropagation(event);
-    const x = local.x + 100, y = local.y + 90;
-    const nearest = places.map(({record, point}) => ({record, distance: Math.hypot(point[0]-x, point[1]-y)}))
-      .sort((a,b) => a.distance - b.distance).slice(0,3).map(place => place.record);
-    // Invert this sheet's smooth registration to select a research region.
-    let lon = -74, lat = 42;
-    for (let i = 0; i < 5; i++) {
-      const [a,b] = polityPoint([lon,lat]);
-      const [c,d] = polityPoint([lon+.01,lat]);
-      const [e,f] = polityPoint([lon,lat+.01]);
-      const det = (c-a)*(f-b)-(e-a)*(d-b);
-      lon += .01*((x-a)*(f-b)-(e-a)*(y-b))/det;
-      lat += .01*((c-a)*(y-b)-(x-a)*(d-b))/det;
-    }
-    let title = nearest[0].region;
-    let note = 'The nearest documented places in the inventory are listed below. Their sources locate communities within the wider region. The extent of their authority at the selected point is uncertain.';
-    let sources = [...new Set(nearest.map(record => record.source))].map(key => data.sources[key]);
-    if (lat > 45 && lon < -75) {
-      title = 'Ottawa headwaters and northern lake country';
-      note = 'The Kipawa and Dumoine region, Lake Nipissing and Lake Timiskaming have distinct Anishinaabe homeland histories. The record for one lake does not establish which community used an adjoining portage or hunting ground.';
-      sources = [data.sources.kipawa, data.sources.nipi, data.sources.timisk];
-    } else if (lat > 45 && lon > -75 && lon < -69) {
-      title = 'St. Lawrence and Laurentian interior';
-      note = 'Atikamekw, Algonquin and Innu histories describe distinct river and upland homelands. Sixteenth-century St. Lawrence Iroquoian village locations alone cannot establish who occupied the same places in 1600.';
-      sources = [data.sources.extent_atikamekw, data.sources.ott, data.sources.innu];
-    } else if (lat > 43.5 && lon < -72 && lon > -74.5) {
-      title = 'Champlain Valley and adjoining uplands';
-      note = 'Abenaki and Kanien’kehá:ka histories connect communities on different sides of the lake. Travel, fishing and hunting could extend beyond village territories.';
-      sources = [data.sources.lake, data.sources.five];
-    } else if (lat >= 39 && lat <= 42 && lon < -76.8) {
-      title = 'Interior Pennsylvania and adjoining river valleys';
-      note = 'Monongahela is an archaeological designation in the southwest. Susquehannock settlement shifted along the Susquehanna. The identity of the inhabitants depends on the particular site and its occupation date.';
-      sources = [['Pennsylvania archaeological synthesis','https://www.pa.gov/content/dam/copapwp-pagov/en/penndot/documents/programs-and-doing-business/cultural-resources/documents/statewide-archaeological-predictive-model-volume-7.pdf'],data.sources.sass];
-    } else if (lat > 38.95 && lat < 39.55 && lon > -76.15 && lon < -75.65) {
-      title = 'Chester and Sassafras river country';
-      note = 'Tockwogh and Ozinies/Wicomiss appear in reconstructions of the early Chesapeake. Town identifications and the political division of the land between the rivers remain uncertain.';
-      sources = [data.sources.sass];
-    }
-    showHomelandContext(map, map.mouseEventToLatLng(event), title, note, sources,
-      nearest.map(r => ({name: r.name, evidence: r.evidence, url: data.sources[r.source][1]})));
-  });
   const select = document.querySelector('#polity-select');
   const groups = new Map();
   const onSheet = ([x, y]) => x >= 100 && x <= 2899 && y >= 90 && y <= 3601;
@@ -162,14 +99,13 @@ export function loadTerritories(svg, data) {
     area.setAttribute('d', 'M' + vertices.join(' ') + 'Z');
     area.setAttribute('vector-effect', 'non-scaling-stroke');
     bind(area, record);
-    if (record.type === 'Traditional homeland') context.after(area);
-    else areas.append(area);
+    areas.append(area);
     return area;
   }
   const colors = ['#aa6639', '#327983', '#88588f', '#63782e', '#a04f57', '#466aa0'];
   for (const [index, record] of data.records.entries()) {
     const point = polityPoint(record.at);
-    if (record.outline) {
+    if (record.outline && record.politicalExtent !== false) {
       const area = drawArea(record);
       area.style.fill = colors[index % colors.length];
       area.style.fillOpacity = '.28';
