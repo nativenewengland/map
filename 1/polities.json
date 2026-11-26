@@ -348,6 +348,18 @@
     "stamfordReach": [
       "History of the Colony of New Haven, Stamford records",
       "https://cga.ct.gov/hco/books/History_of_the_Colony_of_New_Haven.pdf"
+    ],
+    "chowanExtent": [
+      "North Carolina Encyclopedia: Chowanoac Indians",
+      "https://www.ncpedia.org/chowanoac-indians"
+    ],
+    "chippokes": [
+      "Quiyoughcohannock Indian Tribe: ancestral lands",
+      "https://commonwealth.ar.virginia.gov/media/governorvirginiagov/secretary-of-the-commonwealth/indian-advisory-board/pdf/Quiyoughcohannock-Indian-Tribe.pdf"
+    ],
+    "matapeakeExtent": [
+      "National Park Service: Chester and Sassafras Indigenous Cultural Landscape Study",
+      "https://www.nps.gov/cajo/learn/upload/CAJO_FINAL-ICL-REPORT_2023_0314-508.pdf"
     ]
   },
   "review": [
@@ -2909,9 +2921,55 @@
         -76.95,
         37.15
       ],
-      "source": "tide",
-      "evidence": "Tidewater chiefdom documented by 1607. The point locates the district; its exact extent and date of incorporation around 1600 remain uncertain.",
-      "type": "Locality or regional reference"
+      "source": "chippokes",
+      "evidence": "The tribe identifies both Upper and Lower Chippokes among its ancestral lands. The near-contact James River chiefdom is drawn along the south bank between those creeks. The inland margin is approximate. The later treaty geography is not used as a circa-1600 boundary.",
+      "type": "Approximate homeland core",
+      "outline": [
+        [
+          -77.01,
+          37.22
+        ],
+        [
+          -76.96,
+          37.2
+        ],
+        [
+          -76.91,
+          37.2
+        ],
+        [
+          -76.87,
+          37.17
+        ],
+        [
+          -76.82,
+          37.19
+        ],
+        [
+          -76.77,
+          37.17
+        ],
+        [
+          -76.73,
+          37.15
+        ],
+        [
+          -76.74,
+          37.12
+        ],
+        [
+          -76.82,
+          37.13
+        ],
+        [
+          -76.9,
+          37.14
+        ],
+        [
+          -76.98,
+          37.16
+        ]
+      ]
     },
     {
       "name": "Kecoughtan",
@@ -3576,9 +3634,67 @@
         -76.77,
         36.24
       ],
-      "source": "chow",
-      "evidence": "Chowan River district under Menatonan in the 1580s. This southern margin entry uses the earlier English expedition as its dated anchor.",
-      "type": "Locality or regional reference"
+      "source": "chowanExtent",
+      "evidence": "Both banks of the Chowan supported villages, farms and fisheries. Sixteenth-century expedition evidence places this polity here before 1600. The sketch follows the river from the Blackwater confluence toward Rockyhock Creek on the east and Salmon Creek on the west. Inland edges approximate the occupied corridor.",
+      "type": "Approximate homeland core",
+      "outline": [
+        [
+          -76.92,
+          36.54
+        ],
+        [
+          -76.88,
+          36.55
+        ],
+        [
+          -76.86,
+          36.42
+        ],
+        [
+          -76.75,
+          36.34
+        ],
+        [
+          -76.68,
+          36.3
+        ],
+        [
+          -76.65,
+          36.19
+        ],
+        [
+          -76.68,
+          36.14
+        ],
+        [
+          -76.7,
+          36.04
+        ],
+        [
+          -76.75,
+          36.02
+        ],
+        [
+          -76.78,
+          36.13
+        ],
+        [
+          -76.76,
+          36.23
+        ],
+        [
+          -76.81,
+          36.3
+        ],
+        [
+          -76.92,
+          36.37
+        ],
+        [
+          -76.95,
+          36.46
+        ]
+      ]
     },
     {
       "name": "Sakonnet",
@@ -5001,6 +5117,67 @@
         ]
       ],
       "politicalExtent": false
+    },
+    {
+      "name": "Matapeake",
+      "region": "Chesapeake, Delmarva and Virginia Piedmont",
+      "at": [
+        -76.34,
+        38.93
+      ],
+      "type": "Approximate homeland core",
+      "source": "matapeakeExtent",
+      "evidence": "The contact-period study identifies the Matapeake on Kent Island. The outline follows the island between Chesapeake Bay, the Chester River and Eastern Bay. It represents the island homeland. The political relationship to mainland neighbors around 1600 remains uncertain.",
+      "outline": [
+        [
+          -76.32,
+          39.04
+        ],
+        [
+          -76.29,
+          39.02
+        ],
+        [
+          -76.29,
+          38.99
+        ],
+        [
+          -76.25,
+          38.98
+        ],
+        [
+          -76.24,
+          38.96
+        ],
+        [
+          -76.29,
+          38.95
+        ],
+        [
+          -76.31,
+          38.91
+        ],
+        [
+          -76.31,
+          38.86
+        ],
+        [
+          -76.37,
+          38.83
+        ],
+        [
+          -76.38,
+          38.88
+        ],
+        [
+          -76.36,
+          38.94
+        ],
+        [
+          -76.34,
+          38.99
+        ]
+      ]
     }
   ]
 }
