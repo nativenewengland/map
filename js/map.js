@@ -3053,6 +3053,14 @@ for (const [name, from, point, sourceKey] of earlyTowns) {
   });
 }
 
+for (const [town, state, year, point, event, source = state, country = 'english'] of additionalTowns) {
+  colonialSites.push({
+    name: town + ', ' + state, from: String(year), point, country,
+    detail: 'Colonial chronology: ' + event + ' in ' + year + '. Approximate locality within the present-day municipality. Settlement and municipal incorporation can have different dates.',
+    source: additionalTownSources[source],
+  });
+}
+
 for (const site of colonialSites) {
   const icon = iconMap['settlement-' + site.country];
   const marker = L.marker(site.point, { icon, title: site.name, alt: site.name })

@@ -486,15 +486,24 @@ for (const [vessel, outbound, start, end, estimate] of [
   ['Katherine', false, '1686-06-15', '1686-08-09'],
   ['Katherine', true, '1686-10-01', '1686-11-24', 'departure'],
   ['Katherine', false, '1686-12-23', '1687-02-01', 'arrival'],
+  ['Katherine', true, '1687-04-22', '1687-06-11'],
+  ['Katherine', false, '1687-07-04', '1687-08-22', 'arrival'],
+  ['Katherine', true, '1687-11-20', '1688-01-12', 'departure'],
+  ['Katherine', false, '1688-02-09', '1688-04-05'],
+  ['Katherine', true, '1688-05-30', '1688-07-23'],
+  ['Katherine', false, '1688-08-11', '1688-09-24'],
+  ['Katherine', true, '1688-11-01', '1688-12-29', 'departure'],
+  ['Katherine', false, '1689-02-08', '1689-03-30', 'arrival'],
   ['Mary & Elizabeth', true, '1687-04-15', '1687-06-01'],
+  ['Mary & Elizabeth', false, '1687-06-15', '1687-08-01', 'arrival'],
   ['Mary & Elizabeth', true, '1686-05-02', '1686-07-12'],
   ['Mary & Elizabeth', false, '1686-08-07', '1686-09-20'],
 ]) {
-  const bends = [[42.34,-70.85],[42.25,-69.8],[41,-68.9],[35,-69],[22,-70],[18,-74.1],[17.7,-76.5]];
+  const bends = [[42.34,-70.85],[42.25,-69.8],[41,-68.9],[35,-69],[22,-70],[21.5,-71.8],[20.2,-73.5],[19.85,-73.9],[19.1,-74.48],[18.3,-74.6],[17.7,-76.5]];
   const direction = outbound ? 'Boston to Jamaica' : 'Jamaica to Boston';
   atlanticVoyage(vessel + ' — ' + direction + ' (' + start + ')', [
-    [start, outbound ? bostonPort : jamaicaPort, estimate === 'departure' ? 'Departure date estimated for playback.' : 'Departure as dated in the shipping-list chart.'],
-    [end, outbound ? jamaicaPort : bostonPort, estimate === 'arrival' ? 'Arrival date estimated for playback.' : 'Arrival as dated in the shipping-list chart.', outbound ? bends : bends.reverse()],
+    [englishDate(start), outbound ? bostonPort : jamaicaPort, estimate === 'departure' ? 'Departure date estimated for playback.' : 'Shipping-list departure: ' + start + ', treated as Old Style.'],
+    [englishDate(end), outbound ? jamaicaPort : bostonPort, estimate === 'arrival' ? 'Arrival date estimated for playback.' : 'Shipping-list arrival: ' + end + ', treated as Old Style.', outbound ? bends : bends.reverse()],
   ], shippingLists, 'Toshikazu Kasai, Naval Office shipping-list itineraries', null);
 }
 const stLawrenceApproach = [[42.4,-70.6],[43,-65.8],[43.1,-65.3],[44.8,-59.6],[47.2,-59.4],[49.3,-63.8],[49.3,-67],[48.2,-69.4]];
@@ -514,6 +523,12 @@ picker.addEventListener('change', () => {
   pauseTimeline();
   dateField.value = entry.date;
   dateField.dispatchEvent(new Event('input'));
-  if (entry.point) map.setView(entry.point, 3);
+  if (entry.point) {
+    map.setView(entry.point, 3);
+    // Several fleet members share one harbor and one arrival window.
+    map.eachLayer(layer => {
+      if (layer instanceof L.Marker && layer.options.title === entry.name) layer.openPopup();
+    });
+  }
   picker.value = '';
 });
