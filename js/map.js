@@ -1101,6 +1101,64 @@ var unresolvedTerritory = L.imageOverlay('hydro/territory-gaps.png', artworkBoun
   alt: 'Diagonal hatching indicates land whose territorial affiliation is unresolved on this map.',
 });
 var territoriesOverlay = L.layerGroup([unresolvedTerritory, territoriesLayer, territoryMarkersLayer]);
+// Sample just the clicked pixel. Transparent pixels are water or covered by
+// an existing polygon, whose normal Leaflet interaction takes precedence.
+map.on('click', function (event) {
+  if (!map.hasLayer(unresolvedTerritory)) return;
+  const image = unresolvedTerritory.getElement();
+  if (!image || !image.complete || !image.naturalWidth) return;
+  const point = map.project(event.latlng, 5).floor();
+  if (point.x < 0 || point.y < 0 || point.x >= image.naturalWidth || point.y >= image.naturalHeight) return;
+  const canvas = document.createElement('canvas');
+  canvas.width = canvas.height = 1;
+  const ctx = canvas.getContext('2d');
+  ctx.drawImage(image, point.x, point.y, 1, 1, 0, 0, 1, 1);
+  if (!ctx.getImageData(0, 0, 1, 1).data[3]) return;
+  const {lat, lng} = event.latlng;
+  let title, note, source;
+  if (lat < -70 && lng < 10) {
+    title = 'Long Island Sound and New York Harbor';
+    note = 'The island shores and harbor supported distinct Lenape and Long Island communities. Matinecock, Unkechaug, Shinnecock and Montaukett records concern different stretches of shore.';
+    source = ['Long Island National Wildlife Refuge Complex history', 'https://www.fws.gov/rivers/sites/default/files/documents/Long%20Island%20NWR%20Complex%20Final%20CCP%20and%20EA.pdf'];
+  } else if (lat > 60 && lng < -85) {
+    title = 'Champlain and upper Hudson valleys';
+    note = 'Western Abenaki and Mohawk histories connect communities on both sides of Lake Champlain. Mohican homelands extended north along the upper Hudson. The evidence does not establish an exclusive frontier across the intervening uplands.';
+    source = ['National Park Service, Indigenous peoples of the Adirondacks', 'https://home.nps.gov/articles/adirondacks-native-americans.htm'];
+  } else if (lng < -85) {
+    title = 'Hudson and Housatonic region';
+    note = 'Mohican communities occupied the upper Hudson and Housatonic valleys. Esopus and other Lenape communities lived farther south. The Mohawk Valley adjoins the upper Hudson on the west.';
+    source = ['Hudson River Valley Heritage', 'https://omeka.hrvh.org/exhibits/show/hendrick-aupaumut/mohican-people'];
+  } else if (lat > 60) {
+    title = 'Northern New England';
+    note = 'Abenaki communities occupied the Champlain and Connecticut valleys. Pennacook communities lived along the Merrimack. The falls served as seasonal gathering places for multiple peoples.';
+    source = ['Lowell National Historical Park', 'https://www.nps.gov/lowe/learn/historyculture/the-merrimack-river.htm'];
+  } else if (lng > 45 && lat > 27) {
+    title = 'Lower Merrimack and Massachusetts North Shore';
+    note = 'The records distinguish inland Pennacook communities and the coastal Agawam and Naumkeag communities. The Ipswich survey describes the Agawam reach from the Merrimack toward Salem.';
+    source = ['Massachusetts Historical Commission, Ipswich', 'https://www.sec.state.ma.us/divisions/mhc/preservation/survey/town-reports/archives/ips.pdf'];
+  } else if (lng > 10 && lat < 0) {
+    title = 'Narragansett Bay, Cape and islands';
+    note = 'Narragansett, Pokanoket and other Wampanoag communities occupied different parts of this region. Local sachemships and political alliances operated at different scales.';
+    source = ['Plimoth Patuxet Museums', 'https://plimoth.org/yath/unit-2/plymouth-pokanoket-alliance'];
+  } else if (lat < -30) {
+    title = 'Connecticut River and Sound shore';
+    note = 'Coastal and river communities included Quinnipiac, Menunkatuck, Hammonasset, Niantic, Mohegan and Pequot. Their homelands followed different rivers and coastal reaches.';
+    source = ['Madison Historical Society', 'https://www.madisonhistory.org/history-of-madison/'];
+  } else {
+    title = 'Massachusetts and Connecticut interior';
+    note = 'Nipmuc communities occupied the central uplands. Pocumtuck, Nonotuck and Agawam were among the communities along the Connecticut River.';
+    source = ['Massachusetts Historical Commission, Connecticut Valley', 'https://www.sec.state.ma.us/divisions/mhc/preservation/survey/regional-reports/archives/CTValley.pdf'];
+  }
+  const neighbors = territoryMarkersLayer.getLayers().filter(layer =>
+    layer instanceof L.Polygon && layer._data?.overlay === 'Territories'
+  ).map(layer => ({record: layer._data, distance: Math.min(...layer.getLatLngs()[0].map(
+    ll => map.project(ll, 5).distanceTo(point)))})).sort((a,b) => a.distance - b.distance);
+  const records = neighbors.slice(0,3).map(({record}) => {
+    const doc = new DOMParser().parseFromString(record.description || '', 'text/html');
+    return {name: record.name, evidence: doc.body.textContent, url: doc.querySelector('a')?.href};
+  });
+  showHomelandContext(map, event.latlng, title, note, [source], records);
+});
 // Text labels use a bold sans-serif stack; mirror it when measuring glyph widths.
 var TEXT_LABEL_FONT_FAMILY = "Roboto, 'Open Sans', 'Helvetica Neue', Arial, sans-serif";
 var textMeasurementContext = null;
@@ -1126,7 +1184,7 @@ var glastonburyOverlay = L.imageOverlay(
 
 var overlays = {
   Settlements: Settlements,
-  'Territories <small>(hatched land = unresolved)</small>': territoriesOverlay,
+  'Territories <small>(click hatched land for regional evidence)</small>': territoriesOverlay,
   'Glastonbury (1600)': glastonburyOverlay,
 };
 

@@ -340,6 +340,14 @@
     "penobscotHomeland": [
       "Maine Indian Tribal-State Commission, Penobscot Nation",
       "https://www.mitsc.org/wabanaki-nations/the-penobscot-nation"
+    ],
+    "norwalkReach": [
+      "Wilton historic and architectural survey",
+      "https://wiltonhistorical.org/wp-content/uploads/2019/06/Wilton-Survey-Narrative-2018.pdf"
+    ],
+    "stamfordReach": [
+      "History of the Colony of New Haven, Stamford records",
+      "https://cga.ct.gov/hco/books/History_of_the_Colony_of_New_Haven.pdf"
     ]
   },
   "review": [
@@ -4880,6 +4888,108 @@
         [
           -70.19,
           45.91
+        ]
+      ]
+    },
+    {
+      "name": "Norwalke",
+      "region": "Southern New England and Long Island",
+      "at": [
+        -73.42,
+        41.1
+      ],
+      "source": "norwalkReach",
+      "evidence": "Agreements of 1640 and 1641 identify local sachems and lands between the Five Mile, Norwalk and Saugatuck rivers. This early-contact reconstruction follows the shore and lower valleys. The inland reach and divisions between sachems circa 1600 remain uncertain.",
+      "type": "Reconstructed territorial core",
+      "outline": [
+        [
+          -73.46,
+          41.07
+        ],
+        [
+          -73.45,
+          41.12
+        ],
+        [
+          -73.47,
+          41.17
+        ],
+        [
+          -73.43,
+          41.19
+        ],
+        [
+          -73.39,
+          41.17
+        ],
+        [
+          -73.36,
+          41.15
+        ],
+        [
+          -73.36,
+          41.12
+        ],
+        [
+          -73.37,
+          41.08
+        ],
+        [
+          -73.4,
+          41.07
+        ],
+        [
+          -73.43,
+          41.06
+        ]
+      ]
+    },
+    {
+      "name": "Toquams and Shippan (Rippowam)",
+      "region": "Southern New England and Long Island",
+      "at": [
+        -73.54,
+        41.05
+      ],
+      "source": "stamfordReach",
+      "evidence": "The Rippowam agreement names Ponus of Toquams and Wascussue of Shippan. The outline shows their Stamford coastal district together. The record describes land rights in 1640 and leaves the boundary between their communities in 1600 unresolved.",
+      "type": "Reconstructed territorial core",
+      "outline": [
+        [
+          -73.59,
+          41.03
+        ],
+        [
+          -73.59,
+          41.07
+        ],
+        [
+          -73.57,
+          41.11
+        ],
+        [
+          -73.53,
+          41.12
+        ],
+        [
+          -73.5,
+          41.09
+        ],
+        [
+          -73.49,
+          41.06
+        ],
+        [
+          -73.5,
+          41.03
+        ],
+        [
+          -73.53,
+          41.01
+        ],
+        [
+          -73.56,
+          41.02
         ]
       ]
     }
