@@ -296,6 +296,50 @@
     "kennebecCountry": [
       "Maine legislative collection · Kennebec County historical description (1866)",
       "https://lldc.mainelegislature.org/Open/Rpts/PubDocs/PubDocs1866/PD1866_00I.pdf"
+    ],
+    "temagami": [
+      "Temagami First Nation traditional territory and family lands",
+      "https://temagamifirstnation.ca/wp-content/uploads/2023/09/InclusiveBackgrounderSept18-23.pdf"
+    ],
+    "timisk": [
+      "Timiskaming First Nation history",
+      "https://tfnadmin.wixsite.com/tfnadmin"
+    ],
+    "kipawa": [
+      "Algonquin Nation Tribal Council",
+      "https://www.algonquinnation.ca/?page_id=9"
+    ],
+    "lancaster": [
+      "Lancaster community history",
+      "https://www.ci.lancaster.ma.us/DocumentCenter/View/127/MHP-Final-Draft-PDF"
+    ],
+    "ipswich": [
+      "Massachusetts Historical Commission, Ipswich survey",
+      "https://www.sec.state.ma.us/divisions/mhc/preservation/survey/town-reports/archives/ips.pdf"
+    ],
+    "manisses": [
+      "University of Rhode Island, Manissean Public Memory Project",
+      "https://web.uri.edu/maf/2020/09/17/manissean-public-memory-project-continues-on-block-island/"
+    ],
+    "guilford": [
+      "History of Guilford, text of the Menunkatuck deed",
+      "https://www.cga.ct.gov/hco/books/The_History_of_Guilford.pdf"
+    ],
+    "fairfield": [
+      "Bureau of Indian Affairs historical findings",
+      "https://www.bia.gov/sites/default/files/media_document/081_pf2.pdf"
+    ],
+    "lynnhaven": [
+      "US Army Corps of Engineers, Lynnhaven cultural resources",
+      "https://www.nao.usace.army.mil/Portals/31/docs/civilworks/Lynnhaven/Lynnhaven_Appendices_B-G.pdf"
+    ],
+    "mohicanExtent": [
+      "National Park Service, Indigenous peoples of the Adirondacks",
+      "https://home.nps.gov/articles/adirondacks-native-americans.htm"
+    ],
+    "penobscotHomeland": [
+      "Maine Indian Tribal-State Commission, Penobscot Nation",
+      "https://www.mitsc.org/wabanaki-nations/the-penobscot-nation"
     ]
   },
   "review": [
@@ -1731,36 +1775,88 @@
         -73.75,
         42.47
       ],
-      "source": "hud",
-      "evidence": "Upper Hudson core south of Albany and along the river. Later records give better evidence for internal leadership than survives for 1600.",
+      "source": "mohicanExtent",
+      "evidence": "The upper Hudson on both banks, the Housatonic valley and the southern approach to Lake Champlain anchor this outline. It represents a homeland shared by multiple Mohican communities. The Catskill Creek vicinity was also used by Esopus people. Neither the western ridgeline nor the northern political limit is securely known for 1600.",
       "outline": [
         [
-          -73.89,
-          42.87
+          -73.57,
+          43.74
         ],
         [
-          -73.65,
-          42.86
+          -73.42,
+          43.54
         ],
         [
-          -73.55,
-          42.62
+          -73.19,
+          43.25
         ],
         [
-          -73.58,
+          -73.03,
+          42.99
+        ],
+        [
+          -73.01,
+          42.7
+        ],
+        [
+          -73.04,
+          42.46
+        ],
+        [
+          -73.12,
+          42.23
+        ],
+        [
+          -73.22,
+          42.04
+        ],
+        [
+          -73.35,
+          41.95
+        ],
+        [
+          -73.53,
+          41.96
+        ],
+        [
+          -73.63,
+          42.06
+        ],
+        [
+          -73.86,
+          42.13
+        ],
+        [
+          -74.01,
+          42.21
+        ],
+        [
+          -74.14,
           42.36
         ],
         [
-          -73.67,
-          42.12
+          -74.14,
+          42.52
         ],
         [
-          -73.84,
-          42.12
+          -74.03,
+          42.68
         ],
         [
-          -73.9,
-          42.37
+          -73.89,
+          42.83
+        ],
+        [
+          -73.81,
+          43.03
+        ],
+        [
+          -73.78,
+          43.25
+        ],
+        [
+          -73.73,
+          43.48
         ]
       ],
       "type": "Reconstructed territorial core"
@@ -3335,9 +3431,47 @@
         -71.68,
         42.46
       ],
-      "source": "nipmap",
-      "evidence": "The Hassanamisco Nipmuc Nation identifies this band on its contact-period map. Marker locates the Nashua confluence near Lancaster area.",
-      "type": "Locality or regional reference"
+      "source": "lancaster",
+      "evidence": "The Nashua confluences near Lancaster, Monosnoc Brook, Waushacum Ponds and the Wachusett uplands locate this homeland. The boundary approximates the early-contact area described retrospectively by Lancaster.",
+      "type": "Reconstructed territorial core",
+      "outline": [
+        [
+          -71.9,
+          42.52
+        ],
+        [
+          -71.81,
+          42.64
+        ],
+        [
+          -71.64,
+          42.64
+        ],
+        [
+          -71.55,
+          42.62
+        ],
+        [
+          -71.53,
+          42.55
+        ],
+        [
+          -71.64,
+          42.47
+        ],
+        [
+          -71.67,
+          42.41
+        ],
+        [
+          -71.77,
+          42.39
+        ],
+        [
+          -71.87,
+          42.43
+        ]
+      ]
     },
     {
       "name": "Assabet",
@@ -3379,9 +3513,51 @@
         -76.07,
         36.88
       ],
-      "source": "district",
-      "evidence": "Great Neck and Lynnhaven region at the southern mouth of Chesapeake Bay. Archaeological and early historical evidence places a community here before Jamestown.",
-      "type": "Locality or regional reference"
+      "source": "lynnhaven",
+      "evidence": "The late-sixteenth-century village evidence anchors a core around the Lynnhaven and adjacent Elizabeth River shore. Accounts place a major political change before Jamestown in 1607. Its exact date relative to 1600 is uncertain.",
+      "type": "Reconstructed territorial core",
+      "outline": [
+        [
+          -76.31,
+          36.93
+        ],
+        [
+          -76.29,
+          36.86
+        ],
+        [
+          -76.21,
+          36.77
+        ],
+        [
+          -76.11,
+          36.73
+        ],
+        [
+          -76.04,
+          36.76
+        ],
+        [
+          -75.99,
+          36.84
+        ],
+        [
+          -75.99,
+          36.93
+        ],
+        [
+          -76.08,
+          36.94
+        ],
+        [
+          -76.17,
+          36.92
+        ],
+        [
+          -76.24,
+          36.96
+        ]
+      ]
     },
     {
       "name": "Chowanoke",
@@ -4194,6 +4370,518 @@
       "parent": "Canibas (Kennebec)",
       "source": "kennebecCountry",
       "evidence": "The Kennebec County account distinguishes this local group at Augusta. Its retrospective placement does not delimit a separate jurisdiction circa 1600."
+    },
+    {
+      "name": "Teme-Augama Anishnabai",
+      "at": [
+        -80.07,
+        47.05
+      ],
+      "region": "Ottawa, St. Lawrence and Wabanaki country",
+      "source": "temagami",
+      "evidence": "Lake Temagami, Obabika Lake and the Lady Evelyn system anchor this portion of n’Daki Menan. The nation’s account of its traditional family lands supports this retrospective homeland placement. Internal family boundaries and the exact perimeter in 1600 are unresolved.",
+      "outline": [
+        [
+          -80.7,
+          47.33
+        ],
+        [
+          -80.53,
+          47.54
+        ],
+        [
+          -80.19,
+          47.62
+        ],
+        [
+          -79.96,
+          47.48
+        ],
+        [
+          -79.67,
+          47.32
+        ],
+        [
+          -79.65,
+          47.1
+        ],
+        [
+          -79.71,
+          46.91
+        ],
+        [
+          -79.89,
+          46.78
+        ],
+        [
+          -80.13,
+          46.82
+        ],
+        [
+          -80.34,
+          46.99
+        ],
+        [
+          -80.55,
+          47.12
+        ]
+      ],
+      "type": "Reconstructed territorial core"
+    },
+    {
+      "name": "Saugeen Anishabeg (Lake Timiskaming)",
+      "at": [
+        -79.53,
+        47.6
+      ],
+      "region": "Ottawa, St. Lawrence and Wabanaki country",
+      "source": "timisk",
+      "evidence": "The nation identifies the head of Lake Timiskaming and lands on both its Ontario and Quebec sides. This core follows the head of the lake and adjacent shores. Its use for 1600 is retrospective.",
+      "outline": [
+        [
+          -79.91,
+          47.69
+        ],
+        [
+          -79.73,
+          47.84
+        ],
+        [
+          -79.43,
+          47.83
+        ],
+        [
+          -79.25,
+          47.65
+        ],
+        [
+          -79.28,
+          47.49
+        ],
+        [
+          -79.38,
+          47.31
+        ],
+        [
+          -79.42,
+          47.22
+        ],
+        [
+          -79.53,
+          47.27
+        ],
+        [
+          -79.66,
+          47.43
+        ],
+        [
+          -79.78,
+          47.51
+        ]
+      ],
+      "type": "Reconstructed territorial core"
+    },
+    {
+      "name": "Wolf Lake Anishinabeg (Kipawa and Dumoine)",
+      "at": [
+        -78.7,
+        46.86
+      ],
+      "region": "Ottawa, St. Lawrence and Wabanaki country",
+      "source": "kipawa",
+      "evidence": "The Tribal Council identifies the Kipawa region and Dumoine drainage as Wolf Lake First Nation traditional territory. This reconstruction links the two geographic anchors. Its margins and the political organization of individual families in 1600 are unresolved.",
+      "outline": [
+        [
+          -79.07,
+          46.91
+        ],
+        [
+          -78.91,
+          47.05
+        ],
+        [
+          -78.62,
+          47.09
+        ],
+        [
+          -78.14,
+          47.03
+        ],
+        [
+          -77.98,
+          46.87
+        ],
+        [
+          -77.88,
+          46.62
+        ],
+        [
+          -77.82,
+          46.39
+        ],
+        [
+          -77.85,
+          46.18
+        ],
+        [
+          -77.99,
+          46.22
+        ],
+        [
+          -78.17,
+          46.51
+        ],
+        [
+          -78.5,
+          46.67
+        ],
+        [
+          -78.82,
+          46.68
+        ],
+        [
+          -79.01,
+          46.77
+        ]
+      ],
+      "type": "Reconstructed territorial core"
+    },
+    {
+      "name": "Agawam (Ipswich and Cape Ann)",
+      "at": [
+        -70.84,
+        42.68
+      ],
+      "region": "Southern New England and Long Island",
+      "source": "ipswich",
+      "evidence": "Masconomet’s seventeenth-century jurisdiction is described between the Merrimack and Salem’s North River, inland toward Cochichawick. This early-contact reconstruction includes the Ipswich estuary and Cape Ann. It is distinct from the Connecticut Valley Agawam.",
+      "outline": [
+        [
+          -70.91,
+          42.82
+        ],
+        [
+          -70.8,
+          42.81
+        ],
+        [
+          -70.77,
+          42.74
+        ],
+        [
+          -70.68,
+          42.67
+        ],
+        [
+          -70.58,
+          42.69
+        ],
+        [
+          -70.56,
+          42.61
+        ],
+        [
+          -70.67,
+          42.56
+        ],
+        [
+          -70.86,
+          42.52
+        ],
+        [
+          -70.92,
+          42.55
+        ],
+        [
+          -71.12,
+          42.65
+        ],
+        [
+          -71.08,
+          42.72
+        ],
+        [
+          -70.99,
+          42.77
+        ]
+      ],
+      "type": "Reconstructed territorial core"
+    },
+    {
+      "name": "Manissean (Manisses)",
+      "at": [
+        -71.57,
+        41.18
+      ],
+      "region": "Southern New England and Long Island",
+      "source": "manisses",
+      "evidence": "The Manissean people inhabited Manisses before Dutch and English arrival. The terrain shoreline defines the island core. Offshore use and wider political relationships are unresolved.",
+      "outline": [
+        [
+          -71.62,
+          41.23
+        ],
+        [
+          -71.59,
+          41.16
+        ],
+        [
+          -71.52,
+          41.13
+        ],
+        [
+          -71.51,
+          41.19
+        ],
+        [
+          -71.55,
+          41.24
+        ]
+      ],
+      "type": "Reconstructed territorial core"
+    },
+    {
+      "name": "Menunkatuck",
+      "at": [
+        -72.69,
+        41.28
+      ],
+      "region": "Southern New England and Long Island",
+      "source": "guilford",
+      "evidence": "The 1639 agreement with Shaumpishuh names Stony Creek and the East River. This is a reconstruction of the intervening shore at Guilford; its inland extent thirty-nine years earlier is uncertain.",
+      "outline": [
+        [
+          -72.72,
+          41.31
+        ],
+        [
+          -72.68,
+          41.34
+        ],
+        [
+          -72.65,
+          41.32
+        ],
+        [
+          -72.65,
+          41.29
+        ],
+        [
+          -72.65,
+          41.25
+        ],
+        [
+          -72.7,
+          41.24
+        ],
+        [
+          -72.75,
+          41.25
+        ],
+        [
+          -72.74,
+          41.28
+        ]
+      ],
+      "type": "Reconstructed territorial core"
+    },
+    {
+      "name": "Pequannock (Fairfield coast)",
+      "at": [
+        -73.25,
+        41.17
+      ],
+      "region": "Southern New England and Long Island",
+      "source": "fairfield",
+      "evidence": "Deed analysis distinguishes Pequannock leadership west of the lower Housatonic toward Fairfield and inland toward Newtown and Danbury. The northeastern margin leaves the Shelton area to the Paugussett. Seventeenth-century evidence approximates early-contact geography.",
+      "outline": [
+        [
+          -73.44,
+          41.37
+        ],
+        [
+          -73.34,
+          41.36
+        ],
+        [
+          -73.28,
+          41.3
+        ],
+        [
+          -73.27,
+          41.22
+        ],
+        [
+          -73.2,
+          41.19
+        ],
+        [
+          -73.13,
+          41.18
+        ],
+        [
+          -73.11,
+          41.15
+        ],
+        [
+          -73.24,
+          41.11
+        ],
+        [
+          -73.37,
+          41.09
+        ],
+        [
+          -73.4,
+          41.18
+        ]
+      ],
+      "type": "Reconstructed territorial core"
+    },
+    {
+      "name": "Penobscot Nation (river homeland)",
+      "at": [
+        -68.65,
+        45.02
+      ],
+      "region": "Ottawa, St. Lawrence and Wabanaki country",
+      "type": "Traditional homeland",
+      "source": "penobscotHomeland",
+      "evidence": "The Maine Indian Tribal-State Commission locates the ancestral homeland within the Penobscot drainage, including tributaries, lakes and ponds. This generalized outline includes the East and West Branches, Piscataquis corridor, lower river and bay head. It is a retrospective geographic reconstruction. The separate Bessabes record documents an early political alliance with different membership and extent.",
+      "outline": [
+        [
+          -70.26,
+          46.04
+        ],
+        [
+          -70.19,
+          46.3
+        ],
+        [
+          -69.97,
+          46.34
+        ],
+        [
+          -69.71,
+          46.3
+        ],
+        [
+          -69.47,
+          46.29
+        ],
+        [
+          -69.29,
+          46.22
+        ],
+        [
+          -69.09,
+          46.2
+        ],
+        [
+          -68.9,
+          46.16
+        ],
+        [
+          -68.71,
+          46.16
+        ],
+        [
+          -68.55,
+          46.2
+        ],
+        [
+          -68.35,
+          46.13
+        ],
+        [
+          -68.25,
+          45.96
+        ],
+        [
+          -68.17,
+          45.79
+        ],
+        [
+          -68.01,
+          45.66
+        ],
+        [
+          -67.91,
+          45.52
+        ],
+        [
+          -67.96,
+          45.32
+        ],
+        [
+          -68.17,
+          45.18
+        ],
+        [
+          -68.28,
+          45.03
+        ],
+        [
+          -68.44,
+          44.89
+        ],
+        [
+          -68.53,
+          44.72
+        ],
+        [
+          -68.65,
+          44.51
+        ],
+        [
+          -68.76,
+          44.44
+        ],
+        [
+          -68.89,
+          44.54
+        ],
+        [
+          -69.06,
+          44.72
+        ],
+        [
+          -69.21,
+          44.91
+        ],
+        [
+          -69.37,
+          45.03
+        ],
+        [
+          -69.49,
+          45.19
+        ],
+        [
+          -69.57,
+          45.35
+        ],
+        [
+          -69.59,
+          45.54
+        ],
+        [
+          -69.66,
+          45.71
+        ],
+        [
+          -69.85,
+          45.76
+        ],
+        [
+          -70.03,
+          45.81
+        ],
+        [
+          -70.19,
+          45.91
+        ]
+      ]
     }
   ]
 }

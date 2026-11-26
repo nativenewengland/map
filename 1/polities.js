@@ -94,7 +94,8 @@ export function loadTerritories(svg, data) {
     area.setAttribute('d', 'M' + vertices.join(' ') + 'Z');
     area.setAttribute('vector-effect', 'non-scaling-stroke');
     bind(area, record);
-    areas.append(area);
+    if (record.type === 'Traditional homeland') areas.prepend(area);
+    else areas.append(area);
     return area;
   }
   const colors = ['#aa6639', '#327983', '#88588f', '#63782e', '#a04f57', '#466aa0'];
