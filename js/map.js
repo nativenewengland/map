@@ -966,8 +966,13 @@ function addTimelineVoyage(name, days, source, sourceName, target = () => map, d
 
   function sailOffscreen() {
     ship.closePopup();
-    const start = view.project(ship.getLatLng());
-    const points = [start, ...departure.map(point => view.project(point))];
+    const zoom = view.getZoom();
+    const start = view.project(ship.getLatLng(), zoom);
+    const points = [start];
+    for (const waypoint of departure) {
+      const next = view.project(waypoint, zoom);
+      if (!next.equals(points[points.length - 1])) points.push(next);
+    }
     const last = points[points.length - 1];
     const heading = points.length > 1 ? last.subtract(points[points.length - 2]) : L.point(1, 0);
     const unit = heading.divideBy(heading.distanceTo(L.point(0, 0)) || 1);
@@ -981,9 +986,8 @@ function addTimelineVoyage(name, days, source, sourceName, target = () => map, d
       const progress = Math.min(1, (now - started) / duration) * (points.length - 1);
       const i = Math.min(points.length - 2, Math.floor(progress));
       const position = points[i].add(points[i + 1].subtract(points[i]).multiplyBy(progress - i));
-      ship.setLatLng(view.unproject(position));
+      ship.setLatLng(view.unproject(position, zoom));
       if (progress < points.length - 1) approachFrame = requestAnimationFrame(move);
-      else if (view.getBounds().pad(0.08).contains(ship.getLatLng())) sailOffscreen();
       else ship.remove();
     }
     approachFrame = requestAnimationFrame(move);

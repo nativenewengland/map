@@ -514,6 +514,166 @@ atlanticVoyage('William Phips — Quebec expedition (about 32 vessels)', [
   ['1690-11-29', bostonPort, 'Approximate return. The fleet dispersed and individual vessels returned on different dates.', [...stLawrenceApproach].reverse()],
 ], 'https://www.biographi.ca/en/bio.php?id_nbr=519', 'Dictionary of Canadian Biography', null);
 
+const harlow = 'Edward Harlow and the abduction of Epenow';
+leg(harlow, [
+  ['1611-06-01', monhegan, 'Harlow took captives at Monhegan. Only the year is established; the June days space the animation.'],
+  ['1611-06-04', [-70.03,42.04], 'Reconstructed offshore passage toward Martha’s Vineyard.'],
+], 'https://www.nps.gov/parkhistory/online_books/acad/wabanaki_peoples_vol1.pdf', 'National Park Service', true, []);
+leg(harlow, [
+  ['1611-06-05', [-29,168], 'Illustrative approach around the outer Cape in 1611.'],
+  ['1611-06-09', epenowSite, 'Epenow and Coneconam were kidnapped at Martha’s Vineyard and taken to England. The anchorage and playback days are approximate.',
+    [[-48,164],[-64,147],[-66,100],[-59,76]]],
+  ['1611-06-12', [-65,160], 'Illustrative departure for England.', [[-59,76],[-67,96]]],
+], 'https://www.bia.gov/sites/default/files/media_document/076_pf.pdf', 'Bureau of Indian Affairs', false, [[-66,179]]);
+
+const nassau = 'Isaack de Rasières aboard the Nassau';
+const manometLetter = 'https://archive.org/details/pilgrimmemorials00russ';
+leg(nassau, [
+  ['1627-09-27', battery, 'Estimated departure from Manhattan. The Dutch bark carried trade goods and Isaac de Rasières.'],
+  ['1627-10-04', [-70.615,41.735], 'De Rasières dated his letter October 4 aboard the Nassau at Frenchman’s Point. The plotted anchorage is approximate.',
+    [[-74.01,40.70],[-73.97,40.72],[-73.94,40.78],[-73.81,40.80],[-73.4,40.99],[-72.3,41.17],[-71.88,41.27],[-71.50,41.28],[-71.0,41.39],[-70.82,41.54],[-70.65,41.70]]],
+], manometLetter, 'De Rasières letter and Plymouth account', 'New Amsterdam to Manomet', []);
+leg(nassau, [
+  ['1627-10-05', [-31,105], 'Illustrative overland transfer from the Manomet trading post across the Cape Cod isthmus.'],
+  ['1627-10-06', [-27,114], 'At the Cape Cod Bay side, a Plymouth boat was requested. Transfer dates are estimated.'],
+], manometLetter, 'Plymouth correspondence', false, null, undefined, PersonIcon);
+leg(nassau, [
+  ['1627-10-07', [-26,115], 'A Plymouth boat carried the visitor on the final leg. The Nassau stayed on the Buzzards Bay side.'],
+  ['1627-10-08', patuxet, 'Arrival at Plymouth for the trading visit. The day is estimated.', [[-18,116],[-10,112]]],
+], manometLetter, 'Plymouth correspondence', false, null);
+
+const gallopSource = 'https://marbleheadmuseum.org/wp-content/uploads/2021/01/pp-187-260-331Winthrop_s_Journal_History_of_New_Englan.pdf';
+leg('John Gallop encounters Oldham’s pinnace', [
+  ['1636-07-25', [-63,-37], 'Gallop sailed from Connecticut intending to trade on Long Island. The starting point and playback days are approximate.'],
+  ['1636-07-26', [-68,-23], 'The wind changed as the bark approached Long Island. Gallop changed course before landing.'],
+  ['1636-07-27', [-67,20], 'Off Block Island the crew encountered John Oldham’s pinnace and discovered his death.', [[-68,4]]],
+], gallopSource, 'John Winthrop’s journal', false, [[-65,24],[-64,30]]);
+addTimelineVoyage('John Oldham’s pinnace', [{ date:'1636-07-27', path:[[-67.2,20.7]],
+  note:'Second vessel at the encounter. Day and position are approximate.' }], gallopSource, 'John Winthrop’s journal', () => map, null);
+
+const desire = 'Desire — William Peirce';
+const desireSource = 'https://www.nps.gov/articles/000/beginnings-of-ma-slave-trade.htm';
+leg(desire, [
+  ['1637-07-23', [30,69], 'Winthrop recorded the dispatch of captive Pequots on July 13 Old Style. The embarkation point in Massachusetts Bay is approximate.'],
+  ['1637-07-25', [31,176], 'Bound for the West Indies. Bermuda was the intended destination.'],
+], desireSource, 'National Park Service', false, [[31,179]]);
+const providencia = [13.38,-81.38];
+const islandPassage = [[30,-65],[20.8,-68.5],[20.4,-73.3],[19.4,-74.4],[17.6,-75],[15,-80]];
+atlanticVoyage(desire, [
+  ['1637-07-26', [42,-68], 'Reconstructed offshore track. Dates in the Caribbean are illustrative.'],
+  ['1637-09-15', providencia, 'Peirce missed Bermuda and took the captive Pequots to Providence Island in the western Caribbean to be sold into slavery.', islandPassage],
+  ['1638-01-15', providencia, 'Estimated start of the return passage. Winthrop also mentions salt from Tertugos; its stop date is unknown.'],
+  ['1638-03-06', [42,-68], 'Approaching Massachusetts with enslaved Africans aboard.', [...islandPassage].reverse()],
+], desireSource, 'National Park Service', null);
+leg(desire, [
+  ['1638-03-07', [31,176], 'Illustrative approach to Massachusetts Bay.'],
+  ['1638-03-08', [30,69], 'Winthrop recorded the return on February 26 Old Style. Boston’s Town Cove is the probable landing site.'],
+], desireSource, 'National Park Service', false, null);
+
+const winslowSupply = 'Edward Winslow — Damariscove provisioning voyage';
+const maineHistory = 'https://www.maine.gov/dacf/parks/discover_history_explore_nature/history/colonialpemaquid/research/books/Ten_Years_at_Pemaquid.pdf';
+leg(winslowSupply, [
+  ['1622-06-01', patuxet, 'Plymouth sent Winslow north in its shallop to obtain food. Only the season is known; these dates space the round trip.'],
+  ['1622-06-03', [53,110], 'Illustrative passage northeast across Massachusetts Bay.', [[-9,112],[18,114]]],
+], maineHistory, 'Ten Years at Pemaquid', false, null);
+const mainePassage = [[-70.4,42.85],[-70.2,43.33],[-69.85,43.64]];
+leg(winslowSupply, [
+  ['1622-06-04', [-70.48,42.66], 'Estimated passage north from Cape Ann.'],
+  ['1622-06-08', [-69.62,43.76], 'At Damariscove, Captain Huddleston and other fishing captains supplied provisions for Plymouth. Arrival day estimated.', mainePassage],
+  ['1622-06-12', [-70.48,42.66], 'Returning south with provisions; day estimated.', [...mainePassage].reverse()],
+], maineHistory, 'Ten Years at Pemaquid', 'Gulf of Maine', []);
+leg(winslowSupply, [
+  ['1622-06-13', [53,110], 'Estimated return passage across Massachusetts Bay.'],
+  ['1622-06-15', patuxet, 'The shallop brought food back to Plymouth. Return day estimated.', [[18,114],[-9,112]]],
+], maineHistory, 'Ten Years at Pemaquid', false, null);
+
+const swanPassage = [[-9,112],[2,130],[5,143],[-5,152]];
+leg('Swan — Cape Cod provisions for Plymouth and Wessagusset', [
+  ['1622-11-10', patuxet, 'Bradford and Tisquantum sailed to obtain corn and beans. Dates and sailing track illustrate the late-1622 expedition.'],
+  ['1622-11-16', nauset, 'At Nauset a storm stranded the expedition’s shallop. Part of the provisions remained in local care for collection. The marker represents the supply expedition.', swanPassage],
+  ['1622-11-24', patuxet, 'Return to Plymouth with provisions to share with Wessagusset. Return day estimated.', [...swanPassage].reverse()],
+], 'https://www.gutenberg.org/ebooks/66332', 'Edward Winslow, Good Newes from New England', false, null);
+
+const winthropJournal = 'https://salempl.org/wp-content/uploads/2022/06/Original-Narratives-of-Early-American-History-Winthrops-Journal-vol.-1.pdf';
+const englishDeparture = [[50.8,-5.2],[50.15,-6.1],[48,-15],[45,-35],[43,-55],[42,-68]];
+const bayApproach = [34,178];
+const supplyCrossings = [
+  { name: 'Higginson–Skelton supply fleet', departure: '1629-04-25', offshore: '1629-06-25', arrival: '1629-06-28',
+    origin: [50.32,-4.14], harbor: 'Salem', startNote: 'Six vessels brought settlers, livestock, tools and food. One marker represents the convoy. April and June days are illustrative.',
+    endNote: 'Salem received the supply fleet in June. The ships’ individual arrival days are not represented.',
+    url: 'https://tile.loc.gov/storage-services/public/gdcmassbookdig/fifthhalfcentury02esse/fifthhalfcentury02esse_bw.pdf', credit: 'Essex Institute, Endicott commemorative history' },
+  { name: 'Lyon — winter relief from Bristol', departure: '1630-12-11', offshore: '1631-02-12', arrival: '1631-02-15',
+    origin: [51.5,-2.72], harbor: 'Nantasket', startNote: 'William Peirce sailed from Bristol on December 1 Old Style with provisions for Massachusetts Bay.',
+    endNote: 'Winthrop recorded the arrival at Nantasket on February 5 Old Style, with about twenty passengers and two hundred tons of goods.' },
+  { name: 'Friendship — livestock for Boston', departure: '1631-05-25', offshore: '1631-07-21', arrival: '1631-07-24',
+    origin: [51.07,-4.19], harbor: 'Boston', startNote: 'Bad weather turned back the first attempt. The successful sailing from Barnstaple began around mid-May Old Style; departure day estimated.',
+    endNote: 'On July 14 Old Style the Friendship reached Boston and unloaded eight heifers, one calf and five sheep.' },
+];
+for (const trip of supplyCrossings) {
+  const url = trip.url || winthropJournal;
+  const credit = trip.credit || 'John Winthrop’s journal';
+  const bends = trip.harbor === 'Salem' ? [[49.9,-5.3], ...englishDeparture.slice(1)] : englishDeparture;
+  atlanticVoyage(trip.name, [
+    [trip.departure, trip.origin, trip.startNote],
+    [trip.offshore, [42,-67.8], 'Illustrative offshore approach to Massachusetts Bay.', bends],
+  ], url, credit, null);
+  const nextDay = new Date(Date.parse(trip.offshore) + 86400000).toISOString().slice(0,10);
+  leg(trip.name, [
+    [nextDay, bayApproach, 'Final approach on the illustrated map; offshore positions are estimated.'],
+    [trip.arrival, trip.harbor === 'Boston' ? [30,69] : arrivalPorts[trip.harbor], trip.endNote],
+  ], url, credit, false, null);
+}
+
+const angel = 'White Angel — Saco and Massachusetts Bay';
+atlanticVoyage(angel, [
+  ['1631-05-20', [51.5,-2.72], 'Estimated departure from Bristol carrying provisions and livestock.'],
+  ['1631-07-08', [43.46,-70.36], 'Reported at Saco before entering Massachusetts Bay. Arrival day estimated.', [...englishDeparture,[43,-69.9]]],
+  ['1631-07-29', [42.66,-70.48], 'Illustrative southbound passage from Saco.', [[43.35,-70.32],[42.9,-70.5]]],
+], winthropJournal, 'John Winthrop’s journal', null);
+leg(angel, [
+  ['1631-07-30', [53,110], 'Approaching Massachusetts Bay from the Maine coast.'],
+  ['1631-08-01', [30,69], 'Winthrop recorded twenty-one heifers landed in the bay on July 22 Old Style. Harbor position approximate; Plymouth was an intended recipient of supplies.'],
+], winthropJournal, 'John Winthrop’s journal', false, null);
+
+// These accounts establish the voyages but leave the daily positions unknown.
+const bayHarbor = [30, 69];
+const journalCredit = 'John Winthrop’s journal';
+leg('Myles Standish — recovery of the Nauset corn', [
+  ['1623-01-16', patuxet, 'Standish set out to recover the provisions left on the Swan expedition. Winslow tentatively recalled January. All playback days are estimated.'],
+  ['1623-01-19', nauset, 'The crew found the corn safe in Nauset care.', swanPassage],
+  ['1623-01-23', patuxet, 'Reconstructed return to Plymouth.', [...swanPassage].reverse()],
+], 'https://www.gutenberg.org/ebooks/66332', 'Edward Winslow, Good Newes from New England', false, null);
+
+leg('Charity — livestock and supplies for Plymouth', [
+  ['1624-03-20', [5,179], 'Final approach from England. The arrival is dated to March; daily positions are illustrative. Edward Winslow returned on the Charity after sailing out on the Anne.'],
+  ['1624-03-23', patuxet, 'The Charity brought clothing, three heifers, a bull, a carpenter and a salt maker to Plymouth.', [[7,150],[6,131],[-9,112]]],
+], 'https://archive.org/details/historyoftownofp02thac', 'James Thacher, History of the Town of Plymouth', false, null);
+
+const capeBay = [-19,140];
+leg('Massachusetts Bay pinnace — Cape Cod corn trade', [
+  ['1630-09-12', bayHarbor, 'Approximate Massachusetts Bay departure. Winthrop described this voyage retrospectively. The ports and September days are illustrative.'],
+  ['1630-09-15', capeBay, 'The company sent a pinnace to trade for corn around Cape Cod. The account leaves the landing place unspecified.', [[23,91],[3,125]]],
+  ['1630-09-18', bayHarbor, 'The pinnace returned with more than eighty bushels of corn.', [[3,125],[23,91]]],
+], winthropJournal, journalCredit, false, null);
+
+leg('Salem pinnace — interrupted Cape Cod supply run', [
+  ['1631-09-12', arrivalPorts.Salem, 'The pinnace sailed from Salem intending to trade for corn around Cape Cod. Playback days are estimated.'],
+  ['1631-09-15', patuxet, 'Contrary winds drove the crew into Plymouth. Colonial officials threatened force if the crew continued trading.', [[34,94],[7,102],[-9,111]]],
+  ['1631-09-18', arrivalPorts.Salem, 'The crew returned and reported the dispute. The intended Cape Cod stop was never reached.', [[-9,111],[7,102],[34,94]]],
+], winthropJournal, journalCredit, false, null);
+
+leg('Unnamed Dutch ship — Virginia corn delivery', [
+  ['1632-04-23', [-42,179], 'Illustrative approach from Virginia. Winthrop records the spring delivery without naming the ship, date or unloading place.'],
+  ['1632-04-29', bayHarbor, 'Two thousand bushels of Virginia corn arrived and sold for four shillings and sixpence per bushel. Marker represents Massachusetts Bay.', [[-20,164],[7,150],[19,105]]],
+], winthropJournal, journalCredit, false, null);
+
+const rebeckaTrack = [[23,95],[8,147],[-26,164],[-48,161],[-67,151],[-68,100],[-64,60],[-58,44]];
+leg('Rebecka — Narragansett corn voyage', [
+  ['1634-10-20', bayHarbor, 'Reconstructed departure for Narragansett Bay. Exact sailing days, anchorages and track are estimated.'],
+  ['1634-10-27', [-52,42], 'Narragansett people supplied five hundred bushels of corn for John Oldham.', rebeckaTrack],
+  ['1634-11-03', bayHarbor, 'The Rebecka returned with the corn. Winthrop relates Peirce’s observations of the shoals between Cape Cod and Nantucket on both passages.', [...rebeckaTrack].reverse()],
+], winthropJournal, journalCredit, false, null);
+
 expeditions.sort((a, b) => a.date.localeCompare(b.date));
 for (const entry of expeditions) picker.add(new Option(entry.date.slice(0, 4) + ' Ãƒâ€šÃ‚Â· ' + entry.name, entry.date));
 picker.addEventListener('change', () => {
