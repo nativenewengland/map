@@ -1096,7 +1096,11 @@ var markerClipboardType = null;
 var territoriesLayer = L.featureGroup();
 var territoryMarkersLayer = L.layerGroup();
 var Settlements = L.layerGroup();
-var territoriesOverlay = L.layerGroup([territoriesLayer, territoryMarkersLayer]);
+var unresolvedTerritory = L.imageOverlay('hydro/territory-gaps.png', artworkBounds, {
+  interactive: false,
+  alt: 'Diagonal hatching indicates land whose territorial affiliation is unresolved on this map.',
+});
+var territoriesOverlay = L.layerGroup([unresolvedTerritory, territoriesLayer, territoryMarkersLayer]);
 // Text labels use a bold sans-serif stack; mirror it when measuring glyph widths.
 var TEXT_LABEL_FONT_FAMILY = "Roboto, 'Open Sans', 'Helvetica Neue', Arial, sans-serif";
 var textMeasurementContext = null;
@@ -1122,7 +1126,7 @@ var glastonburyOverlay = L.imageOverlay(
 
 var overlays = {
   Settlements: Settlements,
-  Territories: territoriesOverlay,
+  'Territories <small>(hatched land = unresolved)</small>': territoriesOverlay,
   'Glastonbury (1600)': glastonburyOverlay,
 };
 
