@@ -90,7 +90,7 @@ function leg(name, stops, url = narratives, credit = source, north = false, outw
     'George Waymouth': [[-69.27, 43.75], [-69.0, 43.6]],
     'George Popham and Ralegh Gilbert': [[-69.77, 43.72], [-69.70, 43.66], [-69.48, 43.60]],
     'Henry Hudson': [[-69.05, 43.57], [-69.15, 43.35]],
-    'Samuel Argall': [[-69.12, 43.55], [-69.30, 43.35]],
+
     'De Mons and Champlain': [[-70.52, 42.65], [-70.48, 42.50]],
     'John Smith': [[-70.52, 42.65], [-70.48, 42.50]],
     'Tisquantum and Thomas Dermer': [[-70.52, 42.65], [-70.48, 42.50]],
@@ -116,7 +116,7 @@ function leg(name, stops, url = narratives, credit = source, north = false, outw
       map.setView(positions[0], 3);
     }
     return map;
-  }), north ? exit.map(regionalPoint) : exit, traveler);
+  }), north && exit ? exit.map(regionalPoint) : exit, traveler);
   if (!expeditions.some(entry => entry.name === name)) {
     expeditions.push({ name, date: stops[0][0], point: north || geographicView ? null : positions[0] });
   }
@@ -203,8 +203,13 @@ leg('Samuel Argall', [
   ['1610-08-06', gulf, 'Summer fishing voyage from Virginia. Dates shown approximate the regional visit.'],
   ['1610-08-11', [-69.02, 43.75], 'Approach to the coastal fishing grounds.'],
   ['1610-08-16', penobscotMouth, 'Penobscot Bay vicinity in the published account of ArgallÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢s voyage.'],
-  ['1610-08-22', [-69.05, 43.72], 'Offshore fishing grounds.'],
-], narratives, source, true);
+  ['1610-08-22', [-69.05, 43.72], 'As the catch declines off Maine, Argall decides to return to Virginia. The fishing position is approximate.'],
+  ['1610-09-06', [-75.08, 38.84], 'Argall anchors in Delaware Bay on August 27 Old Style. The offshore track and anchorage position are approximate.',
+    [[-69.6,42.25],[-69.65,41.05],[-70.35,40.8],[-72,40.55],[-73.8,40.25],[-74.2,39.35],[-74.82,38.72]]],
+  ['1610-09-10', [-75.98, 37.12], 'Argall reaches Cape Charles, Virginia, on August 31 Old Style.',
+    [[-74.88,38.74],[-74.95,38.5],[-75.2,37.95],[-75.62,37.38],[-75.94,37.08]]],
+], 'https://upload.wikimedia.org/wikipedia/commons/6/6d/History_of_the_Virginia_Company_of_London-_With_Letters_to_and_from_the_First_Colony%2C_Never_..._%28IA_historyvirginia01neilgoog%29.pdf',
+  'Edward D. Neill, History of the Virginia Company of London', 'Maine to Virginia', null);
 
 leg('John Smith', [
   ['1614-04-25', [-69.28, 43.63], 'Spring approach to Monhegan. Dates illustrate the survey season.'],
@@ -351,7 +356,7 @@ atlanticVoyage('San Juan Ã‚Â· Basque whaling voyage', [
   ['1565-06-07', [51.72, -56.40], 'Approaching the Basque whaling station through the Strait of Belle Isle.'],
   ['1565-06-09', [51.726, -56.427], 'Red Bay. The crew prepared whale oil for shipment to Europe.'],
   ['1565-10-31', [51.726, -56.427], 'The loaded San Juan sank in Red Bay in 1565. This date marks the end of the animation; the exact day is uncertain.'],
-], 'https://shipwrecksnl.ca/spsnl-shipwreck-timeline/', 'Shipwreck Preservation Society of Newfoundland and Labrador', null);
+], 'https://shipwrecksnl.ca/spsnl-shipwreck-timeline/', 'Shipwreck Preservation Society of Newfoundland and Labrador', false);
 
 atlanticVoyage('Bonaventure Ã‚Â· Breton walrus fishery', [
   ['1591-05-04', [47.17, -59.53], 'Breton vessels approached the Magdalen Islands. Daily positions and timing are illustrative.'],
@@ -394,7 +399,7 @@ addTimelineVoyage(frenchWreck, [{
   until: '1616-12-31',
   path: [outerCape],
   note: 'Shown throughout 1616 because the wreck date is approximate. In 1619 Thomas Dermer reported meeting two French survivors of a wreck off northeastern Cape Cod about three years earlier. The ship’s name is unknown.',
-}], 'https://www.cyberlibrary.org/en/books/sailors-narratives-of-voyages-along-the-new-england-coast-1524-4dc6ec98/chapters/14/', 'Thomas Dermer’s 1619 letter', () => map, null);
+}], 'https://www.cyberlibrary.org/en/books/sailors-narratives-of-voyages-along-the-new-england-coast-1524-4dc6ec98/chapters/14/', 'Thomas Dermer’s 1619 letter', () => map, false);
 expeditions.push({ name: frenchWreck, date: '1616-01-01', point: outerCape });
 
 const frenchSurvivors = 'French shipwreck survivors (1619)';
@@ -449,7 +454,7 @@ for (const wreck of shipwrecks) {
   for (const point of points) {
     const name = wreck.alternative ? wreck.name + (point === wreck.point ? ' · Sable Island hypothesis' : ' · Gabarus Bay hypothesis') : wreck.name;
     addTimelineVoyage(name, [{ date: wreck.date, until: wreck.until, path: [point], note: wreck.note }],
-      wreck.source, 'Historical account', harborView, null);
+      wreck.source, 'Historical account', harborView, false);
   }
   expeditions.push({ name: wreck.name, date: wreck.date, point: wreck.main ? wreck.point : null });
 }

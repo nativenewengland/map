@@ -972,25 +972,37 @@ function addTimelineVoyage(name, days, source, sourceName, target = () => map, d
     const zoom = view.getZoom();
     const start = view.project(ship.getLatLng(), zoom);
     const points = [start];
-    for (const waypoint of departure) {
+    for (const waypoint of departure || []) {
       const next = view.project(waypoint, zoom);
       if (!next.equals(points[points.length - 1])) points.push(next);
     }
     const last = points[points.length - 1];
-    const heading = points.length > 1 ? last.subtract(points[points.length - 2]) : L.point(1, 0);
+    let heading = points.length > 1 ? last.subtract(points[points.length - 2]) : L.point(1, 0);
+    if (points.length === 1) {
+      // Continue the last moving segment, even after several days at anchor.
+      const end = view.project(lastDay.path[lastDay.path.length - 1], zoom);
+      for (let i = days.length - 1; i >= 0; i--) {
+        const earlier = days[i].path.slice().reverse().find(point => !view.project(point, zoom).equals(end));
+        if (earlier) {
+          heading = end.subtract(view.project(earlier, zoom));
+          break;
+        }
+      }
+    }
     const unit = heading.divideBy(heading.distanceTo(L.point(0, 0)) || 1);
     const bounds = view.getPixelBounds();
     // Even at minimum zoom, carry the entire icon beyond the current viewport.
     const reach = last.distanceTo(bounds.getCenter()) + bounds.getSize().distanceTo(L.point(0, 0)) + 48;
     points.push(last.add(unit.multiplyBy(reach)));
     const started = performance.now();
-    const duration = Math.max(400, dayInterval() * 2);
+    const duration = Math.max(850, dayInterval() * 2);
     function move(now) {
       const progress = Math.min(1, (now - started) / duration) * (points.length - 1);
       const i = Math.min(points.length - 2, Math.floor(progress));
       const position = points[i].add(points[i + 1].subtract(points[i]).multiplyBy(progress - i));
       ship.setLatLng(view.unproject(position, zoom));
       if (progress < points.length - 1) approachFrame = requestAnimationFrame(move);
+      else if (view.getBounds().pad(0.2).contains(ship.getLatLng())) sailOffscreen();
       else ship.remove();
     }
     approachFrame = requestAnimationFrame(move);
@@ -1003,7 +1015,7 @@ function addTimelineVoyage(name, days, source, sourceName, target = () => map, d
     const previous = approachIndex;
     approachIndex = index;
     if (index === -1) {
-      if (traveler !== PersonIcon && departure !== null && previous === days.length - 1 && Date.parse(date) === after) sailOffscreen();
+      if (traveler !== PersonIcon && departure !== false && Date.parse(date) >= after) sailOffscreen();
       else ship.remove();
       return;
     }
@@ -1094,6 +1106,9 @@ var iconMap = {
   forts: FortsIcon,
   chambers: ChambersIcon,
   person: PersonIcon,
+  razed: L.icon({ iconUrl: 'icons/razed.svg', iconSize: [26, 26], iconAnchor: [13, 13], popupAnchor: [0, -13] }),
+  skull: L.icon({ iconUrl: 'icons/skull.svg', iconSize: [26, 26], iconAnchor: [13, 13], popupAnchor: [0, -13] }),
+  battle: L.icon({ iconUrl: 'icons/battle.svg', iconSize: [26, 26], iconAnchor: [13, 13], popupAnchor: [0, -13] }),
   ship: ShipIcon,
   seamonster: SeaMonsterIcon,
   camps: CampsIcon,
@@ -1110,6 +1125,7 @@ var markerClipboardData = null;
 var markerClipboardType = null;
 var territoriesLayer = L.featureGroup();
 var territoryMarkersLayer = L.layerGroup();
+var battles = L.layerGroup().addTo(map);
 var Settlements = L.layerGroup();
 var territoriesOverlay = L.layerGroup([territoriesLayer, territoryMarkersLayer]);
 // Text labels use a bold sans-serif stack; mirror it when measuring glyph widths.
@@ -1136,6 +1152,7 @@ var glastonburyOverlay = L.imageOverlay(
 );
 
 var overlays = {
+  Battles: battles,
   Settlements: Settlements,
   'Political territories (c. 1600)': territoriesOverlay,
   'Glastonbury (1600)': glastonburyOverlay,
@@ -3094,4 +3111,29 @@ for (const site of colonialSites) {
   };
   document.addEventListener('mapdatechange', event => update(event.detail));
   update(document.getElementById('map-date').value);
+}
+
+const pequotWarTimeline = 'https://pequotwar.org/about/timeline/';
+const pequotWarEvents = [
+  // Gregorian first and last days, followed by approximate positions on the main artwork.
+  ['1636-09-04', '1636-09-05', [-67,22], 'Block Island invasion', 'John Endicott led a Massachusetts Bay expedition against the Manisean people on Block Island.'],
+  ['1636-09-08', '1636-09-08', [-60.24,-15.337], 'Attack on Pequot River villages', 'After negotiations broke down, English troops destroyed Pequot villages on both banks of the present-day Thames River.', pequotWarTimeline, 'razed'],
+  ['1637-03-04', '1637-03-04', [-62,-37], 'Saybrook Neck ambush', 'Pequot fighters ambushed Lion Gardiner and his party outside Saybrook Fort. The survivors retreated to the fort.'],
+  ['1637-05-03', '1637-05-03', [-31,-50], 'Raid on Wethersfield', 'Pequot warriors attacked English settlers along the Connecticut River and took two girls captive.'],
+  ['1637-06-05', '1637-06-05', [-59.9,-5.82], 'Massacre at Mistick Fort', 'English troops attacked the fortified Pequot village and set it ablaze. Hundreds of Pequot people died, including children. Mohegan, Narragansett and Connecticut River warriors accompanied the expedition.', pequotWarTimeline, 'skull'],
+  ['1637-06-05', '1637-06-05', [-60,-10], 'Pequot counterattack near Mistick', 'Pequot warriors attacked the withdrawing English and their allies as they marched west toward Pequot Harbor.', 'https://pequotwar.org/archaeology/battle-of-mystic-fort-core-area/'],
+  ['1637-07-23', '1637-07-24', [-64,-109], 'Battle of Munnacommock Swamp', 'English-led forces surrounded Pequot refugees near a Sasqua village in present-day Fairfield. On the second morning a diversion allowed many Pequot warriors to escape.'],
+];
+for (const [start, end, point, title, detail, source = pequotWarTimeline, icon = 'battle'] of pequotWarEvents) {
+  const marker = L.marker(point, { icon: iconMap[icon], title, alt: title })
+    .bindPopup('<strong>' + title + '</strong><br>Pequot War · ' + start +
+      (end === start ? '' : ' through ' + end) + ' (Gregorian)<p>' + detail +
+      '</p>Approximate location. <a href="' + source + '">Battlefields of the Pequot War</a>');
+  registerTimelineNews(start, title + ' — ' + detail, source);
+  const updateBattle = date => {
+    if (start <= date && date <= end) battles.addLayer(marker);
+    else battles.removeLayer(marker);
+  };
+  document.addEventListener('mapdatechange', event => updateBattle(event.detail));
+  updateBattle(document.getElementById('map-date').value);
 }

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <circle cx="16" cy="16" r="15" fill="#84382f" stroke="white" stroke-width="2"/>
+  <g fill="#fff6df">
+    <path id="blade" d="M6 5l5 2 11 13 2-2 2 2-3 3 3 3-2 2-3-4-3 2-2-2 3-2L8 10z"/>
+    <use href="#blade" transform="translate(32) scale(-1 1)"/>
+  </g>
+</svg>
