@@ -1171,7 +1171,6 @@ var additionalOverlayNames = [
   'Rivers',
   'Bodies of Water',
   'Planting Grounds',
-  'Homelands and shared-use areas',
   'Fishing Weirs',
   'Mines/Quarries',
   'Geographical Locations',
@@ -1182,8 +1181,7 @@ var additionalOverlayNames = [
 ];
 
 additionalOverlayNames.forEach(function (name) {
-  var layer = L.layerGroup();
-  if (name !== 'Homelands and shared-use areas') layer.addTo(map);
+  var layer = L.layerGroup().addTo(map);
   overlayTargetGroups[name] = layer;
   overlays[name] = layer;
 });
