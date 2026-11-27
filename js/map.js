@@ -941,7 +941,7 @@ const mayflowerApproach = [
   { date: '1620-11-18', path: [[-2, 168]], note: 'Illustrative offshore approach.' },
   { date: '1620-11-19', path: [[-5, 153], [-16, 156], [-25, 159]], note: 'Cape Cod sighted. The ship sailed south, encountered shoals, and turned back.' },
   { date: '1620-11-20', path: [[-15, 155], [-6, 150], [2, 145]], note: 'Approximate return course toward the tip of Cape Cod.' },
-  { date: '1620-11-21', until: '1620-12-24', path: [[3, 138], [2.8, 132], [1, 130], [-3, 131], [-5.7, 134], [-5.7, 136.4], [-2.4, 136.2]], note: 'At anchor in Provincetown Harbor while scouting parties explored by shallop.' },
+  { date: '1620-11-21', until: '1620-12-24', path: [[3, 138], [2.8, 132], [1, 130], [-3, 131], [-5.7, 134], [-5.7, 136.4], [-2.4, 136.2]], note: 'After rounding Race Point, the Mayflower anchored in Provincetown Harbor. Scouting parties explored by shallop.' },
   { date: '1620-12-25', path: [[-5.7, 136.4], [-6, 130], [-9, 113], [-6, 130], [-5.7, 136.4], [-2.4, 136.2]], note: 'First crossing attempt. Contrary winds forced the ship back toward Cape Cod.' },
   { date: '1620-12-26', until: '1621-04-14', path: [[-5.7, 136.4], [-6, 130], [-9, 113], [-10.5, 103.8]], note: 'At anchor off Patuxet in Plymouth Harbor, where the ship spent the winter.' },
   { date: '1621-04-15', path: [[-9, 113], [2.5, 127], [4, 142], [2, 152], [-3, 179]], note: 'Sailed from Plymouth for England and cleared Cape Cod.' },
@@ -951,6 +951,33 @@ const champlainApproach = [
   { date: '1606-10-03', path: [[-31, 158], [-35, 157], [-38.15, 154]], note: 'Approaching Monomoit. Wampanoag guides helped the crew find shelter after its rudder was damaged.' },
   { date: '1606-10-04', until: '1606-10-20', path: [[-38.15, 151], [-37.1, 149.6], [-36.6, 149]], note: 'Stage Harbor (Port Fortuné), in Monomoyick territory. This marker represents the harbor stay.' },
 ];
+
+function waterPassage(points, region) {
+  if (!region) return false;
+  const main = region === 'main';
+  const width = main ? 1024 : 749;
+  const height = main ? 1024 : 922;
+  const grid = voyageWater[region];
+  function cell(point) {
+    if (!main) return [point[1] * width / 2994, (3688 - point[0]) / 4];
+    const pixel = map.project(point, 5);
+    return [pixel.x / 8, pixel.y / 8];
+  }
+  let last = cell(points[0]);
+  for (const point of points) {
+    const end = cell(point);
+    const steps = Math.max(1, Math.ceil(2 * Math.hypot(end[0]-last[0], end[1]-last[1])));
+    for (let i = 0; i <= steps; i++) {
+      const x = Math.floor(last[0] + (end[0]-last[0])*i/steps);
+      const y = Math.floor(last[1] + (end[1]-last[1])*i/steps);
+      if (x < 0 || x >= width || y < 0 || y >= height) continue;
+      const index = y * width + x;
+      if (!(grid.charCodeAt(index >> 3) & (1 << (index & 7)))) return false;
+    }
+    last = end;
+  }
+  return true;
+}
 
 function addTimelineVoyage(name, days, source, sourceName, target = () => map, departure = [], traveler = ShipIcon) {
   for (const day of days) {
@@ -994,6 +1021,15 @@ function addTimelineVoyage(name, days, source, sourceName, target = () => map, d
     // Even at minimum zoom, carry the entire icon beyond the current viewport.
     const reach = last.distanceTo(bounds.getCenter()) + bounds.getSize().distanceTo(L.point(0, 0)) + 48;
     points.push(last.add(unit.multiplyBy(reach)));
+    // Check the whole exit, including the extension beyond its last waypoint.
+    const region = view === map ? 'main' : view.options.crs === L.CRS.Simple ? 'regional' : null;
+    if (!waterPassage(points.map(p => {
+      const ll = view.unproject(p, zoom);
+      return [ll.lat, ll.lng];
+    }), region)) {
+      ship.remove();
+      return;
+    }
     const started = performance.now();
     const duration = Math.max(850, dayInterval() * 2);
     function move(now) {
@@ -1044,6 +1080,11 @@ function addTimelineVoyage(name, days, source, sourceName, target = () => map, d
     const points = [days[forward ? previous : index].path.slice(-1)[0],
       ...days[forward ? index : previous].path];
     if (!forward) points.reverse();
+    const region = view === map ? 'main' : view.options.crs === L.CRS.Simple ? 'regional' : null;
+    if (traveler !== PersonIcon && (day.stopOnly || (region && !waterPassage(points, region)))) {
+      ship.setLatLng(destination);
+      return;
+    }
     const start = performance.now();
     const duration = Math.min(430, dayInterval() * 0.86);
     function move(now) {

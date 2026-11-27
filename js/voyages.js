@@ -59,6 +59,11 @@ function leg(name, stops, url = narratives, credit = source, north = false, outw
     const time = Date.parse(date);
     const prior = i ? Date.parse(stops[i - 1][0]) : time;
     const count = Math.round((time - prior) / 86400000);
+    const legPoints = [positions[Math.max(0, i - 1)],
+      ...(stops[i][3] || []).map(point => north ? regionalPoint(point) : point), positions[i]];
+    const stopOnly = traveler !== PersonIcon && (geographicView
+      ? !stops[i][3] || !waterPassage(legPoints.map(([lat, lon]) => regionalPoint([lon, lat])), 'regional')
+      : !waterPassage(legPoints, north ? 'regional' : 'main'));
     for (let step = i ? 1 : 0; step <= count; step++) {
       const fraction = count ? step / count : 1;
       const previous = positions[Math.max(0, i - 1)];
@@ -77,7 +82,8 @@ function leg(name, stops, url = narratives, credit = source, north = false, outw
         path = bends.filter((_, k) => k / (bends.length - 1) > start && k / (bends.length - 1) < fraction);
         path.push(sample(fraction));
       }
-      days.push({ date: day, path, headline: step === count ? note : false,
+      if (stopOnly) path = [step === count ? positions[i] : previous];
+      days.push({ date: day, path, stopOnly, headline: step === count ? note : false,
         shipCount: fleetSize(name, day), note: (step === count ? note : stops[i - 1][2]) +
         (traveler === PersonIcon ? ' The path and daily dates illustrate the claim; intermediate locations are unverified.' : ' The playback dates between documented stops and the sailing track are illustrative.') });
     }
