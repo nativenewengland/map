@@ -1188,7 +1188,7 @@ var glastonburyOverlay = L.imageOverlay(
 var overlays = {
   Battles: battles,
   Settlements: Settlements,
-  'Political territories (c. 1600)': territoriesOverlay,
+  'Political territories (timeline)': territoriesOverlay,
   'Glastonbury (1600)': glastonburyOverlay,
 };
 
