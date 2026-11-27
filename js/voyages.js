@@ -23,9 +23,7 @@ function leg(name, stops, url = narratives, credit = source, north = false, outw
   const project = point => {
     if (!north && !geographicView) return map.project(point, 5);
     const [lon, lat] = north ? point : [point[1], point[0]];
-    // Approximate registration using the Boston, New Amsterdam and Plymouth markers.
-    return L.point(5630.6347 + (1914.4308)*(lon+71.0589) + (-168.4229)*(lat-42.3601),
-      3421.0101 + (59.2109)*(lon+71.0589) + (-2223.3137)*(lat-42.3601));
+    return geographicArtworkPixel(lon, lat);
   };
   let run = [];
   function flush() {

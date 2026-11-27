@@ -3159,10 +3159,13 @@ const pequotWarEvents = [
   ['1637-07-23', '1637-07-24', [-64,-109], 'Battle of Munnacommock Swamp', 'English-led forces surrounded Pequot refugees near a Sasqua village in present-day Fairfield. On the second morning a diversion allowed many Pequot warriors to escape.'],
 ];
 for (const [start, end, point, title, detail, source = pequotWarTimeline, icon = 'battle'] of pequotWarEvents) {
+  addWarEvent('Pequot War', start, end, point, title, detail, source, icon);
+}
+function addWarEvent(war, start, end, point, title, detail, source, icon = 'battle') {
   const marker = L.marker(point, { icon: iconMap[icon], title, alt: title })
-    .bindPopup('<strong>' + title + '</strong><br>Pequot War · ' + start +
+    .bindPopup('<strong>' + title + '</strong><br>' + war + ' · ' + start +
       (end === start ? '' : ' through ' + end) + ' (Gregorian)<p>' + detail +
-      '</p>Approximate location. <a href="' + source + '">Battlefields of the Pequot War</a>');
+      '</p>Approximate location. <a href="' + source + '">Historical source</a>');
   registerTimelineNews(start, title + ' — ' + detail, source);
   const endTime = Date.parse(end);
   const fadeDays = 31;
@@ -3177,4 +3180,10 @@ for (const [start, end, point, title, detail, source = pequotWarTimeline, icon =
   };
   document.addEventListener('mapdatechange', event => updateBattle(event.detail));
   updateBattle(document.getElementById('map-date').value);
+}
+
+function geographicArtworkPixel(lon, lat) {
+  // Approximate registration using the Boston, New Amsterdam and Plymouth markers.
+  return L.point(5630.6347 + (1914.4308)*(lon+71.0589) + (-168.4229)*(lat-42.3601),
+    3421.0101 + (59.2109)*(lon+71.0589) + (-2223.3137)*(lat-42.3601));
 }
