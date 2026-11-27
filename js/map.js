@@ -994,18 +994,19 @@ function addTimelineVoyage(name, days, source, sourceName, target = () => map, d
   const lastDay = days[days.length - 1];
   const after = Date.parse(lastDay.until || lastDay.date) + 86400000;
 
-  function sailOffscreen() {
+  function sailOffscreen(continuationHeading) {
     ship.closePopup();
     const zoom = view.getZoom();
     const start = view.project(ship.getLatLng(), zoom);
     const points = [start];
-    for (const waypoint of departure || []) {
+    for (const waypoint of continuationHeading ? [] : departure || []) {
       const next = view.project(waypoint, zoom);
       if (!next.equals(points[points.length - 1])) points.push(next);
     }
     const last = points[points.length - 1];
     let heading = points.length > 1 ? last.subtract(points[points.length - 2]) : L.point(1, 0);
-    if (points.length === 1) {
+    if (continuationHeading) heading = continuationHeading;
+    else if (points.length === 1) {
       // Continue the last moving segment, even after several days at anchor.
       const end = view.project(lastDay.path[lastDay.path.length - 1], zoom);
       for (let i = days.length - 1; i >= 0; i--) {
@@ -1033,12 +1034,12 @@ function addTimelineVoyage(name, days, source, sourceName, target = () => map, d
     const started = performance.now();
     const duration = Math.max(850, dayInterval() * 2);
     function move(now) {
-      const progress = Math.min(1, (now - started) / duration) * (points.length - 1);
+      const progress = Math.min(1, Math.max(0, now - started) / duration) * (points.length - 1);
       const i = Math.min(points.length - 2, Math.floor(progress));
       const position = points[i].add(points[i + 1].subtract(points[i]).multiplyBy(progress - i));
       ship.setLatLng(view.unproject(position, zoom));
       if (progress < points.length - 1) approachFrame = requestAnimationFrame(move);
-      else if (view.getBounds().pad(0.2).contains(ship.getLatLng())) sailOffscreen();
+      else if (view.getPixelBounds().contains(view.project(ship.getLatLng(), view.getZoom()))) sailOffscreen(unit);
       else ship.remove();
     }
     approachFrame = requestAnimationFrame(move);
@@ -1046,7 +1047,13 @@ function addTimelineVoyage(name, days, source, sourceName, target = () => map, d
 
   function update(date) {
     const index = days.findIndex(day => date >= day.date && date <= (day.until || day.date));
-    if (index === -1 && approachIndex === -1) return;
+    if (index === approachIndex) {
+      if (index === -1 && date < days[0].date && view?.hasLayer(ship)) {
+        cancelAnimationFrame(approachFrame);
+        ship.remove();
+      }
+      return;
+    }
     cancelAnimationFrame(approachFrame);
     const previous = approachIndex;
     approachIndex = index;
@@ -1071,7 +1078,7 @@ function addTimelineVoyage(name, days, source, sourceName, target = () => map, d
     const destination = day.path[day.path.length - 1];
     ship.bindPopup('<strong>' + name + '</strong><br>' + date + ' (Gregorian). ' + day.note +
       ' Route and positions are approximate. <a href="' + source + '">' + sourceName + '</a>');
-    if (index === previous || previous < 0 || Math.abs(previous - index) !== 1 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (previous < 0 || Math.abs(previous - index) !== 1 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       view = target();
       ship.setLatLng(destination).addTo(view);
       return;
@@ -1088,7 +1095,7 @@ function addTimelineVoyage(name, days, source, sourceName, target = () => map, d
     const start = performance.now();
     const duration = Math.min(430, dayInterval() * 0.86);
     function move(now) {
-      const progress = Math.min(1, (now - start) / duration) * (points.length - 1);
+      const progress = Math.min(1, Math.max(0, now - start) / duration) * (points.length - 1);
       const i = Math.min(points.length - 2, Math.floor(progress));
       const fraction = progress - i;
       ship.setLatLng(points[i].map((v, axis) => v + (points[i + 1][axis] - v) * fraction));
@@ -1102,20 +1109,6 @@ function addTimelineVoyage(name, days, source, sourceName, target = () => map, d
 
 addTimelineVoyage('Mayflower', mayflowerApproach,
   'https://www.gutenberg.org/cache/epub/4106/pg4106.html', 'The Mayflower and Her Log');
-// The Atlantic crossing continues beyond the illustrated New England coast.
-const crossingStatus = document.createElement('output');
-crossingStatus.className = 'voyage-crossing';
-document.getElementById('map-timeline').append(crossingStatus);
-function updateCrossing(date) {
-  crossingStatus.hidden = date < '1621-04-16' || date > '1621-05-16';
-  if (crossingStatus.hidden) return;
-  const elapsed = (Date.parse(date) - Date.UTC(1621, 3, 15)) / 86400000;
-  crossingStatus.textContent = elapsed === 31 ? 'Mayflower arrived in England' :
-    'Mayflower at sea for England · Day ' + elapsed + ' of 31';
-}
-document.addEventListener('mapdatechange', event => updateCrossing(event.detail));
-updateCrossing(document.getElementById('map-date').value);
-
 addTimelineVoyage('Poutrincourt and Champlain', champlainApproach,
   'https://www.etourchatham.org/champlain.html', 'Chatham Historical Society', () => map, [[-38.15, 151], [-38.15, 155], [-32, 159], [-20, 159], [3, 150], [20, 150]]);
 

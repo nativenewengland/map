@@ -1,46 +1,8 @@
-import { polityPoint } from '../1/polities.js';
-
-// Northern voyages extend beyond the illustrated main sheet. Use the registered
-// regional terrain there, with the same date control and ship animation.
-let regional;
-let inset;
 let selectedVoyage;
-function regionalMap(region) {
-  if (!regional) {
-    inset = document.createElement('aside');
-    inset.id = 'voyage-region';
-    inset.setAttribute('aria-label', 'Regional voyage map');
-    const caption = document.createElement('div');
-    caption.textContent = 'Gulf of Maine Ãƒâ€šÃ‚Â· Terrain by Xlicer';
-    const canvas = document.createElement('div');
-    inset.append(caption, canvas);
-    document.body.append(inset);
-    regional = L.map(canvas, { crs: L.CRS.Simple, zoomControl: false,
-      attributionControl: false, zoomSnap: 0, minZoom: -4, maxZoom: 2 });
-    L.imageOverlay('1/terrain.png', [[0, 0], [3688, 2994]]).addTo(regional);
-    regional.on('layerremove', event => {
-      if (event.layer instanceof L.Marker) {
-        let active = false;
-        regional.eachLayer(layer => { if (layer instanceof L.Marker) active = true; });
-        inset.hidden = !active;
-      }
-    });
-  }
-  inset.firstElementChild.textContent = region + ' Ã‚Â· Terrain by Xlicer';
-  inset.hidden = false;
-  regional.invalidateSize();
-  return regional;
-}
-
 const narratives = 'https://www.gutenberg.org/cache/epub/67623/pg67623-images.html';
 const source = 'Voyage accounts, ed. George Parker Winship';
 const expeditions = [];
 const picker = document.querySelector('#voyage-picker');
-function regionalPoint(location) {
-  const [x, y] = polityPoint(location);
-  return [3688 - y, x];
-}
-
 // Each stop has a Gregorian playback date, position and interpretation.
 // Interpolate between consecutive stops; repeated positions represent a stay.
 function fleetSize(name, day) {
@@ -52,18 +14,72 @@ function fleetSize(name, day) {
   return 1;
 }
 function leg(name, stops, url = narratives, credit = source, north = false, outward, geographicView, traveler = ShipIcon) {
+  const points = stops.flatMap(stop => [stop[1], ...(stop[3] || [])]);
+  if (!north && !geographicView && points.every(point => artworkBounds.contains(point))) {
+    registerMainLeg(name, stops, url, credit, outward, traveler);
+    return;
+  }
+  // Work in the artwork's projected plane so a crossing can have both endpoints outside.
+  const project = point => {
+    if (!north && !geographicView) return map.project(point, 5);
+    const [lon, lat] = north ? point : [point[1], point[0]];
+    // Approximate registration using the Boston, New Amsterdam and Plymouth markers.
+    return L.point(5630.6347 + (1914.4308)*(lon+71.0589) + (-168.4229)*(lat-42.3601),
+      3421.0101 + (59.2109)*(lon+71.0589) + (-2223.3137)*(lat-42.3601));
+  };
+  let run = [];
+  function flush() {
+    if (run.length) registerMainLeg(name, run, url, credit, false, traveler);
+    run = [];
+  }
+  function append(time, pixel, note) {
+    const date = new Date(Math.round(time/86400000)*86400000).toISOString().slice(0,10);
+    const ll = map.unproject(pixel, 5);
+    const point = [ll.lat, ll.lng];
+    if (run.length && run.at(-1)[0] === date) {
+      const last = run.at(-1);
+      if (run.length > 1) (last[3] ||= []).push(last[1]);
+      last[1] = point;
+      last[2] = note;
+    } else run.push([date, point, note]);
+  }
+  for (let i = 1; i < stops.length; i++) {
+    const [date, end, note, bends = []] = stops[i];
+    const vertices = [stops[i-1][1], ...bends, end].map(project);
+    const startTime = Date.parse(stops[i-1][0]);
+    const duration = (Date.parse(date)-startTime)/(vertices.length-1);
+    for (let k = 1; k < vertices.length; k++) {
+      const a = vertices[k-1], delta = vertices[k].subtract(a);
+      let enter = 0, leave = 1;
+      for (const axis of ['x','y']) {
+        if (!delta[axis]) {
+          if (a[axis] < 0 || a[axis] > 8192) leave = -1;
+          continue;
+        }
+        const t0 = -a[axis]/delta[axis], t1 = (8192-a[axis])/delta[axis];
+        enter = Math.max(enter, Math.min(t0,t1));
+        leave = Math.min(leave, Math.max(t0,t1));
+      }
+      if (enter > leave) { flush(); continue; }
+      const edgeNote = 'Approximate passage at the edge of the mapped area.';
+      if (!run.length) append(startTime+(k-1+enter)*duration, a.add(delta.multiplyBy(enter)), enter || k>1 ? edgeNote : stops[i-1][2]);
+      append(startTime+(k-1+leave)*duration, a.add(delta.multiplyBy(leave)), leave===1 && k===vertices.length-1 ? note : edgeNote);
+      if (leave < 1) flush();
+    }
+  }
+  flush();
+}
+function registerMainLeg(name, stops, url, credit, outward, traveler) {
   const days = [];
-  const positions = stops.map(stop => north ? regionalPoint(stop[1]) : stop[1]);
+  const positions = stops.map(stop => stop[1]);
   for (let i = 0; i < stops.length; i++) {
     const [date, , note] = stops[i];
     const time = Date.parse(date);
     const prior = i ? Date.parse(stops[i - 1][0]) : time;
     const count = Math.round((time - prior) / 86400000);
     const legPoints = [positions[Math.max(0, i - 1)],
-      ...(stops[i][3] || []).map(point => north ? regionalPoint(point) : point), positions[i]];
-    const stopOnly = traveler !== PersonIcon && (geographicView
-      ? !stops[i][3] || !waterPassage(legPoints.map(([lat, lon]) => regionalPoint([lon, lat])), 'regional')
-      : !waterPassage(legPoints, north ? 'regional' : 'main'));
+      ...(stops[i][3] || []), positions[i]];
+    const stopOnly = traveler !== PersonIcon && !waterPassage(legPoints, 'main');
     for (let step = i ? 1 : 0; step <= count; step++) {
       const fraction = count ? step / count : 1;
       const previous = positions[Math.max(0, i - 1)];
@@ -72,7 +88,7 @@ function leg(name, stops, url = narratives, credit = source, north = false, outw
       // Round the outer Cape offshore on both eastbound expeditions.
       let path = [point];
       if (stops[i][3] && count > 0) {
-        const bends = [previous, ...(north ? stops[i][3].map(regionalPoint) : stops[i][3]), positions[i]];
+        const bends = [previous, ...stops[i][3], positions[i]];
         const sample = t => {
           const scaled = t * (bends.length - 1);
           const k = Math.min(bends.length - 2, Math.floor(scaled));
@@ -88,19 +104,7 @@ function leg(name, stops, url = narratives, credit = source, north = false, outw
         (traveler === PersonIcon ? ' The path and daily dates illustrate the claim; intermediate locations are unverified.' : ' The playback dates between documented stops and the sailing track are illustrative.') });
     }
   }
-  let bounds;
-  if (north) bounds = L.latLngBounds(positions).pad(0.35);
-  // Short water corridors lead from the final anchorage into open water.
-  // The last segment supplies the heading for the visual exit.
-  const departures = north ? {
-    'George Waymouth': [[-69.27, 43.75], [-69.0, 43.6]],
-    'George Popham and Ralegh Gilbert': [[-69.77, 43.72], [-69.70, 43.66], [-69.48, 43.60]],
-    'Henry Hudson': [[-69.05, 43.57], [-69.15, 43.35]],
-
-    'De Mons and Champlain': [[-70.52, 42.65], [-70.48, 42.50]],
-    'John Smith': [[-70.52, 42.65], [-70.48, 42.50]],
-    'Tisquantum and Thomas Dermer': [[-70.52, 42.65], [-70.48, 42.50]],
-  } : {
+  const departures = {
     'Giovanni da Verrazzano': [[-58, 44], [-64, 50], [-66, 65]],
     'Bartholomew Gosnold': [[-59, 75], [-64, 80], [-67, 115], [-69, 155]],
     'Martin Pring': [[-7, 131], [5, 128], [7, 146], [7, 166]],
@@ -110,21 +114,14 @@ function leg(name, stops, url = narratives, credit = source, north = false, outw
     'Tisquantum and Thomas Dermer': [[-10, 112], [3, 128], [4, 145], [-6, 153], [-30, 160], [-48, 159], [-64, 151], [-70, 113], [-72, 70]],
   };
   const exit = outward === undefined ? departures[name] : outward;
-  addTimelineVoyage(name, days, url, credit, geographicView || (north ? () => {
-    const view = regionalMap(typeof north === 'string' ? north : 'Gulf of Maine');
-    if (view._voyageBounds !== bounds) {
-      view.fitBounds(bounds, { padding: [25, 25], maxZoom: 1, animate: false });
-      view._voyageBounds = bounds;
-    }
-    return view;
-  } : () => {
+  addTimelineVoyage(name, days, url, credit, () => {
     if (selectedVoyage === name && !map.getBounds().contains(positions[0])) {
       map.setView(positions[0], 3);
     }
     return map;
-  }), north && exit ? exit.map(regionalPoint) : exit, traveler);
+  }, exit, traveler);
   if (!expeditions.some(entry => entry.name === name)) {
-    expeditions.push({ name, date: stops[0][0], point: north || geographicView ? null : positions[0] });
+    expeditions.push({ name, date: stops[0][0], point: positions[0] });
   }
 }
 
@@ -305,56 +302,8 @@ leg('Adriaen Block Ã‚Â· Onrust', [
 ], 'https://s-media.nyc.gov/agencies/lpc/arch_reports/1428.pdf', 'New York City archaeological survey', ny,
   [[-72.12, 41.23], [-72.07, 41.24], [-71.92, 41.29]]);
 
-// The claimed endpoints lie outside the main artwork. Show the whole journey
-// on a geographic locator and identify every intermediate position as illustrative.
-let walkingMap;
-let walkingPanel;
-function geographicLocator(label, bounds) {
-  if (!walkingMap) {
-    walkingPanel = document.createElement('aside');
-    walkingPanel.className = 'walking-journey';
-    const caption = document.createElement('div');
-    caption.textContent = label;
-    const canvas = document.createElement('div');
-    walkingPanel.append(caption, canvas);
-    document.body.append(walkingPanel);
-    walkingMap = L.map(canvas, { zoomControl: false, zoomSnap: 0.25 });
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-    }).addTo(walkingMap);
-
-    walkingMap.on('layerremove', event => {
-      if (event.layer instanceof L.Marker) walkingPanel.hidden = true;
-    });
-  }
-  walkingPanel.hidden = false;
-  walkingMap.invalidateSize();
-  if (walkingMap.journeyLabel !== label) {
-    walkingPanel.firstElementChild.textContent = label;
-    walkingMap.fitBounds(bounds, { padding: [14, 14] });
-    walkingMap.journeyLabel = label;
-  }
-  return walkingMap;
-}
-
-leg('David Ingram Ã‚Â· reported overland journey', [
-  ['1568-10-18', [22.25, -97.86], 'October 1568: left on the Gulf of Mexico near present-day Tampico.'],
-  ['1568-11-28', [26.5, -98.4], 'Illustrative overland passage north from the Gulf coast.'],
-  ['1569-01-12', [31.2, -95.0], 'The surviving account does not establish a daily itinerary.'],
-  ['1569-03-18', [33.6, -85.4], 'Illustrative passage across the southeastern interior.'],
-  ['1569-05-25', [37.8, -78.5], 'Illustrative northeastern course.'],
-  ['1569-07-10', [41.1, -74.3], 'Illustrative passage through the Northeast.'],
-  ['1569-08-18', [43.25, -70.85], 'The exact route through New England is unknown.'],
-  ['1569-09-20', [45.28, -66.08], 'Autumn 1569: a French vessel reportedly took the travelers aboard. The Saint John River on the Bay of Fundy is one proposed endpoint.'],
-  ['1569-09-21', [45.28, -66.08], 'End of the reconstructed walk. The travelers reported returning to Europe by ship.'],
-], 'https://www.biographi.ca/en/bio/ingram_david_1E.html', 'Dictionary of Canadian Biography', false, [],
-  () => geographicLocator('David Ingram Ã‚Â· reported journey, illustrative route', [[22.2, -98], [45.3, -66]]), PersonIcon);
-
-// These waters lie beyond the regional terrain sheet. Each view frames the
-// local voyage segment; long Atlantic crossings are described in the popup.
-function atlanticVoyage(name, stops, url, credit, exit) {
-  const bounds = L.latLngBounds(stops.map(stop => stop[1]));
-  leg(name, stops, url, credit, false, exit, () => geographicLocator(name, bounds));
+function atlanticVoyage(name, stops, url, credit) {
+  leg(name, stops, url, credit, false, undefined, true);
 }
 
 atlanticVoyage('San Juan Ã‚Â· Basque whaling voyage', [
@@ -455,12 +404,11 @@ const shipwrecks = [
 ];
 for (const wreck of shipwrecks) {
   const points = wreck.alternative ? [wreck.point, wreck.alternative] : [wreck.point];
-  const harborView = wreck.main ? () => map : () => geographicLocator(wreck.name,
-    wreck.alternative ? L.latLngBounds(points).pad(0.25) : L.latLng(wreck.point).toBounds(50000));
+  if (!wreck.main) continue;
   for (const point of points) {
     const name = wreck.alternative ? wreck.name + (point === wreck.point ? ' · Sable Island hypothesis' : ' · Gabarus Bay hypothesis') : wreck.name;
     addTimelineVoyage(name, [{ date: wreck.date, until: wreck.until, path: [point], note: wreck.note }],
-      wreck.source, 'Historical account', harborView, false);
+      wreck.source, 'Historical account', () => map, false);
   }
   expeditions.push({ name: wreck.name, date: wreck.date, point: wreck.main ? wreck.point : null });
 }
