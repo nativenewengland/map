@@ -43,6 +43,14 @@ function regionalPoint(location) {
 
 // Each stop has a Gregorian playback date, position and interpretation.
 // Interpolate between consecutive stops; repeated positions represent a stay.
+function fleetSize(name, day) {
+  if (name === 'Higginson-Skelton supply fleet') return 6;
+  if (name.startsWith('William Phips - Quebec expedition')) return day <= '1690-10-24' ? 32 : 1;
+  if (name.startsWith('Bonaventure') || name === 'George Popham and Ralegh Gilbert') return 2;
+  if (name.startsWith('Charles Leigh') && day < '1597-06-15') return 2;
+  if (name === 'Martin Pring' && day <= '1603-07-01') return 2;
+  return 1;
+}
 function leg(name, stops, url = narratives, credit = source, north = false, outward, geographicView, traveler = ShipIcon) {
   const days = [];
   const positions = stops.map(stop => north ? regionalPoint(stop[1]) : stop[1]);
@@ -69,7 +77,8 @@ function leg(name, stops, url = narratives, credit = source, north = false, outw
         path = bends.filter((_, k) => k / (bends.length - 1) > start && k / (bends.length - 1) < fraction);
         path.push(sample(fraction));
       }
-      days.push({ date: day, path, note: (step === count ? note : stops[i - 1][2]) +
+      days.push({ date: day, path, headline: step === count ? note : false,
+        shipCount: fleetSize(name, day), note: (step === count ? note : stops[i - 1][2]) +
         (traveler === PersonIcon ? ' The path and daily dates illustrate the claim; intermediate locations are unverified.' : ' The playback dates between documented stops and the sailing track are illustrative.') });
     }
   }
@@ -508,7 +517,7 @@ for (const [vessel, outbound, start, end, estimate] of [
 }
 const stLawrenceApproach = [[42.4,-70.6],[43,-65.8],[43.1,-65.3],[44.8,-59.6],[47.2,-59.4],[49.3,-63.8],[49.3,-67],[48.2,-69.4]];
 atlanticVoyage('William Phips — Quebec expedition (about 32 vessels)', [
-  ['1690-08-19', [42.32,-70.88], 'The fleet sailed from Hull on August 19 or 20. One marker represents the expedition.'],
+  ['1690-08-19', [42.32,-70.88], 'The fleet sailed from Hull on August 19 or 20.'],
   ['1690-10-16', [46.82,-71.19], 'Fleet off Quebec.', stLawrenceApproach],
   ['1690-10-24', [46.82,-71.19], 'Withdrawal from Quebec in late October.'],
   ['1690-11-29', bostonPort, 'Approximate return. The fleet dispersed and individual vessels returned on different dates.', [...stLawrenceApproach].reverse()],
@@ -599,7 +608,7 @@ const englishDeparture = [[50.8,-5.2],[50.15,-6.1],[48,-15],[45,-35],[43,-55],[4
 const bayApproach = [34,178];
 const supplyCrossings = [
   { name: 'Higginson–Skelton supply fleet', departure: '1629-04-25', offshore: '1629-06-25', arrival: '1629-06-28',
-    origin: [50.32,-4.14], harbor: 'Salem', startNote: 'Six vessels brought settlers, livestock, tools and food. One marker represents the convoy. April and June days are illustrative.',
+    origin: [50.32,-4.14], harbor: 'Salem', startNote: 'Six vessels brought settlers, livestock, tools and food. April and June days are illustrative.',
     endNote: 'Salem received the supply fleet in June. The ships’ individual arrival days are not represented.',
     url: 'https://tile.loc.gov/storage-services/public/gdcmassbookdig/fifthhalfcentury02esse/fifthhalfcentury02esse_bw.pdf', credit: 'Essex Institute, Endicott commemorative history' },
   { name: 'Lyon — winter relief from Bristol', departure: '1630-12-11', offshore: '1631-02-12', arrival: '1631-02-15',

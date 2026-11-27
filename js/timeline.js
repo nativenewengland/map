@@ -80,3 +80,42 @@ playButton.addEventListener('click', () => {
 daySlider.addEventListener('pointerdown', pauseTimeline);
 daySlider.addEventListener('keydown', pauseTimeline);
 window.addEventListener('pagehide', pauseTimeline);
+
+const timelineNews = new Map();
+let newsDate = '';
+let newsIndex = 0;
+const newsNext = document.getElementById('news-next');
+function registerTimelineNews(date, headline, url) {
+    if (!timelineNews.has(date)) timelineNews.set(date, new Map());
+    timelineNews.get(date).set(headline, url);
+}
+function showTimelineNews(date) {
+    let latest = '';
+    for (const key of timelineNews.keys()) {
+        if (key <= date && key > latest) latest = key;
+    }
+    if (newsDate !== latest) newsIndex = 0;
+    newsDate = latest;
+    const entries = timelineNews.get(latest);
+    const line = document.getElementById('news-headline');
+    newsNext.hidden = !entries || entries.size < 2;
+    if (!entries) {
+        line.textContent = 'No earlier event recorded.';
+        return;
+    }
+    const [headline, url] = Array.from(entries)[newsIndex];
+    const link = document.createElement('a');
+    link.href = url;
+    link.target = '_blank';
+    link.rel = 'noopener';
+    link.textContent = headline;
+    const stamp = latest.length === 10 ? dateFormat.format(Date.parse(latest)) : latest;
+    line.replaceChildren(stamp + ' · ', link);
+    line.scrollLeft = 0;
+}
+newsNext.addEventListener('click', () => {
+    newsIndex = (newsIndex + 1) % timelineNews.get(newsDate).size;
+    showTimelineNews(dateField.value);
+});
+document.addEventListener('mapdatechange', event => showTimelineNews(event.detail));
+window.addEventListener('load', () => showTimelineNews(dateField.value));

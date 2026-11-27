@@ -953,6 +953,9 @@ const champlainApproach = [
 ];
 
 function addTimelineVoyage(name, days, source, sourceName, target = () => map, departure = [], traveler = ShipIcon) {
+  for (const day of days) {
+    if (day.headline !== false) registerTimelineNews(day.date, name + ' — ' + (day.headline || day.note), source);
+  }
   const ship = L.marker(days[0].path[0], {
     icon: L.icon({ iconUrl: traveler.options.iconUrl, iconSize: traveler === PersonIcon ? [16, 24] : [32, 24], iconAnchor: traveler === PersonIcon ? [8, 24] : [16, 12] }),
     title: name, alt: name,
@@ -1005,6 +1008,18 @@ function addTimelineVoyage(name, days, source, sourceName, target = () => map, d
       return;
     }
     const day = days[index];
+    const count = day.shipCount || 1;
+    if ((ship.options.shipCount || 1) !== count) {
+      const cols = Math.ceil(Math.sqrt(count));
+      const size = count > 8 ? 12 : 19;
+      ship.setIcon(count === 1 ? traveler : L.divIcon({
+        className: 'voyage-fleet',
+        iconSize: [cols * size, Math.ceil(count / cols) * size],
+        html: '<span style="display:grid;grid-template-columns:repeat(' + cols + ',' + size + 'px)">' +
+          ('<img alt="" src="' + traveler.options.iconUrl + '" width="' + size + '" height="' + size + '">').repeat(count) + '</span>',
+      }));
+      ship.options.shipCount = count;
+    }
     const destination = day.path[day.path.length - 1];
     ship.bindPopup('<strong>' + name + '</strong><br>' + date + ' (Gregorian). ' + day.note +
       ' Route and positions are approximate. <a href="' + source + '">' + sourceName + '</a>');
@@ -3066,6 +3081,7 @@ for (const [town, state, year, point, event, source = state, country = 'english'
 }
 
 for (const site of colonialSites) {
+  registerTimelineNews(site.from, site.name + ' — ' + site.detail, site.source);
   const icon = iconMap['settlement-' + site.country];
   const marker = L.marker(site.point, { icon, title: site.name, alt: site.name })
     .bindPopup('<strong>' + site.name + '</strong><br>' + site.detail + ' <a href="' + site.source + '">Source</a>');
