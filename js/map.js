@@ -3164,9 +3164,16 @@ for (const [start, end, point, title, detail, source = pequotWarTimeline, icon =
       (end === start ? '' : ' through ' + end) + ' (Gregorian)<p>' + detail +
       '</p>Approximate location. <a href="' + source + '">Battlefields of the Pequot War</a>');
   registerTimelineNews(start, title + ' — ' + detail, source);
+  const endTime = Date.parse(end);
+  const fadeDays = 31;
   const updateBattle = date => {
-    if (start <= date && date <= end) battles.addLayer(marker);
-    else battles.removeLayer(marker);
+    const elapsedDays = (Date.parse(date) - endTime) / 86400000;
+    if (date < start || elapsedDays > fadeDays) {
+      battles.removeLayer(marker);
+      return;
+    }
+    marker.setOpacity(1 - Math.max(0, elapsedDays) / (fadeDays + 1));
+    battles.addLayer(marker);
   };
   document.addEventListener('mapdatechange', event => updateBattle(event.detail));
   updateBattle(document.getElementById('map-date').value);
