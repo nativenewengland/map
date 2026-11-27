@@ -49,11 +49,18 @@ export function loadTerritories(svg, data) {
   waterMask.append(water);
   svg.querySelector('defs').append(waterMask);
   areas.setAttribute('mask', 'url(#polity-dry-land)');
+  const homelandAreas = areas.cloneNode(false);
+  const gapAreas = areas.cloneNode(false);
+  const homelandLayer = make('g');
+  homelandLayer.id = 'ancestral-homelands';
+  homelandLayer.append(homelandAreas);
+  const gapLayer = make('g');
+  gapLayer.append(gapAreas);
   const seats = make('g');
   layer.append(areas, seats);
   const waterPaths = ['lake-fill', 'channel', 'streams'].map(id => svg.getElementById(id));
-  function localPoint(event) {
-    return new DOMPoint(event.clientX, event.clientY).matrixTransform(areas.getScreenCTM().inverse());
+  function localPoint(event, target = areas) {
+    return new DOMPoint(event.clientX, event.clientY).matrixTransform(target.getScreenCTM().inverse());
   }
   const select = document.querySelector('#polity-select');
   const groups = new Map();
@@ -85,12 +92,12 @@ export function loadTerritories(svg, data) {
     title.textContent = record.name;
     shape.append(title);
     shape.addEventListener('click', event => {
-      if (shape.localName === 'path' && waterPaths.some(path => path.isPointInFill(localPoint(event)))) return;
+      if (shape.localName === 'path' && waterPaths.some(path => path.isPointInFill(localPoint(event, shape.parentNode)))) return;
       L.DomEvent.stopPropagation(event);
       describe(record, map.mouseEventToLatLng(event));
     });
   }
-  function drawArea(record) {
+  function drawArea(record, parent = areas) {
     const area = make('path');
     const vertices = record.outline.map(vertex => {
       const [x, y] = polityPoint(vertex);
@@ -99,7 +106,7 @@ export function loadTerritories(svg, data) {
     area.setAttribute('d', 'M' + vertices.join(' ') + 'Z');
     area.setAttribute('vector-effect', 'non-scaling-stroke');
     bind(area, record);
-    areas.append(area);
+    parent.append(area);
     return area;
   }
   const colors = ['#aa6639', '#327983', '#88588f', '#63782e', '#a04f57', '#466aa0'];
@@ -110,6 +117,9 @@ export function loadTerritories(svg, data) {
       area.style.fill = colors[index % colors.length];
       area.style.fillOpacity = '.28';
       if (record.type === 'Political network') area.classList.add('political-network');
+    }
+    if (record.homelandExtent === true && record.outline) {
+      drawArea(record, homelandAreas);
     }
     if (!groups.has(record.region)) {
       const group = document.createElement('optgroup');
@@ -127,6 +137,63 @@ export function loadTerritories(svg, data) {
     bind(seat, record);
     seats.append(seat);
   }
+  // These rectangles index research notes only. Territorial fills come exclusively
+  // from the individual records. Overlapping districts can return several notes.
+  const districts = [
+    ['Eastern Shore and Delmarva', -76.45, 37.0, -75.0, 39.7, /Delmarva|Eastern Shore/],
+    ['Chesapeake and Virginia', -80.8, 35.8, -75.8, 40.0, /Chesapeake|Virginia Piedmont/],
+    ['Delaware and Susquehanna', -79.2, 38.6, -74.1, 42.6, /Susquehanna|Central Pennsylvania/],
+    ['Hudson Valley and Long Island', -75.1, 40.4, -71.85, 43.55, /lower Hudson|Long Island|Raritan/i],
+    ['Southern New England', -73.75, 40.95, -69.8, 42.9, /Southern New England/],
+    ['Northern New England', -73.55, 42.7, -66.7, 47.5, /Vermont|Maine coast|Wabanaki/],
+    ['Upper Ohio and Allegheny uplands', -81.4, 38.7, -78.0, 42.2, /Western interior|Central Pennsylvania/],
+    ['Great Lakes and western interior', -83.5, 41.7, -73.9, 46.65, /Great Lakes|Georgian Bay|western margins/],
+    ['Ottawa and St. Lawrence', -81.5, 44.85, -65.0, 50.8, /Ottawa|St. Lawrence|Matane|Montr|Tadoussac/]
+  ];
+  const gap = frame.cloneNode(false);
+  gap.style.fill = 'transparent';
+  gap.style.pointerEvents = 'all';
+  gapAreas.append(gap);
+  gap.addEventListener('click', event => {
+    const point = localPoint(event, gapAreas);
+    if (waterPaths.some(path => path.isPointInFill(point))) return;
+    L.DomEvent.stopPropagation(event);
+    // Invert the registered sheet transform locally using its numerical Jacobian.
+    let lon = -74, lat = 43;
+    for (let step = 0; step < 6; step++) {
+      const [x, y] = polityPoint([lon, lat]);
+      const [ax, ay] = polityPoint([lon + .001, lat]);
+      const [bx, by] = polityPoint([lon, lat + .001]);
+      const dx = point.x + 100 - x, dy = point.y + 90 - y;
+      const det = (ax - x) * (by - y) - (ay - y) * (bx - x);
+      lon += .001 * (dx * (by - y) - dy * (bx - x)) / det;
+      lat += .001 * ((ax - x) * dy - (ay - y) * dx) / det;
+    }
+    const matches = districts.filter(([, west, south, east, north]) =>
+      lon >= west && lon <= east && lat >= south && lat <= north);
+    const container = document.createElement('section');
+    const title = document.createElement('strong');
+    title.textContent = 'Territorial assignment unresolved';
+    container.append(title);
+    const notes = data.review.filter(([name,, , location]) =>
+      matches.some(([, west, south, east, north, names]) => names.test(name) &&
+        (!location || (location[0] >= west && location[0] <= east && location[1] >= south && location[1] <= north))));
+    const intro = document.createElement('p');
+    intro.textContent = notes.length ? 'Research questions in the surrounding district. Their sources describe the locations named below.' :
+      'This location has no site-specific boundary review in the inventory.';
+    container.append(intro);
+    for (const [name, note, url] of notes) {
+      const details = document.createElement('details');
+      const summary = document.createElement('summary');
+      summary.textContent = name;
+      const a = document.createElement('a');
+      a.href = url;
+      a.textContent = 'Source';
+      details.append(summary, note + ' ', a);
+      container.append(details);
+    }
+    L.popup({maxHeight: 270}).setLatLng(map.mouseEventToLatLng(event)).setContent(container).openOn(map);
+  });
   function resizeSeats() {
     seats.style.display = map.getZoom() >= -3 ? '' : 'none';
     const radius = 3 / (terrainScale * 2 ** map.getZoom());
@@ -136,27 +203,49 @@ export function loadTerritories(svg, data) {
   resizeSeats();
   // Keep inland water and its shoreline visible over the political artwork.
   const ocean = svg.getElementById('ocean');
-  layer.setAttribute('transform', 'translate(-100 -90)');
-  ocean.before(layer);
+  for (const g of [gapLayer, homelandLayer, layer]) g.setAttribute('transform', 'translate(-100 -90)');
+  ocean.before(gapLayer, homelandLayer, layer);
   addToggle(panel.querySelector('.features'), layer.id, 'Polities c. 1600');
+  const politicalToggle = panel.querySelector('[data-layer="territories"]');
+  politicalToggle.addEventListener('change', () => { gapLayer.style.display = politicalToggle.checked ? '' : 'none'; });
+  addToggle(panel.querySelector('.features'), homelandLayer.id, 'Ancestral homelands (nonexclusive)');
   select.addEventListener('change', () => {
     if (!select.value) return;
     const record = data.records[Number(select.value)];
     const point = polityPoint(record.at);
-    const toggle = panel.querySelector('[data-layer="territories"]');
+    const toggle = record.homelandExtent ? panel.querySelector('[data-layer="ancestral-homelands"]') : politicalToggle;
     if (!toggle.checked) toggle.click();
     const center = onSheet(point) ? latLng(point) : map.getCenter();
     if (onSheet(point)) map.setView(center, Math.max(map.getZoom(), -2), {animate: false});
     describe(record, center);
   });
   const review = document.querySelector('#coverage-notes');
-  for (const [region, note, url] of data.review) {
+  const questions = L.layerGroup();
+  for (const [region, note, url, location] of data.review) {
     const p = document.createElement('p');
     const source = document.createElement('a');
     source.href = url;
     source.textContent = 'Source';
     p.append(region + ' — ' + note + ' ', source);
     review.append(p);
+    if (location) {
+      const point = polityPoint(location);
+      if (onSheet(point)) {
+        const popup = document.createElement('section');
+        popup.append(p.cloneNode(true));
+        L.circleMarker(latLng(point), {radius: 6, color: '#50394d', weight: 2,
+          fillColor: '#fff', fillOpacity: 1}).bindTooltip(region).bindPopup(popup).addTo(questions);
+      }
+    }
   }
+  const questionLabel = document.createElement('label');
+  const questionToggle = document.createElement('input');
+  questionToggle.type = 'checkbox';
+  questionToggle.addEventListener('change', () => {
+    if (questionToggle.checked) questions.addTo(map);
+    else questions.remove();
+  });
+  questionLabel.append(questionToggle, 'Locate open questions');
+  review.before(questionLabel);
   document.querySelector('#polity-key').hidden = false;
 }

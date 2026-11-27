@@ -72,3 +72,5 @@ body {
 #coverage-notes { margin: 5px 0; font-size: .82rem; }
 
 #territories .political-network { stroke-dasharray: 9 3; stroke-width: 1.5; }
+
+#ancestral-homelands path { fill: #437e76; fill-opacity: .13; stroke: #427269; stroke-width: .9; stroke-dasharray: 1 3; pointer-events: visiblePainted; cursor: pointer; }

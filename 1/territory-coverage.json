@@ -1,0 +1,138 @@
+{
+  "polygons": 104,
+  "onSheetPoliticalPolygons": 102,
+  "grid": [
+    {
+      "cell": "A1",
+      "dryPixels": 432923,
+      "politicallyUnassigned": 427655,
+      "outsideBothLayers": 77480
+    },
+    {
+      "cell": "A2",
+      "dryPixels": 455996,
+      "politicallyUnassigned": 425774,
+      "outsideBothLayers": 107342
+    },
+    {
+      "cell": "A3",
+      "dryPixels": 454619,
+      "politicallyUnassigned": 454619,
+      "outsideBothLayers": 119391
+    },
+    {
+      "cell": "A4",
+      "dryPixels": 460781,
+      "politicallyUnassigned": 445371,
+      "outsideBothLayers": 59526
+    },
+    {
+      "cell": "B1",
+      "dryPixels": 360223,
+      "politicallyUnassigned": 336174,
+      "outsideBothLayers": 147574
+    },
+    {
+      "cell": "B2",
+      "dryPixels": 426915,
+      "politicallyUnassigned": 313253,
+      "outsideBothLayers": 154578
+    },
+    {
+      "cell": "B3",
+      "dryPixels": 463804,
+      "politicallyUnassigned": 439521,
+      "outsideBothLayers": 89972
+    },
+    {
+      "cell": "B4",
+      "dryPixels": 199939,
+      "politicallyUnassigned": 181736,
+      "outsideBothLayers": 148475
+    },
+    {
+      "cell": "C1",
+      "dryPixels": 431551,
+      "politicallyUnassigned": 225326,
+      "outsideBothLayers": 222439
+    },
+    {
+      "cell": "C2",
+      "dryPixels": 473642,
+      "politicallyUnassigned": 174618,
+      "outsideBothLayers": 96050
+    },
+    {
+      "cell": "C3",
+      "dryPixels": 395635,
+      "politicallyUnassigned": 269191,
+      "outsideBothLayers": 183260
+    },
+    {
+      "cell": "C4",
+      "dryPixels": 22013,
+      "politicallyUnassigned": 17083,
+      "outsideBothLayers": 1582
+    },
+    {
+      "cell": "D1",
+      "dryPixels": 480285,
+      "politicallyUnassigned": 460840,
+      "outsideBothLayers": 460840
+    },
+    {
+      "cell": "D2",
+      "dryPixels": 416145,
+      "politicallyUnassigned": 408626,
+      "outsideBothLayers": 203285
+    },
+    {
+      "cell": "D3",
+      "dryPixels": 25098,
+      "politicallyUnassigned": 23703,
+      "outsideBothLayers": 10353
+    },
+    {
+      "cell": "D4",
+      "dryPixels": 0,
+      "politicallyUnassigned": 0,
+      "outsideBothLayers": 0
+    },
+    {
+      "cell": "E1",
+      "dryPixels": 477893,
+      "politicallyUnassigned": 191090,
+      "outsideBothLayers": 189725
+    },
+    {
+      "cell": "E2",
+      "dryPixels": 201121,
+      "politicallyUnassigned": 141118,
+      "outsideBothLayers": 140510
+    },
+    {
+      "cell": "E3",
+      "dryPixels": 0,
+      "politicallyUnassigned": 0,
+      "outsideBothLayers": 0
+    },
+    {
+      "cell": "E4",
+      "dryPixels": 0,
+      "politicallyUnassigned": 0,
+      "outsideBothLayers": 0
+    }
+  ],
+  "noDryLand": [
+    "Tionontati",
+    "Weapemeoc"
+  ],
+  "pointOnly": 42,
+  "onSheetPointOnly": 40,
+  "dryPixels": 6178583,
+  "coveredPixels": 1242885,
+  "ancestralOnly": 2523316,
+  "combinedPercent": 60.95574017537678,
+  "uncoveredPixels": 4935698,
+  "coveredPercent": 20.116020129534554
+}
