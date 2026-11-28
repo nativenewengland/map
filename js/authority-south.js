@@ -164,8 +164,8 @@
     'Coddington’s commission created a separate administration for Aquidneck and Conanicut. It was proclaimed locally in August or September 1651 and challenged after revocation in England. The commission changed jurisdiction at the English island towns.', 'https://www.archontology.org/nations/us/rhode_island/00_1651_1654.php');
   add(ri,'1654-09-10','1663','english','Reunited government at the Aquidneck towns',null,
     'The separate island government ended at the general election of August 31 Old Style. The four towns resumed common government under the parliamentary patent.', 'https://www.archontology.org/nations/us/rhode_island/00_1651_1654.php');
-  add(ri,'1663','1686','english','Rhode Island charter government at Newport',[5210,5410],
-    'The royal charter empowered a governor, assistants and assembly. Its territorial wording included contested lands. The point marks one seat of colonial government.',charter);
+  add(ri,'1663-07-18','1686','english','Rhode Island charter government at Newport',[5210,5410],
+    'Charles II granted the Governor and Company of Rhode Island and Providence Plantations the mainland tract, Rhode Island and Block Island, and empowered a governor, assistants and assembly. The western limit followed the Pawcatuck and the eastern limit extended three miles beyond the bay. These bounds overlapped competing interests. The point marks one seat of government. Royal letters patent, witness clause, 8 July 1663 Old Style.', 'https://avalon.law.yale.edu/17th_century/ri04.asp');
   add(ri,'1686','1689','english','Dominion government in Rhode Island',null,
     'The Dominion replaced the colony’s separate charter government. Locally, East Greenwich was renamed Dedford. The original name was restored in 1689.', 'https://preservation.ri.gov/sites/g/files/xkgbur406/files/pdfs_zips_downloads/survey_pdfs/east_greenwich.pdf');
   add(ri,'1689',null,'english','Restored Rhode Island charter government',null,
@@ -174,7 +174,7 @@
     'Ninigret led Niantic and Narragansett people from the mid-1630s to the mid-1670s, exercising power through diplomacy and alliances. His stance during King Philip’s War differed from that of other Narragansett leaders. Years approximate his documented period of leadership.', 'https://www.jstor.org/stable/10.7591/j.ctt5hh17c');
   add(ri,'1658','1665-03-30','claim','Pettaquamscutt and Atherton purchases',null,
     'In 1658 three sachems conveyed land around Pettaquamscutt. In 1659 Kachanaqunt granted two tracts to the Atherton company. Neither company comprised a colonial government. These private claims helped produce competing jurisdictional demands.',riSurvey);
-  add(ri,'1662','1665-03-30','claim','Competing Connecticut and Rhode Island charter claims',null,
+  add(ri,'1663-07-18','1665-03-30','claim','Competing Connecticut and Rhode Island charter claims',null,
     'Connecticut’s 1662 charter used Narragansett River. Rhode Island’s 1663 charter used the Pawcatuck as its western limit. Narragansett sachems, settlers and purchase companies exercised differing rights within the disputed country.',riSurvey);
   add(ri,'1665-03-30',null,'contested','King’s Province in Narragansett Country',null,
     'The royal commissioners authorized Rhode Island magistrates on March 20, 1664/5 Old Style. Their instructions assigned judicial power while rival claims continued. Neither a single surveyed line accepted by all parties nor uniform settler occupation follows.', 'https://upload.wikimedia.org/wikipedia/commons/1/16/Collections_of_the_Massachusetts_Historical_Society_%28IA_collectionsofmas00mass_8%29.pdf');
@@ -195,8 +195,27 @@
     'The tribal history names a Chappaquiddick sachem who challenged the influence of Hiacoome, a Wampanoag convert, in the early mission years. This evidence window identifies a local political authority. His full tenure is undated.', 'https://wampanoagtribe-nsn.gov/ancientways');
   add(ply,'1500','1659','indigenous','Wampanoag sachemships of Nantucket',nantucketIsland,
     'The island contained multiple Wampanoag communities under local sachems. The shoreline gives their shared island setting. The historical account identifies later leaders but supplies no internal sixteenth-century district lines.',nantucket);
-  add(ply,'1641','1659','claim','Mayhew’s proprietary claim to Nantucket',null,
-    'Mayhew secured competing English grantors’ permissions for the islands. Wampanoag sachems retained authority over actual land transactions. Colonial paper title preceded settlement on Nantucket by nearly two decades.',nantucket);
+  const forrett = 'https://www.seekingmyroots.com/members/files/H003424.pdf';
+  const gayHead = 'https://www.bia.gov/sites/default/files/dup/assets/as-ia/ofa/petition/076_wmpghd_MA/076_pf.pdf';
+  const aquinnah = [6103,5784];
+  add(ply,'1662',null,'contested','Brenton claim at Aquinnah (Gay Head)',aquinnah,
+    'William Brenton obtained a deed from Wamsutta, a mainland sachem. Local sachem Nohtoaksset resisted the claim. Brenton did not establish residence. The point marks the existing Aquinnah settlement. Bureau of Indian Affairs, Gay Head petition historical report, pp. 16–17.',gayHead);
+  add(ply,'1675',null,'indigenous','Aquinnah • Ompohhannut’s quarter share',aquinnah,
+    'A twelve-member jury called by Mittark, his council and people at Gay Head heard testimony and upheld Ompohhannut’s right to a quarter share. The decision was deposited in the Dukes County deed records. The undivided share has no registered parcel boundary. Gay Head petition historical report, p. 16.',gayHead);
+  add(ply,'1684-10-30',null,'claim','Nashowaquidsae • Joseph Mittark deed',aquinnah,
+    'Joseph Mittark conveyed the neck east of Gay Head to John Mayhew. The point marks nearby Aquinnah. The older settlement name and the deed locate the vicinity, but the neck boundary remains unresolved. Gay Head petition historical report, pp. 16–17, citing Massachusetts House report of 1856, pp. 6–7. Deed dated 20 October 1684 Old Style.',gayHead);
+  add(ply,'1685-05-05','1685-05-22','claim','Manor of Martin’s Vineyard • Dongan patent',noepe,
+    'New York governor Thomas Dongan patented Martha’s Vineyard, the Elizabeth Islands and Noman’s Land as a manor to Matthew Mayhew. The polygon represents the Vineyard component on the existing shore mask. This instrument overlapped earlier titles. New York Land Patents V, pp. 56–60 (English Manuscripts XXXII:60), 25 April 1685 Old Style.', 'https://www.newyorkfamilyhistory.org/knowledgebase/manors-new-york-part-one');
+  add(ply,'1685-05-22',null,'claim','Vineyard manor reconveyance • retained holdings',aquinnah,
+    'Matthew Mayhew conveyed the manor to Governor Dongan with exceptions for lands previously conveyed and interests retained by Mayhew. The point marks Gay Head, where Dongan asserted a proprietary interest. A full island polygon would include the excepted holdings. Banks, History of Martha’s Vineyard I, pp. 175–177, deed of 12 May 1685 Old Style.', 'https://www.newyorkfamilyhistory.org/knowledgebase/manors-new-york-part-one');
+  add(ply,'1687-05-16',null,'contested','Aquinnah • contested Mittark–Mayhew conveyance',aquinnah,
+    'Joseph Mittark conveyed an interest at Gay Head to Matthew Mayhew, Dongan’s agent, for £30. Residents protested that the transfer violated a 1681 covenant against alienation. A later inquiry disputed the covenant’s authenticity, and residents continued contesting the decision. The point locates Aquinnah. Gay Head petition historical report, p. 17, deed of 6 May 1687 Old Style.',gayHead);
+  add(ply,'1641-10-23','1659','claim','Mayhew’s proprietary claim to Nantucket',nantucketIsland,
+    'James Forrett, agent for the Earl of Stirling, granted Thomas Mayhew, his son Thomas and their associates settlement rights on Nantucket and two adjacent small islands. Annual acknowledgment was due to Stirling. The polygon uses the existing Nantucket shore envelope for the named island. The two small islands are unnamed in the text. Wampanoag sachems continued to negotiate individual land transactions. Indenture of 13 October 1641 Old Style, Wightman, The Mayhew Manor, pp. 7–8.',forrett);
+  add(ply,'1641-11-02',null,'claim','Forrett enlargement • Martin’s Vineyard and Elizabeth Islands',noepe,
+    'Forrett extended the Nantucket terms to Thomas Mayhew, his son and associates for planting on Martha’s Vineyard and the Elizabeth Islands. He recited that Nantucket had yet to be wholly surrendered. The polygon marks the Vineyard component only. Wampanoag communities continued on the islands. Edgartown Records I, p. 11, 23 October 1641 Old Style. Wightman, pp. 8–9.',forrett);
+  add(ply,'1641-11-04',null,'claim','Capawok • competing Gorges grant of Martha’s Vineyard',noepe,
+    'Richard Vines, acting for Ferdinando Gorges, granted Thomas Mayhew and associates rights to settle Capawok (Martha’s Vineyard, Noepe), subject to an annual acknowledgment. This claim overlapped the Stirling grant issued by Forrett. The polygon uses the existing shore envelope. The grant supplies no internal boundaries or acreage. Edgartown Records I, p. 9, 25 October 1641 Old Style. Wightman, pp. 9–10.',forrett);
   add(ply,'1659',null,'indigenous','Nantucket Wampanoag sachems and retained lands',null,
     'Sachems Wanackmamack and Nickanoose negotiated with the proprietors. Wampanoag-written legal instruments also document the authority of Askammapoo and her delegation to Daniel Spotso. Purchases accumulated in parcels and left Indigenous land elsewhere on the island.',nantucket);
   add(ply,'1659','1673','english','English proprietors at Capaum, Nantucket',[7310,5867],

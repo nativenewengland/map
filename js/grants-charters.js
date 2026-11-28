@@ -1,0 +1,48 @@
+// The reader dates English instruments on the corresponding Gregorian day.
+// These intercolonial claims extend beyond the georeferenced artwork.
+{
+  const region = 'Massachusetts Bay and interior';
+  const avalon = 'https://avalon.law.yale.edu/17th_century/';
+  const massachusettsBounds = 'The grant ran from three miles north of the Merrimack to three miles south of the Charles and Massachusetts Bay, and west to the South Sea. Its extent depended on disputed interpretations of the rivers. No acreage is stated.';
+  // Prudence is the isolated land-mask component east of the Chibachuweset label
+  // and north of Conanicut. Sample its coastal pixel boundary at zoom 5.
+  const prudence = [[5155,5037],[5163,5051],[5174,5076],[5167,5069],[5160,5070],[5153,5075],[5155,5083],[5166,5096],[5182,5104],[5189,5109],[5193,5117],[5200,5106],[5213,5117],[5219,5123],[5222,5132],[5223,5155],[5222,5166],[5215,5183],[5207,5199],[5200,5216],[5188,5228],[5178,5228],[5174,5220],[5168,5214],[5165,5193],[5168,5174],[5177,5161],[5181,5141],[5185,5133],[5185,5123],[5172,5112],[5156,5104],[5145,5103],[5139,5097],[5136,5064],[5145,5063],[5146,5056],[5152,5062],[5154,5052],[5146,5048],[5141,5041],[5146,5034],[5148,5024]];
+  window.authorityRecords.push(
+    { region: 'Hudson Valley and Manhattan', from: '1664-03-22', until: '1674-07-09', name: 'Duke of York • first royal patent', status: 'claim',
+      detail: 'Charles II granted James, Duke of York, the Hudson and the tract west of the Connecticut River to Delaware Bay, Long Island (Matowacks), Martha’s Vineyard and Nantucket, and a separate northeastern tract described from the St Croix by Pemaquid and the Kennebec toward Canada. The patent preceded local English occupation and overlapped existing Dutch, Indigenous and English interests. The disconnected claims extend beyond the sheet. Royal letters patent, 12 March 1663/64 Old Style, territorial clause.',
+      url: 'https://avalon.law.yale.edu/17th_century/me03.asp' },
+    { region: 'Hudson Valley and Manhattan', from: '1674-07-09', until: '1685-02-16', name: 'Duke of York • second royal patent', status: 'claim',
+      detail: 'Charles II issued James a fresh patent after the Dutch reconquest and the peace of Westminster. The territorial clause again names the Connecticut–Delaware tract, Hudson, Long Island, Vineyard, Nantucket and northeastern lands. The patent preceded the local handover at New York. James succeeded to the Crown in 1685. The claim exceeds the registered artwork. New York Regents, Boundaries of the State of New York, Second Grant to the Duke of York, 29 June 1674 Old Style.',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Report_of_the_regents_of_the_University%2C_on_the_boundaries_of_the_state_of_New_York_%28IA_reportofregentso01unive%29.pdf' },
+    { region: 'Connecticut and the Sound', from: '1662-05-03', until: null, name: 'Connecticut • royal charter and territorial grant', status: 'claim',
+      detail: 'Charles II incorporated the Governor and Company of the English Colony of Connecticut and granted it the territory from Narragansett Bay west to the South Sea, south of Massachusetts and north of the sea, including adjacent islands. The Crown reserved a fifth of gold and silver ore. The charter gives no acreage and its continental extent exceeds this sheet. The following Rhode Island charter treated the Pawcatuck as the intercolonial boundary. Source: Connecticut letters patent, 23 April 1662 Old Style, territorial and witness clauses.',
+      url: 'https://avalon.law.yale.edu/17th_century/ct03.asp' },
+    { region: 'Plymouth and Wampanoag country', from: '1671-07-18', until: null, name: 'Tisbury Manor (Tysbury) • Mayhew confirmation', status: 'claim', point: [6398,5494],
+      detail: 'Governor Lovelace of New York confirmed Thomas Mayhew and his grandson Matthew in four Vineyard tracts, Chickemote, Keep-hickon, Quia-names and Nashowa-Kemmuck, and islands including Kataymuck and Nanname-sitt. The patent recites earlier purchases from Indigenous owners and distinguishes Towtoe’s land. The point locates the Tashmoo vicinity at the eastern end of Chickemote. The separate tracts depend on springs, streams and a footpath that cannot all be registered. No total acreage is given. Land Patents IV, pp. 78–79, 8 July 1671 Old Style. Wightman transcription, pp. 31–33.',
+      url: 'https://www.seekingmyroots.com/members/files/H003424.pdf' },
+    { region: 'Rhode Island and Narragansett Bay', from: '1672-08-04', until: '1672-11-09', name: 'Sophy Manor • disputed Prudence Island patent', status: 'contested', ring: prudence,
+      detail: 'New York governor Francis Lovelace issued John Paine a confirmation for Prudence Island (Chebatewesett, Chibachuweset). He claimed authority under the Duke of York. Rhode Island resisted. The polygon follows the island shore on the artwork. It shows the claim through Paine’s documented defense in court on 29 October Old Style. The date he relinquished it is uncertain. No acreage is stated. Patent, 25 July 1672 Old Style, New York Land Patents IV, pp. 86–88. Separate orders of 1 August concerned government.',
+      url: 'https://www.seekingmyroots.com/members/files/G005246A.pdf' },
+    { region, from: '1620-11-13', until: '1635-06-17', name: 'New England patent • Council at Plymouth', status: 'claim',
+      detail: 'James I granted the Council for New England a sea-to-sea claim between 40° and 48° north, including offshore islands. The instrument excepted the Southern Colony and places possessed by another Christian power. It recorded no Indigenous conveyance or acreage. The Council surrendered its charter on 7 June 1635 Old Style. The inventory covers the claim across the map. Source: letters patent, 3 November 1620 Old Style, territorial grant and proviso.',
+      url: avalon + 'mass01.asp' },
+    { region: 'Plymouth and Wampanoag country', from: '1621-06-11', until: '1622-04-30', name: 'Peirce patent • Plymouth at Patuxet', status: 'claim', point: [6326,4352],
+      detail: 'The Council for New England allotted John Peirce (Pierce) and associates 100 acres per person transported. The point locates the plantation named by the holding museum. The indenture gives no survey enclosing those allotments. The later Bradford patent described the Plymouth tract. Source: Pilgrim Hall Museum, original Plymouth Patent, 1 June 1621 Old Style.',
+      url: 'https://www.pilgrimhall.org/the-plymouth-patent/' },
+    { region: 'Plymouth and Wampanoag country', from: '1622-04-30', until: '1623-04-04', name: 'Plymouth • disputed Peirce deed poll', status: 'contested', point: [6326,4352],
+      detail: 'On 20 April 1622 Old Style, Peirce surrendered the first indenture and obtained a replacement from the Council for New England. His fellow adventurers said he acted without their knowledge. The Council identified the land as the earlier Plymouth tract. Its minutes give no new acreage or survey. The point locates Patuxet. Source: Records of the Council for New England, pp. 43–45.',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/e/ea/Records_of_the_Council_for_New_England_%28IA_recordsofcouncil00coun%29.pdf' },
+    { region: 'Plymouth and Wampanoag country', from: '1623-04-04', until: '1630-01-23', name: 'Plymouth • settlement of Peirce patent dispute', status: 'claim', point: [6326,4352],
+      detail: 'On 25 March 1623 Old Style, the Council recorded an agreement restoring the associates’ privileges under the 1621 allotment. Peirce retained any surplus under his later grant. The point marks the Plymouth plantation. The Council gave no survey of the surplus. Source: Records of the Council for New England, pp. 43–45, order on the Peirce petition.',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/e/ea/Records_of_the_Council_for_New_England_%28IA_recordsofcouncil00coun%29.pdf' },
+    { region, from: '1624-01-11', until: null, name: 'Cape Ann • Sheffield patent', status: 'claim', point: [6303,2706],
+      detail: 'Edmund, Lord Sheffield, granted Robert Cushman, Edward Winslow and associates rights at Cape Anne, its bay and islands. He allotted 500 acres for public uses and 30 acres per settler arriving within seven years. The contiguous individual lots could front at most a mile and a half on the bay. The Gloucester point identifies the vicinity. The corners of the lots are unknown. Source: Sheffield indenture, 1 January 1623/24 Old Style, Colonial Society of Massachusetts transcription.',
+      url: 'https://www.colonialsociety.org/node/1054' },
+    { region, from: '1628-03-29', until: '1629-03-14', name: 'Massachusetts Bay • Rosewell grant', status: 'claim',
+      detail: 'The Council for New England granted the tract to Sir Henry Rosewell, Sir John Young, Thomas Southcott, John Humfrey, John Endecott and Simon Whetcombe. ' + massachusettsBounds + ' Source: indenture of 19 March 1627/28 Old Style, recited in the 1629 royal charter. The following confirmation carries the claim forward.',
+      url: avalon + 'mass03.asp' },
+    { region, from: '1629-03-14', until: '1684-06-28', name: 'Massachusetts Bay • royal confirmation and company charter', status: 'claim',
+      detail: 'Charles I confirmed the earlier Council grant to Rosewell and the expanded group of patentees incorporated as the Governor and Company of the Massachusetts Bay in New England. ' + massachusettsBounds + ' The Crown reserved a fifth of gold and silver ore. Chancery vacated the charter on 18 June 1684 Old Style. Source: letters patent, 4 March 1628/29 Old Style, grant and reservation clauses.',
+      url: avalon + 'mass03.asp' }
+  );
+}

@@ -135,7 +135,11 @@ async function main() {
     await setDate('1672-06-01'); await camera([4750,6175],6); await clickLand([4752,6190]);
     const overlap = await page.locator('.authority-popup').innerText();
     assert(overlap.includes('New Shoreham') && overlap.includes('Manissean community'));
-    await clickLand([4650,6190]);
+    await page.evaluate(()=>map.closePopup());
+    await page.locator('.authority-popup').waitFor({state:'detached'});
+    // Exercise the land-mask lookup even when another visible overlay owns
+    // the pointer event at the offshore pixel.
+    await page.evaluate(()=>map.fire('click',{latlng:map.unproject([4650,6190],5)}));
     assert(!(await page.locator('.authority-popup').innerText()).includes('New Shoreham'));
     assert(await page.locator('mask#main-political-land image').count());
     await page.evaluate(()=>map.closePopup());
