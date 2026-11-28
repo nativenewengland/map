@@ -6,6 +6,7 @@ const picker = document.querySelector('#voyage-picker');
 // Each stop has a Gregorian playback date, position and interpretation.
 // Interpolate between consecutive stops; repeated positions represent a stay.
 function fleetSize(name, day) {
+  if (name === 'Charity and Swan - Weston’s 1622 settlers') return 2;
   if (name === 'Higginson-Skelton supply fleet') return 6;
   if (name.startsWith('William Phips - Quebec expedition')) return day <= '1690-10-24' ? 32 : 1;
   if (name.startsWith('Bonaventure') || name === 'George Popham and Ralegh Gilbert') return 2;
@@ -133,6 +134,28 @@ const nauset = [-23, 157];
 const plymouthHarborApproach = [[4,142],[2.5,127],[-9,113]];
 const atlanticEdgeOffCape = [-3,180];
 const plymouthHarborExit = [...plymouthHarborApproach].reverse();
+const plymouthMainePassage = [[-9,112],[18,114],[53,110]];
+const maineEdge = [86,110];
+
+leg('Sparrow’s shallop - passengers from the Maine fishing grounds', [
+  ['1622-06-05', maineEdge, 'Estimated entry into the mapped waters. The Sparrow dispatched its shallop from the Maine fishing grounds.'],
+  ['1622-06-09', patuxet, 'Around the end of May Old Style, the shallop reached Plymouth with seven passengers, including Phineas Pratt. The arrival day is approximate.', [...plymouthMainePassage].reverse()],
+], 'https://www.pilgrimhall.org/wp-content/uploads/2024/06/Phineas_Pratt_17th_Century_Documents.pdf', 'Pilgrim Hall Museum, Bradford and Pratt accounts', false, false);
+
+leg('Charity and Swan - Weston’s 1622 settlers', [
+  ['1622-07-09', atlanticEdgeOffCape, 'Estimated approach to Cape Cod. The two ships carried settlers for Thomas Weston’s separate colony.'],
+  ['1622-07-13', patuxet, 'Winslow places the arrival of both ships in late June or early July Old Style. About fifty or sixty men came to plant for Weston. The playback date is approximate.', plymouthHarborApproach],
+], 'https://www.gutenberg.org/ebooks/66332', 'Edward Winslow, Good Newes from New England', false, false);
+
+leg('Jacob - Winslow’s 1625 return', [
+  ['1625-04-04', atlanticEdgeOffCape, 'Estimated approach from England under William Peirce.'],
+  ['1625-04-08', patuxet, 'The Jacob brought Edward Winslow back to Plymouth in March Old Style. The exact arrival day is uncertain.', plymouthHarborApproach],
+], 'https://upload.wikimedia.org/wikipedia/commons/3/39/Our_Plymouth_forefathers_-_the_real_founders_of_our_republic_%28IA_ourplymouthforef00hank%29.pdf', 'Our Plymouth Forefathers', false, false);
+
+leg('Mayflower - 1629 Leiden migration', [
+  ['1629-08-11', atlanticEdgeOffCape, 'Estimated final approach. William Peirce commanded this Mayflower, a different vessel from the ship of 1620.'],
+  ['1629-08-15', patuxet, 'Bradford dates the arrival to about August. This voyage brought a contingent of thirty-five from Leiden. The playback day is approximate.', plymouthHarborApproach],
+], 'https://www.colonialsociety.org/publications/3705/anno-domini-1629', 'William Bradford, Of Plymouth Plantation', false, false);
 
 leg('Fortune - 1621 Plymouth voyage', [
   ['1621-11-16', atlanticEdgeOffCape, 'Estimated entry into the mapped waters off Cape Cod. Thomas Barton commanded the Fortune.'],
@@ -572,6 +595,16 @@ leg('Little James - 1624 fishing voyage', [
   ['1624-03-19', [86,110], 'The pinnace continued toward Damariscove, where it later sank in a storm and was salvaged.'],
 ], 'https://www.colonialsociety.org/node/3727', 'William Bradford, Of Plymouth Plantation', false, []);
 
+leg('Little James - 1624 return after salvage', [
+  ['1624-09-18', maineEdge, 'Illustrative return dates. Fishing crews helped raise and repair the vessel after it sank near Damariscove.'],
+  ['1624-09-22', patuxet, 'Bradford records that the repaired pinnace was brought home to Plymouth. The exact return day is uncertain.', [...plymouthMainePassage].reverse()],
+], 'https://www.colonialsociety.org/node/3727', 'William Bradford, Of Plymouth Plantation', false, false);
+
+leg('Little James - 1624 return to England', [
+  ['1624-10-10', patuxet, 'Illustrative departure date after the salvage and return to Plymouth. The vessel returned to England in 1624, where crew members brought a wage claim.'],
+  ['1624-10-14', atlanticEdgeOffCape, 'Estimated eastbound passage out of the mapped waters.', plymouthHarborExit],
+], 'https://www.colonialsociety.org/publications/3705/volume-93-plimoth-plantation', 'Colonial Society of Massachusetts, Bradford edition', false, []);
+
 leg(winslowSupply, [
   ['1622-06-04', [-70.48,42.66], 'Estimated passage north from Cape Ann.'],
   ['1622-06-08', [-69.62,43.76], 'At Damariscove, Captain Huddleston and other fishing captains supplied provisions for Plymouth. Arrival day estimated.', mainePassage],
@@ -663,6 +696,14 @@ leg('Unnamed Dutch ship — Virginia corn delivery', [
 ], winthropJournal, journalCredit, false, null);
 
 const rebeckaTrack = [[23,95],[8,147],[-26,164],[-48,161],[-67,151],[-68,100],[-64,60],[-58,44]];
+const littleJamesTradeTrack = [...plymouthHarborExit,
+  [8,147],[-26,164],[-48,161],[-50.5,160],[-67,151],[-68,100],[-64,60],[-58,44]];
+leg('Little James - 1623 Narragansett trading voyage', [
+  ['1623-09-18', patuxet, 'Estimated departure for the pinnace’s first trading voyage to Narragansett country.'],
+  ['1623-09-23', [-52.1,44.6], 'The trading venture was unsuccessful. This anchorage illustrates the destination region, and the sailing days are estimates.', littleJamesTradeTrack],
+  ['1623-09-28', patuxet, 'Estimated return to Plymouth.', [...littleJamesTradeTrack].reverse()],
+], 'https://www.gutenberg.org/cache/epub/70625/pg70625-images.html', 'Debts Hopeful and Desperate', false, false);
+
 leg('Rebecka — Narragansett corn voyage', [
   ['1634-10-20', bayHarbor, 'Reconstructed departure for Narragansett Bay. Exact sailing days, anchorages and track are estimated.'],
   ['1634-10-27', [-52,42], 'Narragansett people supplied five hundred bushels of corn for John Oldham.', rebeckaTrack],
