@@ -103,23 +103,13 @@
     if (!r.point && !r.ring) return [];
     return [{region: r.region, point: r.point || r.ring[0]}];
   });
-  // These index positions are reading guides in areas where the main artwork
-  // lacks locatable rivers. They aren't encoded as political features.
+  // These extra index positions support land clicks in areas with few sites.
   const guides = [
     ['Northern edge', 3050, 1120], ['New Hampshire', 5270, 1620],
     ['Maine', 6820, 1180], ['Hudson Valley and Manhattan', 1050, 2330],
   ];
   for (const [region, x, y] of guides) {
     anchors.push({region, point:[x,y]});
-    const label = L.marker(map.unproject([x,y],5), {
-      icon: L.divIcon({className:'authority-guide', html:'Regional evidence<br><b>' + region + '</b>', iconSize:[110,34]}),
-      title:'Read regional evidence for ' + region,
-    }).addTo(group);
-    label.on('click', () => {
-      picker.value = region;
-      panel.open = true;
-      updateInventory();
-    });
   }
   const mask = new Image();
   mask.src = 'hydro/territory-mask.png';

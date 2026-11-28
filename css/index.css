@@ -581,9 +581,4 @@ html, body{
 }
 .leaflet-control-layers-toggle::before { content: 'Layers'; font: 11px system-ui, sans-serif; color: #333; }
 .leaflet-control-layers-expanded .leaflet-control-layers-toggle { display: none; }
-.authority-guide {
-    text-align: center; color: #373e37; background: #fffdf1e8;
-    font: 10px/1.15 system-ui, sans-serif; padding: 3px; box-sizing: border-box;
-    border: 1px dotted #74796d; border-radius: 3px;
-}
 .authority-precision { font-style: italic; color: #655226; }

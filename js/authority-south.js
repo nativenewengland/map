@@ -48,6 +48,9 @@
     [6540,5435],[6800,5510],[6780,5810],[6220,5830],[6190,5890],[6010,5840]];
   const nantucketIsland = [[7100,5887],[7140,5830],[7400,5590],[7450,5600],
     [7500,5600],[7630,5810],[7650,6010],[7200,6020],[7090,5920]];
+  // The founding footprint is the Common House vicinity at the harbor end
+  // of Leyden Street. The larger reconstruction extends uphill toward Burial Hill.
+  const plymouthFounding = [[6327,4352],[6329,4351],[6331,4352],[6330,4354],[6328,4354]];
   const plymouthCore = [[6321,4353],[6327,4349],[6332,4350],[6331,4355],[6324,4357]];
   // The New Haven Museum's reconstruction identifies the half-mile town plot;
   // the artwork preserves the harbor but omits West Creek and the street grid.
@@ -232,10 +235,26 @@
     'Early accounts and archaeology place a Native village at the harbor and planting grounds inland. The bounds of its sachemship have not been surveyed.', 'https://npgallery.nps.gov/GetAsset/25464586-79c7-423d-8048-307ee7d26223/');
   add(ply,'1616','1621-01-04','unresolved','Patuxet during and after the epidemic',[6331,4352],
     'Between 1616 and 1619 epidemic disease devastated the coast. Samoset’s later account identifies Patuxet. It does not establish a transfer of jurisdiction to settlers.', 'https://plimoth.org/yath/unit-1/arrival-of-samoset-excerpt-from-mourts-relation');
-  add(ply,'1621-01-04','1622-03','english','First Plymouth building site at Patuxet',[6326,4352],
-    'First construction began on December 25, 1620 Old Style. The town site lay beside Town Brook in Patuxet country.',plyArchaeology);
-  add(ply,'1622-03','1692-05-26','english','Plymouth town at Patuxet',plymouthCore,
-    'The footprint represents the original occupied core between Burial Hill and the harbor. The palisade helps locate it early in the period. The town expanded beyond this core and the enclosure changed.',plyArchaeology);
+  add(ply,'1621-01-04','1622-03','english','Plymouth at Patuxet · founding settlement',plymouthFounding,
+    'Occupied settlement. Construction of the first Common House began on December 25, 1620 Old Style (January 4, 1621 on this Gregorian timeline). The small outline marks the approximate building site near lower Leyden Street, just north of Town Brook, at the Wampanoag village site of Patuxet. The precise founding perimeter is unknown.',plyArchaeology);
+  add(ply,'1622-03','1692-05-26','english','Plymouth at Patuxet · palisaded village core',plymouthCore,
+    'Occupied settlement. By March 1622 the palisade enclosed the village along Leyden Street between the harbor and Burial Hill. The polygon approximates that early core. Plymouth later expanded beyond it, and the enclosure changed.',
+    'https://www.plymouth-ma.gov/DocumentCenter/View/6812/22426-Addendum-1?bidId=');
+  add(ply,'1623',null,'english','Plymouth cultivation · North Street allotments',
+    [[6325,4346],[6336,4345],[6337,4348],[6332,4350],[6327,4349]],
+    'Cultivation allotments. The 1623 division placed several Fortune households’ lots immediately north of the palisade. The archaeological reconstruction puts them between the village and the north side of present North Street, with narrow fronts facing the harbor. The outline marks the approximate group of plots. The duration of individual allotments is unknown.',
+    'https://plymoutharch.com/wp-content/uploads/2015/05/final-report.pdf');
+  add(ply,'1623',null,'english','Plymouth cultivation · south of Town Brook',
+    [[6325,4361],[6335,4358],[6338,4361],[6335,4365],[6325,4366]],
+    'Cultivation allotments. The 1623 land division placed plots on the south side of Town Brook, including land toward today’s Training Green. The compact outline locates the near-town fields approximately. Some grants extended farther toward Hobshole Brook and Eel River. Individual sidelines and the duration of particular allotments are unknown.',
+    'https://www.plymouth-ma.gov/DocumentCenter/View/7123/2024-OSRP-_-Final-Draft-Plan_12192024');
+  const rockyNook = [[6253,4253],[6260,4254],[6264,4258],[6262,4262],[6253,4261]];
+  add(ply,'1628','1639-02-12','english','Plymouth outlying settlement · Rocky Nook',rockyNook,
+    'Occupied settlement. John Jenney is reported to have moved from Plymouth to Rocky Nook near the Jones River in 1628. The outline marks the approximate homesite vicinity beside the later Howland site. Jenney conveyed his holding to John Howland on February 2, 1638/39 Old Style. This footprint does not define the full holding.',
+    'https://alden.org/content/aldenhistory1.pdf');
+  add(ply,'1639-02-12',null,'english','Howland holding · Rocky Nook',rockyNook,
+    'John Howland bought roughly 100 acres at Rocky Nook from John Jenney. The outline follows the homesite vicinity on the Jones River peninsula. The full deed boundaries remain unresolved. Plymouth Colony Records XII, page 41.',
+    'https://pjhs.starchapter.com/images/downloads/Howland_Records/chapter_3.pdf');
   add(ply,'1621-04-01','1653','indigenous','Ousamequin and the Pokanoket–Plymouth alliance',sowams,
     'Ousamequin negotiated reciprocal obligations at Plymouth on March 22 Old Style. Sowams around the Warren and Bristol peninsulas was his political center. The inland margin is approximate. Other Wampanoag sachems negotiated for themselves.', 'https://plimoth.org/yath/unit-2/plymouth-pokanoket-alliance');
   add(ply,'1653','1661','indigenous','Ousamequin’s retained Mount Hope lands',[5296,4970],

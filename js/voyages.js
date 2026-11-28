@@ -130,6 +130,29 @@ const outerCape = [4, 142];
 const patuxet = [-10.5, 103.8];
 const nauset = [-23, 157];
 
+const plymouthHarborApproach = [[4,142],[2.5,127],[-9,113]];
+const atlanticEdgeOffCape = [-3,180];
+const plymouthHarborExit = [...plymouthHarborApproach].reverse();
+
+leg('Fortune - 1621 Plymouth voyage', [
+  ['1621-11-16', atlanticEdgeOffCape, 'Estimated entry into the mapped waters off Cape Cod. Thomas Barton commanded the Fortune.'],
+  ['1621-11-19', patuxet, 'The Fortune arrived at Plymouth on November 9 Old Style, bringing colonial agent Robert Cushman and about 35 new settlers.', plymouthHarborApproach],
+  ['1621-12-23', patuxet, 'On December 13 Old Style the Fortune set out for England with Cushman, clapboards and beaver skins.'],
+  ['1621-12-25', atlanticEdgeOffCape, 'Estimated passage out of the mapped waters. A French vessel seized the cargo later in the return voyage.', plymouthHarborExit],
+], 'https://www.pilgrimhall.org/the-fortune/', 'Pilgrim Hall Museum', false, []);
+
+leg('Anne - 1623 Plymouth voyage', [
+  ['1623-08-02', atlanticEdgeOffCape, 'Estimated approach to Cape Cod. The Anne and Little James became separated during the Atlantic crossing.'],
+  ['1623-08-05', patuxet, 'Approximate arrival. William Peirce brought about 60 passengers. Emmanuel Altham recalled the Anne arriving ten days before the Little James.', plymouthHarborApproach],
+  ['1623-09-20', patuxet, 'Edward Winslow sailed for London on September 10 Old Style. The Anne carried beaver skins and clapboards.'],
+  ['1623-09-22', atlanticEdgeOffCape, 'Estimated passage out of the mapped waters on the voyage to England.', plymouthHarborExit],
+], 'https://www.gutenberg.org/ebooks/66332', 'Edward Winslow, Good Newes from New England', false, []);
+
+leg('Little James - 1623 Plymouth voyage', [
+  ['1623-08-12', atlanticEdgeOffCape, 'Estimated approach to Cape Cod after a stormy crossing. John Bridges was master and Emmanuel Altham was aboard.'],
+  ['1623-08-15', patuxet, 'Altham dated the arrival in New England to August 5 Old Style. The pinnace nearly grounded outside Plymouth Harbor before reaching shelter.', plymouthHarborApproach],
+], 'https://www.gutenberg.org/ebooks/66135', 'Emmanuel Altham, letter of September 1623', false, false);
+
 leg('Giovanni da Verrazzano', [
   ['1524-04-29', [-63, 29], 'Approaching Narragansett Bay in the Dauphine.'],
   ['1524-04-30', [-58, 44], 'Approach to the bay from Rhode Island Sound.'],
@@ -543,6 +566,12 @@ leg(winslowSupply, [
   ['1622-06-03', [53,110], 'Illustrative passage northeast across Massachusetts Bay.', [[-9,112],[18,114]]],
 ], maineHistory, 'Ten Years at Pemaquid', false, null);
 const mainePassage = [[-70.4,42.85],[-70.2,43.33],[-69.85,43.64]];
+leg('Little James - 1624 fishing voyage', [
+  ['1624-03-15', patuxet, 'Bradford records a departure for the eastern fishing grounds in early March Old Style. The sailing day is estimated.'],
+  ['1624-03-17', [53,110], 'Estimated northeast passage across Massachusetts Bay toward Damariscove.', [[-9,112],[18,114]]],
+  ['1624-03-19', [86,110], 'The pinnace continued toward Damariscove, where it later sank in a storm and was salvaged.'],
+], 'https://www.colonialsociety.org/node/3727', 'William Bradford, Of Plymouth Plantation', false, []);
+
 leg(winslowSupply, [
   ['1622-06-04', [-70.48,42.66], 'Estimated passage north from Cape Ann.'],
   ['1622-06-08', [-69.62,43.76], 'At Damariscove, Captain Huddleston and other fishing captains supplied provisions for Plymouth. Arrival day estimated.', mainePassage],
