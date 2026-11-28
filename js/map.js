@@ -1159,16 +1159,16 @@ var selectedMarker = null;
 var markerClipboardData = null;
 var markerClipboardType = null;
 var territoriesLayer = L.featureGroup();
-var territoryMarkersLayer = L.layerGroup();
+var territoryMarkersLayer = L.layerGroup().addTo(map);
 var battles = L.layerGroup().addTo(map);
-var Settlements = L.layerGroup();
+var Settlements = L.layerGroup().addTo(map);
 var territoriesOverlay = L.layerGroup([territoriesLayer]);
 // Text labels use a bold sans-serif stack; mirror it when measuring glyph widths.
 var TEXT_LABEL_FONT_FAMILY = "Roboto, 'Open Sans', 'Helvetica Neue', Arial, sans-serif";
 var textMeasurementContext = null;
 var textMeasurementSpan = null;
 
-var referencePlaces = L.layerGroup();
+var referencePlaces = L.layerGroup().addTo(map);
 territoriesOverlay.addTo(map);
 
 var overlayTargetGroups = {
@@ -1251,7 +1251,7 @@ var additionalOverlayNames = [
 
 additionalOverlayNames.forEach(function (name) {
   var layer = L.layerGroup();
-  if (name !== 'Tribes') layer.addTo(map);
+  layer.addTo(map);
   overlayTargetGroups[name] = layer;
   overlays[name] = layer;
 });
