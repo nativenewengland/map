@@ -236,5 +236,13 @@
   li('1664-09-08','1673-08-22','Oyster Bay • New York','english','Oyster Bay participated in the English provincial town system. Dutch officials summoned deputies in August 1673.',laws,[1295,6830]);
   li('1673-08-22','1674-11-10','Oyster Bay • Dutch council','dutch','Deputies delivered their flag and staff to the council and were ordered to nominate magistrates.',oaths,[1295,6830]);
   li('1674-11-10',null,'Oyster Bay • New York','english','The town returned to English provincial administration.',restored,[1295,6830]);
+  const hudsonPatents = 'https://documents.dps.ny.gov/public/Common/ViewDoc.aspx?DocRefId=%7BC8F24162-F1BD-4EF4-B054-92AC3D00D0D1%7D';
+  h('1685',null,'Rumbout Patent','claim','The patent to Francis Rumbout and associates covered land in the Fishkill area on the east side of the Hudson. The original survey bounds are unresolved here.',hudsonPatents);
+  h('1686',null,'Livingston Manor patent','claim','Robert Livingston received a manorial grant in the eastern Hudson Valley. The patent records proprietary and manorial rights.',hudsonPatents);
+  h('1693',null,'Philipsburg Manor patent','claim','Frederick Philipse received the manor patent for holdings in Westchester. The grant survey remains unregistered on this artwork.','https://tile.loc.gov/storage-services/public/gdcmassbookdig/gazetteerofstate04fren/gazetteerofstate04fren_bw.pdf');
+  h('1697',null,'Cortlandt Manor patent','claim','Stephanus Van Cortlandt received a manorial patent in the lower Hudson Valley. The mapped inventory uses year-level dating.',hudsonPatents);
+  h('1697',null,'Philipse Highland Patent','claim','Adolph Philipse acquired the Highland Patent east of the Hudson. This instrument is separate from Frederick Philipse’s Philipsburg Manor.',hudsonPatents);
+  h('1697',null,'Beekman Patent','claim','Henry Beekman received a patent in the eastern Hudson Valley. Its original boundaries require a separate survey reconstruction.',hudsonPatents);
+  h('1697',null,'Great Nine Partners Patent','claim','Nine investors received a joint patent in the eastern Hudson Valley. Subsequent subdivision established individual lots.',hudsonPatents);
   window.authorityRecords.push(...records);
 }
