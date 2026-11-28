@@ -666,17 +666,29 @@ window.authorityRecords.push({
     ["1667-10-06","September 26 1667","William Dixey","allotment","16 acres","at Bass Cove","",32,"8245/0080_32"],
     ["1668-09-19","September 9 1668","Andrew Ranken","layout","20 acres","","",38,"8251/0086_38"]
   ];
+  // These anchors identify waterways cited by the record, at the scale of the
+  // regional sheet. Bank, distance and neighboring-owner calls stay in the deed.
+  const yorkWaterways = [
+    [/Cape Neddick River/i, [-70.59861, 43.18333]],
+    [/York River/i, [-70.6914, 43.1416]],
+    [/Ogunquit River/i, [-70.59144, 43.24592]],
+    [/Brave Boat Harbou?r/i, [-70.6430, 43.0994]],
+  ];
   for (const [from, date, grantee, act, area, bounds, note, folio, scan] of yorkRegister) {
+    const matches = yorkWaterways.filter(([name]) => name.test(bounds));
+    const regionalLocation = matches.length === 1 ? matches[0][1] : undefined;
     const facts = [
       `Town of York, ${date} Old Style, using the year in the chronological index. Recorded ${act} for ${grantee}.`,
       area && `Quantity or interest recorded: ${area}.`,
       bounds && `Location or boundary call: ${bounds}.`,
       note && note.replace(/\.?$/, '.'),
-      'The individual parcel cannot be registered on the illustrated sheet. York town records I, p. ' + folio + '.'
+      (regionalLocation ? 'The regional marker locates the named waterway vicinity. Parcel boundaries remain unresolved. ' : 'Parcel location remains unresolved. ') + 'York town records I, p. ' + folio + '.'
     ];
     window.authorityRecords.push({
       region: 'Maine', from, until: null, status: 'claim',
       name: 'York ' + act + ' — ' + grantee + (bounds ? ', ' + bounds : area ? ', ' + area : ''),
+      // The named river is a vicinity anchor for the deed, independent of its parcel limits.
+      regionalLocation,
       detail: facts.filter(Boolean).join(' '),
       url: 'https://www.yorkmaine.org/DocumentCenter/View/' + scan
     });

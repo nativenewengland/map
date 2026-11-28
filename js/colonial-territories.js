@@ -66,6 +66,13 @@
     source.target = '_blank';
     source.rel = 'noopener';
     article.append(heading, meta, detail, source);
+    if (r.regionalLocation) {
+      const [lon, lat] = r.regionalLocation;
+      const link = document.createElement('a');
+      link.textContent = ' Locate vicinity on the regional map';
+      link.href = '1/?' + new URLSearchParams({lon, lat, grant: r.name});
+      article.append(link);
+    }
     if (r.from !== '1500' && r.from.length < 10 && date.startsWith(r.from)) {
       const precision = document.createElement('p');
       precision.className = 'authority-precision';

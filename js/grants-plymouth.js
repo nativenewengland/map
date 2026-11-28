@@ -2,6 +2,10 @@
 {
   const region = 'Plymouth and Wampanoag country';
   const plymouth = [6326,4352], greenHarbor = [6258,4028];
+  // Use the registered Kingston locality for the Jones River district.
+  const jonesRiver = [6194,4282];
+  const eelRiverPixel = geographicArtworkPixel(-70.60, 41.92);
+  const eelRiver = [eelRiverPixel.x, eelRiverPixel.y];
   const url = 'https://archive.org/details/recordsofcolonyo0102newp';
   function order(from, until, name, detail, page, point) {
     window.authorityRecords.push({region, from, until, name, status:'claim', point, url,
@@ -19,21 +23,21 @@
   }
   order('1637-01-09',null,'Plain Dealing • Atwood purchase','John Atwood bought out his partner John Done’s interest in the dwelling, outbuildings, inclosures and land near Plain Dealing for £60.',47,plymouth);
   for (const name of ['Josias Winslow','Kenelm Winslow']) {
-    order('1637-01-16',null,'Eel River • '+name,'The court granted '+name+' sixty acres south of the river above the great swamp. A marginal note voided this grant on receipt of land at Greens Harbor. The date of replacement is uncertain.',47,null);
+    order('1637-01-16',null,'Eel River • '+name,'The court granted '+name+' sixty acres south of the river above the great swamp. A marginal note voided this grant on receipt of land at Greens Harbor. The date of replacement is uncertain. The point marks the river vicinity.',47,eelRiver);
   }
   order('1637-01-16',null,'William Tubbs • nook beyond Mitchell','The court granted the point beyond Experience Mitchell’s land. Acreage was unspecified.',47,null);
   order('1637-01-24',null,'James Skiffe • service allotment','Ten acres beside Tristram Clarke between Pratt and widow Billington. Five were due for Skiffe’s service to Isaac Allerton and five under Peter Talbott’s service to Edward Doty.',47,plymouth);
   order('1637-01-24',null,'Black Brook • Shaw enlargement','John Shaw could enlarge the end of his existing Black Brook lot.',48,null);
   order('1637-01-24',null,'Willingsley • Jenkins enlargement','John Jenkins could extend his ground along the ends of Ralph Wallen’s lands.',48,null);
   const hay = [
-    ['Reynor and Browne','the upper Jones River, formerly cut by the Winslows',null],
+    ['Reynor and Browne','the upper Jones River, formerly cut by the Winslows',jonesRiver],
     ['Atwood and Kenelm Winslow','the beach points opposite Great Wood Island',greenHarbor],
     ['John and Josias Winslow','Great Wood Island at Greens Harbor',greenHarbor],
     ['William Collier','his former ground and another nook near Bowman’s',null],
     ['Christopher Waddesworth','his previous ground and additional grass before his house',null],
     ['Standish and Washburn','their previous mowing ground',null],
     ['Francis Sprague and William Basset','their former ground, with the previously uncut grass reserved to Brewster',null],
-    ['Thomas Cushman','marsh outside Fuller’s use and the wading place across Jones River',null],
+    ['Thomas Cushman','marsh outside Fuller’s use and the wading place across Jones River',jonesRiver],
     ['Thomas Prence and Joseph Rogers','their former hay in proportion to their cattle, with extra supply for Prence at High Pines',null],
     ['John Done','High Pines',null], ['John Barnes and Edward Holman','Gurnet’s Nose',null],
     ['John Banges and Edward Dotey','Saggaquash',null],
@@ -47,7 +51,7 @@
     ['Holmes','his previous hay ground',null],['Phineas Pratt and Coomes','their previous hay ground',null],
     ['John Faunce','the place Bradford had mowed the previous year',null],
     ['Church, Bartlett and Little','their previous mowing, with unallocated ground available and a swamp at the head of Bradford’s land for Bartlett',null],
-    ['Manasseth Kempton','part of the Jones River meadow used by Bradford and Constance Southerne',null],
+    ['Manasseth Kempton','part of the Jones River meadow used by Bradford and Constance Southerne',jonesRiver],
     ['George Soule','his former mowing ground',null],['Hopkins and Thomas Clark','their former mowing ground',null],
     ['Edward Winslow','his former mowing ground',null],['Nicholas Snow','his former ground at Wellingsley',null],
     ['Ralph Wallen','his former mowing ground',null],['John Cooke','ground about Mitchell’s and Henry Howland’s holdings',null],

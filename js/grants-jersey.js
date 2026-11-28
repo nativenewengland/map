@@ -110,6 +110,16 @@
     ['1677-11-20',176,'Bergen • Thomas Fredrick patent','Separate holdings along the highway, Hackensack River and the creek below Snake Hill, with Paulus Pieters and Hendrick van Ostrum among the neighbors.',bergen]
   ];
   for (const [from, folio, name, bounds, point] of laterPatents) {
+    // Tappan is identified by the existing homeland outline on the master sheet.
+    const tappan = folio === 114 && name.startsWith('Northern Tappan') ? [116,6550] : null;
+    if (tappan) {
+      window.authorityRecords.push({
+        region, from, until: null, name, status: 'claim', point: tappan,
+        detail: bounds + ' East Jersey Patents I, p. 114. The marker identifies the Tappan area at the resolution of the existing artwork. The parcel corners remain unresolved.',
+        url: records
+      });
+      continue;
+    }
     add(from,name,'East Jersey proprietary government. ' + bounds + ' East Jersey Patents I, p. ' + folio + ', calendared by Nelson.',records,point);
   }
   add('1671-05-29','Tappan • Assowakon and associates’ deed','Assowakon, sachem of Tappan, Seweggkamin, Saghtew and other named signatories conveyed land to Baltazar de Harte and associates from Clawson’s holding to Tedious Hook, reaching inland to Metassin Creek and the Hackensack. East Jersey Patents I, p. 115, deed of 19 May 1671 Old Style.',records+'#page=37',null);

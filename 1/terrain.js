@@ -80,6 +80,20 @@ async function loadTerrain() {
   }
   document.querySelector('#retry-inventory').addEventListener('click', openInventory);
   openInventory();
+  const params = new URLSearchParams(location.search);
+  if (params.has('lon') && params.has('lat') && params.has('grant')) {
+    const lon = Number(params.get('lon'));
+    const lat = Number(params.get('lat'));
+    if (!Number.isFinite(lon) || !Number.isFinite(lat)) return;
+    const {polityPoint} = await import('./polities.js');
+    const [x, y] = polityPoint([lon, lat]);
+    const point = [(3688 - y) * terrainScale, x * terrainScale];
+    if (!imageBounds.contains(point)) return;
+    const caption = document.createElement('span');
+    caption.textContent = params.get('grant') + ' (approximate locality)';
+    map.setView(point, -3);
+    L.circleMarker(point, {radius: 6}).addTo(map).bindPopup(caption).openPopup();
+  }
 }
 
 loadTerrain().catch(() => { document.getElementById('map-error').hidden = false; });
