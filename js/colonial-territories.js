@@ -1,63 +1,252 @@
+// Dates use Gregorian civil days. Partial dates switch at the start of their
+// recorded period; the displayed precision stays that of the source.
 {
-  // Rings use master-artwork pixels at zoom 5. Fort footprints are schematic at this scale.
-  const sources = {
-    cuttyhunk: 'https://www.whalingmuseum.org/old-dartmouth-historical-society-sketches/old-dartmouth-historical-sketch-no-4/',
-    plymouth: 'https://www.fiskecenter.umb.edu/Pdfs/75a_PLYBH%202015%20public%20summary%20final.pdf',
-    orange: 'https://nysm.nysed.gov/exhibitions/ongoing/fort-orange',
-    manhattan: 'https://www.nps.gov/afbg/planyourvisit/african-american-freedom-trail.htm',
-    wall: 'https://home.nps.gov/afbg/learn/historyculture/african-burial-ground-in-history.htm',
-    common: 'https://content.boston.gov/departments/archaeology/boston-common-archaeology',
-    dartmouth: 'https://dartmouthhas.org/wp-content/uploads/history-_dartmouth_ma_libraries.pdf',
-    transfer: 'https://www.nysenate.gov/timeline',
-    restoration: 'https://www.archontology.org/nations/us/new_york/01_polity_1673_74.php',
+  const records = window.authorityRecords;
+  const styles = {
+    indigenous: ['Indigenous authority', '#176346'],
+    english: ['English administration', '#b32932'],
+    dutch: ['Dutch administration', '#c15c0a'],
+    french: ['French administration', '#335b9b'],
+    contested: ['Contested or shared authority', '#713d88', '5 3'],
+    claim: ['Claim or grant', '#885a23', '2 4'],
+    unresolved: ['Extent unresolved', '#59616a', '1 4'],
   };
-  const city = [[246,6928],[247,6915],[260,6910],[271,6917],[259,6928],[250,6933]];
-  const plymouth = [[6321,4353],[6327,4349],[6332,4350],[6331,4355],[6324,4357]];
-  const beverwyck = [[998,2690],[1003,2681],[1011,2682],[1010,2693],[1009,2704],[1005,2705],[1000,2698]];
-  const albany = 'https://www.thelakotagroup.com/wp-content/uploads/2019/05/September-2019-DRAFT_Albany-Historic-Preservation-Plan-Reduced-Size.pdf';
-  const entries = [
-    ['1614','1618','Dutch','Fort Nassau',[[994,2754],[998,2754],[998,2758],[994,2758]],'Stockaded trading house on Castle Island, abandoned in 1618. Both dates are known here to the year.','https://museum.dmna.ny.gov/forts/nassau'],
-    ['1660','1664','Dutch','Beverwyck and Fort Orange',beverwyck,'The town and fort were enclosed in a wooden stockade by 1660. Schematic town core on the Hudson.',albany],
-    ['1664','1673','English','Albany',beverwyck,'The English received the Dutch town and renamed it Albany. The transition is shown at year precision.',albany],
-    ['1673','1674','Dutch','Willemstadt',beverwyck,'The former Beverwyck town core during the Dutch restoration. The change is shown at year precision.',sources.restoration],
-    ['1674',null,'English','Albany',beverwyck,'The town core returned to English administration. The change is shown at year precision.',sources.restoration],
-    ['1602-06-04','1602-06-28','English','Cuttyhunk trading post',[[5845,5610],[5848,5608],[5851,5611],[5848,5614]],'Temporary fortified post on the islet in Westend Pond, in Wampanoag country. The expedition abandoned it in June.',sources.cuttyhunk],
-    ['1621-01-04','1622-03','English','Plymouth at Patuxet',[[6325,4352],[6328,4351],[6328,4354],[6325,4354]],'The first building site in the Wampanoag homeland of Patuxet.',sources.plymouth],
-    ['1622-03',null,'English','Plymouth at Patuxet',plymouth,'Approximate enclosed settlement between Burial Hill and the harbor, north of Town Brook. The palisade was in place by March 1622. Its exact alignment is uncertain.',sources.plymouth],
-    ['1624','1660','Dutch','Fort Orange',[[1005,2700],[1009,2700],[1009,2704],[1005,2704]],'West India Company trading fort on the upper Hudson. The enclosure represents the Dutch foothold in Mahican country.',sources.orange],
-    ['1625','1653','Dutch','Fort Amsterdam',[[248,6927],[252,6926],[254,6929],[250,6931]],'Fort at the southern tip of Manhattan. This footprint represents the fortified settlement in Lenape country.',sources.manhattan],
-    ['1634',null,'English','Boston Common at Shawmut',[[5616,3422],[5624,3418],[5628,3424],[5622,3430],[5615,3428]],'Common grazing land acquired by the town of Boston from William Blackstone in 1634. The polygon shows the vicinity of the Common.',sources.common],
-    ['1653','1664-09-08','Dutch','New Amsterdam',city,'Fortified town south of the wall between the Hudson and East rivers. The wall gives a documented northern limit for the urban core.',sources.wall],
-    ['1664-06-18',null,'English','Old Dartmouth',[[5420,4840],[5590,4846],[5940,4810],[6010,4860],[6070,5310],[5750,5490],[5420,5420],[5360,5170]],'Approximate municipal jurisdiction of Plymouth Colony on Buzzards Bay. The 1652 deed and the bounds recognized in 1664 describe the Acushnet, Sconticut, Ponagansett and Coaksett areas. Wampanoag people continued to live here.',sources.dartmouth],
-    ['1664-09-08','1673-08-09','English','New York',city,'The English took possession of the former Dutch town. Shading follows its established urban footprint.',sources.transfer],
-    ['1673-08-09','1674-11-10','Dutch','New Orange',city,'Dutch forces retook the city in August 1673.',sources.restoration],
-    ['1674-11-10',null,'English','New York',city,'The Dutch administration returned the city to English control in November 1674.',sources.restoration],
-  ];
+  const sites = new Map();
   const group = L.layerGroup().addTo(territoriesOverlay);
-  const patches = entries.map(([from, until, power, name, ring, detail, url]) => {
-    const color = power === 'English' ? '#cb7772' : '#dfa056';
-    const polygon = L.polygon(ring.map(p => map.unproject(p, 5)), {
-      renderer: territoryRenderer, color, fillColor: color, weight: 1, fillOpacity: 1,
-      smoothFactor: 0, className: 'colonial-territory',
-    }).bindTooltip(power + ' · ' + name).bindPopup('<strong>' + name + '</strong><br>' +
-      power + ' control · ' + from + (until ? ' to ' + until : ' onward') +
-      '<p>' + detail + '</p>Reconstructed extent. <a href="' + url + '">Historical source</a>');
-    return {from, until, polygon};
-  });
-  function refresh(date) {
-    for (const {from, until, polygon} of patches) {
-      if (date >= from && (!until || date < until)) {
-        if (!group.hasLayer(polygon)) group.addLayer(polygon);
-      } else if (group.hasLayer(polygon)) group.removeLayer(polygon);
+  const regions = [...new Set(records.map(r => r.region))].sort();
+  let current = [];
+  let selectedPoint;
+  let selectedRecord;
+  let date;
+  let lastInterval;
+  const boundaries = [...new Set(records.flatMap(r => [r.from, r.until]).filter(Boolean))].sort();
+  const control = L.control({position: 'topleft'});
+  const panel = document.createElement('details');
+  panel.className = 'authority-panel';
+  const title = document.createElement('summary');
+  title.textContent = 'Political authority';
+  title.title = 'View legend and regional evidence';
+  const legend = document.createElement('div');
+  legend.className = 'authority-legend';
+  for (const [label, color, dash] of Object.values(styles)) {
+    const line = document.createElement('span');
+    line.style.setProperty('--ink', color);
+    if (dash) line.className = 'dashed';
+    line.textContent = label;
+    legend.append(line);
+  }
+  const help = document.createElement('p');
+  help.textContent = 'Dots locate sites. Unshaded land has no reconstructed boundary for this date. Click land for evidence. Year and month transitions use the first day of the recorded period.';
+  const picker = document.createElement('select');
+  picker.setAttribute('aria-label', 'Regional political evidence');
+  picker.add(new Option('Choose a region', ''));
+  for (const region of regions) picker.add(new Option(region, region));
+  const inventory = document.createElement('div');
+  panel.append(title, legend, help, picker, inventory);
+  panel.open = window.innerWidth >= 1000;
+  control.onAdd = () => panel;
+  control.addTo(map);
+  L.DomEvent.disableClickPropagation(panel);
+  L.DomEvent.disableScrollPropagation(panel);
+
+  function evidence(r) {
+    const article = document.createElement('article');
+    const heading = document.createElement('strong');
+    heading.textContent = r.name;
+    const meta = document.createElement('small');
+    meta.textContent = styles[r.status][0] + ' · ' + r.from + ' to ' + (r.until ? 'before ' + r.until : 'timeline end');
+    const detail = document.createElement('p');
+    detail.textContent = r.detail;
+    if (r.from.length < 10 || (r.until && r.until.length < 10)) {
+      meta.title = 'Year and month transitions display from the first day of the recorded period.';
     }
+    const source = document.createElement('a');
+    source.textContent = 'Source · ' + new URL(r.url).hostname;
+    source.href = r.url;
+    source.target = '_blank';
+    source.rel = 'noopener';
+    article.append(heading, meta, detail, source);
+    if (r.from !== '1500' && r.from.length < 10 && date.startsWith(r.from)) {
+      const precision = document.createElement('p');
+      precision.className = 'authority-precision';
+      precision.textContent = 'Evidence begins in ' + r.from + '. The exact day within that ' +
+        (r.from.length === 4 ? 'year' : 'month') + ' is unresolved.';
+      article.append(precision);
+    }
+    return article;
   }
-  // Territory records load asynchronously and can be re-added with the layer control.
-  function raiseColonialTerritories() {
-    group.eachLayer(polygon => polygon.bringToFront());
+  function updateInventory() {
+    inventory.replaceChildren();
+    if (!picker.value || !panel.open) return;
+    for (const r of current.filter(r => r.region === picker.value).sort((a,b) => b.from.localeCompare(a.from))) inventory.append(evidence(r));
   }
-  territoryMarkersLayer.on('layeradd', raiseColonialTerritories);
-  territoriesLayer.on('layeradd', raiseColonialTerritories);
-  group.on('add', raiseColonialTerritories);
-  document.addEventListener('mapdatechange', event => refresh(event.detail));
-  refresh(document.getElementById('map-date').value);
+  picker.onchange = updateInventory;
+  panel.ontoggle = updateInventory;
+
+  function inside(p, ring) {
+    let hit = false;
+    for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+      const [x,y] = ring[i], [u,v] = ring[j];
+      if ((y > p.y) !== (v > p.y) && p.x < (u-x)*(p.y-y)/(v-y)+x) hit = !hit;
+    }
+    return hit;
+  }
+  // This nearest-locality index selects reading material, never a polity.
+  const anchors = records.flatMap(r => {
+    if (!r.point && !r.ring) return [];
+    return [{region: r.region, point: r.point || r.ring[0]}];
+  });
+  // These index positions are reading guides in areas where the main artwork
+  // lacks locatable rivers. They aren't encoded as political features.
+  const guides = [
+    ['Northern edge', 3050, 1120], ['New Hampshire', 5270, 1620],
+    ['Maine', 6820, 1180], ['Hudson Valley and Manhattan', 1050, 2330],
+  ];
+  for (const [region, x, y] of guides) {
+    anchors.push({region, point:[x,y]});
+    const label = L.marker(map.unproject([x,y],5), {
+      icon: L.divIcon({className:'authority-guide', html:'Regional evidence<br><b>' + region + '</b>', iconSize:[110,34]}),
+      title:'Read regional evidence for ' + region,
+    }).addTo(group);
+    label.on('click', () => {
+      picker.value = region;
+      panel.open = true;
+      updateInventory();
+    });
+  }
+  const mask = new Image();
+  mask.src = 'hydro/territory-mask.png';
+  const sampler = document.createElement('canvas');
+  sampler.width = sampler.height = 1;
+  const ctx = sampler.getContext('2d', {willReadFrequently:true});
+  function isLand(p) {
+    if (!mask.naturalWidth) return false;
+    ctx.drawImage(mask, Math.floor(p.x), Math.floor(p.y), 1, 1, 0, 0, 1, 1);
+    return ctx.getImageData(0,0,1,1).data[0] >= 128;
+  }
+
+  // Archived sketches index nearby evidence only. They never enter the dated
+  // features or the test for political authority at a selected location.
+  const referenceIndex = new WeakMap();
+  function nearbySketches(p) {
+    return customPolygons.filter(record => {
+      if (record.overlay !== 'Territories') return false;
+      if (!referenceIndex.has(record)) {
+        const points = record.coords.map(coord => map.project(coord, 5));
+        referenceIndex.set(record, {bounds:L.bounds(points), ring:points.map(v => [v.x,v.y])});
+      }
+      const shape = referenceIndex.get(record);
+      return shape.bounds.contains(p) && inside(p, shape.ring);
+    });
+  }
+  function referenceNotes(p) {
+    const sketches = nearbySketches(p);
+    if (!sketches.length) return null;
+    const notes = document.createElement('details');
+    const summary = document.createElement('summary');
+    summary.textContent = 'Earlier map interpretations (' + sketches.length + ')';
+    notes.append(summary);
+    for (const sketch of sketches) {
+      const name = document.createElement('strong');
+      name.textContent = sketch.name;
+      const paragraph = document.createElement('p');
+      const source = new DOMParser().parseFromString(sketch.description, 'text/html');
+      paragraph.textContent = source.body.textContent;
+      const link = source.querySelector('a[href^="https://"]');
+      notes.append(name, paragraph);
+      if (link) {
+        const anchor = document.createElement('a');
+        anchor.textContent = link.textContent;
+        anchor.href = link.href;
+        anchor.target = '_blank';
+        anchor.rel = 'noopener';
+        notes.append(anchor);
+      }
+    }
+    return notes;
+  }
+  const popup = L.popup({maxHeight: 280, maxWidth: 340, className:'authority-popup', autoPan:false});
+  function inspect(position, selected) {
+    const p = map.project(position, 5);
+    if (!artworkBounds.contains(position)) return;
+    const onLand = isLand(p);
+    const local = current.filter(r => r === selected || (onLand && r.ring && inside(p, r.ring)) ||
+      (r.point && map.latLngToContainerPoint(position).distanceTo(map.latLngToContainerPoint(map.unproject(r.point,5))) <= 5));
+    const section = document.createElement('section');
+    const header = document.createElement('b');
+    header.textContent = dateField.value;
+    section.append(header);
+    if (local.length > 1) {
+      const note = document.createElement('p');
+      note.textContent = 'Areas and localities at this position';
+      section.append(note);
+    }
+    if (local.length) {
+      for (const r of local) section.append(evidence(r));
+    } else {
+      const message = document.createElement('p');
+      message.textContent = onLand ? 'Local political boundary unresolved at this date.' : 'Outside the registered land mask. The main artwork includes water, unregistered land and locator insets.';
+      section.append(message);
+    }
+    if (anchors.length) {
+      const nearest = anchors.reduce((a,b) => p.distanceTo(a.point) <= p.distanceTo(b.point) ? a : b);
+      const region = selected?.region || local[0]?.region || nearest.region;
+      const btn = document.createElement('button');
+      btn.textContent = 'Regional evidence · ' + region;
+      btn.onclick = () => { picker.value = region; panel.open = true; updateInventory(); map.closePopup(popup); };
+      section.append(btn);
+      if (!local.length) {
+        const notes = onLand && referenceNotes(p);
+        if (notes) section.append(notes);
+        for (const r of current.filter(r => r.region === region && !r.point && !r.ring)) section.append(evidence(r));
+      }
+    }
+    selectedPoint = position;
+    selectedRecord = selected;
+    popup.setLatLng(position).setContent(section).openOn(map);
+  }
+  for (const r of records) {
+    if (r.from.length === 10) registerTimelineNews(r.from, r.name + ' — ' + r.detail, r.url);
+    if (!r.point && !r.ring) continue;
+    const [,color,dashArray] = styles[r.status];
+    const options = {color, dashArray, weight: 2, fillColor:color, fillOpacity:r.point ? .88 : .26,
+      smoothFactor:0, bubblingMouseEvents:false, className:'authority-shape authority-' + r.status};
+    if (r.ring && ['indigenous','contested','claim'].includes(r.status)) {
+      options.fillColor = 'url(#political-' + r.status + ')';
+      options.fillOpacity = .66;
+    }
+    const layer = r.ring
+      ? L.polygon(r.ring.map(p => map.unproject(p,5)), {...options,renderer:politicalAreaRenderer})
+      : L.circleMarker(map.unproject(r.point,5), {...options, renderer:politicalSiteRenderer, radius:5});
+    const label = document.createElement('span');
+    label.textContent = r.name;
+    layer.bindTooltip(label);
+    layer.on('click', e => inspect(e.latlng, r.point ? r : undefined));
+    sites.set(r, layer);
+  }
+  map.on('click', e => { if (map.hasLayer(territoriesOverlay)) inspect(e.latlng); });
+  function refresh(next) {
+    const previousMonth = date?.slice(0,7);
+    date = next;
+    const index = boundaries.findIndex(b => b > date);
+    if (index !== lastInterval) {
+      lastInterval = index;
+      current = records.filter(r => date >= r.from && (!r.until || date < r.until));
+      const active = new Set(current);
+      for (const [r,layer] of sites) {
+        if (active.has(r) && !group.hasLayer(layer)) group.addLayer(layer);
+        if (!active.has(r) && group.hasLayer(layer)) group.removeLayer(layer);
+      }
+      updateInventory();
+    } else if (previousMonth !== next.slice(0,7)) {
+      updateInventory();
+    }
+    if (map.hasLayer(popup) && selectedPoint) inspect(selectedPoint, current.includes(selectedRecord) ? selectedRecord : undefined);
+  }
+  map.on('overlayremove', e => {
+    if (e.layer === territoriesOverlay) { map.closePopup(popup); panel.hidden = true; }
+  });
+  map.on('overlayadd', e => { if (e.layer === territoriesOverlay) panel.hidden = false; });
+  document.addEventListener('mapdatechange', e => refresh(e.detail));
+  refresh(dateField.value);
 }

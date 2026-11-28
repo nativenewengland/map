@@ -23,6 +23,7 @@ var tiles = L.tileLayer('map/{z}/{x}/{y}.jpg', {
 
 // The source artwork is a 32-by-32 tile sheet at zoom 5.
 var artworkBounds = L.latLngBounds(map.unproject([0, 8192], 5), map.unproject([8192, 0], 5));
+map.fitBounds(L.latLngBounds(map.unproject([0, 7550], 5), map.unproject([7750, 2050], 5)), { padding: [20, 35] });
 map.createPane('vectorGeography').style.zIndex = 205;
 function geographyLayer(file, order) {
   // Each SVG spans 1024 master-artwork units, one world tile at zoom 3.
@@ -1161,13 +1162,13 @@ var territoriesLayer = L.featureGroup();
 var territoryMarkersLayer = L.layerGroup();
 var battles = L.layerGroup().addTo(map);
 var Settlements = L.layerGroup();
-var territoriesOverlay = L.layerGroup([territoriesLayer, territoryMarkersLayer]);
+var territoriesOverlay = L.layerGroup([territoriesLayer]);
 // Text labels use a bold sans-serif stack; mirror it when measuring glyph widths.
 var TEXT_LABEL_FONT_FAMILY = "Roboto, 'Open Sans', 'Helvetica Neue', Arial, sans-serif";
 var textMeasurementContext = null;
 var textMeasurementSpan = null;
 
-Settlements.addTo(map);
+var referencePlaces = L.layerGroup();
 territoriesOverlay.addTo(map);
 
 var overlayTargetGroups = {
@@ -1187,8 +1188,10 @@ var glastonburyOverlay = L.imageOverlay(
 
 var overlays = {
   Battles: battles,
-  Settlements: Settlements,
-  'Political territories (timeline)': territoriesOverlay,
+  'Settlement sites (mixed dates)': Settlements,
+  'Historical labels and sites (mixed dates)': referencePlaces,
+  'Political authority at selected date': territoriesOverlay,
+  'Historical homeland sketches (mixed dates)': territoryMarkersLayer,
   'Glastonbury (1600)': glastonburyOverlay,
 };
 
@@ -1247,7 +1250,8 @@ var additionalOverlayNames = [
 ];
 
 additionalOverlayNames.forEach(function (name) {
-  var layer = L.layerGroup().addTo(map);
+  var layer = L.layerGroup();
+  if (name !== 'Tribes') layer.addTo(map);
   overlayTargetGroups[name] = layer;
   overlays[name] = layer;
 });
@@ -1830,6 +1834,7 @@ function setPolygonPopup(poly) {
     '<b>' +
     (data.name || '') +
     '</b>' +
+    (data.overlay === 'Territories' ? '<br><em>Historical reference sketch (independent of the selected date).</em>' : '') +
     (data.description ? '<br>' + data.description : '');
   if (isCustom) {
     html += '<br><a href="#" class="polygon-edit-link">Edit</a>';
@@ -1867,32 +1872,63 @@ function editPolygonForm(poly) {
 }
 
 // Keep polygon coordinates editable while masking their paint to the artwork.
-var territoryRenderer = L.svg();
-territoryRenderer.on('add', function () {
-  var root = territoryRenderer._container;
-  var ns = root.namespaceURI;
-  var mask = document.createElementNS(ns, 'mask');
-  mask.id = 'main-territory-land';
-  mask.setAttribute('maskUnits', 'userSpaceOnUse');
-  var image = document.createElementNS(ns, 'image');
-  image.setAttribute('href', 'hydro/territory-mask.png');
-  mask.appendChild(image);
-  root.prepend(mask);
-  territoryRenderer._rootGroup.setAttribute('mask', 'url(#main-territory-land)');
-
-  function alignMask() {
-    var corner = map.latLngToLayerPoint(artworkBounds.getNorthWest());
-    var size = 8192 * map.getZoomScale(map.getZoom(), 5);
-    for (var element of [image, mask]) {
-      element.setAttribute('x', corner.x);
-      element.setAttribute('y', corner.y);
-      element.setAttribute('width', size);
-      element.setAttribute('height', size);
+function createLandRenderer(options, maskId) {
+  var renderer = L.svg(options);
+  renderer.on('add', function () {
+    var root = renderer._container;
+    var ns = root.namespaceURI;
+    if (options.pane === 'politicalAreas') {
+      var defs = document.createElementNS(ns, 'defs');
+      for (const [name, ink] of [['contested','#713d88'], ['claim','#885a23'], ['indigenous','#176346']]) {
+        var pattern = document.createElementNS(ns, 'pattern');
+        pattern.id = 'political-' + name;
+        pattern.setAttribute('width', 8);
+        pattern.setAttribute('height', 8);
+        pattern.setAttribute('patternUnits', 'userSpaceOnUse');
+        var tint = document.createElementNS(ns, 'rect');
+        tint.setAttribute('width', 8);
+        tint.setAttribute('height', 8);
+        tint.setAttribute('fill', ink);
+        tint.setAttribute('fill-opacity', '.3');
+        var stripe = document.createElementNS(ns, 'path');
+        stripe.setAttribute('d', name === 'claim' ? 'M0 4H8' : 'M-2 2L2 -2 M0 8L8 0 M6 10L10 6');
+        stripe.setAttribute('stroke', ink);
+        stripe.setAttribute('stroke-width', name === 'indigenous' ? 1 : 2);
+        pattern.append(tint, stripe);
+        defs.append(pattern);
+      }
+      root.prepend(defs);
     }
-  }
-  alignMask();
-  territoryRenderer.on('update', alignMask);
-});
+    var mask = document.createElementNS(ns, 'mask');
+    mask.id = maskId;
+    mask.setAttribute('maskUnits', 'userSpaceOnUse');
+    var image = document.createElementNS(ns, 'image');
+    image.setAttribute('href', 'hydro/territory-mask.png');
+    mask.appendChild(image);
+    root.prepend(mask);
+    renderer._rootGroup.setAttribute('mask', 'url(#' + maskId + ')');
+
+    function alignMask() {
+      var corner = map.latLngToLayerPoint(artworkBounds.getNorthWest());
+      var size = 8192 * map.getZoomScale(map.getZoom(), 5);
+      for (var element of [image, mask]) {
+        element.setAttribute('x', corner.x);
+        element.setAttribute('y', corner.y);
+        element.setAttribute('width', size);
+        element.setAttribute('height', size);
+      }
+    }
+    alignMask();
+    renderer.on('update', alignMask);
+    renderer.once('remove', () => renderer.off('update', alignMask));
+  });
+  return renderer;
+}
+var territoryRenderer = createLandRenderer({}, 'main-territory-land');
+map.createPane('politicalAreas').style.zIndex = 610;
+map.createPane('politicalSites').style.zIndex = 615;
+var politicalAreaRenderer = createLandRenderer({pane:'politicalAreas'}, 'main-political-land');
+var politicalSiteRenderer = L.svg({pane:'politicalSites'});
 
 function addPolygonToMap(data) {
   var opts = Object.assign(
@@ -1905,7 +1941,7 @@ function addPolygonToMap(data) {
     data.style || {}
   );
   var layer = getOverlayLayer(data.overlay) || territoriesLayer;
-  var poly = L.polygon(data.coords, Object.assign(opts, { renderer: territoryRenderer })).addTo(layer);
+  var poly = L.polygon(data.coords, Object.assign(opts, { renderer: territoryRenderer, bubblingMouseEvents:false })).addTo(layer);
   if (data.overlay === 'Planting Grounds') {
     var icon = document.createElement('img');
     icon.src = AgricultureIcon.options.iconUrl;
@@ -2036,7 +2072,7 @@ function addMarkerToMap(data) {
     data.description
   );
   var overlayName = data.overlay || '';
-  var targetLayer = getOverlayLayer(overlayName);
+  var targetLayer = getOverlayLayer(overlayName) || (data.referencePlace ? referencePlaces : null);
   if (targetLayer) {
     targetLayer.addLayer(customMarker);
   } else {
@@ -2260,7 +2296,7 @@ function addTextLabelToMap(data) {
       saveTextLabels();
     });
   var overlayName = data.overlay || '';
-  var targetLayer = getOverlayLayer(overlayName);
+  var targetLayer = getOverlayLayer(overlayName) || (data.referencePlace ? referencePlaces : null);
   if (targetLayer) {
     targetLayer.addLayer(m);
   } else {
@@ -2295,6 +2331,7 @@ fetch('data/features.csv')
     try {
       var parsed = loadFeaturesFromCSV(csv);
       parsed.markers.forEach(function (m) {
+        m.referencePlace = !m.overlay;
         customMarkers.push(m);
         addMarkerToMap(m);
       });
@@ -2302,6 +2339,7 @@ fetch('data/features.csv')
         if (containsTextLabel(customTextLabels, t)) {
           return;
         }
+        t.referencePlace = !getOverlayLayer(t.overlay);
         customTextLabels.push(t);
         addTextLabelToMap(t);
       });
@@ -2911,52 +2949,56 @@ var AddTextControl = L.Control.extend({
 
 map.addControl(new AddTextControl());
 
-var drawControl = new L.Control.Draw({
-  draw: {
-    polygon: true,
-    polyline: false,
-    rectangle: false,
-    circle: false,
-    circlemarker: false,
-    marker: false,
-  },
-  edit: {
-    featureGroup: territoriesLayer,
-  },
-});
-map.addControl(drawControl);
-updateEditToolbar();
-
-map.on(L.Draw.Event.CREATED, function (e) {
-  if (e.layerType === 'polygon') {
-    showPolygonForm(e.layer);
-  }
-});
-
-map.on(L.Draw.Event.EDITED, function (e) {
-  e.layers.eachLayer(function (layer) {
-    if (customPolygons.includes(layer._data)) {
-      layer._data.coords = layer
-        .getLatLngs()[0]
-        .map(function (latlng) {
-          return [latlng.lat, latlng.lng];
-        });
-    }
+var drawControl;
+if (L.Control.Draw) {
+  drawControl = new L.Control.Draw({
+    draw: {
+      polygon: true,
+      polyline: false,
+      rectangle: false,
+      circle: false,
+      circlemarker: false,
+      marker: false,
+    },
+    edit: {
+      featureGroup: territoriesLayer,
+    },
   });
-  savePolygons();
-});
-
-map.on(L.Draw.Event.DELETED, function (e) {
-  e.layers.eachLayer(function (layer) {
-    if (customPolygons.includes(layer._data)) {
-      customPolygons = customPolygons.filter(function (p) {
-        return p !== layer._data;
-      });
-    }
-  });
-  savePolygons();
+  map.addControl(drawControl);
   updateEditToolbar();
-});
+
+  map.on(L.Draw.Event.CREATED, function (e) {
+    if (e.layerType === 'polygon') {
+      showPolygonForm(e.layer);
+    }
+  });
+
+  map.on(L.Draw.Event.EDITED, function (e) {
+    e.layers.eachLayer(function (layer) {
+      if (customPolygons.includes(layer._data)) {
+        layer._data.coords = layer
+          .getLatLngs()[0]
+          .map(function (latlng) {
+            return [latlng.lat, latlng.lng];
+          });
+      }
+    });
+    savePolygons();
+  });
+
+  map.on(L.Draw.Event.DELETED, function (e) {
+    e.layers.eachLayer(function (layer) {
+      if (customPolygons.includes(layer._data)) {
+        customPolygons = customPolygons.filter(function (p) {
+          return p !== layer._data;
+        });
+      }
+    });
+    savePolygons();
+    updateEditToolbar();
+  });
+
+}
 
 document.getElementById('save-changes').addEventListener('click', function () {
   exportFeaturesToCSV();
@@ -3033,11 +3075,11 @@ document.getElementById('save-changes').addEventListener('click', function () {
 // Site locations use the main artwork's CRS. The Albany area is approximate:
 // registered from Suckiaug, Pocumtuck and Patuxet in projected artwork space.
 const colonialSites = [
-  { name: 'Gosnold’s Cuttyhunk post', point: [-55.25, 77], country: 'english',
-    from: '1602-06-04', detail: 'The expedition reached Cuttyhunk on May 25 Old Style (June 4 Gregorian). Temporary English post on an islet in Westend Pond. Marker shows the western end of Cuttyhunk at this map scale.',
-    source: 'https://www.whalingmuseum.org/old-dartmouth-historical-society-sketches/old-dartmouth-historical-sketch-no-4/' },
+  { name: 'Gosnold’s Cuttyhunk post', point: [-55.1789,77.1240], country: 'english',
+    from: '1602-06-04', until: '1602-06-28', detail: 'The expedition reached Cuttyhunk on May 25 Old Style (June 4 Gregorian). Temporary English post on an islet in Westend Pond. Marker shows the western end of Cuttyhunk at this map scale.',
+    source: 'https://www.ancientlights.org/gosnold.html' },
   { name: 'Fort Nassau', point: [50.622, -136.227], country: 'dutch',
-    from: '1614', detail: 'Dutch trading post on Castle Island south of Albany. The founding is dated to 1614 or 1615. The timeline uses 1614 at year precision. The position is approximate.',
+    from: '1614', until: '1618', detail: 'Dutch trading post on Castle Island south of Albany. The founding is dated to 1614 or 1615. The timeline uses 1614 at year precision. The position is approximate.',
     source: 'https://museum.dmna.ny.gov/forts/nassau' },
   { name: 'Plymouth at Patuxet', point: [-11.24, 98.05], country: 'english',
     from: '1621-01-04', detail: 'English settlement at Patuxet. The timeline begins when construction of the common house started on December 25, 1620 Old Style (January 4, 1621 Gregorian).',
@@ -3070,13 +3112,13 @@ const earlyTowns = [
   ["Portsmouth area (Odiorne Point)","1623",[73,106],"NH"],
   ["Hull","1624",[26.4,77.8],"MA"],
   ["Duxbury","1624",[-5.4,100.4],"MA"],
-  ["New Amsterdam","1624",[-77,-169],"NY"],
+  ["New Amsterdam","1625",[-79.3920,-160.9277],"NY"],
   ["Quincy (Mount Wollaston)","1625",[19,70],"MA"],
-  ["Salem","1626",[44,81],"MA"],
+  ["Salem","1626",[43.9928,80.9912],"MA"],
   ["Lynn","1629",[38,75],"MA"],
   ["Marblehead","1629",[44.6,87.6],"MA"],
   ["Manchester-by-the-Sea","1629",[49,91],"MA"],
-  ["Boston","1625",[28.42,67.44],"MA"],
+  ["Boston","1625",[28.4590,67.8516],"MA"],
   ["Cambridge","1630",[29,59],"MA"],
   ["Charlestown","1630",[31,65],"MA"],
   ["Dorchester","1630",[23,65],"MA"],
@@ -3097,12 +3139,12 @@ const earlyTowns = [
   ["Newbury","1635",[59.6,85],"MA"],
   ["Topsfield","1635",[50,78],"MA"],
   ["Wenham","1635",[48,83],"MA"],
-  ["Saybrook","1635",[-62,-37],"CT"],
+  ["Saybrook","1635",[-62.8150,-31.7285],"CT"],
   ["Danvers","1636",[46,76],"MA"],
   ["Milton","1636",[21,64],"MA"],
   ["Rehoboth / Seekonk","1643",[-22.69,44.36],"RS"],
   ["Springfield","1636",[7.62,-54.32],"MA"],
-  ["Hartford","1636",[-24.21,-49.77],"CT"],
+  ["Hartford","1636",[-23.6445,-54.0088],"CT"],
   ["Providence","1636",[-23,38],"RI"],
   ["Billerica","1637",[43,48],"MA"],
   ["Sandwich","1637",[-30.4,118],"SA"],
@@ -3133,13 +3175,15 @@ for (const [town, state, year, point, event, source = state, country = 'english'
 
 for (const site of colonialSites) {
   registerTimelineNews(site.from, site.name + ' — ' + site.detail, site.source);
-  const icon = iconMap['settlement-' + site.country];
+  // These symbols identify settlement chronology, independently of later government.
+  const icon = iconMap['settlement'];
   const marker = L.marker(site.point, { icon, title: site.name, alt: site.name })
     .bindPopup('<strong>' + site.name + '</strong><br>' + site.detail + ' <a href="' + site.source + '">Source</a>');
   marker._baseIconOptions = icon.options;
   allMarkers.push(marker);
   const update = date => {
     const visible = date.slice(0, site.from.length) >= site.from;
+    if (site.until && date >= site.until) { Settlements.removeLayer(marker); return; }
     if (visible && !Settlements.hasLayer(marker)) Settlements.addLayer(marker);
     if (!visible && Settlements.hasLayer(marker)) Settlements.removeLayer(marker);
   };
