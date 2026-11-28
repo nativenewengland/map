@@ -229,16 +229,36 @@
     'Fighting spread from Swansea and forced Metacom from his seat. The point marks the contested home country, not his whereabouts on each day. He died near Mount Hope on August 12 Old Style.',bristol);
   add(ply,'1676-08-22','1680','claim','Competing colonial claims to Mount Hope',[5296,4970],
     'After Metacom’s death, Massachusetts Bay, Plymouth, Rhode Island and Connecticut claimed Mount Hope. Plymouth later prevailed. The claims date from conquest and describe no agreed division among Wampanoag survivors.',bristol);
+  const southeastSurvey = 'https://www.sec.state.ma.us/divisions/mhc/preservation/survey/regional-reports/archives/SoutheasternMA.pdf';
+  const bridgewaterRecords = 'https://plymouthcolony.net/magenweb/plymouthcounty/cdates.html';
+  add(ply,'1630-01-23','1691-10-17','claim','Plymouth Colony land and trading patent',null,
+    'The Council for New England granted land and trading rights east of Narragansett Bay and south of a line from the Pawtucket River to the mouth of the Cohasset River. The patent records an English claim. Town governments and continuing Indigenous authority have their own records. January 13, 1629/30 Old Style corresponds to January 23, 1630 Gregorian.',
+    'https://publications.newberry.org/ahcb/documents/RI_Consolidated_Chronology.htm');
+  add(ply,'1636',null,'english','Scituate town on the North River',[6167,3821],
+    'Settlement spread north from Plymouth Bay. The historical survey dates Scituate as a town to 1636. The point marks the town vicinity.',southeastSurvey);
+  add(ply,'1637',null,'english','Duxbury town on Plymouth Bay',[6381,4219],
+    'Plymouth families established farms around Duxbury Bay before Duxbury became a town in 1637.',southeastSurvey);
+  add(ply,'1640',null,'english','Marshfield town at Green Harbor',[6258,4028],
+    'Farms around Green Harbor formed part of the northern expansion from Plymouth. The regional survey dates the founding of Marshfield to 1640.',southeastSurvey);
+  add(ply,'1649','1656','claim','Bridgewater purchase from Ousamequin',null,
+    'Myles Standish, Samuel Nash and Constant Southworth purchased land from Ousamequin. The record describes a land transaction preceding the township.',bridgewaterRecords);
+  add(ply,'1656','1662','english','Bridgewater township',[5766,4307],
+    'Plymouth established a separate township from part of Duxbury. The point marks its vicinity.',bridgewaterRecords);
+  add(ply,'1662',null,'english','Bridgewater township after additional grant',[5766,4307],
+    'The colony granted additional lands to Bridgewater. The point identifies the township. The added tract boundaries are unresolved here.',bridgewaterRecords);
   add(ply,'1680',null,'english','Bristol settlement at Mount Hope',[5265,4990],
     'Plymouth sold the Mount Hope lands to four purchasers in 1680. The point marks the new Bristol settlement, distinct from the Wampanoag seat farther east.',bristol);
   add(ply,'1621-06','1622','indigenous','Aspinet, sachem of Nauset',[7548,4563],
     'Mourt’s Relation describes Plymouth’s delegation to Aspinet to recover John Billington. The episode documents Nauset’s own political authority near present Eastham. The record dates this encounter more closely than Aspinet’s tenure.', 'https://plimoth.org/yath/unit-2/excerpt-from-a-voyage-made-by-ten-of-our-men-to-the-kingdom-of-nauset');
   add(ply,'1605','1644-04','indigenous','Lower Cape villages and sachemships',null,
     'Champlain visited Nauset Harbor in 1605 and Stage Harbor in 1606. The early sources distinguish Nauset and Monomoy communities. Pamet, Meeshawn, Punonakanit and Potanumaquut were other village localities. The villages’ affiliations varied along the Cape.',lowerCape);
-  add(ply,'1644-04','1651','english','Plymouth settlers at Nauset',[7555,4561],
+  add(ply,'1644-04','1646','english','Plymouth settlers at Nauset',[7555,4561],
     'Plymouth families began settlement at Nauset in April 1644 and cultivated separate house and field lots. Fort Hill was an early center. Nauset communities continued in the area.',lowerCape);
+  add(ply,'1646','1651','english','Town of Nauset',[7555,4561],
+    'The town heritage inventory dates incorporation as Nauset to 1646 and the name change to 1651.',
+    'https://www.eastham-ma.gov/DocumentCenter/View/1055/Eastham-Heritage-Landscape-Inventory-Report-2010-PDF');
   add(ply,'1651',null,'english','Eastham town at Nauset',[7555,4561],
-    'The settlement took the name Eastham at incorporation. The point marks the early agricultural town in the vicinity of Fort Hill. Its house lots, fields and commons occupied different parcels.',lowerCape);
+    'The existing town of Nauset took the name Eastham in 1651. The point marks the early agricultural town in the vicinity of Fort Hill. Its house lots, fields and commons occupied different parcels.',lowerCape);
   add(ply,'1644-04',null,'unresolved','Lower Cape sachemships and expanding English settlements',null,
     'English settlements spread among the Nauset, Pamet, Monomoy and other communities. Archaeological occupation and colonial place-names document coexistence. This inventory lacks a continuous series of dated village, mission and town bounds across the outer Cape.',lowerCape);
   add(ply,'1620','1665','indigenous','Wampanoag sachems on Nantucket Sound',[6667,5043],
