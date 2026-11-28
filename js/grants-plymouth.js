@@ -11,6 +11,22 @@
     window.authorityRecords.push({region, from, until, name, status:'claim', point, url,
       detail:'Plymouth court. ' + detail + (point ? ' The point locates the community. Individual parcel boundaries remain unregistered.' : ' The tract has no secure control point on the artwork.') + ' Court Orders I, p. ' + page + '.'});
   }
+  // Plymouth's January 1638/39 court order named four distinct harbor features.
+  const harborOrder = 'https://bmno.mcio.org/files/Manuscripts/documents/History%20of%20the%20Town%20of%20Plymouth.pdf';
+  const harborSites = [
+    ["Clark's Island", -70.63750, 42.00833],
+    ["Eel River Beach (Plymouth Beach)", -70.63837, 41.96260],
+    ["Sagaquash (Saquish Head)", -70.63559, 41.99594],
+    ["Gurnet's Nose (Gurnet Point)", -70.60056, 42.00361],
+  ];
+  for (const [site, lon, lat] of harborSites) {
+    const pixel = geographicArtworkPixel(lon, lat);
+    window.authorityRecords.push({
+      region, from: '1639-01-17', until: null, name: site + ' reserved to Plymouth',
+      status: 'claim', point: [pixel.x, pixel.y], url: harborOrder,
+      detail: 'The Plymouth court reserved this harbor feature and its woods to the town on January 7, 1638/39 Old Style. The marker locates the named feature approximately. Its seventeenth-century shoreline is unresolved.',
+    });
+  }
   order('1635-07-15',null,'North Hill • William Collier','The court granted Collier the wooded North Hill parcel with nearby tussock marsh.',35,null);
   order('1636-11-17',null,'George More • conditional adjoining acreage','Bradford was to inspect land adjoining Abraham Peirce. More was to receive five acres if Bradford found it suitable.',46,null);
   order('1636-11-17',null,'Tristram Clarke • former Coombe parcel','Eight acres lay between Phineas Pratt and widow Billington. A marginal note says the award was remitted because Clarke obtained land elsewhere. Its cancellation date is unknown.',46,plymouth);

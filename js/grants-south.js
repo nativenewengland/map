@@ -387,6 +387,17 @@
     add(ply,from,name,point,terms+' The point locates '+(point === island ? 'Nantucket' : 'the vicinity on Nantucket')+
       '. Individual lot lines remain unresolved. '+reference+'. E. Little, Nantucket Indian Deeds, pp. 42–46.',nantucketDeeds);
   }
+  // Envelope for the named barrier peninsula. The land mask supplies the shoreline.
+  // The cut across the eastern attachment is schematic.
+  const coatue = [[7425,5620],[7470,5620],[7532,5690],[7563,5740],[7568,5775],
+    [7527,5775],[7500,5741],[7478,5763],[7474,5795],[7440,5826],[7400,5863],
+    [7376,5876],[7374,5849],[7418,5810],[7444,5780],[7465,5740],[7465,5680]];
+  for (const record of window.authorityRecords.filter(r => r.name.startsWith('Coatue and Great Point,'))) {
+    delete record.point;
+    record.ring = coatue;
+    record.detail = record.detail.replace(/ The point locates .*? Individual lot lines remain unresolved\./,
+      ' The shaded envelope follows the mapped barrier peninsula through Great Point. The deed names the peninsula but supplies no surveyed line across its eastern attachment.');
+  }
   const madaket = 'https://www.nantucket-ma.gov/DocumentCenter/View/29055/Report-of-the-Committee-on-Long-Pond-and-Madaket-Ditch/';
   add(ply,'1671-07-08','Lovelace confirmation to Nantucket freeholders',[7310,5867],
     'Governor Francis Lovelace confirmed the land already purchased to Tristram Coffin Sr. and Thomas Macy on behalf of the freeholders, June 28 Old Style. The point locates the early settlement. The deeds then in force determine the actual extent. Nantucket committee report, p. 4.',madaket,'1684-06-15');

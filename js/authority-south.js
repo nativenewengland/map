@@ -259,14 +259,136 @@
     'Plymouth families established farms around Duxbury Bay before Duxbury became a town in 1637.',southeastSurvey);
   add(ply,'1640',null,'english','Marshfield town at Green Harbor',[6258,4028],
     'Farms around Green Harbor formed part of the northern expansion from Plymouth. The regional survey dates the founding of Marshfield to 1640.',southeastSurvey);
-  add(ply,'1649','1656','claim','Bridgewater purchase from Ousamequin',null,
-    'Myles Standish, Samuel Nash and Constant Southworth purchased land from Ousamequin. The record describes a land transaction preceding the township.',bridgewaterRecords);
+  const satucketDeed = 'https://www.pilgrimhall.org/in-their-own-right/';
+  // Use the registered East Bridgewater locality for the Satucket transaction.
+  const satucket = [5837,4161];
+  add(ply,'1645','1649','claim','Plymouth authorizes Duxbury to purchase land',satucket,
+    'The General Court authorized Duxbury inhabitants to purchase land from Indigenous owners. The marker identifies the area of the later Satucket purchase. The authorization preceded a negotiated deed.',satucketDeed);
+  add(ply,'1649','1656','claim','Bridgewater purchase from Ousamequin',satucket,
+    'Ousamequin conveyed the Satucket tract to Myles Standish, Samuel Nash and Constant Southworth for Duxbury. The surviving deed gives seven-mile calls north, west and south from the Satucket weir. Damage to the deed interrupts the remaining boundary description. The marker locates the East Bridgewater vicinity.',satucketDeed);
+  add(ply,'1640-11-12',null,'english','Plymouth township bounds set by the court',[6326,4352],
+    'The court set the township bounds on November 2 Old Style. The order names the Sandwich line in the south and a brook entering Blackwater near the Duxbury commons in the north. It calls for eight miles inland from the coast and extends far enough to include South Meadows toward Agawam. The point locates the town. The historical brook and meadow limits require registration before the township can be traced.',
+    'https://upload.wikimedia.org/wikipedia/commons/f/f9/Annual_report_of_the_Town_of_Plymouth%2C_MA_%28IA_annualreportofto1636unse%29.pdf');
   add(ply,'1656','1662','english','Bridgewater township',[5766,4307],
     'Plymouth established a separate township from part of Duxbury. The point marks its vicinity.',bridgewaterRecords);
   add(ply,'1662',null,'english','Bridgewater township after additional grant',[5766,4307],
     'The colony granted additional lands to Bridgewater. The point identifies the township. The added tract boundaries are unresolved here.',bridgewaterRecords);
-  add(ply,'1680',null,'english','Bristol settlement at Mount Hope',[5265,4990],
-    'Plymouth sold the Mount Hope lands to four purchasers in 1680. The point marks the new Bristol settlement, distinct from the Wampanoag seat farther east.',bristol);
+  const bristolDeed = 'https://storage.googleapis.com/stateless-navigator-rihs-org/3550/13/35_Rebel-Treatment-of-the-Tories-During-the-Revolution.pdf';
+  const bristolWaterfront = 'https://preservation.ri.gov/sites/g/files/xkgbur406/files/pdfs_zips_downloads/national_pdfs/bristol/bris_bristol-waterfront-hd.pdf';
+  // The deed covers the two named necks south of Sowams. The land mask clips
+  // the marine sides of this envelope. The cross-neck line is approximate.
+  const mountHopeNecks = [[5206,4915],[5230,4894],[5300,4894],[5350,4915],
+    [5351,5050],[5320,5085],[5200,5085],[5190,4970]];
+  add(ply,'1680-09-24','1681-09-11','claim','Mount Hope and Poppasquash Grand Deed',mountHopeNecks,
+    'Plymouth conveyed the two necks to John Walley, Nathaniel Oliver, Nathaniel Byfield and Stephen Burton on September 14 Old Style. The land lay south of Sowams between Narragansett and Mount Hope bays. The northern line is approximate. Rhode Island continued to claim the area.',bristolDeed);
+  add(ply,'1681-09-11',null,'english','Bristol township on the Mount Hope lands',mountHopeNecks,
+    'The proprietors and inhabitants chose the name Bristol on September 1 Old Style. The polygon shows the approximate extent of the earlier conveyance. The original town plan covered a smaller waterfront area. The competing Rhode Island claim persisted.',bristolWaterfront);
+
+  const plymouthTownDates = 'https://www.sec.state.ma.us/divisions/cis/historical/incorporation-settlement.htm';
+  const capeSettlement = 'https://stellwagen.noaa.gov/library/pdfs/sbnms_mhe_report.pdf';
+  // Master-artwork points use the existing town layer's registered localities.
+  add(ply,'1637','1639','english','Sandwich plantation',[6781,4823],
+    'English settlement began at the upper end of Cape Cod in 1637. This entry locates the settlement in the years before the town was established.',capeSettlement);
+  add(ply,'1639',null,'english','Sandwich township',[6781,4823],
+    'The site became a Plymouth Colony town. A town house was being built by 1639. The point identifies the town center.',plymouthTownDates);
+  add(ply,'1639',null,'english','Barnstable township',[7061,5032],
+    'Plymouth Colony established Barnstable as the English settlement expanded east toward Barnstable Harbor. This entry marks the town locality.',capeSettlement);
+  add(ply,'1639',null,'english','Yarmouth township',[7317,5001],
+    'Yarmouth was established near the eastern side of Barnstable Harbor. This entry marks the town locality.',capeSettlement);
+  add(ply,'1639',null,'english','Taunton township at Cohannet',[5707,4508],
+    'The colony established Taunton in the Cohannet area. A later confirmation dates the original purchase to 1638. The original deed is lost, so the point locates Cohannet without assigning parcel limits.',
+    'https://ldsgenealogy.com/MA/books/Our-country-and-its-people-a-descriptive-and-biographical-record-of-Bristol-County-Massachusetts-part-23.htm');
+  add(ply,'1645',null,'english','Rehoboth township at Seekonk',[5070,4740],
+    'Plymouth Colony incorporated Rehoboth in 1645. Its settlement at Seekonk preceded the 1667 division that created Swansea to the south.',plymouthTownDates);
+  add(ply,'1659-04-12','1683-07','claim','Freemen’s Purchase on the Taunton River',[5691,4755],
+    'A group of 26 Plymouth Colony purchasers acquired land from Wamsutta and Tattapanum. The tract included parts of later Freetown and Fall River. The point marks the existing Freetown locality. The deed corners remain unregistered.',
+    'https://www.mass.gov/doc/freetown/download');
+  add(ply,'1683-07',null,'english','Freetown township',[5691,4755],
+    'Freetown was established as a town out of the earlier Freemen’s Purchase. The point locates the town. Fall River was separated in a later period.',
+    'https://www.freetownma.gov/DocumentCenter/View/3509/Fiscal-Year-2023-PDF');
+  add(ply,'1667-11-09',null,'english','New Swansea township grant',[5322,4797],
+    'Plymouth created New Swansea between the salt water and Taunton River against the bounds of Taunton and Rehoboth. The grant protected earlier individual interests and noted overlapping Rehoboth and Wannamoisett meadows. The point marks the town. October 30 Old Style is November 9 Gregorian.',
+    'https://ldsgenealogy.com/MA/books/Our-country-and-its-people-a-descriptive-and-biographical-record-of-Bristol-County-Massachusetts-part-3.htm');
+  // Anawan Historical Society's North Purchase outline, with the Blackstone
+  // traced from the present Cumberland boundary and tied to the same
+  // Norton–Attleborough line as the Taunton North Purchase.
+  const northPurchase = [[4887,4185],[5029,4185],[5029,4260],[5051,4258],
+    [5199,4199],[5342,4443],[5307,4435],[5171,4451],[5022,4471],
+    [5013,4457],[4998,4459],[4989,4447],[4983,4431],[4972,4422],
+    [4949,4404],[4936,4398],[4933,4383],[4920,4357],[4897,4340],
+    [4877,4322],[4869,4294],[4846,4276],[4831,4272],[4857,4242],
+    [4884,4208]];
+  add(ply,'1661-04-18','1666-04-20','claim','Rehoboth North Purchase from Wamsutta',northPurchase,
+    'Thomas Willett negotiated the purchase from Wamsutta, recorded April 8 Old Style. The approximate outline includes the Attleborough Gore, later Cumberland. It follows the Blackstone, the reconstructed Massachusetts Bay line, Taunton North Purchase and the northern edge of original Rehoboth.',
+    'https://www.town.rehoboth.ma.us/sites/g/files/vyhlif4911/f/uploads/rehoboth_historic_sites_booklet.pdf#page=3');
+  add(ply,'1666-04-20','1694-10-29','claim','Plymouth confirmation of the Rehoboth North Purchase',northPurchase,
+    'Plymouth confirmed the purchase to the inhabitants of Rehoboth on April 10 Old Style. This outline includes the Gore west of the modern state border. The confirmation did not establish occupancy across the tract.',
+    'https://ldsgenealogy.com/MA/books/The-History-of-Rehoboth-Bristol-County-Massachusetts-1836-part-5.htm');
+  add(ply,'1694-10-29',null,'english','Attleborough township in the Province of Massachusetts Bay',northPurchase,
+    'The province incorporated the North Purchase as Attleborough on October 19 Old Style, preserving former grants. The law kept Rehoboth officers in charge until local officers were appointed. This was a later administrative change to a Plymouth-era acquisition.',
+    'https://www.attleboro.org/collection/attleborough-township/');
+  // Clark's solid lines, fitted to MassGIS Easton boundary junctions and
+  // registered to the artwork using local Census town anchors.
+  const tauntonNorth = [[5585,4022],[5627,4276],[5326,4206],
+    [5368,4440],[5342,4443],[5199,4199]];
+  add(ply,'1668-06-11',null,'claim','Taunton North Purchase',tauntonNorth,
+    'Plymouth Colony agents conveyed this tract on June 1 Old Style, as dated in Chaffin’s deed transcription. Clark’s 1859 reconstruction follows Bridgewater’s western bound, turns at Cobbler’s Corner around the older Taunton tract, and meets the Rehoboth and Attleborough lines. The northern edge follows Clark’s later reconstruction of the Massachusetts line, disputed into the eighteenth century. The separately excepted Bundy and Briggs grants are unlocated within this outline. Punkapoag people also asserted a claim to part of the tract.',
+    'https://upload.wikimedia.org/wikipedia/commons/f/f8/A_history_of_the_town_of_Norton%2C_Bristol_County%2C_Massachusetts%2C_from_1669-1859%3B_%28IA_historyoftownofn00clar_0%29.pdf#page=38');
+  add(ply,'1694',null,'english','Tiverton township in the Province of Massachusetts Bay',[5383,5159],
+    'The town emerged from land that Plymouth had conveyed in the Pocasset Purchase. Tiverton’s municipal history dates incorporation under the province to 1694. This point locates the town.',
+    'https://www.tiverton.ri.gov/242/History');
+  add(ply,'1670-06-17',null,'english','Plymouth and Sandwich boundary agreement',[6781,4823],
+    'The town chronology records that the bounds with Sandwich were established on June 7 Old Style. This marker locates Sandwich. The actual boundary requires the surviving court entry or survey.',
+    'https://plymouthcolony.net/magenweb/plymouthcounty/cdates.html');
+  const nemasketTown = 'https://ldsgenealogy.com/MA/books/Celebration-of-the-two-hundredth-anniversary-of-the-incorporation-of-Middleborough-Massachusetts-October-3-1869-part-4.htm';
+  add(ply,'1669-06-11',null,'english','Middleborough township at Namassakett',[5968,4531],
+    'The court bounded the new township by Plymouth, Taunton and Bridgewater. The southern call runs six miles from the Nemasket River wading place near later Star Mills. The shared town lines must be registered to close the polygon.',
+    nemasketTown);
+  add(ply,'1677-07-07',null,'english','Middleborough vote to rebuild',[5968,4531],
+    'The inhabitants and proprietors voted to reoccupy their holdings and rebuild after wartime destruction. The meeting took place in Plymouth on June 27 Old Style. The marker locates Middleborough, the town to be rebuilt.',nemasketTown);
+  add(ply,'1672-10-08',null,'claim','Taunton South Purchase',[5443,4632],
+    'Metacom conveyed the first section to a committee of Taunton associates. It ran three miles along the Taunton River and four miles inland. September 28 Old Style is October 8 Gregorian. The point locates the later Dighton district. The description leaves the starting riverbank corner uncertain.',
+    'https://ldsgenealogy.com/MA/books/Our-country-and-its-people-a-descriptive-and-biographical-record-of-Bristol-County-Massachusetts-part-2.htm');
+  add(ply,'1672-10-11',null,'claim','Taunton South Purchase, second deed',null,
+    'The October 1 Old Style deed conveyed a second tract, one mile wide on the Taunton River and four miles inland, to Plymouth treasurer Constant Southworth, who transferred it to the proprietors’ committee. The bounds require the original deed or a survey identifying the one-mile reach.',
+    'https://ldsgenealogy.com/MA/books/Our-country-and-its-people-a-descriptive-and-biographical-record-of-Bristol-County-Massachusetts-part-2.htm');
+  const sakonnetSurvey = 'https://preservation.ri.gov/sites/g/files/xkgbur406/files/pdfs_zips_downloads/survey_pdfs/little_compton.pdf';
+  const sakonnetAllotments = 'https://tile.loc.gov/storage-services/public/gdcmassbookdig/twohundredthanni00unit/twohundredthanni00unit.pdf';
+  // The first surveyed block runs from the river to the line of the Common,
+  // between the Tiverton line and Taylor's Lane. The land mask cuts the shore.
+  const sakonnetFirst = [[5370,5314],[5458,5314],[5456,5417],[5375,5417]];
+  add(ply,'1673-08-10','1673-11-11','claim','Awashonks’s initial Sakonnet deed',[5420,5374],
+    'Awashonks conveyed land on July 31 Old Style. The deed ran from the Sakonnet River to the head of Packet Brook and referenced a marked oak in Tempe Swamp. Weetamoo and Mammanuah subsequently asserted rights. The oak and the eastern survey line remain unlocated.',
+    'https://sailsinc.org/durfee/phillipsfascicle1.pdf#page=140');
+  add(ply,'1673-11-11','1675-03-11','claim','First Sakonnet proprietors’ purchase',sakonnetFirst,
+    'An enlarged conveyance on November 1 Old Style followed Awashonks’s July deed and competing claims. This approximate outline covers the first surveyed block along the Sakonnet River, from the Tiverton line near Packet Brook south to Taylor’s Lane and inland to the line of the Common. The Rhode Island survey estimates about four and a half square miles.',
+    sakonnetAllotments);
+  add(ply,'1675-03-11','1682','english','Plymouth’s Sakonnet township',sakonnetFirst,
+    'The March 1, 1674/75 Old Style court grant authorized the proprietors to govern as a township. The polygon shows the first allotment block, drawn in 1674. Sakonnet people continued to live in the area. Court records, volume 5, page 162.',
+    'https://upload.wikimedia.org/wikipedia/commons/0/0b/Records_of_the_colony_of_New_Plymouth%2C_in_New_England_-_printed_by_order_of_the_legislature_of_the_Commonwealth_of_Massachusetts_%28IA_cu31924070695113%29.pdf');
+  add(ply,'1682',null,'english','Little Compton township',[5395,5406],
+    'The town was incorporated under Plymouth Colony. The early grant and later municipal limits developed through separate changes in landholding and jurisdiction.',sakonnetSurvey);
+  add(ply,'1661','1673-08-10','claim','Plymouth authorization to buy Sakonnet lands',[5395,5406],
+    'The Plymouth court let freemen and former servants with land due to them organize a purchase on the Sakonnet River. The authorization preceded the deed and its surveyed allotments.',sakonnetSurvey);
+  add(ply,'1673',null,'claim','Second Sakonnet proprietors’ purchase',[5395,5406],
+    'A second purchase by the same proprietors included south-shore land east of Bailey’s Swamp. The marker locates Sakonnet. The historical survey and lot plan are needed for a parcel outline.',sakonnetAllotments);
+  add(ply,'1675',null,'indigenous','Sakonnet land set aside for Awashonks',[5395,5406],
+    'At the outbreak of the war the proprietors set aside a tract described as three-quarters of a mile square south of Taylor’s Lane for Awashonks. The marker locates Sakonnet. The original lot corners remain unregistered.',sakonnetAllotments);
+  add(ply,'1680-03-15',null,'claim','Pocasset Purchase from Plymouth Colony',[5479,4945],
+    'Plymouth officials conveyed land to Edward Gray and seven associates. The deed uses the Freemen’s lot near Fall River, the Sakonnet passage, the Sakonnet and Dartmouth bounds, earlier grants and the Middleborough line and Quitiquissit ponds as limits. The point marks the Pocasset vicinity. March 5, 1679/80 Old Style is March 15, 1680 Gregorian.',
+    'https://www.sailsinc.org/durfee/fowler3.pdf');
+  add(ply,'1680-10-08',null,'claim','Assawompsett Neck grant to Middleborough',[5859,4608],
+    'Plymouth granted lands at Assawompsett Neck and adjoining places on September 28 Old Style. The point locates the grant near the north shore of Assawompsett Pond. The exact included parcels need the court order and survey.',
+    'https://plymouthcolony.net/magenweb/plymouthcounty/cdates.html');
+  const countyDates = 'https://www.sec.state.ma.us/divisions/cis/historical/incorporation-abolishment.htm';
+  for (const [county, point] of [['Plymouth',[6326,4352]],['Bristol',[5265,4990]],['Barnstable',[7061,5032]]]) {
+    add(ply,'1685-06-12','1692-05-26','english',county + ' County established under Plymouth Colony',point,
+      'The colony established three counties on June 2 Old Style. The marker identifies this county’s namesake town. The county continued when the Province of Massachusetts Bay took over in 1692.',countyDates);
+  }
+  add(ply,'1686',null,'english','Rochester township at Sippican',[6035,4804],
+    'The General Court established a town at Sippican in 1686. Its later divisions include the creation of parts of Wareham. The point marks the Rochester locality.',plymouthTownDates);
+  add(ply,'1686',null,'english','Falmouth township',[6530,5193],
+    'English settlement developed on the southern side of Cape Cod before Falmouth became a town in 1686. The point marks the town locality.',plymouthTownDates);
   add(ply,'1621-06','1622','indigenous','Aspinet, sachem of Nauset',[7548,4563],
     'Mourt’s Relation describes Plymouth’s delegation to Aspinet to recover John Billington. The episode documents Nauset’s own political authority near present Eastham. The record dates this encounter more closely than Aspinet’s tenure.', 'https://plimoth.org/yath/unit-2/excerpt-from-a-voyage-made-by-ten-of-our-men-to-the-kingdom-of-nauset');
   add(ply,'1605','1644-04','indigenous','Lower Cape villages and sachemships',null,
